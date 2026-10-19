@@ -781,6 +781,8 @@ document.addEventListener('keydown', (e) => {
       window.location.href = 'html/postgres.html';
     } else if (e.key === '7') {
       window.location.href = 'html/vercel.html';
+    } else if (e.key === '8') {
+      window.location.href = 'html/prompting.html';
     }
     return;
   }

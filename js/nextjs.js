@@ -1,7 +1,7 @@
 const totalSlides = 75;
 let currentSlideIndex = 0;
-let currentLang = localStorage.getItem('nextjs_pres_lang') || 'en';
-let currentTheme = localStorage.getItem('nextjs_pres_theme') || 'dark';
+let currentLang = localStorage.getItem('presentation_lang') || localStorage.getItem('nextjs_pres_lang') || 'en';
+let currentTheme = localStorage.getItem('presentation_theme') || localStorage.getItem('nextjs_pres_theme') || 'dark';
 
 const currentSlideLabel = document.getElementById('current-slide-num');
 const totalSlidesLabel = document.getElementById('total-slides-num');
@@ -600,6 +600,7 @@ const translations = {
 function setTheme(theme) {
   if (theme !== 'light' && theme !== 'dark') theme = 'dark';
   currentTheme = theme;
+  localStorage.setItem('presentation_theme', theme);
   localStorage.setItem('nextjs_pres_theme', theme);
   document.documentElement.setAttribute('data-theme', theme);
   if (theme === 'dark') {
@@ -608,24 +609,50 @@ function setTheme(theme) {
     document.documentElement.classList.remove('dark');
   }
 
-  const sunIcons = document.querySelectorAll('#theme-icon-sun');
-  const moonIcons = document.querySelectorAll('#theme-icon-moon');
+  const sunIcons = document.querySelectorAll('#theme-icon-sun, #theme-sun-icon');
+  const moonIcons = document.querySelectorAll('#theme-icon-moon, #theme-moon-icon');
   if (theme === 'light') {
-    sunIcons.forEach(el => { el.style.display = 'block'; });
-    moonIcons.forEach(el => { el.style.display = 'none'; });
+    sunIcons.forEach(el => {
+      el.style.display = 'block';
+      if (el.classList && el.classList.remove) el.classList.remove('hidden');
+    });
+    moonIcons.forEach(el => {
+      el.style.display = 'none';
+      if (el.classList && el.classList.add) el.classList.add('hidden');
+    });
   } else {
-    sunIcons.forEach(el => { el.style.display = 'none'; });
-    moonIcons.forEach(el => { el.style.display = 'block'; });
+    sunIcons.forEach(el => {
+      el.style.display = 'none';
+      if (el.classList && el.classList.add) el.classList.add('hidden');
+    });
+    moonIcons.forEach(el => {
+      el.style.display = 'block';
+      if (el.classList && el.classList.remove) el.classList.remove('hidden');
+    });
   }
+
+  const themeToggleBtns = document.querySelectorAll('#btn-theme-toggle');
+  themeToggleBtns.forEach(btn => {
+    btn.setAttribute('title', theme === 'dark' ? 'Toggle Light / Dark Mode (T)' : 'Toggle Light / Dark Mode (T)');
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Theme: Dark' : 'Theme: Light');
+  });
 }
 
+let lastThemeToggle = 0;
 function toggleTheme() {
+  const now = Date.now();
+  if (now - lastThemeToggle < 150) return;
+  lastThemeToggle = now;
   setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 }
+
+window.setTheme = setTheme;
+window.toggleTheme = toggleTheme;
 
 function setLanguage(lang) {
   if (lang !== 'en' && lang !== 'km') lang = 'en';
   currentLang = lang;
+  localStorage.setItem('presentation_lang', lang);
   localStorage.setItem('nextjs_pres_lang', lang);
   document.documentElement.setAttribute('lang', lang);
   if (lang === 'km') {
@@ -639,15 +666,32 @@ function setLanguage(lang) {
     langLabel.textContent = lang === 'km' ? 'ខ្មែរ' : 'EN';
   }
 
+  const enFlags = document.querySelectorAll('.lang-flag-en');
+  const kmFlags = document.querySelectorAll('.lang-flag-km');
+  if (lang === 'km') {
+    enFlags.forEach(el => { el.style.display = 'none'; });
+    kmFlags.forEach(el => { el.style.display = 'block'; });
+  } else {
+    enFlags.forEach(el => { el.style.display = 'block'; });
+    kmFlags.forEach(el => { el.style.display = 'none'; });
+  }
+
   applyTranslations(lang);
   populateSlideSelect();
   renderOverviewGrid();
   updateSlideView(currentSlideIndex, false);
 }
 
+let lastLangToggle = 0;
 function toggleLanguage() {
+  const now = Date.now();
+  if (now - lastLangToggle < 150) return;
+  lastLangToggle = now;
   setLanguage(currentLang === 'en' ? 'km' : 'en');
 }
+
+window.setLanguage = setLanguage;
+window.toggleLanguage = toggleLanguage;
 
 function applyTranslations(lang) {
   const dict = translations[lang] || translations.en;
@@ -1110,12 +1154,18 @@ function initPresentationApp() {
 
   const langToggleBtns = document.querySelectorAll('#btn-lang-toggle');
   langToggleBtns.forEach(btn => {
-    btn.addEventListener('click', toggleLanguage);
+    btn.onclick = (e) => {
+      if (e) e.preventDefault();
+      toggleLanguage();
+    };
   });
 
   const themeToggleBtns = document.querySelectorAll('#btn-theme-toggle');
   themeToggleBtns.forEach(btn => {
-    btn.addEventListener('click', toggleTheme);
+    btn.onclick = (e) => {
+      if (e) e.preventDefault();
+      toggleTheme();
+    };
   });
   setTheme(currentTheme);
 

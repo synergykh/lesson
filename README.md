@@ -4,21 +4,22 @@ A modern, developer-grade curriculum and interactive presentation platform desig
 
 ## Structure & Modules
 
-The platform is structured into a central **Curriculum Hub (`index.html`)** that launches 7 dedicated, interactive fullscreen presentation decks:
+The platform is structured into a central **Curriculum Hub (`index.html`)** that launches 8 dedicated, interactive fullscreen presentation decks:
 
 | # | Module | Deck | Description | Topics |
 |---|---|---|---|---|
 | **01** | **Git** | [git.html](html/git.html) | Local Version Control Fundamentals | `init`, `status`, `add`, `commit`, `log`, `branch`, `.gitignore`, mental model |
 | **02** | **GitHub** | [github.html](html/github.html) | Cloud Repositories & Collaboration | Remotes, SSH/HTTPS, `push -u`, `pull`, `clone`, Pull Requests, verified repo |
-| **03** | **Next.js** | [nextjs-presentation](nextjs-presentation/index.html) &bull; [nextjs.html](html/nextjs.html) | Modern Fullstack React Framework (75 Slides) | App Router, Server Components, Server Actions, PostgreSQL, Neon, Auth, Vercel |
+| **03** | **Next.js** | [nextjs.html](html/nextjs.html) | Modern Fullstack React Framework (75 Slides) | App Router, Server Components, Server Actions, PostgreSQL, Neon, Auth, Vercel |
 | **04** | **Tailwind CSS** | [tailwindcss.html](html/tailwindcss.html) | Modern Utility-First Styling | Sizing scale, flexbox/grid, mobile-first breakpoints, dark mode, transitions |
 | **05** | **Shadcn UI** | [shadcn.html](html/shadcn.html) | Accessible Component Architecture | Radix primitives, CLI init, component ownership, `cn()`, CVA variants, dialogs |
 | **06** | **PostgreSQL & Neon** | [postgres.html](html/postgres.html) | Relational & Serverless Database Architecture | psql CLI, DDL/DML, data types, UUID, relationships, joins, indexes, ACID, migrations, Neon branching, pooling, Next.js |
 | **07** | **Vercel & Web Deployment** | [vercel.html](html/vercel.html) | Modern Web & Next.js Production Deployment | Git CI/CD, Preview vs Production, Neon PostgreSQL integration, custom domains, DNS (A/CNAME), HTTPS, instant rollbacks, deployment simulator, production checklist |
+| **08** | **Prompt Engineering** | [prompting.html](html/prompting.html) | Critical Thinking & AI-Assisted Development (75 Slides) | Prompt formula, context management, analysis before coding, task decomposition, safe coding agents, database migrations, evidence verification, interactive prompt builder, analysis workshop |
 
 ## Key Features
 
-- **Central Home Hub (`index.html`):** Clean developer dashboard displaying all 7 modules, visual roadmap pipeline, topic tags, and quick-launch actions.
+- **Central Home Hub (`index.html`):** Clean developer dashboard displaying all 8 modules, visual roadmap pipeline, topic tags, and quick-launch actions.
 - **Dedicated Interactive Presentation Decks:** Each lesson features its own slide deck with full keyboard navigation and touch gestures.
 - **Developer-Grade Dual Themes (Dark & Light Mode):** Clean GitHub-inspired visual palette. Switch anytime with the header button or press <kbd>T</kbd>.
 - **Fullscreen Presentation Mode:** Press <kbd>F</kbd> or click the Fullscreen button on any lesson deck to expand into a distraction-free presentation experience.
@@ -58,11 +59,12 @@ Alternatively, open `index.html` directly in any web browser.
 |---|---|
 | `1` | Jump to Lesson 01: Git (`html/git.html`) |
 | `2` | Jump to Lesson 02: GitHub (`html/github.html`) |
-| `3` | Jump to Lesson 03: Next.js (`nextjs-presentation/index.html`) |
+| `3` | Jump to Lesson 03: Next.js (`html/nextjs.html`) |
 | `4` | Jump to Lesson 04: Tailwind CSS (`html/tailwindcss.html`) |
 | `5` | Jump to Lesson 05: Shadcn UI (`html/shadcn.html`) |
 | `6` | Jump to Lesson 06: PostgreSQL & Neon (`html/postgres.html`) |
 | `7` | Jump to Lesson 07: Vercel & Web Deployment (`html/vercel.html`) |
+| `8` | Jump to Lesson 08: Prompt Engineering (`html/prompting.html`) |
 | `T` | Toggle Light / Dark theme |
 
 ### Presentation Decks
@@ -111,18 +113,21 @@ Lesson/
 │   ├── tailwindcss.html  # Lesson 04: Tailwind CSS Utility-First Styling
 │   ├── shadcn.html       # Lesson 05: Shadcn UI Accessible Components
 │   ├── postgres.html     # Lesson 06: PostgreSQL & Neon Database (72 Slides)
-│   └── vercel.html       # Lesson 07: Vercel & Web Deployment (72 Slides)
+│   ├── vercel.html       # Lesson 07: Vercel & Web Deployment (72 Slides)
+│   └── prompting.html    # Lesson 08: Prompt Engineering & AI Development (75 Slides)
 ├── images/           # UI mockups, visual diagrams, and flag assets
 │   ├── en.png            # English language flag button icon
 │   ├── git_flow_hero.jpg
 │   ├── github_new_repo_ui.jpg
 │   ├── github_repo_view.jpg
 │   └── km.png            # Khmer language flag button icon
-├── index.html        # Curriculum Home Page Hub (all 7 lessons)
+├── index.html        # Curriculum Home Page Hub (all 8 lessons)
 └── js/               # Presentation engines and localization dictionaries
     ├── nextjs.js         # Next.js presentation engine
     ├── postgres.js       # PostgreSQL & Neon presentation engine with Ctrl+K search
     ├── postgres_translations.js # Bilingual EN / KM dictionary for PostgreSQL module
+    ├── prompting.js      # Prompt Engineering presentation engine, builder, workshop
+    ├── prompting_translations.js # Bilingual EN / KM dictionary for Prompting module
     ├── script.js         # Shared presentation engine & router
     ├── translations.js   # English and Khmer localization dictionary
     ├── vercel.js         # Vercel presentation engine, deployment & DNS simulator, checklist
