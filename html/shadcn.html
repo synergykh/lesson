@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Shadcn UI: Accessible Component Architecture — DevLessons</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        borderRadius: {
+          none: '0px',
+          sm: '0px',
+          DEFAULT: '0px',
+          md: '0px',
+          lg: '0px',
+          xl: '0px',
+          '2xl': '0px',
+          '3xl': '0px',
+          full: '0px'
+        },
+        extend: {
+          borderRadius: {
+            none: '0px',
+            sm: '0px',
+            DEFAULT: '0px',
+            md: '0px',
+            lg: '0px',
+            xl: '0px',
+            '2xl': '0px',
+            '3xl': '0px',
+            full: '0px'
+          },
+          colors: {
+            brand: {
+              blue: '#38bdf8',
+              indigo: '#6366f1',
+              green: '#22c55e',
+              orange: '#f97316',
+              purple: '#c084fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Kantumruy Pro', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="app-container">
+    <header class="top-bar">
+      <div class="brand-section">
+        <a href="#1" class="brand-logo" id="logo-link">
+          <svg class="brand-icon" viewBox="0 0 24 24">
+            <path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.3 2.3a1.72 1.72 0 0 0-.48 1.48l-2.08 2.08a1.7 1.7 0 0 0-1.07-.38 1.75 1.75 0 0 0-1.75 1.75 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75c0-.3-.08-.58-.2-.83l2.03-2.03c.25.12.53.2.83.2.3 0 .58-.08.83-.2l2.3 2.3a1.7 1.7 0 0 0-.38 1.07 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75 1.75 1.75 0 0 0-1.75-1.75c-.3 0-.58.08-.83.2l-2.3-2.3c.12-.25.2-.53.2-.83 0-.41-.16-.78-.42-1.07l2.25-2.25 6.07 6.07c.54.54.54 1.4 0 1.94l-8.03 8.03c-.54.54-1.4.54-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z"/>
+          </svg>
+          <span>Git &amp; GitHub</span>
+        </a>
+        <span id="current-part-badge" class="part-badge">WELCOME</span>
+      </div>
+
+      <div class="top-controls">
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / KM)" aria-label="Toggle Language">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+            <path d="M4.545 6.714 4.11 8H1.5l3.25-8h2.5L10.5 8H7.89l-.435-1.286H4.545zm1.428-4.143-.88 2.643h1.76l-.88-2.643zM0 16l4.25-8h2.5L11 16H8.39l-.435-1.286H4.545L4.11 16H0zm4.545-2.714h2.91l-.88-2.643-.88 2.643zM10.8 11.2a4.978 4.978 0 0 1-.95 1.83 5.485 5.485 0 0 1-1.45-1.07l.7-1.46c.5.25 1.1.47 1.7.7z"/>
+          </svg>
+          <span id="lang-current-label">EN</span>
+        </button>
+        <div class="slide-counter-wrapper">
+          <span data-i18n="ui_slide">Slide</span>
+          <select id="slide-jump-select" title="Jump to slide"></select>
+          <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">38</span></span>
+        </div>
+        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+          <svg viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
+          <span>Grid</span>
+        </button>
+        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+          <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
+        </button>
+        <button id="btn-theme-toggle" class="btn-icon" title="Toggle Light / Dark Mode (T)">
+          <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        </button>
+        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+          <svg viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
+        </button>
+      </div>
+    </header>
+    <main class="slide-viewport">
+      <div class="slides-container">
+        <section class="slide-item active" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
+  <div class="slide-content-card title-card-hero">
+    <div class="title-hero-grid">
+      <div class="title-text-col">
+        <div class="title-badge-pill">MODULE 05 • COMPONENT ARCHITECTURE</div>
+        <h1 class="title-main-h1">Shadcn UI<br><span class="title-gradient">Accessible Component Architecture</span></h1>
+        <p class="title-tagline">“Beautifully designed components that you copy and paste into your apps”</p>
+        <div class="alert-callout tip"><div>Learn how to architect accessible, customizable React component systems built on Radix UI primitives and Tailwind CSS.</div></div>
+        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module ➔</button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
+      </div>
+      <div class="title-visual-col">
+        <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — add components</span></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest add button card dialog</span></div><div class="term-output">✔ Installing dependencies: @radix-ui/react-slot, @radix-ui/react-dialog...<br>✔ Created components/ui/button.tsx<br>✔ Created components/ui/card.tsx<br>✔ Created components/ui/dialog.tsx<br><br><span class="out-success">Success! 3 components added to your codebase.</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="OVERVIEW" id="slide-2">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">OVERVIEW</span><h2 class="slide-title">What Makes Shadcn UI Different?</h2><p class="slide-subtitle">Why it is taking over the React and Next.js ecosystem</p></div>
+    <div class="slide-grid-2">
+      <div class="info-card">
+        <h4><span class="cross-icon">❌</span> Traditional Component Libraries (MUI/Chakra)</h4>
+        <p>You install a massive npm package. Overriding styles is painful with complex CSS-in-JS wrappers. Upgrades break your custom designs.</p>
+        <div class="alert-callout"><div>You are locked into their opinions and cannot easily modify internal component code.</div></div>
+      </div>
+      <div class="info-card">
+        <h4><span class="check-icon">✔</span> The Shadcn UI Philosophy</h4>
+        <p>It is NOT an npm dependency. The source code lives directly inside your <code>src/components/ui/</code> directory. You own and customize every line.</p>
+        <div class="alert-callout tip"><div>Built on unstyled accessible Radix UI primitives and styled with standard Tailwind utility classes.</div></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="ARCHITECTURE" id="slide-3">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">ARCHITECTURE</span><h2 class="slide-title">The Three Pillars of Shadcn UI</h2><p class="slide-subtitle">How modern web building blocks unite</p></div>
+    <div class="slide-grid-3">
+      <div class="info-card">
+        <h4><span class="step-num-badge">01</span> Radix UI Primitives</h4>
+        <p>Handles accessibility, keyboard navigation (Tab/Arrow keys), ARIA labels, focus trapping, and screen reader announcements.</p>
+      </div>
+      <div class="info-card">
+        <h4><span class="step-num-badge">02</span> Tailwind CSS</h4>
+        <p>Provides utility styling, responsive breakpoints, dark mode variants, and smooth hover/active transitions.</p>
+      </div>
+      <div class="info-card">
+        <h4><span class="step-num-badge">03</span> Lucide Icons</h4>
+        <p>Clean, lightweight, tree-shakeable SVG icons that integrate seamlessly with typography and buttons.</p>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="SETUP" id="slide-4">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">SETUP</span><h2 class="slide-title">Initializing Shadcn UI</h2><p class="slide-subtitle">Configuring components.json in your project</p></div>
+    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — init shadcn</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest init</span></div><div class="term-output">✔ Which style would you like to use? › New York<br>✔ Which color would you like to use as base color? › Zinc<br>✔ Would you like to use CSS variables for colors? › Yes<br>✔ Where is your global CSS file? › src/app/globals.css<br>✔ Configure the import alias for components: › @/components<br>✔ Configure the import alias for utils: › @/lib/utils<br><br><span class="out-success">Success! Project initialized with components.json</span></div></div></div>
+  </div>
+</section><section class="slide-item" data-part="UTILITIES" id="slide-5">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">UTILITIES</span><h2 class="slide-title">The cn() Utility &amp; Class Merging</h2><p class="slide-subtitle">Safely combining conditional classes and overriding Tailwind styles</p></div>
+    <div class="code-box"><div class="code-box-header"><span>src/lib/utils.ts</span><button class="copy-btn">Copy</button></div><pre><code>import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}</code></pre></div>
+    <div class="alert-callout tip"><div><code>tailwind-merge</code> resolves Tailwind class conflicts intelligently. If a component defines <code>p-4</code> and the caller passes <code>p-6</code>, <code>p-6</code> wins cleanly instead of both classes fighting in CSS!</div></div>
+  </div>
+</section><section class="slide-item" data-part="COMPONENTS" id="slide-6">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">COMPONENTS</span><h2 class="slide-title">Adding Components via CLI</h2><p class="slide-subtitle">Grabbing exactly what you need without dependency bloat</p></div>
+    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — add components</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest add button badge card dialog</span></div><div class="term-output">Installing @radix-ui/react-slot @radix-ui/react-dialog...<br>Created src/components/ui/button.tsx<br>Created src/components/ui/badge.tsx<br>Created src/components/ui/card.tsx<br>Created src/components/ui/dialog.tsx<br><span class="out-success">✔ Done! You can now import them into any page.</span></div></div></div>
+  </div>
+</section><section class="slide-item" data-part="BUTTON" id="slide-7">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">BUTTON</span><h2 class="slide-title">The Button Component &amp; Variants</h2><p class="slide-subtitle">Understanding class-variance-authority (cva)</p></div>
+    <div class="code-box"><div class="code-box-header"><span>Usage Example</span><button class="copy-btn">Copy</button></div><pre><code>import { Button } from '@/components/ui/button';
+import { ArrowRight, Trash2 } from 'lucide-react';
+
+export function ButtonShowcase() {
+  return (
+    &lt;div className="flex flex-wrap items-center gap-3 p-4"&gt;
+      &lt;Button variant="default"&gt;Primary Button&lt;/Button&gt;
+      &lt;Button variant="secondary"&gt;Secondary&lt;/Button&gt;
+      &lt;Button variant="outline"&gt;Outline&lt;/Button&gt;
+      &lt;Button variant="destructive" size="sm"&gt;
+        &lt;Trash2 className="w-4 h-4 mr-2" /&gt; Delete
+      &lt;/Button&gt;
+      &lt;Button variant="default" size="lg"&gt;
+        Get Started &lt;ArrowRight className="w-4 h-4 ml-2" /&gt;
+      &lt;/Button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre></div>
+  </div>
+</section><section class="slide-item" data-part="CARD" id="slide-8">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">CARD</span><h2 class="slide-title">Card Component Architecture</h2><p class="slide-subtitle">Composing headers, content, and actions semantically</p></div>
+    <div class="code-box"><div class="code-box-header"><span>components/ProjectCard.tsx</span><button class="copy-btn">Copy</button></div><pre><code>import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+
+export function ProjectCard() {
+  return (
+    &lt;Card className="w-full max-w-sm"&gt;
+      &lt;CardHeader&gt;
+        &lt;div className="flex justify-between items-center"&gt;
+          &lt;CardTitle&gt;Repository Sync&lt;/CardTitle&gt;
+          &lt;Badge variant="outline"&gt;Active&lt;/Badge&gt;
+        &lt;/div&gt;
+        &lt;CardDescription&gt;Last synchronized 2 minutes ago&lt;/CardDescription&gt;
+      &lt;/CardHeader&gt;
+      &lt;CardContent&gt;
+        &lt;p className="text-sm text-muted-foreground"&gt;Branches: main, feature-auth&lt;/p&gt;
+      &lt;/CardContent&gt;
+      &lt;CardFooter className="flex justify-between"&gt;
+        &lt;Button variant="outline"&gt;View Details&lt;/Button&gt;
+        &lt;Button&gt;Sync Now&lt;/Button&gt;
+      &lt;/CardFooter&gt;
+    &lt;/Card&gt;
+  );
+}</code></pre></div>
+  </div>
+</section><section class="slide-item" data-part="MODALS" id="slide-9">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">MODALS</span><h2 class="slide-title">Accessible Dialogs &amp; Overlays</h2><p class="slide-subtitle">Full accessibility with focus traps and escape key handling</p></div>
+    <div class="code-box"><div class="code-box-header"><span>Dialog Example</span><button class="copy-btn">Copy</button></div><pre><code>import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+
+export function DeleteRepoDialog() {
+  return (
+    &lt;Dialog&gt;
+      &lt;DialogTrigger asChild&gt;
+        &lt;Button variant="destructive"&gt;Delete Project&lt;/Button&gt;
+      &lt;/DialogTrigger&gt;
+      &lt;DialogContent&gt;
+        &lt;DialogHeader&gt;
+          &lt;DialogTitle&gt;Are you absolutely sure?&lt;/DialogTitle&gt;
+          &lt;DialogDescription&gt;
+            This action cannot be undone. This will permanently delete your repository from the server.
+          &lt;/DialogDescription&gt;
+        &lt;/DialogHeader&gt;
+        &lt;div className="flex justify-end gap-3 mt-4"&gt;
+          &lt;Button variant="outline"&gt;Cancel&lt;/Button&gt;
+          &lt;Button variant="destructive"&gt;Confirm Delete&lt;/Button&gt;
+        &lt;/div&gt;
+      &lt;/DialogContent&gt;
+    &lt;/Dialog&gt;
+  );
+}</code></pre></div>
+  </div>
+</section><section class="slide-item" data-part="THEMING" id="slide-10">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">THEMING</span><h2 class="slide-title">Theming &amp; CSS Variables</h2><p class="slide-subtitle">Effortless dark mode with design tokens</p></div>
+    <div class="code-box"><div class="code-box-header"><span>src/app/globals.css (Tokens)</span></div><pre><code>:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 5%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+}</code></pre></div>
+    <div class="alert-callout tip"><div>Because components reference <code>bg-background</code> and <code>text-foreground</code>, toggling the <code>dark</code> class changes the entire app's appearance seamlessly!</div></div>
+  </div>
+</section><section class="slide-item" data-part="COMPOSITION" id="slide-11">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">COMPOSITION</span><h2 class="slide-title">Putting It Together: Full Widget</h2><p class="slide-subtitle">Composing multiple Shadcn components into a production UI</p></div>
+    <div class="slide-grid-2">
+      <div class="code-box"><div class="code-box-header"><span>DashboardWidget.tsx</span></div><pre><code>export function DashboardWidget() {
+  return (
+    &lt;Card className="p-4 border-slate-800 bg-slate-900"&gt;
+      &lt;div className="flex items-center justify-between mb-4"&gt;
+        &lt;Badge&gt;Production Ready&lt;/Badge&gt;
+        &lt;span className="text-xs text-slate-400"&gt;v2.4.0&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;h3 className="font-bold text-white text-lg"&gt;Deploy Pipeline&lt;/h3&gt;
+      &lt;p className="text-sm text-slate-400 mt-1"&gt;Zero-config deployment with Git push&lt;/p&gt;
+      &lt;div className="flex gap-2 mt-4"&gt;
+        &lt;Button className="w-full"&gt;Deploy Now&lt;/Button&gt;
+      &lt;/div&gt;
+    &lt;/Card&gt;
+  );
+}</code></pre></div>
+      <div class="info-card">
+        <h4>Why This Architecture Wins</h4>
+        <p>✔ Completely accessible out of the box</p>
+        <p>✔ Code is stored in your repo, not node_modules</p>
+        <p>✔ Zero runtime performance overhead</p>
+        <p>✔ Perfectly matches your custom design system</p>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="SUMMARY" id="slide-12">
+  <div class="slide-content-card summary-card">
+    <div class="slide-header-group"><span class="slide-category-tag">SUMMARY</span><h2 class="slide-title">Curriculum Completed! 🎉</h2><p class="slide-subtitle">You have traversed the complete modern web development stack</p></div>
+    <div class="summary-checklist-grid">
+      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>01. Git:</strong> Local tracking, commits, branches, mental model</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>02. GitHub:</strong> Cloud repositories, remotes, push/pull, pull requests</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>03. Next.js:</strong> App Router, Server Components, SSR, API routes</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>04. Tailwind CSS:</strong> Utility classes, responsive design, dark mode</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>05. Shadcn UI:</strong> Radix primitives, accessible components, clean design</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>Fullstack Readiness:</strong> From your first line of code to production!</span></div>
+    </div>
+    <div class="quote-banner">Congratulations on completing the entire 5-module curriculum!</div>
+    <div style="margin-top:16px;text-align:center;"><a href="../index.html" class="btn-cta-primary">Return to Curriculum Home ➔</a></div>
+  </div>
+</section>
+      </div>
+    </main>
+    <footer class="bottom-bar">
+      <div class="nav-shortcuts-hint">
+        <span>Navigation:</span>
+        <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
+        <span><span class="kbd">O</span> Overview</span>
+        <span><span class="kbd">F</span> Fullscreen</span>
+        <span><span class="kbd">T</span> Theme</span>
+        <span><span class="kbd">?</span> Help</span>
+      </div>
+
+      <div class="nav-buttons-group">
+        <button id="btn-prev" class="btn-nav" title="Previous Slide (Left Arrow)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+          <span>Previous</span>
+        </button>
+        <button id="btn-next" class="btn-nav" title="Next Slide (Right Arrow or Space)">
+          <span>Next</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
+        </button>
+      </div>
+    </footer>
+    <div id="overview-modal" class="modal-backdrop">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div class="modal-title">Slide Overview (38 Slides)</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="overview-grid" class="overview-grid"></div>
+      </div>
+    </div>
+    <div id="shortcuts-modal" class="modal-backdrop">
+    <div class="modal-panel" style="max-width: 520px;">
+      <div class="modal-header">
+        <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-grid">
+          <div class="shortcut-item"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span> <span class="kbd">L</span></div></div>
+          <div class="shortcut-item"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span> <span class="kbd">H</span></div></div>
+          <div class="shortcut-item"><span>First Slide</span><span class="kbd">Home</span></div>
+          <div class="shortcut-item"><span>Last Slide</span><span class="kbd">End</span></div>
+          <div class="shortcut-item"><span>Slide Grid / Overview</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
+          <div class="shortcut-item"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
+          <div class="shortcut-item"><span>Toggle Light/Dark Theme</span><span class="kbd">T</span></div>
+          <div class="shortcut-item"><span>Close Modal</span><span class="kbd">Esc</span></div>
+          <div class="shortcut-item"><span>Help Modal</span><span class="kbd">?</span></div>
+        </div>
+      </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

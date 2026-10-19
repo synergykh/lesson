@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Git: Version Control Fundamentals — DevLessons</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        borderRadius: {
+          none: '0px',
+          sm: '0px',
+          DEFAULT: '0px',
+          md: '0px',
+          lg: '0px',
+          xl: '0px',
+          '2xl': '0px',
+          '3xl': '0px',
+          full: '0px'
+        },
+        extend: {
+          borderRadius: {
+            none: '0px',
+            sm: '0px',
+            DEFAULT: '0px',
+            md: '0px',
+            lg: '0px',
+            xl: '0px',
+            '2xl': '0px',
+            '3xl': '0px',
+            full: '0px'
+          },
+          colors: {
+            brand: {
+              blue: '#38bdf8',
+              indigo: '#6366f1',
+              green: '#22c55e',
+              orange: '#f97316',
+              purple: '#c084fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Kantumruy Pro', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="app-container">
+    <header class="top-bar">
+      <div class="brand-section">
+        <a href="#1" class="brand-logo" id="logo-link">
+          <svg class="brand-icon" viewBox="0 0 24 24">
+            <path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.3 2.3a1.72 1.72 0 0 0-.48 1.48l-2.08 2.08a1.7 1.7 0 0 0-1.07-.38 1.75 1.75 0 0 0-1.75 1.75 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75c0-.3-.08-.58-.2-.83l2.03-2.03c.25.12.53.2.83.2.3 0 .58-.08.83-.2l2.3 2.3a1.7 1.7 0 0 0-.38 1.07 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75 1.75 1.75 0 0 0-1.75-1.75c-.3 0-.58.08-.83.2l-2.3-2.3c.12-.25.2-.53.2-.83 0-.41-.16-.78-.42-1.07l2.25-2.25 6.07 6.07c.54.54.54 1.4 0 1.94l-8.03 8.03c-.54.54-1.4.54-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z"/>
+          </svg>
+          <span>Git &amp; GitHub</span>
+        </a>
+        <span id="current-part-badge" class="part-badge">WELCOME</span>
+      </div>
+
+      <div class="top-controls">
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / KM)" aria-label="Toggle Language">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+            <path d="M4.545 6.714 4.11 8H1.5l3.25-8h2.5L10.5 8H7.89l-.435-1.286H4.545zm1.428-4.143-.88 2.643h1.76l-.88-2.643zM0 16l4.25-8h2.5L11 16H8.39l-.435-1.286H4.545L4.11 16H0zm4.545-2.714h2.91l-.88-2.643-.88 2.643zM10.8 11.2a4.978 4.978 0 0 1-.95 1.83 5.485 5.485 0 0 1-1.45-1.07l.7-1.46c.5.25 1.1.47 1.7.7z"/>
+          </svg>
+          <span id="lang-current-label">EN</span>
+        </button>
+        <div class="slide-counter-wrapper">
+          <span data-i18n="ui_slide">Slide</span>
+          <select id="slide-jump-select" title="Jump to slide"></select>
+          <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">38</span></span>
+        </div>
+        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+          <svg viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
+          <span>Grid</span>
+        </button>
+        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+          <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
+        </button>
+        <button id="btn-theme-toggle" class="btn-icon" title="Toggle Light / Dark Mode (T)">
+          <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        </button>
+        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+          <svg viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
+        </button>
+      </div>
+    </header>
+    <main class="slide-viewport">
+      <div class="slides-container">
+        <section class="slide-item active" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
+          <div class="slide-content-card">
+            <div class="title-hero-grid">
+              <div>
+                <span class="slide-meta-label">DEVELOPER WORKSHOP</span>
+                <h1 class="title-main-h1">Git &amp; GitHub<br><span class="title-gradient">From Zero to Your First Push</span></h1>
+                <p class="title-tagline">“Learn version control step by step”</p>
+                <div class="slide-stack">
+                  <div class="alert-callout tip">
+                    <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                    <div>Practical, command-focused guide designed specifically for complete beginners.</div>
+                  </div>
+                  <div style="display: flex; gap: var(--sp-3); align-items: center; margin-top: var(--sp-2);">
+                    <button id="btn-start-course" class="btn-nav btn-primary-action">Start Course ➔</button>
+                    <span style="font-size: 13px; color: var(--text-muted);">or press <span class="kbd">Space</span> / <span class="kbd">→</span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-visual-box" style="padding: 0; overflow: hidden;">
+                <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Flow" style="width: 100%; height: 260px; object-fit: cover; display: block;">
+                <div style="padding: var(--sp-3); display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface);">
+                  <div>
+                    <div class="node-text-title">Local Computer ➔ Git ➔ GitHub</div>
+                    <div class="node-text-sub">Continuous Version Control &amp; Cloud Collaboration</div>
+                  </div>
+                  <span class="tag-badge flow">Workflow</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="OVERVIEW" data-part-key="part_overview" id="slide-2">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 02</span>
+                <h2 class="slide-title">What Are Git and GitHub?</h2>
+                <p class="slide-subtitle">Understanding the difference between the tool and the platform</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge warning">Git ≠ GitHub</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="info-card" style="border-left: 4px solid var(--accent-orange);">
+                  <h4>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-orange)"><path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.3 2.3a1.72 1.72 0 0 0-.48 1.48l-2.08 2.08a1.7 1.7 0 0 0-1.07-.38 1.75 1.75 0 0 0-1.75 1.75 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75c0-.3-.08-.58-.2-.83l2.03-2.03c.25.12.53.2.83.2.3 0 .58-.08.83-.2l2.3 2.3a1.7 1.7 0 0 0-.38 1.07 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75 1.75 1.75 0 0 0-1.75-1.75c-.3 0-.58.08-.83.2l-2.3-2.3c.12-.25.2-.53.2-.83 0-.41-.16-.78-.42-1.07l2.25-2.25 6.07 6.07c.54.54.54 1.4 0 1.94l-8.03 8.03c-.54.54-1.4.54-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z"/></svg>
+                    Git (The Tool)
+                  </h4>
+                  <p>Git is a <strong>version control system</strong> that runs locally on your computer. It tracks changes to files and allows developers to manage project history completely offline.</p>
+                </div>
+                <div class="info-card" style="border-left: 4px solid var(--accent-purple);">
+                  <h4>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-purple)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub (The Cloud Platform)
+                  </h4>
+                  <p>GitHub is a <strong>cloud hosting service</strong> for Git repositories. It provides a web interface, team collaboration, code reviews, and remote backups.</p>
+                </div>
+              </div>
+
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">The Relationship Diagram</span>
+                  <div></div>
+                </div>
+                <div class="terminal-body" style="font-family: var(--); font-size: 13px;">
+<span class="term-output blue">Your Computer</span>
+      ↓
+<span class="term-output yellow">Git (Software)</span>
+      ↓
+<span class="term-output green">Local Repository (.git)</span>
+      ↓
+<span class="term-output purple">GitHub (Online Cloud)</span>
+      ↓
+<span class="term-output red">Remote Repository (Origin)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="OVERVIEW" data-part-key="part_overview" id="slide-3">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 03</span>
+                <h2 class="slide-title">Why Do We Need Git?</h2>
+                <p class="slide-subtitle">Solving the everyday chaos of software development</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge warning">Problems vs Solutions</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="info-card" style="border-left: 4px solid var(--accent-red);">
+                  <h4>❌ Life Without Git</h4>
+                  <ul class="list-steps">
+                    <li><span class="cross-icon">✕</span> Accidentally deleting working code with no undo</li>
+                    <li><span class="cross-icon">✕</span> Losing earlier working versions permanently</li>
+                    <li><span class="cross-icon">✕</span> Not knowing who broke a feature or when</li>
+                    <li><span class="cross-icon">✕</span> Painful file naming madness:</li>
+                  </ul>
+                  <div class="file-tree" style="margin-top: var(--sp-2);">
+                    <div class="file">📄 project-final.zip</div>
+                    <div class="file">📄 project-final2.zip</div>
+                    <div class="file">📄 project-final-real.zip</div>
+                    <div class="file" style="color: var(--accent-red);">📄 project-final-real-final-v2.zip</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card" style="border-left: 4px solid var(--accent-green);">
+                  <h4>✅ Life With Git</h4>
+                  <ul class="list-steps">
+                    <li><span class="check-icon">✓</span> <strong>Single clean folder:</strong> No duplicate zipped copies</li>
+                    <li><span class="check-icon">✓</span> <strong>Time machine:</strong> Jump to any commit in history</li>
+                    <li><span class="check-icon">✓</span> <strong>Detailed attribution:</strong> Every change has an author and timestamp</li>
+                    <li><span class="check-icon">✓</span> <strong>Safe experiments:</strong> Try features in isolated branches</li>
+                    <li><span class="check-icon">✓</span> <strong>Team harmony:</strong> Merge contributions smoothly</li>
+                  </ul>
+                  <div class="alert-callout tip" style="margin-top: var(--sp-2);">
+                    <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                    <div>Git records exact line-by-line diffs of every file you choose to save.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="OVERVIEW" data-part-key="part_overview" id="slide-4">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 04</span>
+                <h2 class="slide-title">Git Vocabulary</h2>
+                <p class="slide-subtitle">The essential glossary every developer uses daily</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Core Terminology</span>
+              </div>
+            </div>
+            <div class="data-table-wrap">
+              <table class="clean-table">
+                <thead>
+                  <tr>
+                    <th>Term</th>
+                    <th>Plain English Meaning</th>
+                    <th>Context</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Repository</code></td>
+                    <td>A project folder tracked by Git containing your code and history</td>
+                    <td><span class="tag-badge local">Local or Remote</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>Commit</code></td>
+                    <td>A saved snapshot of staged changes with a unique ID and message</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>Branch</code></td>
+                    <td>An independent line of development to build features safely</td>
+                    <td><span class="tag-badge local">Local &amp; Remote</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>Remote</code></td>
+                    <td>The version of your repository hosted on the internet (e.g. GitHub)</td>
+                    <td><span class="tag-badge remote">Remote</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>Origin</code></td>
+                    <td>The default nickname Git gives to your main remote repository URL</td>
+                    <td><span class="tag-badge remote">Remote</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>Push</code></td>
+                    <td>Upload your local commits to the remote repository on GitHub</td>
+                    <td><span class="tag-badge flow">Local ➔ Remote</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>Pull</code></td>
+                    <td>Download and integrate new changes from the remote to your local machine</td>
+                    <td><span class="tag-badge flow">Remote ➔ Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>Clone</code></td>
+                    <td>Download a full copy of an existing remote repository to a new local folder</td>
+                    <td><span class="tag-badge flow">Remote ➔ New Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>Stage</code></td>
+                    <td>Prepare and mark specific files to be included in the next commit snapshot</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 1: INSTALLATION" data-part-key="part_1" id="slide-5">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 05 — Part 1: Installation</span>
+                <h2 class="slide-title">Check if Git Is Installed</h2>
+                <p class="slide-subtitle">Verifying your terminal environment before starting</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Local Terminal</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Terminal</span>
+                    <button class="copy-btn" data-copy="git --version">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git --version</span>
+                    </div>
+                    <div class="term-output green">git version 2.43.0</div>
+                  </div>
+                </div>
+
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div>If a version number (like <code>git version 2.x.x</code>) is printed, Git is successfully installed on your machine!</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>What If Git Is Not Installed?</h4>
+                  <p>If your terminal responds with <code>command not found: git</code>, download and install it for your operating system:</p>
+                  <ul class="list-steps" style="margin-top: var(--sp-2);">
+                    <li><strong>macOS:</strong> Run <code>xcode-select --install</code> or install via Homebrew: <code>brew install git</code></li>
+                    <li><strong>Windows:</strong> Download from <a href="https://git-scm.com" target="_blank" style="color: var(--accent-blue);">git-scm.com</a> (includes Git Bash)</li>
+                    <li><strong>Linux (Ubuntu/Debian):</strong> <code>sudo apt install git</code></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 1: INSTALLATION" data-part-key="part_1" id="slide-6">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 06 — Part 1: Installation</span>
+                <h2 class="slide-title">Basic Git Configuration</h2>
+                <p class="slide-subtitle">Introducing yourself to Git so your commits are attributed to you</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Identity Setup</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Terminal Setup</span>
+                  <button class="copy-btn" data-copy="git config --global user.name &quot;Your Name&quot;&#10;git config --global user.email &quot;you@example.com&quot;">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>git config --global user.name <span class="url-highlight">"Your Name"</span></span>
+                  </div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);">
+                    <span class="term-prompt">$</span>
+                    <span>git config --global user.email <span class="url-highlight">"you@example.com"</span></span>
+                  </div>
+                  <div class="term-cmd" style="margin-top: var(--sp-3);">
+                    <span class="term-prompt">$</span>
+                    <span>git config --global --list</span>
+                  </div>
+                  <div class="term-output green">user.name=Your Name
+user.email=you@example.com</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why Does Git Need This?</h4>
+                  <p>These values are stamped onto every commit you create as the commit author. Collaborators and GitHub use this email to associate commits with your GitHub profile.</p>
+                </div>
+
+                <div class="alert-callout warning">
+                  <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm.75-3.75a.75.75 0 0 0-1.5 0v1.5a.75.75 0 0 0 1.5 0v-1.5zm0-5a.75.75 0 0 0-1.5 0v3.5a.75.75 0 0 0 1.5 0v-3.5z"/></svg>
+                  <div><strong>Important Distinction:</strong><br>Git local identity (name/email) and GitHub authentication (passwords/tokens/SSH keys) are related, but <strong>not the same thing</strong>.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 2: CREATE A PROJECT" data-part-key="part_2" id="slide-7">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 07 — Part 2: Create a Project</span>
+                <h2 class="slide-title">Create a New Project</h2>
+                <p class="slide-subtitle">Setting up a fresh folder and initial files in the terminal</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Local Workspace</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Terminal</span>
+                  <button class="copy-btn" data-copy="mkdir my-project&#10;cd my-project&#10;echo &quot;# My Project&quot; > README.md">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>mkdir my-project</span>
+                  </div>
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>cd my-project</span>
+                  </div>
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>echo <span class="url-highlight">"# My Project"</span> &gt; README.md</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Resulting Folder Structure</h4>
+                  <div class="file-tree" style="margin-top: var(--sp-2);">
+                    <div class="folder">📁 my-project/</div>
+                    <div class="file" style="margin-left: 20px;">└── 📄 README.md</div>
+                  </div>
+                </div>
+                <div class="info-card">
+                  <h4>What Just Happened?</h4>
+                  <ul class="list-steps">
+                    <li><code>mkdir</code> creates a new empty folder named <code>my-project</code></li>
+                    <li><code>cd</code> moves our terminal inside that directory</li>
+                    <li><code>echo ... &gt; README.md</code> creates our first markdown file</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 2: CREATE A PROJECT" data-part-key="part_2" id="slide-8">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 08 — Part 2: Create a Project</span>
+                <h2 class="slide-title">Initialize Git</h2>
+                <p class="slide-subtitle">Transforming a standard folder into a version-controlled repository</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">git init</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Terminal: my-project</span>
+                  <button class="copy-btn" data-copy="git init">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span class="cmd-highlight">git init</span>
+                  </div>
+                  <div class="term-output green">Initialized empty Git repository in /Users/username/my-project/.git/</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>The Hidden <code>.git</code> Directory</h4>
+                  <div class="file-tree" style="margin-top: var(--sp-2);">
+                    <div class="folder">📁 my-project/</div>
+                    <div class="git-internal" style="margin-left: 20px;">├── 📁 .git/ <span style="font-size: 11px; color: var(--accent-orange);">(Hidden Git Database)</span></div>
+                    <div class="file" style="margin-left: 20px;">└── 📄 README.md</div>
+                  </div>
+                </div>
+                <div class="alert-callout warning">
+                  <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+                  <div><code>.git</code> holds all branches, commit snapshots, and Git configuration. <strong>Never manually edit or delete this folder!</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 3: CHECK PROJECT STATUS" data-part-key="part_3" id="slide-9">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 09 — Part 3: Check Project Status</span>
+                <h2 class="slide-title">git status</h2>
+                <p class="slide-subtitle">Your most important diagnostic command in Git</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Inspection</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Terminal: my-project</span>
+                  <button class="copy-btn" data-copy="git status">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span class="cmd-highlight">git status</span>
+                  </div>
+                  <div class="term-output">On branch main
+
+No commits yet
+
+<span class="red">Untracked files:</span>
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+	<span class="red">README.md</span>
+
+nothing added to commit but untracked files present (use "git add" to track)</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card" style="border-left: 4px solid var(--accent-red);">
+                  <h4>What Does Untracked Mean?</h4>
+                  <p><strong>Untracked = Git sees the file, but it is not being tracked yet.</strong></p>
+                  <p style="margin-top: var(--sp-2);">Any changes you make to an untracked file will not be recorded until you explicitly tell Git to track it using <code>git add</code>.</p>
+                </div>
+
+                <div class="alert-callout info">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div>Whenever you are unsure of what to do next, run <code>git status</code>. Git usually prints helpful suggestions!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 4: STAGING" data-part-key="part_4" id="slide-10">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 10 — Part 4: Staging</span>
+                <h2 class="slide-title">git add</h2>
+                <p class="slide-subtitle">Selecting and preparing files for the next snapshot</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Staging Area</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Stage Specific File</span>
+                    <button class="copy-btn" data-copy="git add README.md">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git add <span class="param-highlight">README.md</span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Stage All Files At Once</span>
+                    <button class="copy-btn" data-copy="git add .">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git add <span class="param-highlight">.</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="flow-diagram-row">
+                  <div class="flow-step-box local-box">
+                    <span class="flow-step-name">Working Directory</span>
+                    <span class="flow-step-sub">Unstaged files</span>
+                  </div>
+                  <div class="flow-arrow-unit">
+                    <span class="flow-arrow-label">git add</span>
+                    <span style="font-size: 16px;">➔</span>
+                  </div>
+                  <div class="flow-step-box active-step">
+                    <span class="flow-step-name">Staging Area</span>
+                    <span class="flow-step-sub">Ready to commit</span>
+                  </div>
+                </div>
+
+                <div class="info-card">
+                  <h4>Why Have a Staging Area?</h4>
+                  <p>Staging acts like a buffer. If you modified 5 files but only want 2 of them in this commit, staging allows you to craft precise, clean commits.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 4: STAGING" data-part-key="part_4" id="slide-11">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 11 — Part 4: Staging</span>
+                <h2 class="slide-title">Check the Staged Changes</h2>
+                <p class="slide-subtitle">Verifying that files moved into the staging area</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Status: Staged</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Terminal: git status</span>
+                  <button class="copy-btn" data-copy="git status">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span class="cmd-highlight">git status</span>
+                  </div>
+                  <div class="term-output">On branch main
+
+No commits yet
+
+<span class="green">Changes to be committed:</span>
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+	<span class="green">new file:   README.md</span></div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card" style="border-left: 4px solid var(--accent-green);">
+                  <h4>Green Means Staged!</h4>
+                  <p>Notice the color change: <code>README.md</code> is now listed under <strong>Changes to be committed</strong> in bright green.</p>
+                  <p style="margin-top: var(--sp-2);">This confirms the file is successfully staged and waiting to be permanently captured by <code>git commit</code>.</p>
+                </div>
+
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div>If you make further edits to <code>README.md</code> now, the new edits won't be staged until you run <code>git add</code> again!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 5: COMMIT" data-part-key="part_5" id="slide-12">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 12 — Part 5: Commit</span>
+                <h2 class="slide-title">Create Your First Commit</h2>
+                <p class="slide-subtitle">Capturing a permanent snapshot of your staged files</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">git commit</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Terminal: Commit</span>
+                    <button class="copy-btn" data-copy="git commit -m &quot;Initial commit&quot;">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git commit <span class="flag-highlight">-m</span> <span class="url-highlight">"Initial commit"</span></span>
+                    </div>
+                    <div class="term-output green">[main (root-commit) a1b2c3d] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md</div>
+                  </div>
+                </div>
+
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div>The <code>-m</code> flag allows you to provide a short, descriptive commit message right from the command line.</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>The 3-Tier Local Git Pipeline</h4>
+                  <div class="flow-vertical-stack" style="margin-top: var(--sp-2);">
+                    <div class="flow-v-step">
+                      <span style="font-weight: 600;">Working Directory</span>
+                      <span style="font-size: 11px; color: var(--text-muted);">Where you edit files</span>
+                    </div>
+                    <div class="flow-v-arrow">↓ <code>git add</code></div>
+                    <div class="flow-v-step" style="border-color: var(--accent-blue);">
+                      <span style="font-weight: 600;">Staging Area</span>
+                      <span style="font-size: 11px; color: var(--text-muted);">Indexed changes</span>
+                    </div>
+                    <div class="flow-v-arrow">↓ <code>git commit</code></div>
+                    <div class="flow-v-step" style="border-color: var(--accent-green); background: rgba(63,185,80,0.1);">
+                      <span style="font-weight: 600; color: var(--accent-green);">Permanent Commit</span>
+                      <span style="font-size: 11px; color: var(--accent-green);">Saved in .git history</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 5: COMMIT" data-part-key="part_5" id="slide-13">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 13 — Part 5: Commit</span>
+                <h2 class="slide-title">View Commit History</h2>
+                <p class="slide-subtitle">Browsing your project timeline with git log</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">git log</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">git log (Full View)</span>
+                    <button class="copy-btn" data-copy="git log">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span class="cmd-highlight">git log</span>
+                    </div>
+                    <div class="term-output"><span class="yellow">commit a1b2c3d4e5f67890abcdef1234567890abcdef12</span>
+Author: Your Name &lt;you@example.com&gt;
+Date:   Mon Oct 19 09:30:00 2026 +0700
+
+    Initial commit</div>
+                  </div>
+                </div>
+
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">git log --oneline (Compact View)</span>
+                    <button class="copy-btn" data-copy="git log --oneline">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git log <span class="flag-highlight">--oneline</span></span>
+                    </div>
+                    <div class="term-output"><span class="yellow">a1b2c3d</span> Initial commit</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>What Is a Commit Hash?</h4>
+                  <p>A commit hash (e.g. <code>a1b2c3d</code>) is a unique 40-character SHA-1 checksum that cryptographically identifies that exact snapshot and state in time.</p>
+                  <p style="margin-top: var(--sp-2);">You only need the first 7 characters to reference any commit in Git commands.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 11: BRANCHES" data-part-key="part_11" id="slide-14">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 25 — Part 11: Branches</span>
+                <h2 class="slide-title">What Is a Branch?</h2>
+                <p class="slide-subtitle">Creating isolated sandboxes for new features without breaking production</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Branching</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <svg class="branch-visual-svg" viewBox="0 0 450 140">
+                  <line x1="50" y1="50" x2="400" y2="50" stroke="#58a6ff" stroke-width="3"/>
+                  <circle cx="80" cy="50" r="7" fill="#58a6ff"/>
+                  <circle cx="160" cy="50" r="7" fill="#58a6ff"/>
+                  <circle cx="280" cy="50" r="7" fill="#58a6ff"/>
+                  <circle cx="380" cy="50" r="7" fill="#58a6ff"/>
+                  <text x="380" y="32" fill="#58a6ff" font-size="12" font-family="sans-serif" font-weight="bold" text-anchor="middle">main</text>
+
+                  <path d="M 160 50 C 190 50, 200 100, 240 100 L 350 100" fill="none" stroke="#f0883e" stroke-width="3" stroke-dasharray="4"/>
+                  <circle cx="240" cy="100" r="7" fill="#f0883e"/>
+                  <circle cx="320" cy="100" r="7" fill="#f0883e"/>
+                  <text x="355" y="104" fill="#f0883e" font-size="12" font-family="sans-serif" font-weight="bold">feature</text>
+                </svg>
+                <div class="alert-callout info">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div>Branches let you work on experimental code without disturbing the stable <code>main</code> branch.</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why Developers Use Branches</h4>
+                  <ul class="list-steps">
+                    <li>✨ <strong>New features:</strong> Develop isolated features without breaking existing code</li>
+                    <li>🐛 <strong>Bug fixes:</strong> Patch urgent bugs quickly without mixing unfinished work</li>
+                    <li>🧪 <strong>Experiments:</strong> Try radical code changes; delete the branch if it fails</li>
+                    <li>👥 <strong>Team development:</strong> Multiple engineers build features concurrently without stepping on toes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 11: BRANCHES" data-part-key="part_11" id="slide-15">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 26 — Part 11: Branches</span>
+                <h2 class="slide-title">Create and Switch Branch</h2>
+                <p class="slide-subtitle">Modern branch management syntax in Git</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">git switch</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Modern Syntax (Recommended)</span>
+                  <button class="copy-btn" data-copy="git switch -c feature/login&#10;git switch main">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>git switch <span class="flag-highlight">-c</span> <span class="param-highlight">feature/login</span></span>
+                  </div>
+                  <div class="term-output green">Switched to a new branch 'feature/login'</div>
+
+                  <div class="term-cmd" style="margin-top: var(--sp-2);">
+                    <span class="term-prompt">$</span>
+                    <span>git switch <span class="param-highlight">main</span></span>
+                  </div>
+                  <div class="term-output blue">Switched to branch 'main'</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Older Equivalent Command</h4>
+                  <p>In older tutorials or blog posts, you will often see:</p>
+                  <div class="code-box" style="margin: var(--sp-2) 0;">
+                    <code>git checkout -b feature/login</code>
+                  </div>
+                  <p style="font-size: 12px; color: var(--text-secondary);"><code>git checkout</code> had too many conflicting responsibilities (switching branches AND discarding file changes). Git introduced <code>git switch</code> in version 2.23 to be dedicated, clear, and beginner-friendly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 12: CHEAT SHEET" data-part-key="part_12" id="slide-16">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 27 — Part 12: Cheat Sheet</span>
+                <h2 class="slide-title">Git Command Cheat Sheet</h2>
+                <p class="slide-subtitle">Quick reference of the most vital commands</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Cheat Sheet</span>
+              </div>
+            </div>
+            <div class="data-table-wrap">
+              <table class="clean-table">
+                <thead>
+                  <tr>
+                    <th>Command</th>
+                    <th>Purpose</th>
+                    <th>Where It Operates</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>git init</code></td>
+                    <td>Initialize a new local repository</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git status</code></td>
+                    <td>Inspect working directory and staged file changes</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git add .</code></td>
+                    <td>Stage all current changes for the next commit</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git commit -m "msg"</code></td>
+                    <td>Save a permanent snapshot of staged files</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git push</code></td>
+                    <td>Upload commits to remote GitHub repository</td>
+                    <td><span class="tag-badge flow">Local ➔ Remote</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git pull</code></td>
+                    <td>Download and merge changes from GitHub to local</td>
+                    <td><span class="tag-badge flow">Remote ➔ Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git clone URL</code></td>
+                    <td>Download an entire existing repository locally</td>
+                    <td><span class="tag-badge flow">Remote ➔ Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git log</code></td>
+                    <td>View commit history timeline</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git branch</code></td>
+                    <td>List all local branches</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git switch &lt;branch&gt;</code></td>
+                    <td>Switch to an existing branch</td>
+                    <td><span class="tag-badge local">Local</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>git remote -v</code></td>
+                    <td>View all configured remote repository URLs</td>
+                    <td><span class="tag-badge remote">Remote</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 13: BEGINNER MISTAKES" data-part-key="part_13" id="slide-17">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 28 — Part 13: Common Mistakes</span>
+                <h2 class="slide-title">Mistake: Forgetting to Commit</h2>
+                <p class="slide-subtitle">Why running git add then git push doesn't upload your changes</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge warning">Common Pitfall #1</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">The Mistake</span>
+                    <div></div>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git add .</span>
+                    </div>
+                    <div class="term-cmd" style="margin-top: var(--sp-1);">
+                      <span class="term-prompt">$</span>
+                      <span>git push</span>
+                    </div>
+                    <div class="term-output yellow">Everything up-to-date</div>
+                  </div>
+                </div>
+                <div class="alert-callout warning">
+                  <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+                  <div><code>git push</code> only uploads <strong>commits</strong>! Staged files that are not committed yet will never be pushed.</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="terminal-mockup" style="border-color: var(--accent-green);">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">The Correct Flow</span>
+                    <button class="copy-btn" data-copy="git add .&#10;git commit -m &quot;Update project&quot;&#10;git push">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git add .</span>
+                    </div>
+                    <div class="term-cmd" style="margin-top: var(--sp-1);">
+                      <span class="term-prompt">$</span>
+                      <span class="cmd-highlight">git commit -m <span class="url-highlight">"Update project"</span></span>
+                    </div>
+                    <div class="term-cmd" style="margin-top: var(--sp-1);">
+                      <span class="term-prompt">$</span>
+                      <span>git push</span>
+                    </div>
+                    <div class="term-output green">To https://github.com/...
+   a1b2c3d..d4e5f6g  main -> main</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 14: GITIGNORE" data-part-key="part_14" id="slide-18">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 31 — Part 14: .gitignore</span>
+                <h2 class="slide-title">What Is .gitignore?</h2>
+                <p class="slide-subtitle">Preventing junk, generated files, and secrets from entering your repository</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Clean Repositories</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Example .gitignore File</span>
+                    <button class="copy-btn" data-copy="node_modules/&#10;.env&#10;.next/&#10;dist/&#10;*.log">Copy</button>
+                  </div>
+                  <div class="terminal-body" style="color: var(--text-secondary);">
+node_modules/
+.env
+.next/
+dist/
+*.log
+.DS_Store
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why Is This Essential?</h4>
+                  <p>A <code>.gitignore</code> file is placed in the root of your project. Git will intentionally never track files matching these patterns.</p>
+                </div>
+                <div class="alert-callout danger">
+                  <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+                  <div>
+                    <strong>NEVER COMMIT SECRETS:</strong><br>
+                    Files like <code>.env</code> containing API keys, database passwords, or auth tokens must always be in <code>.gitignore</code>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 14: GITIGNORE" data-part-key="part_14" id="slide-19">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 32 — Part 14: .gitignore</span>
+                <h2 class="slide-title">Example Project Structure</h2>
+                <p class="slide-subtitle">Visualizing what gets tracked vs what stays local</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Folder Layout</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="file-tree">
+<div class="folder">📁 my-project/</div>
+<div class="git-internal" style="margin-left: 20px;">├── 📁 .git/ <span style="font-size: 11px; color: var(--accent-orange);">(Internal database - stays local)</span></div>
+<div class="file" style="margin-left: 20px;">├── 📄 .gitignore <span style="font-size: 11px; color: var(--accent-blue);">(Pushed to GitHub)</span></div>
+<div class="file" style="margin-left: 20px;">├── 📄 README.md <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
+<div class="file" style="margin-left: 20px;">├── 📄 package.json <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
+<div class="folder" style="margin-left: 20px;">├── 📁 src/ <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
+<div class="ignored" style="margin-left: 20px;">└── 📁 node_modules/ <span style="font-size: 11px; color: var(--accent-red);">(IGNORED: Stays local)</span></div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why Is <code>node_modules/</code> Ignored?</h4>
+                  <p>In Node.js projects, <code>node_modules/</code> can contain hundreds of thousands of downloaded package files and weigh gigabytes.</p>
+                  <p style="margin-top: var(--sp-2);">Anyone cloning your repository can reproduce the entire folder instantly by running <code>pnpm install</code> using the committed <code>package.json</code>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 15: COMPLETE WORKFLOW" data-part-key="part_15" id="slide-20">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 34 — Part 15: Complete Workflow</span>
+                <h2 class="slide-title">The Mental Model</h2>
+                <p class="slide-subtitle">The four architectural layers of Git and how data travels between them</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Core Architecture</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="flow-vertical-stack">
+                <div class="flow-v-step highlight-remote">
+                  <div>
+                    <div style="font-weight: 700; color: var(--accent-purple);">GitHub (Remote Repository)</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">Hosted in the cloud on github.com</div>
+                  </div>
+                  <span class="tag-badge remote">Remote</span>
+                </div>
+                <div class="flow-v-arrow">▲ <code>git push</code> (Upload) &nbsp;|&nbsp; ▼ <code>git pull</code> (Download)</div>
+
+                <div class="flow-v-step highlight-git">
+                  <div>
+                    <div style="font-weight: 700; color: var(--accent-orange);">Local Repository (.git)</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">Full commit history on your disk</div>
+                  </div>
+                  <span class="tag-badge local">Local</span>
+                </div>
+                <div class="flow-v-arrow">▲ <code>git commit</code></div>
+
+                <div class="flow-v-step" style="border-color: var(--accent-blue);">
+                  <div>
+                    <div style="font-weight: 700; color: var(--accent-blue);">Staging Area (Index)</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">Selected changes ready for next commit</div>
+                  </div>
+                  <span class="tag-badge local">Buffer</span>
+                </div>
+                <div class="flow-v-arrow">▲ <code>git add</code></div>
+
+                <div class="flow-v-step">
+                  <div>
+                    <div style="font-weight: 700; color: var(--text-primary);">Working Directory</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">Actual files you see and edit in your IDE</div>
+                  </div>
+                  <span class="tag-badge local">Workspace</span>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why This Mental Model Matters</h4>
+                  <p>When you understand these 4 distinct layers, Git errors stop being mysterious.</p>
+                  <p style="margin-top: var(--sp-2);">You always know:</p>
+                  <ul class="list-steps" style="margin-top: var(--sp-1);">
+                    <li>Where your changes currently live</li>
+                    <li>Which command moves them to the next level</li>
+                    <li>Whether a change is local or shared remotely</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 16: HANDS-ON EXERCISE" data-part-key="part_16" id="slide-21">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 35 — Part 16: Hands-on Exercise</span>
+                <h2 class="slide-title">Your First GitHub Project</h2>
+                <p class="slide-subtitle">A step-by-step practical drill for every student</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Hands-on Lab</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Exercise Objective</h4>
+                <p>Create a project called <code>hello-git</code> and publish it to your GitHub profile.</p>
+                <div class="slide-stack" style="margin-top: var(--sp-3);">
+                  <div class="check-item"><span class="step-num-badge">1</span> Create folder <code>hello-git</code> and enter it</div>
+                  <div class="check-item"><span class="step-num-badge">2</span> Create <code>README.md</code> containing <code># Hello Git</code></div>
+                  <div class="check-item"><span class="step-num-badge">3</span> Run <code>git init</code></div>
+                  <div class="check-item"><span class="step-num-badge">4</span> Stage and commit: <code>git add .</code> &amp; <code>git commit -m "Initial commit"</code></div>
+                  <div class="check-item"><span class="step-num-badge">5</span> Create empty GitHub repository named <code>hello-git</code></div>
+                  <div class="check-item"><span class="step-num-badge">6</span> Rename branch, add remote, and push with <code>-u origin main</code></div>
+                </div>
+              </div>
+
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Exercise Commands</span>
+                  <button class="copy-btn" data-copy="mkdir hello-git&#10;cd hello-git&#10;echo &quot;# Hello Git&quot; > README.md&#10;git init&#10;git add .&#10;git commit -m &quot;Initial commit&quot;&#10;git branch -M main&#10;git remote add origin https://github.com/USERNAME/hello-git.git&#10;git push -u origin main">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>mkdir hello-git &amp;&amp; cd hello-git</span></div>
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>echo <span class="url-highlight">"# Hello Git"</span> &gt; README.md</span></div>
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>git init</span></div>
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>git add .</span></div>
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>git commit -m <span class="url-highlight">"Initial commit"</span></span></div>
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>git branch -M main</span></div>
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>git remote add origin https://github.com/USER/hello-git.git</span></div>
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>git push -u origin main</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="WRAP UP" data-part-key="part_wrapup" id="slide-22">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 37 — Wrap Up</span>
+                <h2 class="slide-title">Final Summary</h2>
+                <p class="slide-subtitle">The foundational principles to carry forward in your developer journey</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Key Takeaways</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="info-card" style="border-left: 4px solid var(--accent-orange);">
+                  <h4>Git</h4>
+                  <p>Tracks your project history, snapshots, and branches locally on your computer.</p>
+                </div>
+                <div class="info-card" style="border-left: 4px solid var(--accent-purple);">
+                  <h4>GitHub</h4>
+                  <p>Hosts your Git repositories online, enabling cloud backup, sharing, and team collaboration.</p>
+                </div>
+                <div class="quote-banner">
+                  “If you understand this workflow, you already understand the foundation of Git.”
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card" style="border-left: 4px solid var(--accent-green);">
+                  <h4>The Core Workflow</h4>
+                  <div class="flow-vertical-stack" style="margin-top: var(--sp-2);">
+                    <div class="flow-v-step"><span>Edit Code</span><span class="flow-step-sub">In your IDE</span></div>
+                    <div class="flow-v-arrow">↓</div>
+                    <div class="flow-v-step"><span>git status</span><span class="flow-step-sub">Check changes</span></div>
+                    <div class="flow-v-arrow">↓</div>
+                    <div class="flow-v-step"><span>git add .</span><span class="flow-step-sub">Stage changes</span></div>
+                    <div class="flow-v-arrow">↓</div>
+                    <div class="flow-v-step"><span>git commit -m "..."</span><span class="flow-step-sub">Save snapshot</span></div>
+                    <div class="flow-v-arrow">↓</div>
+                    <div class="flow-v-step" style="border-color: var(--accent-purple); background: rgba(188,140,255,0.08);">
+                      <span style="font-weight: 700; color: var(--accent-purple);">git push</span>
+                      <span class="flow-step-sub">Upload to GitHub</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="WRAP UP" data-part-key="part_wrapup" id="slide-23">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 38 — Wrap Up</span>
+                <h2 class="slide-title">Questions?</h2>
+                <p class="slide-subtitle">“Happy coding 🚀”</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Congratulations</span>
+              </div>
+            </div>
+            <div class="title-hero-grid">
+              <div>
+                <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin-bottom: var(--sp-2);">You just mastered version control basics!</h3>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--sp-4);">
+                  You now know how to install Git, initialize a local project, stage, commit, create a GitHub repo, connect remotes, and push your code with confidence.
+                </p>
+                <div class="slide-stack">
+                  <div class="info-card">
+                    <h4>Next Steps to Explore</h4>
+                    <ul class="list-steps">
+                      <li>🌿 Practice feature branches and merging</li>
+                      <li>🤝 Open your first Pull Request on GitHub</li>
+                      <li>⭐ Explore open-source projects and contribute</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="real-image-card">
+                <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Mastery" style="height: 250px;">
+                <div class="real-image-caption">
+                  <span style="font-weight: 700; color: var(--accent-orange);">Git &amp; GitHub Mastery 🚀</span>
+                  <div style="display: flex; gap: var(--sp-1);">
+                    <span class="tag-badge local">Zero</span>
+                    <span style="font-size: 11px; align-self: center;">➔</span>
+                    <span class="tag-badge remote">Hero</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="bottom-bar">
+      <div class="nav-shortcuts-hint">
+        <span>Navigation:</span>
+        <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
+        <span><span class="kbd">O</span> Overview</span>
+        <span><span class="kbd">F</span> Fullscreen</span>
+        <span><span class="kbd">T</span> Theme</span>
+        <span><span class="kbd">?</span> Help</span>
+      </div>
+
+      <div class="nav-buttons-group">
+        <button id="btn-prev" class="btn-nav" title="Previous Slide (Left Arrow)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+          <span>Previous</span>
+        </button>
+        <button id="btn-next" class="btn-nav" title="Next Slide (Right Arrow or Space)">
+          <span>Next</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
+        </button>
+      </div>
+    </footer>
+    <div id="overview-modal" class="modal-backdrop">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div class="modal-title">Slide Overview (38 Slides)</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="overview-grid" class="overview-grid"></div>
+      </div>
+    </div>
+    <div id="shortcuts-modal" class="modal-backdrop">
+    <div class="modal-panel" style="max-width: 520px;">
+      <div class="modal-header">
+        <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-grid">
+          <div class="shortcut-item"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span> <span class="kbd">L</span></div></div>
+          <div class="shortcut-item"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span> <span class="kbd">H</span></div></div>
+          <div class="shortcut-item"><span>First Slide</span><span class="kbd">Home</span></div>
+          <div class="shortcut-item"><span>Last Slide</span><span class="kbd">End</span></div>
+          <div class="shortcut-item"><span>Slide Grid / Overview</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
+          <div class="shortcut-item"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
+          <div class="shortcut-item"><span>Toggle Light/Dark Theme</span><span class="kbd">T</span></div>
+          <div class="shortcut-item"><span>Close Modal</span><span class="kbd">Esc</span></div>
+          <div class="shortcut-item"><span>Help Modal</span><span class="kbd">?</span></div>
+        </div>
+      </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

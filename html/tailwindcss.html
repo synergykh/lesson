@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Tailwind CSS: Modern Utility-First Styling — DevLessons</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        borderRadius: {
+          none: '0px',
+          sm: '0px',
+          DEFAULT: '0px',
+          md: '0px',
+          lg: '0px',
+          xl: '0px',
+          '2xl': '0px',
+          '3xl': '0px',
+          full: '0px'
+        },
+        extend: {
+          borderRadius: {
+            none: '0px',
+            sm: '0px',
+            DEFAULT: '0px',
+            md: '0px',
+            lg: '0px',
+            xl: '0px',
+            '2xl': '0px',
+            '3xl': '0px',
+            full: '0px'
+          },
+          colors: {
+            brand: {
+              blue: '#38bdf8',
+              indigo: '#6366f1',
+              green: '#22c55e',
+              orange: '#f97316',
+              purple: '#c084fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Kantumruy Pro', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="app-container">
+    <header class="top-bar">
+      <div class="brand-section">
+        <a href="#1" class="brand-logo" id="logo-link">
+          <svg class="brand-icon" viewBox="0 0 24 24">
+            <path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.3 2.3a1.72 1.72 0 0 0-.48 1.48l-2.08 2.08a1.7 1.7 0 0 0-1.07-.38 1.75 1.75 0 0 0-1.75 1.75 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75c0-.3-.08-.58-.2-.83l2.03-2.03c.25.12.53.2.83.2.3 0 .58-.08.83-.2l2.3 2.3a1.7 1.7 0 0 0-.38 1.07 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75 1.75 1.75 0 0 0-1.75-1.75c-.3 0-.58.08-.83.2l-2.3-2.3c.12-.25.2-.53.2-.83 0-.41-.16-.78-.42-1.07l2.25-2.25 6.07 6.07c.54.54.54 1.4 0 1.94l-8.03 8.03c-.54.54-1.4.54-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z"/>
+          </svg>
+          <span>Git &amp; GitHub</span>
+        </a>
+        <span id="current-part-badge" class="part-badge">WELCOME</span>
+      </div>
+
+      <div class="top-controls">
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / KM)" aria-label="Toggle Language">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+            <path d="M4.545 6.714 4.11 8H1.5l3.25-8h2.5L10.5 8H7.89l-.435-1.286H4.545zm1.428-4.143-.88 2.643h1.76l-.88-2.643zM0 16l4.25-8h2.5L11 16H8.39l-.435-1.286H4.545L4.11 16H0zm4.545-2.714h2.91l-.88-2.643-.88 2.643zM10.8 11.2a4.978 4.978 0 0 1-.95 1.83 5.485 5.485 0 0 1-1.45-1.07l.7-1.46c.5.25 1.1.47 1.7.7z"/>
+          </svg>
+          <span id="lang-current-label">EN</span>
+        </button>
+        <div class="slide-counter-wrapper">
+          <span data-i18n="ui_slide">Slide</span>
+          <select id="slide-jump-select" title="Jump to slide"></select>
+          <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">38</span></span>
+        </div>
+        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+          <svg viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
+          <span>Grid</span>
+        </button>
+        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+          <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
+        </button>
+        <button id="btn-theme-toggle" class="btn-icon" title="Toggle Light / Dark Mode (T)">
+          <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        </button>
+        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+          <svg viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
+        </button>
+      </div>
+    </header>
+    <main class="slide-viewport">
+      <div class="slides-container">
+        <section class="slide-item active" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
+  <div class="slide-content-card title-card-hero">
+    <div class="title-hero-grid">
+      <div class="title-text-col">
+        <div class="title-badge-pill">MODULE 04 • MODERN CSS</div>
+        <h1 class="title-main-h1">Tailwind CSS<br><span class="title-gradient">Rapid Utility-First Styling</span></h1>
+        <p class="title-tagline">“Build modern, responsive interfaces directly in your markup”</p>
+        <div class="alert-callout tip"><div>Master utility classes, flexbox/grid layouts, responsive breakpoints, design tokens, and dark mode without writing raw CSS.</div></div>
+        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module ➔</button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
+      </div>
+      <div class="title-visual-col">
+        <div class="code-box"><div class="code-box-header"><span>HeroCard.tsx</span></div><pre><code>&lt;div className="p-6 bg-slate-900 border border-slate-800 rounded-xl shadow-xl flex items-center gap-4 hover:border-sky-500 transition-all"&gt;
+  &lt;div className="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-lg flex items-center justify-center font-bold"&gt;
+    TS
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h3 className="text-lg font-bold text-white"&gt;Tailwind CSS&lt;/h3&gt;
+    &lt;p className="text-sm text-slate-400"&gt;Utility-First Framework&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="OVERVIEW" id="slide-2">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">OVERVIEW</span><h2 class="slide-title">Why Utility-First CSS?</h2><p class="slide-subtitle">How utility classes solve the classic pitfalls of traditional CSS files</p></div>
+    <div class="slide-grid-2">
+      <div class="info-card">
+        <h4><span class="cross-icon">❌</span> Traditional CSS File Nightmare</h4>
+        <p>You waste hours thinking of class names (<code>.header-nav-card-item-inner</code>). The CSS file grows infinitely because you fear deleting unused rules.</p>
+        <div class="alert-callout"><div>Result: Global naming collisions, style leakage, bloated CSS bundle.</div></div>
+      </div>
+      <div class="info-card">
+        <h4><span class="check-icon">✔</span> Tailwind Utility-First Superpower</h4>
+        <p>You style directly inside your markup with predefined constraints. Purges unused classes automatically for a tiny ~10kB production stylesheet.</p>
+        <div class="alert-callout tip"><div>No context switching between HTML and CSS files. Consistent spacing and colors.</div></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="SETUP" id="slide-3">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">SETUP</span><h2 class="slide-title">Configuration &amp; Setup</h2><p class="slide-subtitle">Importing Tailwind directives into your project</p></div>
+    <div class="slide-grid-2">
+      <div class="code-box"><div class="code-box-header"><span>src/app/globals.css</span><button class="copy-btn">Copy</button></div><pre><code>@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #38bdf8;
+  --color-brand-accent: #6366f1;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+}</code></pre></div>
+      <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — install tailwind</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm add tailwindcss @tailwindcss/postcss postcss</span></div><div class="term-output">+ tailwindcss 4.0.0<br>+ @tailwindcss/postcss 4.0.0<br><span class="out-success">✓ Packages installed successfully</span></div></div></div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="UTILITIES" id="slide-4">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">UTILITIES</span><h2 class="slide-title">Sizing &amp; Spacing System</h2><p class="slide-subtitle">Fixed mathematical scale for margins, paddings, and dimensions</p></div>
+    <div class="clean-table-container">
+      <table class="clean-table">
+        <thead><tr><th>Utility Class</th><th>CSS Value</th><th>Pixel Equivalent</th><th>Usage Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>p-1</code> / <code>m-1</code></td><td>0.25rem</td><td>4px</td><td>Micro gap, button tags</td></tr>
+          <tr><td><code>p-2</code> / <code>m-2</code></td><td>0.5rem</td><td>8px</td><td>Small pill badges</td></tr>
+          <tr><td><code>p-3</code> / <code>m-3</code></td><td>0.75rem</td><td>12px</td><td>Input fields</td></tr>
+          <tr><td><code>p-4</code> / <code>m-4</code></td><td>1rem</td><td>16px</td><td>Standard card padding</td></tr>
+          <tr><td><code>p-5</code> / <code>m-5</code></td><td>1.25rem</td><td>20px</td><td>Section card containers</td></tr>
+          <tr><td><code>w-full</code> / <code>max-w-xl</code></td><td>100% / 36rem</td><td>Full width with cap</td><td>Responsive containers</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="TYPOGRAPHY" id="slide-5">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">TYPOGRAPHY</span><h2 class="slide-title">Typography &amp; Modern Colors</h2><p class="slide-subtitle">Pre-curated contrast and hierarchy</p></div>
+    <div class="slide-grid-2">
+      <div class="code-box"><div class="code-box-header"><span>Typography Classes</span></div><pre><code>&lt;h1 className="text-3xl font-extrabold tracking-tight text-white"&gt;
+  Main Heading
+&lt;/h1&gt;
+&lt;h2 className="text-xl font-bold text-slate-200 mt-2"&gt;
+  Subtitle Heading
+&lt;/h2&gt;
+&lt;p className="text-sm text-slate-400 leading-relaxed mt-1"&gt;
+  Descriptive paragraph text with balanced line height.
+&lt;/p&gt;
+&lt;span className=" text-xs text-sky-400"&gt;
+  git status
+&lt;/span&gt;</code></pre></div>
+      <div class="info-card">
+        <h4>Color Palette Rules</h4>
+        <p>1. Backgrounds: <code>bg-slate-900</code>, <code>bg-slate-950</code>, <code>bg-white</code></p>
+        <p>2. Text: <code>text-slate-100</code> (primary), <code>text-slate-400</code> (muted)</p>
+        <p>3. Accents: <code>text-sky-400</code>, <code>bg-sky-500</code>, <code>border-sky-500/30</code></p>
+        <p>4. Borders: <code>border-slate-800</code>, <code>border-slate-200</code></p>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="LAYOUT" id="slide-6">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">LAYOUT</span><h2 class="slide-title">Flexbox &amp; CSS Grid in Action</h2><p class="slide-subtitle">Building responsive 2-column and 3-column card layouts</p></div>
+    <div class="code-box"><div class="code-box-header"><span>Responsive Grid Layout</span><button class="copy-btn">Copy</button></div><pre><code>{/* Responsive 1 col on mobile, 3 cols on desktop */}
+&lt;div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"&gt;
+  {features.map((item) =&gt; (
+    &lt;div 
+      key={item.id}
+      className="flex flex-col justify-between p-4 bg-slate-900 border border-slate-800 rounded-xl"
+    &gt;
+      &lt;div className="flex items-center justify-between"&gt;
+        &lt;span className="text-xs  text-sky-400"&gt;{item.tag}&lt;/span&gt;
+        &lt;span className="text-xs text-slate-500"&gt;{item.date}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;h3 className="text-base font-bold text-white mt-2"&gt;{item.title}&lt;/h3&gt;
+      &lt;p className="text-sm text-slate-400 mt-1"&gt;{item.desc}&lt;/p&gt;
+    &lt;/div&gt;
+  ))}
+&lt;/div&gt;</code></pre></div>
+  </div>
+</section><section class="slide-item" data-part="RESPONSIVE" id="slide-7">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">RESPONSIVE</span><h2 class="slide-title">Mobile-First Breakpoint Architecture</h2><p class="slide-subtitle">Styles apply to mobile first, then scale up with prefixes</p></div>
+    <div class="clean-table-container">
+      <table class="clean-table">
+        <thead><tr><th>Prefix</th><th>Minimum Width</th><th>CSS Media Query</th><th>Target Device</th></tr></thead>
+        <tbody>
+          <tr><td>(default)</td><td>0px</td><td>(mobile first)</td><td>All smartphones</td></tr>
+          <tr><td><code>sm:</code></td><td>640px</td><td><code>@media (min-width: 640px)</code></td><td>Large phones / small tablets</td></tr>
+          <tr><td><code>md:</code></td><td>768px</td><td><code>@media (min-width: 768px)</code></td><td>Tablets / iPad</td></tr>
+          <tr><td><code>lg:</code></td><td>1024px</td><td><code>@media (min-width: 1024px)</code></td><td>Laptops / Desktops</td></tr>
+          <tr><td><code>xl:</code></td><td>1280px</td><td><code>@media (min-width: 1280px)</code></td><td>Large desktop monitors</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert-callout tip"><div>Example: <code>className="w-full md:w-1/2 lg:w-1/3"</code> makes a column full width on phones, half width on tablets, and one third on desktop.</div></div>
+  </div>
+</section><section class="slide-item" data-part="STATES" id="slide-8">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">STATES</span><h2 class="slide-title">Interactive Hover, Focus &amp; Active States</h2><p class="slide-subtitle">Polished micro-animations with transition utilities</p></div>
+    <div class="code-box"><div class="code-box-header"><span>Interactive Button Component</span><button class="copy-btn">Copy</button></div><pre><code>&lt;button className="
+  px-4 py-2 
+  bg-sky-500 text-slate-950 font-bold text-sm 
+  rounded-lg 
+  hover:bg-sky-400 hover:shadow-lg hover:shadow-sky-500/25 
+  focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-950
+  active:scale-95 
+  transition-all duration-150 ease-out
+"&gt;
+  Submit Form ➔
+&lt;/button&gt;</code></pre></div>
+    <div class="alert-callout"><div>Always include <code>focus:ring-2</code> for keyboard accessibility and <code>transition-all</code> for smooth visual feedback.</div></div>
+  </div>
+</section><section class="slide-item" data-part="DARK MODE" id="slide-9">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">DARK MODE</span><h2 class="slide-title">Tailwind Dark Mode Integration</h2><p class="slide-subtitle">Effortless dual-theme support using the dark: variant</p></div>
+    <div class="code-box"><div class="code-box-header"><span>Dual-Theme Card Example</span><button class="copy-btn">Copy</button></div><pre><code>&lt;div className="
+  bg-white dark:bg-slate-900 
+  text-slate-900 dark:text-slate-100 
+  border border-slate-200 dark:border-slate-800 
+  rounded-xl p-5 shadow-sm
+"&gt;
+  &lt;h3 className="text-lg font-bold"&gt;Project Status&lt;/h3&gt;
+  &lt;p className="text-sm text-slate-500 dark:text-slate-400 mt-1"&gt;
+    Automatically adapts when the user switches themes.
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre></div>
+  </div>
+</section><section class="slide-item" data-part="COMPONENTS" id="slide-10">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">COMPONENTS</span><h2 class="slide-title">Reusable Component Extraction</h2><p class="slide-subtitle">How to avoid class string duplication in React</p></div>
+    <div class="slide-grid-2">
+      <div class="info-card">
+        <h4><span class="cross-icon">❌</span> Don't Overuse @apply</h4>
+        <p>Do not create hundreds of custom CSS classes with <code>@apply</code>. That defeats the purpose of utility-first CSS and creates a bloated stylesheet.</p>
+        <div class="alert-callout"><div>Only use @apply for global HTML element resets.</div></div>
+      </div>
+      <div class="info-card">
+        <h4><span class="check-icon">✔</span> Extract React Components</h4>
+        <p>Wrap repeated markup in reusable components like <code>&lt;Button variant="primary" /&gt;</code> or <code>&lt;Card /&gt;</code>.</p>
+        <div class="alert-callout tip"><div>This leads directly into modern component libraries like Shadcn UI!</div></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="BEST PRACTICES" id="slide-11">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">BEST PRACTICES</span><h2 class="slide-title">Tailwind Developer Best Practices</h2><p class="slide-subtitle">Writing clean, maintainable utility markup</p></div>
+    <div class="summary-checklist-grid">
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Order classes logically: Layout ➔ Spacing ➔ Typography ➔ Colors ➔ States</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Install Tailwind CSS IntelliSense extension in VS Code / IDE</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Use arbitrary values (<code>w-[350px]</code>) sparingly; stick to the scale</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Use opacity modifiers like <code>bg-sky-500/20</code> for sleek glows</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Ensure high contrast in both Light Mode and Dark Mode</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Use the <code>cn()</code> utility helper to merge conditional classes</span></div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="SUMMARY" id="slide-12">
+  <div class="slide-content-card summary-card">
+    <div class="slide-header-group"><span class="slide-category-tag">SUMMARY</span><h2 class="slide-title">Tailwind CSS Mastery Checklist</h2><p class="slide-subtitle">You now have full control of modern utility styling</p></div>
+    <div class="summary-checklist-grid">
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Utility-first philosophy: fast, scoped, zero CSS sprawl</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Sizing and spacing scale (p-1 to p-5)</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Flexbox and Grid responsive column layouts</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Mobile-first responsive breakpoints (sm, md, lg, xl)</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Micro-interactions with hover, focus, and transition</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Seamless dark mode with dark: modifiers</span></div>
+    </div>
+    <div class="quote-banner">Next step: Combine Tailwind with accessible Radix primitives in Shadcn UI!</div>
+    <div style="margin-top:16px;text-align:center;"><a href="shadcn.html" class="btn-cta-primary">Continue to Lesson 05: Shadcn UI ➔</a></div>
+  </div>
+</section>
+      </div>
+    </main>
+    <footer class="bottom-bar">
+      <div class="nav-shortcuts-hint">
+        <span>Navigation:</span>
+        <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
+        <span><span class="kbd">O</span> Overview</span>
+        <span><span class="kbd">F</span> Fullscreen</span>
+        <span><span class="kbd">T</span> Theme</span>
+        <span><span class="kbd">?</span> Help</span>
+      </div>
+
+      <div class="nav-buttons-group">
+        <button id="btn-prev" class="btn-nav" title="Previous Slide (Left Arrow)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+          <span>Previous</span>
+        </button>
+        <button id="btn-next" class="btn-nav" title="Next Slide (Right Arrow or Space)">
+          <span>Next</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
+        </button>
+      </div>
+    </footer>
+    <div id="overview-modal" class="modal-backdrop">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div class="modal-title">Slide Overview (38 Slides)</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="overview-grid" class="overview-grid"></div>
+      </div>
+    </div>
+    <div id="shortcuts-modal" class="modal-backdrop">
+    <div class="modal-panel" style="max-width: 520px;">
+      <div class="modal-header">
+        <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-grid">
+          <div class="shortcut-item"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span> <span class="kbd">L</span></div></div>
+          <div class="shortcut-item"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span> <span class="kbd">H</span></div></div>
+          <div class="shortcut-item"><span>First Slide</span><span class="kbd">Home</span></div>
+          <div class="shortcut-item"><span>Last Slide</span><span class="kbd">End</span></div>
+          <div class="shortcut-item"><span>Slide Grid / Overview</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
+          <div class="shortcut-item"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
+          <div class="shortcut-item"><span>Toggle Light/Dark Theme</span><span class="kbd">T</span></div>
+          <div class="shortcut-item"><span>Close Modal</span><span class="kbd">Esc</span></div>
+          <div class="shortcut-item"><span>Help Modal</span><span class="kbd">?</span></div>
+        </div>
+      </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

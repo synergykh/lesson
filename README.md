@@ -1,81 +1,29 @@
-# Git & GitHub: From Zero to Your First Push
+# Fullstack Developer Curriculum
 
-A professional, modern, beginner-friendly presentation deck designed to teach developers, students, and beginners how to use Git and GitHub from scratch up to creating repositories, committing changes, and pushing their first project.
+A modern, developer-grade curriculum and interactive presentation platform designed to take students and developers from their very first line of local version control all the way to building production-ready web applications with Next.js, Tailwind CSS, and Shadcn UI.
 
-## Purpose
+## Structure & Modules
 
-The presentation serves as a complete workshop and interactive guide:
-- Demystifies version control without overwhelming beginners with jargon.
-- Distinguishes clearly between local Git and remote GitHub.
-- Demonstrates realistic terminal sessions with exact syntax.
-- Provides a clean mental model of the 4 Git layers (Working Directory, Staging Area, Local Repository, Remote Repository).
-- Teaches the everyday developer workflow cycle (`status` ➔ `add` ➔ `commit` ➔ `push`).
-- Features hands-on exercises and troubleshooting for common beginner pitfalls.
+The platform is structured into a central **Curriculum Hub (`index.html`)** that launches 5 dedicated, interactive fullscreen presentation decks:
 
-## Features
+| # | Module | Deck | Description | Topics |
+|---|---|---|---|---|
+| **01** | **Git** | [git.html](html/git.html) | Local Version Control Fundamentals | `init`, `status`, `add`, `commit`, `log`, `branch`, `.gitignore`, mental model |
+| **02** | **GitHub** | [github.html](html/github.html) | Cloud Repositories & Collaboration | Remotes, SSH/HTTPS, `push -u`, `pull`, `clone`, Pull Requests, verified repo |
+| **03** | **Next.js** | [nextjs.html](html/nextjs.html) | Modern Fullstack React Framework | App Router, Server vs Client components, nested layouts, route handlers, SSR |
+| **04** | **Tailwind CSS** | [tailwindcss.html](html/tailwindcss.html) | Modern Utility-First Styling | Sizing scale, flexbox/grid, mobile-first breakpoints, dark mode, transitions |
+| **05** | **Shadcn UI** | [shadcn.html](html/shadcn.html) | Accessible Component Architecture | Radix primitives, CLI init, component ownership, `cn()`, CVA variants, dialogs |
 
-- **38 Structured Slides:** Covers everything from basic concept definitions to advanced clone/pull and branching.
-- **Developer-Grade Themes (Dark & Light Mode):** Clean GitHub-inspired visual palette with accessible contrast. Toggle effortlessly with the header theme button or the `T` keyboard shortcut.
-- **Realistic UI Mockups & Visuals:** Includes real visual examples such as the GitHub repository creation form, verified remote repository view, and Git branch flow architecture.
-- **Realistic Terminal Mockups:** Color-coded terminal windows with commands, prompts, and sample outputs.
-- **Interactive Controls:**
-  - Keyboard navigation (`←`/`→`, `Space`, `Home`/`End`, `L`/`H`, `PageUp`/`PageDown`).
-  - Slide Overview Grid (`O` or `G`) to preview and jump to any of the 38 slides.
-  - Fullscreen mode toggle (`F`).
-  - Theme toggle (`T`) between Dark and Light modes.
-  - Keyboard shortcuts help modal (`?`).
-  - One-click copy buttons on terminal command blocks.
-  - Deep-linking URL hash navigation (e.g. `#1` to `#38`).
-  - Mobile swipe and touch gesture support.
-- **Bilingual Language Switcher (EN / KM):** One-click toggle between English and Khmer (ភាសាខ្មែរ) with native typography via Google Fonts Kantumruy Pro, translating all slide titles, concepts, glossary tables, and UI controls while preserving exact terminal commands.
-- **Print & PDF Export:** Dedicated `@media print` CSS layout formats each slide neatly for printing or saving to PDF.
-- **Zero Dependencies:** Pure HTML5, modern Vanilla CSS, and lightweight Vanilla JavaScript.
+## Key Features
 
-## Slide Structure Catalog
-
-1. **Title:** Git & GitHub: From Zero to Your First Push
-2. **Overview:** What Are Git and GitHub?
-3. **Overview:** Why Do We Need Git?
-4. **Overview:** Git Vocabulary
-5. **Part 1 — Installation:** Check if Git Is Installed (`git --version`)
-6. **Part 1 — Installation:** Basic Git Configuration (`user.name`, `user.email`)
-7. **Part 2 — Create a Project:** Create a New Project (`mkdir`, `cd`, `echo`)
-8. **Part 2 — Create a Project:** Initialize Git (`git init`, `.git/`)
-9. **Part 3 — Check Project Status:** `git status` (Untracked files)
-10. **Part 4 — Staging:** `git add` (Working Directory to Staging Area)
-11. **Part 4 — Staging:** Check the Staged Changes (`git status`)
-12. **Part 5 — Commit:** Create Your First Commit (`git commit -m`)
-13. **Part 5 — Commit:** View Commit History (`git log`, `git log --oneline`)
-14. **Part 6 — Create GitHub Repository:** Create a GitHub Account
-15. **Part 6 — Create GitHub Repository:** Create a New GitHub Repository
-16. **Part 7 — Connect Local Git to GitHub:** Add GitHub Remote (`git remote add origin`, `git remote -v`)
-17. **Part 7 — Connect Local Git to GitHub:** HTTPS vs SSH
-18. **Part 8 — First Push:** Rename Branch to main (`git branch -M main`)
-19. **Part 8 — First Push:** Push to GitHub (`git push -u origin main`)
-20. **Part 8 — First Push:** Verify on GitHub
-21. **Part 9 — Making Future Changes:** The Everyday Git Workflow
-22. **Part 9 — Making Future Changes:** Example: Modify a Project
-23. **Part 10 — Clone an Existing Project:** Clone a Repository (`git clone`)
-24. **Part 10 — Clone an Existing Project:** Pull Changes (`git pull`)
-25. **Part 11 — Branches:** What Is a Branch?
-26. **Part 11 — Branches:** Create and Switch Branch (`git switch -c`)
-27. **Part 12 — Common Commands:** Git Command Cheat Sheet
-28. **Part 13 — Common Beginner Mistakes:** Forgetting to Commit
-29. **Part 13 — Common Beginner Mistakes:** Wrong Remote URL (`git remote set-url`)
-30. **Part 13 — Common Beginner Mistakes:** Push Rejected & Danger of `--force`
-31. **Part 14 — .gitignore:** What Is .gitignore? & Secrets Management
-32. **Part 14 — .gitignore:** Example Project Structure
-33. **Part 15 — Complete Workflow:** From Zero to GitHub (Master Recipe)
-34. **Part 15 — Complete Workflow:** The Mental Model (4 Layers)
-35. **Part 16 — Hands-on Exercise:** Your First GitHub Project (`hello-git`)
-36. **Part 16 — Hands-on Exercise:** Final Challenge (8-Step Drill)
-37. **Wrap Up:** Final Summary
-38. **Wrap Up:** Questions & Thank You
-
-## Requirements & Prerequisites
-
-- Any modern web browser (Google Chrome, Firefox, Safari, Microsoft Edge).
-- Optional: Python 3 for running the local preview server via Makefile.
+- **Central Home Hub (`index.html`):** Clean developer dashboard displaying all 5 modules, visual roadmap pipeline, topic tags, and quick-launch actions.
+- **Dedicated Interactive Presentation Decks:** Each lesson features its own slide deck with full keyboard navigation and touch gestures.
+- **Developer-Grade Dual Themes (Dark & Light Mode):** Clean GitHub-inspired visual palette. Switch anytime with the header button or press <kbd>T</kbd>.
+- **Fullscreen Presentation Mode:** Press <kbd>F</kbd> or click the Fullscreen button on any lesson deck to expand into a distraction-free presentation experience.
+- **Realistic UI Mockups & Visual Examples:** Real screenshots including GitHub repository creation forms, verified remote repo pages, and architecture flowcharts.
+- **Authentic Terminal & Code Blocks:** Realistic prompt sessions with color-coded commands and one-click copy buttons.
+- **Bilingual Support (EN / KM):** One-click toggle between English and Khmer (ភាសាខ្មែរ) with native typography via Google Fonts Kantumruy Pro.
+- **Zero External Dependencies:** Built with pure HTML5, Vanilla CSS, and lightweight Vanilla JavaScript.
 
 ## Installation & Setup
 
@@ -100,17 +48,31 @@ make run PORT=8080
 
 Alternatively, open `index.html` directly in any web browser.
 
-## Keyboard Navigation
+## Keyboard Shortcuts
+
+### Home Page Hub (`index.html`)
+
+| Key | Action |
+|---|---|
+| `1` | Jump to Lesson 01: Git (`html/git.html`) |
+| `2` | Jump to Lesson 02: GitHub (`html/github.html`) |
+| `3` | Jump to Lesson 03: Next.js (`html/nextjs.html`) |
+| `4` | Jump to Lesson 04: Tailwind CSS (`html/tailwindcss.html`) |
+| `5` | Jump to Lesson 05: Shadcn UI (`html/shadcn.html`) |
+| `T` | Toggle Light / Dark theme |
+
+### Presentation Decks
 
 | Key | Action |
 |---|---|
 | `→`, `Space`, `L`, `PageDown` | Advance to next slide |
 | `←`, `Backspace`, `H`, `PageUp` | Return to previous slide |
-| `Home` | Jump to slide 1 |
-| `End` | Jump to slide 38 |
-| `O` or `G` | Toggle 38-slide visual overview grid |
+| `Home` | Jump to first slide |
+| `End` | Jump to last slide |
+| `H` | Return to Curriculum Home (`../index.html`) |
 | `F` | Toggle fullscreen mode |
 | `T` | Toggle Light / Dark theme |
+| `O` or `G` | Toggle visual slide overview grid |
 | `?` | Toggle keyboard shortcuts modal |
 | `Esc` | Close any open modal |
 
@@ -119,24 +81,33 @@ Alternatively, open `index.html` directly in any web browser.
 | Technology | Role | Website |
 |---|---|---|
 | **HTML5** | Semantic slide markup and document hierarchy | [developer.mozilla.org/HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) |
-| **CSS3** | Vanilla styles, GitHub-inspired dual theme (dark & light), responsive layouts, print rules | [developer.mozilla.org/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) |
-| **JavaScript (ES6+)** | Slide transitions, keyboard routing, clipboard actions, touch handling | [developer.mozilla.org/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| **CSS3** | Vanilla styling, dual theme (dark & light), responsive layouts, print rules | [developer.mozilla.org/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) |
+| **JavaScript (ES6+)** | Presentation transitions, keyboard routing, theme and language persistence | [developer.mozilla.org/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| **Next.js** | Modern fullstack React framework (curriculum module) | [nextjs.org](https://nextjs.org/) |
+| **Tailwind CSS** | Utility-first CSS styling engine (via Tailwind Play CDN) and curriculum subject | [tailwindcss.com](https://tailwindcss.com/) |
+| **Shadcn UI** | Accessible component architecture (curriculum module) | [ui.shadcn.com](https://ui.shadcn.com/) |
+| **Git** | Distributed version control system (curriculum module) | [git-scm.com](https://git-scm.com/) |
+| **GitHub** | Cloud Git repository hosting platform (curriculum module) | [github.com](https://github.com/) |
 | **Python 3** | Lightweight built-in local development server | [python.org](https://www.python.org/) |
-| **Git** | Distributed version control system (course subject) | [git-scm.com](https://git-scm.com/) |
-| **GitHub** | Cloud Git repository hosting platform (course subject) | [github.com](https://github.com/) |
 
 ## Project Structure
 
 ```text
 Lesson/
-├── Makefile        # Simple runner targets
-├── README.md       # Documentation and technology stack
-├── images/         # Real UI mockups and visual illustrations
+├── Makefile          # Project runner targets (make run, make serve)
+├── README.md         # Documentation and technology stack
+├── html/             # Interactive presentation decks
+│   ├── git.html          # Lesson 01: Git Local Version Control
+│   ├── github.html       # Lesson 02: GitHub Cloud Repositories & Collaboration
+│   ├── nextjs.html       # Lesson 03: Next.js React Framework
+│   ├── tailwindcss.html  # Lesson 04: Tailwind CSS Utility-First Styling
+│   └── shadcn.html       # Lesson 05: Shadcn UI Accessible Components
+├── images/           # Real UI mockups and visual diagrams
 │   ├── git_flow_hero.jpg
 │   ├── github_new_repo_ui.jpg
 │   └── github_repo_view.jpg
-├── index.html      # Presentation deck (38 slides)
-├── script.js       # Presentation controller and interactions
-├── styles.css      # Presentation design system and responsive layout
-└── translations.js # English and Khmer localization dictionary
+├── index.html        # Curriculum Home Page Hub (all 5 lessons)
+├── script.js         # Shared presentation engine & router
+├── styles.css        # Shared design system (light & dark mode, <=20px spacing)
+└── translations.js   # English and Khmer localization dictionary
 ```

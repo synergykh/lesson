@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. GitHub: Cloud Repositories &amp; Collaboration — DevLessons</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        borderRadius: {
+          none: '0px',
+          sm: '0px',
+          DEFAULT: '0px',
+          md: '0px',
+          lg: '0px',
+          xl: '0px',
+          '2xl': '0px',
+          '3xl': '0px',
+          full: '0px'
+        },
+        extend: {
+          borderRadius: {
+            none: '0px',
+            sm: '0px',
+            DEFAULT: '0px',
+            md: '0px',
+            lg: '0px',
+            xl: '0px',
+            '2xl': '0px',
+            '3xl': '0px',
+            full: '0px'
+          },
+          colors: {
+            brand: {
+              blue: '#38bdf8',
+              indigo: '#6366f1',
+              green: '#22c55e',
+              orange: '#f97316',
+              purple: '#c084fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Kantumruy Pro', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="app-container">
+    <header class="top-bar">
+      <div class="brand-section">
+        <a href="#1" class="brand-logo" id="logo-link">
+          <svg class="brand-icon" viewBox="0 0 24 24">
+            <path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.3 2.3a1.72 1.72 0 0 0-.48 1.48l-2.08 2.08a1.7 1.7 0 0 0-1.07-.38 1.75 1.75 0 0 0-1.75 1.75 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75c0-.3-.08-.58-.2-.83l2.03-2.03c.25.12.53.2.83.2.3 0 .58-.08.83-.2l2.3 2.3a1.7 1.7 0 0 0-.38 1.07 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75 1.75 1.75 0 0 0-1.75-1.75c-.3 0-.58.08-.83.2l-2.3-2.3c.12-.25.2-.53.2-.83 0-.41-.16-.78-.42-1.07l2.25-2.25 6.07 6.07c.54.54.54 1.4 0 1.94l-8.03 8.03c-.54.54-1.4.54-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z"/>
+          </svg>
+          <span>Git &amp; GitHub</span>
+        </a>
+        <span id="current-part-badge" class="part-badge">WELCOME</span>
+      </div>
+
+      <div class="top-controls">
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / KM)" aria-label="Toggle Language">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+            <path d="M4.545 6.714 4.11 8H1.5l3.25-8h2.5L10.5 8H7.89l-.435-1.286H4.545zm1.428-4.143-.88 2.643h1.76l-.88-2.643zM0 16l4.25-8h2.5L11 16H8.39l-.435-1.286H4.545L4.11 16H0zm4.545-2.714h2.91l-.88-2.643-.88 2.643zM10.8 11.2a4.978 4.978 0 0 1-.95 1.83 5.485 5.485 0 0 1-1.45-1.07l.7-1.46c.5.25 1.1.47 1.7.7z"/>
+          </svg>
+          <span id="lang-current-label">EN</span>
+        </button>
+        <div class="slide-counter-wrapper">
+          <span data-i18n="ui_slide">Slide</span>
+          <select id="slide-jump-select" title="Jump to slide"></select>
+          <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">38</span></span>
+        </div>
+        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+          <svg viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
+          <span>Grid</span>
+        </button>
+        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+          <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
+        </button>
+        <button id="btn-theme-toggle" class="btn-icon" title="Toggle Light / Dark Mode (T)">
+          <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        </button>
+        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+          <svg viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
+        </button>
+      </div>
+    </header>
+    <main class="slide-viewport">
+      <div class="slides-container">
+        <section class="slide-item active" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
+  <div class="slide-content-card title-card-hero">
+    <div class="title-hero-grid">
+      <div class="title-text-col">
+        <div class="title-badge-pill">MODULE 02 • CLOUD COLLABORATION</div>
+        <h1 class="title-main-h1">GitHub<br><span class="title-gradient">Cloud Repositories & Collaboration</span></h1>
+        <p class="title-tagline">“Host, share, and collaborate on code anywhere in the world”</p>
+        <div class="alert-callout tip"><div>Learn how to publish local Git projects to GitHub, push commits, pull updates, and collaborate seamlessly with teams.</div></div>
+        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module ➔</button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
+      </div>
+      <div class="title-visual-col">
+        <div class="real-image-card"><img src="../images/github_repo_view.jpg" alt="GitHub Repository Verified View" class="real-image-preview" loading="eager"><div class="real-image-badge"><span class="badge-dot live"></span> Verified GitHub Project</div></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="OVERVIEW" data-part-key="part_overview" id="slide-2">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">OVERVIEW</span><h2 class="slide-title">What Is GitHub &amp; Why Do We Need It?</h2><p class="slide-subtitle">Distinguishing between your local machine tool and the world's largest code platform</p></div>
+    <div class="slide-grid-2">
+      <div class="info-card">
+        <h4><span class="step-num-badge">01</span> Git (Local Machine)</h4>
+        <p>Git runs on your personal computer. It tracks file revisions, commits, and branches completely offline without requiring internet access.</p>
+        <div class="alert-callout"><div>Local git protects your work locally on one machine.</div></div>
+      </div>
+      <div class="info-card">
+        <h4><span class="step-num-badge">02</span> GitHub (Cloud Platform)</h4>
+        <p>GitHub is a cloud service that hosts Git repositories online. It enables team collaboration, code reviews, issue tracking, continuous integration, and portfolio showcase.</p>
+        <div class="alert-callout tip"><div>GitHub allows anyone on your team to clone, review, and contribute to your repository.</div></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="PART 6: CREATE GITHUB REPOSITORY" data-part-key="part_6" id="slide-3">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 14 — Part 6: Create GitHub Repository</span>
+                <h2 class="slide-title">Create a GitHub Account</h2>
+                <p class="slide-subtitle">Your online profile and repository host</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge remote">github.com</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Getting Started on GitHub</h4>
+                  <p>To push your local Git repository to the cloud, you need a free GitHub account.</p>
+                  <ul class="list-steps" style="margin-top: var(--sp-2);">
+                    <li><span class="step-num-badge">1</span> Visit <a href="https://github.com" target="_blank" style="color: var(--accent-blue);">https://github.com</a></li>
+                    <li><span class="step-num-badge">2</span> Click <strong>Sign up</strong></li>
+                    <li><span class="step-num-badge">3</span> Enter your email, create a secure password, and pick a username</li>
+                    <li><span class="step-num-badge">4</span> Verify your email address</li>
+                  </ul>
+                </div>
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div>Use the <strong>same email address</strong> you configured earlier in <code>git config user.email</code> so your commits connect to your GitHub avatar.</div>
+                </div>
+              </div>
+
+              <div class="info-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="var(--text-primary)" style="margin-bottom: var(--sp-2);">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <h4 style="margin-bottom: var(--sp-1);">The World's Leading Developer Platform</h4>
+                <p style="font-size: 12px; color: var(--text-secondary); max-width: 320px;">Over 100 million developers store, collaborate on, and publish open-source and private software on GitHub.</p>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 6: CREATE GITHUB REPOSITORY" data-part-key="part_6" id="slide-4">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 15 — Part 6: Create GitHub Repository</span>
+                <h2 class="slide-title">Create a New GitHub Repository</h2>
+                <p class="slide-subtitle">Setting up the empty cloud destination for your project</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge remote">New Remote Repo</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>5 Steps on GitHub.com</h4>
+                <ul class="list-steps">
+                  <li><span class="step-num-badge">1</span> Log into GitHub and click the <strong>+</strong> icon in the top right</li>
+                  <li><span class="step-num-badge">2</span> Select <strong>New repository</strong></li>
+                  <li><span class="step-num-badge">3</span> Enter Repository name: <strong style="color: var(--accent-blue);">my-project</strong></li>
+                  <li><span class="step-num-badge">4</span> Choose <strong>Public</strong> (viewable by anyone) or <strong>Private</strong></li>
+                  <li><span class="step-num-badge">5</span> Click <strong>Create repository</strong></li>
+                </ul>
+              </div>
+
+              <div class="slide-stack">
+                <div class="real-image-card">
+                  <img src="../images/github_new_repo_ui.jpg" alt="GitHub UI Mockup: Creating a new repository">
+                  <div class="real-image-caption">
+                    <span>GitHub UI: Creating "my-project"</span>
+                    <span class="tag-badge remote">Real UI Example</span>
+                  </div>
+                </div>
+                <div class="alert-callout danger">
+                  <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+                  <div>
+                    <strong>CRITICAL BEGINNER TIP:</strong><br>
+                    <strong>Do NOT</strong> check "Add a README file", ".gitignore", or "license" if your local folder already has files!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 7: CONNECT LOCAL TO GITHUB" data-part-key="part_7" id="slide-5">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 16 — Part 7: Connect Local Git to GitHub</span>
+                <h2 class="slide-title">Add GitHub Remote</h2>
+                <p class="slide-subtitle">Teaching your local repository the URL of your GitHub repository</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Local ➔ Remote Link</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Terminal: Connect Remote</span>
+                    <button class="copy-btn" data-copy="git remote add origin https://github.com/USERNAME/my-project.git&#10;git remote -v">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git remote add origin <span class="url-highlight">https://github.com/USERNAME/my-project.git</span></span>
+                    </div>
+                    <div class="term-cmd" style="margin-top: var(--sp-2);">
+                      <span class="term-prompt">$</span>
+                      <span>git remote <span class="flag-highlight">-v</span></span>
+                    </div>
+                    <div class="term-output green">origin  https://github.com/USERNAME/my-project.git (fetch)
+origin  https://github.com/USERNAME/my-project.git (push)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Anatomy of the Command</h4>
+                  <ul class="list-steps">
+                    <li><code>git remote</code>: Manage remote connections</li>
+                    <li><code>add</code>: Register a new remote</li>
+                    <li><code>origin</code>: Standard default nickname for the primary remote</li>
+                    <li><code>URL</code>: The web address of your GitHub repository</li>
+                  </ul>
+                </div>
+                <div class="alert-callout info">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div><code>git remote -v</code> (verbose) lists all connected remotes and verifies the link.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 7: CONNECT LOCAL TO GITHUB" data-part-key="part_7" id="slide-6">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 17 — Part 7: Connect Local Git to GitHub</span>
+                <h2 class="slide-title">HTTPS vs SSH</h2>
+                <p class="slide-subtitle">Understanding the two common connection protocols</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge remote">Protocols</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card" style="border-left: 4px solid var(--accent-blue);">
+                <h4>🔒 HTTPS (Recommended for Beginners)</h4>
+                <div class="code-box" style="margin: var(--sp-2) 0;">
+                  <code>https://github.com/USERNAME/my-project.git</code>
+                </div>
+                <ul class="list-steps">
+                  <li><span class="check-icon">✓</span> Works immediately out of the box</li>
+                  <li><span class="check-icon">✓</span> No complex key generation required</li>
+                  <li><span class="check-icon">✓</span> Authenticates via GitHub Personal Access Token (PAT) or Git Credential Manager browser login</li>
+                </ul>
+              </div>
+
+              <div class="info-card" style="border-left: 4px solid var(--accent-purple);">
+                <h4>🔑 SSH (Advanced / Experienced Devs)</h4>
+                <div class="code-box" style="margin: var(--sp-2) 0;">
+                  <code>git@github.com:USERNAME/my-project.git</code>
+                </div>
+                <ul class="list-steps">
+                  <li><span class="check-icon">✓</span> Passwordless authentication via cryptographic keypairs</li>
+                  <li><span class="check-icon">✓</span> Preferred by developers for automated terminal workflow</li>
+                  <li><span class="cross-icon">✕</span> Requires generating SSH keys and adding them to GitHub settings first</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-7">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 18 — Part 8: First Push</span>
+                <h2 class="slide-title">Rename Branch to main</h2>
+                <p class="slide-subtitle">Standardizing your primary branch name to match modern GitHub</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge local">Branch Configuration</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Terminal: Rename Branch</span>
+                    <button class="copy-btn" data-copy="git branch -M main">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git branch <span class="flag-highlight">-M</span> <span class="param-highlight">main</span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alert-callout info">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div><code>-M</code> stands for "Move/Rename with Force". It renames your current branch to <code>main</code> regardless of what it was named before.</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why <code>main</code>?</h4>
+                  <p>Historically, Git defaulted to calling the first branch <code>master</code>. In 2020, GitHub and the open-source community transitioned to <code>main</code> as the official, modern industry standard default branch name.</p>
+                  <p style="margin-top: var(--sp-2);">Running <code>git branch -M main</code> ensures your local repository and GitHub's default branch name align seamlessly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-8">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 19 — Part 8: First Push</span>
+                <h2 class="slide-title">Push to GitHub</h2>
+                <p class="slide-subtitle">The pivotal command: uploading your local commits to the cloud</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">The Big Moment</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Terminal: Push</span>
+                    <button class="copy-btn" data-copy="git push -u origin main">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git push <span class="flag-highlight">-u</span> <span class="param-highlight">origin</span> <span class="param-highlight">main</span></span>
+                    </div>
+                    <div class="term-output green">Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 220 bytes | 220.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/USERNAME/my-project.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Command Breakdown</h4>
+                  <ul class="list-steps">
+                    <li><code>git</code>: Git CLI application</li>
+                    <li><code>push</code>: Upload local commits to remote</li>
+                    <li><code>-u</code>: <em>Set upstream</em> (remembers remote branch for future simple <code>git push</code>)</li>
+                    <li><code>origin</code>: Target remote server nickname</li>
+                    <li><code>main</code>: Local branch to upload</li>
+                  </ul>
+                </div>
+                <div class="flow-diagram-row">
+                  <div class="flow-step-box local-box">
+                    <span class="flow-step-name">Local Repo</span>
+                    <span class="flow-step-sub">Your computer</span>
+                  </div>
+                  <div class="flow-arrow-unit">
+                    <span class="flow-arrow-label">git push</span>
+                    <span style="font-size: 16px;">➔</span>
+                  </div>
+                  <div class="flow-step-box remote-box">
+                    <span class="flow-step-name">GitHub</span>
+                    <span class="flow-step-sub">Remote Repo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-9">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 20 — Part 8: First Push</span>
+                <h2 class="slide-title">Verify on GitHub</h2>
+                <p class="slide-subtitle">Seeing your code live on the web</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge remote">Success Check</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Verification Steps</h4>
+                <ul class="list-steps">
+                  <li><span class="step-num-badge done">✓</span> Open your browser and navigate to your repository URL</li>
+                  <li><span class="step-num-badge done">✓</span> Refresh the webpage</li>
+                  <li><span class="step-num-badge done">✓</span> <code>README.md</code> is visible and rendered cleanly</li>
+                  <li><span class="step-num-badge done">✓</span> Commit history shows <strong>1 commit</strong>: <em>"Initial commit"</em></li>
+                  <li><span class="step-num-badge done">✓</span> Default branch shows <strong>main</strong></li>
+                </ul>
+              </div>
+
+              <div class="real-image-card">
+                <img src="../images/github_repo_view.jpg" alt="Verified GitHub Repository View">
+                <div class="real-image-caption">
+                  <span>GitHub UI: Verified "my-project"</span>
+                  <span class="tag-badge remote">Live on GitHub</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 9: FUTURE CHANGES" data-part-key="part_9" id="slide-10">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 21 — Part 9: Making Future Changes</span>
+                <h2 class="slide-title">The Everyday Git Workflow</h2>
+                <p class="slide-subtitle">The four commands developers execute dozens of times every single day</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Core Loop</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">The Daily 4-Step Cycle</span>
+                  <button class="copy-btn" data-copy="git status&#10;git add .&#10;git commit -m &quot;Describe your changes&quot;&#10;git push">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">1.</span>
+                    <span class="cmd-highlight">git status</span>
+                  </div>
+                  <div class="term-output">Inspect what files changed</div>
+
+                  <div class="term-cmd">
+                    <span class="term-prompt">2.</span>
+                    <span class="cmd-highlight">git add .</span>
+                  </div>
+                  <div class="term-output">Stage all modified and new files</div>
+
+                  <div class="term-cmd">
+                    <span class="term-prompt">3.</span>
+                    <span class="cmd-highlight">git commit -m <span class="url-highlight">"Describe your changes"</span></span>
+                  </div>
+                  <div class="term-output">Record snapshot with a clear message</div>
+
+                  <div class="term-cmd">
+                    <span class="term-prompt">4.</span>
+                    <span class="cmd-highlight">git push</span>
+                  </div>
+                  <div class="term-output green">Upload new commit to GitHub!</div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why Memorize This Loop?</h4>
+                  <p>Whether you are building a small personal website or working at a tech giant with 10,000 engineers, this 4-step sequence is the heart of everyday version control.</p>
+                </div>
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div>Because you used <code>-u</code> earlier, you only need to type <code>git push</code> without specifying remote and branch names every time!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 9: FUTURE CHANGES" data-part-key="part_9" id="slide-11">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 22 — Part 9: Making Future Changes</span>
+                <h2 class="slide-title">Example: Modify a Project</h2>
+                <p class="slide-subtitle">A real-world walkthrough of editing code and pushing updates</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">End-to-End Walkthrough</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Terminal Walkthrough</span>
+                  <button class="copy-btn" data-copy="echo &quot;Hello GitHub&quot; >> README.md&#10;git status&#10;git add .&#10;git commit -m &quot;Update README&quot;&#10;git push">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>echo <span class="url-highlight">"Hello GitHub"</span> &gt;&gt; README.md</span>
+                  </div>
+                  <div class="term-cmd" style="margin-top: var(--sp-1);">
+                    <span class="term-prompt">$</span>
+                    <span>git status</span>
+                  </div>
+                  <div class="term-output red">modified: README.md</div>
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>git add .</span>
+                  </div>
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>git commit -m <span class="url-highlight">"Update README"</span></span>
+                  </div>
+                  <div class="term-output green">[main 3c4d5e6] Update README</div>
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span>git push</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="flow-vertical-stack">
+                  <div class="flow-v-step"><span>1. Edit Code</span><span class="kbd">README.md modified</span></div>
+                  <div class="flow-v-arrow">↓</div>
+                  <div class="flow-v-step"><span>2. Check Status</span><span class="kbd">git status</span></div>
+                  <div class="flow-v-arrow">↓</div>
+                  <div class="flow-v-step"><span>3. Stage File</span><span class="kbd">git add .</span></div>
+                  <div class="flow-v-arrow">↓</div>
+                  <div class="flow-v-step"><span>4. Commit Snapshot</span><span class="kbd">git commit -m "..."</span></div>
+                  <div class="flow-v-arrow">↓</div>
+                  <div class="flow-v-step" style="border-color: var(--accent-purple);"><span>5. Push to GitHub</span><span class="kbd">git push</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 10: CLONE AN EXISTING PROJECT" data-part-key="part_10" id="slide-12">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 23 — Part 10: Clone an Existing Project</span>
+                <h2 class="slide-title">Clone a Repository</h2>
+                <p class="slide-subtitle">Downloading an existing repository and its full history from GitHub</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Remote ➔ Local</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Terminal: Clone</span>
+                    <button class="copy-btn" data-copy="git clone https://github.com/USERNAME/my-project.git&#10;cd my-project">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git clone <span class="url-highlight">https://github.com/USERNAME/my-project.git</span></span>
+                    </div>
+                    <div class="term-output green">Cloning into 'my-project'...
+remote: Enumerating objects: 6, done.
+remote: Total 6 (delta 0), reused 6 (delta 0)
+Receiving objects: 100% (6/6), done.</div>
+                    <div class="term-cmd" style="margin-top: var(--sp-2);">
+                      <span class="term-prompt">$</span>
+                      <span>cd my-project</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>What Does <code>git clone</code> Do?</h4>
+                  <p><strong>clone = download a Git repository and its complete commit history to your computer.</strong></p>
+                  <ul class="list-steps" style="margin-top: var(--sp-2);">
+                    <li>Creates a new folder matching the repository name</li>
+                    <li>Downloads all project files and branches</li>
+                    <li>Automatically sets up <code>origin</code> remote linking back to GitHub</li>
+                    <li>You do NOT need to run <code>git init</code>!</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 10: CLONE AN EXISTING PROJECT" data-part-key="part_10" id="slide-13">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 24 — Part 10: Clone an Existing Project</span>
+                <h2 class="slide-title">Pull Changes</h2>
+                <p class="slide-subtitle">Syncing your local workspace with updates made by teammates or other machines</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Remote ➔ Local</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Terminal: Pull</span>
+                    <button class="copy-btn" data-copy="git pull">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span class="cmd-highlight">git pull</span>
+                    </div>
+                    <div class="term-output green">Updating a1b2c3d..e7f8g9h
+Fast-forward
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</div>
+                  </div>
+                </div>
+
+                <div class="flow-diagram-row">
+                  <div class="flow-step-box remote-box">
+                    <span class="flow-step-name">GitHub</span>
+                    <span class="flow-step-sub">New commits</span>
+                  </div>
+                  <div class="flow-arrow-unit">
+                    <span class="flow-arrow-label">git pull</span>
+                    <span style="font-size: 16px;">➔</span>
+                  </div>
+                  <div class="flow-step-box local-box">
+                    <span class="flow-step-name">Your Computer</span>
+                    <span class="flow-step-sub">Updated working tree</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Push vs Pull Direction</h4>
+                  <div class="slide-stack" style="margin-top: var(--sp-2);">
+                    <div class="check-item">
+                      <span style="font-weight: 700; color: var(--accent-blue);">git push</span>
+                      <span>Uploads: <strong>Local ➔ Remote</strong></span>
+                    </div>
+                    <div class="check-item">
+                      <span style="font-weight: 700; color: var(--accent-green);">git pull</span>
+                      <span>Downloads: <strong>Remote ➔ Local</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
+                  <div>Always run <code>git pull</code> before starting work on a team project to avoid conflicting commits!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 13: BEGINNER MISTAKES" data-part-key="part_13" id="slide-14">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 29 — Part 13: Common Mistakes</span>
+                <h2 class="slide-title">Mistake: Wrong Remote URL</h2>
+                <p class="slide-subtitle">Fixing typos in repository URLs without deleting the repository</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge warning">Common Pitfall #2</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Check Current URL</span>
+                    <button class="copy-btn" data-copy="git remote -v">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git remote <span class="flag-highlight">-v</span></span>
+                    </div>
+                    <div class="term-output red">origin  https://github.com/WRONG-USER/wrong-repo.git (fetch)
+origin  https://github.com/WRONG-USER/wrong-repo.git (push)</div>
+                  </div>
+                </div>
+
+                <div class="terminal-mockup" style="border-color: var(--accent-green);">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Fix with set-url</span>
+                    <button class="copy-btn" data-copy="git remote set-url origin https://github.com/USERNAME/REPOSITORY.git">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git remote <span class="cmd-highlight">set-url</span> origin <span class="url-highlight">https://github.com/USERNAME/REPOSITORY.git</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why Not <code>git remote add</code>?</h4>
+                  <p>If you try running <code>git remote add origin ...</code> again when <code>origin</code> already exists, Git will error: <code>fatal: remote origin already exists</code>.</p>
+                  <p style="margin-top: var(--sp-2);">Use <code>git remote set-url origin &lt;new-url&gt;</code> to safely update the existing origin URL.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 13: BEGINNER MISTAKES" data-part-key="part_13" id="slide-15">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 30 — Part 13: Common Mistakes</span>
+                <h2 class="slide-title">Mistake: Push Rejected</h2>
+                <p class="slide-subtitle">Understanding non-fast-forward rejections and why never to force push</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge warning">Common Pitfall #3</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="terminal-mockup">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">Push Rejected Error</span>
+                    <div></div>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span>git push</span>
+                    </div>
+                    <div class="term-output red">! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/...'
+hint: Updates were rejected because the remote contains work that you do not have locally.</div>
+                  </div>
+                </div>
+
+                <div class="terminal-mockup" style="border-color: var(--accent-green);">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot dot-red"></span>
+                      <span class="terminal-dot dot-yellow"></span>
+                      <span class="terminal-dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">The Solution: Pull First</span>
+                    <button class="copy-btn" data-copy="git pull&#10;git push">Copy</button>
+                  </div>
+                  <div class="terminal-body">
+                    <div class="term-cmd">
+                      <span class="term-prompt">$</span>
+                      <span class="cmd-highlight">git pull</span>
+                    </div>
+                    <div class="term-cmd" style="margin-top: var(--sp-1);">
+                      <span class="term-prompt">$</span>
+                      <span class="cmd-highlight">git push</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="alert-callout danger">
+                  <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+                  <div>
+                    <strong>DO NOT BLINDLY USE:</strong><br>
+                    <code>git push --force</code><br>
+                    Force push overwrites and deletes the remote history on GitHub, potentially destroying work done by teammates!
+                  </div>
+                </div>
+                <div class="info-card">
+                  <h4>Common Causes</h4>
+                  <ul class="list-steps">
+                    <li>A teammate pushed new commits to GitHub</li>
+                    <li>The GitHub repo was created with an extra README/license</li>
+                    <li>Running <code>git pull</code> merges remote changes into local first so you can push cleanly</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 15: COMPLETE WORKFLOW" data-part-key="part_15" id="slide-16">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 33 — Part 15: Complete Workflow</span>
+                <h2 class="slide-title">From Zero to GitHub</h2>
+                <p class="slide-subtitle">The complete master script from an empty terminal to your first pushed project</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Master Recipe</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">The Complete Sequence</span>
+                  <button class="copy-btn" data-copy="mkdir my-project&#10;cd my-project&#10;&#10;git init&#10;&#10;git add .&#10;git commit -m &quot;Initial commit&quot;&#10;&#10;git branch -M main&#10;&#10;git remote add origin https://github.com/USERNAME/my-project.git&#10;&#10;git push -u origin main">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd"><span class="term-prompt">$</span><span>mkdir my-project &amp;&amp; cd my-project</span></div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git init</span></div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git add .</span></div>
+                  <div class="term-cmd"><span class="term-prompt">$</span><span class="cmd-highlight">git commit -m <span class="url-highlight">"Initial commit"</span></span></div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git branch -M main</span></div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git remote add origin <span class="url-highlight">https://github.com/USER/my-project.git</span></span></div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git push -u origin main</span></div>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>What Each Stage Accomplished</h4>
+                  <ul class="list-steps">
+                    <li><span class="check-icon">✓</span> <strong>Folder created</strong> and entered</li>
+                    <li><span class="check-icon">✓</span> <strong>Git initialized</strong> locally</li>
+                    <li><span class="check-icon">✓</span> <strong>Files staged and committed</strong> into local history</li>
+                    <li><span class="check-icon">✓</span> <strong>Branch renamed</strong> to <code>main</code></li>
+                    <li><span class="check-icon">✓</span> <strong>Remote origin configured</strong> to GitHub</li>
+                    <li><span class="check-icon">✓</span> <strong>Commits uploaded</strong> live to the web</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="PART 16: HANDS-ON EXERCISE" data-part-key="part_16" id="slide-17">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 36 — Part 16: Hands-on Exercise</span>
+                <h2 class="slide-title">Final Challenge</h2>
+                <p class="slide-subtitle">Practice the everyday cycle completely independently</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Challenge</span>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>8-Step Challenge</h4>
+                <ul class="list-steps">
+                  <li><span class="step-num-badge">1</span> Create a new file (e.g. <code>app.js</code> or <code>index.html</code>)</li>
+                  <li><span class="step-num-badge">2</span> Modify <code>README.md</code> to add a project description</li>
+                  <li><span class="step-num-badge">3</span> Run <code>git status</code> to see modified &amp; untracked files</li>
+                  <li><span class="step-num-badge">4</span> Stage the changes with <code>git add .</code></li>
+                  <li><span class="step-num-badge">5</span> Commit with <code>git commit -m "Add new changes"</code></li>
+                  <li><span class="step-num-badge">6</span> Push to GitHub with <code>git push</code></li>
+                  <li><span class="step-num-badge">7</span> Refresh your GitHub repository in your web browser</li>
+                  <li><span class="step-num-badge">8</span> Verify your new commit and updated files appear!</li>
+                </ul>
+              </div>
+
+              <div class="terminal-mockup">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                  </div>
+                  <span class="terminal-title">Challenge Solution</span>
+                  <button class="copy-btn" data-copy="git status&#10;git add .&#10;git commit -m &quot;Add new changes&quot;&#10;git push">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-cmd">
+                    <span class="term-prompt">$</span>
+                    <span class="cmd-highlight">git status</span>
+                  </div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);">
+                    <span class="term-prompt">$</span>
+                    <span class="cmd-highlight">git add .</span>
+                  </div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);">
+                    <span class="term-prompt">$</span>
+                    <span class="cmd-highlight">git commit -m <span class="url-highlight">"Add new changes"</span></span>
+                  </div>
+                  <div class="term-cmd" style="margin-top: var(--sp-2);">
+                    <span class="term-prompt">$</span>
+                    <span class="cmd-highlight">git push</span>
+                  </div>
+                  <div class="term-output green">Everything up-to-date on GitHub! 🎉</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><section class="slide-item" data-part="WRAP UP" data-part-key="part_wrapup" id="slide-18">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">Slide 38 — Wrap Up</span>
+                <h2 class="slide-title">Questions?</h2>
+                <p class="slide-subtitle">“Happy coding 🚀”</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge flow">Congratulations</span>
+              </div>
+            </div>
+            <div class="title-hero-grid">
+              <div>
+                <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin-bottom: var(--sp-2);">You just mastered version control basics!</h3>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--sp-4);">
+                  You now know how to install Git, initialize a local project, stage, commit, create a GitHub repo, connect remotes, and push your code with confidence.
+                </p>
+                <div class="slide-stack">
+                  <div class="info-card">
+                    <h4>Next Steps to Explore</h4>
+                    <ul class="list-steps">
+                      <li>🌿 Practice feature branches and merging</li>
+                      <li>🤝 Open your first Pull Request on GitHub</li>
+                      <li>⭐ Explore open-source projects and contribute</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="real-image-card">
+                <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Mastery" style="height: 250px;">
+                <div class="real-image-caption">
+                  <span style="font-weight: 700; color: var(--accent-orange);">Git &amp; GitHub Mastery 🚀</span>
+                  <div style="display: flex; gap: var(--sp-1);">
+                    <span class="tag-badge local">Zero</span>
+                    <span style="font-size: 11px; align-self: center;">➔</span>
+                    <span class="tag-badge remote">Hero</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="bottom-bar">
+      <div class="nav-shortcuts-hint">
+        <span>Navigation:</span>
+        <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
+        <span><span class="kbd">O</span> Overview</span>
+        <span><span class="kbd">F</span> Fullscreen</span>
+        <span><span class="kbd">T</span> Theme</span>
+        <span><span class="kbd">?</span> Help</span>
+      </div>
+
+      <div class="nav-buttons-group">
+        <button id="btn-prev" class="btn-nav" title="Previous Slide (Left Arrow)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+          <span>Previous</span>
+        </button>
+        <button id="btn-next" class="btn-nav" title="Next Slide (Right Arrow or Space)">
+          <span>Next</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
+        </button>
+      </div>
+    </footer>
+    <div id="overview-modal" class="modal-backdrop">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div class="modal-title">Slide Overview (38 Slides)</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="overview-grid" class="overview-grid"></div>
+      </div>
+    </div>
+    <div id="shortcuts-modal" class="modal-backdrop">
+    <div class="modal-panel" style="max-width: 520px;">
+      <div class="modal-header">
+        <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-grid">
+          <div class="shortcut-item"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span> <span class="kbd">L</span></div></div>
+          <div class="shortcut-item"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span> <span class="kbd">H</span></div></div>
+          <div class="shortcut-item"><span>First Slide</span><span class="kbd">Home</span></div>
+          <div class="shortcut-item"><span>Last Slide</span><span class="kbd">End</span></div>
+          <div class="shortcut-item"><span>Slide Grid / Overview</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
+          <div class="shortcut-item"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
+          <div class="shortcut-item"><span>Toggle Light/Dark Theme</span><span class="kbd">T</span></div>
+          <div class="shortcut-item"><span>Close Modal</span><span class="kbd">Esc</span></div>
+          <div class="shortcut-item"><span>Help Modal</span><span class="kbd">?</span></div>
+        </div>
+      </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

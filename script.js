@@ -15,6 +15,8 @@ const overviewGrid = document.getElementById('overview-grid');
 const slideJumpSelect = document.getElementById('slide-jump-select');
 const btnLangEn = document.getElementById('lang-btn-en');
 const btnLangKm = document.getElementById('lang-btn-km');
+const btnLangToggle = document.getElementById('btn-lang-toggle');
+const langCurrentLabel = document.getElementById('lang-current-label');
 const btnThemeToggle = document.getElementById('btn-theme-toggle');
 const themeIconSun = document.getElementById('theme-icon-sun');
 const themeIconMoon = document.getElementById('theme-icon-moon');
@@ -24,6 +26,11 @@ function setTheme(theme) {
   currentTheme = theme;
   localStorage.setItem('presentation_theme', theme);
   document.documentElement.setAttribute('data-theme', theme);
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
 
   if (themeIconSun && themeIconMoon) {
     if (theme === 'light') {
@@ -40,6 +47,10 @@ function toggleTheme() {
   setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 }
 
+function toggleLanguage() {
+  setLanguage(currentLang === 'en' ? 'km' : 'en');
+}
+
 function setLanguage(lang) {
   if (lang !== 'en' && lang !== 'km') lang = 'en';
   currentLang = lang;
@@ -54,6 +65,10 @@ function setLanguage(lang) {
 
   if (btnLangEn) btnLangEn.classList.toggle('active', lang === 'en');
   if (btnLangKm) btnLangKm.classList.toggle('active', lang === 'km');
+  const labels = document.querySelectorAll('#lang-current-label');
+  labels.forEach(lbl => {
+    lbl.textContent = lang === 'km' ? 'KM' : 'EN';
+  });
 
   applyTranslations(lang);
   populateSlideSelect();
@@ -643,6 +658,8 @@ function toggleFullscreen() {
       document.exitFullscreen().catch(() => {});
     }
     document.body.classList.remove('fullscreen-active');
+    document.body.classList.remove('show-fs-header');
+    document.body.classList.remove('show-fs-footer');
   }
 }
 
@@ -711,15 +728,15 @@ document.addEventListener('keydown', (e) => {
       e.preventDefault();
       toggleTheme();
     } else if (e.key === '1') {
-      window.location.href = 'git.html';
+      window.location.href = 'html/git.html';
     } else if (e.key === '2') {
-      window.location.href = 'github.html';
+      window.location.href = 'html/github.html';
     } else if (e.key === '3') {
-      window.location.href = 'nextjs.html';
+      window.location.href = 'html/nextjs.html';
     } else if (e.key === '4') {
-      window.location.href = 'tailwindcss.html';
+      window.location.href = 'html/tailwindcss.html';
     } else if (e.key === '5') {
-      window.location.href = 'shadcn.html';
+      window.location.href = 'html/shadcn.html';
     }
     return;
   }
@@ -765,7 +782,7 @@ document.addEventListener('keydown', (e) => {
     case 'h':
     case 'H':
       e.preventDefault();
-      window.location.href = 'index.html';
+      window.location.href = window.location.pathname.includes('/html/') ? '../index.html' : 'index.html';
       break;
 
     case 'Home':
@@ -814,6 +831,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnPrev) btnPrev.addEventListener('click', prevSlide);
   if (btnNext) btnNext.addEventListener('click', nextSlide);
 
+  const langToggleBtns = document.querySelectorAll('#btn-lang-toggle');
+  langToggleBtns.forEach(btn => {
+    btn.addEventListener('click', toggleLanguage);
+  });
   if (btnLangEn) {
     btnLangEn.addEventListener('click', () => setLanguage('en'));
   }
@@ -831,6 +852,23 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('fullscreen-active');
     } else {
       document.body.classList.remove('fullscreen-active');
+      document.body.classList.remove('show-fs-header');
+      document.body.classList.remove('show-fs-footer');
+    }
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    const isFs = Boolean(document.fullscreenElement) || document.body.classList.contains('fullscreen-active');
+    if (!isFs) return;
+    if (e.clientY <= 50) {
+      document.body.classList.add('show-fs-header');
+    } else {
+      document.body.classList.remove('show-fs-header');
+    }
+    if (e.clientY >= window.innerHeight - 50) {
+      document.body.classList.add('show-fs-footer');
+    } else {
+      document.body.classList.remove('show-fs-footer');
     }
   });
 

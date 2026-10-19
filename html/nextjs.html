@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Next.js: The React Framework for the Web — DevLessons</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        borderRadius: {
+          none: '0px',
+          sm: '0px',
+          DEFAULT: '0px',
+          md: '0px',
+          lg: '0px',
+          xl: '0px',
+          '2xl': '0px',
+          '3xl': '0px',
+          full: '0px'
+        },
+        extend: {
+          borderRadius: {
+            none: '0px',
+            sm: '0px',
+            DEFAULT: '0px',
+            md: '0px',
+            lg: '0px',
+            xl: '0px',
+            '2xl': '0px',
+            '3xl': '0px',
+            full: '0px'
+          },
+          colors: {
+            brand: {
+              blue: '#38bdf8',
+              indigo: '#6366f1',
+              green: '#22c55e',
+              orange: '#f97316',
+              purple: '#c084fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Kantumruy Pro', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="app-container">
+    <header class="top-bar">
+      <div class="brand-section">
+        <a href="#1" class="brand-logo" id="logo-link">
+          <svg class="brand-icon" viewBox="0 0 24 24">
+            <path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.3 2.3a1.72 1.72 0 0 0-.48 1.48l-2.08 2.08a1.7 1.7 0 0 0-1.07-.38 1.75 1.75 0 0 0-1.75 1.75 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75c0-.3-.08-.58-.2-.83l2.03-2.03c.25.12.53.2.83.2.3 0 .58-.08.83-.2l2.3 2.3a1.7 1.7 0 0 0-.38 1.07 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75 1.75 1.75 0 0 0-1.75-1.75c-.3 0-.58.08-.83.2l-2.3-2.3c.12-.25.2-.53.2-.83 0-.41-.16-.78-.42-1.07l2.25-2.25 6.07 6.07c.54.54.54 1.4 0 1.94l-8.03 8.03c-.54.54-1.4.54-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z"/>
+          </svg>
+          <span>Git &amp; GitHub</span>
+        </a>
+        <span id="current-part-badge" class="part-badge">WELCOME</span>
+      </div>
+
+      <div class="top-controls">
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / KM)" aria-label="Toggle Language">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+            <path d="M4.545 6.714 4.11 8H1.5l3.25-8h2.5L10.5 8H7.89l-.435-1.286H4.545zm1.428-4.143-.88 2.643h1.76l-.88-2.643zM0 16l4.25-8h2.5L11 16H8.39l-.435-1.286H4.545L4.11 16H0zm4.545-2.714h2.91l-.88-2.643-.88 2.643zM10.8 11.2a4.978 4.978 0 0 1-.95 1.83 5.485 5.485 0 0 1-1.45-1.07l.7-1.46c.5.25 1.1.47 1.7.7z"/>
+          </svg>
+          <span id="lang-current-label">EN</span>
+        </button>
+        <div class="slide-counter-wrapper">
+          <span data-i18n="ui_slide">Slide</span>
+          <select id="slide-jump-select" title="Jump to slide"></select>
+          <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">38</span></span>
+        </div>
+        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+          <svg viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
+          <span>Grid</span>
+        </button>
+        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+          <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
+        </button>
+        <button id="btn-theme-toggle" class="btn-icon" title="Toggle Light / Dark Mode (T)">
+          <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        </button>
+        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+          <svg viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
+        </button>
+      </div>
+    </header>
+    <main class="slide-viewport">
+      <div class="slides-container">
+        <section class="slide-item active" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
+  <div class="slide-content-card title-card-hero">
+    <div class="title-hero-grid">
+      <div class="title-text-col">
+        <div class="title-badge-pill">MODULE 03 • REACT FULLSTACK</div>
+        <h1 class="title-main-h1">Next.js<br><span class="title-gradient">The React Framework for the Web</span></h1>
+        <p class="title-tagline">“From UI components to high-performance fullstack applications”</p>
+        <div class="alert-callout tip"><div>Learn the modern Next.js App Router, Server Components, nested layouts, fast data fetching, and API route handlers.</div></div>
+        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module ➔</button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
+      </div>
+      <div class="title-visual-col">
+        <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — next-app</span></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx create-next-app@latest my-app</span></div><div class="term-output">✔ Would you like to use TypeScript? Yes<br>✔ Would you like to use ESLint? Yes<br>✔ Would you like to use Tailwind CSS? Yes<br>✔ Would you like your code inside  directory? Yes<br>✔ Would you like to use App Router? Yes<br>✔ Would you like to customize the import alias? No<br><br><span class="out-success">Success! Created my-app at /home/user/my-app</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="OVERVIEW" id="slide-2">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">OVERVIEW</span><h2 class="slide-title">Why Next.js Over Plain React?</h2><p class="slide-subtitle">Solving the limitations of traditional Single-Page Applications (SPAs)</p></div>
+    <div class="slide-grid-2">
+      <div class="info-card">
+        <h4><span class="cross-icon">❌</span> Traditional Client React (Vite/CRA)</h4>
+        <p>Browser downloads a blank HTML file and a giant JavaScript bundle. The user stares at a white loading screen before any content renders.</p>
+        <div class="alert-callout"><div>Poor initial SEO, slow first contentful paint (FCP) on mobile networks.</div></div>
+      </div>
+      <div class="info-card">
+        <h4><span class="check-icon">✔</span> Next.js Fullstack Architecture</h4>
+        <p>HTML is generated on the server and delivered instantly. Search engines read complete content, and React hydrates interactivity in the background.</p>
+        <div class="alert-callout tip"><div>Built-in routing, image optimization, API routes, and Server Components with 0kB client JS.</div></div>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="SETUP" id="slide-3">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">SETUP</span><h2 class="slide-title">Create Your Next.js Application</h2><p class="slide-subtitle">Scaffolding a production-ready project in seconds with pnpm</p></div>
+    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — initialize project</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx create-next-app@latest dev-portal --typescript --tailwind --app</span></div><div class="term-output">Creating a new Next.js app in /projects/dev-portal.<br>Installing dependencies: react, react-dom, next, typescript, tailwindcss...<br><span class="out-success">Success! Created dev-portal</span></div><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">cd dev-portal &amp;&amp; pnpm run dev</span></div><div class="term-output"><span class="out-cyan">▲ Next.js 15.0</span><br>- Local:        http://localhost:3000<br>- Environments: .env.local<br><span class="out-success">✓ Ready in 1.4s</span></div></div></div>
+  </div>
+</section><section class="slide-item" data-part="ARCHITECTURE" id="slide-4">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">ARCHITECTURE</span><h2 class="slide-title">App Router Directory Structure</h2><p class="slide-subtitle">Understanding special files in the app folder</p></div>
+    <div class="slide-grid-2">
+      <div class="file-tree">
+        <div class="tree-line">📁 dev-portal/</div>
+        <div class="tree-line">├── 📁 src/app/</div>
+        <div class="tree-line">│   ├── 📄 layout.tsx     <span class="tree-desc">(Root shell for all pages)</span></div>
+        <div class="tree-line">│   ├── 📄 page.tsx       <span class="tree-desc">(Route: / Home Page)</span></div>
+        <div class="tree-line">│   ├── 📄 loading.tsx    <span class="tree-desc">(Automatic Suspense fallback)</span></div>
+        <div class="tree-line">│   ├── 📄 error.tsx      <span class="tree-desc">(Client error boundary)</span></div>
+        <div class="tree-line">│   └── 📁 dashboard/</div>
+        <div class="tree-line">│       └── 📄 page.tsx   <span class="tree-desc">(Route: /dashboard)</span></div>
+        <div class="tree-line">├── 📁 public/            <span class="tree-desc">(Static images, fonts, icons)</span></div>
+        <div class="tree-line">└── 📄 package.json</div>
+      </div>
+      <div class="info-card">
+        <h4>Core App Router Rules</h4>
+        <p>1. <code>page.tsx</code> defines publicly accessible routes based on folder names.</p>
+        <p>2. <code>layout.tsx</code> wraps pages and preserves UI state across navigation.</p>
+        <p>3. Folders without a <code>page.tsx</code> do not expose a public route.</p>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="COMPONENTS" id="slide-5">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">COMPONENTS</span><h2 class="slide-title">Server Components vs Client Components</h2><p class="slide-subtitle">The foundational concept of React 19 in Next.js</p></div>
+    <div class="slide-grid-2">
+      <div class="code-box"><div class="code-box-header"><span>Server Component (Default)</span></div><pre><code>// Runs on server only. 0kB client JS!
+// Direct database or backend access.
+export default async function ProductList() {
+  const products = await db.products.findMany();
+
+  return (
+    &lt;div className="grid grid-cols-3 gap-4"&gt;
+      {products.map(p =&gt; (
+        &lt;div key={p.id}&gt;{p.name}&lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}</code></pre></div>
+      <div class="code-box"><div class="code-box-header"><span>Client Component ('use client')</span></div><pre><code>'use client'; // Required for browser APIs
+
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+      Count: {count}
+    &lt;/button&gt;
+  );
+}</code></pre></div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="ROUTING" id="slide-6">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">ROUTING</span><h2 class="slide-title">File-Based &amp; Dynamic Routes</h2><p class="slide-subtitle">Automatic URL generation with bracket syntax</p></div>
+    <div class="slide-grid-2">
+      <div class="code-box"><div class="code-box-header"><span>app/posts/[slug]/page.tsx</span></div><pre><code>interface PostPageProps {
+  params: Promise&lt;{ slug: string }&gt;;
+}
+
+export default async function PostPage({ params }: PostPageProps) {
+  const { slug } = await params;
+  const post = await fetchPost(slug);
+
+  return (
+    &lt;article&gt;
+      &lt;h1&gt;{post.title}&lt;/h1&gt;
+      &lt;p&gt;{post.content}&lt;/p&gt;
+    &lt;/article&gt;
+  );
+}</code></pre></div>
+      <div class="info-card">
+        <h4>Route Mapping Table</h4>
+        <table class="clean-table">
+          <thead><tr><th>File Location</th><th>URL Route</th></tr></thead>
+          <tbody>
+            <tr><td><code>app/page.tsx</code></td><td><code>/</code></td></tr>
+            <tr><td><code>app/about/page.tsx</code></td><td><code>/about</code></td></tr>
+            <tr><td><code>app/posts/[slug]/page.tsx</code></td><td><code>/posts/hello-world</code></td></tr>
+            <tr><td><code>app/shop/[...all]/page.tsx</code></td><td><code>/shop/shoes/nike</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="NAVIGATION" id="slide-7">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">NAVIGATION</span><h2 class="slide-title">Client Navigation with &lt;Link&gt;</h2><p class="slide-subtitle">Instant page transitions without browser reloads</p></div>
+    <div class="code-box"><div class="code-box-header"><span>components/Navbar.tsx</span><button class="copy-btn">Copy</button></div><pre><code>import Link from 'next/link';
+
+export function Navbar() {
+  return (
+    &lt;nav className="flex items-center gap-4 p-4 border-b"&gt;
+      &lt;Link href="/" className="font-bold hover:text-sky-400"&gt;
+        Home
+      &lt;/Link&gt;
+      &lt;Link href="/dashboard" className="hover:text-sky-400"&gt;
+        Dashboard
+      &lt;/Link&gt;
+      &lt;Link href="/settings" prefetch={true} className="hover:text-sky-400"&gt;
+        Settings
+      &lt;/Link&gt;
+    &lt;/nav&gt;
+  );
+}</code></pre></div>
+    <div class="alert-callout tip"><div>Next.js automatically prefetches links visible in the viewport, making page transitions feel instantaneous.</div></div>
+  </div>
+</section><section class="slide-item" data-part="DATA FETCHING" id="slide-8">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">DATA FETCHING</span><h2 class="slide-title">Async Data Fetching in Server Components</h2><p class="slide-subtitle">Direct async/await without useEffect or client libraries</p></div>
+    <div class="code-box"><div class="code-box-header"><span>app/users/page.tsx</span><button class="copy-btn">Copy</button></div><pre><code>interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+export default async function UsersPage() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users', {
+    next: { revalidate: 3600 } // Cache data for 1 hour
+  });
+  const users: User[] = await res.json();
+
+  return (
+    &lt;div className="p-6"&gt;
+      &lt;h1 className="text-2xl font-bold mb-4"&gt;Team Members&lt;/h1&gt;
+      &lt;ul className="space-y-2"&gt;
+        {users.map(user =&gt; (
+          &lt;li key={user.id} className="p-3 bg-slate-800 rounded-md"&gt;
+            {user.name} ({user.email})
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}</code></pre></div>
+  </div>
+</section><section class="slide-item" data-part="API ROUTES" id="slide-9">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">API ROUTES</span><h2 class="slide-title">Route Handlers (Backend in Next.js)</h2><p class="slide-subtitle">Building custom API endpoints inside the app directory</p></div>
+    <div class="code-box"><div class="code-box-header"><span>app/api/contact/route.ts</span><button class="copy-btn">Copy</button></div><pre><code>import { NextResponse } from 'next/server';
+
+export async function POST(request: Request) {
+  const body = await request.json();
+  const { email, message } = body;
+
+  if (!email || !message) {
+    return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
+  }
+
+  // Save to database or send email...
+  return NextResponse.json({ success: true, received: body }, { status: 201 });
+}
+
+export async function GET() {
+  return NextResponse.json({ status: 'API is running' });
+}</code></pre></div>
+    <div class="alert-callout"><div>Endpoints are accessed at <code>http://localhost:3000/api/contact</code>. Supports GET, POST, PUT, DELETE, PATCH.</div></div>
+  </div>
+</section><section class="slide-item" data-part="OPTIMIZATION" id="slide-10">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">OPTIMIZATION</span><h2 class="slide-title">Image &amp; Font Optimization</h2><p class="slide-subtitle">Preventing layout shift and optimizing bandwidth automatically</p></div>
+    <div class="slide-grid-2">
+      <div class="code-box"><div class="code-box-header"><span>Image Optimization (next/image)</span></div><pre><code>import Image from 'next/image';
+
+export function HeroBanner() {
+  return (
+    &lt;Image
+      src="/hero.jpg"
+      alt="Developer Workspace"
+      width={1200}
+      height={600}
+      priority={true}
+      className="rounded-xl shadow-lg"
+    /&gt;
+  );
+}</code></pre></div>
+      <div class="code-box"><div class="code-box-header"><span>Google Fonts (next/font)</span></div><pre><code>import { Plus_Jakarta_Sans } from 'next/font/google';
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600', '800']
+});
+
+export default function RootLayout({ children }) {
+  return (
+    &lt;html className={jakarta.className}&gt;
+      &lt;body&gt;{children}&lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre></div>
+    </div>
+  </div>
+</section><section class="slide-item" data-part="DEPLOYMENT" id="slide-11">
+  <div class="slide-content-card">
+    <div class="slide-header-group"><span class="slide-category-tag">DEPLOYMENT</span><h2 class="slide-title">Production Build &amp; Deployment</h2><p class="slide-subtitle">Optimizing bundles for world-class speed</p></div>
+    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — build &amp; start</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm run build</span></div><div class="term-output">Creating an optimized production build...<br>✓ Compiled successfully<br>✓ Collecting page data<br>✓ Generating static pages (5/5)<br><br>Route (app)                              Size     First Load JS<br>┌ ○ /                                    5.4 kB         89.2 kB<br>├ ○ /dashboard                           3.2 kB         87.0 kB<br>└ ƒ /api/contact                         0 B            0 B<br><br><span class="out-success">✓ Build completed in 3.8s</span></div><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm run start</span></div><div class="term-output"><span class="out-success">✓ Ready on http://localhost:3000 (Production Server)</span></div></div></div>
+  </div>
+</section><section class="slide-item" data-part="SUMMARY" id="slide-12">
+  <div class="slide-content-card summary-card">
+    <div class="slide-header-group"><span class="slide-category-tag">SUMMARY</span><h2 class="slide-title">Next.js Mastery Checklist</h2><p class="slide-subtitle">You now know the modern architecture powering today's web</p></div>
+    <div class="summary-checklist-grid">
+      <div class="checklist-item"><span class="check-icon">✔</span><span>App Router: <code>page.tsx</code>, <code>layout.tsx</code>, <code>loading.tsx</code></span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Server Components default to 0kB client bundle size</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Client Components with <code>'use client'</code> for interactivity</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Direct async/await data fetching without useEffect</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Route Handlers for API endpoints</span></div>
+      <div class="checklist-item"><span class="check-icon">✔</span><span>Automatic Image and Font optimization</span></div>
+    </div>
+    <div class="quote-banner">Next step: Style your Next.js application with Tailwind CSS!</div>
+    <div style="margin-top:16px;text-align:center;"><a href="tailwindcss.html" class="btn-cta-primary">Continue to Lesson 04: Tailwind CSS ➔</a></div>
+  </div>
+</section>
+      </div>
+    </main>
+    <footer class="bottom-bar">
+      <div class="nav-shortcuts-hint">
+        <span>Navigation:</span>
+        <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
+        <span><span class="kbd">O</span> Overview</span>
+        <span><span class="kbd">F</span> Fullscreen</span>
+        <span><span class="kbd">T</span> Theme</span>
+        <span><span class="kbd">?</span> Help</span>
+      </div>
+
+      <div class="nav-buttons-group">
+        <button id="btn-prev" class="btn-nav" title="Previous Slide (Left Arrow)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+          <span>Previous</span>
+        </button>
+        <button id="btn-next" class="btn-nav" title="Next Slide (Right Arrow or Space)">
+          <span>Next</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
+        </button>
+      </div>
+    </footer>
+    <div id="overview-modal" class="modal-backdrop">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div class="modal-title">Slide Overview (38 Slides)</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="overview-grid" class="overview-grid"></div>
+      </div>
+    </div>
+    <div id="shortcuts-modal" class="modal-backdrop">
+    <div class="modal-panel" style="max-width: 520px;">
+      <div class="modal-header">
+        <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
+        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-grid">
+          <div class="shortcut-item"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span> <span class="kbd">L</span></div></div>
+          <div class="shortcut-item"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span> <span class="kbd">H</span></div></div>
+          <div class="shortcut-item"><span>First Slide</span><span class="kbd">Home</span></div>
+          <div class="shortcut-item"><span>Last Slide</span><span class="kbd">End</span></div>
+          <div class="shortcut-item"><span>Slide Grid / Overview</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
+          <div class="shortcut-item"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
+          <div class="shortcut-item"><span>Toggle Light/Dark Theme</span><span class="kbd">T</span></div>
+          <div class="shortcut-item"><span>Close Modal</span><span class="kbd">Esc</span></div>
+          <div class="shortcut-item"><span>Help Modal</span><span class="kbd">?</span></div>
+        </div>
+      </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
