@@ -10,7 +10,7 @@ The platform is structured into a central **Curriculum Hub (`index.html`)** that
 |---|---|---|---|---|
 | **01** | **Git** | [git.html](html/git.html) | Local Version Control Fundamentals | `init`, `status`, `add`, `commit`, `log`, `branch`, `.gitignore`, mental model |
 | **02** | **GitHub** | [github.html](html/github.html) | Cloud Repositories & Collaboration | Remotes, SSH/HTTPS, `push -u`, `pull`, `clone`, Pull Requests, verified repo |
-| **03** | **Next.js** | [nextjs.html](html/nextjs.html) | Modern Fullstack React Framework | App Router, Server vs Client components, nested layouts, route handlers, SSR |
+| **03** | **Next.js** | [nextjs-presentation](nextjs-presentation/index.html) &bull; [nextjs.html](html/nextjs.html) | Modern Fullstack React Framework (75 Slides) | App Router, Server Components, Server Actions, PostgreSQL, Neon, Auth, Vercel |
 | **04** | **Tailwind CSS** | [tailwindcss.html](html/tailwindcss.html) | Modern Utility-First Styling | Sizing scale, flexbox/grid, mobile-first breakpoints, dark mode, transitions |
 | **05** | **Shadcn UI** | [shadcn.html](html/shadcn.html) | Accessible Component Architecture | Radix primitives, CLI init, component ownership, `cn()`, CVA variants, dialogs |
 | **06** | **PostgreSQL & Neon** | [postgres.html](html/postgres.html) | Relational & Serverless Database Architecture | psql CLI, DDL/DML, data types, UUID, relationships, joins, indexes, ACID, migrations, Neon branching, pooling, Next.js |
@@ -58,7 +58,7 @@ Alternatively, open `index.html` directly in any web browser.
 |---|---|
 | `1` | Jump to Lesson 01: Git (`html/git.html`) |
 | `2` | Jump to Lesson 02: GitHub (`html/github.html`) |
-| `3` | Jump to Lesson 03: Next.js (`html/nextjs.html`) |
+| `3` | Jump to Lesson 03: Next.js (`nextjs-presentation/index.html`) |
 | `4` | Jump to Lesson 04: Tailwind CSS (`html/tailwindcss.html`) |
 | `5` | Jump to Lesson 05: Shadcn UI (`html/shadcn.html`) |
 | `6` | Jump to Lesson 06: PostgreSQL & Neon (`html/postgres.html`) |

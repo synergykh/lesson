@@ -172,13 +172,27 @@ function setTheme(theme) {
   });
 }
 
+let lastThemeToggle = 0;
 function toggleTheme() {
+  const now = Date.now();
+  if (now - lastThemeToggle < 150) return;
+  lastThemeToggle = now;
   setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 }
 
+window.setTheme = setTheme;
+window.toggleTheme = toggleTheme;
+
+let lastLangToggle = 0;
 function toggleLanguage() {
+  const now = Date.now();
+  if (now - lastLangToggle < 150) return;
+  lastLangToggle = now;
   setLanguage(currentLang === 'en' ? 'km' : 'en');
 }
+
+window.setLanguage = setLanguage;
+window.toggleLanguage = toggleLanguage;
 
 function updateSlideView(index, smooth = false) {
   if (index < 0) index = 0;
@@ -686,6 +700,12 @@ document.addEventListener('keydown', (e) => {
       toggleTheme();
       break;
 
+    case 'l':
+    case 'L':
+      e.preventDefault();
+      toggleLanguage();
+      break;
+
     case 'f':
     case 'F':
       e.preventDefault();
@@ -711,8 +731,21 @@ function initVercelApp() {
     btnStartCourse.addEventListener('click', () => updateSlideView(1));
   }
 
-  if (btnLangToggle) btnLangToggle.addEventListener('click', toggleLanguage);
-  if (btnThemeToggle) btnThemeToggle.addEventListener('click', toggleTheme);
+  const langToggleBtns = document.querySelectorAll('#btn-lang-toggle');
+  langToggleBtns.forEach(btn => {
+    btn.onclick = (e) => {
+      if (e) e.preventDefault();
+      toggleLanguage();
+    };
+  });
+
+  const themeToggleBtns = document.querySelectorAll('#btn-theme-toggle');
+  themeToggleBtns.forEach(btn => {
+    btn.onclick = (e) => {
+      if (e) e.preventDefault();
+      toggleTheme();
+    };
+  });
 
   const btnOverview = document.getElementById('btn-overview');
   if (btnOverview) {

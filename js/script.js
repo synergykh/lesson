@@ -764,6 +764,9 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 't' || e.key === 'T') {
       e.preventDefault();
       toggleTheme();
+    } else if (e.key === 'l' || e.key === 'L') {
+      e.preventDefault();
+      toggleLanguage();
     } else if (e.key === '1') {
       window.location.href = 'html/git.html';
     } else if (e.key === '2') {
