@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06. Vercel &amp; Web Deployment: From Zero to Production — DevLessons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Noto+Sans+Khmer:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        borderRadius: {
+          none: '0px',
+          sm: '0px',
+          DEFAULT: '0px',
+          md: '0px',
+          lg: '0px',
+          xl: '0px',
+          '2xl': '0px',
+          '3xl': '0px',
+          full: '0px'
+        },
+        extend: {
+          borderRadius: {
+            none: '0px',
+            sm: '0px',
+            DEFAULT: '0px',
+            md: '0px',
+            lg: '0px',
+            xl: '0px',
+            '2xl': '0px',
+            '3xl': '0px',
+            full: '0px'
+          },
+          colors: {
+            brand: {
+              blue: '#2563eb',
+              indigo: '#6366f1',
+              green: '#22c55e',
+              orange: '#f97316',
+              purple: '#c084fc'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Kantumruy Pro', 'Noto Sans Khmer', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style type="text/tailwindcss">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; scrollbar-width: none; -ms-overflow-style: none; }
+    *::-webkit-scrollbar { display: none; width: 0; height: 0; }
+    :root {
+      --bg-deep: #020617; --bg-base: #0b0f19; --bg-surface: #0f172a; --bg-surface-elevated: #1e293b; --bg-terminal: #020617;
+      --border-default: #1e293b; --border-subtle: #334155; --border-focus: #2563eb;
+      --text-primary: #ffffff; --text-secondary: #f8fafc; --text-muted: #e2e8f0;
+      --accent-blue: #2563eb; --accent-blue-hover: #1d4ed8; --accent-blue-light: #60a5fa; --accent-indigo: #818cf8; --accent-green: #4ade80; --accent-emerald: #34d399; --accent-orange: #fb923c; --accent-purple: #c084fc; --accent-red: #f87171; --accent-amber: #fbbf24;
+      --font-sans: "Plus Jakarta Sans", "Kantumruy Pro", "Noto Sans Khmer", sans-serif; --font-mono: "JetBrains Mono", monospace;
+      --header-height: 54px; --footer-height: 50px;
+    }
+    [data-theme="light"], html:not(.dark) {
+      --bg-deep: #f8fafc; --bg-base: #f1f5f9; --bg-surface: #ffffff; --bg-surface-elevated: #f8fafc; --bg-terminal: #0f172a;
+      --border-default: #e2e8f0; --border-subtle: #cbd5e1; --border-focus: #0284c7;
+      --text-primary: #0f172a; --text-secondary: #475569; --text-muted: #64748b;
+      --accent-blue: #0284c7; --accent-indigo: #4f46e5; --accent-green: #16a34a; --accent-emerald: #059669; --accent-orange: #ea580c; --accent-purple: #9333ea; --accent-red: #dc2626; --accent-amber: #d97706;
+    }
+    html, body { width: 100%; height: 100%; overflow: hidden; background-color: var(--bg-deep); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    body.lang-km { font-family: "Kantumruy Pro", "Noto Sans Khmer", var(--font-sans); }
+    body.lang-km .slide-title { font-size: 24px; line-height: 1.35; }
+    body.lang-km .title-main-h1 { font-size: 30px; line-height: 1.3; }
+    #app-container { display: flex; flex-direction: column; width: 100vw; height: 100vh; position: relative; background: var(--bg-deep); }
+    .top-bar { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); padding: 0 16px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; }
+    .brand-section { display: flex; align-items: center; gap: 12px; }
+    .brand-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }
+    .brand-logo:hover { color: var(--accent-blue); }
+    .brand-icon { width: 20px; height: 20px; fill: currentColor; }
+    .part-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 8px; background: rgba(37, 99, 235, 0.2); color: #ffffff; border: 1px solid rgba(59, 130, 246, 0.4); font-family: var(--font-mono); }
+    .top-controls { display: flex; align-items: center; gap: 8px; }
+    .btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 4px 8px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: #ffffff; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; }
+    .btn-icon:hover { color: #ffffff; border-color: var(--border-subtle); background: var(--border-default); }
+    .slide-counter-wrapper { display: flex; align-items: center; gap: 4px; font-size: 12px; font-family: var(--font-mono); color: var(--text-secondary); background: var(--bg-deep); border: 1px solid var(--border-default); padding: 4px 8px; }
+    .slide-counter-wrapper select { background: var(--bg-surface); border: 1px solid var(--border-default); color: var(--text-primary); font-family: var(--font-mono); font-size: 12px; padding: 2px 4px; cursor: pointer; }
+    .slide-viewport { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; overflow-x: hidden; position: relative; }
+    .slides-container { width: 100%; display: flex; justify-content: center; }
+    .slide-item { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; }
+    .slide-item:not(.active) { display: none !important; }
+    .slide-item.active { display: flex !important; }
+    .slide-content-card { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35); }
+    .slide-header { display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; gap: 12px; }
+    .slide-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+    .slide-meta-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue-light); }
+    .slide-title { font-size: 24px; font-weight: 800; color: #ffffff; margin: 0; line-height: 1.25; }
+    .slide-subtitle { font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .slide-badge-group { display: flex; align-items: center; gap: 8px; }
+    .tag-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border: 1px solid var(--border-default); background: var(--bg-surface-elevated); color: #ffffff; font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px; }
+    .tag-badge.warning { background: rgba(245, 158, 11, 0.2); border-color: rgba(245, 158, 11, 0.4); color: #fbbf24; }
+    .tag-badge.info, .tag-badge.flow { background: rgba(37, 99, 235, 0.2); border-color: rgba(37, 99, 235, 0.4); color: #93c5fd; }
+    .tag-badge.success { background: rgba(34, 197, 94, 0.2); border-color: rgba(34, 197, 94, 0.4); color: #4ade80; }
+    .slide-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .slide-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .slide-stack { display: flex; flex-direction: column; gap: 12px; }
+    .info-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s ease; }
+    .info-card:hover { border-color: var(--border-subtle); }
+    .info-card h4 { font-size: 13.5px; font-weight: 700; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 8px; }
+    .info-card p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+    .terminal-window { background: var(--bg-terminal); border: 1px solid var(--border-default); overflow: hidden; font-family: var(--font-mono); font-size: 12px; }
+    .terminal-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); }
+    .terminal-dots { display: flex; align-items: center; gap: 6px; }
+    .terminal-dot { width: 9px; height: 9px; background: var(--border-subtle); }
+    .terminal-title { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+    .btn-copy { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: #ffffff; font-size: 11px; padding: 2px 8px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .btn-copy:hover { color: #ffffff; background: var(--border-subtle); }
+    .terminal-body { padding: 12px; overflow-x: auto; color: #ffffff; line-height: 1.6; }
+    .term-cmd { color: #60a5fa; font-weight: 700; }
+    .term-out { color: var(--text-secondary); }
+    .term-comment { color: #94a3b8; font-style: italic; }
+    .term-success { color: #4ade80; }
+    .term-warn { color: #fbbf24; }
+    .term-branch { color: #c084fc; font-weight: 700; }
+    .code-block { background: var(--bg-terminal); border: 1px solid var(--border-default); padding: 12px; font-family: var(--font-mono); font-size: 12px; overflow-x: auto; color: #60a5fa; line-height: 1.5; }
+    .alert-callout { display: flex; align-items: flex-start; gap: 8px; padding: 12px; border: 1px solid var(--border-default); font-size: 12.5px; line-height: 1.5; }
+    .alert-callout svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+    .alert-callout.tip { background: rgba(37, 99, 235, 0.15); border-color: rgba(59, 130, 246, 0.35); color: #ffffff; }
+    .alert-callout.tip svg { fill: #60a5fa; }
+    .alert-callout.warning { background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #ffffff; }
+    .alert-callout.warning svg { fill: #f59e0b; }
+    .alert-callout.info { background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.35); color: #ffffff; }
+    .alert-callout.info svg { fill: #818cf8; }
+    .clean-table { width: 100%; border-collapse: collapse; font-size: 12px; border: 1px solid var(--border-default); }
+    .clean-table th { padding: 8px 12px; background: var(--bg-surface-elevated); border-bottom: 1px solid var(--border-default); font-weight: 700; color: #ffffff; text-align: left; }
+    .clean-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-default); color: #ffffff; }
+    .clean-table tr:last-child td { border-bottom: none; }
+    .clean-table tr:hover td { background: rgba(255, 255, 255, 0.03); }
+    .kbd { display: inline-block; padding: 2px 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: #ffffff; }
+    .flow-diagram { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); }
+    .flow-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; flex: 1; }
+    .flow-step-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-surface); border: 1px solid var(--border-default); color: #60a5fa; }
+    .flow-step-name { font-size: 12px; font-weight: 700; color: #ffffff; }
+    .flow-step-desc { font-size: 11px; color: var(--text-muted); }
+    .flow-arrow { color: var(--text-muted); font-weight: 700; user-select: none; }
+    .title-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; align-items: center; }
+    .title-main-h1 { font-size: 32px; font-weight: 800; color: #ffffff; margin: 0 0 4px 0; line-height: 1.2; }
+    .title-tagline { font-size: 14px; color: #ffffff; font-style: italic; margin: 0 0 12px 0; }
+    .title-accent { color: #ffffff; font-weight: 800; }
+    .bottom-bar { display: flex; align-items: center; justify-content: space-between; height: var(--footer-height); padding: 0 16px; background: var(--bg-surface); border-top: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; position: relative; }
+    .progress-track { width: 100%; height: 3px; background: var(--border-default); position: relative; }
+    .progress-bar { height: 100%; background: var(--accent-blue); transition: width 0.15s ease; }
+    .bottom-content { display: flex; align-items: center; justify-content: space-between; height: calc(var(--footer-height) - 3px); padding: 0 16px; }
+    .nav-shortcuts-hint { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
+    .nav-buttons-group { display: flex; align-items: center; gap: 8px; }
+    .nav-controls { display: flex; align-items: center; gap: 8px; }
+    .btn-nav { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: #ffffff; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; text-decoration: none; }
+    .btn-nav:hover { background: var(--border-default); border-color: var(--border-subtle); color: #ffffff; }
+    .btn-primary-action, .btn-cta-primary { background: var(--accent-blue) !important; color: #ffffff !important; border: 1px solid var(--accent-blue) !important; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary-action *, .btn-cta-primary * { color: #ffffff !important; fill: currentColor; }
+    .btn-primary-action:hover, .btn-cta-primary:hover { background: var(--accent-blue-hover) !important; border-color: var(--accent-blue-hover) !important; color: #ffffff !important; }
+    .modal, .modal-backdrop { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(4px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
+    .modal:not(.open), .modal-backdrop:not(.open) { display: none !important; }
+    .modal.open, .modal-backdrop.open { display: flex !important; }
+    .modal-content, .modal-panel { width: 100%; max-width: 900px; max-height: 85vh; overflow-y: auto; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; gap: 16px; }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; }
+    .modal-title { font-size: 18px; font-weight: 800; color: #ffffff; margin: 0; }
+    .modal-close { background: transparent; border: none; color: var(--text-secondary); font-size: 20px; cursor: pointer; padding: 0 4px; }
+    .modal-close:hover { color: #ffffff; }
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .overview-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: all 0.15s ease; }
+    .overview-card:hover { border-color: var(--accent-blue); transform: translateY(-1px); }
+    .overview-card.current { border-color: var(--accent-blue) !important; background: rgba(37, 99, 235, 0.15); }
+    .overview-card-num { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: #60a5fa; }
+    .overview-card-title { font-size: 12.5px; font-weight: 700; color: #ffffff; line-height: 1.3; }
+    .shortcut-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .shortcut-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); font-size: 12px; color: var(--text-secondary); }
+    :fullscreen #app-container, .fullscreen-active #app-container { height: 100vh; width: 100vw; }
+    :fullscreen .slide-deck, .fullscreen-active .slide-deck { max-width: 100%; width: 100%; height: 100%; }
+    :fullscreen .slide-viewport, .fullscreen-active .slide-viewport { padding: 0; width: 100%; height: 100%; }
+    :fullscreen .top-bar, .fullscreen-active .top-bar { position: fixed; top: 0; left: 0; right: 0; transform: translateY(-100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
+    :fullscreen .top-bar:hover, .fullscreen-active .top-bar:hover, :fullscreen .top-bar:focus-within, .fullscreen-active .top-bar:focus-within, .show-fs-header .top-bar { transform: translateY(0); opacity: 1; }
+    :fullscreen .bottom-bar, .fullscreen-active .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; transform: translateY(100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
+    :fullscreen .bottom-bar:hover, .fullscreen-active .bottom-bar:hover, :fullscreen .bottom-bar:focus-within, .fullscreen-active .bottom-bar:focus-within, .show-fs-footer .bottom-bar { transform: translateY(0); opacity: 1; }
+    @media (max-width: 768px) {
+      .slide-grid-2, .slide-grid-3, .title-hero-grid, .shortcut-grid { grid-template-columns: 1fr; }
+      .slide-content-card { padding: 12px; }
+      .top-bar { padding: 0 8px; }
+      .bottom-bar { padding: 0 8px; }
+      .bottom-content { padding: 0 8px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
+  <div id="app-container">
+    <header class="top-bar">
+      <div class="brand-section">
+        <a href="../index.html" class="brand-logo" id="logo-link" title="Back to Curriculum Hub">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          <span data-i18n="ui_brand">Vercel &amp; Web Deployment</span>
+        </a>
+        <span id="current-part-badge" class="part-badge">MODULE 06</span>
+      </div>
+
+      <div class="top-controls">
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (English / ភាសាខ្មែរ)" aria-label="Toggle Language">
+          <img class="lang-flag-en w-5 h-3.5 object-cover" src="../images/en.png" alt="English">
+          <img class="lang-flag-km w-5 h-3.5 object-cover" src="../images/km.png" alt="Khmer" style="display: none;">
+        </button>
+        <div class="slide-counter-wrapper">
+          <span data-i18n="ui_slide">Slide</span>
+          <select id="slide-jump-select" title="Jump to slide"></select>
+          <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">72</span></span>
+        </div>
+        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
+          <span data-i18n="ui_grid">Grid</span>
+        </button>
+        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
+        </button>
+        <button id="btn-theme-toggle" class="btn-icon" title="Toggle Light / Dark Mode (T)" aria-label="Theme: Dark">
+          <svg id="theme-icon-sun" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="display:none;"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        </button>
+        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="slide-viewport">
+      <div class="slides-container">
+
+        <section class="slide-item active" data-part="INTRODUCTION" data-part-key="part_1" id="slide-1">
+          <div class="slide-content-card">
+            <div class="title-hero-grid">
+              <div>
+                <span class="slide-meta-label" data-i18n="s1_badge">MODULE 06 • PRODUCTION INFRASTRUCTURE</span>
+                <h1 class="title-main-h1" data-i18n="s1_title">Vercel &amp; Web Deployment<br><span class="title-accent">From Zero to Production Masterclass</span></h1>
+                <p class="title-tagline" data-i18n="s1_tagline">“Deploy, scale, and maintain high-performance fullstack web applications”</p>
+                <div class="slide-stack">
+                  <div class="alert-callout tip">
+                    <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                    <div data-i18n="s1_callout">A comprehensive developer guide from setting up your Vercel account to deploying Next.js with Neon PostgreSQL and custom domains.</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:12px;margin-top:8px;">
+                    <button class="btn-cta-primary" id="btn-start-course">
+                      <span data-i18n="ui_start">Start Course</span>
+                      <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                    </button>
+                    <span style="font-size:12px;color:var(--text-secondary);">or press <kbd class="kbd">Space</kbd> / <kbd class="kbd">→</kbd></span>
+                  </div>
+                </div>
+              </div>
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <div class="terminal-dots"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+                  <span class="terminal-title">bash — production pipeline</span>
+                  <button class="btn-copy">Copy</button>
+                </div>
+                <div class="terminal-body">
+                  <div><span class="term-prompt">$</span> <span class="term-cmd">pnpm dlx vercel deploy --prod</span></div>
+                  <div class="term-out">▲ Vercel CLI 39.x.x</div>
+                  <div class="term-out">✓ Linking to acme-projects/taskflow</div>
+                  <div class="term-out">✓ Uploading project files (1.2 MB)</div>
+                  <div class="term-out">✓ Production deployment created</div>
+                  <div class="term-success">● Production: https://taskflow.vercel.app [38s]</div>
+                  <div class="term-comment"># Global Edge CDN • SSL Active • Database Connected</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="INTRODUCTION" data-part-key="part_1" id="slide-2">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 01 • CONCEPTS</span>
+                <h2 class="slide-title" data-i18n="s2_title">What is Deployment?</h2>
+                <p class="slide-subtitle" data-i18n="s2_sub">Transitioning code from your local computer to the global internet</p>
+              </div>
+              <span class="tag-badge info">CORE CONCEPT</span>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Local Development (localhost:3000)</h4>
+                <p>Runs solely on your machine inside Node.js. Only accessible by you via local loopback. Stops when your computer closes or terminal shuts down.</p>
+                <div class="code-block">$ pnpm run dev<br>Ready in 1200ms on http://localhost:3000</div>
+              </div>
+              <div class="info-card">
+                <h4>Production Deployment (Public Internet)</h4>
+                <p>Packaged, optimized, and hosted on high-availability cloud servers around the world. Accessible 24/7/365 by millions of users with automated HTTPS.</p>
+                <div class="code-block">Production URL: https://taskflow.com<br>Response time: 24ms from Global Edge Network</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="INTRODUCTION" data-part-key="part_1" id="slide-3">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 01 • ARCHITECTURE</span>
+                <h2 class="slide-title" data-i18n="s3_title">The Production Deployment Pipeline</h2>
+                <p class="slide-subtitle" data-i18n="s3_sub">Architectural path from developer code to global visitors</p>
+              </div>
+              <span class="tag-badge flow">ARCHITECTURE</span>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-step">
+                <div class="flow-step-icon">💻</div>
+                <div class="flow-step-name">1. Developer</div>
+                <div class="flow-step-desc">Writes code &amp; tests locally</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="flow-step-icon">🐙</div>
+                <div class="flow-step-name">2. GitHub Repo</div>
+                <div class="flow-step-desc">Version control &amp; webhooks</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="flow-step-icon">▲</div>
+                <div class="flow-step-name">3. Vercel Build</div>
+                <div class="flow-step-desc">Compile, bundle, optimize</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="flow-step-icon">🚀</div>
+                <div class="flow-step-name">4. Production</div>
+                <div class="flow-step-desc">Immutable edge deployment</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="flow-step-icon">🌐</div>
+                <div class="flow-step-name">5. Domain &amp; SSL</div>
+                <div class="flow-step-desc">Custom domain + HTTPS</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="flow-step-icon">👥</div>
+                <div class="flow-step-name">6. Global Users</div>
+                <div class="flow-step-desc">Fast page loads worldwide</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="INTRODUCTION" data-part-key="part_1" id="slide-4">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 01 • EXECUTION MODELS</span>
+                <h2 class="slide-title" data-i18n="s4_title">Static Websites vs Fullstack Applications</h2>
+                <p class="slide-subtitle" data-i18n="s4_sub">Understanding execution models: Static Files, SSR, and Serverless APIs</p>
+              </div>
+            </div>
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>Static Sites (SSG / HTML)</h4>
+                <p>Pure HTML, CSS, and JS generated ahead of time during build. Served directly from Edge CDN storage with zero server computation.</p>
+              </div>
+              <div class="info-card">
+                <h4>Server-Rendered (SSR)</h4>
+                <p>HTML is rendered on-demand for every visitor request via Serverless Functions. Ideal for dynamic dashboards and personalized feeds.</p>
+              </div>
+              <div class="info-card">
+                <h4>Serverless APIs &amp; Actions</h4>
+                <p>Isolated backend compute executing on demand without maintaining continuous servers. Scales from 0 to thousands of concurrent requests.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="WHAT IS VERCEL?" data-part-key="part_2" id="slide-5">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 02 • PLATFORM OVERVIEW</span>
+                <h2 class="slide-title" data-i18n="s5_title">What is Vercel?</h2>
+                <p class="slide-subtitle" data-i18n="s5_sub">The native cloud platform for Next.js and the modern web</p>
+              </div>
+              <span class="tag-badge info">VERCEL</span>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Engineered by the Creators of Next.js</h4>
+                <p>Vercel created and maintains Next.js. The platform is purpose-built to extract maximum performance from the App Router, Server Components, and Server Actions.</p>
+              </div>
+              <div class="info-card">
+                <h4>Zero Server Management</h4>
+                <p>No configuring Nginx, Ubuntu servers, Docker files, or PM2 process managers. Push your code to Git, and Vercel handles all infrastructure automatically.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="WHAT IS VERCEL?" data-part-key="part_2" id="slide-6">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 02 • CORE FEATURES</span>
+                <h2 class="slide-title" data-i18n="s6_title">Core Platform Capabilities</h2>
+                <p class="slide-subtitle" data-i18n="s6_sub">Git automation, Global Edge Network, Serverless functions, and instant previews</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>1. Continuous Git Deployment</h4>
+                <p>Automatic builds on every <code>git push</code>. Pull requests generate live staging preview URLs instantly for team review.</p>
+              </div>
+              <div class="info-card">
+                <h4>2. Global Edge Network (CDN)</h4>
+                <p>Static assets and cached responses distributed to 300+ Point of Presence (PoP) locations across the globe for sub-50ms latency.</p>
+              </div>
+              <div class="info-card">
+                <h4>3. Serverless Compute</h4>
+                <p>Backend Route Handlers and Server Actions spin up instantly in response to requests, scaling to zero when inactive.</p>
+              </div>
+              <div class="info-card">
+                <h4>4. Automated Security &amp; SSL</h4>
+                <p>Free automated Let's Encrypt TLS certificates, DDoS mitigation, and enterprise-grade DNS infrastructure.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="WHAT IS VERCEL?" data-part-key="part_2" id="slide-7">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 02 • BUILD LIFECYCLE</span>
+                <h2 class="slide-title" data-i18n="s7_title">What Happens During a Vercel Build?</h2>
+                <p class="slide-subtitle" data-i18n="s7_sub">Behind the scenes of containerized build runners and artifact generation</p>
+              </div>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-step"><div class="flow-step-icon">1</div><div class="flow-step-name">Clone</div><div class="flow-step-desc">Pulls repo commit</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">2</div><div class="flow-step-name">Dependencies</div><div class="flow-step-desc">pnpm install</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">3</div><div class="flow-step-name">Compile</div><div class="flow-step-desc">next build</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">4</div><div class="flow-step-name">Distribute</div><div class="flow-step-desc">Upload to CDN</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="WHAT IS VERCEL?" data-part-key="part_2" id="slide-8">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 02 • ECOSYSTEM</span>
+                <h2 class="slide-title" data-i18n="s8_title">Supported Frameworks on Vercel</h2>
+                <p class="slide-subtitle" data-i18n="s8_sub">First-class support for Next.js, Astro, Remix, SvelteKit, Vite, and static HTML</p>
+              </div>
+            </div>
+            <div class="slide-grid-3">
+              <div class="info-card"><h4>Next.js (React)</h4><p>Native integration with full App Router and Server Components support.</p></div>
+              <div class="info-card"><h4>Astro &amp; SvelteKit</h4><p>Zero-configuration deployment for high-performance content sites.</p></div>
+              <div class="info-card"><h4>Vite &amp; Static Web</h4><p>Instant deployments for React SPA, Vue, vanilla HTML/CSS/JS web apps.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CREATE ACCOUNT" data-part-key="part_3" id="slide-9">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 03 • SETUP</span>
+                <h2 class="slide-title" data-i18n="s9_title">Creating Your Vercel Account</h2>
+                <p class="slide-subtitle" data-i18n="s9_sub">Step-by-step signup via GitHub integration on vercel.com</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>1. Visit Official Site</h4>
+                <p>Navigate to <code>https://vercel.com/</code> and click <strong>Sign Up</strong>.</p>
+              </div>
+              <div class="info-card">
+                <h4>2. Select Continue with GitHub</h4>
+                <p>Signing in with GitHub ensures automatic repository access and smooth continuous deployment.</p>
+              </div>
+              <div class="info-card">
+                <h4>3. Authorize Vercel App</h4>
+                <p>Grant permission to read repositories. Choose "All repositories" or select specific project repositories.</p>
+              </div>
+              <div class="info-card">
+                <h4>4. Complete Onboarding</h4>
+                <p>Confirm your phone verification if prompted and set your developer display name.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CREATE ACCOUNT" data-part-key="part_3" id="slide-10">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 03 • ACCOUNTS &amp; TEAMS</span>
+                <h2 class="slide-title" data-i18n="s10_title">Personal Account vs Team Workspace</h2>
+                <p class="slide-subtitle" data-i18n="s10_sub">Understanding account scopes, team collaboration, and permissions</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Hobby (Personal Account)</h4>
+                <p>Free tier for personal projects, portfolios, non-commercial experiments, and educational learning. Unlimited personal projects.</p>
+              </div>
+              <div class="info-card">
+                <h4>Pro (Team Workspace)</h4>
+                <p>Paid per-seat tier for commercial businesses, agencies, multi-developer collaboration, password-protected previews, and custom SLA.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CREATE ACCOUNT" data-part-key="part_3" id="slide-11">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 03 • DASHBOARD TOUR</span>
+                <h2 class="slide-title" data-i18n="s11_title">Navigating the Vercel Dashboard</h2>
+                <p class="slide-subtitle" data-i18n="s11_sub">Overview of Projects, Deployments, Domains, Integrations, and Analytics</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>Overview &amp; Projects</h4><p>List of all deployed applications with live status, production domains, and latest commit info.</p></div>
+              <div class="info-card"><h4>Project Settings</h4><p>Configure custom domains, environment variables, Git branch tracking, and build command overrides.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PREPARE PROJECT" data-part-key="part_4" id="slide-12">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 04 • READINESS</span>
+                <h2 class="slide-title" data-i18n="s12_title">Preparing a Next.js Project for Deployment</h2>
+                <p class="slide-subtitle" data-i18n="s12_sub">Verifying package.json scripts, dependencies, and local build integrity</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">package.json — verify standard build script</span></div>
+              <div class="terminal-body">
+                <div>{</div>
+                <div>  "name": "taskflow",</div>
+                <div>  "scripts": {</div>
+                <div>    "dev": "next dev",</div>
+                <div>    <span class="term-cmd">"build": "next build",</span></div>
+                <div>    "start": "next start",</div>
+                <div>    "lint": "next lint"</div>
+                <div>  }</div>
+                <div>}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PREPARE PROJECT" data-part-key="part_4" id="slide-13">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 04 • LOCAL VALIDATION</span>
+                <h2 class="slide-title" data-i18n="s13_title">Local Build Verification</h2>
+                <p class="slide-subtitle" data-i18n="s13_sub">Catching compilation and type errors before pushing to GitHub</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">bash — run local production build</span></div>
+              <div class="terminal-body">
+                <div><span class="term-prompt">$</span> <span class="term-cmd">pnpm run build</span></div>
+                <div class="term-out">▲ Next.js 15.0.0</div>
+                <div class="term-out">✓ Generating static pages (6/6)</div>
+                <div class="term-success">✓ Finalized build artifact in .next/</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PREPARE PROJECT" data-part-key="part_4" id="slide-14">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 04 • SECURITY</span>
+                <h2 class="slide-title" data-i18n="s14_title">Environment Variables Audit</h2>
+                <p class="slide-subtitle" data-i18n="s14_sub">Keeping secrets in .env.local and out of version control</p>
+              </div>
+              <span class="tag-badge warning">SECURITY RULE</span>
+            </div>
+            <div class="alert-callout warning">
+              <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+              <div><strong>NEVER COMMIT .env.local TO GIT!</strong> Verify that <code>.env*.local</code> is listed in your <code>.gitignore</code> file. Database passwords committed to GitHub can be stolen by scrapers within seconds.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PREPARE PROJECT" data-part-key="part_4" id="slide-15">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 04 • GIT HEALTH</span>
+                <h2 class="slide-title" data-i18n="s15_title">Git Repository Health Check</h2>
+                <p class="slide-subtitle" data-i18n="s15_sub">Clean working tree, .gitignore rules, and production branch alignment</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">bash — inspect git status</span></div>
+              <div class="terminal-body">
+                <div><span class="term-prompt">$</span> <span class="term-cmd">git status</span></div>
+                <div class="term-out">On branch main</div>
+                <div class="term-success">nothing to commit, working tree clean</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CREATE GITHUB REPO" data-part-key="part_5" id="slide-16">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 05 • GITHUB</span>
+                <h2 class="slide-title" data-i18n="s16_title">Creating a GitHub Repository</h2>
+                <p class="slide-subtitle" data-i18n="s16_sub">Setting up a public or private repository for project hosting</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Private vs Public Repositories</h4>
+                <p>Private repositories keep your code private while allowing Vercel to build and deploy. Public repositories allow open source visibility.</p>
+              </div>
+              <div class="info-card">
+                <h4>Do NOT Initialize with README</h4>
+                <p>If you already have a local project, create an empty GitHub repository without adding a README, license, or gitignore file online.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CREATE GITHUB REPO" data-part-key="part_5" id="slide-17">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 05 • PUSHING</span>
+                <h2 class="slide-title" data-i18n="s17_title">Pushing Code to GitHub</h2>
+                <p class="slide-subtitle" data-i18n="s17_sub">Connecting local repository to remote origin with git push</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">bash — link remote &amp; push</span></div>
+              <div class="terminal-body">
+                <div><span class="term-prompt">$</span> <span class="term-cmd">git remote add origin https://github.com/your-username/taskflow.git</span></div>
+                <div><span class="term-prompt">$</span> <span class="term-cmd">git branch -M main</span></div>
+                <div><span class="term-prompt">$</span> <span class="term-cmd">git push -u origin main</span></div>
+                <div class="term-success">Branch 'main' set up to track remote branch 'main' from 'origin'.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CREATE GITHUB REPO" data-part-key="part_5" id="slide-18">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 05 • AUDIT</span>
+                <h2 class="slide-title" data-i18n="s18_title">Verifying Repository on GitHub</h2>
+                <p class="slide-subtitle" data-i18n="s18_sub">Checking branches, commits, and ensuring no secrets leaked</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>1. Inspect File Tree</h4><p>Ensure <code>package.json</code>, <code>app/</code> directory, and source files are at the root. Confirm <code>.env.local</code> is absent.</p></div>
+              <div class="info-card"><h4>2. Confirm Default Branch</h4><p>Confirm the default branch is <code>main</code> in GitHub repository Settings -> Branches.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="IMPORT PROJECT" data-part-key="part_6" id="slide-19">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 06 • VERCEL IMPORT</span>
+                <h2 class="slide-title" data-i18n="s19_title">Importing a Project into Vercel</h2>
+                <p class="slide-subtitle" data-i18n="s19_sub">Connecting your GitHub account and selecting the repository</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>Step 1: Add New... -> Project</h4><p>Click the black <strong>Add New...</strong> button in your Vercel Dashboard and select <strong>Project</strong>.</p></div>
+              <div class="info-card"><h4>Step 2: Import Git Repository</h4><p>Locate your <code>taskflow</code> repository in the list and click the blue <strong>Import</strong> button.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="IMPORT PROJECT" data-part-key="part_6" id="slide-20">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 06 • CONFIGURATION</span>
+                <h2 class="slide-title" data-i18n="s20_title">Framework Detection &amp; Root Directory</h2>
+                <p class="slide-subtitle" data-i18n="s20_sub">Automatic Next.js detection and monorepo path configuration</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Framework Preset: Next.js</h4>
+              <p>Vercel reads your <code>package.json</code> dependencies and automatically selects <strong>Next.js</strong>. If your app is inside a subfolder (monorepo), click <strong>Edit</strong> next to Root Directory and pick the folder.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="IMPORT PROJECT" data-part-key="part_6" id="slide-21">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 06 • BUILD OVERRIDES</span>
+                <h2 class="slide-title" data-i18n="s21_title">Build and Output Settings</h2>
+                <p class="slide-subtitle" data-i18n="s21_sub">Understanding default presets and custom build commands</p>
+              </div>
+            </div>
+            <table class="clean-table">
+              <thead><tr><th>Setting</th><th>Default Preset</th><th>When to Override</th></tr></thead>
+              <tbody>
+                <tr><td>Build Command</td><td><code>next build</code></td><td>When running Prisma generate or custom scripts first</td></tr>
+                <tr><td>Output Directory</td><td><code>.next</code></td><td>Managed automatically by Next.js preset</td></tr>
+                <tr><td>Install Command</td><td><code>pnpm install</code></td><td>When using custom package flags</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="IMPORT PROJECT" data-part-key="part_6" id="slide-22">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 06 • INITIAL SECRETS</span>
+                <h2 class="slide-title" data-i18n="s22_title">Configuring Initial Environment Variables</h2>
+                <p class="slide-subtitle" data-i18n="s22_sub">Supplying production keys before triggering the first build</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">Vercel UI — Environment Variables Section</span></div>
+              <div class="terminal-body">
+                <div>Key: <span class="term-cmd">DATABASE_URL</span></div>
+                <div>Value: <span class="term-out">postgresql://neondb_owner:***@ep-mute-123.neon.tech/neondb?sslmode=require</span></div>
+                <div>Target Environments: <span class="term-success">Production, Preview, Development</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="FIRST DEPLOYMENT" data-part-key="part_7" id="slide-23">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 07 • EXECUTION</span>
+                <h2 class="slide-title" data-i18n="s23_title">The First Deployment Lifecycle</h2>
+                <p class="slide-subtitle" data-i18n="s23_sub">From git push to active URL in under 60 seconds</p>
+              </div>
+              <span class="tag-badge success">READY TO DEPLOY</span>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-step"><div class="flow-step-icon">📦</div><div class="flow-step-name">Queued</div><div class="flow-step-desc">Runner allocated</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">⚙️</div><div class="flow-step-name">Building</div><div class="flow-step-desc">Compiling pages</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">🌐</div><div class="flow-step-name">Deploying</div><div class="flow-step-desc">Edge routing</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">✨</div><div class="flow-step-name">Ready</div><div class="flow-step-desc">Live on vercel.app</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="FIRST DEPLOYMENT" data-part-key="part_7" id="slide-24">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 07 • LOGS</span>
+                <h2 class="slide-title" data-i18n="s24_title">Inspecting Live Build Logs</h2>
+                <p class="slide-subtitle" data-i18n="s24_sub">Real-time streaming output, dependency caching, and build steps</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">Vercel Build Inspector (Streaming)</span></div>
+              <div class="terminal-body">
+                <div>[14:20:01.120] Running build in Washington, D.C., USA (East) – iad1</div>
+                <div>[14:20:02.430] Cloning github.com/acme/taskflow (Branch: main, Commit: 8f2a1b9)</div>
+                <div>[14:20:04.100] Running "pnpm install"</div>
+                <div>[14:20:07.500] Running "pnpm run build"</div>
+                <div>[14:20:14.200] ✓ Compiled successfully in 6.7s</div>
+                <div>[14:20:16.800] Created deployment: taskflow-8f2a1b9-acme.vercel.app</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="FIRST DEPLOYMENT" data-part-key="part_7" id="slide-25">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 07 • DOMAINS</span>
+                <h2 class="slide-title" data-i18n="s25_title">Deployment URLs &amp; Production Aliases</h2>
+                <p class="slide-subtitle" data-i18n="s25_sub">Understanding vercel.app domains and canonical aliases</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>1. Immutable Deployment URL</h4>
+                <p><code>https://taskflow-8f2a1b9-acme.vercel.app</code></p>
+                <p>Specific to this exact commit. Will permanently point to this build and never changes.</p>
+              </div>
+              <div class="info-card">
+                <h4>2. Production Canonical Alias</h4>
+                <p><code>https://taskflow.vercel.app</code></p>
+                <p>Always points to the latest successful release of your production branch (<code>main</code>).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="FIRST DEPLOYMENT" data-part-key="part_7" id="slide-26">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 07 • VERIFICATION</span>
+                <h2 class="slide-title" data-i18n="s26_title">Post-Deployment Verification</h2>
+                <p class="slide-subtitle" data-i18n="s26_sub">Testing client hydration, API routes, and network requests</p>
+              </div>
+            </div>
+            <div class="slide-grid-3">
+              <div class="info-card"><h4>1. Inspect Console</h4><p>Open browser DevTools (F12) and ensure zero unhandled hydration errors.</p></div>
+              <div class="info-card"><h4>2. Test Server API</h4><p>Trigger a form submission or API fetch to ensure backend Route Handlers return 200 OK.</p></div>
+              <div class="info-card"><h4>3. Network Tab</h4><p>Confirm assets return <code>x-vercel-cache: HIT</code> for instant global edge delivery.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PREVIEW VS PRODUCTION" data-part-key="part_8" id="slide-27">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 08 • STAGING CONCEPTS</span>
+                <h2 class="slide-title" data-i18n="s27_title">Preview Deployments vs Production</h2>
+                <p class="slide-subtitle" data-i18n="s27_sub">Isolated staging environments for every branch and pull request</p>
+              </div>
+              <span class="tag-badge info">CORE WORKFLOW</span>
+            </div>
+            <table class="clean-table">
+              <thead><tr><th>Feature</th><th>Preview Deployment</th><th>Production Deployment</th></tr></thead>
+              <tbody>
+                <tr><td>Triggered By</td><td>Git feature branches or Pull Requests</td><td>Merged to <code>main</code> branch</td></tr>
+                <tr><td>URL Format</td><td><code>taskflow-git-feature-acme.vercel.app</code></td><td><code>taskflow.com</code> / <code>taskflow.vercel.app</code></td></tr>
+                <tr><td>Environment Variables</td><td>Preview environment scope</td><td>Production environment scope</td></tr>
+                <tr><td>Traffic</td><td>Internal team, QA testers, reviewers</td><td>Real live public users</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PREVIEW VS PRODUCTION" data-part-key="part_8" id="slide-28">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 08 • GITFLOW</span>
+                <h2 class="slide-title" data-i18n="s28_title">Git Branching Workflow for Vercel</h2>
+                <p class="slide-subtitle" data-i18n="s28_sub">Main branch for production, feature branches for preview testing</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">bash — feature branch to preview</span></div>
+              <div class="terminal-body">
+                <div><span class="term-prompt">$</span> <span class="term-cmd">git checkout -b feature/user-auth</span></div>
+                <div><span class="term-prompt">$</span> <span class="term-cmd">git commit -am "feat: implement session auth"</span></div>
+                <div><span class="term-prompt">$</span> <span class="term-cmd">git push -u origin feature/user-auth</span></div>
+                <div class="term-success">▲ Vercel created preview deployment: https://taskflow-git-user-auth.vercel.app</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PREVIEW VS PRODUCTION" data-part-key="part_8" id="slide-29">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 08 • COLLABORATION</span>
+                <h2 class="slide-title" data-i18n="s29_title">Pull Request Previews &amp; Team Feedback</h2>
+                <p class="slide-subtitle" data-i18n="s29_sub">Automated Vercel bot comments, preview URLs, and visual inspection</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Vercel Bot on GitHub</h4>
+              <p>When you open a Pull Request, the Vercel GitHub bot automatically comments on the PR with the live deployment URL, inspection link, and performance summary. Team members can test the feature before merging!</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PREVIEW VS PRODUCTION" data-part-key="part_8" id="slide-30">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 08 • PROMOTION</span>
+                <h2 class="slide-title" data-i18n="s30_title">Promoting Previews to Production</h2>
+                <p class="slide-subtitle" data-i18n="s30_sub">Instant traffic switch with zero rebuilds and zero downtime</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>Merge PR into Main</h4><p>Merging the Pull Request automatically triggers a production build and moves the production domain alias seamlessly.</p></div>
+              <div class="info-card"><h4>Dashboard Instant Promote</h4><p>You can also promote any preview build to production directly with one click in the Vercel Deployments dashboard.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="AUTOMATIC DEPLOYS" data-part-key="part_9" id="slide-31">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 09 • AUTOMATION</span>
+                <h2 class="slide-title" data-i18n="s31_title">Automatic Deployments via Git Push</h2>
+                <p class="slide-subtitle" data-i18n="s31_sub">How webhooks trigger instant builds whenever code is pushed</p>
+              </div>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-step"><div class="flow-step-icon">1</div><div class="flow-step-name">git push</div><div class="flow-step-desc">Developer terminal</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">2</div><div class="flow-step-name">GitHub Webhook</div><div class="flow-step-desc">Sends payload to Vercel</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">3</div><div class="flow-step-name">Vercel Build</div><div class="flow-step-desc">Build runner starts</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">4</div><div class="flow-step-name">Live URL</div><div class="flow-step-desc">Updated in ~30s</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="AUTOMATIC DEPLOYS" data-part-key="part_9" id="slide-32">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 09 • CHECKS</span>
+                <h2 class="slide-title" data-i18n="s32_title">GitHub Commit Status Checks</h2>
+                <p class="slide-subtitle" data-i18n="s32_sub">Vercel deployment checks integrated into GitHub Pull Requests</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Branch Protection &amp; Quality Gates</h4>
+              <p>You can configure GitHub branch protection rules to prevent merging if the Vercel build fails. This guarantees broken code never reaches your live users.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="AUTOMATIC DEPLOYS" data-part-key="part_9" id="slide-33">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 09 • DEPLOY HOOKS</span>
+                <h2 class="slide-title" data-i18n="s33_title">Deploy Hooks for External Triggers</h2>
+                <p class="slide-subtitle" data-i18n="s33_sub">Triggering builds from CMS publishing events and webhooks</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">curl — trigger deployment via HTTP POST</span></div>
+              <div class="terminal-body">
+                <div><span class="term-prompt">$</span> <span class="term-cmd">curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_xxx/token_yyy</span></div>
+                <div class="term-success">{"job":{"id":"job_123","state":"QUEUED","createdAt":1700000000}}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="ENV VARIABLES" data-part-key="part_10" id="slide-34">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 10 • CONFIGURATION</span>
+                <h2 class="slide-title" data-i18n="s34_title">Environment Variables Mental Model</h2>
+                <p class="slide-subtitle" data-i18n="s34_sub">Separating configuration from code across development stages</p>
+              </div>
+              <span class="tag-badge info">12-FACTOR APP</span>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Code Remains Identical</h4>
+                <p>Your source code never hardcodes database URLs, Stripe API keys, or secret tokens. The application reads from <code>process.env</code> at runtime.</p>
+              </div>
+              <div class="info-card">
+                <h4>Cloud Injected at Build &amp; Runtime</h4>
+                <p>Vercel securely injects the encrypted variables into the build environment and serverless execution containers.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="ENV VARIABLES" data-part-key="part_10" id="slide-35">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 10 • SCOPING</span>
+                <h2 class="slide-title" data-i18n="s35_title">Environment Scope: Dev, Preview, Production</h2>
+                <p class="slide-subtitle" data-i18n="s35_sub">Targeting distinct databases and API keys per deployment stage</p>
+              </div>
+            </div>
+            <table class="clean-table">
+              <thead><tr><th>Target Scope</th><th>Usage</th><th>Example DATABASE_URL</th></tr></thead>
+              <tbody>
+                <tr><td>Production</td><td>Live <code>main</code> branch</td><td><code>...neon.tech/neondb_prod</code></td></tr>
+                <tr><td>Preview</td><td>PRs and feature branches</td><td><code>...neon.tech/neondb_preview</code></td></tr>
+                <tr><td>Development</td><td>Pulled locally with Vercel CLI</td><td><code>...neon.tech/neondb_dev</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="ENV VARIABLES" data-part-key="part_10" id="slide-36">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 10 • SECURITY BOUNDARY</span>
+                <h2 class="slide-title" data-i18n="s36_title">The NEXT_PUBLIC_* Security Boundary</h2>
+                <p class="slide-subtitle" data-i18n="s36_sub">Preventing client bundle leakage of private server secrets</p>
+              </div>
+              <span class="tag-badge warning">CRITICAL</span>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Server-Only (Secret)</h4>
+                <p><code>DATABASE_URL</code>, <code>STRIPE_SECRET_KEY</code></p>
+                <p>Never prefixed with NEXT_PUBLIC_. Only accessible inside Server Components, Route Handlers, and Server Actions.</p>
+              </div>
+              <div class="info-card">
+                <h4>Client-Exposed (Public)</h4>
+                <p><code>NEXT_PUBLIC_APP_NAME</code>, <code>NEXT_PUBLIC_MAP_KEY</code></p>
+                <p>Inlined directly into browser JavaScript bundle during build. Accessible by anyone viewing website source.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="ENV VARIABLES" data-part-key="part_10" id="slide-37">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 10 • DASHBOARD CONFIG</span>
+                <h2 class="slide-title" data-i18n="s37_title">Managing Variables in Vercel Dashboard</h2>
+                <p class="slide-subtitle" data-i18n="s37_sub">Adding, editing, masking, and bulk uploading environment variables</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Project Settings -> Environment Variables</h4>
+              <p>You can paste raw .env contents directly into the key-value editor. Choose whether each variable applies to Production, Preview, Development, or all three.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="ENV VARIABLES" data-part-key="part_10" id="slide-38">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 10 • REDEPLOYMENT</span>
+                <h2 class="slide-title" data-i18n="s38_title">The Redeployment Requirement</h2>
+                <p class="slide-subtitle" data-i18n="s38_sub">Why updated environment variables require a new deployment</p>
+              </div>
+              <span class="tag-badge warning">IMPORTANT</span>
+            </div>
+            <div class="alert-callout warning">
+              <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+              <div><strong>Updating an environment variable does NOT automatically update existing deployments!</strong> Next.js inlines variables during compilation. You must trigger a <strong>Redeploy</strong> in the dashboard or push a new commit to apply updated variables.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="NEXT.JS ON VERCEL" data-part-key="part_11" id="slide-39">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 11 • APP ROUTER</span>
+                <h2 class="slide-title" data-i18n="s39_title">Next.js App Router on Vercel</h2>
+                <p class="slide-subtitle" data-i18n="s39_sub">Server Components, Client Components, and Edge routing</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Server Components (RSC)</h4>
+                <p>Default in App Router. Renders on Vercel serverless compute. Zero client JavaScript bundle overhead. Fetches database directly.</p>
+              </div>
+              <div class="info-card">
+                <h4>Client Components ('use client')</h4>
+                <p>Handles browser interactivity, state, event listeners, and hooks (useState, useEffect). Hydrated on the user's browser.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="NEXT.JS ON VERCEL" data-part-key="part_11" id="slide-40">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 11 • RENDERING</span>
+                <h2 class="slide-title" data-i18n="s40_title">Static vs Dynamic Rendering Modes</h2>
+                <p class="slide-subtitle" data-i18n="s40_sub">Controlling cache headers and server rendering behavior</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">app/dashboard/page.tsx — control dynamic rendering</span></div>
+              <div class="terminal-body">
+                <div><span class="term-comment">// Force dynamic server-rendering on every visitor request</span></div>
+                <div><span class="term-cmd">export const dynamic = 'force-dynamic';</span></div>
+                <div><span class="term-cmd">export const revalidate = 0;</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="NEXT.JS ON VERCEL" data-part-key="part_11" id="slide-41">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 11 • SERVER ACTIONS</span>
+                <h2 class="slide-title" data-i18n="s41_title">Server Actions &amp; Route Handlers</h2>
+                <p class="slide-subtitle" data-i18n="s41_sub">Executing secure backend mutations on serverless functions</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">app/actions.ts — server action running on Vercel</span></div>
+              <div class="terminal-body">
+                <div><span class="term-cmd">'use server';</span></div>
+                <div>import { sql } from '@vercel/postgres';</div>
+                <div>export async function createTask(formData: FormData) {</div>
+                <div>  const title = formData.get('title');</div>
+                <div>  await sql`INSERT INTO tasks (title) VALUES (${title})`;</div>
+                <div>}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="NEXT.JS ON VERCEL" data-part-key="part_11" id="slide-42">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 11 • OPTIMIZATION</span>
+                <h2 class="slide-title" data-i18n="s42_title">Image Optimization &amp; Global Edge</h2>
+                <p class="slide-subtitle" data-i18n="s42_sub">Next.js image resizing, WebP conversion, and CDN distribution</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>next/image on Vercel Edge</h4>
+              <p>Images are automatically resized, compressed into modern WebP/AVIF formats, and cached on Vercel Edge Network PoPs closest to each visitor. This saves bandwidth and achieves 100/100 Lighthouse performance.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="NEON POSTGRESQL" data-part-key="part_12" id="slide-43">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 12 • FULLSTACK</span>
+                <h2 class="slide-title" data-i18n="s43_title">Fullstack Architecture: Vercel + Neon</h2>
+                <p class="slide-subtitle" data-i18n="s43_sub">Serverless web frontend connecting to serverless PostgreSQL</p>
+              </div>
+              <span class="tag-badge flow">ARCHITECTURE</span>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-step"><div class="flow-step-icon">🌐</div><div class="flow-step-name">Browser</div><div class="flow-step-desc">User request</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">▲</div><div class="flow-step-name">Vercel Edge</div><div class="flow-step-desc">Next.js Serverless</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">🐘</div><div class="flow-step-name">Neon Postgres</div><div class="flow-step-desc">Connection Pooler</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="NEON POSTGRESQL" data-part-key="part_12" id="slide-44">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 12 • CONNECTION STRING</span>
+                <h2 class="slide-title" data-i18n="s44_title">Obtaining Neon Connection Strings</h2>
+                <p class="slide-subtitle" data-i18n="s44_sub">Pooled connections with sslmode=require for serverless queries</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">Neon Dashboard — Pooled Connection String</span></div>
+              <div class="terminal-body">
+                <div><span class="term-comment"># Use the Pooled connection mode (-pooler suffix in host)</span></div>
+                <div><span class="term-cmd">DATABASE_URL="postgresql://neondb_owner:***@ep-mute-wave-123456-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="NEON POSTGRESQL" data-part-key="part_12" id="slide-45">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 12 • CONFIGURATION</span>
+                <h2 class="slide-title" data-i18n="s45_title">Configuring DATABASE_URL in Vercel</h2>
+                <p class="slide-subtitle" data-i18n="s45_sub">Setting up separate database instances for preview and production</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>Production Scope</h4><p>Target your main production database branch in Neon.</p></div>
+              <div class="info-card"><h4>Preview Scope</h4><p>Target a separate Neon branch to test migrations without endangering live data.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="NEON POSTGRESQL" data-part-key="part_12" id="slide-46">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 12 • MIGRATIONS</span>
+                <h2 class="slide-title" data-i18n="s46_title">Database Migration Strategy</h2>
+                <p class="slide-subtitle" data-i18n="s46_sub">Safely applying schema migrations before application deployment</p>
+              </div>
+            </div>
+            <div class="alert-callout tip">
+              <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+              <div>Always execute database migrations (e.g. <code>pnpm prisma migrate deploy</code> or <code>pnpm drizzle-kit migrate</code>) before or during the build phase so new database columns exist when your new code runs!</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CUSTOM DOMAIN" data-part-key="part_13" id="slide-47">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 13 • DOMAINS</span>
+                <h2 class="slide-title" data-i18n="s47_title">Custom Domain Mental Model</h2>
+                <p class="slide-subtitle" data-i18n="s47_sub">Apex domains vs subdomains and how DNS routing operates</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Apex / Root Domain</h4>
+                <p><code>taskflow.com</code> (no prefix before root name)</p>
+                <p>Requires an <strong>A Record</strong> pointing to Vercel's Anycast IP.</p>
+              </div>
+              <div class="info-card">
+                <h4>Subdomain</h4>
+                <p><code>app.taskflow.com</code> or <code>www.taskflow.com</code></p>
+                <p>Requires a <strong>CNAME Record</strong> pointing to Vercel's DNS alias.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CUSTOM DOMAIN" data-part-key="part_13" id="slide-48">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 13 • DNS RECORDS</span>
+                <h2 class="slide-title" data-i18n="s48_title">DNS Record Types: A vs CNAME</h2>
+                <p class="slide-subtitle" data-i18n="s48_sub">Configuring 76.76.21.21 for root and cname.vercel-dns.com for subdomains</p>
+              </div>
+            </div>
+            <table class="clean-table">
+              <thead><tr><th>Record Type</th><th>Host / Name</th><th>Value / Target</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td><strong>A</strong></td><td><code>@</code> (root)</td><td><code>76.76.21.21</code></td><td>Points apex domain to Vercel global IP</td></tr>
+                <tr><td><strong>CNAME</strong></td><td><code>www</code> or <code>app</code></td><td><code>cname.vercel-dns.com</code></td><td>Aliases subdomain to Vercel edge network</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CUSTOM DOMAIN" data-part-key="part_13" id="slide-49">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 13 • REGISTRARS</span>
+                <h2 class="slide-title" data-i18n="s49_title">Step-by-Step Registrar Configuration</h2>
+                <p class="slide-subtitle" data-i18n="s49_sub">Adding DNS records in Namecheap, Cloudflare, or GoDaddy</p>
+              </div>
+            </div>
+            <div class="slide-grid-3">
+              <div class="info-card"><h4>1. Vercel Project</h4><p>Settings -> Domains -> Enter <code>yourdomain.com</code> and click Add.</p></div>
+              <div class="info-card"><h4>2. Registrar DNS</h4><p>Open Namecheap/Cloudflare -> DNS Management -> Add A &amp; CNAME records.</p></div>
+              <div class="info-card"><h4>3. Wait for Verification</h4><p>Vercel polls DNS until records resolve and issues SSL certificate.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CUSTOM DOMAIN" data-part-key="part_13" id="slide-50">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 13 • EMAIL SAFETY</span>
+                <h2 class="slide-title" data-i18n="s50_title">Preserving Email DNS Records</h2>
+                <p class="slide-subtitle" data-i18n="s50_sub">Avoiding email disruption by protecting MX, SPF, DKIM, and DMARC</p>
+              </div>
+              <span class="tag-badge warning">DANGER ZONE</span>
+            </div>
+            <div class="alert-callout warning">
+              <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+              <div><strong>NEVER DELETE MX RECORDS!</strong> If you have Google Workspace or Outlook email connected to your domain, only add the required A or CNAME record. Do not switch nameservers or wipe existing MX, TXT (SPF), or DKIM records, or company email will break instantly.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CUSTOM DOMAIN" data-part-key="part_13" id="slide-51">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 13 • PROPAGATION</span>
+                <h2 class="slide-title" data-i18n="s51_title">DNS Propagation &amp; Automatic SSL</h2>
+                <p class="slide-subtitle" data-i18n="s51_sub">Let's Encrypt TLS certificate generation and HTTPS enforcement</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Zero-Config Automatic SSL</h4>
+              <p>Once DNS records point to Vercel, Vercel automatically requests and provisions a Let's Encrypt TLS certificate. Certificates are renewed automatically before expiration with zero manual intervention.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="HTTPS &amp; SECURITY" data-part-key="part_14" id="slide-52">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 14 • SECURITY</span>
+                <h2 class="slide-title" data-i18n="s52_title">HTTPS &amp; Transport Security</h2>
+                <p class="slide-subtitle" data-i18n="s52_sub">HSTS headers, modern TLS cipher suites, and redirect rules</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>HTTP -> HTTPS Redirect</h4><p>All insecure port 80 HTTP requests are automatically redirected with 308 Permanent Redirect to secure port 443 HTTPS.</p></div>
+              <div class="info-card"><h4>HSTS Header</h4><p>HTTP Strict Transport Security forces modern browsers to communicate only over encrypted channels.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="HTTPS &amp; SECURITY" data-part-key="part_14" id="slide-53">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 14 • HARDENING</span>
+                <h2 class="slide-title" data-i18n="s53_title">Application Hardening on Vercel</h2>
+                <p class="slide-subtitle" data-i18n="s53_sub">Content Security Policy (CSP), rate limiting, and input sanitization</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Security Headers in next.config.js</h4>
+              <p>Configure <code>X-Content-Type-Options: nosniff</code>, <code>X-Frame-Options: DENY</code>, and Content Security Policy (CSP) headers to prevent XSS and clickjacking attacks.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="HTTPS &amp; SECURITY" data-part-key="part_14" id="slide-54">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 14 • AUDITING</span>
+                <h2 class="slide-title" data-i18n="s54_title">Secret Auditing &amp; Remediation</h2>
+                <p class="slide-subtitle" data-i18n="s54_sub">Scanning repositories for leaks and rotating compromised credentials</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>If You Accidentally Push a Secret:</h4>
+              <p>1. Immediately rotate / invalidate the key in your Neon or Stripe dashboard.<br>2. Deleting the commit in Git is NOT enough because commit history preserves the secret.<br>3. Generate a brand new credential and update Vercel environment variables.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="DEPLOYMENTS &amp; ROLLBACK" data-part-key="part_15" id="slide-55">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 15 • IMMUTABILITY</span>
+                <h2 class="slide-title" data-i18n="s55_title">Immutable Deployments</h2>
+                <p class="slide-subtitle" data-i18n="s55_sub">Why every build is a permanent, immutable snapshot</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Never Overwritten</h4>
+              <p>Every Vercel deployment creates a permanent, immutable artifact snapshot associated with its unique URL. You can inspect and revisit builds from months ago exactly as they compiled.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="DEPLOYMENTS &amp; ROLLBACK" data-part-key="part_15" id="slide-56">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 15 • EMERGENCY RESTORE</span>
+                <h2 class="slide-title" data-i18n="s56_title">Instant Rollback Workflow</h2>
+                <p class="slide-subtitle" data-i18n="s56_sub">Restoring a previous working deployment in seconds</p>
+              </div>
+              <span class="tag-badge warning">EMERGENCY FIX</span>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-step"><div class="flow-step-icon">1</div><div class="flow-step-name">Bug Detected</div><div class="flow-step-desc">Production error</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">2</div><div class="flow-step-name">Open Deployments</div><div class="flow-step-desc">Pick stable build</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">3</div><div class="flow-step-name">Click Rollback</div><div class="flow-step-desc">Instant alias switch</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">4</div><div class="flow-step-name">Restored</div><div class="flow-step-desc">Zero downtime</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="DEPLOYMENTS &amp; ROLLBACK" data-part-key="part_15" id="slide-57">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 15 • THE MIGRATION TRAP</span>
+                <h2 class="slide-title" data-i18n="s57_title">The Code vs Database Rollback Discrepancy</h2>
+                <p class="slide-subtitle" data-i18n="s57_sub">Why rolling back code does NOT undo database schema changes</p>
+              </div>
+              <span class="tag-badge warning">CRITICAL WARNING</span>
+            </div>
+            <div class="alert-callout warning">
+              <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+              <div><strong>Vercel rollback ONLY reverts web frontend and serverless code!</strong> It cannot un-drop database tables or rollback destructive SQL migrations on Neon. Design migrations to be backward-compatible with the previous release.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="TROUBLESHOOTING" data-part-key="part_16" id="slide-58">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 16 • DEBUGGING</span>
+                <h2 class="slide-title" data-i18n="s58_title">Build Logs vs Runtime Logs</h2>
+                <p class="slide-subtitle" data-i18n="s58_sub">Differentiating compile-time failures from production exceptions</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Build Logs (Compile-Time)</h4>
+                <p>Captures <code>pnpm install</code> and <code>next build</code>. Look here when deployment status shows red failed build. Common causes: TypeScript, ESLint, missing packages.</p>
+              </div>
+              <div class="info-card">
+                <h4>Runtime Logs (Production)</h4>
+                <p>Streams live execution logs of Serverless Functions and Route Handlers. Look here when users see 500 Server Errors or database timeout exceptions.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="TROUBLESHOOTING" data-part-key="part_16" id="slide-59">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 16 • COMMON BUILD ERRORS</span>
+                <h2 class="slide-title" data-i18n="s59_title">Diagnosing Common Build Failures</h2>
+                <p class="slide-subtitle" data-i18n="s59_sub">Missing dependencies, TypeScript errors, and incorrect root directory</p>
+              </div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header"><span class="terminal-title">Error: Module not found: Can't resolve 'clsx'</span></div>
+              <div class="terminal-body">
+                <div class="term-warn">Cause: Package installed globally or missing from package.json dependencies.</div>
+                <div>Solution: Run <span class="term-cmd">pnpm add clsx</span> locally, commit package.json and pnpm-lock.yaml, then push.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="TROUBLESHOOTING" data-part-key="part_16" id="slide-60">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 16 • RUNTIME ERRORS</span>
+                <h2 class="slide-title" data-i18n="s60_title">Diagnosing Runtime 500 Errors</h2>
+                <p class="slide-subtitle" data-i18n="s60_sub">Database timeouts, connection exhaustion, and uncaught exceptions</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>FUNCTION_INVOCATION_TIMEOUT</h4>
+              <p>Hobby plan serverless functions have a 10s execution limit (expandable to 60s on Pro). Avoid long loops, un-indexed slow queries, or hanging external API calls.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="TROUBLESHOOTING" data-part-key="part_16" id="slide-61">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 16 • DEBUG METHOD</span>
+                <h2 class="slide-title" data-i18n="s61_title">The 5-Step Systematic Debugging Flow</h2>
+                <p class="slide-subtitle" data-i18n="s61_sub">Reproduce -> Read Log -> Isolate Error -> Patch -> Verify</p>
+              </div>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-step"><div class="flow-step-icon">1</div><div class="flow-step-name">Read 1st Error</div><div class="flow-step-desc">Ignore noise below</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">2</div><div class="flow-step-name">Test Locally</div><div class="flow-step-desc">pnpm run build</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">3</div><div class="flow-step-name">Fix Code</div><div class="flow-step-desc">Patch &amp; commit</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step"><div class="flow-step-icon">4</div><div class="flow-step-name">Push Fix</div><div class="flow-step-desc">Trigger new deploy</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PERFORMANCE" data-part-key="part_17" id="slide-62">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 17 • PERFORMANCE</span>
+                <h2 class="slide-title" data-i18n="s62_title">Build Performance &amp; Turbopack</h2>
+                <p class="slide-subtitle" data-i18n="s62_sub">Utilizing build caching, package deduplication, and fast compilation</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>Vercel Remote Build Cache</h4><p>Caches unchanged dependency builds across runs, cutting build times from minutes to seconds.</p></div>
+              <div class="info-card"><h4>Bundle Analyzer</h4><p>Run <code>@next/bundle-analyzer</code> to spot bloated libraries and split code efficiently.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PERFORMANCE" data-part-key="part_17" id="slide-63">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 17 • DATABASE LATENCY</span>
+                <h2 class="slide-title" data-i18n="s63_title">Serverless Optimization &amp; Connection Pooling</h2>
+                <p class="slide-subtitle" data-i18n="s63_sub">Preventing cold starts and connection limits with Neon Serverless driver</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Use @neondatabase/serverless</h4>
+              <p>The Neon serverless driver communicates over HTTP/WebSockets instead of standard TCP connections. This avoids exhausting Postgres max_connections limits during sudden traffic spikes.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="PLANS &amp; COSTS" data-part-key="part_18" id="slide-64">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 18 • COST CONTROL</span>
+                <h2 class="slide-title" data-i18n="s64_title">Vercel Plan Limits &amp; Cost Management</h2>
+                <p class="slide-subtitle" data-i18n="s64_sub">Understanding Hobby vs Pro bandwidth, function duration, and spending controls</p>
+              </div>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>Hobby Limits</h4><p>100 GB Bandwidth/mo, 6,000 build minutes/mo, 10s Serverless execution timeout. Free forever for non-commercial use.</p></div>
+              <div class="info-card"><h4>Spending Alerts (Pro)</h4><p>Set spend management limits in Dashboard -> Settings -> Billing to automatically pause or alert before exceeding budgets.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="GUIDED PROJECT" data-part-key="part_19" id="slide-65">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 19 • GUIDED PROJECT</span>
+                <h2 class="slide-title" data-i18n="s65_title">Guided Project: TaskFlow Architecture</h2>
+                <p class="slide-subtitle" data-i18n="s65_sub">Production blueprint for Next.js, Neon PostgreSQL, and Vercel</p>
+              </div>
+              <span class="tag-badge info">REAL WORLD</span>
+            </div>
+            <div class="slide-grid-3">
+              <div class="info-card"><h4>Frontend</h4><p>Next.js 15 App Router, Tailwind CSS, Shadcn UI components, Responsive UI.</p></div>
+              <div class="info-card"><h4>Database</h4><p>Neon Serverless PostgreSQL, Prisma schema, pooled connection string.</p></div>
+              <div class="info-card"><h4>Hosting &amp; Domain</h4><p>Vercel Edge Network, custom domain <code>taskflow.com</code>, automated HTTPS.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="GUIDED PROJECT" data-part-key="part_19" id="slide-66">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 19 • INTERACTIVE SIMULATOR</span>
+                <h2 class="slide-title" data-i18n="s66_title">Interactive Deployment Simulator</h2>
+                <p class="slide-subtitle" data-i18n="s66_sub">Simulate connecting repos, setting env vars, building, and deploying</p>
+              </div>
+              <span class="tag-badge warning" data-i18n="ui_sim_label">SIMULATION ONLY</span>
+            </div>
+            <div class="slide-stack">
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                  <button class="btn-nav sim-stage-btn btn-primary-action" data-stage="connect">1. Connect</button>
+                  <button class="btn-nav sim-stage-btn" data-stage="configure">2. Configure</button>
+                  <button class="btn-nav sim-stage-btn" data-stage="env">3. Env Vars</button>
+                  <button class="btn-nav sim-stage-btn" data-stage="build">4. Build</button>
+                  <button class="btn-nav sim-stage-btn" data-stage="deploy">5. Deploy</button>
+                  <button class="btn-nav sim-stage-btn" data-stage="verify">6. Verify</button>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:12px;">
+                  <label style="display:flex;align-items:center;gap:4px;cursor:pointer;">
+                    <input type="checkbox" id="sim-fail-toggle">
+                    <span>Simulate Build Failure</span>
+                  </label>
+                  <span id="sim-status-indicator" style="font-weight:700;font-family:var(--font-mono);color:var(--accent-green);">CONNECTED</span>
+                </div>
+              </div>
+              <div class="terminal-window">
+                <div class="terminal-header"><span class="terminal-title">simulation output runner</span></div>
+                <pre id="sim-terminal-body" class="terminal-body" style="white-space:pre-wrap;font-size:12px;"></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="GUIDED PROJECT" data-part-key="part_19" id="slide-67">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 19 • DNS SIMULATOR</span>
+                <h2 class="slide-title" data-i18n="s67_title">Interactive Domain &amp; DNS Simulator</h2>
+                <p class="slide-subtitle" data-i18n="s67_sub">Experiment with Apex, CNAME, and SSL verification live</p>
+              </div>
+              <span class="tag-badge warning" data-i18n="ui_sim_label">SIMULATION ONLY</span>
+            </div>
+            <div class="slide-stack">
+              <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+                <input id="dns-domain-input" type="text" value="taskflow-app.com" style="background:var(--bg-surface-elevated);border:1px solid var(--border-default);color:#ffffff;padding:4px 8px;font-family:var(--font-mono);font-size:12px;width:220px;" placeholder="Enter domain...">
+                <select id="dns-record-type" style="background:var(--bg-surface-elevated);border:1px solid var(--border-default);color:#ffffff;padding:4px 8px;font-size:12px;">
+                  <option value="apex">Apex / Root (@)</option>
+                  <option value="subdomain">Subdomain (app / www)</option>
+                </select>
+                <button id="btn-verify-dns" class="btn-nav btn-primary-action">Verify DNS &amp; SSL</button>
+                <span id="dns-verify-result" style="font-size:12px;font-weight:700;font-family:var(--font-mono);"></span>
+              </div>
+              <table class="clean-table">
+                <thead><tr><th>Record Type</th><th>Name / Host</th><th>Target Value</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td id="dns-val-type" style="font-weight:700;color:#60a5fa;">A</td>
+                    <td id="dns-val-name">@</td>
+                    <td id="dns-val-target" style="font-family:var(--font-mono);">76.76.21.21</td>
+                    <td id="dns-val-status">Configured</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="CHECKLIST" data-part-key="part_20" id="slide-68">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 20 • VERIFICATION</span>
+                <h2 class="slide-title" data-i18n="s68_title">Interactive Production Checklist</h2>
+                <p class="slide-subtitle" data-i18n="s68_sub">Comprehensive interactive checklist saved to your browser</p>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span id="checklist-count" style="font-size:12px;font-family:var(--font-mono);color:#60a5fa;">0 / 8 Checked</span>
+                <button id="btn-reset-checklist" class="btn-nav" style="padding:2px 8px;font-size:11px;">Reset</button>
+              </div>
+            </div>
+            <div class="slide-stack">
+              <div style="width:100%;height:4px;background:var(--border-default);position:relative;">
+                <div id="checklist-progress-bar" style="height:100%;width:0%;background:var(--accent-green);transition:width 0.2s ease;"></div>
+              </div>
+              <div class="slide-grid-2">
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;cursor:pointer;">
+                  <input type="checkbox" class="checklist-checkbox" data-check-key="chk_build" style="margin-top:3px;">
+                  <span>1. Local build succeeded (<code>pnpm run build</code> passed zero errors)</span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;cursor:pointer;">
+                  <input type="checkbox" class="checklist-checkbox" data-check-key="chk_env" style="margin-top:3px;">
+                  <span>2. Production environment variables configured in Vercel Dashboard</span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;cursor:pointer;">
+                  <input type="checkbox" class="checklist-checkbox" data-check-key="chk_secret" style="margin-top:3px;">
+                  <span>3. Verified no secrets committed to Git (.env.local in .gitignore)</span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;cursor:pointer;">
+                  <input type="checkbox" class="checklist-checkbox" data-check-key="chk_db" style="margin-top:3px;">
+                  <span>4. Neon PostgreSQL pooled connection verified with sslmode=require</span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;cursor:pointer;">
+                  <input type="checkbox" class="checklist-checkbox" data-check-key="chk_mig" style="margin-top:3px;">
+                  <span>5. Database migrations reviewed and applied prior to release</span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;cursor:pointer;">
+                  <input type="checkbox" class="checklist-checkbox" data-check-key="chk_dns" style="margin-top:3px;">
+                  <span>6. Custom domain DNS verified with A and CNAME records intact</span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;cursor:pointer;">
+                  <input type="checkbox" class="checklist-checkbox" data-check-key="chk_ssl" style="margin-top:3px;">
+                  <span>7. Automatic HTTPS &amp; Let's Encrypt certificate verified</span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;cursor:pointer;">
+                  <input type="checkbox" class="checklist-checkbox" data-check-key="chk_smoke" style="margin-top:3px;">
+                  <span>8. End-to-end smoke test completed (Auth, CRUD, Responsive check)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="COMMON MISTAKES" data-part-key="part_21" id="slide-69">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 21 • MISTAKES</span>
+                <h2 class="slide-title" data-i18n="s69_title">Top 10 Costly Deployment Mistakes</h2>
+                <p class="slide-subtitle" data-i18n="s69_sub">Critical errors developers make and exact steps to avoid them</p>
+              </div>
+              <span class="tag-badge warning">AVOID THESE</span>
+            </div>
+            <div class="slide-grid-2">
+              <div class="info-card"><h4>1. Forgetting to Redeploy after updating Env Vars</h4><p>Changing an env var doesn't update old builds. Must trigger Redeploy.</p></div>
+              <div class="info-card"><h4>2. Committing .env.local to GitHub</h4><p>Scrapers will steal keys within seconds. Keep it strictly in .gitignore.</p></div>
+              <div class="info-card"><h4>3. Deleting MX records when configuring DNS</h4><p>Wiping existing MX records will kill your company's Google/Outlook email.</p></div>
+              <div class="info-card"><h4>4. Exposing secret keys with NEXT_PUBLIC_</h4><p>Never put database passwords or secret keys behind NEXT_PUBLIC_.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="COMMON MISTAKES" data-part-key="part_21" id="slide-70">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 21 • SMOKE TESTS</span>
+                <h2 class="slide-title" data-i18n="s70_title">Production Verification &amp; Health Checks</h2>
+                <p class="slide-subtitle" data-i18n="s70_sub">End-to-end testing of auth, database CRUD, and responsiveness</p>
+              </div>
+            </div>
+            <div class="slide-grid-3">
+              <div class="info-card"><h4>Auth Smoke Test</h4><p>Log in with a real test account, verify cookies and JWT tokens.</p></div>
+              <div class="info-card"><h4>Database CRUD</h4><p>Create a real task record, verify it persists across refreshes.</p></div>
+              <div class="info-card"><h4>Mobile Layout Check</h4><p>Open on real smartphone to verify touch targets and responsive navigation.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="FINAL CHEAT SHEET" data-part-key="part_22" id="slide-71">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 22 • REFERENCE</span>
+                <h2 class="slide-title" data-i18n="s71_title">Vercel Deployment Cheat Sheet</h2>
+                <p class="slide-subtitle" data-i18n="s71_sub">Quick reference guide for CLI, Git commands, DNS values, and rules</p>
+              </div>
+            </div>
+            <table class="clean-table">
+              <thead><tr><th>Action</th><th>Command / Record</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Test Local Build</td><td><code>pnpm run build</code></td><td>Run before pushing code</td></tr>
+                <tr><td>Deploy via CLI</td><td><code>pnpm dlx vercel --prod</code></td><td>Manual production deployment</td></tr>
+                <tr><td>Apex Domain DNS</td><td>A Record -> <code>76.76.21.21</code></td><td>Points root to Vercel</td></tr>
+                <tr><td>Subdomain DNS</td><td>CNAME -> <code>cname.vercel-dns.com</code></td><td>Points subdomains to Vercel</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="slide-item" data-part="FINAL CHEAT SHEET" data-part-key="part_22" id="slide-72">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">PART 22 • MASTERCLASS GRADUATION</span>
+                <h2 class="slide-title" data-i18n="s72_title">Course Summary &amp; Master Architecture</h2>
+                <p class="slide-subtitle" data-i18n="s72_sub">Congratulations! You have mastered production web deployments on Vercel</p>
+              </div>
+              <span class="tag-badge success">COMPLETED</span>
+            </div>
+            <div class="slide-stack">
+              <div class="alert-callout tip">
+                <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                <div>You now possess the complete professional skillset to develop with Next.js, store data in Neon PostgreSQL, push to GitHub, automate deployments on Vercel, and route custom domains securely with HTTPS!</div>
+              </div>
+              <div style="display:flex;justify-content:center;margin-top:12px;">
+                <a href="../index.html" class="btn-cta-primary">
+                  <span>Return to Fullstack Curriculum Hub</span>
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="bottom-bar">
+      <div class="progress-track"><div id="progress-bar-fill" class="progress-bar"></div></div>
+      <div class="bottom-content">
+        <div class="nav-shortcuts-hint">
+          <span>Shortcuts:</span>
+          <span class="kbd">Space</span> / <span class="kbd">→</span>
+          <span>Next</span>
+          <span class="kbd">←</span>
+          <span>Prev</span>
+          <span class="kbd">Ctrl+K</span>
+          <span>Search</span>
+        </div>
+        <div class="nav-buttons-group">
+          <button id="btn-prev" class="btn-nav" title="Previous Slide (← / Backspace)">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M9.78 12.78a.75.75 0 0 1-1.06 0L4.47 8.53a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 1.06L6.06 8l3.72 3.72a.75.75 0 0 1 0 1.06z"/></svg>
+            <span data-i18n="ui_prev">Previous</span>
+          </button>
+          <button id="btn-next" class="btn-nav btn-primary-action" title="Next Slide (Space / →)">
+            <span data-i18n="ui_next">Next</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <div id="overview-modal" class="modal-backdrop">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <h3 class="modal-title">Table of Contents &amp; All Slides (72)</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div id="overview-grid" class="overview-grid"></div>
+      </div>
+    </div>
+
+    <div id="search-modal" class="modal-backdrop">
+      <div class="modal-panel" style="max-width: 650px;">
+        <div class="modal-header">
+          <h3 class="modal-title">Search Deployment Topics (Ctrl + K)</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div style="padding:4px 0 12px 0;">
+          <input id="search-input" type="text" style="width:100%;padding:8px 12px;background:var(--bg-deep);border:1px solid var(--border-default);color:#ffffff;font-size:13px;" placeholder="Search deployment concepts, commands, topics (Ctrl + K)...">
+        </div>
+        <div id="search-results" style="max-height: 55vh; overflow-y: auto;"></div>
+      </div>
+    </div>
+
+    <div id="shortcuts-modal" class="modal-backdrop">
+      <div class="modal-panel" style="max-width: 500px;">
+        <div class="modal-header">
+          <h3 class="modal-title">Keyboard Navigation</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div class="shortcut-grid">
+          <div class="shortcut-item"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span></div></div>
+          <div class="shortcut-item"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span></div></div>
+          <div class="shortcut-item"><span>First Slide</span><span class="kbd">Home</span></div>
+          <div class="shortcut-item"><span>Last Slide</span><span class="kbd">End</span></div>
+          <div class="shortcut-item"><span>Search Topics</span><span class="kbd">Ctrl+K</span></div>
+          <div class="shortcut-item"><span>Overview Grid</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
+          <div class="shortcut-item"><span>Toggle Theme</span><span class="kbd">T</span></div>
+          <div class="shortcut-item"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../vercel_translations.js"></script>
+  <script src="../vercel.js"></script>
+</body>
+</html>

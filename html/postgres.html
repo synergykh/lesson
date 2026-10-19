@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06. PostgreSQL &amp; Neon Database — Fullstack Mastery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Noto+Sans+Khmer:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        borderRadius: {
+          none: '0px', sm: '0px', DEFAULT: '0px', md: '0px', lg: '0px', xl: '0px', '2xl': '0px', '3xl': '0px', full: '0px'
+        },
+        extend: {
+          borderRadius: {
+            none: '0px', sm: '0px', DEFAULT: '0px', md: '0px', lg: '0px', xl: '0px', '2xl': '0px', '3xl': '0px', full: '0px'
+          },
+          colors: {
+            brand: {
+              blue: '#2563eb',
+              indigo: '#6366f1',
+              green: '#22c55e',
+              orange: '#f97316',
+              purple: '#c084fc',
+              cyan: '#06b6d4'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Noto Sans Khmer', 'Kantumruy Pro', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style type="text/tailwindcss">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; scrollbar-width: none; -ms-overflow-style: none; }
+    *::-webkit-scrollbar { display: none; width: 0; height: 0; }
+    :root {
+      --bg-deep: #020617; --bg-base: #0b0f19; --bg-surface: #0f172a; --bg-surface-elevated: #1e293b; --bg-terminal: #020617;
+      --border-default: #1e293b; --border-subtle: #334155; --border-focus: #2563eb;
+      --text-primary: #ffffff; --text-secondary: #94a3b8; --text-muted: #64748b;
+      --accent-blue: #2563eb; --accent-blue-hover: #1d4ed8; --accent-blue-light: #3b82f6;
+      --accent-green: #22c55e; --accent-orange: #f97316; --accent-purple: #c084fc; --accent-red: #ef4444; --accent-amber: #f59e0b;
+      --font-sans: "Plus Jakarta Sans", "Noto Sans Khmer", "Kantumruy Pro", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+      --header-height: 54px; --footer-height: 50px;
+    }
+    [data-theme="light"], html:not(.dark):not([data-theme="dark"]) {
+      --bg-deep: #f8fafc; --bg-base: #f1f5f9; --bg-surface: #ffffff; --bg-surface-elevated: #f8fafc; --bg-terminal: #0f172a;
+      --border-default: #e2e8f0; --border-subtle: #cbd5e1; --border-focus: #0284c7;
+      --text-primary: #0f172a; --text-secondary: #475569; --text-muted: #64748b;
+      --accent-blue: #0284c7; --accent-green: #16a34a; --accent-orange: #ea580c; --accent-purple: #9333ea; --accent-red: #dc2626; --accent-amber: #d97706;
+      color-scheme: light;
+    }
+    [data-theme="light"] .slide-content-card, html:not(.dark):not([data-theme="dark"]) .slide-content-card { box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08); }
+    [data-theme="light"] .kbd, html:not(.dark):not([data-theme="dark"]) .kbd { background: #f1f5f9; border-color: #cbd5e1; color: #0f172a; }
+    #btn-lang-toggle, #btn-theme-toggle { width: 34px; height: 34px; padding: 0 !important; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background-color: var(--bg-deep); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    body.lang-km { font-family: "Noto Sans Khmer", "Kantumruy Pro", var(--font-sans); }
+    body.lang-km .slide-title { font-size: 22px; line-height: 1.35; }
+    body.lang-km .title-main-h1 { font-size: 28px; line-height: 1.3; }
+
+    #app-container { display: flex; flex-direction: column; width: 100vw; height: 100vh; position: relative; background: var(--bg-deep); }
+    .top-bar { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); padding: 0 16px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; }
+    .brand-section { display: flex; align-items: center; gap: 12px; }
+    .brand-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }
+    .brand-logo:hover { color: var(--accent-blue-light); }
+    .brand-icon { width: 22px; height: 22px; color: var(--accent-blue-light); }
+    .part-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 8px; background: rgba(37, 99, 235, 0.12); color: var(--accent-blue-light); border: 1px solid rgba(59, 130, 246, 0.25); font-family: var(--font-mono); }
+    .top-controls { display: flex; align-items: center; gap: 6px; }
+    .btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 4px; height: 32px; padding: 0 8px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; user-select: none; }
+    .btn-icon:hover { color: var(--text-primary); border-color: var(--border-subtle); background: var(--border-default); }
+    .btn-icon svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .slide-counter-wrapper { display: flex; align-items: center; gap: 4px; font-size: 12px; font-family: var(--font-mono); color: var(--text-secondary); background: var(--bg-deep); border: 1px solid var(--border-default); padding: 2px 6px; height: 32px; }
+    .slide-counter-wrapper select { background: var(--bg-surface); border: 1px solid var(--border-default); color: var(--text-primary); font-family: var(--font-mono); font-size: 12px; padding: 2px 4px; cursor: pointer; max-width: 140px; }
+    
+    .slide-viewport { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; overflow-x: hidden; position: relative; }
+    .slides-container { width: 100%; max-width: 1150px; margin: 0 auto; display: flex; justify-content: center; }
+    .slide-item { width: 100%; display: flex; flex-direction: column; }
+    .slide-item:not(.active) { display: none !important; }
+    .slide-item.active { display: flex !important; animation: fadeIn 0.2s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .slide-content-card { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35); }
+    .slide-header { display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; gap: 12px; }
+    .slide-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+    .slide-meta-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue-light); }
+    .slide-title { font-size: 24px; font-weight: 800; color: var(--text-primary); margin: 0; line-height: 1.25; }
+    .slide-subtitle { font-size: 13.5px; color: var(--text-secondary); margin: 0; }
+    .tag-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border: 1px solid var(--border-default); background: var(--bg-surface-elevated); color: var(--text-secondary); font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px; }
+    .tag-badge.blue { background: rgba(37, 99, 235, 0.15); border-color: rgba(59, 130, 246, 0.35); color: #60a5fa; }
+    .tag-badge.green { background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.3); color: #4ade80; }
+    .tag-badge.orange { background: rgba(249, 115, 22, 0.12); border-color: rgba(249, 115, 22, 0.3); color: #fb923c; }
+    .tag-badge.red { background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.3); color: #f87171; }
+
+    .slide-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .slide-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .slide-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .slide-stack { display: flex; flex-direction: column; gap: 12px; }
+
+    .info-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 14px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s ease; }
+    .info-card:hover { border-color: var(--border-subtle); }
+    .info-card h4 { font-size: 14px; font-weight: 700; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 8px; }
+    .info-card p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; margin: 0; }
+
+    .alert-callout { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1px solid var(--border-default); background: var(--bg-surface-elevated); font-size: 12.5px; line-height: 1.5; }
+    .alert-callout svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+    .alert-callout.tip { border-color: rgba(59, 130, 246, 0.4); background: rgba(37, 99, 235, 0.08); color: #93c5fd; }
+    .alert-callout.tip svg { color: #60a5fa; }
+    .alert-callout.warning { border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08); color: #fde047; }
+    .alert-callout.warning svg { color: #facc15; }
+    .alert-callout.danger { border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.08); color: #fca5a5; }
+    .alert-callout.danger svg { color: #f87171; }
+    .alert-callout.success { border-color: rgba(34, 197, 94, 0.4); background: rgba(34, 197, 94, 0.08); color: #86efac; }
+    .alert-callout.success svg { color: #4ade80; }
+
+    .code-box, .terminal-window { background: var(--bg-terminal); border: 1px solid var(--border-default); overflow: hidden; font-family: var(--font-mono); font-size: 12px; }
+    .code-box-header, .terminal-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); font-size: 11px; font-weight: 600; color: var(--text-muted); }
+    .terminal-dots { display: flex; align-items: center; gap: 6px; }
+    .terminal-dot { width: 8px; height: 8px; }
+    .terminal-dot.red { background: #ef4444; }
+    .terminal-dot.yellow { background: #f59e0b; }
+    .terminal-dot.green { background: #22c55e; }
+    .btn-copy { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 11px; padding: 2px 8px; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: var(--font-mono); transition: all 0.15s ease; }
+    .btn-copy:hover { color: var(--text-primary); border-color: var(--border-subtle); background: var(--border-default); }
+    .btn-copy.copied { color: #4ade80; border-color: rgba(34, 197, 94, 0.4); }
+    .code-box pre, .terminal-body { padding: 12px; overflow-x: auto; color: var(--text-primary); line-height: 1.6; margin: 0; }
+    .term-prompt { color: #60a5fa; font-weight: 700; margin-right: 6px; }
+    .term-cmd { color: #ffffff; font-weight: 700; }
+    .term-out { color: var(--text-secondary); }
+
+    .table-spec { width: 100%; border-collapse: collapse; font-size: 12px; font-family: var(--font-mono); border: 1px solid var(--border-default); }
+    .table-spec th { background: var(--bg-surface); padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border-default); color: var(--text-muted); font-weight: 700; }
+    .table-spec td { padding: 8px 12px; border-bottom: 1px solid var(--border-default); color: var(--text-primary); }
+    .table-spec tr:last-child td { border-bottom: none; }
+    .table-spec tr:hover td { background: rgba(37, 99, 235, 0.05); }
+
+    .bottom-bar { display: flex; align-items: center; justify-content: space-between; height: var(--footer-height); padding: 0 16px; background: var(--bg-surface); border-top: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; position: relative; }
+    .progress-track { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--border-default); }
+    .progress-bar { height: 100%; background: #3b82f6; transition: width 0.2s ease; }
+    .nav-shortcuts-hint { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
+    .kbd { display: inline-flex; align-items: center; justify-content: center; padding: 1px 5px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 10px; font-weight: 700; }
+    .nav-buttons-group { display: flex; align-items: center; gap: 8px; }
+    .btn-nav { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; background: #2563eb; color: #ffffff; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #3b82f6; transition: all 0.15s ease; }
+    .btn-nav:hover:not(:disabled) { background: #1d4ed8; }
+    .btn-nav:disabled { opacity: 0.35; cursor: not-allowed; background: var(--bg-surface-elevated); border-color: var(--border-default); color: var(--text-muted); }
+
+    .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(4px); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
+    .modal-backdrop.open { display: flex; }
+    .modal-panel { background: var(--bg-surface); border: 1px solid var(--border-default); width: 100%; max-width: 900px; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border-default); background: var(--bg-deep); }
+    .modal-title { font-size: 14px; font-weight: 800; color: var(--text-primary); font-family: var(--font-mono); }
+    .modal-body { padding: 16px; overflow-y: auto; flex: 1; }
+
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+    .overview-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: all 0.15s ease; }
+    .overview-card:hover { border-color: var(--accent-blue-light); background: rgba(37, 99, 235, 0.08); }
+    .overview-card.active { border-color: #3b82f6; background: rgba(37, 99, 235, 0.15); }
+    .ov-header { display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+    .ov-num { font-weight: 800; color: #60a5fa; }
+    .ov-title { font-size: 12px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+
+    .search-input-wrap { padding: 12px 16px; border-bottom: 1px solid var(--border-default); background: var(--bg-deep); display: flex; align-items: center; gap: 8px; }
+    .search-input { flex: 1; background: transparent; border: none; outline: none; font-family: var(--font-mono); font-size: 14px; color: var(--text-primary); }
+    .search-results { display: flex; flex-direction: column; gap: 6px; max-height: 50vh; overflow-y: auto; padding: 12px 16px; }
+    .search-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); cursor: pointer; transition: all 0.1s ease; }
+    .search-item:hover, .search-item.selected { border-color: #3b82f6; background: rgba(37, 99, 235, 0.12); }
+    .search-item-left { display: flex; align-items: center; gap: 10px; }
+    .search-badge { font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #60a5fa; background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); padding: 2px 6px; }
+    .search-item-title { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+    .search-item-cat { font-size: 10.5px; color: var(--text-muted); font-family: var(--font-mono); }
+    .search-item-action { font-family: var(--font-mono); font-size: 11px; color: #60a5fa; font-weight: 700; }
+    .search-empty { padding: 24px; text-align: center; color: var(--text-muted); font-size: 13px; font-family: var(--font-mono); }
+
+    .shortcut-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-size: 12px; font-family: var(--font-mono); }
+    .shortcut-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 10px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); }
+
+    .diagram-box { background: var(--bg-deep); border: 1px solid var(--border-default); padding: 16px; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; flex-wrap: wrap; }
+    .diag-node { background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); padding: 8px 12px; text-align: center; }
+    .diag-node.active { border-color: #3b82f6; background: rgba(37, 99, 235, 0.15); color: #93c5fd; }
+    .diag-arrow { color: #60a5fa; font-weight: 800; }
+
+    @media (max-width: 768px) {
+      .slide-grid-2, .slide-grid-3, .slide-grid-4, .shortcut-grid { grid-template-columns: 1fr; }
+      .nav-shortcuts-hint { display: none; }
+      .brand-logo span { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app-container">
+    <header class="top-bar">
+      <div class="brand-section">
+        <a href="../index.html" class="brand-logo" title="Back to Curriculum Hub">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+          </svg>
+          <span data-i18n="ui_brand">PostgreSQL &amp; Neon</span>
+        </a>
+        <span id="current-part-badge" class="part-badge">MODULE 06</span>
+      </div>
+
+      <div class="top-controls">
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / ខ្មែរ)" aria-label="Toggle Language">
+          <span id="lang-label-text" style="font-family:var(--font-mono); font-weight:800;">EN</span>
+        </button>
+
+        <div class="slide-counter-wrapper">
+          <span data-i18n="ui_slide">Slide</span>
+          <select id="slide-jump-select" title="Jump to slide"></select>
+          <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">72</span></span>
+        </div>
+
+        <button id="btn-search" class="btn-icon" title="Search Slides (Ctrl+K)">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+          <span class="hidden sm:inline" data-i18n="ui_search">Search</span>
+        </button>
+
+        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
+          <span class="hidden sm:inline" data-i18n="ui_overview">Overview</span>
+        </button>
+
+        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
+        </button>
+
+        <button id="btn-theme-toggle" class="btn-icon w-[34px] h-[34px] !p-0 flex items-center justify-center shrink-0" title="Toggle Light / Dark Mode (T)" aria-label="Toggle Light / Dark Mode">
+          <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        </button>
+
+        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="slide-viewport">
+      <div class="slides-container">
+
+        <!-- SLIDE 1 -->
+        <section class="slide-item active" data-part="SECTION 01: INTRODUCTION" id="slide-1">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 01: INTRODUCTION</span>
+                <h1 class="slide-title title-main-h1">PostgreSQL &amp; Neon Database</h1>
+                <p class="slide-subtitle">From Database Fundamentals to Modern Fullstack Web Architecture</p>
+              </div>
+              <div class="slide-badge-group">
+                <span class="tag-badge blue">MODULE 06</span>
+                <span class="tag-badge green">PRODUCTION READY</span>
+              </div>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                  <div data-i18n="s1_desc">A developer guide to mastering PostgreSQL, the psql terminal client, database design, relational modeling, and modern serverless database deployment with Neon.</div>
+                </div>
+
+                <div class="slide-grid-3">
+                  <div class="info-card text-center">
+                    <span class="text-blue-400 font-bold font-mono text-lg">72</span>
+                    <p class="text-xs text-slate-400">Practical Slides</p>
+                  </div>
+                  <div class="info-card text-center">
+                    <span class="text-blue-400 font-bold font-mono text-lg">100%</span>
+                    <p class="text-xs text-slate-400">Real SQL &amp; CLI</p>
+                  </div>
+                  <div class="info-card text-center">
+                    <span class="text-blue-400 font-bold font-mono text-lg">Next.js</span>
+                    <p class="text-xs text-slate-400">Fullstack Cloud</p>
+                  </div>
+                </div>
+
+                <div class="mt-2">
+                  <button class="btn-nav btn-start-course" style="width: auto; padding: 0 18px; height: 36px;">
+                    <span data-i18n="s1_btn_start">Start Course</span>
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <div class="terminal-dots"><span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span></div>
+                  <span>architecture — fullstack data flow</span>
+                  <button class="btn-copy">Copy</button>
+                </div>
+                <div class="terminal-body">
+Browser (Client React / DOM)
+      ↓ (HTTP / Server Actions)
+Next.js (App Router / Node.js Engine)
+      ↓ (TCP / TLS Pooler / WebSockets)
+PostgreSQL (SQL Engine / Queries / ACID)
+      ↓ (Serverless Compute &amp; Storage)
+Neon Cloud (Autoscaling / Instant Branching)
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 2 -->
+        <section class="slide-item" data-part="SECTION 01: INTRODUCTION" id="slide-2">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 01: INTRODUCTION</span>
+                <h2 class="slide-title">What is a Database?</h2>
+                <p class="slide-subtitle">Why modern web applications cannot survive on text files or memory alone</p>
+              </div>
+              <span class="tag-badge blue">FUNDAMENTALS</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="text-red-400"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg> The File System Problem</h4>
+                <p data-i18n="s2_c1_desc">Storing app data in JSON or text files fails at scale. Concurrent writes cause data corruption, searches require reading entire files into RAM, and there are no transaction safety guarantees.</p>
+              </div>
+
+              <div class="info-card">
+                <h4><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="text-blue-400"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3z"/></svg> The Database Solution</h4>
+                <p data-i18n="s2_c2_desc">A Database Management System (DBMS) is specialized software engineered to store, organize, index, secure, and retrieve massive volumes of data with sub-millisecond latency and ACID reliability.</p>
+              </div>
+
+              <div class="info-card">
+                <h4><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="text-green-400"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> Core Responsibilities</h4>
+                <p data-i18n="s2_c3_desc">Data persistence across server restarts, concurrency control for thousands of simultaneous users, relational integrity enforcement, authentication, and structured query optimization.</p>
+              </div>
+            </div>
+
+            <div class="alert-callout tip">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+              <div><strong>Key Takeaway:</strong> A database is not just a hard drive folder; it is a high-speed multi-threaded transaction engine engineered to protect data integrity at all times.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 3 -->
+        <section class="slide-item" data-part="SECTION 01: INTRODUCTION" id="slide-3">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 01: INTRODUCTION</span>
+                <h2 class="slide-title">SQL vs NoSQL: Why PostgreSQL?</h2>
+                <p class="slide-subtitle">Relational rigor meets modern document flexibility</p>
+              </div>
+              <span class="tag-badge green">INDUSTRY CHOICE</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>SQL (Relational)</h4>
+                <p data-i18n="s3_c1_desc">Structured schemas, strict data types, relational joins, foreign keys, and ACID transactions. Ideal for applications with interconnected data, financial records, and clear entities.</p>
+              </div>
+
+              <div class="info-card">
+                <h4>NoSQL (Document)</h4>
+                <p data-i18n="s3_c2_desc">Schema-less JSON documents. Flexible for rapid prototyping, but complex joins must be manually handled in application code and data duplication is common.</p>
+              </div>
+
+              <div class="info-card" style="border-color: rgba(59, 130, 246, 0.4); background: rgba(37, 99, 235, 0.08);">
+                <h4 class="text-blue-400">Why PostgreSQL Won</h4>
+                <p data-i18n="s3_c3_desc">PostgreSQL delivers the best of both worlds: rock-solid relational ACID compliance combined with native high-performance JSONB document querying and indexing.</p>
+              </div>
+            </div>
+
+            <table class="table-spec">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Traditional SQL (MySQL)</th>
+                  <th>NoSQL (MongoDB)</th>
+                  <th>PostgreSQL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Relational Joins &amp; Foreign Keys</td>
+                  <td>Yes</td>
+                  <td>Limited ($lookup)</td>
+                  <td><strong>Advanced &amp; Optimized</strong></td>
+                </tr>
+                <tr>
+                  <td>Semi-Structured JSON / Documents</td>
+                  <td>Basic JSON text</td>
+                  <td>Native BSON</td>
+                  <td><strong>Native JSONB (Binary + GIN Index)</strong></td>
+                </tr>
+                <tr>
+                  <td>Extensibility</td>
+                  <td>Limited</td>
+                  <td>Custom plugins</td>
+                  <td><strong>PostGIS, pgvector, Full-Text</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SLIDE 4 -->
+        <section class="slide-item" data-part="SECTION 02: DATABASE FUNDAMENTALS" id="slide-4">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 02: DATABASE FUNDAMENTALS</span>
+                <h2 class="slide-title">Database Mental Model &amp; Hierarchy</h2>
+                <p class="slide-subtitle">Understanding the organizational layers from server to record</p>
+              </div>
+              <span class="tag-badge blue">ARCHITECTURE</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>1. Server Cluster</h4>
+                <p data-i18n="s4_c1_desc">The PostgreSQL service managing storage, connections, background worker processes, and memory buffers.</p>
+              </div>
+              <div class="info-card">
+                <h4>2. Database &amp; Schema</h4>
+                <p data-i18n="s4_c2_desc">A database is an isolated namespace containing schemas (default 'public'). Schemas group related tables, views, and functions.</p>
+              </div>
+              <div class="info-card">
+                <h4>3. Table, Column &amp; Row</h4>
+                <p data-i18n="s4_c3_desc">Tables represent entities. Columns define attributes with strict data types. Rows (records) store individual instances of data.</p>
+              </div>
+            </div>
+
+            <div class="diagram-box">
+              <div class="diag-node">Operating System</div>
+              <div class="diag-arrow">↓</div>
+              <div class="diag-node active">PostgreSQL Server (Port 5432)</div>
+              <div class="diag-arrow">↓</div>
+              <div class="diag-node">Database (myapp)</div>
+              <div class="diag-arrow">↓</div>
+              <div class="diag-node">Schema (public)</div>
+              <div class="diag-arrow">↓</div>
+              <div class="diag-node active">Tables (users, posts, comments)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 5 -->
+        <section class="slide-item" data-part="SECTION 02: DATABASE FUNDAMENTALS" id="slide-5">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 02: DATABASE FUNDAMENTALS</span>
+                <h2 class="slide-title">Relational Architecture in Action</h2>
+                <p class="slide-subtitle">Visualizing connected entities: Users, Posts, and Comments</p>
+              </div>
+              <span class="tag-badge blue">ERD VISUAL</span>
+            </div>
+
+            <p data-i18n="s5_desc">Entities do not live in isolation. Foreign keys establish mathematically sound references between rows, eliminating duplicate data and preserving structural integrity.</p>
+
+            <div class="slide-grid-3">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>table: users</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+id (PK) | name  | email
+--------+-------+------------------
+1       | Dara  | dara@test.com
+2       | Lina  | lina@test.com
+                </div>
+              </div>
+
+              <div class="terminal-window">
+                <div class="terminal-header"><span>table: posts</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+id (PK) | user_id (FK) | title
+--------+--------------+------------------
+101     | 1            | Intro to Postgres
+102     | 1            | Serverless Neon
+103     | 2            | Next.js Data Flow
+                </div>
+              </div>
+
+              <div class="terminal-window">
+                <div class="terminal-header"><span>table: comments</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+id (PK) | post_id (FK) | comment
+--------+--------------+------------------
+501     | 101          | Great article!
+502     | 101          | Very clear tips.
+503     | 103          | Thanks for this!
+                </div>
+              </div>
+            </div>
+
+            <div class="alert-callout tip">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+              <div><strong>Relational Linkage:</strong> <code>posts.user_id</code> points to <code>users.id</code>. If Dara updates his name, every post Dara authored immediately reflects his updated name without data duplication.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 6 -->
+        <section class="slide-item" data-part="SECTION 03: LOCAL INSTALLATION" id="slide-6">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 03: LOCAL INSTALLATION</span>
+                <h2 class="slide-title">Installing PostgreSQL Locally</h2>
+                <p class="slide-subtitle">Setting up the server environment on Linux / Ubuntu</p>
+              </div>
+              <span class="tag-badge green">UBUNTU / DEBIAN</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Package Installation</h4>
+                  <p data-i18n="s6_c1_desc">Install the PostgreSQL server engine along with the postgresql-contrib package containing valuable extensions and utilities.</p>
+                </div>
+                <div class="info-card">
+                  <h4>System User &amp; Port</h4>
+                  <p data-i18n="s6_c2_desc">The package installer creates a dedicated Linux system user named 'postgres' and configures the daemon to listen on default TCP port 5432.</p>
+                </div>
+              </div>
+
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <div class="terminal-dots"><span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span></div>
+                  <span>bash — installation commands</span>
+                  <button class="btn-copy">Copy</button>
+                </div>
+                <div class="terminal-body">
+<span class="term-prompt">$</span><span class="term-cmd">sudo apt update</span>
+<span class="term-out">Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease</span>
+
+<span class="term-prompt">$</span><span class="term-cmd">sudo apt install -y postgresql postgresql-contrib</span>
+<span class="term-out">Setting up postgresql-client-16...
+Setting up postgresql-16...
+Creating new PostgreSQL cluster 16/main ...
+Ver Cluster Port Status Owner    Data directory
+16  main    5432 online postgres /var/lib/postgresql/16/main</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 7 -->
+        <section class="slide-item" data-part="SECTION 03: LOCAL INSTALLATION" id="slide-7">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 03: LOCAL INSTALLATION</span>
+                <h2 class="slide-title">PostgreSQL Service Management</h2>
+                <p class="slide-subtitle">Controlling the background systemd daemon</p>
+              </div>
+              <span class="tag-badge blue">SYSTEMD</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>bash — systemctl commands</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+<span class="term-prompt">$</span><span class="term-cmd">sudo systemctl status postgresql</span>
+<span class="term-out">● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled)
+     Active: active (exited) since Mon 2026-10-19 14:00:00 UTC</span>
+
+<span class="term-prompt">$</span><span class="term-cmd">sudo systemctl start postgresql</span>
+<span class="term-prompt">$</span><span class="term-cmd">sudo systemctl enable postgresql</span>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Service Status Check</h4>
+                  <p data-i18n="s7_c1_desc">Verify that the PostgreSQL engine is active, running, and listening for incoming client connections.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Starting &amp; Boot Enable</h4>
+                  <p data-i18n="s7_c2_desc">Start the service immediately and enable systemd auto-restart on operating system reboots.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 8 -->
+        <section class="slide-item" data-part="SECTION 04: PSQL CLI" id="slide-8">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 04: PSQL CLI</span>
+                <h2 class="slide-title">The psql Interactive Terminal</h2>
+                <p class="slide-subtitle">Connecting to the database engine from your command line</p>
+              </div>
+              <span class="tag-badge green">TERMINAL CLI</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>What is psql?</h4>
+                  <p data-i18n="s8_c1_desc">psql is the official PostgreSQL interactive terminal program. It allows you to run SQL queries, inspect database schemas, manage roles, and execute administrative meta-commands.</p>
+                </div>
+                <div class="info-card">
+                  <h4>The postgres Superuser</h4>
+                  <p data-i18n="s8_c2_desc">By default, PostgreSQL uses peer authentication on Linux. Running psql as the postgres user connects you directly to the administrative console.</p>
+                </div>
+              </div>
+
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <div class="terminal-dots"><span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span></div>
+                  <span>bash — connecting as postgres</span>
+                  <button class="btn-copy">Copy</button>
+                </div>
+                <div class="terminal-body">
+<span class="term-prompt">$</span><span class="term-cmd">sudo -u postgres psql</span>
+<span class="term-out">psql (16.2)
+Type "help" for help.
+
+postgres=# </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 9 -->
+        <section class="slide-item" data-part="SECTION 04: PSQL CLI" id="slide-9">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 04: PSQL CLI</span>
+                <h2 class="slide-title">psql Connection Parameters</h2>
+                <p class="slide-subtitle">Deconstructing connection flags: -h, -p, -U, -d</p>
+              </div>
+              <span class="tag-badge blue">FLAGS &amp; URI</span>
+            </div>
+
+            <table class="table-spec">
+              <thead>
+                <tr>
+                  <th>Flag</th>
+                  <th>Parameter</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>-h</code></td>
+                  <td>Hostname / Host IP</td>
+                  <td>Local UNIX socket</td>
+                  <td>Server IP address or hostname (e.g., <code>localhost</code> or remote Neon host)</td>
+                </tr>
+                <tr>
+                  <td><code>-p</code></td>
+                  <td>Port</td>
+                  <td><code>5432</code></td>
+                  <td>TCP port where PostgreSQL is listening</td>
+                </tr>
+                <tr>
+                  <td><code>-U</code></td>
+                  <td>Username</td>
+                  <td>Current OS user</td>
+                  <td>Database role / user name to authenticate as</td>
+                </tr>
+                <tr>
+                  <td><code>-d</code></td>
+                  <td>Database name</td>
+                  <td>Same as username</td>
+                  <td>Target database to connect to</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="terminal-window">
+              <div class="terminal-header"><span>bash — connection examples</span><button class="btn-copy">Copy</button></div>
+              <div class="terminal-body">
+<span class="term-prompt">$</span><span class="term-cmd">psql -h localhost -p 5432 -U postgres -d myapp</span>
+<span class="term-prompt">$</span><span class="term-cmd">psql "postgresql://postgres:secret@localhost:5432/myapp?sslmode=disable"</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 10 -->
+        <section class="slide-item" data-part="SECTION 05: IMPORTANT PSQL COMMANDS" id="slide-10">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 05: IMPORTANT PSQL COMMANDS</span>
+                <h2 class="slide-title">Essential psql Meta-Commands</h2>
+                <p class="slide-subtitle">Navigating databases and schemas without writing long SQL queries</p>
+              </div>
+              <span class="tag-badge green">META-COMMANDS</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <table class="table-spec">
+                <thead>
+                  <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>\l</code></td><td>List all databases in the server cluster</td></tr>
+                  <tr><td><code>\c dbname</code></td><td>Connect / switch to target database</td></tr>
+                  <tr><td><code>\dt</code></td><td>List all tables in the current schema</td></tr>
+                  <tr><td><code>\d table_name</code></td><td>Describe table structure, columns, types, indexes</td></tr>
+                  <tr><td><code>\du</code></td><td>List all users / roles and their attributes</td></tr>
+                  <tr><td><code>\dn</code></td><td>List all schemas in current database</td></tr>
+                  <tr><td><code>\q</code></td><td>Quit / exit psql terminal session</td></tr>
+                </tbody>
+              </table>
+
+              <div class="slide-stack">
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                  <div><strong>Notice:</strong> Meta-commands begin with a backslash <code>\</code> and do NOT require a trailing semicolon <code>;</code>. SQL queries on the other hand MUST end with a semicolon.</div>
+                </div>
+
+                <div class="terminal-window">
+                  <div class="terminal-header"><span>psql session</span><button class="btn-copy">Copy</button></div>
+                  <div class="terminal-body">
+postgres=# \c myapp
+You are now connected to database "myapp" as user "postgres".
+myapp=# \dt
+List of relations
+Schema | Name  | Type  | Owner 
+-------+-------+-------+-------
+public | users | table | postgres
+(1 row)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 11 -->
+        <section class="slide-item" data-part="SECTION 05: IMPORTANT PSQL COMMANDS" id="slide-11">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 05: IMPORTANT PSQL COMMANDS</span>
+                <h2 class="slide-title">System &amp; Environment Inspection</h2>
+                <p class="slide-subtitle">Checking database version, active database, and query timing</p>
+              </div>
+              <span class="tag-badge blue">QUERIES</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>psql — server queries</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+myapp=# <span class="term-cmd">SELECT version();</span>
+<span class="term-out">                                                 version                                                 
+---------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.2 (Ubuntu 16.2-1.pgdg22.04+1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0)
+(1 row)</span>
+
+myapp=# <span class="term-cmd">SELECT current_database();</span>
+<span class="term-out"> current_database 
+------------------
+ myapp
+(1 row)</span>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Server Identification</h4>
+                  <p data-i18n="s11_c1_desc">Inspect the PostgreSQL version and current connected database name to ensure you are operating in the intended environment.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Session Enhancements</h4>
+                  <p data-i18n="s11_c2_desc">Enable `\timing` to measure exact query execution milliseconds, and `\x auto` for vertical expanded output on wide tables.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 12 -->
+        <section class="slide-item" data-part="SECTION 05: IMPORTANT PSQL COMMANDS" id="slide-12">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 05: IMPORTANT PSQL COMMANDS</span>
+                <h2 class="slide-title">Interactive psql Terminal Simulation</h2>
+                <p class="slide-subtitle">Click commands below to test authentic psql outputs</p>
+              </div>
+              <span class="tag-badge green">INTERACTIVE RUNNER</span>
+            </div>
+
+            <div class="terminal-sim-panel flex flex-col gap-3">
+              <div class="flex flex-wrap gap-2">
+                <button class="btn-icon term-sim-btn active" data-cmd="\l">\l (List DBs)</button>
+                <button class="btn-icon term-sim-btn" data-cmd="\c myapp">\c myapp (Connect)</button>
+                <button class="btn-icon term-sim-btn" data-cmd="\dt">\dt (List Tables)</button>
+                <button class="btn-icon term-sim-btn" data-cmd="\d users">\d users (Describe)</button>
+                <button class="btn-icon term-sim-btn" data-cmd="SELECT version();">SELECT version();</button>
+                <button class="btn-icon term-sim-btn" data-cmd="SELECT current_database();">SELECT current_database();</button>
+              </div>
+
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <div class="terminal-dots"><span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span></div>
+                  <span>psql interactive terminal emulator</span>
+                  <button class="btn-copy">Copy</button>
+                </div>
+                <div class="terminal-body">
+<span class="term-prompt">postgres=#</span> <span class="sim-cmd-text font-bold text-white">\l</span>
+<pre class="sim-output text-slate-300 font-mono mt-1">                                  List of databases
+   Name    |  Owner   | Encoding | Collate |  Ctype  |   Access privileges   
+-----------+----------+----------+---------+---------+-----------------------
+ myapp     | postgres | UTF8     | C.UTF-8 | C.UTF-8 | 
+ postgres  | postgres | UTF8     | C.UTF-8 | C.UTF-8 | 
+ template0 | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+           |          |          |         |         | postgres=CTc/postgres
+ template1 | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+           |          |          |         |         | postgres=CTc/postgres
+(4 rows)</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 13 -->
+        <section class="slide-item" data-part="SECTION 06: CREATE &amp; DROP DATABASE" id="slide-13">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 06: CREATE &amp; DROP DATABASE</span>
+                <h2 class="slide-title">Creating &amp; Dropping Databases</h2>
+                <p class="slide-subtitle">Provisioning databases and critical production precautions</p>
+              </div>
+              <span class="tag-badge red">PRODUCTION SAFETY</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>SQL Commands</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+<span class="term-prompt">postgres=#</span> <span class="term-cmd">CREATE DATABASE myapp;</span>
+<span class="term-out">CREATE DATABASE</span>
+
+<span class="term-prompt">postgres=#</span> <span class="term-cmd">\c myapp</span>
+<span class="term-out">You are now connected to database "myapp" as user "postgres".</span>
+
+<span class="term-prompt">myapp=#</span> <span class="term-cmd">DROP DATABASE myapp;</span>
+<span class="term-out">DROP DATABASE</span>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="alert-callout danger">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/><path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/></svg>
+                  <div>
+                    <strong>CRITICAL PRODUCTION WARNING:</strong><br>
+                    NEVER run destructive database commands (such as <code>DROP DATABASE</code> or <code>DROP TABLE</code>) against production environments without verified backups and dual confirmation.
+                  </div>
+                </div>
+
+                <div class="info-card">
+                  <h4>Database Isolation</h4>
+                  <p data-i18n="s13_c1_desc">Creating a new database establishes an isolated logical container with its own schemas, tables, and permissions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 14 -->
+        <section class="slide-item" data-part="SECTION 07: SQL FUNDAMENTALS" id="slide-14">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 07: SQL FUNDAMENTALS</span>
+                <h2 class="slide-title">DDL: Creating Tables with Constraints</h2>
+                <p class="slide-subtitle">Defining solid table schemas with data integrity guarantees</p>
+              </div>
+              <span class="tag-badge blue">DDL</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — CREATE TABLE users</span><button class="btn-copy">Copy</button></div>
+                <pre><code>CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>PRIMARY KEY</h4>
+                  <p>Guarantees unique identification for each row. Automatically creates an underlying B-tree index and enforces NOT NULL.</p>
+                </div>
+                <div class="info-card">
+                  <h4>NOT NULL &amp; UNIQUE</h4>
+                  <p><code>NOT NULL</code> rejects records without a value. <code>UNIQUE</code> prevents duplicate entries (e.g. prevents duplicate customer email registrations).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 15 -->
+        <section class="slide-item" data-part="SECTION 07: SQL FUNDAMENTALS" id="slide-15">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 07: SQL FUNDAMENTALS</span>
+                <h2 class="slide-title">DML: Inserting &amp; Querying Records</h2>
+                <p class="slide-subtitle">Writing records and executing filtered SELECT queries</p>
+              </div>
+              <span class="tag-badge green">INSERT &amp; SELECT</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>INSERT Statements</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Insert single row and return generated ID
+INSERT INTO users (name, email)
+VALUES ('Dara S.', 'dara@example.com')
+RETURNING id, created_at;
+
+-- Insert multiple rows in one query
+INSERT INTO users (name, email)
+VALUES 
+    ('Lina K.', 'lina@example.com'),
+    ('Bona T.', 'bona@example.com');</code></pre>
+              </div>
+
+              <div class="code-box">
+                <div class="code-box-header"><span>SELECT Statements</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Select specific columns (avoid SELECT *)
+SELECT id, name, email
+FROM users
+WHERE email = 'dara@example.com';
+
+-- Ordered query with LIMIT
+SELECT id, name
+FROM users
+ORDER BY id DESC
+LIMIT 10;</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 16 -->
+        <section class="slide-item" data-part="SECTION 07: SQL FUNDAMENTALS" id="slide-16">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 07: SQL FUNDAMENTALS</span>
+                <h2 class="slide-title">DML: Updating &amp; Deleting Records</h2>
+                <p class="slide-subtitle">Modifying data safely and the critical danger of missing WHERE clauses</p>
+              </div>
+              <span class="tag-badge red">WHERE CLAUSE</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>UPDATE &amp; DELETE</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Safe UPDATE with specific WHERE target
+UPDATE users
+SET name = 'Dara Sam'
+WHERE id = 1;
+
+-- Safe DELETE with target ID
+DELETE FROM users
+WHERE id = 1;</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="alert-callout danger">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+                  <div>
+                    <strong>CRITICAL MISTAKE:</strong> Omitting the <code>WHERE</code> clause on <code>UPDATE</code> or <code>DELETE</code> executes the operation across <strong>EVERY ROW IN THE ENTIRE TABLE</strong>!
+                  </div>
+                </div>
+
+                <div class="info-card">
+                  <h4>Soft Deletes Alternative</h4>
+                  <p>In production applications, consider soft deletes: <code>UPDATE users SET is_deleted = TRUE, deleted_at = NOW() WHERE id = 1;</code> to preserve audit history and prevent accidental data loss.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 17 -->
+        <section class="slide-item" data-part="SECTION 08: POSTGRESQL DATA TYPES" id="slide-17">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 08: POSTGRESQL DATA TYPES</span>
+                <h2 class="slide-title">Core PostgreSQL Data Types</h2>
+                <p class="slide-subtitle">Choosing the optimal type for storage efficiency and data precision</p>
+              </div>
+              <span class="tag-badge blue">DATA TYPES</span>
+            </div>
+
+            <div class="slide-grid-4">
+              <div class="info-card">
+                <span class="tag-badge blue">NUMBERS</span>
+                <h4>INTEGER / BIGINT</h4>
+                <p>INTEGER is 4 bytes (-2B to +2B). BIGINT is 8 bytes. Always use BIGINT for high-traffic IDs or analytics counters.</p>
+              </div>
+
+              <div class="info-card">
+                <span class="tag-badge green">FINANCE</span>
+                <h4>NUMERIC(p, s)</h4>
+                <p>Exact decimal representation. Never use FLOAT or REAL for money or currency; always use NUMERIC(12, 2).</p>
+              </div>
+
+              <div class="info-card">
+                <span class="tag-badge orange">STRINGS</span>
+                <h4>TEXT vs VARCHAR</h4>
+                <p>In PostgreSQL, TEXT and VARCHAR have identical underlying performance. Prefer TEXT unless strict character limit enforcement is required.</p>
+              </div>
+
+              <div class="info-card">
+                <span class="tag-badge blue">LOGIC</span>
+                <h4>BOOLEAN &amp; DATE</h4>
+                <p>BOOLEAN stores true/false/null. DATE stores calendar dates (YYYY-MM-DD) without times or timezones.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 18 -->
+        <section class="slide-item" data-part="SECTION 08: POSTGRESQL DATA TYPES" id="slide-18">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 08: POSTGRESQL DATA TYPES</span>
+                <h2 class="slide-title">Timestamps: TIMESTAMP vs TIMESTAMPTZ</h2>
+                <p class="slide-subtitle">Why you should almost always use TIMESTAMPTZ in modern web apps</p>
+              </div>
+              <span class="tag-badge red">TIMEZONE SAFETY</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4 class="text-red-400">TIMESTAMP (Without Time Zone)</h4>
+                <p data-i18n="s18_c1_desc">Stores naive local time without any timezone offset. Leads to severe bugs when servers, databases, and users reside in different timezones.</p>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">
+TIMESTAMP '2026-10-19 14:00:00'
+-- Ambiguous: Is this UTC? EST? ICT (Phnom Penh)?
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card" style="border-color: rgba(34, 197, 94, 0.4); background: rgba(34, 197, 94, 0.05);">
+                <h4 class="text-green-400">TIMESTAMPTZ (With Time Zone)</h4>
+                <p data-i18n="s18_c2_desc">Internally converts and stores the timestamp in UTC. When queried, PostgreSQL formats the output based on the client session timezone.</p>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">
+TIMESTAMPTZ '2026-10-19 14:00:00+07'
+-- Stored internally as UTC: 2026-10-19 07:00:00 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert-callout success">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+              <div><strong>Golden Production Rule:</strong> Always declare timestamp columns as <code>TIMESTAMPTZ DEFAULT NOW()</code>. Your database remains strictly normalized in UTC across all global deployments.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 19 -->
+        <section class="slide-item" data-part="SECTION 08: POSTGRESQL DATA TYPES" id="slide-19">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 08: POSTGRESQL DATA TYPES</span>
+                <h2 class="slide-title">JSONB: Semi-Structured Power</h2>
+                <p class="slide-subtitle">Storing, indexing, and querying JSON inside relational tables</p>
+              </div>
+              <span class="tag-badge green">JSONB</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Querying JSONB</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Create table with JSONB column
+CREATE TABLE user_settings (
+    user_id BIGINT PRIMARY KEY,
+    metadata JSONB NOT NULL DEFAULT '{}'
+);
+
+-- Extract as JSON object (->) vs TEXT (->>)
+SELECT 
+    metadata->'theme' as theme_json,
+    metadata->>'theme' as theme_text
+FROM user_settings
+WHERE metadata->>'newsletter' = 'true';</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>JSON vs JSONB</h4>
+                  <p data-i18n="s19_c1_desc">JSON stores raw text. JSONB parses JSON into a decomposed binary format that supports fast indexing, fast key lookups, and rich operators.</p>
+                </div>
+                <div class="info-card">
+                  <h4>GIN Indexing on JSONB</h4>
+                  <p>You can build GIN (Generalized Inverted Index) on JSONB columns: <code>CREATE INDEX idx_meta ON user_settings USING GIN (metadata);</code> for blazing-fast document lookups.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 20 -->
+        <section class="slide-item" data-part="SECTION 09: PRIMARY KEYS &amp; UUID" id="slide-20">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 09: PRIMARY KEYS &amp; UUID</span>
+                <h2 class="slide-title">Primary Keys: BIGSERIAL vs UUID</h2>
+                <p class="slide-subtitle">Comparing auto-incrementing sequential integers with distributed UUIDs</p>
+              </div>
+              <span class="tag-badge blue">PRIMARY KEYS</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>BIGSERIAL (Auto-Increment Integer)</h4>
+                <p data-i18n="s20_c1_desc">Fast, 8-byte compact storage, natural ordering. Downside: URLs expose sequential IDs (`/users/1`, `/users/2`), allowing ID enumeration attacks.</p>
+                <div class="code-box mt-2">
+                  <pre><code>id BIGSERIAL PRIMARY KEY</code></pre>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>UUID (Universally Unique Identifier)</h4>
+                <p data-i18n="s20_c2_desc">128-bit globally unique identifier. Can be generated on the client or server without coordinating with the database. Impossible to guess.</p>
+                <div class="code-box mt-2">
+                  <pre><code>id UUID PRIMARY KEY DEFAULT gen_random_uuid()</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <table class="table-spec">
+              <thead>
+                <tr>
+                  <th>Criteria</th>
+                  <th>BIGSERIAL</th>
+                  <th>UUID</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Storage Size</td><td>8 bytes</td><td>16 bytes</td></tr>
+                <tr><td>URL Enumeration Attack</td><td><span class="text-red-400">Vulnerable (/orders/42)</span></td><td><span class="text-green-400">Secure (impossible to guess)</span></td></tr>
+                <tr><td>Client-Side Generation</td><td>No (must ask database)</td><td>Yes (generate before insert)</td></tr>
+                <tr><td>Index Insert Performance</td><td>High (sequential append)</td><td>Moderate (random B-tree page splits)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SLIDE 21 -->
+        <section class="slide-item" data-part="SECTION 09: PRIMARY KEYS &amp; UUID" id="slide-21">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 09: PRIMARY KEYS &amp; UUID</span>
+                <h2 class="slide-title">Generating UUIDs &amp; Tradeoffs</h2>
+                <p class="slide-subtitle">Using gen_random_uuid() and understanding B-Tree page fragmentation</p>
+              </div>
+              <span class="tag-badge green">gen_random_uuid()</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Native UUID Generation</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- PostgreSQL 13+ built-in function
+SELECT gen_random_uuid();
+-- Output: c9a646d3-9c61-4cd7-bf53-73d8f7634f19
+
+-- Creating table with UUID primary key
+CREATE TABLE projects (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    title TEXT NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>gen_random_uuid()</h4>
+                  <p data-i18n="s21_c1_desc">PostgreSQL 13+ includes `gen_random_uuid()` natively without requiring the `pgcrypto` extension. Generates cryptographically secure UUIDv4.</p>
+                </div>
+                <div class="info-card">
+                  <h4>UUID Performance Tradeoff</h4>
+                  <p data-i18n="s21_c2_desc">Random UUIDv4 values cause random index insertions, leading to B-Tree page splits and higher write amplification compared to sequential integers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 22 -->
+        <section class="slide-item" data-part="SECTION 10: RELATIONSHIPS" id="slide-22">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 10: RELATIONSHIPS</span>
+                <h2 class="slide-title">Database Relationships &amp; Cardinality</h2>
+                <p class="slide-subtitle">Modeling 1-to-1, 1-to-Many, and Many-to-Many associations</p>
+              </div>
+              <span class="tag-badge blue">CARDINALITY</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>One-to-One (1:1)</h4>
+                <p>One user has exactly one profile. Enforced with a UNIQUE foreign key.</p>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">users (id) ← (user_id UNIQUE) profiles</div>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>One-to-Many (1:N)</h4>
+                <p>One user authors many posts. Standard foreign key on the posts table.</p>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">users (id) ← (user_id) posts</div>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>Many-to-Many (N:M)</h4>
+                <p>Posts have many tags; tags belong to many posts. Resolved via a junction table.</p>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">posts (id) ← post_tags → tags (id)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 23 -->
+        <section class="slide-item" data-part="SECTION 10: RELATIONSHIPS" id="slide-23">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 10: RELATIONSHIPS</span>
+                <h2 class="slide-title">Foreign Keys &amp; Referential Integrity</h2>
+                <p class="slide-subtitle">Enforcing relational constraints with ON DELETE rules</p>
+              </div>
+              <span class="tag-badge green">FOREIGN KEYS</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Foreign Key Definition</span><button class="btn-copy">Copy</button></div>
+                <pre><code>CREATE TABLE posts (
+    id BIGSERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    -- Cascading foreign key definition
+    user_id BIGINT NOT NULL 
+        REFERENCES users(id) 
+        ON DELETE CASCADE
+);</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <table class="table-spec">
+                  <thead>
+                    <tr><th>Action</th><th>Behavior on Parent Delete</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><code>CASCADE</code></td><td>Automatically deletes all child rows when the parent is deleted</td></tr>
+                    <tr><td><code>SET NULL</code></td><td>Sets child foreign key to NULL (requires column to be nullable)</td></tr>
+                    <tr><td><code>RESTRICT</code></td><td>Prevents deleting parent while child rows exist (default safe behavior)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 24 -->
+        <section class="slide-item" data-part="SECTION 11: SQL JOINS" id="slide-24">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 11: SQL JOINS</span>
+                <h2 class="slide-title">Visualizing SQL Joins</h2>
+                <p class="slide-subtitle">Combining data across multiple tables in a single query</p>
+              </div>
+              <span class="tag-badge blue">JOINS</span>
+            </div>
+
+            <div class="slide-grid-4">
+              <div class="info-card text-center">
+                <h4 class="justify-center">INNER JOIN</h4>
+                <div class="diagram-box my-2 py-3 text-xs">A ∩ B</div>
+                <p class="text-xs">Returns only rows where matching values exist in both tables.</p>
+              </div>
+
+              <div class="info-card text-center">
+                <h4 class="justify-center">LEFT JOIN</h4>
+                <div class="diagram-box my-2 py-3 text-xs">A + (A ∩ B)</div>
+                <p class="text-xs">Returns all rows from left table, plus matched records from right.</p>
+              </div>
+
+              <div class="info-card text-center">
+                <h4 class="justify-center">RIGHT JOIN</h4>
+                <div class="diagram-box my-2 py-3 text-xs">(A ∩ B) + B</div>
+                <p class="text-xs">Returns all rows from right table, plus matched from left.</p>
+              </div>
+
+              <div class="info-card text-center">
+                <h4 class="justify-center">FULL OUTER</h4>
+                <div class="diagram-box my-2 py-3 text-xs">A ∪ B</div>
+                <p class="text-xs">Returns all rows whenever a match exists in either table.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 25 -->
+        <section class="slide-item" data-part="SECTION 11: SQL JOINS" id="slide-25">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 11: SQL JOINS</span>
+                <h2 class="slide-title">Practical Multi-Table Queries</h2>
+                <p class="slide-subtitle">Fetching users, their posts, and counting comments with GROUP BY</p>
+              </div>
+              <span class="tag-badge green">PRACTICAL SQL</span>
+            </div>
+
+            <div class="code-box">
+              <div class="code-box-header"><span>SQL — Joining Users, Posts &amp; Comment Counts</span><button class="btn-copy">Copy</button></div>
+              <pre><code>SELECT 
+    users.id AS user_id,
+    users.name AS author_name,
+    posts.title AS post_title,
+    COUNT(comments.id) AS comment_count
+FROM users
+INNER JOIN posts ON posts.user_id = users.id
+LEFT JOIN comments ON comments.post_id = posts.id
+GROUP BY users.id, users.name, posts.id, posts.title
+ORDER BY comment_count DESC;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 26 -->
+        <section class="slide-item" data-part="SECTION 12: INDEXES" id="slide-26">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 12: INDEXES</span>
+                <h2 class="slide-title">What is a Database Index?</h2>
+                <p class="slide-subtitle">Speeding up query reads with B-Tree data structures</p>
+              </div>
+              <span class="tag-badge blue">INDEXING</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Creating Indexes</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Single column index
+CREATE INDEX idx_users_email 
+ON users(email);
+
+-- Composite index (multi-column)
+CREATE INDEX idx_tasks_project_status 
+ON tasks(project_id, status);</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>The B-Tree Index</h4>
+                  <p data-i18n="s26_c1_desc">Without an index, finding a user by email requires scanning every single row in the table (Sequential Scan, O(N)). An index provides an O(log N) lookup path.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Indexes Are Not Free</h4>
+                  <p data-i18n="s26_c2_desc">Indexes consume disk space and add write overhead. Every INSERT, UPDATE, and DELETE must also update the corresponding index trees.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 27 -->
+        <section class="slide-item" data-part="SECTION 12: INDEXES" id="slide-27">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 12: INDEXES</span>
+                <h2 class="slide-title">EXPLAIN &amp; EXPLAIN ANALYZE</h2>
+                <p class="slide-subtitle">Measuring query planning and identifying execution bottlenecks</p>
+              </div>
+              <span class="tag-badge green">QUERY PLAN</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>EXPLAIN ANALYZE Output</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+<span class="term-cmd">EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'dara@test.com';</span>
+
+<span class="term-out">Index Scan using idx_users_email on users  (cost=0.29..8.30 rows=1 width=72) (actual time=0.038..0.040 rows=1 loops=1)
+  Index Cond: (email = 'dara@test.com'::text)
+Planning Time: 0.124 ms
+Execution Time: 0.065 ms</span>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Seq Scan vs Index Scan</h4>
+                  <p data-i18n="s27_c2_desc">Look for 'Seq Scan' on large tables as an indicator that a missing index is forcing PostgreSQL to read all table pages from disk.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Cost &amp; Actual Milliseconds</h4>
+                  <p>Cost shows PostgreSQL query planner estimates. Actual time shows real stopwatch milliseconds measured during real execution.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 28 -->
+        <section class="slide-item" data-part="SECTION 13: TRANSACTIONS &amp; ACID" id="slide-28">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 13: TRANSACTIONS &amp; ACID</span>
+                <h2 class="slide-title">Transactions &amp; ACID Guarantees</h2>
+                <p class="slide-subtitle">The four pillars of reliable, enterprise-grade data management</p>
+              </div>
+              <span class="tag-badge blue">ACID</span>
+            </div>
+
+            <div class="slide-grid-4">
+              <div class="info-card">
+                <span class="tag-badge blue">A</span>
+                <h4>Atomicity</h4>
+                <p>All operations in a transaction succeed, or all fail together. Never half-written data.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-badge green">C</span>
+                <h4>Consistency</h4>
+                <p>Constraints (unique, foreign keys, types) are strictly enforced before committing.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-badge orange">I</span>
+                <h4>Isolation</h4>
+                <p>Concurrent transactions do not see intermediate, uncommitted modifications.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-badge blue">D</span>
+                <h4>Durability</h4>
+                <p>Committed records are permanently written to Write-Ahead Logging (WAL) on disk.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 29 -->
+        <section class="slide-item" data-part="SECTION 13: TRANSACTIONS &amp; ACID" id="slide-29">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 13: TRANSACTIONS &amp; ACID</span>
+                <h2 class="slide-title">Transaction Workflow in Action</h2>
+                <p class="slide-subtitle">BEGIN, COMMIT, and ROLLBACK in banking and payment processing</p>
+              </div>
+              <span class="tag-badge green">BANK TRANSFER</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Bank Transfer Transaction</span><button class="btn-copy">Copy</button></div>
+                <pre><code>BEGIN;
+
+-- 1. Deduct from Alice
+UPDATE accounts 
+SET balance = balance - 100 
+WHERE id = 'alice-123';
+
+-- 2. Add to Bob
+UPDATE accounts 
+SET balance = balance + 100 
+WHERE id = 'bob-456';
+
+-- Commit changes permanently
+COMMIT;
+
+-- Or abort on any failure:
+-- ROLLBACK;</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                  <div data-i18n="s29_desc">Transferring $100 between two bank accounts requires deducting from Account A and adding to Account B. If the server crashes midway, a transaction guarantees no money vanishes.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 30 -->
+        <section class="slide-item" data-part="SECTION 14: DATABASE DESIGN" id="slide-30">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 14: DATABASE DESIGN</span>
+                <h2 class="slide-title">Database Normalization (1NF to 3NF)</h2>
+                <p class="slide-subtitle">Eliminating redundancy while keeping queries clean and maintainable</p>
+              </div>
+              <span class="tag-badge blue">SCHEMA DESIGN</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="info-card" style="border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.05);">
+                <h4 class="text-red-400"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg> BAD DATABASE (Denormalized)</h4>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">
+users
+├─ id: 1
+├─ name: "Dara"
+└─ posts: "Post 1, Post 2, Post 3"  <-- Comma list!
+                  </div>
+                </div>
+                <p class="text-xs text-red-300 mt-2">Cannot index individual posts, cannot join on author, cannot maintain referential integrity.</p>
+              </div>
+
+              <div class="info-card" style="border-color: rgba(34, 197, 94, 0.4); background: rgba(34, 197, 94, 0.05);">
+                <h4 class="text-green-400"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> GOOD DATABASE (Normalized)</h4>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">
+users (id, name, email)
+  ↓ (1:N via user_id)
+posts (id, user_id, title)
+  ↓ (1:N via post_id)
+comments (id, post_id, comment)
+                  </div>
+                </div>
+                <p class="text-xs text-green-300 mt-2">Clean, queryable, indexable, cascade-safe.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 31 -->
+        <section class="slide-item" data-part="SECTION 14: DATABASE DESIGN" id="slide-31">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 14: DATABASE DESIGN</span>
+                <h2 class="slide-title">Production Schema Conventions</h2>
+                <p class="slide-subtitle">Clean naming rules, audit fields, and column constraints</p>
+              </div>
+              <span class="tag-badge green">BEST PRACTICES</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>Naming Rules</h4>
+                <p>Use lowercase <code>snake_case</code>. Use plural table names (<code>users</code>, <code>projects</code>) and singular foreign keys (<code>user_id</code>).</p>
+              </div>
+              <div class="info-card">
+                <h4>Audit Columns</h4>
+                <p>Always add <code>created_at TIMESTAMPTZ DEFAULT NOW()</code> and <code>updated_at TIMESTAMPTZ DEFAULT NOW()</code>.</p>
+              </div>
+              <div class="info-card">
+                <h4>Explicit Constraints</h4>
+                <p>Prefer <code>NOT NULL</code> whenever a value is required. Always add explicit foreign keys with ON DELETE policies.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 32 -->
+        <section class="slide-item" data-part="SECTION 15: MIGRATIONS" id="slide-32">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 15: MIGRATIONS</span>
+                <h2 class="slide-title">What are Database Migrations?</h2>
+                <p class="slide-subtitle">Version-controlling schema evolution across teams and environments</p>
+              </div>
+              <span class="tag-badge blue">MIGRATIONS</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="diagram-box flex-col items-stretch">
+                <div class="diag-node">0001_create_users_table.sql</div>
+                <div class="diag-arrow text-center">↓</div>
+                <div class="diag-node">0002_create_projects_table.sql</div>
+                <div class="diag-arrow text-center">↓</div>
+                <div class="diag-node">0003_add_avatar_to_users.sql</div>
+                <div class="diag-arrow text-center">↓</div>
+                <div class="diag-node active">Production Database Schema (Synced)</div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Why Migrations Matter</h4>
+                  <p data-i18n="s32_c1_desc">Manually executing SQL schema commands in production leads to schema drift, forgotten changes, broken deployments, and untracked alterations.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Version Pipeline</h4>
+                  <p data-i18n="s32_c2_desc">Migrations are ordered script files committed to Git. A tracking table records which migrations have run on each environment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 33 -->
+        <section class="slide-item" data-part="SECTION 15: MIGRATIONS" id="slide-33">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 15: MIGRATIONS</span>
+                <h2 class="slide-title">Writing Safe Production Migrations</h2>
+                <p class="slide-subtitle">Executing ALTER TABLE without locking tables or breaking production</p>
+              </div>
+              <span class="tag-badge green">ALTER TABLE</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Adding Column Safely</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Safe: Adding nullable column or column with DEFAULT
+ALTER TABLE users 
+ADD COLUMN avatar_url TEXT;
+
+-- Safe: Adding column with default (PG 11+)
+ALTER TABLE users 
+ADD COLUMN role TEXT NOT NULL DEFAULT 'member';</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Backwards Compatibility</h4>
+                  <p data-i18n="s33_c1_desc">Never rename or delete a column while existing application versions are running. Deploy in phases: add column -> deploy app -> migrate data -> remove old column.</p>
+                </div>
+                <div class="alert-callout warning">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+                  <div>Never add a <code>NOT NULL</code> column without a <code>DEFAULT</code> on a table with existing rows, as PostgreSQL will reject the migration immediately.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 34 -->
+        <section class="slide-item" data-part="SECTION 16: BACKUPS &amp; RESTORE" id="slide-34">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 16: BACKUPS &amp; RESTORE</span>
+                <h2 class="slide-title">PostgreSQL Backups: pg_dump &amp; Restore</h2>
+                <p class="slide-subtitle">Creating logical SQL dumps and restoring them with psql</p>
+              </div>
+              <span class="tag-badge blue">pg_dump</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>bash — dump &amp; restore</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+<span class="term-prompt"># Backup database to SQL file</span>
+<span class="term-cmd">pg_dump -U postgres -d myapp &gt; backup.sql</span>
+
+<span class="term-prompt"># Restore database from SQL file</span>
+<span class="term-cmd">psql -U postgres -d myapp &lt; backup.sql</span>
+
+<span class="term-prompt"># Compressed custom format (.dump)</span>
+<span class="term-cmd">pg_dump -U postgres -F c -d myapp &gt; myapp.dump</span>
+<span class="term-cmd">pg_restore -U postgres -d myapp myapp.dump</span>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>pg_dump (Logical Backup)</h4>
+                  <p data-i18n="s34_c1_desc">pg_dump extracts a consistent snapshot of the database schema and data into SQL statements or custom compressed binary format.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Restoring Data</h4>
+                  <p data-i18n="s34_c2_desc">SQL text dumps are restored using standard `psql myapp < backup.sql`. Custom directory or compressed dumps use `pg_restore`.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 35 -->
+        <section class="slide-item" data-part="SECTION 16: BACKUPS &amp; RESTORE" id="slide-35">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 16: BACKUPS &amp; RESTORE</span>
+                <h2 class="slide-title">Disaster Recovery Best Practices</h2>
+                <p class="slide-subtitle">Why an untested backup cannot be trusted in production</p>
+              </div>
+              <span class="tag-badge red">DISASTER RECOVERY</span>
+            </div>
+
+            <div class="alert-callout warning">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+              <div><strong>Core Engineering Rule:</strong> A backup that has never been restored is not fully trusted. You do not have a backup plan until you have verified your restore procedure.</div>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>Automated &amp; Scheduled</h4>
+                <p data-i18n="s35_c1_desc">Schedule automated daily backups and store them in geographically separate object storage (e.g., S3/Cloud Storage) with retention policies.</p>
+              </div>
+              <div class="info-card">
+                <h4>Point-in-Time Recovery (PITR)</h4>
+                <p>Modern cloud systems like Neon continuously stream WAL logs, allowing you to restore the database to any specific second in the past.</p>
+              </div>
+              <div class="info-card">
+                <h4>Restore Drills</h4>
+                <p data-i18n="s35_c2_desc">Regularly spin up a staging database from your latest backup to verify recovery time and data integrity.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 36 -->
+        <section class="slide-item" data-part="SECTION 17: USERS &amp; PERMISSIONS" id="slide-36">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 17: USERS &amp; PERMISSIONS</span>
+                <h2 class="slide-title">PostgreSQL Roles &amp; Permissions</h2>
+                <p class="slide-subtitle">Enforcing the principle of least privilege in production</p>
+              </div>
+              <span class="tag-badge green">SECURITY</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Least Privilege User Creation</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- 1. Create dedicated application user
+CREATE USER app_user WITH PASSWORD 'StrongSecretPassword123!';
+
+-- 2. Grant connection rights
+GRANT CONNECT ON DATABASE myapp TO app_user;
+
+-- 3. Grant table DML permissions only
+GRANT SELECT, INSERT, UPDATE, DELETE 
+ON ALL TABLES IN SCHEMA public TO app_user;</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="alert-callout danger">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+                  <div><strong>Never Use Superuser in Applications:</strong> If your web app uses the <code>postgres</code> superuser, an attacker exploiting SQL injection can read all databases, drop tables, or even execute arbitrary server commands.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 37 -->
+        <section class="slide-item" data-part="SECTION 18: WHAT IS NEON?" id="slide-37">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 18: WHAT IS NEON?</span>
+                <h2 class="slide-title">Neon: Serverless PostgreSQL Platform</h2>
+                <p class="slide-subtitle">Separating compute from storage for modern cloud development</p>
+              </div>
+              <span class="tag-badge blue">NEON SERVERLESS</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>What is Neon?</h4>
+                <p data-i18n="s37_c1_desc">Neon is a serverless, multi-tenant PostgreSQL platform that re-architects Postgres by splitting monolithic database compute from cloud storage.</p>
+              </div>
+              <div class="info-card">
+                <h4>100% Postgres Compatible</h4>
+                <p data-i18n="s37_c2_desc">Neon runs standard 100% open-source PostgreSQL. All your queries, types, extensions, and ORM tools work with zero code modifications.</p>
+              </div>
+              <div class="info-card">
+                <h4>Zero Maintenance</h4>
+                <p>No operating system patches, no manual disk resizing, no replication configuration. Neon handles the underlying cloud infrastructure automatically.</p>
+              </div>
+            </div>
+
+            <div class="diagram-box">
+              <div class="diag-node">Next.js Web App</div>
+              <div class="diag-arrow">→</div>
+              <div class="diag-node active">Neon Compute (Stateless Postgres)</div>
+              <div class="diag-arrow">→</div>
+              <div class="diag-node">Neon Pageservers (Cloud Storage &amp; WAL)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 38 -->
+        <section class="slide-item" data-part="SECTION 18: WHAT IS NEON?" id="slide-38">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 18: WHAT IS NEON?</span>
+                <h2 class="slide-title">Traditional Postgres vs Neon Architecture</h2>
+                <p class="slide-subtitle">Monolithic local disk vs cloud storage pageservers &amp; distributed WAL</p>
+              </div>
+              <span class="tag-badge green">ARCHITECTURE COMPARISON</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="info-card">
+                <h4>Traditional PostgreSQL</h4>
+                <p data-i18n="s38_c1_desc">Compute and disk are tightly coupled to a single virtual machine. Upgrades, scaling, and resizing require stopping the server or complex replication.</p>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">
+[ Application ]
+      ↓
+[ Single Server VM ]
+  ├─ CPU / RAM (Compute)
+  └─ Attached Hard Disk (Storage)
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card" style="border-color: rgba(59, 130, 246, 0.4); background: rgba(37, 99, 235, 0.08);">
+                <h4 class="text-blue-400">Neon Cloud Architecture</h4>
+                <p data-i18n="s38_c2_desc">Stateless Postgres compute nodes run on Kubernetes, while storage is handled by distributed Neon Pageservers and S3, enabling instant scaling and branching.</p>
+                <div class="terminal-window mt-2">
+                  <div class="terminal-body text-xs">
+[ Application ]
+      ↓
+[ Stateless Compute Node ] (Can sleep / autoscale)
+      ↓
+[ Neon Distributed Storage &amp; Pageservers ]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 39 -->
+        <section class="slide-item" data-part="SECTION 18: WHAT IS NEON?" id="slide-39">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 18: WHAT IS NEON?</span>
+                <h2 class="slide-title">Neon Core Features</h2>
+                <p class="slide-subtitle">Scale-to-zero, autoscaling, and connection pooling</p>
+              </div>
+              <span class="tag-badge blue">FEATURES</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>Scale to Zero</h4>
+                <p data-i18n="s39_c1_desc">When your app is inactive (e.g., development at night), compute shuts down completely, dropping your server costs to zero. Cold starts wake up in ~500ms.</p>
+              </div>
+              <div class="info-card">
+                <h4>Autoscaling Compute</h4>
+                <p data-i18n="s39_c2_desc">Compute dynamically scales CPU and RAM allocation based on real-time traffic spikes without restarting or terminating connections.</p>
+              </div>
+              <div class="info-card">
+                <h4>Instant Branching</h4>
+                <p>Create full database copies (schema + data) in seconds for feature testing, migrations, or pull request preview environments.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 40 -->
+        <section class="slide-item" data-part="SECTION 19: CREATE A NEON DATABASE" id="slide-40">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 19: CREATE A NEON DATABASE</span>
+                <h2 class="slide-title">Creating a Neon Project</h2>
+                <p class="slide-subtitle">The step-by-step cloud provisioning workflow</p>
+              </div>
+              <span class="tag-badge green">CONSOLE WORKFLOW</span>
+            </div>
+
+            <div class="diagram-box justify-start gap-4">
+              <div class="diag-node">1. Sign Up (neon.tech)</div>
+              <div class="diag-arrow">→</div>
+              <div class="diag-node">2. New Project</div>
+              <div class="diag-arrow">→</div>
+              <div class="diag-node">3. Select Region (e.g. AWS Singapore)</div>
+              <div class="diag-arrow">→</div>
+              <div class="diag-node">4. Choose Postgres Version</div>
+              <div class="diag-arrow">→</div>
+              <div class="diag-node active">5. Copy Connection String</div>
+            </div>
+
+            <div class="alert-callout tip mt-2">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+              <div>Neon generates the database credentials immediately upon project creation, ready to paste directly into your <code>.env.local</code> configuration file.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 41 -->
+        <section class="slide-item" data-part="SECTION 20: NEON CONNECTION STRING" id="slide-41">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 20: NEON CONNECTION STRING</span>
+                <h2 class="slide-title">Deconstructing the Connection String</h2>
+                <p class="slide-subtitle">Understanding credentials, endpoint host, database, and SSL</p>
+              </div>
+              <span class="tag-badge blue">DATABASE_URL</span>
+            </div>
+
+            <div class="terminal-window">
+              <div class="terminal-header"><span>Neon Connection URI Structure</span><button class="btn-copy">Copy</button></div>
+              <div class="terminal-body">
+postgresql://alex:AbCdEf123456@ep-cool-fog-123456.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+             ↑    ↑            ↑                                              ↑      ↑
+         [User] [Password]  [Endpoint Hostname]                            [DB Name] [SSL Required]
+              </div>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>Endpoint Host</h4>
+                <p>Identifies your unique compute instance. For connection pooling, Neon provides a host with <code>-pooler</code> appended.</p>
+              </div>
+              <div class="info-card">
+                <h4>sslmode=require</h4>
+                <p>PostgreSQL over the public internet MUST enforce SSL encryption to prevent eavesdropping and credential theft.</p>
+              </div>
+              <div class="info-card">
+                <h4>Direct vs Pooled</h4>
+                <p>Direct host for migrations (Prisma/Drizzle push); Pooled host (<code>-pooler</code>) for serverless web app queries.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 42 -->
+        <section class="slide-item" data-part="SECTION 21: NEON BRANCHING" id="slide-42">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 21: NEON BRANCHING</span>
+                <h2 class="slide-title">Instant Database Branching</h2>
+                <p class="slide-subtitle">Git-like copy-on-write branching for your database data and schema</p>
+              </div>
+              <span class="tag-badge green">BRANCHING</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>Neon Branch Topology</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+production (main)
+   │
+   ├── staging (integration tests)
+   │
+   ├── feat-auth (developer branch with real data)
+   │
+   └── test-e2e (automated CI testing)
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>What is Database Branching?</h4>
+                  <p data-i18n="s42_c1_desc">Neon allows creating instant branches of your production database in under 2 seconds. Branches use copy-on-write storage, so they cost virtually nothing until modified.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Isolated Development</h4>
+                  <p>Developers work against authentic production-scale data without any fear of corrupting the real production database.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 43 -->
+        <section class="slide-item" data-part="SECTION 21: NEON BRANCHING" id="slide-43">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 21: NEON BRANCHING</span>
+                <h2 class="slide-title">Branching Development Lifecycle</h2>
+                <p class="slide-subtitle">Testing risky migrations against real data with zero production risk</p>
+              </div>
+              <span class="tag-badge blue">WORKFLOW</span>
+            </div>
+
+            <div class="diagram-box flex-col items-stretch">
+              <div class="diag-node">1. Production Database Running Live</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node active">2. Create Branch: feat-payment-schema (Takes ~1 second)</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node">3. Run Risky Schema Migration on Branch</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node">4. Execute Integration &amp; Performance Tests on Branch</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node active">5. Merge Code &amp; Apply Migration to Production with 100% Confidence</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 44 -->
+        <section class="slide-item" data-part="SECTION 22: NEON + GITHUB WORKFLOW" id="slide-44">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 22: NEON + GITHUB WORKFLOW</span>
+                <h2 class="slide-title">Neon + GitHub Pull Request Workflow</h2>
+                <p class="slide-subtitle">Ephemeral database branches for every single pull request</p>
+              </div>
+              <span class="tag-badge green">CI/CD INTEGRATION</span>
+            </div>
+
+            <div class="terminal-window">
+              <div class="terminal-header"><span>GitHub Actions + Neon CI/CD Pipeline</span><button class="btn-copy">Copy</button></div>
+              <div class="terminal-body">
+Developer opens GitHub PR #42
+   ↓
+GitHub Action calls Neon API: creates branch "pr-42"
+   ↓
+Vercel Preview Deployment deploys App using DATABASE_URL for "pr-42"
+   ↓
+Automated Cypress / Playwright tests run against real database branch
+   ↓
+PR #42 merged to main → GitHub Action deletes branch "pr-42"
+   ↓
+Production deployment updates live database safely
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 45 -->
+        <section class="slide-item" data-part="SECTION 23: NEON + NEXT.JS" id="slide-45">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 23: NEON + NEXT.JS</span>
+                <h2 class="slide-title">Neon + Next.js App Router Architecture</h2>
+                <p class="slide-subtitle">Modern server-side data fetching without API boilerplate</p>
+              </div>
+              <span class="tag-badge blue">NEXT.JS 15</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="diagram-box flex-col items-stretch">
+                <div class="diag-node">Browser Client Component (UI Interaction)</div>
+                <div class="diag-arrow text-center">↓ Server Action call</div>
+                <div class="diag-node active">Next.js Server Component (page.tsx / actions.ts)</div>
+                <div class="diag-arrow text-center">↓ SQL Query execution</div>
+                <div class="diag-node">Neon Serverless PostgreSQL</div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Server Components &amp; Actions</h4>
+                  <p data-i18n="s45_c1_desc">In Next.js App Router, Server Components and Server Actions execute strictly on the server. They query Neon directly without exposing database queries to the browser.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Zero Client Bundle Overhead</h4>
+                  <p data-i18n="s45_c2_desc">PostgreSQL drivers and ORMs stay on the server, ensuring your client JavaScript bundle size remains 0kB for database operations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 46 -->
+        <section class="slide-item" data-part="SECTION 23: NEON + NEXT.JS" id="slide-46">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 23: NEON + NEXT.JS</span>
+                <h2 class="slide-title">Server vs Client Security Boundary</h2>
+                <p class="slide-subtitle">Protecting your DATABASE_URL from client-side bundle exposure</p>
+              </div>
+              <span class="tag-badge red">CRITICAL SECURITY</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="slide-stack">
+                <div class="code-box">
+                  <div class="code-box-header"><span>.env.local — SAFE (Server Only)</span><button class="btn-copy">Copy</button></div>
+                  <pre><code># SAFE: Only accessible in Server Components & Actions
+DATABASE_URL="postgresql://user:pass@ep-xyz.neon.tech/neondb"</code></pre>
+                </div>
+
+                <div class="code-box" style="border-color: rgba(239, 68, 68, 0.5);">
+                  <div class="code-box-header text-red-400"><span>.env.local — DANGEROUS! NEVER DO THIS!</span><button class="btn-copy">Copy</button></div>
+                  <pre><code class="text-red-400"># FATAL ERROR: Exposes full credentials to public browser!
+NEXT_PUBLIC_DATABASE_URL="postgresql://..."</code></pre>
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="alert-callout danger">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+                  <div><strong>Never prefix DATABASE_URL with NEXT_PUBLIC_:</strong> Any environment variable prefixed with <code>NEXT_PUBLIC_</code> is embedded directly into the public JavaScript bundle, allowing any visitor to read your database credentials!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 47 -->
+        <section class="slide-item" data-part="SECTION 24: DATABASE CLIENTS" id="slide-47">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 24: DATABASE CLIENTS</span>
+                <h2 class="slide-title">Database Access Ecosystem</h2>
+                <p class="slide-subtitle">Comparing Raw SQL, Query Builders, and Modern ORMs</p>
+              </div>
+              <span class="tag-badge blue">CLIENT TOOLS</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>Raw SQL (postgres.js / pg)</h4>
+                <p data-i18n="s47_c1_desc">Maximum performance and total SQL control. No abstraction overhead, but requires manual type synchronization.</p>
+              </div>
+              <div class="info-card">
+                <h4>Drizzle ORM</h4>
+                <p data-i18n="s47_c2_desc">SQL-like TypeScript query builder and ORM. Zero-cost abstraction, lightweight, and blazingly fast in serverless environments.</p>
+              </div>
+              <div class="info-card">
+                <h4>Prisma ORM</h4>
+                <p data-i18n="s47_c3_desc">High-level abstraction with its own schema definition language and powerful migrations. Heavier engine binary cold start.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 48 -->
+        <section class="slide-item" data-part="SECTION 25: DRIZZLE + NEON" id="slide-48">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 25: DRIZZLE + NEON</span>
+                <h2 class="slide-title">Drizzle ORM Schema with Neon</h2>
+                <p class="slide-subtitle">Defining type-safe tables in pure TypeScript</p>
+              </div>
+              <span class="tag-badge green">DRIZZLE ORM</span>
+            </div>
+
+            <div class="code-box">
+              <div class="code-box-header"><span>schema.ts (Drizzle Definition)</span><button class="btn-copy">Copy</button></div>
+              <pre><code>import { pgTable, serial, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+
+export const users = pgTable('users', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull().unique(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull()
+});
+
+export const posts = pgTable('posts', {
+  id: serial('id').primaryKey(),
+  title: text('title').notNull(),
+  authorId: uuid('author_id').references(() => users.id, { onDelete: 'cascade' }).notNull()
+});</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 49 -->
+        <section class="slide-item" data-part="SECTION 25: DRIZZLE + NEON" id="slide-49">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 25: DRIZZLE + NEON</span>
+                <h2 class="slide-title">Querying with Drizzle &amp; @neondatabase/serverless</h2>
+                <p class="slide-subtitle">High-performance queries over HTTP and WebSockets</p>
+              </div>
+              <span class="tag-badge green">SERVERLESS QUERY</span>
+            </div>
+
+            <div class="code-box">
+              <div class="code-box-header"><span>db.ts &amp; page.tsx (Next.js Server Component)</span><button class="btn-copy">Copy</button></div>
+              <pre><code>import { neon } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-http';
+import { users } from './schema';
+
+const sql = neon(process.env.DATABASE_URL!);
+export const db = drizzle(sql);
+
+// Inside Next.js App Router page.tsx
+export default async function UsersPage() {
+  const allUsers = await db.select().from(users);
+  return (
+    &lt;div&gt;
+      {allUsers.map(u =&gt; &lt;p key={u.id}&gt;{u.name} — {u.email}&lt;/p&gt;)}
+    &lt;/div&gt;
+  );
+}</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 50 -->
+        <section class="slide-item" data-part="SECTION 26: PRISMA + NEON" id="slide-50">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 26: PRISMA + NEON</span>
+                <h2 class="slide-title">Prisma ORM Integration with Neon</h2>
+                <p class="slide-subtitle">Schema modeling and automated client generation</p>
+              </div>
+              <span class="tag-badge blue">PRISMA</span>
+            </div>
+
+            <div class="code-box">
+              <div class="code-box-header"><span>prisma/schema.prisma</span><button class="btn-copy">Copy</button></div>
+              <pre><code>datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+  posts     Post[]
+
+  @@map("users")
+}</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 51 -->
+        <section class="slide-item" data-part="SECTION 26: PRISMA + NEON" id="slide-51">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 26: PRISMA + NEON</span>
+                <h2 class="slide-title">ORM Tradeoff Comparison Matrix</h2>
+                <p class="slide-subtitle">Evaluating Raw SQL, Drizzle, and Prisma across real production metrics</p>
+              </div>
+              <span class="tag-badge green">COMPARISON MATRIX</span>
+            </div>
+
+            <table class="table-spec">
+              <thead>
+                <tr>
+                  <th>Criteria</th>
+                  <th>Raw SQL (postgres.js)</th>
+                  <th>Drizzle ORM</th>
+                  <th>Prisma ORM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Serverless Cold Start</td>
+                  <td><span class="text-green-400">Fastest (0ms overhead)</span></td>
+                  <td><span class="text-green-400">Ultra Fast (&lt;5ms)</span></td>
+                  <td>Moderate (Rust engine binary)</td>
+                </tr>
+                <tr>
+                  <td>Type Safety</td>
+                  <td>Manual interfaces</td>
+                  <td>Automatic from TypeScript schema</td>
+                  <td>Automatic from schema.prisma</td>
+                </tr>
+                <tr>
+                  <td>Query API Style</td>
+                  <td>Standard SQL strings</td>
+                  <td>SQL-like method chaining</td>
+                  <td>Object-relational method calls</td>
+                </tr>
+                <tr>
+                  <td>Recommended Use</td>
+                  <td>Maximum performance</td>
+                  <td>Modern Serverless Next.js</td>
+                  <td>Rapid enterprise prototyping</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SLIDE 52 -->
+        <section class="slide-item" data-part="SECTION 27: CONNECTION POOLING" id="slide-52">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 27: CONNECTION POOLING</span>
+                <h2 class="slide-title">The Serverless Connection Problem</h2>
+                <p class="slide-subtitle">Why 500 lambda invocations can crash a traditional database</p>
+              </div>
+              <span class="tag-badge red">CONNECTION CRASH</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>Problem: Direct Serverless Connections</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+500 Serverless Functions (Vercel Lambdas)
+   ↓ 500 separate open TCP connections!
+PostgreSQL Server (max_connections = 100)
+   ↓
+FATAL: sorry, too many clients already!
+500 Server Error (App Outage!)
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>Stateless Function Concurrency</h4>
+                  <p data-i18n="s52_c1_desc">Serverless functions spin up independently on demand. When traffic surges, 500 simultaneous instances open 500 separate PostgreSQL connections.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Postgres Connection Cost</h4>
+                  <p data-i18n="s52_c2_desc">Each direct PostgreSQL connection forks a dedicated backend operating system process consuming ~10MB RAM. The server quickly runs out of memory and rejects connections.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 53 -->
+        <section class="slide-item" data-part="SECTION 27: CONNECTION POOLING" id="slide-53">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 27: CONNECTION POOLING</span>
+                <h2 class="slide-title">Neon Connection Pooling (PgBouncer)</h2>
+                <p class="slide-subtitle">Scaling to 10,000+ serverless connections seamlessly</p>
+              </div>
+              <span class="tag-badge green">PgBouncer POOLER</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="terminal-window">
+                <div class="terminal-header"><span>Solution: Neon Pooled Architecture</span><button class="btn-copy">Copy</button></div>
+                <div class="terminal-body">
+10,000 Serverless Requests
+   ↓
+Neon PgBouncer Connection Pooler (-pooler)
+   ↓ Multiplexed into 10 persistent connections
+Neon PostgreSQL Compute Engine
+   ↓
+100% Uptime • Zero Connection Exhaustion!
+                </div>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>How to Use Neon Pooling</h4>
+                  <p>Simply use the pooled connection string provided in your Neon console (it appends <code>-pooler</code> to your host endpoint name).</p>
+                </div>
+                <div class="alert-callout tip">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+                  <div>Always connect your Next.js application using the Neon pooled connection string in production.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 54 -->
+        <section class="slide-item" data-part="SECTION 28: ENVIRONMENT VARIABLES" id="slide-54">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 28: ENVIRONMENT VARIABLES</span>
+                <h2 class="slide-title">Secret Management &amp; Environment Variables</h2>
+                <p class="slide-subtitle">Protecting database credentials across local dev and production hosting</p>
+              </div>
+              <span class="tag-badge blue">SECRETS</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>Local (.env.local)</h4>
+                <p data-i18n="s54_c1_desc">Store your local or dev branch connection string in `.env.local`. Always confirm that `.env*.local` is listed inside `.gitignore`.</p>
+              </div>
+              <div class="info-card">
+                <h4>Production Secrets</h4>
+                <p data-i18n="s54_c2_desc">Inject DATABASE_URL directly via your cloud hosting dashboard (e.g. Vercel Project Settings) without committing secrets to source control.</p>
+              </div>
+              <div class="info-card">
+                <h4>Branch-Specific URLs</h4>
+                <p>Assign staging DATABASE_URL to your staging preview branch, keeping production data completely segregated.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 55 -->
+        <section class="slide-item" data-part="SECTION 29: DATABASE SECURITY" id="slide-55">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 29: DATABASE SECURITY</span>
+                <h2 class="slide-title">Preventing SQL Injection Attacks</h2>
+                <p class="slide-subtitle">The critical difference between dangerous string concatenation and parameterized queries</p>
+              </div>
+              <span class="tag-badge red">SQL INJECTION</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box" style="border-color: rgba(239, 68, 68, 0.5);">
+                <div class="code-box-header text-red-400"><span>BAD: Vulnerable String Interpolation</span><button class="btn-copy">Copy</button></div>
+                <pre><code class="text-red-400">// FATAL VULNERABILITY!
+const query = `SELECT * FROM users WHERE email = '${userEmail}'`;
+// If user inputs: ' OR 1=1; DROP TABLE users; --
+// Your entire database is destroyed!</code></pre>
+              </div>
+
+              <div class="code-box" style="border-color: rgba(34, 197, 94, 0.5);">
+                <div class="code-box-header text-green-400"><span>GOOD: Parameterized Query ($1, $2)</span><button class="btn-copy">Copy</button></div>
+                <pre><code class="text-green-400">// 100% SECURE: Engine treats input strictly as data
+await sql`SELECT * FROM users WHERE email = ${userEmail}`;
+// Or in psql / pg:
+// SELECT * FROM users WHERE email = $1;</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 56 -->
+        <section class="slide-item" data-part="SECTION 29: DATABASE SECURITY" id="slide-56">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 29: DATABASE SECURITY</span>
+                <h2 class="slide-title">Passwords, TLS/SSL &amp; Access Control</h2>
+                <p class="slide-subtitle">Comprehensive security guidelines for production database deployments</p>
+              </div>
+              <span class="tag-badge green">ENCRYPTION &amp; AUTH</span>
+            </div>
+
+            <div class="slide-grid-3">
+              <div class="info-card">
+                <h4>Password Hashing</h4>
+                <p data-i18n="s56_c1_desc">NEVER store plaintext passwords. Always hash using Argon2id or bcrypt with appropriate salt rounds before inserting into the database.</p>
+              </div>
+              <div class="info-card">
+                <h4>TLS / SSL Encryption</h4>
+                <p data-i18n="s56_c2_desc">Enforce `sslmode=require` to ensure all query traffic between your web application and Neon is encrypted with modern TLS.</p>
+              </div>
+              <div class="info-card">
+                <h4>IP Allowlisting</h4>
+                <p>On production databases, restrict network access to known CIDR IP blocks or your cloud provider VPC peering tunnel.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 57 -->
+        <section class="slide-item" data-part="SECTION 30: PERFORMANCE OPTIMIZATION" id="slide-57">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 30: PERFORMANCE OPTIMIZATION</span>
+                <h2 class="slide-title">Database Performance Optimization Checklist</h2>
+                <p class="slide-subtitle">Proven engineering practices for high-throughput, low-latency applications</p>
+              </div>
+              <span class="tag-badge green">CHECKLIST</span>
+            </div>
+
+            <div class="slide-grid-4">
+              <div class="info-card">
+                <span class="tag-badge blue">01</span>
+                <h4>Index Foreign Keys</h4>
+                <p>PostgreSQL does NOT automatically index foreign key columns. Always index them manually.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-badge blue">02</span>
+                <h4>Avoid SELECT *</h4>
+                <p>Select only the specific columns needed by the view. Reduces RAM, serialization, and network I/O.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-badge blue">03</span>
+                <h4>Eliminate N+1 Queries</h4>
+                <p>Fetch related records using SQL Joins or batch queries (e.g., <code>WHERE id IN (...)</code>) instead of looping queries.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-badge blue">04</span>
+                <h4>Enable Pooling</h4>
+                <p>Use Neon PgBouncer pooled connection endpoints to prevent connection exhaustion in serverless runtimes.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 58 -->
+        <section class="slide-item" data-part="SECTION 30: PERFORMANCE OPTIMIZATION" id="slide-58">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 30: PERFORMANCE OPTIMIZATION</span>
+                <h2 class="slide-title">Debugging Slow Queries with EXPLAIN ANALYZE</h2>
+                <p class="slide-subtitle">Step-by-step diagnostic workflow for slow database calls</p>
+              </div>
+              <span class="tag-badge blue">DIAGNOSTICS</span>
+            </div>
+
+            <div class="diagram-box flex-col items-stretch">
+              <div class="diag-node">1. Application logs alert: Query took 1,200ms</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node active">2. Run in psql: EXPLAIN (ANALYZE, BUFFERS) [Your Query];</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node">3. Identify Bottleneck: Seq Scan on orders (Rows=2,000,000, Disk Reads=45,000)</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node active">4. Solution: CREATE INDEX idx_orders_customer ON orders(customer_id);</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node">5. Re-run Query: Index Scan executes in 1.2ms (1000x speedup!)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 59 -->
+        <section class="slide-item" data-part="SECTION 31: SEARCH &amp; PAGINATION" id="slide-59">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 31: SEARCH &amp; PAGINATION</span>
+                <h2 class="slide-title">Pagination: The LIMIT / OFFSET Problem</h2>
+                <p class="slide-subtitle">Why OFFSET 100000 degrades severely on large production tables</p>
+              </div>
+              <span class="tag-badge red">OFFSET CLIFF</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>Slow OFFSET Query</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Page 5000:
+SELECT id, title, created_at
+FROM tasks
+ORDER BY id ASC
+LIMIT 20 OFFSET 100000;</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>The OFFSET Penalty</h4>
+                  <p data-i18n="s59_c1_desc">`LIMIT 20 OFFSET 100000` requires PostgreSQL to read, sort, and discard 100,000 rows before returning the 20 requested records, creating high CPU and I/O load.</p>
+                </div>
+                <div class="info-card">
+                  <h4>Data Drift</h4>
+                  <p>If new rows are inserted while users paginate, rows shift across page boundaries, resulting in users seeing duplicate items.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 60 -->
+        <section class="slide-item" data-part="SECTION 31: SEARCH &amp; PAGINATION" id="slide-60">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 31: SEARCH &amp; PAGINATION</span>
+                <h2 class="slide-title">Keyset (Cursor-Based) Pagination</h2>
+                <p class="slide-subtitle">Consistent O(1) performance regardless of dataset depth</p>
+              </div>
+              <span class="tag-badge green">CURSOR O(1)</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>Keyset / Cursor Query</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Next page starts immediately after last seen ID:
+SELECT id, title, created_at
+FROM tasks
+WHERE id &gt; 100020
+ORDER BY id ASC
+LIMIT 20;</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <div class="info-card">
+                  <h4>How Keyset Pagination Works</h4>
+                  <p data-i18n="s60_c1_desc">Query records where the primary key is greater than the last seen ID: `WHERE id > $last_id ORDER BY id ASC LIMIT 20`. Jumps directly via B-tree index seek.</p>
+                </div>
+                <div class="alert-callout success">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+                  <div>Execution time on 10,000,000 rows remains identical on Page 1 as on Page 100,000 (~0.1ms).</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 61 -->
+        <section class="slide-item" data-part="SECTION 32: REAL PROJECT: TASKFLOW" id="slide-61">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 32: REAL PROJECT: TASKFLOW</span>
+                <h2 class="slide-title">Real Project: TaskFlow Architecture</h2>
+                <p class="slide-subtitle">Designing a production task management application database</p>
+              </div>
+              <span class="tag-badge blue">TASKFLOW ERD</span>
+            </div>
+
+            <p data-i18n="s61_desc">TaskFlow manages teams, projects, tasks, and comments. Four interconnected relational tables establish clear ownership, assignment, and discussion threads.</p>
+
+            <div class="terminal-window">
+              <div class="terminal-header"><span>TaskFlow Entity Relationship Diagram</span><button class="btn-copy">Copy</button></div>
+              <div class="terminal-body">
+users (id, name, email, created_at)
+  │
+  ├── projects (id, title, owner_id → users.id)
+  │      │
+  │      └── tasks (id, project_id → projects.id, assigned_to → users.id, status)
+  │             │
+  │             └── comments (id, task_id → tasks.id, author_id → users.id, body)
+  │
+  └── comments (author_id → users.id)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 62 -->
+        <section class="slide-item" data-part="SECTION 33: BUILD TASKFLOW STEP-BY-STEP" id="slide-62">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 33: BUILD TASKFLOW STEP-BY-STEP</span>
+                <h2 class="slide-title">TaskFlow DDL: Tables &amp; Custom Types</h2>
+                <p class="slide-subtitle">Creating users, projects, and custom ENUM types</p>
+              </div>
+              <span class="tag-badge green">DDL PART 1</span>
+            </div>
+
+            <div class="code-box">
+              <div class="code-box-header"><span>SQL — DDL: Users, ENUM &amp; Projects</span><button class="btn-copy">Copy</button></div>
+              <pre><code>-- 1. Create custom ENUM for task status
+CREATE TYPE task_status AS ENUM ('todo', 'in_progress', 'review', 'done');
+
+-- 2. Create users table
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+-- 3. Create projects table
+CREATE TABLE projects (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    title TEXT NOT NULL,
+    description TEXT,
+    owner_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 63 -->
+        <section class="slide-item" data-part="SECTION 33: BUILD TASKFLOW STEP-BY-STEP" id="slide-63">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 33: BUILD TASKFLOW STEP-BY-STEP</span>
+                <h2 class="slide-title">TaskFlow DDL: Tasks &amp; Comments Schema</h2>
+                <p class="slide-subtitle">Implementing cascading foreign keys and performance indexes</p>
+              </div>
+              <span class="tag-badge green">DDL PART 2</span>
+            </div>
+
+            <div class="code-box">
+              <div class="code-box-header"><span>SQL — DDL: Tasks &amp; Comments with Indexes</span><button class="btn-copy">Copy</button></div>
+              <pre><code>-- 4. Create tasks table
+CREATE TABLE tasks (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    project_id UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
+    assigned_to UUID REFERENCES users(id) ON DELETE SET NULL,
+    title TEXT NOT NULL,
+    status task_status NOT NULL DEFAULT 'todo',
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+-- 5. Create comments table
+CREATE TABLE comments (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    task_id UUID NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,
+    author_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    body TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+-- 6. Add performance indexes on foreign keys
+CREATE INDEX idx_tasks_project ON tasks(project_id);
+CREATE INDEX idx_tasks_assigned ON tasks(assigned_to);
+CREATE INDEX idx_comments_task ON comments(task_id);</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 64 -->
+        <section class="slide-item" data-part="SECTION 34: TASKFLOW CRUD OPERATIONS" id="slide-64">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 34: TASKFLOW CRUD OPERATIONS</span>
+                <h2 class="slide-title">TaskFlow CRUD: Create &amp; Read Operations</h2>
+                <p class="slide-subtitle">Inserting tasks and querying project dashboards with joined data</p>
+              </div>
+              <span class="tag-badge blue">CREATE &amp; READ</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Creating a Task</span><button class="btn-copy">Copy</button></div>
+                <pre><code>INSERT INTO tasks (project_id, assigned_to, title, status)
+VALUES (
+    'a1b2c3d4-0000-0000-0000-000000000001',
+    'b2c3d4e5-0000-0000-0000-000000000002',
+    'Implement Neon connection pooling',
+    'in_progress'
+)
+RETURNING id, title, status;</code></pre>
+              </div>
+
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Reading Project Dashboard</span><button class="btn-copy">Copy</button></div>
+                <pre><code>SELECT 
+    tasks.id,
+    tasks.title,
+    tasks.status,
+    users.name AS assignee_name,
+    COUNT(comments.id) AS comment_count
+FROM tasks
+LEFT JOIN users ON users.id = tasks.assigned_to
+LEFT JOIN comments ON comments.task_id = tasks.id
+WHERE tasks.project_id = $1
+GROUP BY tasks.id, users.name;</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 65 -->
+        <section class="slide-item" data-part="SECTION 34: TASKFLOW CRUD OPERATIONS" id="slide-65">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 34: TASKFLOW CRUD OPERATIONS</span>
+                <h2 class="slide-title">TaskFlow CRUD: Update &amp; Delete Operations</h2>
+                <p class="slide-subtitle">Updating task statuses and managing cascading comment deletions</p>
+              </div>
+              <span class="tag-badge green">UPDATE &amp; DELETE</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Updating Task Status</span><button class="btn-copy">Copy</button></div>
+                <pre><code>UPDATE tasks
+SET 
+    status = 'done',
+    updated_at = NOW()
+WHERE id = 'c3d4e5f6-0000-0000-0000-000000000003'
+RETURNING id, status, updated_at;</code></pre>
+              </div>
+
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL — Deleting Project (Cascade)</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- Deleting project automatically deletes
+-- all linked tasks and comments via CASCADE!
+DELETE FROM projects
+WHERE id = 'a1b2c3d4-0000-0000-0000-000000000001';</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 66 -->
+        <section class="slide-item" data-part="SECTION 35: PRODUCTION ARCHITECTURE" id="slide-66">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 35: PRODUCTION ARCHITECTURE</span>
+                <h2 class="slide-title">Complete Production Fullstack Architecture</h2>
+                <p class="slide-subtitle">How Next.js, Vercel, and Neon PostgreSQL connect in production</p>
+              </div>
+              <span class="tag-badge green">PRODUCTION ARCHITECTURE</span>
+            </div>
+
+            <div class="terminal-window">
+              <div class="terminal-header"><span>End-to-End Production Pipeline</span><button class="btn-copy">Copy</button></div>
+              <div class="terminal-body">
+                          GitHub Repository (Main Branch)
+                                      │
+                                      ↓ (Automated Deploy)
+                            Vercel / Cloud Run
+                       (Next.js 15 Fullstack Engine)
+                                      │
+                 ┌────────────────────┴────────────────────┐
+                 ↓                                         ↓
+     Server Components &amp; Actions               Static Assets &amp; HTML
+                 │                                         │
+                 ↓ (Pooled Connection / TLS)               │
+          Neon PgBouncer (-pooler)                         │
+                 │                                         │
+                 ↓ (Stateless Autoscaling Compute)         │
+          Neon PostgreSQL                                  │
+                 │                                         │
+                 └────────────────────┬────────────────────┘
+                                      ↓
+                         End Users Globally
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 67 -->
+        <section class="slide-item" data-part="SECTION 36: LOCAL VS NEON COMPARISON" id="slide-67">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 36: LOCAL VS NEON COMPARISON</span>
+                <h2 class="slide-title">Local PostgreSQL vs Neon Comparison</h2>
+                <p class="slide-subtitle">A balanced comparison matrix across real development and production scenarios</p>
+              </div>
+              <span class="tag-badge blue">TRADE-OFFS</span>
+            </div>
+
+            <table class="table-spec">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Local PostgreSQL (Docker / Apt)</th>
+                  <th>Neon Database (Serverless Cloud)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Local Development</td>
+                  <td><span class="text-green-400">Excellent (offline, zero latency)</span></td>
+                  <td><span class="text-green-400">Excellent (matches production data)</span></td>
+                </tr>
+                <tr>
+                  <td>Internet Required</td>
+                  <td><strong>No (works offline on plane/train)</strong></td>
+                  <td>Yes (requires cloud connection)</td>
+                </tr>
+                <tr>
+                  <td>Serverless Autoscaling</td>
+                  <td>Manual setup</td>
+                  <td><span class="text-green-400">Built-in (scales up &amp; down to zero)</span></td>
+                </tr>
+                <tr>
+                  <td>Database Branching</td>
+                  <td>Manual Docker volume clones</td>
+                  <td><span class="text-green-400">Instant 1-second copy-on-write branches</span></td>
+                </tr>
+                <tr>
+                  <td>Backups &amp; PITR</td>
+                  <td>Manual cron jobs / pg_dump</td>
+                  <td><span class="text-green-400">Automated continuous WAL streaming</span></td>
+                </tr>
+                <tr>
+                  <td>Production Readiness</td>
+                  <td>Requires Linux sysadmin skills</td>
+                  <td><span class="text-green-400">Fully managed cloud platform</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SLIDE 68 -->
+        <section class="slide-item" data-part="SECTION 37: 12 COMMON DATABASE MISTAKES" id="slide-68">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 37: 12 COMMON DATABASE MISTAKES</span>
+                <h2 class="slide-title">Top 12 Beginner &amp; Production Mistakes</h2>
+                <p class="slide-subtitle">Critical anti-patterns to avoid in professional database management</p>
+              </div>
+              <span class="tag-badge red">ANTI-PATTERNS</span>
+            </div>
+
+            <div class="slide-grid-3 text-xs">
+              <div class="info-card"><span class="text-red-400 font-bold">1. Using Superuser in App</span><p>Never connect your app as <code>postgres</code>. Use a dedicated restricted user.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">2. Exposing DATABASE_URL</span><p>Never prefix with <code>NEXT_PUBLIC_</code> in your Next.js environment variables.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">3. Forgetting Foreign Key Indexes</span><p>PostgreSQL does not auto-index FKs; always create them manually.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">4. Using TIMESTAMP without TZ</span><p>Always use <code>TIMESTAMPTZ</code> to avoid timezone calculation bugs.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">5. SELECT * Everywhere</span><p>Fetches unused columns, wasting memory, CPU, and network bandwidth.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">6. Raw String SQL Concatenation</span><p>Always use parameterized queries (<code>$1, $2</code>) to prevent SQL injection.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">7. Direct Serverless Connections</span><p>Use Neon PgBouncer pooled connection strings to prevent exhaustion.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">8. Unchecked UPDATE / DELETE</span><p>Forgetting <code>WHERE</code> updates or deletes every row in the table.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">9. Untested Backups</span><p>A backup never restored is an illusion; drill your restore procedures.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">10. Manual Schema Edits in Prod</span><p>Always apply schema modifications via version-controlled migrations.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">11. Missing Unique Constraints</span><p>Relying solely on frontend validation results in duplicate data.</p></div>
+              <div class="info-card"><span class="text-red-400 font-bold">12. High OFFSET Pagination</span><p>Use keyset / cursor pagination for fast O(1) performance at scale.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 69 -->
+        <section class="slide-item" data-part="SECTION 38: DEBUGGING DATABASE PROBLEMS" id="slide-69">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 38: DEBUGGING DATABASE PROBLEMS</span>
+                <h2 class="slide-title">Database Troubleshooting Runbook</h2>
+                <p class="slide-subtitle">A systematic diagnostic workflow for resolving connection and query errors</p>
+              </div>
+              <span class="tag-badge green">DEBUGGING RUNBOOK</span>
+            </div>
+
+            <div class="diagram-box flex-col items-stretch text-xs">
+              <div class="diag-node">1. Application Throws Database Connection Error</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node active">2. Test Health with pg_isready: <code>pg_isready -h localhost -p 5432</code></div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node">3. Verify DATABASE_URL syntax, port (5432), and credentials</div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node active">4. Test CLI connection directly: <code>psql "$DATABASE_URL"</code></div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node">5. Inspect PostgreSQL Logs: <code>sudo journalctl -u postgresql -n 50</code></div>
+              <div class="diag-arrow text-center">↓</div>
+              <div class="diag-node active">6. Verify User Privileges &amp; Search Path: <code>\du</code> and <code>SHOW search_path;</code></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 70 -->
+        <section class="slide-item" data-part="SECTION 39: CHEAT SHEET" id="slide-70">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 39: CHEAT SHEET</span>
+                <h2 class="slide-title">PostgreSQL Cheat Sheet: CLI &amp; Schema DDL</h2>
+                <p class="slide-subtitle">Quick reference for essential psql commands and table definition syntax</p>
+              </div>
+              <span class="tag-badge blue">CHEAT SHEET 1</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <table class="table-spec">
+                <thead>
+                  <tr><th>psql Command</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>\l</code></td><td>List databases</td></tr>
+                  <tr><td><code>\c dbname</code></td><td>Connect to database</td></tr>
+                  <tr><td><code>\dt</code></td><td>List tables</td></tr>
+                  <tr><td><code>\d tablename</code></td><td>Describe table</td></tr>
+                  <tr><td><code>\du</code></td><td>List users / roles</td></tr>
+                  <tr><td><code>\timing</code></td><td>Toggle query timing</td></tr>
+                  <tr><td><code>\q</code></td><td>Quit psql</td></tr>
+                </tbody>
+              </table>
+
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL DDL Syntax</span><button class="btn-copy">Copy</button></div>
+                <pre><code>CREATE DATABASE myapp;
+DROP DATABASE myapp;
+
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_name ON users(name);
+ALTER TABLE users ADD COLUMN bio TEXT;</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 71 -->
+        <section class="slide-item" data-part="SECTION 39: CHEAT SHEET" id="slide-71">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 39: CHEAT SHEET</span>
+                <h2 class="slide-title">PostgreSQL &amp; Neon Cheat Sheet: DML &amp; Cloud</h2>
+                <p class="slide-subtitle">Quick reference for SQL queries, joins, transactions, and Neon concepts</p>
+              </div>
+              <span class="tag-badge green">CHEAT SHEET 2</span>
+            </div>
+
+            <div class="slide-grid-2">
+              <div class="code-box">
+                <div class="code-box-header"><span>SQL Queries &amp; Transactions</span><button class="btn-copy">Copy</button></div>
+                <pre><code>-- CRUD
+INSERT INTO users (name, email) VALUES ('A', 'a@b.com') RETURNING id;
+SELECT id, name FROM users WHERE id = $1;
+UPDATE users SET name = 'B' WHERE id = $1;
+DELETE FROM users WHERE id = $1;
+
+-- Joins
+SELECT u.name, p.title FROM users u JOIN posts p ON p.user_id = u.id;
+
+-- Transactions
+BEGIN;
+UPDATE accounts SET balance = balance - 10 WHERE id = 1;
+UPDATE accounts SET balance = balance + 10 WHERE id = 2;
+COMMIT;</code></pre>
+              </div>
+
+              <div class="slide-stack">
+                <table class="table-spec">
+                  <thead>
+                    <tr><th>Neon Concept</th><th>Summary</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Compute</strong></td><td>Stateless Postgres running on Kubernetes (scales to zero)</td></tr>
+                    <tr><td><strong>Storage</strong></td><td>Distributed Pageservers with continuous cloud WAL</td></tr>
+                    <tr><td><strong>Branch</strong></td><td>Copy-on-write instant database snapshot</td></tr>
+                    <tr><td><strong>Pooler URL</strong></td><td>PgBouncer host endpoint (<code>-pooler</code>) for serverless apps</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 72 -->
+        <section class="slide-item" data-part="SECTION 40: COURSE SUMMARY &amp; MASTERY" id="slide-72">
+          <div class="slide-content-card">
+            <div class="slide-header">
+              <div class="slide-title-wrap">
+                <span class="slide-meta-label">SECTION 40: COURSE SUMMARY &amp; MASTERY</span>
+                <h2 class="slide-title">PostgreSQL &amp; Neon Mastery Complete!</h2>
+                <p class="slide-subtitle">You now have the full architectural toolkit to build production-grade web applications</p>
+              </div>
+              <span class="tag-badge green">MODULE COMPLETE</span>
+            </div>
+
+            <div class="slide-grid-3 text-xs">
+              <div class="info-card">
+                <h4 class="text-green-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> Core Database Mastery</h4>
+                <p>Relational modeling, primary keys, foreign keys, constraints, and data integrity.</p>
+              </div>
+              <div class="info-card">
+                <h4 class="text-green-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> SQL &amp; Query Optimization</h4>
+                <p>Joins, B-Tree indexes, EXPLAIN ANALYZE performance tuning, and cursor pagination.</p>
+              </div>
+              <div class="info-card">
+                <h4 class="text-green-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> Neon Serverless Architecture</h4>
+                <p>Scale-to-zero, copy-on-write branching, connection pooling, and Next.js fullstack integration.</p>
+              </div>
+            </div>
+
+            <div class="alert-callout tip">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+              <div>You can now go from <em>"I don't know PostgreSQL"</em> to <em>"I can create, manage, query, secure, backup, optimize, and connect PostgreSQL to a real Next.js application using Neon."</em></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 8px;">
+              <a href="../index.html" class="btn-nav inline-flex" style="padding: 0 20px; height: 38px;">
+                <span data-i18n="s72_btn_hub">Return to Curriculum Hub</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="bottom-bar">
+      <div class="progress-track"><div id="progress-bar-fill" class="progress-bar" style="width: 0%;"></div></div>
+      <div class="nav-shortcuts-hint">
+        <span>Navigation:</span>
+        <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
+        <span><span class="kbd">Ctrl+K</span> Search</span>
+        <span><span class="kbd">O</span> Overview</span>
+        <span><span class="kbd">F</span> Fullscreen</span>
+        <span><span class="kbd">T</span> Theme</span>
+        <span><span class="kbd">?</span> Help</span>
+      </div>
+
+      <div class="nav-buttons-group">
+        <button id="btn-prev" class="btn-nav" title="Previous Slide (Left Arrow)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+          <span data-i18n="ui_prev">Previous</span>
+        </button>
+        <button id="btn-next" class="btn-nav" title="Next Slide (Right Arrow or Space)">
+          <span data-i18n="ui_next">Next</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
+        </button>
+      </div>
+    </footer>
+
+    <!-- OVERVIEW MODAL -->
+    <div id="overview-modal" class="modal-backdrop">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <div class="modal-title" data-i18n="ui_overview_title">Slide Overview (72 Slides)</div>
+          <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="overview-grid" class="overview-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEARCH MODAL (Ctrl + K) -->
+    <div id="search-modal" class="modal-backdrop">
+      <div class="modal-panel" style="max-width: 650px;">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="text-blue-400"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+          <input id="search-input" type="text" class="search-input" placeholder="Search slides, SQL commands, Neon concepts... (Ctrl+K)" autocomplete="off">
+          <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg>
+          </button>
+        </div>
+        <div id="search-results" class="search-results"></div>
+      </div>
+    </div>
+
+    <!-- KEYBOARD SHORTCUTS MODAL (?) -->
+    <div id="shortcuts-modal" class="modal-backdrop">
+      <div class="modal-panel" style="max-width: 520px;">
+        <div class="modal-header">
+          <div class="modal-title" data-i18n="ui_shortcuts_title">Keyboard Shortcuts</div>
+          <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="shortcut-grid">
+            <div class="shortcut-row"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span> <span class="kbd">L</span></div></div>
+            <div class="shortcut-row"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span> <span class="kbd">H</span></div></div>
+            <div class="shortcut-row"><span>First Slide</span><span class="kbd">Home</span></div>
+            <div class="shortcut-row"><span>Last Slide</span><span class="kbd">End</span></div>
+            <div class="shortcut-row"><span>Search Slides</span><span class="kbd">Ctrl+K</span></div>
+            <div class="shortcut-row"><span>Slide Overview Grid</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
+            <div class="shortcut-row"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
+            <div class="shortcut-row"><span>Toggle Light/Dark Theme</span><span class="kbd">T</span></div>
+            <div class="shortcut-row"><span>Close Modal</span><span class="kbd">Esc</span></div>
+            <div class="shortcut-row"><span>Help Modal</span><span class="kbd">?</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../postgres_translations.js"></script>
+  <script src="../postgres.js"></script>
+</body>
+</html>

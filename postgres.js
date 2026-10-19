@@ -116,9 +116,27 @@ function setTheme(theme) {
   }
 }
 
+let lastPostgresThemeToggle = 0;
 function toggleTheme() {
+  const now = Date.now();
+  if (now - lastPostgresThemeToggle < 150) return;
+  lastPostgresThemeToggle = now;
   setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 }
+
+window.setTheme = setTheme;
+window.toggleTheme = toggleTheme;
+
+let lastPostgresLangToggle = 0;
+function toggleLanguage() {
+  const now = Date.now();
+  if (now - lastPostgresLangToggle < 150) return;
+  lastPostgresLangToggle = now;
+  setLanguage(currentLang === 'en' ? 'km' : 'en');
+}
+
+window.setLanguage = setLanguage;
+window.toggleLanguage = toggleLanguage;
 
 function setLanguage(lang) {
   if (lang !== 'en' && lang !== 'km') lang = 'en';
@@ -448,7 +466,7 @@ function initCopyButtons() {
       navigator.clipboard.writeText(codeText).then(() => {
         const origHtml = btn.innerHTML;
         const dict = typeof postgresTranslations !== 'undefined' ? (postgresTranslations[currentLang] || postgresTranslations.en) : {};
-        const copiedMsg = dict.ui_copied || 'Copied ✓';
+        const copiedMsg = dict.ui_copied || 'Copied!';
         btn.innerHTML = `<svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>${copiedMsg}`;
         btn.classList.add('copied');
         setTimeout(() => {
@@ -655,12 +673,18 @@ function initPresentationApp() {
 
   const langToggleBtns = document.querySelectorAll('#btn-lang-toggle');
   langToggleBtns.forEach(btn => {
-    btn.addEventListener('click', toggleLanguage);
+    btn.onclick = (e) => {
+      if (e) e.preventDefault();
+      toggleLanguage();
+    };
   });
 
   const themeToggleBtns = document.querySelectorAll('#btn-theme-toggle');
   themeToggleBtns.forEach(btn => {
-    btn.addEventListener('click', toggleTheme);
+    btn.onclick = (e) => {
+      if (e) e.preventDefault();
+      toggleTheme();
+    };
   });
   setTheme(currentTheme);
 
