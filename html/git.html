@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>01. Git: Version Control Fundamentals — DevLessons</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -35,7 +37,7 @@
           },
           colors: {
             brand: {
-              blue: '#38bdf8',
+              blue: '#2563eb',
               indigo: '#6366f1',
               green: '#22c55e',
               orange: '#f97316',
@@ -50,6 +52,148 @@
       }
     };
   </script>
+  <style type="text/tailwindcss">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; scrollbar-width: none; -ms-overflow-style: none; }
+    *::-webkit-scrollbar { display: none; width: 0; height: 0; }
+    :root {
+      --bg-deep: #020617; --bg-base: #0b0f19; --bg-surface: #0f172a; --bg-surface-elevated: #1e293b; --bg-terminal: #020617;
+      --border-default: #1e293b; --border-subtle: #334155; --border-focus: #2563eb;
+      --text-primary: #ffffff; --text-secondary: #94a3b8; --text-muted: #64748b;
+      --accent-blue: #2563eb; --accent-blue-hover: #1d4ed8; --accent-blue-light: #3b82f6; --accent-indigo: #6366f1; --accent-green: #22c55e; --accent-emerald: #10b981; --accent-orange: #f97316; --accent-purple: #c084fc; --accent-red: #ef4444; --accent-amber: #f59e0b;
+      --font-sans: "Plus Jakarta Sans", sans-serif; --font-mono: "JetBrains Mono", monospace;
+      --header-height: 54px; --footer-height: 50px;
+    }
+    [data-theme="light"], html:not(.dark) {
+      --bg-deep: #f8fafc; --bg-base: #f1f5f9; --bg-surface: #ffffff; --bg-surface-elevated: #f8fafc; --bg-terminal: #0f172a;
+      --border-default: #e2e8f0; --border-subtle: #cbd5e1; --border-focus: #0284c7;
+      --text-primary: #0f172a; --text-secondary: #475569; --text-muted: #64748b;
+      --accent-blue: #0284c7; --accent-indigo: #4f46e5; --accent-green: #16a34a; --accent-emerald: #059669; --accent-orange: #ea580c; --accent-purple: #9333ea; --accent-red: #dc2626; --accent-amber: #d97706;
+    }
+    html, body { width: 100%; height: 100%; overflow: hidden; background-color: var(--bg-deep); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    body.lang-km { font-family: "Kantumruy Pro", var(--font-sans); }
+    body.lang-km .slide-title { font-size: 24px; line-height: 1.35; }
+    body.lang-km .title-main-h1 { font-size: 30px; line-height: 1.3; }
+    #app-container { display: flex; flex-direction: column; width: 100vw; height: 100vh; position: relative; background: var(--bg-deep); }
+    .top-bar { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); padding: 0 16px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; }
+    .brand-section { display: flex; align-items: center; gap: 12px; }
+    .brand-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }
+    .brand-logo:hover { color: var(--accent-blue); }
+    .brand-icon { width: 20px; height: 20px; fill: var(--accent-orange); }
+    .part-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 8px; background: rgba(37, 99, 235, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.25); font-family: var(--font-mono); }
+    .top-controls { display: flex; align-items: center; gap: 8px; }
+    .btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 4px 8px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; }
+    .btn-icon:hover { color: var(--text-primary); border-color: var(--border-subtle); background: var(--border-default); }
+    .slide-counter-wrapper { display: flex; align-items: center; gap: 4px; font-size: 12px; font-family: var(--font-mono); color: var(--text-secondary); background: var(--bg-deep); border: 1px solid var(--border-default); padding: 4px 8px; }
+    .slide-counter-wrapper select { background: var(--bg-surface); border: 1px solid var(--border-default); color: var(--text-primary); font-family: var(--font-mono); font-size: 12px; padding: 2px 4px; cursor: pointer; }
+    .slide-viewport { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; overflow-x: hidden; position: relative; }
+    .slides-container { width: 100%; display: flex; justify-content: center; }
+    .slide-item { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; }
+    .slide-item:not(.active) { display: none !important; }
+    .slide-item.active { display: flex !important; }
+    .slide-content-card { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35); }
+    .slide-header { display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; gap: 12px; }
+    .slide-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+    .slide-meta-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); }
+    .slide-title { font-size: 24px; font-weight: 800; color: var(--text-primary); margin: 0; line-height: 1.25; }
+    .slide-subtitle { font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .slide-badge-group { display: flex; align-items: center; gap: 8px; }
+    .tag-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border: 1px solid var(--border-default); background: var(--bg-surface-elevated); color: var(--text-secondary); font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px; }
+    .tag-badge.warning { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #f59e0b; }
+    .tag-badge.info, .tag-badge.flow { background: rgba(37, 99, 235, 0.12); border-color: rgba(37, 99, 235, 0.3); color: #3b82f6; }
+    .tag-badge.success { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.3); color: #22c55e; }
+    .slide-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .slide-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .slide-stack { display: flex; flex-direction: column; gap: 12px; }
+    .info-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s ease; }
+    .info-card:hover { border-color: var(--border-subtle); }
+    .info-card h4 { font-size: 13.5px; font-weight: 700; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 8px; }
+    .info-card p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+    .terminal-window { background: var(--bg-terminal); border: 1px solid var(--border-default); overflow: hidden; font-family: var(--font-mono); font-size: 12px; }
+    .terminal-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); }
+    .terminal-dots { display: flex; align-items: center; gap: 6px; }
+    .terminal-dot { width: 9px; height: 9px; background: var(--border-subtle); }
+    .terminal-title { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+    .btn-copy { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 11px; padding: 2px 8px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .btn-copy:hover { color: var(--text-primary); }
+    .terminal-body { padding: 12px; overflow-x: auto; color: var(--text-primary); line-height: 1.6; }
+    .term-cmd { color: var(--accent-blue); font-weight: 700; }
+    .term-out { color: var(--text-secondary); }
+    .term-comment { color: var(--text-muted); font-style: italic; }
+    .term-success { color: var(--accent-green); }
+    .term-warn { color: var(--accent-amber); }
+    .term-branch { color: var(--accent-purple); font-weight: 700; }
+    .code-block { background: var(--bg-terminal); border: 1px solid var(--border-default); padding: 12px; font-family: var(--font-mono); font-size: 12px; overflow-x: auto; color: #3b82f6; line-height: 1.5; }
+    .alert-callout { display: flex; align-items: flex-start; gap: 8px; padding: 12px; border: 1px solid var(--border-default); font-size: 12.5px; line-height: 1.5; }
+    .alert-callout svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+    .alert-callout.tip { background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.25); color: #7dd3fc; }
+    .alert-callout.tip svg { fill: #3b82f6; }
+    .alert-callout.warning { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.25); color: #fde047; }
+    .alert-callout.warning svg { fill: #f59e0b; }
+    .alert-callout.info { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.25); color: #a5b4fc; }
+    .alert-callout.info svg { fill: #6366f1; }
+    .clean-table { width: 100%; border-collapse: collapse; font-size: 12px; border: 1px solid var(--border-default); }
+    .clean-table th { padding: 8px 12px; background: var(--bg-surface-elevated); border-bottom: 1px solid var(--border-default); font-weight: 700; color: var(--text-secondary); text-align: left; }
+    .clean-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-default); color: var(--text-primary); }
+    .clean-table tr:last-child td { border-bottom: none; }
+    .clean-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+    [data-theme="light"] .clean-table tr:hover td { background: rgba(15, 23, 42, 0.03); }
+    .kbd { display: inline-block; padding: 2px 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-primary); }
+    .flow-diagram { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); }
+    .flow-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; flex: 1; }
+    .flow-step-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-surface); border: 1px solid var(--border-default); }
+    .flow-step-name { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+    .flow-step-desc { font-size: 11px; color: var(--text-muted); }
+    .flow-arrow { color: var(--text-muted); font-weight: 700; user-select: none; }
+    .real-image-card { width: 100%; border: 1px solid var(--border-default); overflow: hidden; background: var(--bg-terminal); }
+    .real-image-card img { width: 100%; height: 240px; object-fit: cover; display: block; }
+    .real-image-caption { padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--bg-surface-elevated); border-top: 1px solid var(--border-default); display: flex; align-items: center; justify-content: space-between; }
+    .hero-visual-box { border: 1px solid var(--border-default); background: var(--bg-terminal); }
+    .title-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; align-items: center; }
+    .title-main-h1 { font-size: 32px; font-weight: 800; color: var(--text-primary); margin: 0 0 4px 0; line-height: 1.2; }
+    .title-tagline { font-size: 14px; color: var(--accent-blue); font-style: italic; margin: 0 0 12px 0; }
+    .title-gradient { color: var(--accent-blue-light); }
+    .bottom-bar { display: flex; align-items: center; justify-content: space-between; height: var(--footer-height); padding: 0 16px; background: var(--bg-surface); border-top: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; position: relative; }
+    .progress-track { width: 100%; height: 3px; background: var(--border-default); position: relative; }
+    .progress-bar { height: 100%; background: var(--accent-blue); transition: width 0.15s ease; }
+    .bottom-content { display: flex; align-items: center; justify-content: space-between; height: calc(var(--footer-height) - 3px); padding: 0 16px; }
+    .nav-shortcuts-hint { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
+    .nav-buttons-group { display: flex; align-items: center; gap: 8px; }
+    .nav-controls { display: flex; align-items: center; gap: 8px; }
+    .btn-nav { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-primary); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; text-decoration: none; }
+    .btn-nav:hover { background: var(--border-default); border-color: var(--border-subtle); }
+    .btn-primary-action, .btn-cta-primary { background: var(--accent-blue); color: #ffffff !important; border-color: var(--accent-blue); }
+    .btn-primary-action:hover, .btn-cta-primary:hover { background: var(--accent-blue-hover); border-color: var(--accent-blue-hover); color: #ffffff !important; }
+    .modal, .modal-backdrop { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(4px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
+    .modal:not(.open), .modal-backdrop:not(.open) { display: none !important; }
+    .modal.open, .modal-backdrop.open { display: flex !important; }
+    .modal-content, .modal-panel { width: 100%; max-width: 900px; max-height: 85vh; overflow-y: auto; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; gap: 16px; }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; }
+    .modal-title { font-size: 18px; font-weight: 800; color: var(--text-primary); margin: 0; }
+    .modal-close { background: transparent; border: none; color: var(--text-secondary); font-size: 20px; cursor: pointer; padding: 0 4px; }
+    .modal-close:hover { color: var(--text-primary); }
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .overview-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: all 0.15s ease; }
+    .overview-card:hover { border-color: var(--accent-blue); transform: translateY(-1px); }
+    .overview-card.current { border-color: var(--accent-blue) !important; background: rgba(56, 189, 248, 0.08); }
+    .overview-card-num { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent-blue); }
+    .overview-card-title { font-size: 12.5px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+    .shortcut-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .shortcut-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); font-size: 12px; color: var(--text-secondary); }
+    :fullscreen #app-container, .fullscreen-active #app-container { height: 100vh; width: 100vw; }
+    :fullscreen .slide-deck, .fullscreen-active .slide-deck { max-width: 100%; width: 100%; height: 100%; }
+    :fullscreen .slide-viewport, .fullscreen-active .slide-viewport { padding: 0; width: 100%; height: 100%; }
+    :fullscreen .top-bar, .fullscreen-active .top-bar { position: fixed; top: 0; left: 0; right: 0; transform: translateY(-100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
+    :fullscreen .top-bar:hover, .fullscreen-active .top-bar:hover, :fullscreen .top-bar:focus-within, .fullscreen-active .top-bar:focus-within, .show-fs-header .top-bar { transform: translateY(0); opacity: 1; }
+    :fullscreen .bottom-bar, .fullscreen-active .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; transform: translateY(100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
+    :fullscreen .bottom-bar:hover, .fullscreen-active .bottom-bar:hover, :fullscreen .bottom-bar:focus-within, .fullscreen-active .bottom-bar:focus-within, .show-fs-footer .bottom-bar { transform: translateY(0); opacity: 1; }
+    @media (max-width: 768px) {
+      .slide-grid-2, .slide-grid-3, .title-hero-grid, .shortcut-grid { grid-template-columns: 1fr; }
+      .slide-content-card { padding: 12px; }
+      .top-bar { padding: 0 8px; }
+      .bottom-bar { padding: 0 8px; }
+      .bottom-content { padding: 0 8px; }
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
   <div id="app-container">
@@ -65,11 +209,9 @@
       </div>
 
       <div class="top-controls">
-        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / KM)" aria-label="Toggle Language">
-          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
-            <path d="M4.545 6.714 4.11 8H1.5l3.25-8h2.5L10.5 8H7.89l-.435-1.286H4.545zm1.428-4.143-.88 2.643h1.76l-.88-2.643zM0 16l4.25-8h2.5L11 16H8.39l-.435-1.286H4.545L4.11 16H0zm4.545-2.714h2.91l-.88-2.643-.88 2.643zM10.8 11.2a4.978 4.978 0 0 1-.95 1.83 5.485 5.485 0 0 1-1.45-1.07l.7-1.46c.5.25 1.1.47 1.7.7z"/>
-          </svg>
-          <span id="lang-current-label">EN</span>
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (English / ភាសាខ្មែរ)" aria-label="Toggle Language">
+          <img class="lang-flag-en" src="../images/en.png" alt="English">
+          <img class="lang-flag-km" src="../images/km.png" alt="Khmer" style="display: none;">
         </button>
         <div class="slide-counter-wrapper">
           <span data-i18n="ui_slide">Slide</span>
@@ -107,7 +249,7 @@
                     <div>Practical, command-focused guide designed specifically for complete beginners.</div>
                   </div>
                   <div style="display: flex; gap: var(--sp-3); align-items: center; margin-top: var(--sp-2);">
-                    <button id="btn-start-course" class="btn-nav btn-primary-action">Start Course ➔</button>
+                    <button id="btn-start-course" class="btn-nav btn-primary-action">Start Course <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></button>
                     <span style="font-size: 13px; color: var(--text-muted);">or press <span class="kbd">Space</span> / <span class="kbd">→</span></span>
                   </div>
                 </div>
@@ -116,7 +258,7 @@
                 <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Flow" style="width: 100%; height: 260px; object-fit: cover; display: block;">
                 <div style="padding: var(--sp-3); display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface);">
                   <div>
-                    <div class="node-text-title">Local Computer ➔ Git ➔ GitHub</div>
+                    <div class="node-text-title">Local Computer <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Git <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> GitHub</div>
                     <div class="node-text-sub">Continuous Version Control &amp; Cloud Collaboration</div>
                   </div>
                   <span class="tag-badge flow">Workflow</span>
@@ -193,31 +335,31 @@
             <div class="slide-grid-2">
               <div class="slide-stack">
                 <div class="info-card" style="border-left: 4px solid var(--accent-red);">
-                  <h4>❌ Life Without Git</h4>
+                  <h4><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Life Without Git</h4>
                   <ul class="list-steps">
-                    <li><span class="cross-icon">✕</span> Accidentally deleting working code with no undo</li>
-                    <li><span class="cross-icon">✕</span> Losing earlier working versions permanently</li>
-                    <li><span class="cross-icon">✕</span> Not knowing who broke a feature or when</li>
-                    <li><span class="cross-icon">✕</span> Painful file naming madness:</li>
+                    <li><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Accidentally deleting working code with no undo</li>
+                    <li><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Losing earlier working versions permanently</li>
+                    <li><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Not knowing who broke a feature or when</li>
+                    <li><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Painful file naming madness:</li>
                   </ul>
                   <div class="file-tree" style="margin-top: var(--sp-2);">
-                    <div class="file">📄 project-final.zip</div>
-                    <div class="file">📄 project-final2.zip</div>
-                    <div class="file">📄 project-final-real.zip</div>
-                    <div class="file" style="color: var(--accent-red);">📄 project-final-real-final-v2.zip</div>
+                    <div class="file"><svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>project-final.zip</div>
+                    <div class="file"><svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>project-final2.zip</div>
+                    <div class="file"><svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>project-final-real.zip</div>
+                    <div class="file" style="color: var(--accent-red);"><svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>project-final-real-final-v2.zip</div>
                   </div>
                 </div>
               </div>
 
               <div class="slide-stack">
                 <div class="info-card" style="border-left: 4px solid var(--accent-green);">
-                  <h4>✅ Life With Git</h4>
+                  <h4><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Life With Git</h4>
                   <ul class="list-steps">
-                    <li><span class="check-icon">✓</span> <strong>Single clean folder:</strong> No duplicate zipped copies</li>
-                    <li><span class="check-icon">✓</span> <strong>Time machine:</strong> Jump to any commit in history</li>
-                    <li><span class="check-icon">✓</span> <strong>Detailed attribution:</strong> Every change has an author and timestamp</li>
-                    <li><span class="check-icon">✓</span> <strong>Safe experiments:</strong> Try features in isolated branches</li>
-                    <li><span class="check-icon">✓</span> <strong>Team harmony:</strong> Merge contributions smoothly</li>
+                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Single clean folder:</strong> No duplicate zipped copies</li>
+                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Time machine:</strong> Jump to any commit in history</li>
+                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Detailed attribution:</strong> Every change has an author and timestamp</li>
+                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Safe experiments:</strong> Try features in isolated branches</li>
+                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Team harmony:</strong> Merge contributions smoothly</li>
                   </ul>
                   <div class="alert-callout tip" style="margin-top: var(--sp-2);">
                     <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
@@ -277,17 +419,17 @@
                   <tr>
                     <td><code>Push</code></td>
                     <td>Upload your local commits to the remote repository on GitHub</td>
-                    <td><span class="tag-badge flow">Local ➔ Remote</span></td>
+                    <td><span class="tag-badge flow">Local <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Remote</span></td>
                   </tr>
                   <tr>
                     <td><code>Pull</code></td>
                     <td>Download and integrate new changes from the remote to your local machine</td>
-                    <td><span class="tag-badge flow">Remote ➔ Local</span></td>
+                    <td><span class="tag-badge flow">Remote <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</span></td>
                   </tr>
                   <tr>
                     <td><code>Clone</code></td>
                     <td>Download a full copy of an existing remote repository to a new local folder</td>
-                    <td><span class="tag-badge flow">Remote ➔ New Local</span></td>
+                    <td><span class="tag-badge flow">Remote <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> New Local</span></td>
                   </tr>
                   <tr>
                     <td><code>Stage</code></td>
@@ -447,8 +589,8 @@ user.email=you@example.com</div>
                 <div class="info-card">
                   <h4>Resulting Folder Structure</h4>
                   <div class="file-tree" style="margin-top: var(--sp-2);">
-                    <div class="folder">📁 my-project/</div>
-                    <div class="file" style="margin-left: 20px;">└── 📄 README.md</div>
+                    <div class="folder"><svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>my-project/</div>
+                    <div class="file" style="margin-left: 20px;">└── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>README.md</div>
                   </div>
                 </div>
                 <div class="info-card">
@@ -498,9 +640,9 @@ user.email=you@example.com</div>
                 <div class="info-card">
                   <h4>The Hidden <code>.git</code> Directory</h4>
                   <div class="file-tree" style="margin-top: var(--sp-2);">
-                    <div class="folder">📁 my-project/</div>
-                    <div class="git-internal" style="margin-left: 20px;">├── 📁 .git/ <span style="font-size: 11px; color: var(--accent-orange);">(Hidden Git Database)</span></div>
-                    <div class="file" style="margin-left: 20px;">└── 📄 README.md</div>
+                    <div class="folder"><svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>my-project/</div>
+                    <div class="git-internal" style="margin-left: 20px;">├── <svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>.git/ <span style="font-size: 11px; color: var(--accent-orange);">(Hidden Git Database)</span></div>
+                    <div class="file" style="margin-left: 20px;">└── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>README.md</div>
                   </div>
                 </div>
                 <div class="alert-callout warning">
@@ -623,7 +765,7 @@ nothing added to commit but untracked files present (use "git add" to track)</di
                   </div>
                   <div class="flow-arrow-unit">
                     <span class="flow-arrow-label">git add</span>
-                    <span style="font-size: 16px;">➔</span>
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align:middle;"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
                   </div>
                   <div class="flow-step-box active-step">
                     <span class="flow-step-name">Staging Area</span>
@@ -857,10 +999,10 @@ Date:   Mon Oct 19 09:30:00 2026 +0700
                 <div class="info-card">
                   <h4>Why Developers Use Branches</h4>
                   <ul class="list-steps">
-                    <li>✨ <strong>New features:</strong> Develop isolated features without breaking existing code</li>
-                    <li>🐛 <strong>Bug fixes:</strong> Patch urgent bugs quickly without mixing unfinished work</li>
-                    <li>🧪 <strong>Experiments:</strong> Try radical code changes; delete the branch if it fails</li>
-                    <li>👥 <strong>Team development:</strong> Multiple engineers build features concurrently without stepping on toes</li>
+                    <li><span class="inline-icon" style="color:var(--accent-blue);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M7.53 1.282a.5.5 0 0 1 .94 0l1.107 3.23a.5.5 0 0 0 .341.341l3.23 1.107a.5.5 0 0 1 0 .94l-3.23 1.107a.5.5 0 0 0-.341.341l-1.107 3.23a.5.5 0 0 1-.94 0l-1.107-3.23a.5.5 0 0 0-.341-.341L3.202 6.9a.5.5 0 0 1 0-.94l3.23-1.107a.5.5 0 0 0 .341-.341L7.53 1.282z"/></svg></span> <strong>New features:</strong> Develop isolated features without breaking existing code</li>
+                    <li><span class="inline-icon" style="color:var(--accent-red);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M4.72 3.22a.75.75 0 0 1 1.06 1.06L4.81 5.25h6.38l-.97-.97a.75.75 0 0 1 1.06-1.06l1.75 1.75a.75.75 0 0 1-.53 1.28H14v1.5h1.25a.75.75 0 0 1 0 1.5H14v1.5h1.25a.75.75 0 0 1 0 1.5H13.5a3.5 3.5 0 0 1-3.5 3.5h-4a3.5 3.5 0 0 1-3.5-3.5H.75a.75.75 0 0 1 0-1.5H2v-1.5H.75a.75.75 0 0 1 0-1.5H2v-1.5H.75a.75.75 0 0 1-.53-1.28l1.75-1.75a.75.75 0 0 1 1.06 0l.97.97h.72l-.72-.72zm-.72 8.78c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V7.75H4v4.25z"/></svg></span> <strong>Bug fixes:</strong> Patch urgent bugs quickly without mixing unfinished work</li>
+                    <li><span class="inline-icon" style="color:var(--accent-purple);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M5.5 1.5a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5H9v2.19l3.87 6.45A2.75 2.75 0 0 1 10.51 15H5.49a2.75 2.75 0 0 1-2.36-4.11L7 4.44V2.25h-.75a.75.75 0 0 1-.75-.75zm2.75 4.06l-3.23 5.39a1.25 1.25 0 0 0 1.07 1.8h4.82a1.25 1.25 0 0 0 1.07-1.8L8.75 5.56H8.25z"/></svg></span> <strong>Experiments:</strong> Try radical code changes; delete the branch if it fails</li>
+                    <li><span class="inline-icon" style="color:var(--accent-green);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4.002 4.002 0 0 0-7.898 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5zM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.66.75.75 0 0 1-1.49.182 3.512 3.512 0 0 0-3.29-2.86.75.75 0 0 1 0-1.5A1.5 1.5 0 1 0 9.5 7a.75.75 0 0 1-.75-.75A3 3 0 0 1 11 4z"/></svg></span> <strong>Team development:</strong> Multiple engineers build features concurrently without stepping on toes</li>
                   </ul>
                 </div>
               </div>
@@ -961,17 +1103,17 @@ Date:   Mon Oct 19 09:30:00 2026 +0700
                   <tr>
                     <td><code>git push</code></td>
                     <td>Upload commits to remote GitHub repository</td>
-                    <td><span class="tag-badge flow">Local ➔ Remote</span></td>
+                    <td><span class="tag-badge flow">Local <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Remote</span></td>
                   </tr>
                   <tr>
                     <td><code>git pull</code></td>
                     <td>Download and merge changes from GitHub to local</td>
-                    <td><span class="tag-badge flow">Remote ➔ Local</span></td>
+                    <td><span class="tag-badge flow">Remote <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</span></td>
                   </tr>
                   <tr>
                     <td><code>git clone URL</code></td>
                     <td>Download an entire existing repository locally</td>
-                    <td><span class="tag-badge flow">Remote ➔ Local</span></td>
+                    <td><span class="tag-badge flow">Remote <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</span></td>
                   </tr>
                   <tr>
                     <td><code>git log</code></td>
@@ -1134,13 +1276,13 @@ dist/
             </div>
             <div class="slide-grid-2">
               <div class="file-tree">
-<div class="folder">📁 my-project/</div>
-<div class="git-internal" style="margin-left: 20px;">├── 📁 .git/ <span style="font-size: 11px; color: var(--accent-orange);">(Internal database - stays local)</span></div>
-<div class="file" style="margin-left: 20px;">├── 📄 .gitignore <span style="font-size: 11px; color: var(--accent-blue);">(Pushed to GitHub)</span></div>
-<div class="file" style="margin-left: 20px;">├── 📄 README.md <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
-<div class="file" style="margin-left: 20px;">├── 📄 package.json <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
-<div class="folder" style="margin-left: 20px;">├── 📁 src/ <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
-<div class="ignored" style="margin-left: 20px;">└── 📁 node_modules/ <span style="font-size: 11px; color: var(--accent-red);">(IGNORED: Stays local)</span></div>
+<div class="folder"><svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>my-project/</div>
+<div class="git-internal" style="margin-left: 20px;">├── <svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>.git/ <span style="font-size: 11px; color: var(--accent-orange);">(Internal database - stays local)</span></div>
+<div class="file" style="margin-left: 20px;">├── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>.gitignore <span style="font-size: 11px; color: var(--accent-blue);">(Pushed to GitHub)</span></div>
+<div class="file" style="margin-left: 20px;">├── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>README.md <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
+<div class="file" style="margin-left: 20px;">├── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>package.json <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
+<div class="folder" style="margin-left: 20px;">├── <svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>src/ <span style="font-size: 11px; color: var(--accent-green);">(Pushed to GitHub)</span></div>
+<div class="ignored" style="margin-left: 20px;">└── <svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>node_modules/ <span style="font-size: 11px; color: var(--accent-red);">(IGNORED: Stays local)</span></div>
               </div>
 
               <div class="slide-stack">
@@ -1319,7 +1461,7 @@ dist/
               <div class="slide-title-wrap">
                 <span class="slide-meta-label">Slide 38 — Wrap Up</span>
                 <h2 class="slide-title">Questions?</h2>
-                <p class="slide-subtitle">“Happy coding 🚀”</p>
+                <p class="slide-subtitle">“Happy coding”</p>
               </div>
               <div class="slide-badge-group">
                 <span class="tag-badge flow">Congratulations</span>
@@ -1335,9 +1477,9 @@ dist/
                   <div class="info-card">
                     <h4>Next Steps to Explore</h4>
                     <ul class="list-steps">
-                      <li>🌿 Practice feature branches and merging</li>
-                      <li>🤝 Open your first Pull Request on GitHub</li>
-                      <li>⭐ Explore open-source projects and contribute</li>
+                      <li><span class="inline-icon" style="color:var(--accent-green);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M11.75 2.5a2.25 2.25 0 1 0-3.5 1.87v4.26a2.25 2.25 0 0 0-1.5 2.12v.03a2.25 2.25 0 1 0 1.5 0v-.03a.75.75 0 0 1 .75-.75h1.5a2.25 2.25 0 0 0 2.25-2.25V4.37a2.25 2.25 0 0 0-1-1.87zm-7.5 10a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0zm7.5-10a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0zm0 5.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-.75.75h-1.5a2.25 2.25 0 0 0-1.5.58V4.37a2.25 2.25 0 0 0 1.5-.58V7.75h1.5z"/></svg></span> Practice feature branches and merging</li>
+                      <li><span class="inline-icon" style="color:var(--accent-purple);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M7.177 3.073L9.573.677A.25.25 0 0 1 10 .854v4.792a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354zM3.75 2.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5zm0 1.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zm8.5 5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5zm0 1.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zM3 7.75a.75.75 0 0 1 1.5 0v4.5a.75.75 0 0 1-1.5 0v-4.5z"/></svg></span> Open your first Pull Request on GitHub</li>
+                      <li><span class="inline-icon" style="color:var(--accent-orange);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg></span> Explore open-source projects and contribute</li>
                     </ul>
                   </div>
                 </div>
@@ -1346,10 +1488,10 @@ dist/
               <div class="real-image-card">
                 <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Mastery" style="height: 250px;">
                 <div class="real-image-caption">
-                  <span style="font-weight: 700; color: var(--accent-orange);">Git &amp; GitHub Mastery 🚀</span>
+                  <span style="font-weight: 700; color: var(--accent-orange);"><span class="inline-icon" style="color:var(--accent-orange);"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M14.064 0a8.75 8.75 0 0 0-6.187 2.563l-.459.458c-.314.314-.543.682-.676 1.077L4.697 4.1a1.75 1.75 0 0 0-1.65.347l-.95.95a.75.75 0 0 0 .175 1.228l1.737.868a8.214 8.214 0 0 0-.27 1.517l-1.066.355a.75.75 0 0 0-.472.946l.48 1.442a1.75 1.75 0 0 0 1.288 1.157l1.096.22a8.71 8.71 0 0 0 1.558.156l.868 1.736a.75.75 0 0 0 1.228.175l.95-.95a1.75 1.75 0 0 0 .347-1.65l-.001-2.045c.395-.133.763-.362 1.077-.676l.458-.459A8.75 8.75 0 0 0 16 1.936V.75a.75.75 0 0 0-.75-.75h-1.186zM10.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg></span>Git &amp; GitHub Mastery</span>
                   <div style="display: flex; gap: var(--sp-1);">
                     <span class="tag-badge local">Zero</span>
-                    <span style="font-size: 11px; align-self: center;">➔</span>
+                    <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor" style="vertical-align:middle;"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
                     <span class="tag-badge remote">Hero</span>
                   </div>
                 </div>
@@ -1385,7 +1527,7 @@ dist/
     <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-title">Slide Overview (38 Slides)</div>
-        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
       <div class="modal-body">
         <div id="overview-grid" class="overview-grid"></div>
@@ -1395,7 +1537,7 @@ dist/
     <div class="modal-panel" style="max-width: 520px;">
       <div class="modal-header">
         <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
-        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
       <div class="modal-body">
         <div class="shortcut-grid">

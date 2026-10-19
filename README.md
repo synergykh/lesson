@@ -102,10 +102,12 @@ Lesson/
 │   ├── nextjs.html       # Lesson 03: Next.js React Framework
 │   ├── tailwindcss.html  # Lesson 04: Tailwind CSS Utility-First Styling
 │   └── shadcn.html       # Lesson 05: Shadcn UI Accessible Components
-├── images/           # Real UI mockups and visual diagrams
+├── images/           # UI mockups, visual diagrams, and flag assets
+│   ├── en.png            # English language flag button icon
 │   ├── git_flow_hero.jpg
 │   ├── github_new_repo_ui.jpg
-│   └── github_repo_view.jpg
+│   ├── github_repo_view.jpg
+│   └── km.png            # Khmer language flag button icon
 ├── index.html        # Curriculum Home Page Hub (all 5 lessons)
 ├── script.js         # Shared presentation engine & router
 ├── styles.css        # Shared design system (light & dark mode, <=20px spacing)

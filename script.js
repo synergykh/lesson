@@ -65,6 +65,23 @@ function setLanguage(lang) {
 
   if (btnLangEn) btnLangEn.classList.toggle('active', lang === 'en');
   if (btnLangKm) btnLangKm.classList.toggle('active', lang === 'km');
+
+  const enFlags = document.querySelectorAll('.lang-flag-en');
+  const kmFlags = document.querySelectorAll('.lang-flag-km');
+  if (lang === 'km') {
+    enFlags.forEach(el => { el.style.display = 'none'; });
+    kmFlags.forEach(el => { el.style.display = 'block'; });
+  } else {
+    enFlags.forEach(el => { el.style.display = 'block'; });
+    kmFlags.forEach(el => { el.style.display = 'none'; });
+  }
+
+  const langToggleBtns = document.querySelectorAll('#btn-lang-toggle');
+  langToggleBtns.forEach(btn => {
+    btn.setAttribute('title', lang === 'km' ? 'ភាសាខ្មែរ (ចុចដើម្បីប្តូរទៅ English)' : 'English (Click to switch to ភាសាខ្មែរ)');
+    btn.setAttribute('aria-label', lang === 'km' ? 'Language: Khmer' : 'Language: English');
+  });
+
   const labels = document.querySelectorAll('#lang-current-label');
   labels.forEach(lbl => {
     lbl.textContent = lang === 'km' ? 'KM' : 'EN';

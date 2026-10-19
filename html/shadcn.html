@@ -35,7 +35,7 @@
           },
           colors: {
             brand: {
-              blue: '#38bdf8',
+              blue: '#2563eb',
               indigo: '#6366f1',
               green: '#22c55e',
               orange: '#f97316',
@@ -65,11 +65,9 @@
       </div>
 
       <div class="top-controls">
-        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / KM)" aria-label="Toggle Language">
-          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
-            <path d="M4.545 6.714 4.11 8H1.5l3.25-8h2.5L10.5 8H7.89l-.435-1.286H4.545zm1.428-4.143-.88 2.643h1.76l-.88-2.643zM0 16l4.25-8h2.5L11 16H8.39l-.435-1.286H4.545L4.11 16H0zm4.545-2.714h2.91l-.88-2.643-.88 2.643zM10.8 11.2a4.978 4.978 0 0 1-.95 1.83 5.485 5.485 0 0 1-1.45-1.07l.7-1.46c.5.25 1.1.47 1.7.7z"/>
-          </svg>
-          <span id="lang-current-label">EN</span>
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (English / ភាសាខ្មែរ)" aria-label="Toggle Language">
+          <img class="lang-flag-en" src="../images/en.png" alt="English">
+          <img class="lang-flag-km" src="../images/km.png" alt="Khmer" style="display: none;">
         </button>
         <div class="slide-counter-wrapper">
           <span data-i18n="ui_slide">Slide</span>
@@ -102,10 +100,10 @@
         <h1 class="title-main-h1">Shadcn UI<br><span class="title-gradient">Accessible Component Architecture</span></h1>
         <p class="title-tagline">“Beautifully designed components that you copy and paste into your apps”</p>
         <div class="alert-callout tip"><div>Learn how to architect accessible, customizable React component systems built on Radix UI primitives and Tailwind CSS.</div></div>
-        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module ➔</button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
+        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
       </div>
       <div class="title-visual-col">
-        <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — add components</span></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest add button card dialog</span></div><div class="term-output">✔ Installing dependencies: @radix-ui/react-slot, @radix-ui/react-dialog...<br>✔ Created components/ui/button.tsx<br>✔ Created components/ui/card.tsx<br>✔ Created components/ui/dialog.tsx<br><br><span class="out-success">Success! 3 components added to your codebase.</span></div></div></div>
+        <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — add components</span></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest add button card dialog</span></div><div class="term-output"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Installing dependencies: @radix-ui/react-slot, @radix-ui/react-dialog...<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Created components/ui/button.tsx<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Created components/ui/card.tsx<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Created components/ui/dialog.tsx<br><br><span class="out-success">Success! 3 components added to your codebase.</span></div></div></div>
       </div>
     </div>
   </div>
@@ -114,12 +112,12 @@
     <div class="slide-header-group"><span class="slide-category-tag">OVERVIEW</span><h2 class="slide-title">What Makes Shadcn UI Different?</h2><p class="slide-subtitle">Why it is taking over the React and Next.js ecosystem</p></div>
     <div class="slide-grid-2">
       <div class="info-card">
-        <h4><span class="cross-icon">❌</span> Traditional Component Libraries (MUI/Chakra)</h4>
+        <h4><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Traditional Component Libraries (MUI/Chakra)</h4>
         <p>You install a massive npm package. Overriding styles is painful with complex CSS-in-JS wrappers. Upgrades break your custom designs.</p>
         <div class="alert-callout"><div>You are locked into their opinions and cannot easily modify internal component code.</div></div>
       </div>
       <div class="info-card">
-        <h4><span class="check-icon">✔</span> The Shadcn UI Philosophy</h4>
+        <h4><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> The Shadcn UI Philosophy</h4>
         <p>It is NOT an npm dependency. The source code lives directly inside your <code>src/components/ui/</code> directory. You own and customize every line.</p>
         <div class="alert-callout tip"><div>Built on unstyled accessible Radix UI primitives and styled with standard Tailwind utility classes.</div></div>
       </div>
@@ -146,7 +144,7 @@
 </section><section class="slide-item" data-part="SETUP" id="slide-4">
   <div class="slide-content-card">
     <div class="slide-header-group"><span class="slide-category-tag">SETUP</span><h2 class="slide-title">Initializing Shadcn UI</h2><p class="slide-subtitle">Configuring components.json in your project</p></div>
-    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — init shadcn</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest init</span></div><div class="term-output">✔ Which style would you like to use? › New York<br>✔ Which color would you like to use as base color? › Zinc<br>✔ Would you like to use CSS variables for colors? › Yes<br>✔ Where is your global CSS file? › src/app/globals.css<br>✔ Configure the import alias for components: › @/components<br>✔ Configure the import alias for utils: › @/lib/utils<br><br><span class="out-success">Success! Project initialized with components.json</span></div></div></div>
+    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — init shadcn</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest init</span></div><div class="term-output"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Which style would you like to use? › New York<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Which color would you like to use as base color? › Zinc<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Would you like to use CSS variables for colors? › Yes<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Where is your global CSS file? › src/app/globals.css<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Configure the import alias for components: › @/components<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Configure the import alias for utils: › @/lib/utils<br><br><span class="out-success">Success! Project initialized with components.json</span></div></div></div>
   </div>
 </section><section class="slide-item" data-part="UTILITIES" id="slide-5">
   <div class="slide-content-card">
@@ -162,7 +160,7 @@ export function cn(...inputs: ClassValue[]) {
 </section><section class="slide-item" data-part="COMPONENTS" id="slide-6">
   <div class="slide-content-card">
     <div class="slide-header-group"><span class="slide-category-tag">COMPONENTS</span><h2 class="slide-title">Adding Components via CLI</h2><p class="slide-subtitle">Grabbing exactly what you need without dependency bloat</p></div>
-    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — add components</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest add button badge card dialog</span></div><div class="term-output">Installing @radix-ui/react-slot @radix-ui/react-dialog...<br>Created src/components/ui/button.tsx<br>Created src/components/ui/badge.tsx<br>Created src/components/ui/card.tsx<br>Created src/components/ui/dialog.tsx<br><span class="out-success">✔ Done! You can now import them into any page.</span></div></div></div>
+    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — add components</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx shadcn@latest add button badge card dialog</span></div><div class="term-output">Installing @radix-ui/react-slot @radix-ui/react-dialog...<br>Created src/components/ui/button.tsx<br>Created src/components/ui/badge.tsx<br>Created src/components/ui/card.tsx<br>Created src/components/ui/dialog.tsx<br><span class="out-success"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Done! You can now import them into any page.</span></div></div></div>
   </div>
 </section><section class="slide-item" data-part="BUTTON" id="slide-7">
   <div class="slide-content-card">
@@ -284,31 +282,32 @@ export function DeleteRepoDialog() {
 }</code></pre></div>
       <div class="info-card">
         <h4>Why This Architecture Wins</h4>
-        <p>✔ Completely accessible out of the box</p>
-        <p>✔ Code is stored in your repo, not node_modules</p>
-        <p>✔ Zero runtime performance overhead</p>
-        <p>✔ Perfectly matches your custom design system</p>
+        <p><span class="check-icon" style="margin-right:6px;"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Completely accessible out of the box</p>
+        <p><span class="check-icon" style="margin-right:6px;"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Code is stored in your repo, not node_modules</p>
+        <p><span class="check-icon" style="margin-right:6px;"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Zero runtime performance overhead</p>
+        <p><span class="check-icon" style="margin-right:6px;"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Perfectly matches your custom design system</p>
       </div>
     </div>
   </div>
 </section><section class="slide-item" data-part="SUMMARY" id="slide-12">
   <div class="slide-content-card summary-card">
-    <div class="slide-header-group"><span class="slide-category-tag">SUMMARY</span><h2 class="slide-title">Curriculum Completed! 🎉</h2><p class="slide-subtitle">You have traversed the complete modern web development stack</p></div>
+    <div class="slide-header-group"><span class="slide-category-tag">SUMMARY</span><h2 class="slide-title"><span class="inline-icon" style="color:var(--accent-orange);"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor"><path d="M4 1.75C4 .784 4.784 0 5.75 0h4.5C11.216 0 12 .784 12 1.75V3h1.75A2.25 2.25 0 0 1 16 5.25v.5A3.25 3.25 0 0 1 12.75 9H11.9a4.5 4.5 0 0 1-3.15 3.44v1.81h2a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5h2v-1.81A4.5 4.5 0 0 1 4.1 9h-.85A3.25 3.25 0 0 1 0 5.75v-.5A2.25 2.25 0 0 1 2.25 3H4V1.75zm0 2.75H2.25a.75.75 0 0 0-.75.75v.5A1.75 1.75 0 0 0 3.25 7.5H4V4.5zm8 3h.75a1.75 1.75 0 0 0 1.75-1.75v-.5a.75.75 0 0 0-.75-.75H12v3zM5.5 1.5a.25.25 0 0 0-.25.25V8a2.75 2.75 0 1 0 5.5 0V1.75a.25.25 0 0 0-.25-.25h-5z"/></svg></span>Curriculum Completed!</h2><p class="slide-subtitle">You have traversed the complete modern web development stack</p></div>
     <div class="summary-checklist-grid">
-      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>01. Git:</strong> Local tracking, commits, branches, mental model</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>02. GitHub:</strong> Cloud repositories, remotes, push/pull, pull requests</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>03. Next.js:</strong> App Router, Server Components, SSR, API routes</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>04. Tailwind CSS:</strong> Utility classes, responsive design, dark mode</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>05. Shadcn UI:</strong> Radix primitives, accessible components, clean design</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span><strong>Fullstack Readiness:</strong> From your first line of code to production!</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span><strong>01. Git:</strong> Local tracking, commits, branches, mental model</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span><strong>02. GitHub:</strong> Cloud repositories, remotes, push/pull, pull requests</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span><strong>03. Next.js:</strong> App Router, Server Components, SSR, API routes</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span><strong>04. Tailwind CSS:</strong> Utility classes, responsive design, dark mode</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span><strong>05. Shadcn UI:</strong> Radix primitives, accessible components, clean design</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span><strong>Fullstack Readiness:</strong> From your first line of code to production!</span></div>
     </div>
     <div class="quote-banner">Congratulations on completing the entire 5-module curriculum!</div>
-    <div style="margin-top:16px;text-align:center;"><a href="../index.html" class="btn-cta-primary">Return to Curriculum Home ➔</a></div>
+    <div style="margin-top:16px;text-align:center;"><a href="../index.html" class="btn-cta-primary">Return to Curriculum Home <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></a></div>
   </div>
 </section>
       </div>
     </main>
     <footer class="bottom-bar">
+      <div class="progress-track" style="position: absolute; top: 0; left: 0; right: 0;"><div id="progress-bar-fill" class="progress-bar" style="width: 0%;"></div></div>
       <div class="nav-shortcuts-hint">
         <span>Navigation:</span>
         <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
@@ -333,7 +332,7 @@ export function DeleteRepoDialog() {
     <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-title">Slide Overview (38 Slides)</div>
-        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
       <div class="modal-body">
         <div id="overview-grid" class="overview-grid"></div>
@@ -343,7 +342,7 @@ export function DeleteRepoDialog() {
     <div class="modal-panel" style="max-width: 520px;">
       <div class="modal-header">
         <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
-        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
       <div class="modal-body">
         <div class="shortcut-grid">

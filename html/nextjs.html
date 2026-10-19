@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>03. Next.js: The React Framework for the Web — DevLessons</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -35,7 +37,7 @@
           },
           colors: {
             brand: {
-              blue: '#38bdf8',
+              blue: '#2563eb',
               indigo: '#6366f1',
               green: '#22c55e',
               orange: '#f97316',
@@ -50,6 +52,148 @@
       }
     };
   </script>
+  <style type="text/tailwindcss">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; scrollbar-width: none; -ms-overflow-style: none; }
+    *::-webkit-scrollbar { display: none; width: 0; height: 0; }
+    :root {
+      --bg-deep: #020617; --bg-base: #0b0f19; --bg-surface: #0f172a; --bg-surface-elevated: #1e293b; --bg-terminal: #020617;
+      --border-default: #1e293b; --border-subtle: #334155; --border-focus: #2563eb;
+      --text-primary: #ffffff; --text-secondary: #94a3b8; --text-muted: #64748b;
+      --accent-blue: #2563eb; --accent-blue-hover: #1d4ed8; --accent-blue-light: #3b82f6; --accent-indigo: #6366f1; --accent-green: #22c55e; --accent-emerald: #10b981; --accent-orange: #f97316; --accent-purple: #c084fc; --accent-red: #ef4444; --accent-amber: #f59e0b;
+      --font-sans: "Plus Jakarta Sans", sans-serif; --font-mono: "JetBrains Mono", monospace;
+      --header-height: 54px; --footer-height: 50px;
+    }
+    [data-theme="light"], html:not(.dark) {
+      --bg-deep: #f8fafc; --bg-base: #f1f5f9; --bg-surface: #ffffff; --bg-surface-elevated: #f8fafc; --bg-terminal: #0f172a;
+      --border-default: #e2e8f0; --border-subtle: #cbd5e1; --border-focus: #0284c7;
+      --text-primary: #0f172a; --text-secondary: #475569; --text-muted: #64748b;
+      --accent-blue: #0284c7; --accent-indigo: #4f46e5; --accent-green: #16a34a; --accent-emerald: #059669; --accent-orange: #ea580c; --accent-purple: #9333ea; --accent-red: #dc2626; --accent-amber: #d97706;
+    }
+    html, body { width: 100%; height: 100%; overflow: hidden; background-color: var(--bg-deep); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    body.lang-km { font-family: "Kantumruy Pro", var(--font-sans); }
+    body.lang-km .slide-title { font-size: 24px; line-height: 1.35; }
+    body.lang-km .title-main-h1 { font-size: 30px; line-height: 1.3; }
+    #app-container { display: flex; flex-direction: column; width: 100vw; height: 100vh; position: relative; background: var(--bg-deep); }
+    .top-bar { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); padding: 0 16px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; }
+    .brand-section { display: flex; align-items: center; gap: 12px; }
+    .brand-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }
+    .brand-logo:hover { color: var(--accent-blue); }
+    .brand-icon { width: 20px; height: 20px; fill: var(--accent-orange); }
+    .part-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 8px; background: rgba(37, 99, 235, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.25); font-family: var(--font-mono); }
+    .top-controls { display: flex; align-items: center; gap: 8px; }
+    .btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 4px 8px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; }
+    .btn-icon:hover { color: var(--text-primary); border-color: var(--border-subtle); background: var(--border-default); }
+    .slide-counter-wrapper { display: flex; align-items: center; gap: 4px; font-size: 12px; font-family: var(--font-mono); color: var(--text-secondary); background: var(--bg-deep); border: 1px solid var(--border-default); padding: 4px 8px; }
+    .slide-counter-wrapper select { background: var(--bg-surface); border: 1px solid var(--border-default); color: var(--text-primary); font-family: var(--font-mono); font-size: 12px; padding: 2px 4px; cursor: pointer; }
+    .slide-viewport { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; overflow-x: hidden; position: relative; }
+    .slides-container { width: 100%; display: flex; justify-content: center; }
+    .slide-item { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; }
+    .slide-item:not(.active) { display: none !important; }
+    .slide-item.active { display: flex !important; }
+    .slide-content-card { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35); }
+    .slide-header { display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; gap: 12px; }
+    .slide-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+    .slide-meta-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); }
+    .slide-title { font-size: 24px; font-weight: 800; color: var(--text-primary); margin: 0; line-height: 1.25; }
+    .slide-subtitle { font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .slide-badge-group { display: flex; align-items: center; gap: 8px; }
+    .tag-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border: 1px solid var(--border-default); background: var(--bg-surface-elevated); color: var(--text-secondary); font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px; }
+    .tag-badge.warning { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #f59e0b; }
+    .tag-badge.info, .tag-badge.flow { background: rgba(37, 99, 235, 0.12); border-color: rgba(37, 99, 235, 0.3); color: #3b82f6; }
+    .tag-badge.success { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.3); color: #22c55e; }
+    .slide-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .slide-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .slide-stack { display: flex; flex-direction: column; gap: 12px; }
+    .info-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s ease; }
+    .info-card:hover { border-color: var(--border-subtle); }
+    .info-card h4 { font-size: 13.5px; font-weight: 700; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 8px; }
+    .info-card p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+    .terminal-window { background: var(--bg-terminal); border: 1px solid var(--border-default); overflow: hidden; font-family: var(--font-mono); font-size: 12px; }
+    .terminal-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); }
+    .terminal-dots { display: flex; align-items: center; gap: 6px; }
+    .terminal-dot { width: 9px; height: 9px; background: var(--border-subtle); }
+    .terminal-title { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+    .btn-copy { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 11px; padding: 2px 8px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .btn-copy:hover { color: var(--text-primary); }
+    .terminal-body { padding: 12px; overflow-x: auto; color: var(--text-primary); line-height: 1.6; }
+    .term-cmd { color: var(--accent-blue); font-weight: 700; }
+    .term-out { color: var(--text-secondary); }
+    .term-comment { color: var(--text-muted); font-style: italic; }
+    .term-success { color: var(--accent-green); }
+    .term-warn { color: var(--accent-amber); }
+    .term-branch { color: var(--accent-purple); font-weight: 700; }
+    .code-block { background: var(--bg-terminal); border: 1px solid var(--border-default); padding: 12px; font-family: var(--font-mono); font-size: 12px; overflow-x: auto; color: #3b82f6; line-height: 1.5; }
+    .alert-callout { display: flex; align-items: flex-start; gap: 8px; padding: 12px; border: 1px solid var(--border-default); font-size: 12.5px; line-height: 1.5; }
+    .alert-callout svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+    .alert-callout.tip { background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.25); color: #7dd3fc; }
+    .alert-callout.tip svg { fill: #3b82f6; }
+    .alert-callout.warning { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.25); color: #fde047; }
+    .alert-callout.warning svg { fill: #f59e0b; }
+    .alert-callout.info { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.25); color: #a5b4fc; }
+    .alert-callout.info svg { fill: #6366f1; }
+    .clean-table { width: 100%; border-collapse: collapse; font-size: 12px; border: 1px solid var(--border-default); }
+    .clean-table th { padding: 8px 12px; background: var(--bg-surface-elevated); border-bottom: 1px solid var(--border-default); font-weight: 700; color: var(--text-secondary); text-align: left; }
+    .clean-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-default); color: var(--text-primary); }
+    .clean-table tr:last-child td { border-bottom: none; }
+    .clean-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+    [data-theme="light"] .clean-table tr:hover td { background: rgba(15, 23, 42, 0.03); }
+    .kbd { display: inline-block; padding: 2px 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-primary); }
+    .flow-diagram { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); }
+    .flow-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; flex: 1; }
+    .flow-step-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-surface); border: 1px solid var(--border-default); }
+    .flow-step-name { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+    .flow-step-desc { font-size: 11px; color: var(--text-muted); }
+    .flow-arrow { color: var(--text-muted); font-weight: 700; user-select: none; }
+    .real-image-card { width: 100%; border: 1px solid var(--border-default); overflow: hidden; background: var(--bg-terminal); }
+    .real-image-card img { width: 100%; height: 240px; object-fit: cover; display: block; }
+    .real-image-caption { padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--bg-surface-elevated); border-top: 1px solid var(--border-default); display: flex; align-items: center; justify-content: space-between; }
+    .hero-visual-box { border: 1px solid var(--border-default); background: var(--bg-terminal); }
+    .title-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; align-items: center; }
+    .title-main-h1 { font-size: 32px; font-weight: 800; color: var(--text-primary); margin: 0 0 4px 0; line-height: 1.2; }
+    .title-tagline { font-size: 14px; color: var(--accent-blue); font-style: italic; margin: 0 0 12px 0; }
+    .title-gradient { color: var(--accent-blue-light); }
+    .bottom-bar { display: flex; align-items: center; justify-content: space-between; height: var(--footer-height); padding: 0 16px; background: var(--bg-surface); border-top: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; position: relative; }
+    .progress-track { width: 100%; height: 3px; background: var(--border-default); position: relative; }
+    .progress-bar { height: 100%; background: var(--accent-blue); transition: width 0.15s ease; }
+    .bottom-content { display: flex; align-items: center; justify-content: space-between; height: calc(var(--footer-height) - 3px); padding: 0 16px; }
+    .nav-shortcuts-hint { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
+    .nav-buttons-group { display: flex; align-items: center; gap: 8px; }
+    .nav-controls { display: flex; align-items: center; gap: 8px; }
+    .btn-nav { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-primary); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; text-decoration: none; }
+    .btn-nav:hover { background: var(--border-default); border-color: var(--border-subtle); }
+    .btn-primary-action { background: var(--accent-blue); color: #020617; border-color: var(--accent-blue); }
+    .btn-primary-action:hover { background: #7dd3fc; border-color: #7dd3fc; color: #020617; }
+    .modal, .modal-backdrop { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(4px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
+    .modal:not(.open), .modal-backdrop:not(.open) { display: none !important; }
+    .modal.open, .modal-backdrop.open { display: flex !important; }
+    .modal-content, .modal-panel { width: 100%; max-width: 900px; max-height: 85vh; overflow-y: auto; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; gap: 16px; }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; }
+    .modal-title { font-size: 18px; font-weight: 800; color: var(--text-primary); margin: 0; }
+    .modal-close { background: transparent; border: none; color: var(--text-secondary); font-size: 20px; cursor: pointer; padding: 0 4px; }
+    .modal-close:hover { color: var(--text-primary); }
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .overview-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: all 0.15s ease; }
+    .overview-card:hover { border-color: var(--accent-blue); transform: translateY(-1px); }
+    .overview-card.current { border-color: var(--accent-blue) !important; background: rgba(56, 189, 248, 0.08); }
+    .overview-card-num { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent-blue); }
+    .overview-card-title { font-size: 12.5px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+    .shortcut-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .shortcut-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); font-size: 12px; color: var(--text-secondary); }
+    :fullscreen #app-container, .fullscreen-active #app-container { height: 100vh; width: 100vw; }
+    :fullscreen .slide-deck, .fullscreen-active .slide-deck { max-width: 100%; width: 100%; height: 100%; }
+    :fullscreen .slide-viewport, .fullscreen-active .slide-viewport { padding: 0; width: 100%; height: 100%; }
+    :fullscreen .top-bar, .fullscreen-active .top-bar { position: fixed; top: 0; left: 0; right: 0; transform: translateY(-100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
+    :fullscreen .top-bar:hover, .fullscreen-active .top-bar:hover, :fullscreen .top-bar:focus-within, .fullscreen-active .top-bar:focus-within, .show-fs-header .top-bar { transform: translateY(0); opacity: 1; }
+    :fullscreen .bottom-bar, .fullscreen-active .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; transform: translateY(100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
+    :fullscreen .bottom-bar:hover, .fullscreen-active .bottom-bar:hover, :fullscreen .bottom-bar:focus-within, .fullscreen-active .bottom-bar:focus-within, .show-fs-footer .bottom-bar { transform: translateY(0); opacity: 1; }
+    @media (max-width: 768px) {
+      .slide-grid-2, .slide-grid-3, .title-hero-grid, .shortcut-grid { grid-template-columns: 1fr; }
+      .slide-content-card { padding: 12px; }
+      .top-bar { padding: 0 8px; }
+      .bottom-bar { padding: 0 8px; }
+      .bottom-content { padding: 0 8px; }
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
   <div id="app-container">
@@ -65,11 +209,9 @@
       </div>
 
       <div class="top-controls">
-        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (EN / KM)" aria-label="Toggle Language">
-          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
-            <path d="M4.545 6.714 4.11 8H1.5l3.25-8h2.5L10.5 8H7.89l-.435-1.286H4.545zm1.428-4.143-.88 2.643h1.76l-.88-2.643zM0 16l4.25-8h2.5L11 16H8.39l-.435-1.286H4.545L4.11 16H0zm4.545-2.714h2.91l-.88-2.643-.88 2.643zM10.8 11.2a4.978 4.978 0 0 1-.95 1.83 5.485 5.485 0 0 1-1.45-1.07l.7-1.46c.5.25 1.1.47 1.7.7z"/>
-          </svg>
-          <span id="lang-current-label">EN</span>
+        <button id="btn-lang-toggle" class="btn-icon" title="Toggle Language (English / ភាសាខ្មែរ)" aria-label="Toggle Language">
+          <img class="lang-flag-en" src="../images/en.png" alt="English">
+          <img class="lang-flag-km" src="../images/km.png" alt="Khmer" style="display: none;">
         </button>
         <div class="slide-counter-wrapper">
           <span data-i18n="ui_slide">Slide</span>
@@ -102,10 +244,10 @@
         <h1 class="title-main-h1">Next.js<br><span class="title-gradient">The React Framework for the Web</span></h1>
         <p class="title-tagline">“From UI components to high-performance fullstack applications”</p>
         <div class="alert-callout tip"><div>Learn the modern Next.js App Router, Server Components, nested layouts, fast data fetching, and API route handlers.</div></div>
-        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module ➔</button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
+        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
       </div>
       <div class="title-visual-col">
-        <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — next-app</span></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx create-next-app@latest my-app</span></div><div class="term-output">✔ Would you like to use TypeScript? Yes<br>✔ Would you like to use ESLint? Yes<br>✔ Would you like to use Tailwind CSS? Yes<br>✔ Would you like your code inside  directory? Yes<br>✔ Would you like to use App Router? Yes<br>✔ Would you like to customize the import alias? No<br><br><span class="out-success">Success! Created my-app at /home/user/my-app</span></div></div></div>
+        <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — next-app</span></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx create-next-app@latest my-app</span></div><div class="term-output"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Would you like to use TypeScript? Yes<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Would you like to use ESLint? Yes<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Would you like to use Tailwind CSS? Yes<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Would you like your code inside  directory? Yes<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Would you like to use App Router? Yes<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Would you like to customize the import alias? No<br><br><span class="out-success">Success! Created my-app at /home/user/my-app</span></div></div></div>
       </div>
     </div>
   </div>
@@ -114,12 +256,12 @@
     <div class="slide-header-group"><span class="slide-category-tag">OVERVIEW</span><h2 class="slide-title">Why Next.js Over Plain React?</h2><p class="slide-subtitle">Solving the limitations of traditional Single-Page Applications (SPAs)</p></div>
     <div class="slide-grid-2">
       <div class="info-card">
-        <h4><span class="cross-icon">❌</span> Traditional Client React (Vite/CRA)</h4>
+        <h4><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Traditional Client React (Vite/CRA)</h4>
         <p>Browser downloads a blank HTML file and a giant JavaScript bundle. The user stares at a white loading screen before any content renders.</p>
         <div class="alert-callout"><div>Poor initial SEO, slow first contentful paint (FCP) on mobile networks.</div></div>
       </div>
       <div class="info-card">
-        <h4><span class="check-icon">✔</span> Next.js Fullstack Architecture</h4>
+        <h4><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Next.js Fullstack Architecture</h4>
         <p>HTML is generated on the server and delivered instantly. Search engines read complete content, and React hydrates interactivity in the background.</p>
         <div class="alert-callout tip"><div>Built-in routing, image optimization, API routes, and Server Components with 0kB client JS.</div></div>
       </div>
@@ -128,23 +270,23 @@
 </section><section class="slide-item" data-part="SETUP" id="slide-3">
   <div class="slide-content-card">
     <div class="slide-header-group"><span class="slide-category-tag">SETUP</span><h2 class="slide-title">Create Your Next.js Application</h2><p class="slide-subtitle">Scaffolding a production-ready project in seconds with pnpm</p></div>
-    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — initialize project</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx create-next-app@latest dev-portal --typescript --tailwind --app</span></div><div class="term-output">Creating a new Next.js app in /projects/dev-portal.<br>Installing dependencies: react, react-dom, next, typescript, tailwindcss...<br><span class="out-success">Success! Created dev-portal</span></div><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">cd dev-portal &amp;&amp; pnpm run dev</span></div><div class="term-output"><span class="out-cyan">▲ Next.js 15.0</span><br>- Local:        http://localhost:3000<br>- Environments: .env.local<br><span class="out-success">✓ Ready in 1.4s</span></div></div></div>
+    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — initialize project</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm dlx create-next-app@latest dev-portal --typescript --tailwind --app</span></div><div class="term-output">Creating a new Next.js app in /projects/dev-portal.<br>Installing dependencies: react, react-dom, next, typescript, tailwindcss...<br><span class="out-success">Success! Created dev-portal</span></div><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">cd dev-portal &amp;&amp; pnpm run dev</span></div><div class="term-output"><span class="out-cyan">▲ Next.js 15.0</span><br>- Local:        http://localhost:3000<br>- Environments: .env.local<br><span class="out-success"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Ready in 1.4s</span></div></div></div>
   </div>
 </section><section class="slide-item" data-part="ARCHITECTURE" id="slide-4">
   <div class="slide-content-card">
     <div class="slide-header-group"><span class="slide-category-tag">ARCHITECTURE</span><h2 class="slide-title">App Router Directory Structure</h2><p class="slide-subtitle">Understanding special files in the app folder</p></div>
     <div class="slide-grid-2">
       <div class="file-tree">
-        <div class="tree-line">📁 dev-portal/</div>
-        <div class="tree-line">├── 📁 src/app/</div>
-        <div class="tree-line">│   ├── 📄 layout.tsx     <span class="tree-desc">(Root shell for all pages)</span></div>
-        <div class="tree-line">│   ├── 📄 page.tsx       <span class="tree-desc">(Route: / Home Page)</span></div>
-        <div class="tree-line">│   ├── 📄 loading.tsx    <span class="tree-desc">(Automatic Suspense fallback)</span></div>
-        <div class="tree-line">│   ├── 📄 error.tsx      <span class="tree-desc">(Client error boundary)</span></div>
-        <div class="tree-line">│   └── 📁 dashboard/</div>
-        <div class="tree-line">│       └── 📄 page.tsx   <span class="tree-desc">(Route: /dashboard)</span></div>
-        <div class="tree-line">├── 📁 public/            <span class="tree-desc">(Static images, fonts, icons)</span></div>
-        <div class="tree-line">└── 📄 package.json</div>
+        <div class="tree-line"><svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>dev-portal/</div>
+        <div class="tree-line">├── <svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>src/app/</div>
+        <div class="tree-line">│   ├── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>layout.tsx     <span class="tree-desc">(Root shell for all pages)</span></div>
+        <div class="tree-line">│   ├── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>page.tsx       <span class="tree-desc">(Route: / Home Page)</span></div>
+        <div class="tree-line">│   ├── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>loading.tsx    <span class="tree-desc">(Automatic Suspense fallback)</span></div>
+        <div class="tree-line">│   ├── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>error.tsx      <span class="tree-desc">(Client error boundary)</span></div>
+        <div class="tree-line">│   └── <svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>dashboard/</div>
+        <div class="tree-line">│       └── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>page.tsx   <span class="tree-desc">(Route: /dashboard)</span></div>
+        <div class="tree-line">├── <svg class="tree-icon-svg folder" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>public/            <span class="tree-desc">(Static images, fonts, icons)</span></div>
+        <div class="tree-line">└── <svg class="tree-icon-svg file" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>package.json</div>
       </div>
       <div class="info-card">
         <h4>Core App Router Rules</h4>
@@ -227,13 +369,13 @@ export default async function PostPage({ params }: PostPageProps) {
 export function Navbar() {
   return (
     &lt;nav className="flex items-center gap-4 p-4 border-b"&gt;
-      &lt;Link href="/" className="font-bold hover:text-sky-400"&gt;
+      &lt;Link href="/" className="font-bold hover:text-blue-400"&gt;
         Home
       &lt;/Link&gt;
-      &lt;Link href="/dashboard" className="hover:text-sky-400"&gt;
+      &lt;Link href="/dashboard" className="hover:text-blue-400"&gt;
         Dashboard
       &lt;/Link&gt;
-      &lt;Link href="/settings" prefetch={true} className="hover:text-sky-400"&gt;
+      &lt;Link href="/settings" prefetch={true} className="hover:text-blue-400"&gt;
         Settings
       &lt;/Link&gt;
     &lt;/nav&gt;
@@ -329,21 +471,21 @@ export default function RootLayout({ children }) {
 </section><section class="slide-item" data-part="DEPLOYMENT" id="slide-11">
   <div class="slide-content-card">
     <div class="slide-header-group"><span class="slide-category-tag">DEPLOYMENT</span><h2 class="slide-title">Production Build &amp; Deployment</h2><p class="slide-subtitle">Optimizing bundles for world-class speed</p></div>
-    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — build &amp; start</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm run build</span></div><div class="term-output">Creating an optimized production build...<br>✓ Compiled successfully<br>✓ Collecting page data<br>✓ Generating static pages (5/5)<br><br>Route (app)                              Size     First Load JS<br>┌ ○ /                                    5.4 kB         89.2 kB<br>├ ○ /dashboard                           3.2 kB         87.0 kB<br>└ ƒ /api/contact                         0 B            0 B<br><br><span class="out-success">✓ Build completed in 3.8s</span></div><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm run start</span></div><div class="term-output"><span class="out-success">✓ Ready on http://localhost:3000 (Production Server)</span></div></div></div>
+    <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — build &amp; start</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm run build</span></div><div class="term-output">Creating an optimized production build...<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Compiled successfully<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Collecting page data<br><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Generating static pages (5/5)<br><br>Route (app)                              Size     First Load JS<br>┌ ○ /                                    5.4 kB         89.2 kB<br>├ ○ /dashboard                           3.2 kB         87.0 kB<br>└ ƒ /api/contact                         0 B            0 B<br><br><span class="out-success"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Build completed in 3.8s</span></div><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm run start</span></div><div class="term-output"><span class="out-success"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Ready on http://localhost:3000 (Production Server)</span></div></div></div>
   </div>
 </section><section class="slide-item" data-part="SUMMARY" id="slide-12">
   <div class="slide-content-card summary-card">
     <div class="slide-header-group"><span class="slide-category-tag">SUMMARY</span><h2 class="slide-title">Next.js Mastery Checklist</h2><p class="slide-subtitle">You now know the modern architecture powering today's web</p></div>
     <div class="summary-checklist-grid">
-      <div class="checklist-item"><span class="check-icon">✔</span><span>App Router: <code>page.tsx</code>, <code>layout.tsx</code>, <code>loading.tsx</code></span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span>Server Components default to 0kB client bundle size</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span>Client Components with <code>'use client'</code> for interactivity</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span>Direct async/await data fetching without useEffect</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span>Route Handlers for API endpoints</span></div>
-      <div class="checklist-item"><span class="check-icon">✔</span><span>Automatic Image and Font optimization</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>App Router: <code>page.tsx</code>, <code>layout.tsx</code>, <code>loading.tsx</code></span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Server Components default to 0kB client bundle size</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Client Components with <code>'use client'</code> for interactivity</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Direct async/await data fetching without useEffect</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Route Handlers for API endpoints</span></div>
+      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Automatic Image and Font optimization</span></div>
     </div>
     <div class="quote-banner">Next step: Style your Next.js application with Tailwind CSS!</div>
-    <div style="margin-top:16px;text-align:center;"><a href="tailwindcss.html" class="btn-cta-primary">Continue to Lesson 04: Tailwind CSS ➔</a></div>
+    <div style="margin-top:16px;text-align:center;"><a href="tailwindcss.html" class="btn-cta-primary">Continue to Lesson 04: Tailwind CSS <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></a></div>
   </div>
 </section>
       </div>
@@ -374,7 +516,7 @@ export default function RootLayout({ children }) {
     <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-title">Slide Overview (38 Slides)</div>
-        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
       <div class="modal-body">
         <div id="overview-grid" class="overview-grid"></div>
@@ -384,7 +526,7 @@ export default function RootLayout({ children }) {
     <div class="modal-panel" style="max-width: 520px;">
       <div class="modal-header">
         <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
-        <button class="btn-icon modal-close" title="Close (Esc)">✕</button>
+        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
       <div class="modal-body">
         <div class="shortcut-grid">
