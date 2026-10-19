@@ -32,24 +32,44 @@ function setTheme(theme) {
     document.documentElement.classList.remove('dark');
   }
 
-  if (themeIconSun && themeIconMoon) {
-    if (theme === 'light') {
-      themeIconSun.style.display = 'block';
-      themeIconMoon.style.display = 'none';
-    } else {
-      themeIconSun.style.display = 'none';
-      themeIconMoon.style.display = 'block';
-    }
+  const sunIcons = document.querySelectorAll('#theme-icon-sun');
+  const moonIcons = document.querySelectorAll('#theme-icon-moon');
+  if (theme === 'light') {
+    sunIcons.forEach(el => { el.style.display = 'block'; });
+    moonIcons.forEach(el => { el.style.display = 'none'; });
+  } else {
+    sunIcons.forEach(el => { el.style.display = 'none'; });
+    moonIcons.forEach(el => { el.style.display = 'block'; });
   }
+
+  const themeToggleBtns = document.querySelectorAll('#btn-theme-toggle');
+  themeToggleBtns.forEach(btn => {
+    btn.setAttribute('title', theme === 'dark' ? 'Toggle Light / Dark Mode (T)' : 'Toggle Light / Dark Mode (T)');
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Theme: Dark' : 'Theme: Light');
+  });
 }
 
+let lastThemeToggle = 0;
 function toggleTheme() {
+  const now = Date.now();
+  if (now - lastThemeToggle < 150) return;
+  lastThemeToggle = now;
   setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 }
 
+window.setTheme = setTheme;
+window.toggleTheme = toggleTheme;
+
+let lastLangToggle = 0;
 function toggleLanguage() {
+  const now = Date.now();
+  if (now - lastLangToggle < 150) return;
+  lastLangToggle = now;
   setLanguage(currentLang === 'en' ? 'km' : 'en');
 }
+
+window.setLanguage = setLanguage;
+window.toggleLanguage = toggleLanguage;
 
 function setLanguage(lang) {
   if (lang !== 'en' && lang !== 'km') lang = 'en';
@@ -754,6 +774,8 @@ document.addEventListener('keydown', (e) => {
       window.location.href = 'html/tailwindcss.html';
     } else if (e.key === '5') {
       window.location.href = 'html/shadcn.html';
+    } else if (e.key === '6') {
+      window.location.href = 'html/postgres.html';
     }
     return;
   }
@@ -844,24 +866,31 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+function initPresentationApp() {
   if (btnPrev) btnPrev.addEventListener('click', prevSlide);
   if (btnNext) btnNext.addEventListener('click', nextSlide);
 
   const langToggleBtns = document.querySelectorAll('#btn-lang-toggle');
   langToggleBtns.forEach(btn => {
-    btn.addEventListener('click', toggleLanguage);
+    btn.onclick = (e) => {
+      if (e) e.preventDefault();
+      toggleLanguage();
+    };
   });
   if (btnLangEn) {
-    btnLangEn.addEventListener('click', () => setLanguage('en'));
+    btnLangEn.onclick = () => setLanguage('en');
   }
   if (btnLangKm) {
-    btnLangKm.addEventListener('click', () => setLanguage('km'));
+    btnLangKm.onclick = () => setLanguage('km');
   }
 
-  if (btnThemeToggle) {
-    btnThemeToggle.addEventListener('click', toggleTheme);
-  }
+  const themeToggleBtns = document.querySelectorAll('#btn-theme-toggle');
+  themeToggleBtns.forEach(btn => {
+    btn.onclick = (e) => {
+      if (e) e.preventDefault();
+      toggleTheme();
+    };
+  });
   setTheme(currentTheme);
 
   document.addEventListener('fullscreenchange', () => {
@@ -949,4 +978,10 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     updateSlideView(0, false);
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPresentationApp);
+} else {
+  initPresentationApp();
+}

@@ -27,11 +27,11 @@
   --border-subtle: #334155;
   --border-focus: #2563eb;
   --text-primary: #ffffff;
-  --text-secondary: #e2e8f0;
-  --text-muted: #94a3b8;
+  --text-secondary: #f8fafc;
+  --text-muted: #e2e8f0;
   --accent-blue: #2563eb;
   --accent-blue-hover: #1d4ed8;
-  --accent-blue-light: #3b82f6;
+  --accent-blue-light: #60a5fa;
   --accent-indigo: #6366f1;
   --accent-green: #22c55e;
   --accent-emerald: #10b981;
@@ -60,7 +60,7 @@
 }
 
 [data-theme="light"],
-html:not(.dark) {
+html:not(.dark):not([data-theme="dark"]) {
   --bg-deep: #f8fafc;
   --bg-base: #f1f5f9;
   --bg-surface: #ffffff;
@@ -81,6 +81,19 @@ html:not(.dark) {
   --accent-red: #dc2626;
   --accent-amber: #d97706;
   --glow-blue: rgba(2, 132, 199, 0.12);
+  color-scheme: light;
+}
+
+[data-theme="light"] .slide-content-card,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card {
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .kbd,
+html:not(.dark):not([data-theme="dark"]) .kbd {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
 }
 
 html,
@@ -707,13 +720,14 @@ html[lang="km"] .lang-flag-km {
 
 .title-tagline {
   font-size: 14px;
-  color: var(--accent-blue);
+  color: #ffffff;
   font-style: italic;
   margin: 0 0 var(--sp-3) 0;
 }
 
-.title-gradient {
-  color: var(--accent-blue-light);
+.title-accent {
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .bottom-bar {
@@ -792,7 +806,7 @@ html[lang="km"] .lang-flag-km {
 
 .btn-primary-action,
 .btn-cta-primary {
-  background: var(--accent-blue);
+  background: var(--accent-blue) !important;
   color: #ffffff !important;
   border: 1px solid var(--accent-blue);
   font-weight: 700;
@@ -804,10 +818,16 @@ html[lang="km"] .lang-flag-km {
   transition: all 0.15s ease;
 }
 
+.btn-primary-action *,
+.btn-cta-primary * {
+  color: #ffffff !important;
+  fill: currentColor;
+}
+
 .btn-primary-action:hover,
 .btn-cta-primary:hover {
-  background: var(--accent-blue-hover);
-  border-color: var(--accent-blue-hover);
+  background: var(--accent-blue-hover) !important;
+  border-color: var(--accent-blue-hover) !important;
   color: #ffffff !important;
 }
 

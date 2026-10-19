@@ -110,6 +110,5 @@ Lesson/
 │   └── km.png            # Khmer language flag button icon
 ├── index.html        # Curriculum Home Page Hub (all 5 lessons)
 ├── script.js         # Shared presentation engine & router
-├── styles.css        # Shared design system (light & dark mode, <=20px spacing)
 └── translations.js   # English and Khmer localization dictionary
 ```
