@@ -776,6 +776,8 @@ document.addEventListener('keydown', (e) => {
       window.location.href = 'html/shadcn.html';
     } else if (e.key === '6') {
       window.location.href = 'html/postgres.html';
+    } else if (e.key === '7') {
+      window.location.href = 'html/vercel.html';
     }
     return;
   }
