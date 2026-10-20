@@ -52,208 +52,289 @@
       }
     };
   </script>
-  <style type="text/tailwindcss">
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; scrollbar-width: none; -ms-overflow-style: none; }
-    *::-webkit-scrollbar { display: none; width: 0; height: 0; }
-    :root {
-      --bg-deep: #020617; --bg-base: #0b0f19; --bg-surface: #0f172a; --bg-surface-elevated: #1e293b; --bg-terminal: #020617;
-      --border-default: #1e293b; --border-subtle: #334155; --border-focus: #2563eb;
-      --text-primary: #ffffff; --text-secondary: #f8fafc; --text-muted: #e2e8f0;
-      --accent-blue: #2563eb; --accent-blue-hover: #1d4ed8; --accent-blue-light: #60a5fa; --accent-indigo: #818cf8; --accent-green: #4ade80; --accent-emerald: #34d399; --accent-orange: #fb923c; --accent-purple: #c084fc; --accent-red: #f87171; --accent-amber: #fbbf24;
-      --font-sans: "Plus Jakarta Sans", sans-serif; --font-mono: "JetBrains Mono", monospace;
-      --header-height: 54px; --footer-height: 50px;
+  <style>
+    * {
+      border-radius: 0 !important;
     }
-    [data-theme="light"], html:not(.dark):not([data-theme="dark"]) {
-      --bg-deep: #f8fafc; --bg-base: #f1f5f9; --bg-surface: #ffffff; --bg-surface-elevated: #f8fafc; --bg-terminal: #0f172a;
-      --border-default: #e2e8f0; --border-subtle: #cbd5e1; --border-focus: #0284c7;
-      --text-primary: #0f172a; --text-secondary: #475569; --text-muted: #64748b;
-      --accent-blue: #0284c7; --accent-indigo: #4f46e5; --accent-green: #16a34a; --accent-emerald: #059669; --accent-orange: #ea580c; --accent-purple: #9333ea; --accent-red: #dc2626; --accent-amber: #d97706;
+    *, *::before, *::after {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    *::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    body.lang-km {
+      font-family: "Kantumruy Pro", "Noto Sans Khmer", sans-serif;
+    }
+    body.lang-km .slide-title {
+      font-size: 24px;
+      line-height: 1.35;
+    }
+    body.lang-km .title-main-h1 {
+      font-size: 30px;
+      line-height: 1.3;
+    }
+    .slide-item:not(.active) {
+      display: none !important;
+    }
+    .slide-item.active {
+      display: flex !important;
+    }
+    :fullscreen #app-container, .fullscreen-active #app-container {
+      height: 100vh;
+      width: 100vw;
+    }
+    :fullscreen .slide-viewport, .fullscreen-active .slide-viewport {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    :fullscreen .top-bar, .fullscreen-active .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      z-index: 100;
+    }
+    :fullscreen .top-bar:hover, .fullscreen-active .top-bar:hover, :fullscreen .top-bar:focus-within, .fullscreen-active .top-bar:focus-within, .show-fs-header .top-bar {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    :fullscreen .bottom-bar, .fullscreen-active .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      z-index: 100;
+    }
+    :fullscreen .bottom-bar:hover, .fullscreen-active .bottom-bar:hover, :fullscreen .bottom-bar:focus-within, .fullscreen-active .bottom-bar:focus-within, .show-fs-footer .bottom-bar {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .modal:not(.open), .modal-backdrop:not(.open) {
+      display: none !important;
+    }
+    .modal.open, .modal-backdrop.open {
+      display: flex !important;
+    }
+
+    /* Dynamically generated JS elements */
+    .overview-card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      padding: 12px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+    .overview-card:hover {
+      border-color: #2563eb;
+    }
+    .overview-card.current, .overview-card.active {
+      border-color: #2563eb !important;
+      background-color: rgba(37, 99, 235, 0.15) !important;
+    }
+    .overview-card-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #60a5fa;
+    }
+    .overview-card-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+    .overview-card-part {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    /* Interactive Search & Scenarios */
+    .search-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+    .search-item:hover, .search-item.selected {
+      border-color: #2563eb;
+      background-color: rgba(37, 99, 235, 0.12);
+    }
+    .search-badge {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 800;
+      color: #60a5fa;
+      background-color: rgba(37, 99, 235, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 2px 6px;
+    }
+    .search-item-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .search-item-cat {
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .search-item-action {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: #60a5fa;
+      font-weight: 700;
+    }
+    .scenario-nav-btn.active {
+      background-color: rgba(37, 99, 235, 0.2) !important;
+      border-color: #2563eb !important;
+      color: #60a5fa !important;
+    }
+    .scenario-option-btn.selected-correct {
+      border-color: #22c55e !important;
+      background-color: rgba(34, 197, 94, 0.15) !important;
+      color: #4ade80 !important;
+    }
+    .scenario-option-btn.selected-wrong {
+      border-color: #ef4444 !important;
+      background-color: rgba(239, 68, 68, 0.15) !important;
+      color: #f87171 !important;
+    }
+
+    /* Light Theme (matches index.html) */
+    [data-theme="light"],
+    html:not(.dark):not([data-theme="dark"]) {
       color-scheme: light;
     }
-    [data-theme="light"] .slide-content-card, html:not(.dark):not([data-theme="dark"]) .slide-content-card { box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08); }
-    [data-theme="light"] .kbd, html:not(.dark):not([data-theme="dark"]) .kbd { background: #f1f5f9; border-color: #cbd5e1; color: #0f172a; }
-    #btn-lang-toggle, #btn-theme-toggle { width: 34px; height: 34px; padding: 0 !important; }
-    .lang-flag-en, .lang-flag-km { width: 20px; height: 14px; object-fit: cover; display: block; flex-shrink: 0; pointer-events: none; }
-    html, body { width: 100%; height: 100%; overflow: hidden; background-color: var(--bg-deep); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
-    body.lang-km { font-family: "Kantumruy Pro", var(--font-sans); }
-    body.lang-km .slide-title { font-size: 24px; line-height: 1.35; }
-    body.lang-km .title-main-h1 { font-size: 30px; line-height: 1.3; }
-    #app-container { display: flex; flex-direction: column; width: 100vw; height: 100vh; position: relative; background: var(--bg-deep); }
-    .top-bar { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); padding: 0 16px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; }
-    .brand-section { display: flex; align-items: center; gap: 12px; }
-    .brand-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }
-    .brand-logo:hover { color: var(--accent-blue); }
-    .brand-icon { width: 20px; height: 20px; fill: var(--accent-orange); }
-    .part-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 8px; background: rgba(37, 99, 235, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.25); font-family: var(--font-mono); }
-    .top-controls { display: flex; align-items: center; gap: 8px; }
-    .btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 4px 8px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; }
-    .btn-icon:hover { color: var(--text-primary); border-color: var(--border-subtle); background: var(--border-default); }
-    .slide-counter-wrapper { display: flex; align-items: center; gap: 4px; font-size: 12px; font-family: var(--font-mono); color: var(--text-secondary); background: var(--bg-deep); border: 1px solid var(--border-default); padding: 4px 8px; }
-    .slide-counter-wrapper select { background: var(--bg-surface); border: 1px solid var(--border-default); color: var(--text-primary); font-family: var(--font-mono); font-size: 12px; padding: 2px 4px; cursor: pointer; }
-    .slide-viewport { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; overflow-x: hidden; position: relative; }
-    .slides-container { width: 100%; display: flex; justify-content: center; }
-    .slide-item { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; }
-    .slide-item:not(.active) { display: none !important; }
-    .slide-item.active { display: flex !important; }
-    .slide-content-card { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35); }
-    .slide-header { display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; gap: 12px; }
-    .slide-title-wrap { display: flex; flex-direction: column; gap: 4px; }
-    .slide-meta-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); }
-    .slide-title { font-size: 24px; font-weight: 800; color: var(--text-primary); margin: 0; line-height: 1.25; }
-    .slide-subtitle { font-size: 13px; color: var(--text-secondary); margin: 0; }
-    .slide-badge-group { display: flex; align-items: center; gap: 8px; }
-    .tag-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border: 1px solid var(--border-default); background: var(--bg-surface-elevated); color: var(--text-secondary); font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px; }
-    .tag-badge.warning { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #f59e0b; }
-    .tag-badge.info, .tag-badge.flow { background: rgba(37, 99, 235, 0.12); border-color: rgba(37, 99, 235, 0.3); color: #3b82f6; }
-    .tag-badge.success { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.3); color: #22c55e; }
-    .slide-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    .slide-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .slide-stack { display: flex; flex-direction: column; gap: 12px; }
-    .info-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s ease; }
-    .info-card:hover { border-color: var(--border-subtle); }
-    .info-card h4 { font-size: 13.5px; font-weight: 700; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 8px; }
-    .info-card p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
-    .terminal-window { background: var(--bg-terminal); border: 1px solid var(--border-default); overflow: hidden; font-family: var(--font-mono); font-size: 12px; }
-    .terminal-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); }
-    .terminal-dots { display: flex; align-items: center; gap: 6px; }
-    .terminal-dot { width: 9px; height: 9px; background: var(--border-subtle); }
-    .terminal-title { font-size: 11px; color: var(--text-muted); font-weight: 600; }
-    .btn-copy { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 11px; padding: 2px 8px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
-    .btn-copy:hover { color: var(--text-primary); }
-    .terminal-body { padding: 12px; overflow-x: auto; color: var(--text-primary); line-height: 1.6; }
-    .term-cmd { color: var(--accent-blue); font-weight: 700; }
-    .term-out { color: var(--text-secondary); }
-    .term-comment { color: var(--text-muted); font-style: italic; }
-    .term-success { color: var(--accent-green); }
-    .term-warn { color: var(--accent-amber); }
-    .term-branch { color: var(--accent-purple); font-weight: 700; }
-    .code-block { background: var(--bg-terminal); border: 1px solid var(--border-default); padding: 12px; font-family: var(--font-mono); font-size: 12px; overflow-x: auto; color: #3b82f6; line-height: 1.5; }
-    .alert-callout { display: flex; align-items: flex-start; gap: 8px; padding: 12px; border: 1px solid var(--border-default); font-size: 12.5px; line-height: 1.5; }
-    .alert-callout svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
-    .alert-callout.tip { background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.25); color: #7dd3fc; }
-    .alert-callout.tip svg { fill: #3b82f6; }
-    .alert-callout.warning { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.25); color: #fde047; }
-    .alert-callout.warning svg { fill: #f59e0b; }
-    .alert-callout.info { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.25); color: #a5b4fc; }
-    .alert-callout.info svg { fill: #6366f1; }
-    .clean-table { width: 100%; border-collapse: collapse; font-size: 12px; border: 1px solid var(--border-default); }
-    .clean-table th { padding: 8px 12px; background: var(--bg-surface-elevated); border-bottom: 1px solid var(--border-default); font-weight: 700; color: var(--text-secondary); text-align: left; }
-    .clean-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-default); color: var(--text-primary); }
-    .clean-table tr:last-child td { border-bottom: none; }
-    .clean-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
-    [data-theme="light"] .clean-table tr:hover td { background: rgba(15, 23, 42, 0.03); }
-    .kbd { display: inline-block; padding: 2px 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-primary); }
-    .flow-diagram { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); }
-    .flow-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; flex: 1; }
-    .flow-step-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-surface); border: 1px solid var(--border-default); }
-    .flow-step-name { font-size: 12px; font-weight: 700; color: var(--text-primary); }
-    .flow-step-desc { font-size: 11px; color: var(--text-muted); }
-    .flow-arrow { color: var(--text-muted); font-weight: 700; user-select: none; }
-    .real-image-card { width: 100%; border: 1px solid var(--border-default); overflow: hidden; background: var(--bg-terminal); }
-    .real-image-card img { width: 100%; height: 240px; object-fit: cover; display: block; }
-    .real-image-caption { padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--bg-surface-elevated); border-top: 1px solid var(--border-default); display: flex; align-items: center; justify-content: space-between; }
-    .hero-visual-box { border: 1px solid var(--border-default); background: var(--bg-terminal); }
-    .title-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; align-items: center; }
-    .title-main-h1 { font-size: 32px; font-weight: 800; color: #ffffff; margin: 0 0 4px 0; line-height: 1.2; }
-    .title-tagline { font-size: 14px; color: #ffffff; font-style: italic; margin: 0 0 12px 0; }
-    .title-accent { color: #ffffff; font-weight: 800; }
-    .bottom-bar { display: flex; align-items: center; justify-content: space-between; height: var(--footer-height); padding: 0 16px; background: var(--bg-surface); border-top: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; position: relative; }
-    .progress-track { width: 100%; height: 3px; background: var(--border-default); position: relative; }
-    .progress-bar { height: 100%; background: var(--accent-blue); transition: width 0.15s ease; }
-    .bottom-content { display: flex; align-items: center; justify-content: space-between; height: calc(var(--footer-height) - 3px); padding: 0 16px; }
-    .nav-shortcuts-hint { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
-    .nav-buttons-group { display: flex; align-items: center; gap: 8px; }
-    .nav-controls { display: flex; align-items: center; gap: 8px; }
-    .btn-nav { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: #ffffff; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; text-decoration: none; }
-    .btn-nav:hover { background: var(--border-default); border-color: var(--border-subtle); color: #ffffff; }
-    .btn-primary-action, .btn-cta-primary { background: var(--accent-blue) !important; color: #ffffff !important; border-color: var(--accent-blue) !important; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-    .btn-primary-action *, .btn-cta-primary * { color: #ffffff !important; fill: currentColor; }
-    .btn-primary-action:hover, .btn-cta-primary:hover { background: var(--accent-blue-hover) !important; border-color: var(--accent-blue-hover) !important; color: #ffffff !important; }
-    .modal, .modal-backdrop { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(4px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
-    .modal:not(.open), .modal-backdrop:not(.open) { display: none !important; }
-    .modal.open, .modal-backdrop.open { display: flex !important; }
-    .modal-content, .modal-panel { width: 100%; max-width: 900px; max-height: 85vh; overflow-y: auto; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; gap: 16px; }
-    .modal-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; }
-    .modal-title { font-size: 18px; font-weight: 800; color: var(--text-primary); margin: 0; }
-    .modal-close { background: transparent; border: none; color: var(--text-secondary); font-size: 20px; cursor: pointer; padding: 0 4px; }
-    .modal-close:hover { color: var(--text-primary); }
-    .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-    .overview-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: all 0.15s ease; }
-    .overview-card:hover { border-color: var(--accent-blue); transform: translateY(-1px); }
-    .overview-card.current { border-color: var(--accent-blue) !important; background: rgba(56, 189, 248, 0.08); }
-    .overview-card-num { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent-blue); }
-    .overview-card-title { font-size: 12.5px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
-    .shortcut-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .shortcut-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); font-size: 12px; color: var(--text-secondary); }
-    :fullscreen #app-container, .fullscreen-active #app-container { height: 100vh; width: 100vw; }
-    :fullscreen .slide-deck, .fullscreen-active .slide-deck { max-width: 100%; width: 100%; height: 100%; }
-    :fullscreen .slide-viewport, .fullscreen-active .slide-viewport { padding: 0; width: 100%; height: 100%; }
-    :fullscreen .top-bar, .fullscreen-active .top-bar { position: fixed; top: 0; left: 0; right: 0; transform: translateY(-100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
-    :fullscreen .top-bar:hover, .fullscreen-active .top-bar:hover, :fullscreen .top-bar:focus-within, .fullscreen-active .top-bar:focus-within, .show-fs-header .top-bar { transform: translateY(0); opacity: 1; }
-    :fullscreen .bottom-bar, .fullscreen-active .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; transform: translateY(100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
-    :fullscreen .bottom-bar:hover, .fullscreen-active .bottom-bar:hover, :fullscreen .bottom-bar:focus-within, .fullscreen-active .bottom-bar:focus-within, .show-fs-footer .bottom-bar { transform: translateY(0); opacity: 1; }
-    @media (max-width: 768px) {
-      .slide-grid-2, .slide-grid-3, .title-hero-grid, .shortcut-grid { grid-template-columns: 1fr; }
-      .slide-content-card { padding: 12px; }
-      .top-bar { padding: 0 8px; }
-      .bottom-bar { padding: 0 8px; }
-      .bottom-content { padding: 0 8px; }
+    [data-theme="light"] body,
+    html:not(.dark):not([data-theme="dark"]) body {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+    [data-theme="light"] .bg-slate-950,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-950 {
+      background-color: #f1f5f9 !important;
+      border-color: #e2e8f0 !important;
+      color: #334155 !important;
+    }
+    [data-theme="light"] .bg-slate-900,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-900 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="light"] .bg-slate-800,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-800 {
+      background-color: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+      color: #334155 !important;
+    }
+    [data-theme="light"] .bg-slate-800:hover,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-800:hover {
+      background-color: #f1f5f9 !important;
+      color: #2563eb !important;
+    }
+    [data-theme="light"] .border-slate-800,
+    html:not(.dark):not([data-theme="dark"]) .border-slate-800 {
+      border-color: #e2e8f0 !important;
+    }
+    [data-theme="light"] .border-slate-700,
+    html:not(.dark):not([data-theme="dark"]) .border-slate-700 {
+      border-color: #cbd5e1 !important;
+    }
+    [data-theme="light"] .text-white,
+    [data-theme="light"] .text-slate-100,
+    [data-theme="light"] .text-slate-200,
+    html:not(.dark):not([data-theme="dark"]) .text-white,
+    html:not(.dark):not([data-theme="dark"]) .text-slate-100,
+    html:not(.dark):not([data-theme="dark"]) .text-slate-200 {
+      color: #0f172a !important;
+    }
+    [data-theme="light"] .text-slate-300,
+    [data-theme="light"] .text-slate-400,
+    html:not(.dark):not([data-theme="dark"]) .text-slate-300,
+    html:not(.dark):not([data-theme="dark"]) .text-slate-400 {
+      color: #475569 !important;
+    }
+    [data-theme="light"] .kbd,
+    html:not(.dark):not([data-theme="dark"]) .kbd {
+      background-color: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
     }
   </style>
 </head>
-<body class="min-h-screen font-sans antialiased overflow-hidden">
+<body class="min-h-screen bg-slate-950 text-white font-sans antialiased overflow-hidden">
   <div id="app-container">
-    <header class="top-bar">
-      <div class="brand-section">
-        <a href="../index.html" class="brand-logo" id="logo-link" title="Back to Curriculum Hub">
-          <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor">
+    <header class="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
+      <div class="brand-section flex items-center gap-3">
+        <a href="../index.html" class="brand-logo flex items-center gap-2 font-extrabold text-[15px] text-white hover:text-blue-400 transition-colors no-underline" id="logo-link" title="Back to Curriculum Hub">
+          <svg class="brand-icon w-5 h-5 text-orange-500 fill-current" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.335 6.182 14.974 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.335 13.382 8.974 12 6.001 12z"/>
           </svg>
           <span>Tailwind CSS</span>
         </a>
-        <span id="current-part-badge" class="part-badge">MODULE 04</span>
+        <span id="current-part-badge" class="part-badge inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2 py-1 bg-blue-600/15 text-blue-400 border border-blue-500/30 font-mono">MODULE 04</span>
       </div>
 
-      <div class="top-controls">
-        <button id="btn-lang-toggle" class="btn-icon w-[34px] h-[34px] !p-0 flex items-center justify-center shrink-0" title="Toggle Language (English / ភាសាខ្មែរ)" aria-label="Toggle Language">
+      <div class="top-controls flex items-center gap-2">
+        <button id="btn-lang-toggle" class="btn-icon w-[34px] h-[34px] p-0 border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors flex items-center justify-center cursor-pointer shrink-0" title="Toggle Language (English / ភាសាខ្មែរ)" aria-label="Toggle Language">
           <img class="lang-flag-en w-5 h-3.5 object-cover" src="../images/en.png" alt="English">
           <img class="lang-flag-km w-5 h-3.5 object-cover" src="../images/km.png" alt="Khmer" style="display: none;">
         </button>
-        <div class="slide-counter-wrapper">
+        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1">
           <span data-i18n="ui_slide">Slide</span>
-          <select id="slide-jump-select" title="Jump to slide"></select>
+          <select id="slide-jump-select" class="bg-transparent text-blue-400 font-mono text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white" title="Jump to slide"></select>
           <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">38</span></span>
         </div>
-        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+        <button id="btn-overview" class="btn-icon inline-flex items-center justify-center gap-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold cursor-pointer transition-colors" title="Slide Overview (O)">
           <svg viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
           <span>Grid</span>
         </button>
-        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+        <button id="btn-shortcuts" class="btn-icon inline-flex items-center justify-center gap-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold cursor-pointer transition-colors" title="Keyboard Shortcuts (?)">
           <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
         </button>
-        <button id="btn-theme-toggle" class="btn-icon w-[34px] h-[34px] !p-0 flex items-center justify-center shrink-0" title="Toggle Light / Dark Mode (T)" aria-label="Toggle Light / Dark Mode">
-          <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
-          <svg id="theme-icon-moon" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        <button id="btn-theme-toggle" class="btn-icon w-[34px] h-[34px] p-0 border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors flex items-center justify-center cursor-pointer shrink-0" title="Toggle Light / Dark Mode (T)" aria-label="Toggle Light / Dark Mode">
+          <svg id="theme-icon-sun" class="w-4 h-4 fill-current shrink-0" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" class="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
         </button>
-        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+        <button id="btn-fullscreen" class="btn-icon inline-flex items-center justify-center gap-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold cursor-pointer transition-colors" title="Toggle Fullscreen (F)">
           <svg viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
         </button>
       </div>
     </header>
-    <main class="slide-viewport">
-      <div class="slides-container">
-        <section class="slide-item active" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
+    <main class="slide-viewport flex-1 flex items-center justify-center p-4 overflow-y-auto overflow-x-hidden relative">
+      <div class="slides-container w-full max-w-[1100px] mx-auto flex justify-center">
+        <section class="slide-item active w-full max-w-[1100px] mx-auto flex flex-col" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
   <div class="slide-content-card title-card-hero">
-    <div class="title-hero-grid">
+    <div class="title-hero-grid grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-4 items-center">
       <div class="title-text-col">
         <div class="title-badge-pill">MODULE 04 • MODERN CSS</div>
-        <h1 class="title-main-h1">Tailwind CSS<br><span class="title-accent">Rapid Utility-First Styling</span></h1>
-        <p class="title-tagline">“Build modern, responsive interfaces directly in your markup”</p>
-        <div class="alert-callout tip"><div>Master utility classes, flexbox/grid layouts, responsive breakpoints, design tokens, and dark mode without writing raw CSS.</div></div>
-        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
+        <h1 class="title-main-h1 text-3xl md:text-4xl font-extrabold text-white m-0 mb-1 leading-tight">Tailwind CSS<br><span class="title-accent text-blue-400 font-extrabold">Rapid Utility-First Styling</span></h1>
+        <p class="title-tagline text-sm text-slate-300 italic m-0 mb-3">“Build modern, responsive interfaces directly in your markup”</p>
+        <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed"><div>Master utility classes, flexbox/grid layouts, responsive breakpoints, design tokens, and dark mode without writing raw CSS.</div></div>
+        <div class="title-actions-row"><button class="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" id="btn-start-course">Start Module <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
       </div>
       <div class="title-visual-col">
-        <div class="code-box"><div class="code-box-header"><span>HeroCard.tsx</span></div><pre><code>&lt;div className="p-6 bg-slate-900 border border-slate-800 rounded-xl shadow-xl flex items-center gap-4 hover:border-blue-500 transition-all"&gt;
+        <div class="code-box bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md"><div class="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>HeroCard.tsx</span></div><pre><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;div className="p-6 bg-slate-900 border border-slate-800 rounded-xl shadow-xl flex items-center gap-4 hover:border-blue-500 transition-all"&gt;
   &lt;div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg flex items-center justify-center font-bold"&gt;
     TS
   &lt;/div&gt;
@@ -265,58 +346,58 @@
       </div>
     </div>
   </div>
-</section><section class="slide-item" data-part="OVERVIEW" id="slide-2">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">OVERVIEW</span><h2 class="slide-title">Why Utility-First CSS?</h2><p class="slide-subtitle">How utility classes solve the classic pitfalls of traditional CSS files</p></div>
-    <div class="slide-grid-2">
-      <div class="info-card">
-        <h4><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Traditional CSS File Nightmare</h4>
-        <p>You waste hours thinking of class names (<code>.header-nav-card-item-inner</code>). The CSS file grows infinitely because you fear deleting unused rules.</p>
-        <div class="alert-callout"><div>Result: Global naming collisions, style leakage, bloated CSS bundle.</div></div>
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="OVERVIEW" id="slide-2">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">OVERVIEW</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Why Utility-First CSS?</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">How utility classes solve the classic pitfalls of traditional CSS files</p></div>
+    <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+        <h4><span class="cross-icon inline-flex items-center justify-center text-red-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Traditional CSS File Nightmare</h4>
+        <p>You waste hours thinking of class names (<code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.header-nav-card-item-inner</code>). The CSS file grows infinitely because you fear deleting unused rules.</p>
+        <div class="alert-callout flex items-start gap-2.5 p-3 border border-slate-700 bg-slate-800/80 text-slate-300 text-[12.5px] leading-relaxed"><div>Result: Global naming collisions, style leakage, bloated CSS bundle.</div></div>
       </div>
-      <div class="info-card">
-        <h4><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Tailwind Utility-First Superpower</h4>
+      <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+        <h4><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Tailwind Utility-First Superpower</h4>
         <p>You style directly inside your markup with predefined constraints. Purges unused classes automatically for a tiny ~10kB production stylesheet.</p>
-        <div class="alert-callout tip"><div>No context switching between HTML and CSS files. Consistent spacing and colors.</div></div>
+        <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed"><div>No context switching between HTML and CSS files. Consistent spacing and colors.</div></div>
       </div>
     </div>
   </div>
-</section><section class="slide-item" data-part="SETUP" id="slide-3">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">SETUP</span><h2 class="slide-title">Configuration &amp; Setup</h2><p class="slide-subtitle">Importing Tailwind directives into your project</p></div>
-    <div class="slide-grid-2">
-      <div class="code-box"><div class="code-box-header"><span>src/app/globals.css</span><button class="copy-btn">Copy</button></div><pre><code>@import "tailwindcss";
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="SETUP" id="slide-3">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">SETUP</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Configuration &amp; Setup</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Importing Tailwind directives into your project</p></div>
+    <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="code-box bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md"><div class="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>src/app/globals.css</span><button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@import "tailwindcss";
 
 @theme {
   --color-brand-primary: #2563eb;
   --color-brand-accent: #6366f1;
   --font-display: 'Plus Jakarta Sans', sans-serif;
 }</code></pre></div>
-      <div class="terminal-mockup"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title">bash — install tailwind</span><button class="copy-btn">Copy</button></div><div class="terminal-body"><div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">pnpm add tailwindcss @tailwindcss/postcss postcss</span></div><div class="term-output">+ tailwindcss 4.0.0<br>+ @tailwindcss/postcss 4.0.0<br><span class="out-success"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Packages installed successfully</span></div></div></div>
+      <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md"><div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><div class="terminal-dots flex items-center gap-1.5"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — install tailwind</span><button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs"><div class="term-line"><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">pnpm add tailwindcss @tailwindcss/postcss postcss</span></div><div class="term-output text-slate-300 font-mono text-xs">+ tailwindcss 4.0.0<br>+ @tailwindcss/postcss 4.0.0<br><span class="out-success"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" class="inline-block align-middle mr-0.5"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>Packages installed successfully</span></div></div></div>
     </div>
   </div>
-</section><section class="slide-item" data-part="UTILITIES" id="slide-4">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">UTILITIES</span><h2 class="slide-title">Sizing &amp; Spacing System</h2><p class="slide-subtitle">Fixed mathematical scale for margins, paddings, and dimensions</p></div>
-    <div class="clean-table-container">
-      <table class="clean-table">
-        <thead><tr><th>Utility Class</th><th>CSS Value</th><th>Pixel Equivalent</th><th>Usage Example</th></tr></thead>
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="UTILITIES" id="slide-4">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">UTILITIES</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Sizing &amp; Spacing System</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Fixed mathematical scale for margins, paddings, and dimensions</p></div>
+    <div class="clean-table-container w-full overflow-x-auto border border-slate-800">
+      <table class="clean-table w-full border-collapse text-xs border border-slate-800">
+        <thead><tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Utility Class</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">CSS Value</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Pixel Equivalent</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Usage Example</th></tr></thead>
         <tbody>
-          <tr><td><code>p-1</code> / <code>m-1</code></td><td>0.25rem</td><td>4px</td><td>Micro gap, button tags</td></tr>
-          <tr><td><code>p-2</code> / <code>m-2</code></td><td>0.5rem</td><td>8px</td><td>Small pill badges</td></tr>
-          <tr><td><code>p-3</code> / <code>m-3</code></td><td>0.75rem</td><td>12px</td><td>Input fields</td></tr>
-          <tr><td><code>p-4</code> / <code>m-4</code></td><td>1rem</td><td>16px</td><td>Standard card padding</td></tr>
-          <tr><td><code>p-5</code> / <code>m-5</code></td><td>1.25rem</td><td>20px</td><td>Section card containers</td></tr>
-          <tr><td><code>w-full</code> / <code>max-w-xl</code></td><td>100% / 36rem</td><td>Full width with cap</td><td>Responsive containers</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">p-1</code> / <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">m-1</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">0.25rem</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">4px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Micro gap, button tags</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">p-2</code> / <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">m-2</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">0.5rem</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">8px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Small pill badges</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">p-3</code> / <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">m-3</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">0.75rem</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">12px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Input fields</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">p-4</code> / <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">m-4</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">1rem</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">16px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Standard card padding</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">p-5</code> / <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">m-5</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">1.25rem</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">20px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Section card containers</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">w-full</code> / <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">max-w-xl</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">100% / 36rem</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Full width with cap</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Responsive containers</td></tr>
         </tbody>
       </table>
     </div>
   </div>
-</section><section class="slide-item" data-part="TYPOGRAPHY" id="slide-5">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">TYPOGRAPHY</span><h2 class="slide-title">Typography &amp; Modern Colors</h2><p class="slide-subtitle">Pre-curated contrast and hierarchy</p></div>
-    <div class="slide-grid-2">
-      <div class="code-box"><div class="code-box-header"><span>Typography Classes</span></div><pre><code>&lt;h1 className="text-3xl font-extrabold tracking-tight text-white"&gt;
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="TYPOGRAPHY" id="slide-5">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">TYPOGRAPHY</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Typography &amp; Modern Colors</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Pre-curated contrast and hierarchy</p></div>
+    <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="code-box bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md"><div class="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Typography Classes</span></div><pre><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;h1 className="text-3xl font-extrabold tracking-tight text-white"&gt;
   Main Heading
 &lt;/h1&gt;
 &lt;h2 className="text-xl font-bold text-slate-200 mt-2"&gt;
@@ -328,19 +409,19 @@
 &lt;span className=" text-xs text-blue-400"&gt;
   git status
 &lt;/span&gt;</code></pre></div>
-      <div class="info-card">
+      <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
         <h4>Color Palette Rules</h4>
-        <p>1. Backgrounds: <code>bg-slate-900</code>, <code>bg-slate-950</code>, <code>bg-white</code></p>
-        <p>2. Text: <code>text-slate-100</code> (primary), <code>text-slate-400</code> (muted)</p>
-        <p>3. Accents: <code>text-blue-400</code>, <code>bg-blue-500</code>, <code>border-blue-500/30</code></p>
-        <p>4. Borders: <code>border-slate-800</code>, <code>border-slate-200</code></p>
+        <p>1. Backgrounds: <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-slate-900</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-slate-950</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-white</code></p>
+        <p>2. Text: <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">text-slate-100</code> (primary), <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">text-slate-400</code> (muted)</p>
+        <p>3. Accents: <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">text-blue-400</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-blue-500</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">border-blue-500/30</code></p>
+        <p>4. Borders: <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">border-slate-800</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">border-slate-200</code></p>
       </div>
     </div>
   </div>
-</section><section class="slide-item" data-part="LAYOUT" id="slide-6">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">LAYOUT</span><h2 class="slide-title">Flexbox &amp; CSS Grid in Action</h2><p class="slide-subtitle">Building responsive 2-column and 3-column card layouts</p></div>
-    <div class="code-box"><div class="code-box-header"><span>Responsive Grid Layout</span><button class="copy-btn">Copy</button></div><pre><code>{/* Responsive 1 col on mobile, 3 cols on desktop */}
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="LAYOUT" id="slide-6">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">LAYOUT</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Flexbox &amp; CSS Grid in Action</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Building responsive 2-column and 3-column card layouts</p></div>
+    <div class="code-box bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md"><div class="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Responsive Grid Layout</span><button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">{/* Responsive 1 col on mobile, 3 cols on desktop */}
 &lt;div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"&gt;
   {features.map((item) =&gt; (
     &lt;div 
@@ -357,27 +438,27 @@
   ))}
 &lt;/div&gt;</code></pre></div>
   </div>
-</section><section class="slide-item" data-part="RESPONSIVE" id="slide-7">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">RESPONSIVE</span><h2 class="slide-title">Mobile-First Breakpoint Architecture</h2><p class="slide-subtitle">Styles apply to mobile first, then scale up with prefixes</p></div>
-    <div class="clean-table-container">
-      <table class="clean-table">
-        <thead><tr><th>Prefix</th><th>Minimum Width</th><th>CSS Media Query</th><th>Target Device</th></tr></thead>
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="RESPONSIVE" id="slide-7">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">RESPONSIVE</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Mobile-First Breakpoint Architecture</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Styles apply to mobile first, then scale up with prefixes</p></div>
+    <div class="clean-table-container w-full overflow-x-auto border border-slate-800">
+      <table class="clean-table w-full border-collapse text-xs border border-slate-800">
+        <thead><tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Prefix</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Minimum Width</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">CSS Media Query</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Target Device</th></tr></thead>
         <tbody>
-          <tr><td>(default)</td><td>0px</td><td>(mobile first)</td><td>All smartphones</td></tr>
-          <tr><td><code>sm:</code></td><td>640px</td><td><code>@media (min-width: 640px)</code></td><td>Large phones / small tablets</td></tr>
-          <tr><td><code>md:</code></td><td>768px</td><td><code>@media (min-width: 768px)</code></td><td>Tablets / iPad</td></tr>
-          <tr><td><code>lg:</code></td><td>1024px</td><td><code>@media (min-width: 1024px)</code></td><td>Laptops / Desktops</td></tr>
-          <tr><td><code>xl:</code></td><td>1280px</td><td><code>@media (min-width: 1280px)</code></td><td>Large desktop monitors</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">(default)</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">0px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">(mobile first)</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">All smartphones</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">sm:</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">640px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@media (min-width: 640px)</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Large phones / small tablets</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">md:</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">768px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@media (min-width: 768px)</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Tablets / iPad</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">lg:</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">1024px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@media (min-width: 1024px)</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Laptops / Desktops</td></tr>
+          <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">xl:</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">1280px</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@media (min-width: 1280px)</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Large desktop monitors</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="alert-callout tip"><div>Example: <code>className="w-full md:w-1/2 lg:w-1/3"</code> makes a column full width on phones, half width on tablets, and one third on desktop.</div></div>
+    <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed"><div>Example: <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">className="w-full md:w-1/2 lg:w-1/3"</code> makes a column full width on phones, half width on tablets, and one third on desktop.</div></div>
   </div>
-</section><section class="slide-item" data-part="STATES" id="slide-8">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">STATES</span><h2 class="slide-title">Interactive Hover, Focus &amp; Active States</h2><p class="slide-subtitle">Polished micro-animations with transition utilities</p></div>
-    <div class="code-box"><div class="code-box-header"><span>Interactive Button Component</span><button class="copy-btn">Copy</button></div><pre><code>&lt;button className="
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="STATES" id="slide-8">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">STATES</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Interactive Hover, Focus &amp; Active States</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Polished micro-animations with transition utilities</p></div>
+    <div class="code-box bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md"><div class="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Interactive Button Component</span><button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;button className="
   px-4 py-2 
   bg-blue-600 text-white font-bold text-sm 
   rounded-lg 
@@ -386,14 +467,14 @@
   active:scale-95 
   transition-all duration-150 ease-out
 "&gt;
-  Submit Form <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+  Submit Form <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
 &lt;/button&gt;</code></pre></div>
-    <div class="alert-callout"><div>Always include <code>focus:ring-2</code> for keyboard accessibility and <code>transition-all</code> for smooth visual feedback.</div></div>
+    <div class="alert-callout flex items-start gap-2.5 p-3 border border-slate-700 bg-slate-800/80 text-slate-300 text-[12.5px] leading-relaxed"><div>Always include <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">focus:ring-2</code> for keyboard accessibility and <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">transition-all</code> for smooth visual feedback.</div></div>
   </div>
-</section><section class="slide-item" data-part="DARK MODE" id="slide-9">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">DARK MODE</span><h2 class="slide-title">Tailwind Dark Mode Integration</h2><p class="slide-subtitle">Effortless dual-theme support using the dark: variant</p></div>
-    <div class="code-box"><div class="code-box-header"><span>Dual-Theme Card Example</span><button class="copy-btn">Copy</button></div><pre><code>&lt;div className="
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="DARK MODE" id="slide-9">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">DARK MODE</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Tailwind Dark Mode Integration</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Effortless dual-theme support using the dark: variant</p></div>
+    <div class="code-box bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md"><div class="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Dual-Theme Card Example</span><button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;div className="
   bg-white dark:bg-slate-900 
   text-slate-900 dark:text-slate-100 
   border border-slate-200 dark:border-slate-800 
@@ -405,100 +486,101 @@
   &lt;/p&gt;
 &lt;/div&gt;</code></pre></div>
   </div>
-</section><section class="slide-item" data-part="COMPONENTS" id="slide-10">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">COMPONENTS</span><h2 class="slide-title">Reusable Component Extraction</h2><p class="slide-subtitle">How to avoid class string duplication in React</p></div>
-    <div class="slide-grid-2">
-      <div class="info-card">
-        <h4><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Don't Overuse @apply</h4>
-        <p>Do not create hundreds of custom CSS classes with <code>@apply</code>. That defeats the purpose of utility-first CSS and creates a bloated stylesheet.</p>
-        <div class="alert-callout"><div>Only use @apply for global HTML element resets.</div></div>
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="COMPONENTS" id="slide-10">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">COMPONENTS</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Reusable Component Extraction</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">How to avoid class string duplication in React</p></div>
+    <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+        <h4><span class="cross-icon inline-flex items-center justify-center text-red-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Don't Overuse @apply</h4>
+        <p>Do not create hundreds of custom CSS classes with <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@apply</code>. That defeats the purpose of utility-first CSS and creates a bloated stylesheet.</p>
+        <div class="alert-callout flex items-start gap-2.5 p-3 border border-slate-700 bg-slate-800/80 text-slate-300 text-[12.5px] leading-relaxed"><div>Only use @apply for global HTML element resets.</div></div>
       </div>
-      <div class="info-card">
-        <h4><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Extract React Components</h4>
-        <p>Wrap repeated markup in reusable components like <code>&lt;Button variant="primary" /&gt;</code> or <code>&lt;Card /&gt;</code>.</p>
-        <div class="alert-callout tip"><div>This leads directly into modern component libraries like Shadcn UI!</div></div>
+      <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+        <h4><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Extract React Components</h4>
+        <p>Wrap repeated markup in reusable components like <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;Button variant="primary" /&gt;</code> or <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;Card /&gt;</code>.</p>
+        <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed"><div>This leads directly into modern component libraries like Shadcn UI!</div></div>
       </div>
     </div>
   </div>
-</section><section class="slide-item" data-part="BEST PRACTICES" id="slide-11">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">BEST PRACTICES</span><h2 class="slide-title">Tailwind Developer Best Practices</h2><p class="slide-subtitle">Writing clean, maintainable utility markup</p></div>
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="BEST PRACTICES" id="slide-11">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">BEST PRACTICES</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Tailwind Developer Best Practices</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Writing clean, maintainable utility markup</p></div>
     <div class="summary-checklist-grid">
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Order classes logically: Layout <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Spacing <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Typography <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Colors <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> States</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Install Tailwind CSS IntelliSense extension in VS Code / IDE</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Use arbitrary values (<code>w-[350px]</code>) sparingly; stick to the scale</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Use opacity modifiers like <code>bg-blue-500/20</code> for sleek glows</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Ensure high contrast in both Light Mode and Dark Mode</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Use the <code>cn()</code> utility helper to merge conditional classes</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Order classes logically: Layout <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Spacing <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Typography <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Colors <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> States</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Install Tailwind CSS IntelliSense extension in VS Code / IDE</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Use arbitrary values (<code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">w-[350px]</code>) sparingly; stick to the scale</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Use opacity modifiers like <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-blue-500/20</code> for sleek glows</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Ensure high contrast in both Light Mode and Dark Mode</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Use the <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">cn()</code> utility helper to merge conditional classes</span></div>
     </div>
   </div>
-</section><section class="slide-item" data-part="SUMMARY" id="slide-12">
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="SUMMARY" id="slide-12">
   <div class="slide-content-card summary-card">
-    <div class="slide-header-group"><span class="slide-category-tag">SUMMARY</span><h2 class="slide-title">Tailwind CSS Mastery Checklist</h2><p class="slide-subtitle">You now have full control of modern utility styling</p></div>
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">SUMMARY</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Tailwind CSS Mastery Checklist</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">You now have full control of modern utility styling</p></div>
     <div class="summary-checklist-grid">
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Utility-first philosophy: fast, scoped, zero CSS sprawl</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Sizing and spacing scale (p-1 to p-5)</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Flexbox and Grid responsive column layouts</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Mobile-first responsive breakpoints (sm, md, lg, xl)</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Micro-interactions with hover, focus, and transition</span></div>
-      <div class="checklist-item"><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Seamless dark mode with dark: modifiers</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Utility-first philosophy: fast, scoped, zero CSS sprawl</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Sizing and spacing scale (p-1 to p-5)</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Flexbox and Grid responsive column layouts</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Mobile-first responsive breakpoints (sm, md, lg, xl)</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Micro-interactions with hover, focus, and transition</span></div>
+      <div class="checklist-item flex items-start gap-2.5 p-2.5 bg-slate-800/60 border border-slate-800 text-xs text-slate-300"><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span><span>Seamless dark mode with dark: modifiers</span></div>
     </div>
-    <div class="quote-banner">Next step: Combine Tailwind with accessible Radix primitives in Shadcn UI!</div>
-    <div style="margin-top:16px;text-align:center;"><a href="shadcn.html" class="btn-cta-primary">Continue to Lesson 05: Shadcn UI <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></a></div>
+    <div class="quote-banner p-3 bg-slate-800/60 border-l-4 border-blue-500 text-slate-300 italic text-xs leading-relaxed">Next step: Combine Tailwind with accessible Radix primitives in Shadcn UI!</div>
+    <div class="mt-4 text-center"><a href="shadcn.html" class="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline">Continue to Lesson 05: Shadcn UI <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></a></div>
   </div>
 </section>
       </div>
     </main>
-    <footer class="bottom-bar">
-      <div class="progress-track" style="position: absolute; top: 0; left: 0; right: 0;"><div id="progress-bar-fill" class="progress-bar" style="width: 0%;"></div></div>
-      <div class="nav-shortcuts-hint">
+    <footer class="bottom-bar flex items-center justify-between h-[50px] px-4 bg-slate-900 border-t border-slate-800 z-50 shrink-0 relative">
+      <div class="progress-track w-full h-[3px] bg-slate-800 relative absolute top-0 left-0 right-0"><div id="progress-bar-fill" class="progress-bar h-full bg-blue-600 transition-all duration-150" style="width: 0%;"></div></div>
+      <div class="nav-shortcuts-hint flex items-center gap-2 text-xs text-slate-400">
         <span>Navigation:</span>
-        <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
-        <span><span class="kbd">O</span> Overview</span>
-        <span><span class="kbd">F</span> Fullscreen</span>
-        <span><span class="kbd">T</span> Theme</span>
-        <span><span class="kbd">?</span> Help</span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span> / <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span> or <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span></span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</span> Overview</span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">F</span> Fullscreen</span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">T</span> Theme</span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">?</span> Help</span>
       </div>
 
-      <div class="nav-buttons-group">
-        <button id="btn-prev" class="btn-nav" title="Previous Slide (Left Arrow)">
+      <div class="nav-buttons-group flex items-center gap-2">
+        <button id="btn-prev" class="btn-nav inline-flex items-center gap-2 px-3 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" title="Previous Slide (Left Arrow)">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
           <span>Previous</span>
         </button>
-        <button id="btn-next" class="btn-nav" title="Next Slide (Right Arrow or Space)">
+        <button id="btn-next" class="btn-nav inline-flex items-center gap-2 px-3 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" title="Next Slide (Right Arrow or Space)">
           <span>Next</span>
           <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
         </button>
       </div>
     </footer>
-    <div id="overview-modal" class="modal-backdrop">
-    <div class="modal-panel">
-      <div class="modal-header">
-        <div class="modal-title">Slide Overview (38 Slides)</div>
-        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
+    <div id="overview-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4">
+      <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="modal-title text-lg font-extrabold text-white m-0">Slide Overview (38 Slides)</div>
+        <button class="btn-icon modal-close bg-transparent border-0 text-slate-400 hover:text-white text-xl cursor-pointer px-1 py-0" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
-      <div class="modal-body">
-        <div id="overview-grid" class="overview-grid"></div>
+      <div class="modal-body flex flex-col gap-3">
+        <div id="overview-grid" class="overview-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"></div>
       </div>
     </div>
-    <div id="shortcuts-modal" class="modal-backdrop">
-    <div class="modal-panel" style="max-width: 520px;">
-      <div class="modal-header">
-        <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
-        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
+    </div>
+    <div id="shortcuts-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4 max-w-[520px]">
+      <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="modal-title text-lg font-extrabold text-white m-0">Keyboard Navigation &amp; Shortcuts</div>
+        <button class="btn-icon modal-close bg-transparent border-0 text-slate-400 hover:text-white text-xl cursor-pointer px-1 py-0" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
-      <div class="modal-body">
-        <div class="shortcut-grid">
-          <div class="shortcut-item"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span> <span class="kbd">L</span></div></div>
-          <div class="shortcut-item"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span> <span class="kbd">H</span></div></div>
-          <div class="shortcut-item"><span>First Slide</span><span class="kbd">Home</span></div>
-          <div class="shortcut-item"><span>Last Slide</span><span class="kbd">End</span></div>
-          <div class="shortcut-item"><span>Slide Grid / Overview</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
-          <div class="shortcut-item"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
-          <div class="shortcut-item"><span>Toggle Light/Dark Theme</span><span class="kbd">T</span></div>
-          <div class="shortcut-item"><span>Close Modal</span><span class="kbd">Esc</span></div>
-          <div class="shortcut-item"><span>Help Modal</span><span class="kbd">?</span></div>
+      <div class="modal-body flex flex-col gap-3">
+        <div class="shortcut-grid grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Next Slide</span><div><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">L</span></div></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Previous Slide</span><div><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Backspace</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">H</span></div></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>First Slide</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Home</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Last Slide</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">End</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Slide Grid / Overview</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</span> / <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">G</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Fullscreen</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">F</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Light/Dark Theme</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">T</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Close Modal</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Esc</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Help Modal</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">?</span></div>
         </div>
       </div>
   </div>

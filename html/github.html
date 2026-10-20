@@ -52,299 +52,380 @@
       }
     };
   </script>
-  <style type="text/tailwindcss">
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; scrollbar-width: none; -ms-overflow-style: none; }
-    *::-webkit-scrollbar { display: none; width: 0; height: 0; }
-    :root {
-      --bg-deep: #020617; --bg-base: #0b0f19; --bg-surface: #0f172a; --bg-surface-elevated: #1e293b; --bg-terminal: #020617;
-      --border-default: #1e293b; --border-subtle: #334155; --border-focus: #2563eb;
-      --text-primary: #ffffff; --text-secondary: #f8fafc; --text-muted: #e2e8f0;
-      --accent-blue: #2563eb; --accent-blue-hover: #1d4ed8; --accent-blue-light: #60a5fa; --accent-indigo: #818cf8; --accent-green: #4ade80; --accent-emerald: #34d399; --accent-orange: #fb923c; --accent-purple: #c084fc; --accent-red: #f87171; --accent-amber: #fbbf24;
-      --font-sans: "Plus Jakarta Sans", sans-serif; --font-mono: "JetBrains Mono", monospace;
-      --header-height: 54px; --footer-height: 50px;
+  <style>
+    * {
+      border-radius: 0 !important;
     }
-    [data-theme="light"], html:not(.dark):not([data-theme="dark"]) {
-      --bg-deep: #f8fafc; --bg-base: #f1f5f9; --bg-surface: #ffffff; --bg-surface-elevated: #f8fafc; --bg-terminal: #0f172a;
-      --border-default: #e2e8f0; --border-subtle: #cbd5e1; --border-focus: #0284c7;
-      --text-primary: #0f172a; --text-secondary: #475569; --text-muted: #64748b;
-      --accent-blue: #0284c7; --accent-indigo: #4f46e5; --accent-green: #16a34a; --accent-emerald: #059669; --accent-orange: #ea580c; --accent-purple: #9333ea; --accent-red: #dc2626; --accent-amber: #d97706;
+    *, *::before, *::after {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    *::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    body.lang-km {
+      font-family: "Kantumruy Pro", "Noto Sans Khmer", sans-serif;
+    }
+    body.lang-km .slide-title {
+      font-size: 24px;
+      line-height: 1.35;
+    }
+    body.lang-km .title-main-h1 {
+      font-size: 30px;
+      line-height: 1.3;
+    }
+    .slide-item:not(.active) {
+      display: none !important;
+    }
+    .slide-item.active {
+      display: flex !important;
+    }
+    :fullscreen #app-container, .fullscreen-active #app-container {
+      height: 100vh;
+      width: 100vw;
+    }
+    :fullscreen .slide-viewport, .fullscreen-active .slide-viewport {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    :fullscreen .top-bar, .fullscreen-active .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      z-index: 100;
+    }
+    :fullscreen .top-bar:hover, .fullscreen-active .top-bar:hover, :fullscreen .top-bar:focus-within, .fullscreen-active .top-bar:focus-within, .show-fs-header .top-bar {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    :fullscreen .bottom-bar, .fullscreen-active .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      z-index: 100;
+    }
+    :fullscreen .bottom-bar:hover, .fullscreen-active .bottom-bar:hover, :fullscreen .bottom-bar:focus-within, .fullscreen-active .bottom-bar:focus-within, .show-fs-footer .bottom-bar {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .modal:not(.open), .modal-backdrop:not(.open) {
+      display: none !important;
+    }
+    .modal.open, .modal-backdrop.open {
+      display: flex !important;
+    }
+
+    /* Dynamically generated JS elements */
+    .overview-card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      padding: 12px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+    .overview-card:hover {
+      border-color: #2563eb;
+    }
+    .overview-card.current, .overview-card.active {
+      border-color: #2563eb !important;
+      background-color: rgba(37, 99, 235, 0.15) !important;
+    }
+    .overview-card-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #60a5fa;
+    }
+    .overview-card-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+    .overview-card-part {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    /* Interactive Search & Scenarios */
+    .search-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+    .search-item:hover, .search-item.selected {
+      border-color: #2563eb;
+      background-color: rgba(37, 99, 235, 0.12);
+    }
+    .search-badge {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 800;
+      color: #60a5fa;
+      background-color: rgba(37, 99, 235, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 2px 6px;
+    }
+    .search-item-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .search-item-cat {
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .search-item-action {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: #60a5fa;
+      font-weight: 700;
+    }
+    .scenario-nav-btn.active {
+      background-color: rgba(37, 99, 235, 0.2) !important;
+      border-color: #2563eb !important;
+      color: #60a5fa !important;
+    }
+    .scenario-option-btn.selected-correct {
+      border-color: #22c55e !important;
+      background-color: rgba(34, 197, 94, 0.15) !important;
+      color: #4ade80 !important;
+    }
+    .scenario-option-btn.selected-wrong {
+      border-color: #ef4444 !important;
+      background-color: rgba(239, 68, 68, 0.15) !important;
+      color: #f87171 !important;
+    }
+
+    /* Light Theme (matches index.html) */
+    [data-theme="light"],
+    html:not(.dark):not([data-theme="dark"]) {
       color-scheme: light;
     }
-    [data-theme="light"] .slide-content-card, html:not(.dark):not([data-theme="dark"]) .slide-content-card { box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08); }
-    [data-theme="light"] .kbd, html:not(.dark):not([data-theme="dark"]) .kbd { background: #f1f5f9; border-color: #cbd5e1; color: #0f172a; }
-    #btn-lang-toggle, #btn-theme-toggle { width: 34px; height: 34px; padding: 0 !important; }
-    .lang-flag-en, .lang-flag-km { width: 20px; height: 14px; object-fit: cover; display: block; flex-shrink: 0; pointer-events: none; }
-    html, body { width: 100%; height: 100%; overflow: hidden; background-color: var(--bg-deep); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
-    body.lang-km { font-family: "Kantumruy Pro", var(--font-sans); }
-    body.lang-km .slide-title { font-size: 24px; line-height: 1.35; }
-    body.lang-km .title-main-h1 { font-size: 30px; line-height: 1.3; }
-    #app-container { display: flex; flex-direction: column; width: 100vw; height: 100vh; position: relative; background: var(--bg-deep); }
-    .top-bar { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); padding: 0 16px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; }
-    .brand-section { display: flex; align-items: center; gap: 12px; }
-    .brand-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }
-    .brand-logo:hover { color: var(--accent-blue); }
-    .brand-icon { width: 20px; height: 20px; fill: var(--accent-orange); }
-    .part-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 8px; background: rgba(37, 99, 235, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.25); font-family: var(--font-mono); }
-    .top-controls { display: flex; align-items: center; gap: 8px; }
-    .btn-icon { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 4px 8px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; }
-    .btn-icon:hover { color: var(--text-primary); border-color: var(--border-subtle); background: var(--border-default); }
-    .slide-counter-wrapper { display: flex; align-items: center; gap: 4px; font-size: 12px; font-family: var(--font-mono); color: var(--text-secondary); background: var(--bg-deep); border: 1px solid var(--border-default); padding: 4px 8px; }
-    .slide-counter-wrapper select { background: var(--bg-surface); border: 1px solid var(--border-default); color: var(--text-primary); font-family: var(--font-mono); font-size: 12px; padding: 2px 4px; cursor: pointer; }
-    .slide-viewport { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; overflow-x: hidden; position: relative; }
-    .slides-container { width: 100%; display: flex; justify-content: center; }
-    .slide-item { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; }
-    .slide-item:not(.active) { display: none !important; }
-    .slide-item.active { display: flex !important; }
-    .slide-content-card { width: 100%; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35); }
-    .slide-header { display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; gap: 12px; }
-    .slide-title-wrap { display: flex; flex-direction: column; gap: 4px; }
-    .slide-meta-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-blue); }
-    .slide-title { font-size: 24px; font-weight: 800; color: var(--text-primary); margin: 0; line-height: 1.25; }
-    .slide-subtitle { font-size: 13px; color: var(--text-secondary); margin: 0; }
-    .slide-badge-group { display: flex; align-items: center; gap: 8px; }
-    .tag-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border: 1px solid var(--border-default); background: var(--bg-surface-elevated); color: var(--text-secondary); font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px; }
-    .tag-badge.warning { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #f59e0b; }
-    .tag-badge.info, .tag-badge.flow { background: rgba(37, 99, 235, 0.12); border-color: rgba(37, 99, 235, 0.3); color: #3b82f6; }
-    .tag-badge.success { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.3); color: #22c55e; }
-    .slide-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    .slide-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .slide-stack { display: flex; flex-direction: column; gap: 12px; }
-    .info-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s ease; }
-    .info-card:hover { border-color: var(--border-subtle); }
-    .info-card h4 { font-size: 13.5px; font-weight: 700; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 8px; }
-    .info-card p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
-    .terminal-window { background: var(--bg-terminal); border: 1px solid var(--border-default); overflow: hidden; font-family: var(--font-mono); font-size: 12px; }
-    .terminal-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border-bottom: 1px solid var(--border-default); }
-    .terminal-dots { display: flex; align-items: center; gap: 6px; }
-    .terminal-dot { width: 9px; height: 9px; background: var(--border-subtle); }
-    .terminal-title { font-size: 11px; color: var(--text-muted); font-weight: 600; }
-    .btn-copy { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-secondary); font-size: 11px; padding: 2px 8px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
-    .btn-copy:hover { color: var(--text-primary); }
-    .terminal-body { padding: 12px; overflow-x: auto; color: var(--text-primary); line-height: 1.6; }
-    .term-cmd { color: var(--accent-blue); font-weight: 700; }
-    .term-out { color: var(--text-secondary); }
-    .term-comment { color: var(--text-muted); font-style: italic; }
-    .term-success { color: var(--accent-green); }
-    .term-warn { color: var(--accent-amber); }
-    .term-branch { color: var(--accent-purple); font-weight: 700; }
-    .code-block { background: var(--bg-terminal); border: 1px solid var(--border-default); padding: 12px; font-family: var(--font-mono); font-size: 12px; overflow-x: auto; color: #3b82f6; line-height: 1.5; }
-    .alert-callout { display: flex; align-items: flex-start; gap: 8px; padding: 12px; border: 1px solid var(--border-default); font-size: 12.5px; line-height: 1.5; }
-    .alert-callout svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
-    .alert-callout.tip { background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.25); color: #7dd3fc; }
-    .alert-callout.tip svg { fill: #3b82f6; }
-    .alert-callout.warning { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.25); color: #fde047; }
-    .alert-callout.warning svg { fill: #f59e0b; }
-    .alert-callout.info { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.25); color: #a5b4fc; }
-    .alert-callout.info svg { fill: #6366f1; }
-    .clean-table { width: 100%; border-collapse: collapse; font-size: 12px; border: 1px solid var(--border-default); }
-    .clean-table th { padding: 8px 12px; background: var(--bg-surface-elevated); border-bottom: 1px solid var(--border-default); font-weight: 700; color: var(--text-secondary); text-align: left; }
-    .clean-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-default); color: var(--text-primary); }
-    .clean-table tr:last-child td { border-bottom: none; }
-    .clean-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
-    [data-theme="light"] .clean-table tr:hover td { background: rgba(15, 23, 42, 0.03); }
-    .kbd { display: inline-block; padding: 2px 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: var(--text-primary); }
-    .flow-diagram { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); }
-    .flow-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; flex: 1; }
-    .flow-step-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--bg-surface); border: 1px solid var(--border-default); }
-    .flow-step-name { font-size: 12px; font-weight: 700; color: var(--text-primary); }
-    .flow-step-desc { font-size: 11px; color: var(--text-muted); }
-    .flow-arrow { color: var(--text-muted); font-weight: 700; user-select: none; }
-    .real-image-card { width: 100%; border: 1px solid var(--border-default); overflow: hidden; background: var(--bg-terminal); }
-    .real-image-card img { width: 100%; height: 240px; object-fit: cover; display: block; }
-    .real-image-caption { padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--bg-surface-elevated); border-top: 1px solid var(--border-default); display: flex; align-items: center; justify-content: space-between; }
-    .hero-visual-box { border: 1px solid var(--border-default); background: var(--bg-terminal); }
-    .title-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; align-items: center; }
-    .title-main-h1 { font-size: 32px; font-weight: 800; color: #ffffff; margin: 0 0 4px 0; line-height: 1.2; }
-    .title-tagline { font-size: 14px; color: #ffffff; font-style: italic; margin: 0 0 12px 0; }
-    .title-accent { color: #ffffff; font-weight: 800; }
-    .bottom-bar { display: flex; align-items: center; justify-content: space-between; height: var(--footer-height); padding: 0 16px; background: var(--bg-surface); border-top: 1px solid var(--border-default); z-index: 50; flex-shrink: 0; position: relative; }
-    .progress-track { width: 100%; height: 3px; background: var(--border-default); position: relative; }
-    .progress-bar { height: 100%; background: var(--accent-blue); transition: width 0.15s ease; }
-    .bottom-content { display: flex; align-items: center; justify-content: space-between; height: calc(var(--footer-height) - 3px); padding: 0 16px; }
-    .nav-shortcuts-hint { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
-    .nav-buttons-group { display: flex; align-items: center; gap: 8px; }
-    .nav-controls { display: flex; align-items: center; gap: 8px; }
-    .btn-nav { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); color: #ffffff; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; text-decoration: none; }
-    .btn-nav:hover { background: var(--border-default); border-color: var(--border-subtle); color: #ffffff; }
-    .btn-primary-action, .btn-cta-primary { background: var(--accent-blue) !important; color: #ffffff !important; border-color: var(--accent-blue) !important; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-    .btn-primary-action *, .btn-cta-primary * { color: #ffffff !important; fill: currentColor; }
-    .btn-primary-action:hover, .btn-cta-primary:hover { background: var(--accent-blue-hover) !important; border-color: var(--accent-blue-hover) !important; color: #ffffff !important; }
-    .modal, .modal-backdrop { position: fixed; inset: 0; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(4px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
-    .modal:not(.open), .modal-backdrop:not(.open) { display: none !important; }
-    .modal.open, .modal-backdrop.open { display: flex !important; }
-    .modal-content, .modal-panel { width: 100%; max-width: 900px; max-height: 85vh; overflow-y: auto; background: var(--bg-surface); border: 1px solid var(--border-default); padding: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; gap: 16px; }
-    .modal-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 12px; }
-    .modal-title { font-size: 18px; font-weight: 800; color: var(--text-primary); margin: 0; }
-    .modal-close { background: transparent; border: none; color: var(--text-secondary); font-size: 20px; cursor: pointer; padding: 0 4px; }
-    .modal-close:hover { color: var(--text-primary); }
-    .overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-    .overview-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-default); padding: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; transition: all 0.15s ease; }
-    .overview-card:hover { border-color: var(--accent-blue); transform: translateY(-1px); }
-    .overview-card.current { border-color: var(--accent-blue) !important; background: rgba(56, 189, 248, 0.08); }
-    .overview-card-num { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent-blue); }
-    .overview-card-title { font-size: 12.5px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
-    .shortcut-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .shortcut-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-default); font-size: 12px; color: var(--text-secondary); }
-    :fullscreen #app-container, .fullscreen-active #app-container { height: 100vh; width: 100vw; }
-    :fullscreen .slide-deck, .fullscreen-active .slide-deck { max-width: 100%; width: 100%; height: 100%; }
-    :fullscreen .slide-viewport, .fullscreen-active .slide-viewport { padding: 0; width: 100%; height: 100%; }
-    :fullscreen .top-bar, .fullscreen-active .top-bar { position: fixed; top: 0; left: 0; right: 0; transform: translateY(-100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
-    :fullscreen .top-bar:hover, .fullscreen-active .top-bar:hover, :fullscreen .top-bar:focus-within, .fullscreen-active .top-bar:focus-within, .show-fs-header .top-bar { transform: translateY(0); opacity: 1; }
-    :fullscreen .bottom-bar, .fullscreen-active .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; transform: translateY(100%); opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; z-index: 100; }
-    :fullscreen .bottom-bar:hover, .fullscreen-active .bottom-bar:hover, :fullscreen .bottom-bar:focus-within, .fullscreen-active .bottom-bar:focus-within, .show-fs-footer .bottom-bar { transform: translateY(0); opacity: 1; }
-    @media (max-width: 768px) {
-      .slide-grid-2, .slide-grid-3, .title-hero-grid, .shortcut-grid { grid-template-columns: 1fr; }
-      .slide-content-card { padding: 12px; }
-      .top-bar { padding: 0 8px; }
-      .bottom-bar { padding: 0 8px; }
-      .bottom-content { padding: 0 8px; }
+    [data-theme="light"] body,
+    html:not(.dark):not([data-theme="dark"]) body {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+    [data-theme="light"] .bg-slate-950,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-950 {
+      background-color: #f1f5f9 !important;
+      border-color: #e2e8f0 !important;
+      color: #334155 !important;
+    }
+    [data-theme="light"] .bg-slate-900,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-900 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="light"] .bg-slate-800,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-800 {
+      background-color: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+      color: #334155 !important;
+    }
+    [data-theme="light"] .bg-slate-800:hover,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-800:hover {
+      background-color: #f1f5f9 !important;
+      color: #2563eb !important;
+    }
+    [data-theme="light"] .border-slate-800,
+    html:not(.dark):not([data-theme="dark"]) .border-slate-800 {
+      border-color: #e2e8f0 !important;
+    }
+    [data-theme="light"] .border-slate-700,
+    html:not(.dark):not([data-theme="dark"]) .border-slate-700 {
+      border-color: #cbd5e1 !important;
+    }
+    [data-theme="light"] .text-white,
+    [data-theme="light"] .text-slate-100,
+    [data-theme="light"] .text-slate-200,
+    html:not(.dark):not([data-theme="dark"]) .text-white,
+    html:not(.dark):not([data-theme="dark"]) .text-slate-100,
+    html:not(.dark):not([data-theme="dark"]) .text-slate-200 {
+      color: #0f172a !important;
+    }
+    [data-theme="light"] .text-slate-300,
+    [data-theme="light"] .text-slate-400,
+    html:not(.dark):not([data-theme="dark"]) .text-slate-300,
+    html:not(.dark):not([data-theme="dark"]) .text-slate-400 {
+      color: #475569 !important;
+    }
+    [data-theme="light"] .kbd,
+    html:not(.dark):not([data-theme="dark"]) .kbd {
+      background-color: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
     }
   </style>
 </head>
-<body class="min-h-screen font-sans antialiased overflow-hidden">
+<body class="min-h-screen bg-slate-950 text-white font-sans antialiased overflow-hidden">
   <div id="app-container">
-    <header class="top-bar">
-      <div class="brand-section">
-        <a href="../index.html" class="brand-logo" id="logo-link" title="Back to Curriculum Hub">
-          <svg class="brand-icon" viewBox="0 0 24 24">
+    <header class="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
+      <div class="brand-section flex items-center gap-3">
+        <a href="../index.html" class="brand-logo flex items-center gap-2 font-extrabold text-[15px] text-white hover:text-blue-400 transition-colors no-underline" id="logo-link" title="Back to Curriculum Hub">
+          <svg class="brand-icon w-5 h-5 text-orange-500 fill-current" viewBox="0 0 24 24">
             <path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.3 2.3a1.72 1.72 0 0 0-.48 1.48l-2.08 2.08a1.7 1.7 0 0 0-1.07-.38 1.75 1.75 0 0 0-1.75 1.75 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75c0-.3-.08-.58-.2-.83l2.03-2.03c.25.12.53.2.83.2.3 0 .58-.08.83-.2l2.3 2.3a1.7 1.7 0 0 0-.38 1.07 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75 1.75 1.75 0 0 0-1.75-1.75c-.3 0-.58.08-.83.2l-2.3-2.3c.12-.25.2-.53.2-.83 0-.41-.16-.78-.42-1.07l2.25-2.25 6.07 6.07c.54.54.54 1.4 0 1.94l-8.03 8.03c-.54.54-1.4.54-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z"/>
           </svg>
           <span>Git &amp; GitHub</span>
         </a>
-        <span id="current-part-badge" class="part-badge">WELCOME</span>
+        <span id="current-part-badge" class="part-badge inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2 py-1 bg-blue-600/15 text-blue-400 border border-blue-500/30 font-mono">WELCOME</span>
       </div>
 
-      <div class="top-controls">
-        <button id="btn-lang-toggle" class="btn-icon w-[34px] h-[34px] !p-0 flex items-center justify-center shrink-0" title="Toggle Language (English / ភាសាខ្មែរ)" aria-label="Toggle Language">
+      <div class="top-controls flex items-center gap-2">
+        <button id="btn-lang-toggle" class="btn-icon w-[34px] h-[34px] p-0 border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors flex items-center justify-center cursor-pointer shrink-0" title="Toggle Language (English / ភាសាខ្មែរ)" aria-label="Toggle Language">
           <img class="lang-flag-en w-5 h-3.5 object-cover" src="../images/en.png" alt="English">
           <img class="lang-flag-km w-5 h-3.5 object-cover" src="../images/km.png" alt="Khmer" style="display: none;">
         </button>
-        <div class="slide-counter-wrapper">
+        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1">
           <span data-i18n="ui_slide">Slide</span>
-          <select id="slide-jump-select" title="Jump to slide"></select>
+          <select id="slide-jump-select" class="bg-transparent text-blue-400 font-mono text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white" title="Jump to slide"></select>
           <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">38</span></span>
         </div>
-        <button id="btn-overview" class="btn-icon" title="Slide Overview (O)">
+        <button id="btn-overview" class="btn-icon inline-flex items-center justify-center gap-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold cursor-pointer transition-colors" title="Slide Overview (O)">
           <svg viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/></svg>
           <span>Grid</span>
         </button>
-        <button id="btn-shortcuts" class="btn-icon" title="Keyboard Shortcuts (?)">
+        <button id="btn-shortcuts" class="btn-icon inline-flex items-center justify-center gap-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold cursor-pointer transition-colors" title="Keyboard Shortcuts (?)">
           <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z"/></svg>
         </button>
-        <button id="btn-theme-toggle" class="btn-icon w-[34px] h-[34px] !p-0 flex items-center justify-center shrink-0" title="Toggle Light / Dark Mode (T)" aria-label="Toggle Light / Dark Mode">
-          <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
-          <svg id="theme-icon-moon" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
+        <button id="btn-theme-toggle" class="btn-icon w-[34px] h-[34px] p-0 border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors flex items-center justify-center cursor-pointer shrink-0" title="Toggle Light / Dark Mode (T)" aria-label="Toggle Light / Dark Mode">
+          <svg id="theme-icon-sun" class="w-4 h-4 fill-current shrink-0" style="display:none;" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+          <svg id="theme-icon-moon" class="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z"/></svg>
         </button>
-        <button id="btn-fullscreen" class="btn-icon" title="Toggle Fullscreen (F)">
+        <button id="btn-fullscreen" class="btn-icon inline-flex items-center justify-center gap-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold cursor-pointer transition-colors" title="Toggle Fullscreen (F)">
           <svg viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z"/></svg>
         </button>
       </div>
     </header>
-    <main class="slide-viewport">
-      <div class="slides-container">
-        <section class="slide-item active" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
+    <main class="slide-viewport flex-1 flex items-center justify-center p-4 overflow-y-auto overflow-x-hidden relative">
+      <div class="slides-container w-full max-w-[1100px] mx-auto flex justify-center">
+        <section class="slide-item active w-full max-w-[1100px] mx-auto flex flex-col" data-part="WELCOME" data-part-key="part_welcome" id="slide-1">
   <div class="slide-content-card title-card-hero">
-    <div class="title-hero-grid">
+    <div class="title-hero-grid grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-4 items-center">
       <div class="title-text-col">
         <div class="title-badge-pill">MODULE 02 • CLOUD COLLABORATION</div>
-        <h1 class="title-main-h1">GitHub<br><span class="title-accent">Cloud Repositories & Collaboration</span></h1>
-        <p class="title-tagline">“Host, share, and collaborate on code anywhere in the world”</p>
-        <div class="alert-callout tip"><div>Learn how to publish local Git projects to GitHub, push commits, pull updates, and collaborate seamlessly with teams.</div></div>
-        <div class="title-actions-row"><button class="btn-cta-primary" id="btn-start-course">Start Module <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
+        <h1 class="title-main-h1 text-3xl md:text-4xl font-extrabold text-white m-0 mb-1 leading-tight">GitHub<br><span class="title-accent text-blue-400 font-extrabold">Cloud Repositories & Collaboration</span></h1>
+        <p class="title-tagline text-sm text-slate-300 italic m-0 mb-3">“Host, share, and collaborate on code anywhere in the world”</p>
+        <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed"><div>Learn how to publish local Git projects to GitHub, push commits, pull updates, and collaborate seamlessly with teams.</div></div>
+        <div class="title-actions-row"><button class="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" id="btn-start-course">Start Module <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg></button><span class="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
       </div>
       <div class="title-visual-col">
-        <div class="real-image-card"><img src="../images/github_repo_view.jpg" alt="GitHub Repository Verified View" class="real-image-preview" loading="eager"><div class="real-image-badge"><span class="badge-dot live"></span> Verified GitHub Project</div></div>
+        <div class="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-950"><img src="../images/github_repo_view.jpg" alt="GitHub Repository Verified View" class="real-image-preview" loading="eager"><div class="real-image-badge"><span class="badge-dot live"></span> Verified GitHub Project</div></div>
       </div>
     </div>
   </div>
-</section><section class="slide-item" data-part="OVERVIEW" data-part-key="part_overview" id="slide-2">
-  <div class="slide-content-card">
-    <div class="slide-header-group"><span class="slide-category-tag">OVERVIEW</span><h2 class="slide-title">What Is GitHub &amp; Why Do We Need It?</h2><p class="slide-subtitle">Distinguishing between your local machine tool and the world's largest code platform</p></div>
-    <div class="slide-grid-2">
-      <div class="info-card">
-        <h4><span class="step-num-badge">01</span> Git (Local Machine)</h4>
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="OVERVIEW" data-part-key="part_overview" id="slide-2">
+  <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+    <div class="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span class="slide-category-tag font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">OVERVIEW</span><h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">What Is GitHub &amp; Why Do We Need It?</h2><p class="slide-subtitle text-[13px] text-slate-400 m-0">Distinguishing between your local machine tool and the world's largest code platform</p></div>
+    <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+        <h4><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">01</span> Git (Local Machine)</h4>
         <p>Git runs on your personal computer. It tracks file revisions, commits, and branches completely offline without requiring internet access.</p>
-        <div class="alert-callout"><div>Local git protects your work locally on one machine.</div></div>
+        <div class="alert-callout flex items-start gap-2.5 p-3 border border-slate-700 bg-slate-800/80 text-slate-300 text-[12.5px] leading-relaxed"><div>Local git protects your work locally on one machine.</div></div>
       </div>
-      <div class="info-card">
-        <h4><span class="step-num-badge">02</span> GitHub (Cloud Platform)</h4>
+      <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+        <h4><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">02</span> GitHub (Cloud Platform)</h4>
         <p>GitHub is a cloud service that hosts Git repositories online. It enables team collaboration, code reviews, issue tracking, continuous integration, and portfolio showcase.</p>
-        <div class="alert-callout tip"><div>GitHub allows anyone on your team to clone, review, and contribute to your repository.</div></div>
+        <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed"><div>GitHub allows anyone on your team to clone, review, and contribute to your repository.</div></div>
       </div>
     </div>
   </div>
-</section><section class="slide-item" data-part="PART 6: CREATE GITHUB REPOSITORY" data-part-key="part_6" id="slide-3">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 14 — Part 6: Create GitHub Repository</span>
-                <h2 class="slide-title">Create a GitHub Account</h2>
-                <p class="slide-subtitle">Your online profile and repository host</p>
+</section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 6: CREATE GITHUB REPOSITORY" data-part-key="part_6" id="slide-3">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 14 — Part 6: Create GitHub Repository</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Create a GitHub Account</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Your online profile and repository host</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge remote">github.com</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge remote text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 font-mono inline-flex items-center gap-1">github.com</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="slide-stack">
-                <div class="info-card">
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4>Getting Started on GitHub</h4>
                   <p>To push your local Git repository to the cloud, you need a free GitHub account.</p>
-                  <ul class="list-steps" style="margin-top: var(--sp-2);">
-                    <li><span class="step-num-badge">1</span> Visit <a href="https://github.com" target="_blank" style="color: var(--accent-blue);">https://github.com</a></li>
-                    <li><span class="step-num-badge">2</span> Click <strong>Sign up</strong></li>
-                    <li><span class="step-num-badge">3</span> Enter your email, create a secure password, and pick a username</li>
-                    <li><span class="step-num-badge">4</span> Verify your email address</li>
+                  <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2 mt-2">
+                    <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">1</span> Visit <a href="https://github.com" target="_blank" class="text-blue-400">https://github.com</a></li>
+                    <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">2</span> Click <strong>Sign up</strong></li>
+                    <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">3</span> Enter your email, create a secure password, and pick a username</li>
+                    <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">4</span> Verify your email address</li>
                   </ul>
                 </div>
-                <div class="alert-callout tip">
+                <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
                   <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
-                  <div>Use the <strong>same email address</strong> you configured earlier in <code>git config user.email</code> so your commits connect to your GitHub avatar.</div>
+                  <div>Use the <strong>same email address</strong> you configured earlier in <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git config user.email</code> so your commits connect to your GitHub avatar.</div>
                 </div>
               </div>
 
-              <div class="info-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="var(--text-primary)" style="margin-bottom: var(--sp-2);">
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors flex flex-col justify-center items-center text-center">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="var(--text-primary)" class="mb-2">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
-                <h4 style="margin-bottom: var(--sp-1);">The World's Leading Developer Platform</h4>
-                <p style="font-size: 12px; color: var(--text-secondary); max-width: 320px;">Over 100 million developers store, collaborate on, and publish open-source and private software on GitHub.</p>
+                <h4 class="mb-1">The World's Leading Developer Platform</h4>
+                <p class="text-xs text-slate-300 max-w-[320px]">Over 100 million developers store, collaborate on, and publish open-source and private software on GitHub.</p>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 6: CREATE GITHUB REPOSITORY" data-part-key="part_6" id="slide-4">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 15 — Part 6: Create GitHub Repository</span>
-                <h2 class="slide-title">Create a New GitHub Repository</h2>
-                <p class="slide-subtitle">Setting up the empty cloud destination for your project</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 6: CREATE GITHUB REPOSITORY" data-part-key="part_6" id="slide-4">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 15 — Part 6: Create GitHub Repository</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Create a New GitHub Repository</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Setting up the empty cloud destination for your project</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge remote">New Remote Repo</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge remote text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 font-mono inline-flex items-center gap-1">New Remote Repo</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="info-card">
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>5 Steps on GitHub.com</h4>
-                <ul class="list-steps">
-                  <li><span class="step-num-badge">1</span> Log into GitHub and click the <strong>+</strong> icon in the top right</li>
-                  <li><span class="step-num-badge">2</span> Select <strong>New repository</strong></li>
-                  <li><span class="step-num-badge">3</span> Enter Repository name: <strong style="color: var(--accent-blue);">my-project</strong></li>
-                  <li><span class="step-num-badge">4</span> Choose <strong>Public</strong> (viewable by anyone) or <strong>Private</strong></li>
-                  <li><span class="step-num-badge">5</span> Click <strong>Create repository</strong></li>
+                <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">1</span> Log into GitHub and click the <strong>+</strong> icon in the top right</li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">2</span> Select <strong>New repository</strong></li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">3</span> Enter Repository name: <strong class="text-blue-400">my-project</strong></li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">4</span> Choose <strong>Public</strong> (viewable by anyone) or <strong>Private</strong></li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">5</span> Click <strong>Create repository</strong></li>
                 </ul>
               </div>
 
-              <div class="slide-stack">
-                <div class="real-image-card">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-950">
                   <img src="../images/github_new_repo_ui.jpg" alt="GitHub UI Mockup: Creating a new repository">
-                  <div class="real-image-caption">
+                  <div class="real-image-caption px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-800 border-t border-slate-800 flex items-center justify-between">
                     <span>GitHub UI: Creating "my-project"</span>
-                    <span class="tag-badge remote">Real UI Example</span>
+                    <span class="tag-badge remote text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 font-mono inline-flex items-center gap-1">Real UI Example</span>
                   </div>
                 </div>
-                <div class="alert-callout danger">
+                <div class="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
                   <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
                   <div>
                     <strong>CRITICAL BEGINNER TIP:</strong><br>
@@ -354,38 +435,38 @@
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 7: CONNECT LOCAL TO GITHUB" data-part-key="part_7" id="slide-5">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 16 — Part 7: Connect Local Git to GitHub</span>
-                <h2 class="slide-title">Add GitHub Remote</h2>
-                <p class="slide-subtitle">Teaching your local repository the URL of your GitHub repository</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 7: CONNECT LOCAL TO GITHUB" data-part-key="part_7" id="slide-5">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 16 — Part 7: Connect Local Git to GitHub</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Add GitHub Remote</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Teaching your local repository the URL of your GitHub repository</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">Local <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Remote Link</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">Local <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Remote Link</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="slide-stack">
-                <div class="terminal-mockup">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">Terminal: Connect Remote</span>
-                    <button class="copy-btn" data-copy="git remote add origin https://github.com/USERNAME/my-project.git&#10;git remote -v">Copy</button>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">Terminal: Connect Remote</span>
+                    <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git remote add origin https://github.com/USERNAME/my-project.git&#10;git remote -v">Copy</button>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
-                      <span>git remote add origin <span class="url-highlight">https://github.com/USERNAME/my-project.git</span></span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span>git remote add origin <span class="url-highlight text-sky-400 font-mono underline">https://github.com/USERNAME/my-project.git</span></span>
                     </div>
-                    <div class="term-cmd" style="margin-top: var(--sp-2);">
-                      <span class="term-prompt">$</span>
-                      <span>git remote <span class="flag-highlight">-v</span></span>
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span>git remote <span class="flag-highlight text-green-400 font-mono">-v</span></span>
                     </div>
                     <div class="term-output green">origin  https://github.com/USERNAME/my-project.git (fetch)
 origin  https://github.com/USERNAME/my-project.git (push)</div>
@@ -393,136 +474,136 @@ origin  https://github.com/USERNAME/my-project.git (push)</div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="info-card">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4>Anatomy of the Command</h4>
-                  <ul class="list-steps">
-                    <li><code>git remote</code>: Manage remote connections</li>
-                    <li><code>add</code>: Register a new remote</li>
-                    <li><code>origin</code>: Standard default nickname for the primary remote</li>
-                    <li><code>URL</code>: The web address of your GitHub repository</li>
+                  <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git remote</code>: Manage remote connections</li>
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">add</code>: Register a new remote</li>
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">origin</code>: Standard default nickname for the primary remote</li>
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">URL</code>: The web address of your GitHub repository</li>
                   </ul>
                 </div>
-                <div class="alert-callout info">
+                <div class="alert-callout info flex items-start gap-2.5 p-3 border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[12.5px] leading-relaxed">
                   <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
-                  <div><code>git remote -v</code> (verbose) lists all connected remotes and verifies the link.</div>
+                  <div><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git remote -v</code> (verbose) lists all connected remotes and verifies the link.</div>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 7: CONNECT LOCAL TO GITHUB" data-part-key="part_7" id="slide-6">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 17 — Part 7: Connect Local Git to GitHub</span>
-                <h2 class="slide-title">HTTPS vs SSH</h2>
-                <p class="slide-subtitle">Understanding the two common connection protocols</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 7: CONNECT LOCAL TO GITHUB" data-part-key="part_7" id="slide-6">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 17 — Part 7: Connect Local Git to GitHub</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">HTTPS vs SSH</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Understanding the two common connection protocols</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge remote">Protocols</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge remote text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 font-mono inline-flex items-center gap-1">Protocols</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="info-card" style="border-left: 4px solid var(--accent-blue);">
-                <h4><span class="inline-icon" style="color:var(--accent-green);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M4 4v2h-.25C2.784 6 2 6.784 2 7.75v6.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0 0 14 14.25v-6.5A1.75 1.75 0 0 0 12.25 6H12V4a4 4 0 1 0-8 0zm6.5 2V4a2.5 2.5 0 0 0-5 0v2h5z"/></svg></span>HTTPS (Recommended for Beginners)</h4>
-                <div class="code-box" style="margin: var(--sp-2) 0;">
-                  <code>https://github.com/USERNAME/my-project.git</code>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors border-l-4 border-l-blue-500">
+                <h4><span class="inline-icon w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1 text-green-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M4 4v2h-.25C2.784 6 2 6.784 2 7.75v6.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0 0 14 14.25v-6.5A1.75 1.75 0 0 0 12.25 6H12V4a4 4 0 1 0-8 0zm6.5 2V4a2.5 2.5 0 0 0-5 0v2h5z"/></svg></span>HTTPS (Recommended for Beginners)</h4>
+                <div class="code-box bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md my-2">
+                  <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">https://github.com/USERNAME/my-project.git</code>
                 </div>
-                <ul class="list-steps">
-                  <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Works immediately out of the box</li>
-                  <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> No complex key generation required</li>
-                  <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Authenticates via GitHub Personal Access Token (PAT) or Git Credential Manager browser login</li>
+                <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
+                  <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Works immediately out of the box</li>
+                  <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> No complex key generation required</li>
+                  <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Authenticates via GitHub Personal Access Token (PAT) or Git Credential Manager browser login</li>
                 </ul>
               </div>
 
-              <div class="info-card" style="border-left: 4px solid var(--accent-purple);">
-                <h4><span class="inline-icon" style="color:var(--accent-orange);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M6.5 5.5a4 4 0 1 1 5.63 3.657l-.317.317a.75.75 0 0 1-.53.22h-1.53v1.5a.75.75 0 0 1-.22.53l-.75.75a.75.75 0 0 1-.53.22H7a.75.75 0 0 1-.75-.75V10.5H5a.75.75 0 0 1-.53-.22L3.22 9.03a.75.75 0 0 1-.22-.53V6.97a.75.75 0 0 1 .22-.53l.317-.317A3.982 3.982 0 0 1 6.5 5.5zm1.5-1.5a2.5 2.5 0 1 0-3.535 3.536l1.285 1.284V10.5h1.5v1.44l.22.22.75-.75v-1.66h1.5l.22-.22.44-.44A2.5 2.5 0 0 0 8 4z"/></svg></span>SSH (Advanced / Experienced Devs)</h4>
-                <div class="code-box" style="margin: var(--sp-2) 0;">
-                  <code>git@github.com:USERNAME/my-project.git</code>
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors border-l-4 border-l-purple-500">
+                <h4><span class="inline-icon w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1 text-orange-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M6.5 5.5a4 4 0 1 1 5.63 3.657l-.317.317a.75.75 0 0 1-.53.22h-1.53v1.5a.75.75 0 0 1-.22.53l-.75.75a.75.75 0 0 1-.53.22H7a.75.75 0 0 1-.75-.75V10.5H5a.75.75 0 0 1-.53-.22L3.22 9.03a.75.75 0 0 1-.22-.53V6.97a.75.75 0 0 1 .22-.53l.317-.317A3.982 3.982 0 0 1 6.5 5.5zm1.5-1.5a2.5 2.5 0 1 0-3.535 3.536l1.285 1.284V10.5h1.5v1.44l.22.22.75-.75v-1.66h1.5l.22-.22.44-.44A2.5 2.5 0 0 0 8 4z"/></svg></span>SSH (Advanced / Experienced Devs)</h4>
+                <div class="code-box bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md my-2">
+                  <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git@github.com:USERNAME/my-project.git</code>
                 </div>
-                <ul class="list-steps">
-                  <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Passwordless authentication via cryptographic keypairs</li>
-                  <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Preferred by developers for automated terminal workflow</li>
-                  <li><span class="cross-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Requires generating SSH keys and adding them to GitHub settings first</li>
+                <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
+                  <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Passwordless authentication via cryptographic keypairs</li>
+                  <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Preferred by developers for automated terminal workflow</li>
+                  <li><span class="cross-icon inline-flex items-center justify-center text-red-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Requires generating SSH keys and adding them to GitHub settings first</li>
                 </ul>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-7">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 18 — Part 8: First Push</span>
-                <h2 class="slide-title">Rename Branch to main</h2>
-                <p class="slide-subtitle">Standardizing your primary branch name to match modern GitHub</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-7">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 18 — Part 8: First Push</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Rename Branch to main</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Standardizing your primary branch name to match modern GitHub</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge local">Branch Configuration</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge local text-[11px] font-bold px-2 py-0.5 border border-slate-700 bg-slate-800 text-slate-300 font-mono inline-flex items-center gap-1">Branch Configuration</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="slide-stack">
-                <div class="terminal-mockup">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">Terminal: Rename Branch</span>
-                    <button class="copy-btn" data-copy="git branch -M main">Copy</button>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">Terminal: Rename Branch</span>
+                    <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git branch -M main">Copy</button>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
-                      <span>git branch <span class="flag-highlight">-M</span> <span class="param-highlight">main</span></span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span>git branch <span class="flag-highlight text-green-400 font-mono">-M</span> <span class="param-highlight text-amber-400 font-mono">main</span></span>
                     </div>
                   </div>
                 </div>
 
-                <div class="alert-callout info">
+                <div class="alert-callout info flex items-start gap-2.5 p-3 border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[12.5px] leading-relaxed">
                   <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
-                  <div><code>-M</code> stands for "Move/Rename with Force". It renames your current branch to <code>main</code> regardless of what it was named before.</div>
+                  <div><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-M</code> stands for "Move/Rename with Force". It renames your current branch to <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code> regardless of what it was named before.</div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="info-card">
-                  <h4>Why <code>main</code>?</h4>
-                  <p>Historically, Git defaulted to calling the first branch <code>master</code>. In 2020, GitHub and the open-source community transitioned to <code>main</code> as the official, modern industry standard default branch name.</p>
-                  <p style="margin-top: var(--sp-2);">Running <code>git branch -M main</code> ensures your local repository and GitHub's default branch name align seamlessly.</p>
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <h4>Why <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code>?</h4>
+                  <p>Historically, Git defaulted to calling the first branch <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">master</code>. In 2020, GitHub and the open-source community transitioned to <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code> as the official, modern industry standard default branch name.</p>
+                  <p class="mt-2">Running <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git branch -M main</code> ensures your local repository and GitHub's default branch name align seamlessly.</p>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-8">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 19 — Part 8: First Push</span>
-                <h2 class="slide-title">Push to GitHub</h2>
-                <p class="slide-subtitle">The pivotal command: uploading your local commits to the cloud</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-8">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 19 — Part 8: First Push</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Push to GitHub</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">The pivotal command: uploading your local commits to the cloud</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">The Big Moment</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">The Big Moment</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="slide-stack">
-                <div class="terminal-mockup">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">Terminal: Push</span>
-                    <button class="copy-btn" data-copy="git push -u origin main">Copy</button>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">Terminal: Push</span>
+                    <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git push -u origin main">Copy</button>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
-                      <span>git push <span class="flag-highlight">-u</span> <span class="param-highlight">origin</span> <span class="param-highlight">main</span></span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span>git push <span class="flag-highlight text-green-400 font-mono">-u</span> <span class="param-highlight text-amber-400 font-mono">origin</span> <span class="param-highlight text-amber-400 font-mono">main</span></span>
                     </div>
                     <div class="term-output green">Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
@@ -535,276 +616,276 @@ branch 'main' set up to track 'origin/main'.</div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="info-card">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4>Command Breakdown</h4>
-                  <ul class="list-steps">
-                    <li><code>git</code>: Git CLI application</li>
-                    <li><code>push</code>: Upload local commits to remote</li>
-                    <li><code>-u</code>: <em>Set upstream</em> (remembers remote branch for future simple <code>git push</code>)</li>
-                    <li><code>origin</code>: Target remote server nickname</li>
-                    <li><code>main</code>: Local branch to upload</li>
+                  <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git</code>: Git CLI application</li>
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">push</code>: Upload local commits to remote</li>
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-u</code>: <em>Set upstream</em> (remembers remote branch for future simple <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git push</code>)</li>
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">origin</code>: Target remote server nickname</li>
+                    <li><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code>: Local branch to upload</li>
                   </ul>
                 </div>
                 <div class="flow-diagram-row">
                   <div class="flow-step-box local-box">
-                    <span class="flow-step-name">Local Repo</span>
+                    <span class="flow-step-name text-xs font-bold text-slate-200">Local Repo</span>
                     <span class="flow-step-sub">Your computer</span>
                   </div>
                   <div class="flow-arrow-unit">
                     <span class="flow-arrow-label">git push</span>
-                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align:middle;"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="inline-block align-middle"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
                   </div>
                   <div class="flow-step-box remote-box">
-                    <span class="flow-step-name">GitHub</span>
+                    <span class="flow-step-name text-xs font-bold text-slate-200">GitHub</span>
                     <span class="flow-step-sub">Remote Repo</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-9">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 20 — Part 8: First Push</span>
-                <h2 class="slide-title">Verify on GitHub</h2>
-                <p class="slide-subtitle">Seeing your code live on the web</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 8: FIRST PUSH" data-part-key="part_8" id="slide-9">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 20 — Part 8: First Push</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Verify on GitHub</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Seeing your code live on the web</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge remote">Success Check</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge remote text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 font-mono inline-flex items-center gap-1">Success Check</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="info-card">
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Verification Steps</h4>
-                <ul class="list-steps">
+                <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
                   <li><span class="step-num-badge done"><svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Open your browser and navigate to your repository URL</li>
                   <li><span class="step-num-badge done"><svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Refresh the webpage</li>
-                  <li><span class="step-num-badge done"><svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <code>README.md</code> is visible and rendered cleanly</li>
+                  <li><span class="step-num-badge done"><svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">README.md</code> is visible and rendered cleanly</li>
                   <li><span class="step-num-badge done"><svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Commit history shows <strong>1 commit</strong>: <em>"Initial commit"</em></li>
                   <li><span class="step-num-badge done"><svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> Default branch shows <strong>main</strong></li>
                 </ul>
               </div>
 
-              <div class="real-image-card">
+              <div class="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-950">
                 <img src="../images/github_repo_view.jpg" alt="Verified GitHub Repository View">
-                <div class="real-image-caption">
+                <div class="real-image-caption px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-800 border-t border-slate-800 flex items-center justify-between">
                   <span>GitHub UI: Verified "my-project"</span>
-                  <span class="tag-badge remote">Live on GitHub</span>
+                  <span class="tag-badge remote text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 font-mono inline-flex items-center gap-1">Live on GitHub</span>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 9: FUTURE CHANGES" data-part-key="part_9" id="slide-10">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 21 — Part 9: Making Future Changes</span>
-                <h2 class="slide-title">The Everyday Git Workflow</h2>
-                <p class="slide-subtitle">The four commands developers execute dozens of times every single day</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 9: FUTURE CHANGES" data-part-key="part_9" id="slide-10">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 21 — Part 9: Making Future Changes</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">The Everyday Git Workflow</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">The four commands developers execute dozens of times every single day</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">Core Loop</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">Core Loop</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="terminal-mockup">
-                <div class="terminal-header">
-                  <div class="terminal-dots">
-                    <span class="terminal-dot dot-red"></span>
-                    <span class="terminal-dot dot-yellow"></span>
-                    <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                  <div class="terminal-dots flex items-center gap-1.5">
+                    <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                    <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                    <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                   </div>
-                  <span class="terminal-title">The Daily 4-Step Cycle</span>
-                  <button class="copy-btn" data-copy="git status&#10;git add .&#10;git commit -m &quot;Describe your changes&quot;&#10;git push">Copy</button>
+                  <span class="terminal-title text-[11px] text-slate-400 font-semibold">The Daily 4-Step Cycle</span>
+                  <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git status&#10;git add .&#10;git commit -m &quot;Describe your changes&quot;&#10;git push">Copy</button>
                 </div>
-                <div class="terminal-body">
-                  <div class="term-cmd">
-                    <span class="term-prompt">1.</span>
-                    <span class="cmd-highlight">git status</span>
+                <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">1.</span>
+                    <span class="cmd-highlight text-blue-400 font-mono font-semibold">git status</span>
                   </div>
-                  <div class="term-output">Inspect what files changed</div>
+                  <div class="term-output text-slate-300 font-mono text-xs">Inspect what files changed</div>
 
-                  <div class="term-cmd">
-                    <span class="term-prompt">2.</span>
-                    <span class="cmd-highlight">git add .</span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">2.</span>
+                    <span class="cmd-highlight text-blue-400 font-mono font-semibold">git add .</span>
                   </div>
-                  <div class="term-output">Stage all modified and new files</div>
+                  <div class="term-output text-slate-300 font-mono text-xs">Stage all modified and new files</div>
 
-                  <div class="term-cmd">
-                    <span class="term-prompt">3.</span>
-                    <span class="cmd-highlight">git commit -m <span class="url-highlight">"Describe your changes"</span></span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">3.</span>
+                    <span class="cmd-highlight text-blue-400 font-mono font-semibold">git commit -m <span class="url-highlight text-sky-400 font-mono underline">"Describe your changes"</span></span>
                   </div>
-                  <div class="term-output">Record snapshot with a clear message</div>
+                  <div class="term-output text-slate-300 font-mono text-xs">Record snapshot with a clear message</div>
 
-                  <div class="term-cmd">
-                    <span class="term-prompt">4.</span>
-                    <span class="cmd-highlight">git push</span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">4.</span>
+                    <span class="cmd-highlight text-blue-400 font-mono font-semibold">git push</span>
                   </div>
                   <div class="term-output green">Upload new commit to GitHub!</div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="info-card">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4>Why Memorize This Loop?</h4>
                   <p>Whether you are building a small personal website or working at a tech giant with 10,000 engineers, this 4-step sequence is the heart of everyday version control.</p>
                 </div>
-                <div class="alert-callout tip">
+                <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
                   <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
-                  <div>Because you used <code>-u</code> earlier, you only need to type <code>git push</code> without specifying remote and branch names every time!</div>
+                  <div>Because you used <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-u</code> earlier, you only need to type <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git push</code> without specifying remote and branch names every time!</div>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 9: FUTURE CHANGES" data-part-key="part_9" id="slide-11">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 22 — Part 9: Making Future Changes</span>
-                <h2 class="slide-title">Example: Modify a Project</h2>
-                <p class="slide-subtitle">A real-world walkthrough of editing code and pushing updates</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 9: FUTURE CHANGES" data-part-key="part_9" id="slide-11">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 22 — Part 9: Making Future Changes</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Example: Modify a Project</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">A real-world walkthrough of editing code and pushing updates</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">End-to-End Walkthrough</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">End-to-End Walkthrough</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="terminal-mockup">
-                <div class="terminal-header">
-                  <div class="terminal-dots">
-                    <span class="terminal-dot dot-red"></span>
-                    <span class="terminal-dot dot-yellow"></span>
-                    <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                  <div class="terminal-dots flex items-center gap-1.5">
+                    <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                    <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                    <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                   </div>
-                  <span class="terminal-title">Terminal Walkthrough</span>
-                  <button class="copy-btn" data-copy="echo &quot;Hello GitHub&quot; >> README.md&#10;git status&#10;git add .&#10;git commit -m &quot;Update README&quot;&#10;git push">Copy</button>
+                  <span class="terminal-title text-[11px] text-slate-400 font-semibold">Terminal Walkthrough</span>
+                  <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="echo &quot;Hello GitHub&quot; >> README.md&#10;git status&#10;git add .&#10;git commit -m &quot;Update README&quot;&#10;git push">Copy</button>
                 </div>
-                <div class="terminal-body">
-                  <div class="term-cmd">
-                    <span class="term-prompt">$</span>
-                    <span>echo <span class="url-highlight">"Hello GitHub"</span> &gt;&gt; README.md</span>
+                <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                    <span>echo <span class="url-highlight text-sky-400 font-mono underline">"Hello GitHub"</span> &gt;&gt; README.md</span>
                   </div>
-                  <div class="term-cmd" style="margin-top: var(--sp-1);">
-                    <span class="term-prompt">$</span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-1">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
                     <span>git status</span>
                   </div>
                   <div class="term-output red">modified: README.md</div>
-                  <div class="term-cmd">
-                    <span class="term-prompt">$</span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
                     <span>git add .</span>
                   </div>
-                  <div class="term-cmd">
-                    <span class="term-prompt">$</span>
-                    <span>git commit -m <span class="url-highlight">"Update README"</span></span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                    <span>git commit -m <span class="url-highlight text-sky-400 font-mono underline">"Update README"</span></span>
                   </div>
                   <div class="term-output green">[main 3c4d5e6] Update README</div>
-                  <div class="term-cmd">
-                    <span class="term-prompt">$</span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
                     <span>git push</span>
                   </div>
                 </div>
               </div>
 
-              <div class="slide-stack">
+              <div class="slide-stack flex flex-col gap-3">
                 <div class="flow-vertical-stack">
-                  <div class="flow-v-step"><span>1. Edit Code</span><span class="kbd">README.md modified</span></div>
-                  <div class="flow-v-arrow">↓</div>
-                  <div class="flow-v-step"><span>2. Check Status</span><span class="kbd">git status</span></div>
-                  <div class="flow-v-arrow">↓</div>
-                  <div class="flow-v-step"><span>3. Stage File</span><span class="kbd">git add .</span></div>
-                  <div class="flow-v-arrow">↓</div>
-                  <div class="flow-v-step"><span>4. Commit Snapshot</span><span class="kbd">git commit -m "..."</span></div>
-                  <div class="flow-v-arrow">↓</div>
-                  <div class="flow-v-step" style="border-color: var(--accent-purple);"><span>5. Push to GitHub</span><span class="kbd">git push</span></div>
+                  <div class="flow-v-step p-2.5 bg-slate-800/80 border border-slate-800 flex items-center gap-2.5 text-xs"><span>1. Edit Code</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">README.md modified</span></div>
+                  <div class="flow-v-arrow text-slate-500 font-bold text-center text-xs py-0.5">↓</div>
+                  <div class="flow-v-step p-2.5 bg-slate-800/80 border border-slate-800 flex items-center gap-2.5 text-xs"><span>2. Check Status</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">git status</span></div>
+                  <div class="flow-v-arrow text-slate-500 font-bold text-center text-xs py-0.5">↓</div>
+                  <div class="flow-v-step p-2.5 bg-slate-800/80 border border-slate-800 flex items-center gap-2.5 text-xs"><span>3. Stage File</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">git add .</span></div>
+                  <div class="flow-v-arrow text-slate-500 font-bold text-center text-xs py-0.5">↓</div>
+                  <div class="flow-v-step p-2.5 bg-slate-800/80 border border-slate-800 flex items-center gap-2.5 text-xs"><span>4. Commit Snapshot</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">git commit -m "..."</span></div>
+                  <div class="flow-v-arrow text-slate-500 font-bold text-center text-xs py-0.5">↓</div>
+                  <div class="flow-v-step p-2.5 bg-slate-800/80 border border-slate-800 flex items-center gap-2.5 text-xs border-purple-500"><span>5. Push to GitHub</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">git push</span></div>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 10: CLONE AN EXISTING PROJECT" data-part-key="part_10" id="slide-12">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 23 — Part 10: Clone an Existing Project</span>
-                <h2 class="slide-title">Clone a Repository</h2>
-                <p class="slide-subtitle">Downloading an existing repository and its full history from GitHub</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 10: CLONE AN EXISTING PROJECT" data-part-key="part_10" id="slide-12">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 23 — Part 10: Clone an Existing Project</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Clone a Repository</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Downloading an existing repository and its full history from GitHub</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">Remote <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">Remote <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="slide-stack">
-                <div class="terminal-mockup">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">Terminal: Clone</span>
-                    <button class="copy-btn" data-copy="git clone https://github.com/USERNAME/my-project.git&#10;cd my-project">Copy</button>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">Terminal: Clone</span>
+                    <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git clone https://github.com/USERNAME/my-project.git&#10;cd my-project">Copy</button>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
-                      <span>git clone <span class="url-highlight">https://github.com/USERNAME/my-project.git</span></span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span>git clone <span class="url-highlight text-sky-400 font-mono underline">https://github.com/USERNAME/my-project.git</span></span>
                     </div>
                     <div class="term-output green">Cloning into 'my-project'...
 remote: Enumerating objects: 6, done.
 remote: Total 6 (delta 0), reused 6 (delta 0)
 Receiving objects: 100% (6/6), done.</div>
-                    <div class="term-cmd" style="margin-top: var(--sp-2);">
-                      <span class="term-prompt">$</span>
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
                       <span>cd my-project</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="info-card">
-                  <h4>What Does <code>git clone</code> Do?</h4>
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <h4>What Does <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git clone</code> Do?</h4>
                   <p><strong>clone = download a Git repository and its complete commit history to your computer.</strong></p>
-                  <ul class="list-steps" style="margin-top: var(--sp-2);">
+                  <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2 mt-2">
                     <li>Creates a new folder matching the repository name</li>
                     <li>Downloads all project files and branches</li>
-                    <li>Automatically sets up <code>origin</code> remote linking back to GitHub</li>
-                    <li>You do NOT need to run <code>git init</code>!</li>
+                    <li>Automatically sets up <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">origin</code> remote linking back to GitHub</li>
+                    <li>You do NOT need to run <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git init</code>!</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 10: CLONE AN EXISTING PROJECT" data-part-key="part_10" id="slide-13">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 24 — Part 10: Clone an Existing Project</span>
-                <h2 class="slide-title">Pull Changes</h2>
-                <p class="slide-subtitle">Syncing your local workspace with updates made by teammates or other machines</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 10: CLONE AN EXISTING PROJECT" data-part-key="part_10" id="slide-13">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 24 — Part 10: Clone an Existing Project</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Pull Changes</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Syncing your local workspace with updates made by teammates or other machines</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">Remote <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">Remote <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="slide-stack">
-                <div class="terminal-mockup">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">Terminal: Pull</span>
-                    <button class="copy-btn" data-copy="git pull">Copy</button>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">Terminal: Pull</span>
+                    <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git pull">Copy</button>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
-                      <span class="cmd-highlight">git pull</span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span class="cmd-highlight text-blue-400 font-mono font-semibold">git pull</span>
                     </div>
                     <div class="term-output green">Updating a1b2c3d..e7f8g9h
 Fast-forward
@@ -815,130 +896,130 @@ Fast-forward
 
                 <div class="flow-diagram-row">
                   <div class="flow-step-box remote-box">
-                    <span class="flow-step-name">GitHub</span>
+                    <span class="flow-step-name text-xs font-bold text-slate-200">GitHub</span>
                     <span class="flow-step-sub">New commits</span>
                   </div>
                   <div class="flow-arrow-unit">
                     <span class="flow-arrow-label">git pull</span>
-                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align:middle;"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="inline-block align-middle"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
                   </div>
                   <div class="flow-step-box local-box">
-                    <span class="flow-step-name">Your Computer</span>
+                    <span class="flow-step-name text-xs font-bold text-slate-200">Your Computer</span>
                     <span class="flow-step-sub">Updated working tree</span>
                   </div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="info-card">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4>Push vs Pull Direction</h4>
-                  <div class="slide-stack" style="margin-top: var(--sp-2);">
-                    <div class="check-item">
-                      <span style="font-weight: 700; color: var(--accent-blue);">git push</span>
-                      <span>Uploads: <strong>Local <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Remote</strong></span>
+                  <div class="slide-stack flex flex-col gap-3 mt-2">
+                    <div class="check-item flex items-start gap-2 text-xs text-slate-300">
+                      <span class="font-bold text-blue-400">git push</span>
+                      <span>Uploads: <strong>Local <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Remote</strong></span>
                     </div>
-                    <div class="check-item">
-                      <span style="font-weight: 700; color: var(--accent-green);">git pull</span>
-                      <span>Downloads: <strong>Remote <svg class="inline-arrow" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</strong></span>
+                    <div class="check-item flex items-start gap-2 text-xs text-slate-300">
+                      <span class="font-bold text-green-400">git pull</span>
+                      <span>Downloads: <strong>Remote <svg class="inline-arrow w-3 h-3 shrink-0 inline-block align-middle mx-1 text-slate-500" viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg> Local</strong></span>
                     </div>
                   </div>
                 </div>
-                <div class="alert-callout tip">
+                <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
                   <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/></svg>
-                  <div>Always run <code>git pull</code> before starting work on a team project to avoid conflicting commits!</div>
+                  <div>Always run <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git pull</code> before starting work on a team project to avoid conflicting commits!</div>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 13: BEGINNER MISTAKES" data-part-key="part_13" id="slide-14">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 29 — Part 13: Common Mistakes</span>
-                <h2 class="slide-title">Mistake: Wrong Remote URL</h2>
-                <p class="slide-subtitle">Fixing typos in repository URLs without deleting the repository</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 13: BEGINNER MISTAKES" data-part-key="part_13" id="slide-14">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 29 — Part 13: Common Mistakes</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Mistake: Wrong Remote URL</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Fixing typos in repository URLs without deleting the repository</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge warning">Common Pitfall #2</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">Common Pitfall #2</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="slide-stack">
-                <div class="terminal-mockup">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">Check Current URL</span>
-                    <button class="copy-btn" data-copy="git remote -v">Copy</button>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">Check Current URL</span>
+                    <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git remote -v">Copy</button>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
-                      <span>git remote <span class="flag-highlight">-v</span></span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span>git remote <span class="flag-highlight text-green-400 font-mono">-v</span></span>
                     </div>
                     <div class="term-output red">origin  https://github.com/WRONG-USER/wrong-repo.git (fetch)
 origin  https://github.com/WRONG-USER/wrong-repo.git (push)</div>
                   </div>
                 </div>
 
-                <div class="terminal-mockup" style="border-color: var(--accent-green);">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md border-green-500">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">Fix with set-url</span>
-                    <button class="copy-btn" data-copy="git remote set-url origin https://github.com/USERNAME/REPOSITORY.git">Copy</button>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">Fix with set-url</span>
+                    <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git remote set-url origin https://github.com/USERNAME/REPOSITORY.git">Copy</button>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
-                      <span>git remote <span class="cmd-highlight">set-url</span> origin <span class="url-highlight">https://github.com/USERNAME/REPOSITORY.git</span></span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span>git remote <span class="cmd-highlight text-blue-400 font-mono font-semibold">set-url</span> origin <span class="url-highlight text-sky-400 font-mono underline">https://github.com/USERNAME/REPOSITORY.git</span></span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="info-card">
-                  <h4>Why Not <code>git remote add</code>?</h4>
-                  <p>If you try running <code>git remote add origin ...</code> again when <code>origin</code> already exists, Git will error: <code>fatal: remote origin already exists</code>.</p>
-                  <p style="margin-top: var(--sp-2);">Use <code>git remote set-url origin &lt;new-url&gt;</code> to safely update the existing origin URL.</p>
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <h4>Why Not <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git remote add</code>?</h4>
+                  <p>If you try running <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git remote add origin ...</code> again when <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">origin</code> already exists, Git will error: <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">fatal: remote origin already exists</code>.</p>
+                  <p class="mt-2">Use <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git remote set-url origin &lt;new-url&gt;</code> to safely update the existing origin URL.</p>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 13: BEGINNER MISTAKES" data-part-key="part_13" id="slide-15">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 30 — Part 13: Common Mistakes</span>
-                <h2 class="slide-title">Mistake: Push Rejected</h2>
-                <p class="slide-subtitle">Understanding non-fast-forward rejections and why never to force push</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 13: BEGINNER MISTAKES" data-part-key="part_13" id="slide-15">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 30 — Part 13: Common Mistakes</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Mistake: Push Rejected</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Understanding non-fast-forward rejections and why never to force push</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge warning">Common Pitfall #3</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">Common Pitfall #3</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="slide-stack">
-                <div class="terminal-mockup">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">Push Rejected Error</span>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">Push Rejected Error</span>
                     <div></div>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
                       <span>git push</span>
                     </div>
                     <div class="term-output red">! [rejected]        main -> main (fetch first)
@@ -947,195 +1028,195 @@ hint: Updates were rejected because the remote contains work that you do not hav
                   </div>
                 </div>
 
-                <div class="terminal-mockup" style="border-color: var(--accent-green);">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="terminal-dot dot-red"></span>
-                      <span class="terminal-dot dot-yellow"></span>
-                      <span class="terminal-dot dot-green"></span>
+                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md border-green-500">
+                  <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                    <div class="terminal-dots flex items-center gap-1.5">
+                      <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                      <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                      <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                     </div>
-                    <span class="terminal-title">The Solution: Pull First</span>
-                    <button class="copy-btn" data-copy="git pull&#10;git push">Copy</button>
+                    <span class="terminal-title text-[11px] text-slate-400 font-semibold">The Solution: Pull First</span>
+                    <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git pull&#10;git push">Copy</button>
                   </div>
-                  <div class="terminal-body">
-                    <div class="term-cmd">
-                      <span class="term-prompt">$</span>
-                      <span class="cmd-highlight">git pull</span>
+                  <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span class="cmd-highlight text-blue-400 font-mono font-semibold">git pull</span>
                     </div>
-                    <div class="term-cmd" style="margin-top: var(--sp-1);">
-                      <span class="term-prompt">$</span>
-                      <span class="cmd-highlight">git push</span>
+                    <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-1">
+                      <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                      <span class="cmd-highlight text-blue-400 font-mono font-semibold">git push</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="alert-callout danger">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
                   <svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
                   <div>
                     <strong>DO NOT BLINDLY USE:</strong><br>
-                    <code>git push --force</code><br>
+                    <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git push --force</code><br>
                     Force push overwrites and deletes the remote history on GitHub, potentially destroying work done by teammates!
                   </div>
                 </div>
-                <div class="info-card">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4>Common Causes</h4>
-                  <ul class="list-steps">
+                  <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
                     <li>A teammate pushed new commits to GitHub</li>
                     <li>The GitHub repo was created with an extra README/license</li>
-                    <li>Running <code>git pull</code> merges remote changes into local first so you can push cleanly</li>
+                    <li>Running <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git pull</code> merges remote changes into local first so you can push cleanly</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 15: COMPLETE WORKFLOW" data-part-key="part_15" id="slide-16">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 33 — Part 15: Complete Workflow</span>
-                <h2 class="slide-title">From Zero to GitHub</h2>
-                <p class="slide-subtitle">The complete master script from an empty terminal to your first pushed project</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 15: COMPLETE WORKFLOW" data-part-key="part_15" id="slide-16">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 33 — Part 15: Complete Workflow</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">From Zero to GitHub</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">The complete master script from an empty terminal to your first pushed project</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">Master Recipe</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">Master Recipe</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="terminal-mockup">
-                <div class="terminal-header">
-                  <div class="terminal-dots">
-                    <span class="terminal-dot dot-red"></span>
-                    <span class="terminal-dot dot-yellow"></span>
-                    <span class="terminal-dot dot-green"></span>
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                  <div class="terminal-dots flex items-center gap-1.5">
+                    <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                    <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                    <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                   </div>
-                  <span class="terminal-title">The Complete Sequence</span>
-                  <button class="copy-btn" data-copy="mkdir my-project&#10;cd my-project&#10;&#10;git init&#10;&#10;git add .&#10;git commit -m &quot;Initial commit&quot;&#10;&#10;git branch -M main&#10;&#10;git remote add origin https://github.com/USERNAME/my-project.git&#10;&#10;git push -u origin main">Copy</button>
+                  <span class="terminal-title text-[11px] text-slate-400 font-semibold">The Complete Sequence</span>
+                  <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="mkdir my-project&#10;cd my-project&#10;&#10;git init&#10;&#10;git add .&#10;git commit -m &quot;Initial commit&quot;&#10;&#10;git branch -M main&#10;&#10;git remote add origin https://github.com/USERNAME/my-project.git&#10;&#10;git push -u origin main">Copy</button>
                 </div>
-                <div class="terminal-body">
-                  <div class="term-cmd"><span class="term-prompt">$</span><span>mkdir my-project &amp;&amp; cd my-project</span></div>
-                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git init</span></div>
-                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git add .</span></div>
-                  <div class="term-cmd"><span class="term-prompt">$</span><span class="cmd-highlight">git commit -m <span class="url-highlight">"Initial commit"</span></span></div>
-                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git branch -M main</span></div>
-                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git remote add origin <span class="url-highlight">https://github.com/USER/my-project.git</span></span></div>
-                  <div class="term-cmd" style="margin-top: var(--sp-2);"><span class="term-prompt">$</span><span class="cmd-highlight">git push -u origin main</span></div>
+                <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5"><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span>mkdir my-project &amp;&amp; cd my-project</span></div>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2"><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span class="cmd-highlight text-blue-400 font-mono font-semibold">git init</span></div>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2"><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span class="cmd-highlight text-blue-400 font-mono font-semibold">git add .</span></div>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5"><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span class="cmd-highlight text-blue-400 font-mono font-semibold">git commit -m <span class="url-highlight text-sky-400 font-mono underline">"Initial commit"</span></span></div>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2"><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span class="cmd-highlight text-blue-400 font-mono font-semibold">git branch -M main</span></div>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2"><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span class="cmd-highlight text-blue-400 font-mono font-semibold">git remote add origin <span class="url-highlight text-sky-400 font-mono underline">https://github.com/USER/my-project.git</span></span></div>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2"><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span class="cmd-highlight text-blue-400 font-mono font-semibold">git push -u origin main</span></div>
                 </div>
               </div>
 
-              <div class="slide-stack">
-                <div class="info-card">
+              <div class="slide-stack flex flex-col gap-3">
+                <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4>What Each Stage Accomplished</h4>
-                  <ul class="list-steps">
-                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Folder created</strong> and entered</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Git initialized</strong> locally</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Files staged and committed</strong> into local history</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Branch renamed</strong> to <code>main</code></li>
-                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Remote origin configured</strong> to GitHub</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Commits uploaded</strong> live to the web</li>
+                  <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
+                    <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Folder created</strong> and entered</li>
+                    <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Git initialized</strong> locally</li>
+                    <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Files staged and committed</strong> into local history</li>
+                    <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Branch renamed</strong> to <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code></li>
+                    <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Remote origin configured</strong> to GitHub</li>
+                    <li><span class="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg></span> <strong>Commits uploaded</strong> live to the web</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="PART 16: HANDS-ON EXERCISE" data-part-key="part_16" id="slide-17">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 36 — Part 16: Hands-on Exercise</span>
-                <h2 class="slide-title">Final Challenge</h2>
-                <p class="slide-subtitle">Practice the everyday cycle completely independently</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PART 16: HANDS-ON EXERCISE" data-part-key="part_16" id="slide-17">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 36 — Part 16: Hands-on Exercise</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Final Challenge</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">Practice the everyday cycle completely independently</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">Challenge</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">Challenge</span>
               </div>
             </div>
-            <div class="slide-grid-2">
-              <div class="info-card">
+            <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>8-Step Challenge</h4>
-                <ul class="list-steps">
-                  <li><span class="step-num-badge">1</span> Create a new file (e.g. <code>app.js</code> or <code>index.html</code>)</li>
-                  <li><span class="step-num-badge">2</span> Modify <code>README.md</code> to add a project description</li>
-                  <li><span class="step-num-badge">3</span> Run <code>git status</code> to see modified &amp; untracked files</li>
-                  <li><span class="step-num-badge">4</span> Stage the changes with <code>git add .</code></li>
-                  <li><span class="step-num-badge">5</span> Commit with <code>git commit -m "Add new changes"</code></li>
-                  <li><span class="step-num-badge">6</span> Push to GitHub with <code>git push</code></li>
-                  <li><span class="step-num-badge">7</span> Refresh your GitHub repository in your web browser</li>
-                  <li><span class="step-num-badge">8</span> Verify your new commit and updated files appear!</li>
+                <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">1</span> Create a new file (e.g. <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app.js</code> or <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">index.html</code>)</li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">2</span> Modify <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">README.md</code> to add a project description</li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">3</span> Run <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git status</code> to see modified &amp; untracked files</li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">4</span> Stage the changes with <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git add .</code></li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">5</span> Commit with <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git commit -m "Add new changes"</code></li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">6</span> Push to GitHub with <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git push</code></li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">7</span> Refresh your GitHub repository in your web browser</li>
+                  <li><span class="step-num-badge inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold font-mono bg-slate-800 border border-slate-700 text-blue-400 shrink-0">8</span> Verify your new commit and updated files appear!</li>
                 </ul>
               </div>
 
-              <div class="terminal-mockup">
-                <div class="terminal-header">
-                  <div class="terminal-dots">
-                    <span class="terminal-dot dot-red"></span>
-                    <span class="terminal-dot dot-yellow"></span>
-                    <span class="terminal-dot dot-green"></span>
+              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+                <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                  <div class="terminal-dots flex items-center gap-1.5">
+                    <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                    <span class="terminal-dot dot-yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                    <span class="terminal-dot dot-green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
                   </div>
-                  <span class="terminal-title">Challenge Solution</span>
-                  <button class="copy-btn" data-copy="git status&#10;git add .&#10;git commit -m &quot;Add new changes&quot;&#10;git push">Copy</button>
+                  <span class="terminal-title text-[11px] text-slate-400 font-semibold">Challenge Solution</span>
+                  <button class="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors" data-copy="git status&#10;git add .&#10;git commit -m &quot;Add new changes&quot;&#10;git push">Copy</button>
                 </div>
-                <div class="terminal-body">
-                  <div class="term-cmd">
-                    <span class="term-prompt">$</span>
-                    <span class="cmd-highlight">git status</span>
+                <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                    <span class="cmd-highlight text-blue-400 font-mono font-semibold">git status</span>
                   </div>
-                  <div class="term-cmd" style="margin-top: var(--sp-2);">
-                    <span class="term-prompt">$</span>
-                    <span class="cmd-highlight">git add .</span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                    <span class="cmd-highlight text-blue-400 font-mono font-semibold">git add .</span>
                   </div>
-                  <div class="term-cmd" style="margin-top: var(--sp-2);">
-                    <span class="term-prompt">$</span>
-                    <span class="cmd-highlight">git commit -m <span class="url-highlight">"Add new changes"</span></span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                    <span class="cmd-highlight text-blue-400 font-mono font-semibold">git commit -m <span class="url-highlight text-sky-400 font-mono underline">"Add new changes"</span></span>
                   </div>
-                  <div class="term-cmd" style="margin-top: var(--sp-2);">
-                    <span class="term-prompt">$</span>
-                    <span class="cmd-highlight">git push</span>
+                  <div class="term-cmd text-blue-400 font-bold flex items-center gap-1.5 mt-2">
+                    <span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                    <span class="cmd-highlight text-blue-400 font-mono font-semibold">git push</span>
                   </div>
-                  <div class="term-output green">Everything up-to-date on GitHub! <span class="inline-icon" style="color:var(--accent-orange);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M4 1.75C4 .784 4.784 0 5.75 0h4.5C11.216 0 12 .784 12 1.75V3h1.75A2.25 2.25 0 0 1 16 5.25v.5A3.25 3.25 0 0 1 12.75 9H11.9a4.5 4.5 0 0 1-3.15 3.44v1.81h2a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5h2v-1.81A4.5 4.5 0 0 1 4.1 9h-.85A3.25 3.25 0 0 1 0 5.75v-.5A2.25 2.25 0 0 1 2.25 3H4V1.75zm0 2.75H2.25a.75.75 0 0 0-.75.75v.5A1.75 1.75 0 0 0 3.25 7.5H4V4.5zm8 3h.75a1.75 1.75 0 0 0 1.75-1.75v-.5a.75.75 0 0 0-.75-.75H12v3zM5.5 1.5a.25.25 0 0 0-.25.25V8a2.75 2.75 0 1 0 5.5 0V1.75a.25.25 0 0 0-.25-.25h-5z"/></svg></span></div>
+                  <div class="term-output green">Everything up-to-date on GitHub! <span class="inline-icon w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1 text-orange-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M4 1.75C4 .784 4.784 0 5.75 0h4.5C11.216 0 12 .784 12 1.75V3h1.75A2.25 2.25 0 0 1 16 5.25v.5A3.25 3.25 0 0 1 12.75 9H11.9a4.5 4.5 0 0 1-3.15 3.44v1.81h2a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5h2v-1.81A4.5 4.5 0 0 1 4.1 9h-.85A3.25 3.25 0 0 1 0 5.75v-.5A2.25 2.25 0 0 1 2.25 3H4V1.75zm0 2.75H2.25a.75.75 0 0 0-.75.75v.5A1.75 1.75 0 0 0 3.25 7.5H4V4.5zm8 3h.75a1.75 1.75 0 0 0 1.75-1.75v-.5a.75.75 0 0 0-.75-.75H12v3zM5.5 1.5a.25.25 0 0 0-.25.25V8a2.75 2.75 0 1 0 5.5 0V1.75a.25.25 0 0 0-.25-.25h-5z"/></svg></span></div>
                 </div>
               </div>
             </div>
           </div>
-        </section><section class="slide-item" data-part="WRAP UP" data-part-key="part_wrapup" id="slide-18">
-          <div class="slide-content-card">
-            <div class="slide-header">
-              <div class="slide-title-wrap">
-                <span class="slide-meta-label">Slide 38 — Wrap Up</span>
-                <h2 class="slide-title">Questions?</h2>
-                <p class="slide-subtitle">“Happy coding”</p>
+        </section><section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="WRAP UP" data-part-key="part_wrapup" id="slide-18">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div class="slide-title-wrap flex flex-col gap-1">
+                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">Slide 38 — Wrap Up</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Questions?</h2>
+                <p class="slide-subtitle text-[13px] text-slate-400 m-0">“Happy coding”</p>
               </div>
-              <div class="slide-badge-group">
-                <span class="tag-badge flow">Congratulations</span>
+              <div class="slide-badge-group flex items-center gap-2">
+                <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">Congratulations</span>
               </div>
             </div>
-            <div class="title-hero-grid">
+            <div class="title-hero-grid grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-4 items-center">
               <div>
-                <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin-bottom: var(--sp-2);">You just mastered version control basics!</h3>
-                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--sp-4);">
+                <h3 class="text-xl font-bold text-white mb-2">You just mastered version control basics!</h3>
+                <p class="text-[13px] text-slate-300 leading-relaxed mb-4">
                   You now know how to install Git, initialize a local project, stage, commit, create a GitHub repo, connect remotes, and push your code with confidence.
                 </p>
-                <div class="slide-stack">
-                  <div class="info-card">
+                <div class="slide-stack flex flex-col gap-3">
+                  <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>Next Steps to Explore</h4>
-                    <ul class="list-steps">
-                      <li><span class="inline-icon" style="color:var(--accent-green);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M11.75 2.5a2.25 2.25 0 1 0-3.5 1.87v4.26a2.25 2.25 0 0 0-1.5 2.12v.03a2.25 2.25 0 1 0 1.5 0v-.03a.75.75 0 0 1 .75-.75h1.5a2.25 2.25 0 0 0 2.25-2.25V4.37a2.25 2.25 0 0 0-1-1.87zm-7.5 10a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0zm7.5-10a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0zm0 5.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-.75.75h-1.5a2.25 2.25 0 0 0-1.5.58V4.37a2.25 2.25 0 0 0 1.5-.58V7.75h1.5z"/></svg></span> Practice feature branches and merging</li>
-                      <li><span class="inline-icon" style="color:var(--accent-purple);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M7.177 3.073L9.573.677A.25.25 0 0 1 10 .854v4.792a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354zM3.75 2.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5zm0 1.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zm8.5 5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5zm0 1.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zM3 7.75a.75.75 0 0 1 1.5 0v4.5a.75.75 0 0 1-1.5 0v-4.5z"/></svg></span> Open your first Pull Request on GitHub</li>
-                      <li><span class="inline-icon" style="color:var(--accent-orange);"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg></span> Explore open-source projects and contribute</li>
+                    <ul class="list-steps list-none p-0 m-0 flex flex-col gap-2">
+                      <li><span class="inline-icon w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1 text-green-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M11.75 2.5a2.25 2.25 0 1 0-3.5 1.87v4.26a2.25 2.25 0 0 0-1.5 2.12v.03a2.25 2.25 0 1 0 1.5 0v-.03a.75.75 0 0 1 .75-.75h1.5a2.25 2.25 0 0 0 2.25-2.25V4.37a2.25 2.25 0 0 0-1-1.87zm-7.5 10a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0zm7.5-10a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0zm0 5.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-.75.75h-1.5a2.25 2.25 0 0 0-1.5.58V4.37a2.25 2.25 0 0 0 1.5-.58V7.75h1.5z"/></svg></span> Practice feature branches and merging</li>
+                      <li><span class="inline-icon w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1 text-purple-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M7.177 3.073L9.573.677A.25.25 0 0 1 10 .854v4.792a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354zM3.75 2.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5zm0 1.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zm8.5 5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5zm0 1.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zM3 7.75a.75.75 0 0 1 1.5 0v4.5a.75.75 0 0 1-1.5 0v-4.5z"/></svg></span> Open your first Pull Request on GitHub</li>
+                      <li><span class="inline-icon w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1 text-orange-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg></span> Explore open-source projects and contribute</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              <div class="real-image-card">
-                <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Mastery" style="height: 250px;">
-                <div class="real-image-caption">
-                  <span style="font-weight: 700; color: var(--accent-orange);"><span class="inline-icon" style="color:var(--accent-orange);"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M14.064 0a8.75 8.75 0 0 0-6.187 2.563l-.459.458c-.314.314-.543.682-.676 1.077L4.697 4.1a1.75 1.75 0 0 0-1.65.347l-.95.95a.75.75 0 0 0 .175 1.228l1.737.868a8.214 8.214 0 0 0-.27 1.517l-1.066.355a.75.75 0 0 0-.472.946l.48 1.442a1.75 1.75 0 0 0 1.288 1.157l1.096.22a8.71 8.71 0 0 0 1.558.156l.868 1.736a.75.75 0 0 0 1.228.175l.95-.95a1.75 1.75 0 0 0 .347-1.65l-.001-2.045c.395-.133.763-.362 1.077-.676l.458-.459A8.75 8.75 0 0 0 16 1.936V.75a.75.75 0 0 0-.75-.75h-1.186zM10.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg></span>Git &amp; GitHub Mastery</span>
-                  <div style="display: flex; gap: var(--sp-1);">
-                    <span class="tag-badge local">Zero</span>
-                    <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor" style="vertical-align:middle;"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
-                    <span class="tag-badge remote">Hero</span>
+              <div class="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-950">
+                <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Mastery" class="h-[250px] w-full object-cover">
+                <div class="real-image-caption px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-800 border-t border-slate-800 flex items-center justify-between">
+                  <span class="font-bold text-orange-400"><span class="inline-icon w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1 text-orange-400"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M14.064 0a8.75 8.75 0 0 0-6.187 2.563l-.459.458c-.314.314-.543.682-.676 1.077L4.697 4.1a1.75 1.75 0 0 0-1.65.347l-.95.95a.75.75 0 0 0 .175 1.228l1.737.868a8.214 8.214 0 0 0-.27 1.517l-1.066.355a.75.75 0 0 0-.472.946l.48 1.442a1.75 1.75 0 0 0 1.288 1.157l1.096.22a8.71 8.71 0 0 0 1.558.156l.868 1.736a.75.75 0 0 0 1.228.175l.95-.95a1.75 1.75 0 0 0 .347-1.65l-.001-2.045c.395-.133.763-.362 1.077-.676l.458-.459A8.75 8.75 0 0 0 16 1.936V.75a.75.75 0 0 0-.75-.75h-1.186zM10.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg></span>Git &amp; GitHub Mastery</span>
+                  <div class="flex gap-1">
+                    <span class="tag-badge local text-[11px] font-bold px-2 py-0.5 border border-slate-700 bg-slate-800 text-slate-300 font-mono inline-flex items-center gap-1">Zero</span>
+                    <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor" class="inline-block align-middle"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                    <span class="tag-badge remote text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 font-mono inline-flex items-center gap-1">Hero</span>
                   </div>
                 </div>
               </div>
@@ -1144,55 +1225,56 @@ hint: Updates were rejected because the remote contains work that you do not hav
         </section>
       </div>
     </main>
-    <footer class="bottom-bar">
-      <div class="progress-track" style="position: absolute; top: 0; left: 0; right: 0;"><div id="progress-bar-fill" class="progress-bar" style="width: 0%;"></div></div>
-      <div class="nav-shortcuts-hint">
+    <footer class="bottom-bar flex items-center justify-between h-[50px] px-4 bg-slate-900 border-t border-slate-800 z-50 shrink-0 relative">
+      <div class="progress-track w-full h-[3px] bg-slate-800 relative absolute top-0 left-0 right-0"><div id="progress-bar-fill" class="progress-bar h-full bg-blue-600 transition-all duration-150" style="width: 0%;"></div></div>
+      <div class="nav-shortcuts-hint flex items-center gap-2 text-xs text-slate-400">
         <span>Navigation:</span>
-        <span><span class="kbd">←</span> / <span class="kbd">→</span> or <span class="kbd">Space</span></span>
-        <span><span class="kbd">O</span> Overview</span>
-        <span><span class="kbd">F</span> Fullscreen</span>
-        <span><span class="kbd">T</span> Theme</span>
-        <span><span class="kbd">?</span> Help</span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span> / <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span> or <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span></span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</span> Overview</span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">F</span> Fullscreen</span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">T</span> Theme</span>
+        <span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">?</span> Help</span>
       </div>
 
-      <div class="nav-buttons-group">
-        <button id="btn-prev" class="btn-nav" title="Previous Slide (Left Arrow)">
+      <div class="nav-buttons-group flex items-center gap-2">
+        <button id="btn-prev" class="btn-nav inline-flex items-center gap-2 px-3 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" title="Previous Slide (Left Arrow)">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
           <span>Previous</span>
         </button>
-        <button id="btn-next" class="btn-nav" title="Next Slide (Right Arrow or Space)">
+        <button id="btn-next" class="btn-nav inline-flex items-center gap-2 px-3 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" title="Next Slide (Right Arrow or Space)">
           <span>Next</span>
           <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
         </button>
       </div>
     </footer>
-    <div id="overview-modal" class="modal-backdrop">
-    <div class="modal-panel">
-      <div class="modal-header">
-        <div class="modal-title">Slide Overview (38 Slides)</div>
-        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
+    <div id="overview-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4">
+      <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="modal-title text-lg font-extrabold text-white m-0">Slide Overview (38 Slides)</div>
+        <button class="btn-icon modal-close bg-transparent border-0 text-slate-400 hover:text-white text-xl cursor-pointer px-1 py-0" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
-      <div class="modal-body">
-        <div id="overview-grid" class="overview-grid"></div>
+      <div class="modal-body flex flex-col gap-3">
+        <div id="overview-grid" class="overview-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"></div>
       </div>
     </div>
-    <div id="shortcuts-modal" class="modal-backdrop">
-    <div class="modal-panel" style="max-width: 520px;">
-      <div class="modal-header">
-        <div class="modal-title">Keyboard Navigation &amp; Shortcuts</div>
-        <button class="btn-icon modal-close" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
+    </div>
+    <div id="shortcuts-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4 max-w-[520px]">
+      <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="modal-title text-lg font-extrabold text-white m-0">Keyboard Navigation &amp; Shortcuts</div>
+        <button class="btn-icon modal-close bg-transparent border-0 text-slate-400 hover:text-white text-xl cursor-pointer px-1 py-0" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
       </div>
-      <div class="modal-body">
-        <div class="shortcut-grid">
-          <div class="shortcut-item"><span>Next Slide</span><div><span class="kbd">→</span> <span class="kbd">Space</span> <span class="kbd">L</span></div></div>
-          <div class="shortcut-item"><span>Previous Slide</span><div><span class="kbd">←</span> <span class="kbd">Backspace</span> <span class="kbd">H</span></div></div>
-          <div class="shortcut-item"><span>First Slide</span><span class="kbd">Home</span></div>
-          <div class="shortcut-item"><span>Last Slide</span><span class="kbd">End</span></div>
-          <div class="shortcut-item"><span>Slide Grid / Overview</span><span class="kbd">O</span> / <span class="kbd">G</span></div>
-          <div class="shortcut-item"><span>Toggle Fullscreen</span><span class="kbd">F</span></div>
-          <div class="shortcut-item"><span>Toggle Light/Dark Theme</span><span class="kbd">T</span></div>
-          <div class="shortcut-item"><span>Close Modal</span><span class="kbd">Esc</span></div>
-          <div class="shortcut-item"><span>Help Modal</span><span class="kbd">?</span></div>
+      <div class="modal-body flex flex-col gap-3">
+        <div class="shortcut-grid grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Next Slide</span><div><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">L</span></div></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Previous Slide</span><div><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Backspace</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">H</span></div></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>First Slide</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Home</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Last Slide</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">End</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Slide Grid / Overview</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</span> / <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">G</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Fullscreen</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">F</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Light/Dark Theme</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">T</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Close Modal</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Esc</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Help Modal</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">?</span></div>
         </div>
       </div>
   </div>
