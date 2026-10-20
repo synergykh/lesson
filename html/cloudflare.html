@@ -211,8 +211,8 @@
         background-color: #f8fafc !important;
         color: #0f172a !important;
       }
-      [data-theme="light"] .bg-slate-950,
-      html:not(.dark):not([data-theme="dark"]) .bg-slate-950 {
+      [data-theme="light"] .bg-slate-900,
+      html:not(.dark):not([data-theme="dark"]) .bg-slate-900 {
         background-color: #f1f5f9 !important;
         border-color: #e2e8f0 !important;
         color: #334155 !important;
@@ -260,7 +260,7 @@
     </style>
   </head>
   <body
-    class="min-h-screen bg-slate-950 text-white font-sans antialiased overflow-hidden"
+    class="min-h-screen bg-slate-900 text-white font-sans antialiased overflow-hidden"
   >
     <div id="app-container" class="flex flex-col h-screen">
       <header
@@ -312,7 +312,7 @@
             />
           </button>
           <div
-            class="slide-counter-wrapper flex items-center gap-1.5 text-xs text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1"
+            class="slide-counter-wrapper flex items-center gap-1.5 text-xs text-slate-300 bg-slate-900 border border-slate-800 px-2 py-1"
           >
             <span data-i18n="ui_slide">Slide</span>
             <select
@@ -483,7 +483,7 @@
                   </div>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden text-xs shadow-md"
+                  class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden text-xs shadow-md"
                 >
                   <div
                     class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -583,7 +583,7 @@
                     protection, and immediate downtime if the box crashes.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     User in Cambodia ──(240ms)──> US-East Data Center<br />
                     Single Server Failure = 100% Downtime
@@ -601,7 +601,7 @@
                     assets locally, and accelerates origin requests.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     User in Cambodia ──(12ms)──> Cloudflare Edge (Phnom Penh /
                     Bangkok)<br />
@@ -696,7 +696,7 @@
                   >
                 </div>
                 <div
-                  class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1 bg-orange-950/20 border-orange-500/40"
+                  class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1 bg-orange-900/20 border-orange-500/40"
                 >
                   <span class="text-orange-400 font-bold">5. Edge Cloud</span>
                   <span class="text-white font-bold">Cloudflare Mesh</span>
@@ -842,7 +842,7 @@
                     execution.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-3 text-[11px]"
+                    class="bg-slate-900 border border-slate-800 p-3 text-[11px]"
                   >
                     Visitor Request<br />
                     &nbsp;&nbsp;↓<br />
@@ -1007,7 +1007,7 @@
                     routers in hundreds of cities worldwide.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     User in Phnom Penh → BGP routes to Phnom Penh Edge<br />
                     User in Tokyo → BGP routes to Tokyo Edge<br />
@@ -1173,7 +1173,7 @@
                     delete your R2 storage buckets.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-green-400"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-green-400"
                   >
                     Settings → My Profile → Authentication → 2FA<br />
                     Preferred: Hardware Security Key (YubiKey / WebAuthn)<br />
@@ -1195,7 +1195,7 @@
                     >
                   </p>
                   <div
-                    class="p-2.5 bg-slate-950 border border-slate-800 text-[11px] text-orange-400"
+                    class="p-2.5 bg-slate-900 border border-slate-800 text-[11px] text-orange-400"
                   >
                     Always create: Scoped API Tokens<br />
                     Permission: Zone.DNS:Edit for taskflow.com ONLY<br />
@@ -1251,7 +1251,7 @@
                     Workers scripts, and Zero Trust tunnels.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Account: Acme Corp (ID: d9f81a7b...)<br />
                     ├── Users / RBAC Policies<br />
@@ -1271,7 +1271,7 @@
                     specific to that domain.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     Zone: taskflow.com (ID: 023e105f...)<br />
                     ├── DNS Records (A, CNAME, MX)<br />
@@ -1324,7 +1324,7 @@
                 >
                   <h4 class="text-white font-bold">Domain Anatomy</h4>
                   <div
-                    class="text-sm text-center p-3 bg-slate-950 border border-slate-800"
+                    class="text-sm text-center p-3 bg-slate-900 border border-slate-800"
                   >
                     <span class="text-blue-400 font-bold">api</span>.<span
                       class="text-white font-bold"
@@ -1356,7 +1356,7 @@
                 >
                   <h4 class="text-white font-bold">Zone Tree Example</h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2.5 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2.5 text-[11px] text-slate-300"
                   >
                     taskflow.com (Apex Zone)<br />
                     ├── www.taskflow.com (Frontend landing)<br />
@@ -1496,7 +1496,7 @@
                     Your domain was purchased on Namecheap, GoDaddy, or Porkbun.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Registrar (Namecheap)<br />
                     &nbsp;&nbsp;↓ (Change Nameservers)<br />
@@ -1520,7 +1520,7 @@
                     Registrar.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     Cloudflare Registrar (At-cost wholesale pricing)<br />
                     &nbsp;&nbsp;↓ (Automatically assigns)<br />
@@ -1694,7 +1694,7 @@
                     TXT records.
                   </p>
                   <div
-                    class="p-2.5 bg-red-950/20 border border-red-500/30 text-red-300"
+                    class="p-2.5 bg-red-900/20 border border-red-500/30 text-red-300"
                   >
                     If an existing record is missing when you switch
                     nameservers, that service INSTANTLY ceases to exist for the
@@ -1780,7 +1780,7 @@
                     TLD servers to discover who holds the authoritative answers.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Client → Asks Resolver: "What is taskflow.com?"<br />
                     Resolver → Asks Root (.) → Asks .com TLD → Reaches
@@ -1800,7 +1800,7 @@
                     recursive resolver.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     Cloudflare Nameserver answers:<br />
                     "taskflow.com points to 104.21.72.18 with TTL 300s"
@@ -1845,7 +1845,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -1920,7 +1920,7 @@
                     number).
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-blue-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-blue-300"
                   >
                     Name: @<br />
                     Target: 198.51.100.24<br />
@@ -1938,7 +1938,7 @@
                     hexadecimal).
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-purple-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-purple-300"
                   >
                     Name: @<br />
                     Target: 2001:db8::1<br />
@@ -1956,7 +1956,7 @@
                     Flattening at the apex!
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     Name: www<br />
                     Target: taskflow.com<br />
@@ -2013,7 +2013,7 @@
                     Proton, Google Workspace).
                     <strong class="text-red-400">Must NEVER be proxied!</strong>
                   </p>
-                  <div class="text-[11px] bg-slate-950 p-1.5 text-slate-300">
+                  <div class="text-[11px] bg-slate-900 p-1.5 text-slate-300">
                     MX @ mail.protonmail.ch (Priority 10)
                   </div>
                 </div>
@@ -2027,7 +2027,7 @@
                     Holds arbitrary text for SPF email authentication, DKIM
                     signatures, and domain ownership tokens.
                   </p>
-                  <div class="text-[11px] bg-slate-950 p-1.5 text-slate-300">
+                  <div class="text-[11px] bg-slate-900 p-1.5 text-slate-300">
                     TXT @ "v=spf1 include:_spf.protonmail.ch ~all"
                   </div>
                 </div>
@@ -2041,7 +2041,7 @@
                     Declares which CAs (e.g. Let's Encrypt, DigiCert) are
                     allowed to issue SSL certificates for this domain.
                   </p>
-                  <div class="text-[11px] bg-slate-950 p-1.5 text-slate-300">
+                  <div class="text-[11px] bg-slate-900 p-1.5 text-slate-300">
                     CAA @ 0 issue "letsencrypt.org"
                   </div>
                 </div>
@@ -2053,7 +2053,7 @@
                     SRV defines location of specific services (port, weight). NS
                     delegates subdomains to other nameservers.
                   </p>
-                  <div class="text-[11px] bg-slate-950 p-1.5 text-slate-300">
+                  <div class="text-[11px] bg-slate-900 p-1.5 text-slate-300">
                     NS dev ns1.internal-corp.net
                   </div>
                 </div>
@@ -2099,7 +2099,7 @@
 
               <div class="grid grid-cols-1 md:grid-cols-[1fr_1.3fr] gap-3">
                 <div
-                  class="bg-slate-950 border border-slate-800 p-3 flex flex-col gap-2 text-xs"
+                  class="bg-slate-900 border border-slate-800 p-3 flex flex-col gap-2 text-xs"
                 >
                   <h4 class="text-white font-bold">Add DNS Record</h4>
                   <div class="grid grid-cols-2 gap-2">
@@ -2198,7 +2198,7 @@
                 </div>
 
                 <div
-                  class="bg-slate-950 border border-slate-800 p-2 flex flex-col overflow-y-auto max-h-[280px]"
+                  class="bg-slate-900 border border-slate-800 p-2 flex flex-col overflow-y-auto max-h-[280px]"
                 >
                   <table class="w-full text-left border-collapse">
                     <thead>
@@ -2270,7 +2270,7 @@
                     your origin.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     Visitor → Cloudflare Edge (CDN + WAF + DDoS) → Origin Server
                   </div>
@@ -2294,7 +2294,7 @@
                     Cloudflare proxy.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Visitor → Direct Connection to Origin IP (No WAF, No CDN)
                   </div>
@@ -2521,7 +2521,7 @@
                   <h4 class="text-orange-400 font-bold font-sans text-xs">
                     Essential Headers Injected by Cloudflare
                   </h4>
-                  <div class="bg-slate-950 p-2 text-slate-300 space-y-1">
+                  <div class="bg-slate-900 p-2 text-slate-300 space-y-1">
                     <div>
                       <span class="text-blue-400 font-bold"
                         >CF-Connecting-IP:</span
@@ -2657,7 +2657,7 @@
                     1. First Request: Cache MISS
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     User in Phnom Penh requests /logo.png<br />
                     Cloudflare Edge (Phnom Penh) checks SSD: NOT FOUND<br />
@@ -2676,7 +2676,7 @@
                     2. Second Request: Cache HIT
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-green-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-green-300"
                   >
                     Next user in Phnom Penh requests /logo.png<br />
                     Cloudflare Edge finds copy in local memory/SSD<br />
@@ -2839,7 +2839,7 @@
                     Production Example: Static Bundles
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-green-400"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-green-400"
                   >
                     Cache-Control: public, max-age=31536000, immutable
                   </div>
@@ -3111,7 +3111,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -3208,7 +3208,7 @@
                   >
                 </div>
                 <div
-                  class="bg-slate-800/80 border border-green-500/40 p-3 flex flex-col gap-1 bg-green-950/20"
+                  class="bg-slate-800/80 border border-green-500/40 p-3 flex flex-col gap-1 bg-green-900/20"
                 >
                   <span class="text-green-400 font-bold">4. Full (Strict)</span>
                   <span class="text-white font-bold">Production Standard</span>
@@ -3337,7 +3337,7 @@
                   </p>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
+                  class="terminal-window bg-slate-900 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -3429,7 +3429,7 @@
                 >
                   <h4 class="text-white font-bold">Verification Command</h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     $ curl -Iv https://taskflow.com<br />
                     * TLS 1.3 connection using TLS_AES_256_GCM_SHA384<br />
@@ -3566,7 +3566,7 @@
                     syntax.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     (http.request.uri.path contains "/admin" and not ip.src in
                     {203.0.113.50})<br />
@@ -3700,7 +3700,7 @@
                   <h4 class="text-orange-400 font-bold font-sans text-xs">
                     Production Rule Example
                   </h4>
-                  <div class="bg-slate-950 p-2.5 text-slate-300 space-y-1">
+                  <div class="bg-slate-900 p-2.5 text-slate-300 space-y-1">
                     <div>
                       Path: <span class="text-blue-400">/api/auth/login</span>
                     </div>
@@ -3923,7 +3923,7 @@
                   </p>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
+                  class="terminal-window bg-slate-900 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-orange-400 font-bold"
@@ -3977,7 +3977,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -4120,7 +4120,7 @@
                     external TLS 1.3 and handles caching.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Visitor → Cloudflare Edge (Proxied A Record)<br />
                     &nbsp;&nbsp;↓ (Port 443 with Origin CA Certificate)<br />
@@ -4251,7 +4251,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -4351,7 +4351,7 @@
                     Option B: Modern Professional CLI (Recommended)
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300 space-y-1"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300 space-y-1"
                   >
                     <div>$ pnpm create cloudflare@latest taskflow-api</div>
                     <div class="text-slate-400">
@@ -4428,7 +4428,7 @@
                     Intercept specific sub-paths of an existing proxied domain:
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     Route: taskflow.com/api/*<br />
                     Service: taskflow-api-worker<br />
@@ -4478,7 +4478,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -4566,7 +4566,7 @@
                     Wrangler CLI:
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     $ pnpm exec wrangler secret put DATABASE_URL<br />
                     Enter secret value: postgresql://...
@@ -4655,7 +4655,7 @@
                     (Class A/B).
                   </p>
                   <div
-                    class="p-2 bg-slate-950 border border-slate-800 text-[11px] text-slate-300"
+                    class="p-2 bg-slate-900 border border-slate-800 text-[11px] text-slate-300"
                   >
                     Use for: User avatars, PDF reports, database backups, audio
                     files.
@@ -4700,7 +4700,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -4774,7 +4774,7 @@
                     across edge caches worldwide in ~10 seconds.
                   </p>
                   <div
-                    class="p-2.5 bg-slate-950 border border-slate-800 text-[11px] text-slate-300"
+                    class="p-2.5 bg-slate-900 border border-slate-800 text-[11px] text-slate-300"
                   >
                     await env.CONFIG_KV.get("FEATURE_AI_CHAT");<br />
                     await env.CONFIG_KV.put("MAINTENANCE_MODE", "false", {
@@ -4911,7 +4911,7 @@
                   </p>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
+                  class="terminal-window bg-slate-900 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -5031,7 +5031,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -5161,7 +5161,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -5227,7 +5227,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -5323,7 +5323,7 @@
                   </div>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
+                  class="terminal-window bg-slate-900 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -5378,7 +5378,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -5615,7 +5615,7 @@
                     <li>
                       Configure Build Settings:
                       <div
-                        class="bg-slate-950 p-2 text-[11px] text-orange-300 mt-1"
+                        class="bg-slate-900 p-2 text-[11px] text-orange-300 mt-1"
                       >
                         Build command: pnpm run build<br />
                         Build output directory: dist (or out for Next.js export)
@@ -5632,7 +5632,7 @@
                   </ol>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
+                  class="terminal-window bg-slate-900 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -5781,7 +5781,7 @@
                   </ul>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
+                  class="terminal-window bg-slate-900 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -5941,7 +5941,7 @@
                     <code>SERVFAIL</code>.
                   </p>
                   <div
-                    class="p-2 bg-slate-950 border border-slate-800 text-[11px] text-slate-300"
+                    class="p-2 bg-slate-900 border border-slate-800 text-[11px] text-slate-300"
                   >
                     Migration rule: Delete old DS records at registrar → Switch
                     nameservers → Wait 24h → Enable Cloudflare DNSSEC and add
@@ -5987,7 +5987,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -6065,7 +6065,7 @@
                     comes from Cloudflare's published IP ranges:
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     # Example UFW rule:<br />
                     $ sudo ufw allow from 173.245.48.0/20 to any port 443 proto
@@ -6202,7 +6202,7 @@
                 >
                   <h4 class="text-white font-bold">Diagnostic Flowchart</h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Domain doesn't load<br />
                     ├── 1. Check WHOIS nameservers: Are they Cloudflare's?<br />
@@ -6212,7 +6212,7 @@
                   </div>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
+                  class="terminal-window bg-slate-900 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -6356,7 +6356,7 @@
                     Nginx crashed.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Check: $ sudo systemctl status nginx<br />
                     Check: $ pm2 status (Node.js app crashed?)
@@ -6372,7 +6372,7 @@
                     slow un-indexed database queries!
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Check: PostgreSQL slow query logs<br />
                     Check: EXPLAIN ANALYZE on hanging queries
@@ -6441,7 +6441,7 @@
               </div>
 
               <div
-                class="bg-slate-950 border border-slate-800 p-3 flex flex-col gap-2"
+                class="bg-slate-900 border border-slate-800 p-3 flex flex-col gap-2"
               >
                 <h4
                   id="trouble-scenario-title"
@@ -6650,7 +6650,7 @@
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
+                class="terminal-window bg-slate-900 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -7017,7 +7017,7 @@
               </div>
 
               <div
-                class="bg-slate-950 border border-slate-800 p-3.5 flex flex-col gap-2"
+                class="bg-slate-900 border border-slate-800 p-3.5 flex flex-col gap-2"
               >
                 <div class="flex items-center justify-between">
                   <span
@@ -7215,7 +7215,7 @@
                     Core Mental Model Summary
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
+                    class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     DOMAIN → NAMESERVERS → DNS → PROXY → SSL/TLS → CDN → WAF →
                     APP → DB<br /><br />
@@ -7227,7 +7227,7 @@
                   </div>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
+                  class="terminal-window bg-slate-900 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-green-400 font-bold"
@@ -7334,7 +7334,7 @@
         class="modal-backdrop fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm items-center justify-center p-4"
       >
         <div
-          class="modal-panel w-full max-w-[950px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4"
+          class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4"
         >
           <div
             class="flex items-center justify-between border-b border-slate-800 pb-3"
@@ -7490,7 +7490,7 @@
           <input
             type="text"
             id="search-input"
-            class="w-full bg-slate-950 border border-slate-700 p-2.5 text-xs text-white outline-none focus:border-orange-500"
+            class="w-full bg-slate-900 border border-slate-700 p-2.5 text-xs text-white outline-none focus:border-orange-500"
             placeholder="Search Cloudflare, DNS, SSL, Workers, R2, WAF (Ctrl + K)..."
           />
           <div

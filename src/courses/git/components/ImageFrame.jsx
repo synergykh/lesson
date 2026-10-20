@@ -8,8 +8,8 @@ export default function ImageFrame({
   maxHeight = "max-h-[290px]",
 }) {
   return (
-    <div className="slide-visual-media relative bg-slate-950 border border-slate-800/80 rounded-lg overflow-hidden flex flex-col justify-between shadow-2xl group transition-all duration-300 hover:border-slate-700">
-      <div className="overflow-hidden flex-1 flex items-center justify-center p-2 bg-slate-950/70">
+    <div className="slide-visual-media relative bg-slate-900 border border-slate-800/80 rounded-lg overflow-hidden flex flex-col justify-between shadow-2xl group transition-all duration-300 hover:border-slate-700">
+      <div className="overflow-hidden flex-1 flex items-center justify-center p-2 bg-slate-900/70">
         <img
           src={src}
           alt={alt}

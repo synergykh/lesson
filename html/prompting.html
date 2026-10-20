@@ -199,8 +199,8 @@
       background-color: #f8fafc !important;
       color: #0f172a !important;
     }
-    [data-theme="light"] .bg-slate-950,
-    html:not(.dark):not([data-theme="dark"]) .bg-slate-950 {
+    [data-theme="light"] .bg-slate-900,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-900 {
       background-color: #f1f5f9 !important;
       border-color: #e2e8f0 !important;
       color: #334155 !important;
@@ -252,8 +252,8 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-slate-950 text-white font-sans antialiased overflow-hidden">
-  <div id="app-container" class="flex flex-col h-screen w-screen relative bg-slate-950 overflow-hidden">
+<body class="min-h-screen bg-slate-900 text-white font-sans antialiased overflow-hidden">
+  <div id="app-container" class="flex flex-col h-screen w-screen relative bg-slate-900 overflow-hidden">
     <header class="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
       <div class="brand-section flex items-center gap-3">
         <a href="../index.html" class="brand-link flex items-center gap-2 font-extrabold text-[15px] text-white hover:text-blue-400 transition-colors no-underline" title="Return to Curriculum Hub">
@@ -264,7 +264,7 @@
       </div>
 
       <div class="top-controls flex items-center gap-2">
-        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1">
+        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-900 border border-slate-800 px-2 py-1">
           <span data-i18n="ui_slide">Slide</span>
           <span id="current-slide-num" class="font-bold text-blue-400">1</span>
           <span data-i18n="ui_of">of</span>
@@ -337,7 +337,7 @@
                   <svg width="14" height="14" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
                 </button>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">mental-model — verification pipeline</span>
@@ -388,7 +388,7 @@ Production Delivery
                   <div><strong>Key Principle:</strong> AI output is a proposal to evaluate with proof, never automatically a fact to trust blindly.</div>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">hallucination — real example</span>
@@ -476,7 +476,7 @@ const getCachedUsers = unstable_cache(
                   <p data-i18n="s4_c2_p">Asking 'How do I do auth?' yields a generic tutorial. Prompting 'Implement NextAuth v5 session middleware matching our schema with role-based guards' yields production code.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">prompt-contrast — comparison</span>
@@ -602,7 +602,7 @@ Result: Produces idiomatic server actions, imports your existing db client, pres
                   <p data-i18n="s7_c2_p">Context provides current state, files, versions, and dependencies. Requirements state the exact capabilities the solution must deliver.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">formula — 7 pillars</span>
@@ -676,7 +676,7 @@ Result: Produces idiomatic server actions, imports your existing db client, pres
                   <p data-i18n="s9_c2_p">The formula is a mental checklist, not an immutable dogma. For a 2-line bug fix, focus on Goal, Context, and Constraints; for architectural changes, use all 7.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">production-prompt.txt</span>
@@ -719,7 +719,7 @@ Verification: Query execution time drops under 35ms.
                   <p data-i18n="s10_c2_p">Always provide: Exact package versions, database schemas, relevant route handlers, actual error stack traces, and existing conventions.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body text-xs ">
 <span class="text-red-400">Weak Context:</span>
 "My app broke with status 500. Fix it."
@@ -830,7 +830,7 @@ DATABASE_URL is defined in .env.local. Verify connection string."
                   <p data-i18n="s13_c2_p">'Act as a coder' produces beginner-friendly code with tutorial comments. 'Act as a Senior Distributed Systems Engineer' focuses on idempotency, race conditions, and latency.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">role-comparison</span>
@@ -968,7 +968,7 @@ and structured telemetry logging.
                   <p data-i18n="s17_c2_p">Demand that public API contracts, database column names, and client query parameters remain 100% backward compatible unless deprecation was requested.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">constraints-example</span>
@@ -1010,7 +1010,7 @@ CONSTRAINTS:
                   <p data-i18n="s18_c2_p">Instruct the model: 'Before printing the final response, self-review your code against every requirement and constraint. Explicitly list any trade-offs made.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 ACCEPTANCE CHECKLIST:
 [ ] Task is complete ONLY when `pnpm build` succeeds with zero errors.
@@ -1091,7 +1091,7 @@ ACCEPTANCE CHECKLIST:
                 <p data-i18n="s20_c2_p">5. Potential edge-case bugs &amp; security risks. 6. Side effects of modifying files. 7. Incremental implementation steps. 8. Test verification plan.</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                 <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                 <span class="terminal-title text-[11px] text-slate-400 font-semibold">audit-prompt-template.txt</span>
@@ -1174,7 +1174,7 @@ Support findings with file paths and line number citations.
                   <p data-i18n="s22_c2_p">Spending 2 minutes on analysis prevents 2 hours of debugging hallucinated imports, broken state synchronizations, and circular dependencies.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 STAGE 1: Understand user problem &amp; boundaries
 STAGE 2: Inspect existing source code files
@@ -1325,7 +1325,7 @@ CREATE INDEX idx_orders_customer_id ON orders(customer_id);
                   <p data-i18n="s26_c2_p">Just because authentication worked in 10 local tests does not prove it works in production under distributed session load. Verify boundaries logically.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">logical-framework</span>
@@ -1438,7 +1438,7 @@ CONCLUSION: Check role permissions on user record, not password hashing!
                   <p data-i18n="s29_c2_p">Every task assigned to an AI should have a single, verifiable deliverable that can be compiled, tested, and reviewed in under 10 minutes.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400">MONOLITHIC PROMPT:</span>
 "Create a complete e-commerce store with Stripe, database, admin panel,
@@ -1478,7 +1478,7 @@ Include foreign keys, UUID primary keys, and indexes. Do not write UI yet."
                   <p data-i18n="s30_c2_p">Building UI checkout buttons before defining transaction lock mechanisms or inventory concurrency constraints guarantees extensive refactoring.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 POS SYSTEM DECOMPOSITION:
 ├── 01_DATABASE:   Schemas, foreign keys, indexes
@@ -1547,7 +1547,7 @@ POS SYSTEM DECOMPOSITION:
                   <p data-i18n="s32_c2_p">Reviewing a 10-line bulleted plan takes 30 seconds and reveals flawed assumptions before a single file or database table is touched.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 PROMPT TO REQUEST A PLAN:
 "Based on your codebase analysis, create an incremental implementation plan.
@@ -1651,7 +1651,7 @@ Do NOT implement yet. Wait for my approval."
                   <p data-i18n="s35_c2_p">Explicitly demand validation: 'Validate all external input using Zod schemas; handle null, undefined, and empty array edge cases cleanly.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="term-comment">// Clean, early-return, strictly-typed production action:</span>
 export async function updateTask(rawInput: unknown) {
@@ -1695,7 +1695,7 @@ export async function updateTask(rawInput: unknown) {
                   <p data-i18n="s36_c2_p">Constraint: 'Do not add obvious comments explaining syntax. Only preserve comments that document non-obvious business logic or algorithmic nuance.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400">// BAD: Bloated with obvious comments</span>
 // This sets x to 5
@@ -1766,7 +1766,7 @@ return currentAttempt + 1;
                   <p data-i18n="s38_c2_p">Provide exact design tokens: Background hex codes, text color variables, spacing scale (e.g. max 20px), and mobile breakpoint conventions.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 EXACT UI SPECIFICATION:
 - Theme: Dark palette (bg: #020617, card: #0f172a, border: #1e293b)
@@ -1873,7 +1873,7 @@ EXACT UI SPECIFICATION:
                   <p data-i18n="s41_c2_p">Pasting only the last error line ('Internal Server Error 500') leaves the AI blind. Paste the first relevant error in the call stack.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">debug-template.txt</span>
@@ -1962,7 +1962,7 @@ Environment: Next.js 15.1, Node 20.10, PostgreSQL Neon.
                   <p data-i18n="s43_c2_p">Investigate differences between local dev and cloud edge runtimes (e.g. Node.js vs Edge runtime APIs, file system access, cold-start latency).</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 CONCURRENCY PROMPT:
 "Inspect this Server Action for concurrent execution hazards.
@@ -1998,7 +1998,7 @@ or optimistic versioning column to guarantee idempotency."
                   <p data-i18n="s44_c2_p">Audit: Injection, Broken Auth, Sensitive Data Exposure, XML/Entity flaws, Broken Access Control, Security Misconfiguration, XSS, Insecure Deserialization.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">security-audit-prompt.txt</span>
@@ -2080,7 +2080,7 @@ Report findings by Severity (Critical/High/Med) with file lines and PoC.
                   <p data-i18n="s46_c2_p">Verify that server secrets (DATABASE_URL, API tokens) are never bundled into client-side JS or logged in public telemetry.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400">// DANGEROUS IDOR VULNERABILITY:</span>
 await db.select().from(invoices).where(eq(invoices.id, params.id));
@@ -2159,7 +2159,7 @@ await db.select().from(invoices).where(and(
                   <p data-i18n="s48_c2_p">Confirm that only files relevant to the task were modified. Flag any collateral edits to config files or unrelated modules.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 DIFF AUDIT PROMPT:
 "Review this git diff before I commit:
@@ -2228,7 +2228,7 @@ Answer:
                   <p data-i18n="s50_c2_p">Instruct: 'Analyze this schema change. Explain table locks, performance impact on large tables, backward compatibility, and write a reversible DOWN migration.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400">HAZARDOUS AI MIGRATION:</span>
 ALTER TABLE orders ADD COLUMN status VARCHAR(20) NOT NULL;
@@ -2312,7 +2312,7 @@ ALTER TABLE orders ADD COLUMN status VARCHAR(20) DEFAULT 'pending';
                   <p data-i18n="s52_c2_p">Require the model to provide verification queries: SELECT statements to confirm index usage, foreign key integrity, and row counts before and after.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 VERIFICATION QUERIES TO REQUEST:
 -- 1. Check index validity:
@@ -2418,7 +2418,7 @@ SELECT count(*) FROM orders;
                   <p data-i18n="s55_c2_p">A strong rules file ensures the agent adheres to your architecture and conventions across every prompt and every session automatically.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 # AGENTS.md / Repository Instructions
 - Package Manager: Use pnpm ONLY (never npm or yarn)
@@ -2480,7 +2480,7 @@ SELECT count(*) FROM orders;
                   <p data-i18n="s57_c2_p">Always run experimental agent tasks on a dedicated git branch (`feature/ai-experiment`). If the agent derails, discard the branch instantly.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 $ git checkout -b feature/ai-refactor
 # Run AI Agent task here...
@@ -2557,7 +2557,7 @@ $ git diff
                   <p data-i18n="s59_c2_p">SQLite is better for embedded CLI tools; Neon PostgreSQL is better for distributed web apps. The 'best' tech stack depends entirely on requirements.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 TRADEOFF PROMPT:
 "Do not recommend a single library.
@@ -2697,7 +2697,7 @@ and connection pooling in Next.js Serverless."
                   <p data-i18n="s63_c2_p">'If you are unsure of an API parameter or database column, say "I need to inspect file X" instead of guessing its syntax.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 EPISTEMIC RESPONSE FORMAT:
 1. VERIFIED FACTS: Found table 'users' in db/schema.ts line 14.
@@ -2885,7 +2885,7 @@ EPISTEMIC RESPONSE FORMAT:
                   <p data-i18n="s69_c2_p">Turn 3: 'Now add Zod input validation, wrap in a database transaction, handle unique constraint collision, and add a unit test.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 Turn 1: "Write a function to create a task." → Returns dummy in-memory array.
 Turn 2: "Connect to our Neon PostgreSQL Drizzle instance in db/client.ts." → Real SQL.
@@ -2919,7 +2919,7 @@ Turn 3: "Add Zod validation, check session user_id, handle database error." → 
                   <p data-i18n="s70_c2_p">Phase 1: Spec Analysis -> Phase 2: Schema Design -> Phase 3: Auth &amp; RBAC -> Phase 4: Data Layer -> Phase 5: UI Components -> Phase 6: Testing -> Phase 7: Audit -> Phase 8: Deploy.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 TaskFlow Architecture Flow:
 Browser (Client React / Tailwind)
@@ -2978,7 +2978,7 @@ Production Live at taskflow.dev
                   <h4 class="text-blue-400">1. Codebase Architecture Audit</h4>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
+                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-900 p-2 border border-slate-800">
 Do not write or modify code yet.
 Inspect the existing codebase and explain:
 1. Architecture, routing, and file responsibilities.
@@ -2994,7 +2994,7 @@ Support findings with file paths.
                   <h4 class="text-blue-400">2. Surgical Bug Investigation</h4>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
+                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-900 p-2 border border-slate-800">
 Analyze this error before proposing a fix.
 Expected: [Describe expected outcome]
 Observed: [Describe actual outcome]
@@ -3009,7 +3009,7 @@ and propose smallest safe fix with a regression test.
                   <h4 class="text-blue-400">3. Read-Only Security Review</h4>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
+                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-900 p-2 border border-slate-800">
 Perform a strictly read-only security audit.
 Audit: Auth guards, SQL injection, IDOR, secret leaks,
 and multi-tenant isolation.
@@ -3023,7 +3023,7 @@ with file paths, line numbers, exploit scenarios, and patches.
                   <h4 class="text-blue-400">4. Database Migration Safety Audit</h4>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
+                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-900 p-2 border border-slate-800">
 Analyze this schema change against Neon PostgreSQL.
 Check for table locks, downtime on large tables,
 foreign key cascades, and data loss risks.
@@ -3271,7 +3271,7 @@ and verification SELECT queries.
                   <p data-i18n="s75_c2_p">Human Architect defines problem -> AI acts as accelerated copilot -> Human inspects proposals -> Automated suite verifies truth -> Production releases safely.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">final-architecture — human &amp; ai symbiosis</span>
@@ -3357,7 +3357,7 @@ Safe Production Deployment
           <div class="modal-title text-lg font-extrabold text-white m-0">Search Presentation</div>
           <button class="modal-close">&times;</button>
         </div>
-        <input type="text" id="search-input" class="search-input-box w-full bg-slate-950 border border-slate-700 p-2.5  text-xs text-white outline-none focus:border-blue-500" placeholder="Search prompts, concepts, workflows (Ctrl+K)..." data-i18n-placeholder="ui_search_placeholder">
+        <input type="text" id="search-input" class="search-input-box w-full bg-slate-900 border border-slate-700 p-2.5  text-xs text-white outline-none focus:border-blue-500" placeholder="Search prompts, concepts, workflows (Ctrl+K)..." data-i18n-placeholder="ui_search_placeholder">
         <div id="search-results" class="search-results-list flex flex-col gap-2 max-h-[380px] overflow-y-auto"></div>
       </div>
     </div>

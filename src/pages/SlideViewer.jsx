@@ -180,7 +180,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
 
   if (loading) {
     return (
-      <div className="h-screen w-screen bg-slate-950 text-white flex flex-col items-center justify-center gap-3">
+      <div className="h-screen w-screen bg-slate-900 text-white flex flex-col items-center justify-center gap-3">
         <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent animate-spin"></div>
         <span className=" text-xs text-slate-400">
           Loading lesson slides...
@@ -191,7 +191,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
 
   if (error || !courseData) {
     return (
-      <div className="h-screen w-screen bg-slate-950 text-white flex flex-col items-center justify-center gap-4 p-4 text-center">
+      <div className="h-screen w-screen bg-slate-900 text-white flex flex-col items-center justify-center gap-4 p-4 text-center">
         <h2 className="text-xl font-bold text-red-400">Error Loading Course</h2>
         <p className="text-sm text-slate-400">{error || "Course not found"}</p>
         <Button asChild>
@@ -210,7 +210,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
     <div
       ref={appContainerRef}
       id="app-container"
-      className="flex flex-col h-screen w-screen relative bg-slate-950 overflow-hidden"
+      className="flex flex-col h-screen w-screen relative bg-slate-900 overflow-hidden"
     >
       {/* Top Navigation Bar */}
       <header className="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
@@ -239,7 +239,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
 
         <div className="top-controls flex items-center gap-1">
           {/* Jump to Slide dropdown */}
-          <div className="slide-counter-wrapper h-[34px] px-2.5 flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800">
+          <div className="slide-counter-wrapper h-[34px] px-2.5 flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-900 border border-slate-800">
             <span>{t("ui_slide", "Slide")}</span>
             <select
               value={currentIndex}
@@ -514,7 +514,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
 
       {/* Slide Overview Modal */}
       {overviewOpen && (
-        <div className="fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-slate-900/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
           <Card className="w-full max-w-[900px] max-h-[85vh] p-4 flex flex-col gap-4">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div className="text-base font-extrabold text-white m-0">
@@ -540,7 +540,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
                   }}
                   className={`p-2.5 cursor-pointer flex flex-col gap-1 transition-colors ${
                     currentIndex === idx
-                      ? "border-blue-500 bg-blue-950/40"
+                      ? "border-blue-500 bg-blue-900/40"
                       : "bg-slate-800 border-slate-700 hover:border-blue-500"
                   }`}
                 >
@@ -564,7 +564,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
 
       {/* Shortcuts Modal */}
       {shortcutsOpen && (
-        <div className="fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-slate-900/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
           <Card className="w-full max-w-[520px] max-h-[85vh] p-4 flex flex-col gap-4">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div className="text-base font-extrabold text-white m-0">

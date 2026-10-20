@@ -96,7 +96,7 @@ export default function GitCourse({ initialSlide = 1 }) {
     <div
       ref={appContainerRef}
       id="app-container"
-      className="flex flex-col h-screen w-screen overflow-hidden bg-slate-950 text-white font-sans select-none"
+      className="flex flex-col h-screen w-screen overflow-hidden bg-slate-900 text-white font-sans select-none"
     >
       {/* Top Header Bar */}
       <header className="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
@@ -132,7 +132,7 @@ export default function GitCourse({ initialSlide = 1 }) {
 
         <div className="top-controls flex items-center gap-1.5">
           {/* Jump to Slide dropdown */}
-          <div className="slide-counter-wrapper h-[34px] px-2.5 rounded-lg flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800">
+          <div className="slide-counter-wrapper h-[34px] px-2.5 rounded-lg flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-900 border border-slate-800">
             <span>{t("ui_slide", "Slide")}</span>
             <select
               value={currentIndex}
@@ -384,7 +384,7 @@ export default function GitCourse({ initialSlide = 1 }) {
                   className={`p-3 rounded-lg border text-left flex flex-col gap-1.5 transition-all cursor-pointer ${
                     currentIndex === idx
                       ? "bg-orange-500/20 border-orange-500 text-white shadow-lg shadow-orange-500/10"
-                      : "bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900"
+                      : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900"
                   }`}
                 >
                   <div className="flex items-center justify-between">

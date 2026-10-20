@@ -229,8 +229,8 @@
       background-color: #f8fafc !important;
       color: #0f172a !important;
     }
-    [data-theme="light"] .bg-slate-950,
-    html:not(.dark):not([data-theme="dark"]) .bg-slate-950 {
+    [data-theme="light"] .bg-slate-900,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-900 {
       background-color: #f1f5f9 !important;
       border-color: #e2e8f0 !important;
       color: #334155 !important;
@@ -282,8 +282,8 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-slate-950 text-white font-sans antialiased overflow-hidden">
-  <div id="app-container" class="flex flex-col h-screen w-screen relative bg-slate-950 overflow-hidden">
+<body class="min-h-screen bg-slate-900 text-white font-sans antialiased overflow-hidden">
+  <div id="app-container" class="flex flex-col h-screen w-screen relative bg-slate-900 overflow-hidden">
     <header class="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
       <div class="brand-section flex items-center gap-3">
         <a href="../index.html" class="brand-logo flex items-center gap-2 font-extrabold text-[15px] text-white hover:text-blue-400 transition-colors no-underline" id="logo-link" title="Back to Curriculum Hub">
@@ -300,7 +300,7 @@
           <img class="lang-flag-en w-5 h-3.5 object-cover" src="../images/en.png" alt="English">
           <img class="lang-flag-km w-5 h-3.5 object-cover" src="../images/km.png" alt="Khmer" style="display: none;">
         </button>
-        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1">
+        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-900 border border-slate-800 px-2 py-1">
           <span data-i18n="ui_slide">Slide</span>
           <select id="slide-jump-select" class="bg-transparent text-blue-400  text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white" title="Jump to slide"></select>
           <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">72</span></span>
@@ -346,7 +346,7 @@
                   </div>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — production pipeline</span>
@@ -380,12 +380,12 @@
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Local Development (localhost:3000)</h4>
                 <p>Runs solely on your machine inside Node.js. Only accessible by you via local loopback. Stops when your computer closes or terminal shuts down.</p>
-                <div class="code-block bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">$ pnpm run dev<br>Ready in 1200ms on http://localhost:3000</div>
+                <div class="code-block bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">$ pnpm run dev<br>Ready in 1200ms on http://localhost:3000</div>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Production Deployment (Public Internet)</h4>
                 <p>Packaged, optimized, and hosted on high-availability cloud servers around the world. Accessible 24/7/365 by millions of users with automated HTTPS.</p>
-                <div class="code-block bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">Production URL: https://taskflow.com<br>Response time: 24ms from Global Edge Network</div>
+                <div class="code-block bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">Production URL: https://taskflow.com<br>Response time: 24ms from Global Edge Network</div>
               </div>
             </div>
           </div>
@@ -635,7 +635,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s12_sub">Verifying package.json scripts, dependencies, and local build integrity</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">package.json — verify standard build script</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div>{</div>
@@ -661,7 +661,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s13_sub">Catching compilation and type errors before pushing to GitHub</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — run local production build</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">pnpm run build</span></div>
@@ -699,7 +699,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s15_sub">Clean working tree, .gitignore rules, and production branch alignment</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — inspect git status</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git status</span></div>
@@ -741,7 +741,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s17_sub">Connecting local repository to remote origin with git push</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — link remote &amp; push</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git remote add origin https://github.com/your-username/taskflow.git</span></div>
@@ -830,7 +830,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s22_sub">Supplying production keys before triggering the first build</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">Vercel UI — Environment Variables Section</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div>Key: <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">DATABASE_URL</span></div>
@@ -872,7 +872,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s24_sub">Real-time streaming output, dependency caching, and build steps</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">Vercel Build Inspector (Streaming)</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div>[14:20:01.120] Running build in Washington, D.C., USA (East) – iad1</div>
@@ -958,7 +958,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s28_sub">Main branch for production, feature branches for preview testing</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — feature branch to preview</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git checkout -b feature/user-auth</span></div>
@@ -1048,7 +1048,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s33_sub">Triggering builds from CMS publishing events and webhooks</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">curl — trigger deployment via HTTP POST</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_xxx/token_yyy</span></div>
@@ -1190,7 +1190,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s40_sub">Controlling cache headers and server rendering behavior</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">app/dashboard/page.tsx — control dynamic rendering</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-comment">// Force dynamic server-rendering on every visitor request</span></div>
@@ -1210,7 +1210,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s41_sub">Executing secure backend mutations on serverless functions</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">app/actions.ts — server action running on Vercel</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">'use server';</span></div>
@@ -1269,7 +1269,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s44_sub">Pooled connections with sslmode=require for serverless queries</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">Neon Dashboard — Pooled Connection String</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-comment"># Use the Pooled connection mode (-pooler suffix in host)</span></div>
@@ -1538,7 +1538,7 @@
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s59_sub">Missing dependencies, TypeScript errors, and incorrect root directory</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+            <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">Error: Module not found: Can't resolve 'clsx'</span></div>
               <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div class="term-warn">Cause: Package installed globally or missing from package.json dependencies.</div>
@@ -1679,7 +1679,7 @@
                   <span id="sim-status-indicator" class="font-bold  text-green-400">CONNECTED</span>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">simulation output runner</span></div>
                 <pre id="sim-terminal-body" class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs whitespace-pre-wrap text-xs"></pre>
               </div>
@@ -1887,7 +1887,7 @@
       </div>
     </footer>
 
-    <div id="overview-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div id="overview-modal" class="modal-backdrop fixed inset-0 bg-slate-900/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
       <div class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4">
         <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
           <h3 class="modal-title text-lg font-extrabold text-white m-0">Table of Contents &amp; All Slides (72)</h3>
@@ -1897,20 +1897,20 @@
       </div>
     </div>
 
-    <div id="search-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div id="search-modal" class="modal-backdrop fixed inset-0 bg-slate-900/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
       <div class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4 max-w-[650px]">
         <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
           <h3 class="modal-title text-lg font-extrabold text-white m-0">Search Deployment Topics (Ctrl + K)</h3>
           <button class="modal-close">&times;</button>
         </div>
         <div class="pt-1 pb-3">
-          <input id="search-input" type="text" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 text-white text-xs  outline-none focus:border-blue-500" placeholder="Search deployment concepts, commands, topics (Ctrl + K)...">
+          <input id="search-input" type="text" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 text-white text-xs  outline-none focus:border-blue-500" placeholder="Search deployment concepts, commands, topics (Ctrl + K)...">
         </div>
         <div id="search-results" class="max-h-[55vh] overflow-y-auto"></div>
       </div>
     </div>
     </div>
-    <div id="shortcuts-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div id="shortcuts-modal" class="modal-backdrop fixed inset-0 bg-slate-900/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
       <div class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4 max-w-[500px]">
         <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
           <h3 class="modal-title text-lg font-extrabold text-white m-0">Keyboard Navigation</h3>

@@ -136,8 +136,8 @@
       background-color: #f8fafc !important;
       color: #0f172a !important;
     }
-    [data-theme="light"] .bg-slate-950,
-    html:not(.dark):not([data-theme="dark"]) .bg-slate-950 {
+    [data-theme="light"] .bg-slate-900,
+    html:not(.dark):not([data-theme="dark"]) .bg-slate-900 {
       background-color: #f1f5f9 !important;
       border-color: #e2e8f0 !important;
       color: #334155 !important;
@@ -189,8 +189,8 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-slate-950 text-white font-sans antialiased overflow-hidden">
-  <div id="app-container" class="flex flex-col h-screen w-screen relative bg-slate-950 overflow-hidden">
+<body class="min-h-screen bg-slate-900 text-white font-sans antialiased overflow-hidden">
+  <div id="app-container" class="flex flex-col h-screen w-screen relative bg-slate-900 overflow-hidden">
     <header class="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
       <div class="brand-section flex items-center gap-3">
         <a href="../index.html" class="brand-logo flex items-center gap-2 font-extrabold text-[15px] text-white hover:text-blue-400 transition-colors no-underline" id="logo-link" title="Back to Curriculum Hub">
@@ -203,7 +203,7 @@
       </div>
 
       <div class="top-controls flex items-center gap-2">
-        <div class="slide-counter-wrapper h-[34px] px-2.5 flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800">
+        <div class="slide-counter-wrapper h-[34px] px-2.5 flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-900 border border-slate-800">
           <span data-i18n="ui_slide">Slide</span>
           <select id="slide-jump-select" class="bg-transparent text-blue-400  text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white" title="Jump to slide"></select>
           <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">38</span></span>
@@ -247,7 +247,7 @@
                   </div>
                 </div>
               </div>
-              <div class="hero-visual-box border border-slate-800 bg-slate-950 overflow-hidden p-0">
+              <div class="hero-visual-box border border-slate-800 bg-slate-900 overflow-hidden p-0">
                 <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Flow" class="w-full h-[260px] object-cover block">
                 <div class="p-3 flex justify-between items-center bg-slate-900 border-t border-slate-800">
                   <div>
@@ -289,7 +289,7 @@
                 </div>
               </div>
 
-              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5">
                     <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -335,7 +335,7 @@
                     <li><span class="cross-icon inline-flex items-center justify-center text-red-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Not knowing who broke a feature or when</li>
                     <li><span class="cross-icon inline-flex items-center justify-center text-red-400 shrink-0 mt-0.5"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></span> Painful file naming madness:</li>
                   </ul>
-                  <div class="file-tree flex flex-col gap-1  text-xs bg-slate-950 p-3 border border-slate-800 mt-2">
+                  <div class="file-tree flex flex-col gap-1  text-xs bg-slate-900 p-3 border border-slate-800 mt-2">
                     <div class="file flex items-center gap-1.5 text-xs text-slate-300"><svg class="tree-icon-svg file w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-slate-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>project-final.zip</div>
                     <div class="file flex items-center gap-1.5 text-xs text-slate-300"><svg class="tree-icon-svg file w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-slate-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>project-final2.zip</div>
                     <div class="file flex items-center gap-1.5 text-xs text-slate-300"><svg class="tree-icon-svg file w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-slate-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>project-final-real.zip</div>
@@ -447,7 +447,7 @@
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="slide-stack flex flex-col gap-3">
-                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -498,7 +498,7 @@
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5">
                     <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -552,7 +552,7 @@ user.email=you@example.com</div>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5">
                     <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -581,7 +581,7 @@ user.email=you@example.com</div>
               <div class="slide-stack flex flex-col gap-3">
                 <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4 class="text-xs font-bold text-white flex items-center gap-1.5">Resulting Folder Structure</h4>
-                  <div class="file-tree flex flex-col gap-1  text-xs bg-slate-950 p-3 border border-slate-800 mt-2">
+                  <div class="file-tree flex flex-col gap-1  text-xs bg-slate-900 p-3 border border-slate-800 mt-2">
                     <div class="folder flex items-center gap-1.5 text-xs text-blue-400 font-semibold"><svg class="tree-icon-svg folder w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-blue-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>my-project/</div>
                     <div class="file flex items-center gap-1.5 text-xs text-slate-300 ml-5">└── <svg class="tree-icon-svg file w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-slate-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>README.md</div>
                   </div>
@@ -610,7 +610,7 @@ user.email=you@example.com</div>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5">
                     <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -632,7 +632,7 @@ user.email=you@example.com</div>
               <div class="slide-stack flex flex-col gap-3">
                 <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4 class="text-xs font-bold text-white flex items-center gap-1.5">The Hidden <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.git</code> Directory</h4>
-                  <div class="file-tree flex flex-col gap-1  text-xs bg-slate-950 p-3 border border-slate-800 mt-2">
+                  <div class="file-tree flex flex-col gap-1  text-xs bg-slate-900 p-3 border border-slate-800 mt-2">
                     <div class="folder flex items-center gap-1.5 text-xs text-blue-400 font-semibold"><svg class="tree-icon-svg folder w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-blue-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>my-project/</div>
                     <div class="git-internal text-purple-400  ml-5">├── <svg class="tree-icon-svg folder w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-blue-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>.git/ <span class="text-[11px] text-orange-400 ">(Hidden Git Database)</span></div>
                     <div class="file flex items-center gap-1.5 text-xs text-slate-300 ml-5">└── <svg class="tree-icon-svg file w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-slate-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>README.md</div>
@@ -658,7 +658,7 @@ user.email=you@example.com</div>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5">
                     <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -713,7 +713,7 @@ nothing added to commit but untracked files present (use "git add" to track)</di
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="slide-stack flex flex-col gap-3">
-                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -731,7 +731,7 @@ nothing added to commit but untracked files present (use "git add" to track)</di
                   </div>
                 </div>
 
-                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -760,7 +760,7 @@ nothing added to commit but untracked files present (use "git add" to track)</di
                     <span class="flow-arrow-label text-[11px]  text-slate-400">git add</span>
                     <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="inline-block align-middle"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
                   </div>
-                  <div class="flow-step-box active-step flex-1 p-2.5 bg-blue-950/40 border border-blue-500/50 text-center">
+                  <div class="flow-step-box active-step flex-1 p-2.5 bg-blue-900/40 border border-blue-500/50 text-center">
                     <span class="flow-step-name text-xs font-bold text-slate-200">Staging Area</span>
                     <span class="flow-step-sub text-[11px] text-slate-400">Ready to commit</span>
                   </div>
@@ -786,7 +786,7 @@ nothing added to commit but untracked files present (use "git add" to track)</di
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5">
                     <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -839,7 +839,7 @@ No commits yet
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="slide-stack flex flex-col gap-3">
-                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -903,7 +903,7 @@ No commits yet
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="slide-stack flex flex-col gap-3">
-                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -926,7 +926,7 @@ Date:   Mon Oct 19 09:30:00 2026 +0700
                   </div>
                 </div>
 
-                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -1014,7 +1014,7 @@ Date:   Mon Oct 19 09:30:00 2026 +0700
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5">
                     <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -1043,7 +1043,7 @@ Date:   Mon Oct 19 09:30:00 2026 +0700
                 <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                   <h4 class="text-xs font-bold text-white flex items-center gap-1.5">Older Equivalent Command</h4>
                   <p class="text-[13px] text-slate-300 leading-relaxed">In older tutorials or blog posts, you will often see:</p>
-                  <div class="code-box bg-slate-950 border border-slate-800 p-3  text-xs overflow-x-auto text-blue-400 leading-normal my-2">
+                  <div class="code-box bg-slate-900 border border-slate-800 p-3  text-xs overflow-x-auto text-blue-400 leading-normal my-2">
                     <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git checkout -b feature/login</code>
                   </div>
                   <p class="text-xs text-slate-300 leading-relaxed"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git checkout</code> had too many conflicting responsibilities (switching branches AND discarding file changes). Git introduced <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git switch</code> in version 2.23 to be dedicated, clear, and beginner-friendly.</p>
@@ -1146,7 +1146,7 @@ Date:   Mon Oct 19 09:30:00 2026 +0700
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="slide-stack flex flex-col gap-3">
-                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -1175,7 +1175,7 @@ Date:   Mon Oct 19 09:30:00 2026 +0700
               </div>
 
               <div class="slide-stack flex flex-col gap-3">
-                <div class="terminal-mockup bg-slate-950 border border-green-500/50 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-green-500/50 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -1219,7 +1219,7 @@ Date:   Mon Oct 19 09:30:00 2026 +0700
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="slide-stack flex flex-col gap-3">
-                <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                     <div class="terminal-dots flex items-center gap-1.5">
                       <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -1268,7 +1268,7 @@ dist/
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="file-tree flex flex-col gap-1  text-xs bg-slate-950 p-3 border border-slate-800">
+              <div class="file-tree flex flex-col gap-1  text-xs bg-slate-900 p-3 border border-slate-800">
 <div class="folder flex items-center gap-1.5 text-xs text-blue-400 font-semibold"><svg class="tree-icon-svg folder w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-blue-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>my-project/</div>
 <div class="git-internal text-purple-400  ml-5">├── <svg class="tree-icon-svg folder w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-blue-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75z"/></svg>.git/ <span class="text-[11px] text-orange-400 ">(Internal database - stays local)</span></div>
 <div class="file flex items-center gap-1.5 text-xs text-slate-300 ml-5">├── <svg class="tree-icon-svg file w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1.5 text-slate-400" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586a1.75 1.75 0 0 1 1.237.513l2.914 2.914c.328.328.513.774.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5H3.75z"/></svg>.gitignore <span class="text-[11px] text-blue-400 ">(Pushed to GitHub)</span></div>
@@ -1377,7 +1377,7 @@ dist/
                 </div>
               </div>
 
-              <div class="terminal-mockup bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+              <div class="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5">
                     <span class="terminal-dot dot-red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
@@ -1478,7 +1478,7 @@ dist/
                 </div>
               </div>
 
-              <div class="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-950">
+              <div class="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900">
                 <img src="../images/git_flow_hero.jpg" alt="Git &amp; GitHub Mastery" class="h-[250px] w-full object-cover">
                 <div class="real-image-caption px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-800 border-t border-slate-800 flex items-center justify-between">
                   <span class="font-bold text-orange-400"><span class="inline-icon w-3.5 h-3.5 shrink-0 inline-block align-middle mr-1 text-orange-400"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M14.064 0a8.75 8.75 0 0 0-6.187 2.563l-.459.458c-.314.314-.543.682-.676 1.077L4.697 4.1a1.75 1.75 0 0 0-1.65.347l-.95.95a.75.75 0 0 0 .175 1.228l1.737.868a8.214 8.214 0 0 0-.27 1.517l-1.066.355a.75.75 0 0 0-.472.946l.48 1.442a1.75 1.75 0 0 0 1.288 1.157l1.096.22a8.71 8.71 0 0 0 1.558.156l.868 1.736a.75.75 0 0 0 1.228.175l.95-.95a1.75 1.75 0 0 0 .347-1.65l-.001-2.045c.395-.133.763-.362 1.077-.676l.458-.459A8.75 8.75 0 0 0 16 1.936V.75a.75.75 0 0 0-.75-.75h-1.186zM10.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg></span>Git &amp; GitHub Mastery</span>
@@ -1516,18 +1516,18 @@ dist/
         </button>
       </div>
     </footer>
-    <div id="overview-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div id="overview-modal" class="modal-backdrop fixed inset-0 bg-slate-900/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
       <div class="modal-panel w-full max-w-[900px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4">
         <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
           <div class="modal-title text-lg font-extrabold text-white m-0">Slide Overview (38 Slides)</div>
           <button class="btn-icon modal-close bg-transparent border-0 text-slate-400 hover:text-white text-xl cursor-pointer px-1 py-0" title="Close (Esc)" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"/></svg></button>
         </div>
         <div class="modal-body flex flex-col gap-3">
-          <div id="overview-grid" class="overview-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 [&_.overview-card]:bg-slate-800 [&_.overview-card]:border [&_.overview-card]:border-slate-700 [&_.overview-card]:p-3 [&_.overview-card]:cursor-pointer [&_.overview-card]:flex [&_.overview-card]:flex-col [&_.overview-card]:gap-1 [&_.overview-card]:transition-colors hover:[&_.overview-card]:border-blue-500 [&_.overview-card.current]:border-blue-500 [&_.overview-card.current]:bg-blue-950/30 [&_.overview-card-num]: [&_.overview-card-num]:text-[11px] [&_.overview-card-num]:font-bold [&_.overview-card-num]:text-blue-400 [&_.overview-card-title]:text-xs [&_.overview-card-title]:font-bold [&_.overview-card-title]:text-white [&_.overview-card-title]:leading-tight [&_.overview-card-part]:text-[10px] [&_.overview-card-part]:font-bold [&_.overview-card-part]:uppercase [&_.overview-card-part]:text-slate-400"></div>
+          <div id="overview-grid" class="overview-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 [&_.overview-card]:bg-slate-800 [&_.overview-card]:border [&_.overview-card]:border-slate-700 [&_.overview-card]:p-3 [&_.overview-card]:cursor-pointer [&_.overview-card]:flex [&_.overview-card]:flex-col [&_.overview-card]:gap-1 [&_.overview-card]:transition-colors hover:[&_.overview-card]:border-blue-500 [&_.overview-card.current]:border-blue-500 [&_.overview-card.current]:bg-blue-900/30 [&_.overview-card-num]: [&_.overview-card-num]:text-[11px] [&_.overview-card-num]:font-bold [&_.overview-card-num]:text-blue-400 [&_.overview-card-title]:text-xs [&_.overview-card-title]:font-bold [&_.overview-card-title]:text-white [&_.overview-card-title]:leading-tight [&_.overview-card-part]:text-[10px] [&_.overview-card-part]:font-bold [&_.overview-card-part]:uppercase [&_.overview-card-part]:text-slate-400"></div>
         </div>
       </div>
     </div>
-    <div id="shortcuts-modal" class="modal-backdrop fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div id="shortcuts-modal" class="modal-backdrop fixed inset-0 bg-slate-900/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
       <div class="modal-panel w-full max-w-[520px] max-h-[85vh] overflow-y-auto bg-slate-900 border border-slate-800 p-4 shadow-2xl flex flex-col gap-4">
       <div class="modal-header flex items-center justify-between border-b border-slate-800 pb-3">
         <div class="modal-title text-lg font-extrabold text-white m-0">Keyboard Navigation &amp; Shortcuts</div>

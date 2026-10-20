@@ -194,7 +194,7 @@ export function Slide3WhyGit() {
         badgeColor="orange"
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 p-4 rounded-lg bg-rose-950/20 border border-rose-500/30 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 p-4 rounded-lg bg-rose-900/20 border border-rose-500/30 flex flex-col justify-between gap-3">
           <div className="flex items-center justify-between border-b border-rose-500/20 pb-2">
             <h4 className="text-xs font-bold text-rose-300 flex items-center gap-1.5 uppercase tracking-wider">
               <span className="text-rose-400 text-base">✕</span> The Old
@@ -204,7 +204,7 @@ export function Slide3WhyGit() {
               CHAOS
             </span>
           </div>
-          <div className="flex flex-col gap-2  text-[11px] bg-slate-950 p-3 rounded-lg border border-rose-500/20">
+          <div className="flex flex-col gap-2  text-[11px] bg-slate-900 p-3 rounded-lg border border-rose-500/20">
             <div className="text-slate-400">📁 desktop/my-project/</div>
             <div className="text-slate-400 pl-4">├── 📦 project-final.zip</div>
             <div className="text-slate-400 pl-4">├── 📦 project-final2.zip</div>
@@ -231,7 +231,7 @@ export function Slide3WhyGit() {
           </ul>
         </div>
 
-        <div className="lg:col-span-6 p-4 rounded-lg bg-emerald-950/20 border border-emerald-500/30 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 p-4 rounded-lg bg-emerald-900/20 border border-emerald-500/30 flex flex-col justify-between gap-3">
           <div className="flex items-center justify-between border-b border-emerald-500/20 pb-2">
             <h4 className="text-xs font-bold text-emerald-300 flex items-center gap-1.5 uppercase tracking-wider">
               <span className="text-emerald-400 text-base">✓</span> The Modern
@@ -241,7 +241,7 @@ export function Slide3WhyGit() {
               CONFIDENCE
             </span>
           </div>
-          <div className="flex flex-col gap-2  text-[11px] bg-slate-950 p-3 rounded-lg border border-emerald-500/20">
+          <div className="flex flex-col gap-2  text-[11px] bg-slate-900 p-3 rounded-lg border border-emerald-500/20">
             <div className="text-slate-400">📁 my-project/</div>
             <div className="text-emerald-400 font-bold pl-4">
               ├── 📁 .git/ (entire infinite history stored here)
@@ -298,7 +298,7 @@ export function Slide4FourAreas() {
           />
         </div>
         <div className="lg:col-span-5 flex flex-col justify-between gap-2.5">
-          <div className="p-3 rounded-lg bg-sky-950/30 border border-sky-500/30 flex items-start gap-2.5">
+          <div className="p-3 rounded-lg bg-sky-900/30 border border-sky-500/30 flex items-start gap-2.5">
             <span className="w-6 h-6 rounded bg-sky-500/20 text-sky-400  font-bold text-xs flex items-center justify-center shrink-0">
               1
             </span>
@@ -313,7 +313,7 @@ export function Slide4FourAreas() {
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-500/30 flex items-start gap-2.5">
+          <div className="p-3 rounded-lg bg-amber-900/30 border border-amber-500/30 flex items-start gap-2.5">
             <span className="w-6 h-6 rounded bg-amber-500/20 text-amber-400  font-bold text-xs flex items-center justify-center shrink-0">
               2
             </span>
@@ -329,7 +329,7 @@ export function Slide4FourAreas() {
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-purple-950/30 border border-purple-500/30 flex items-start gap-2.5">
+          <div className="p-3 rounded-lg bg-purple-900/30 border border-purple-500/30 flex items-start gap-2.5">
             <span className="w-6 h-6 rounded bg-purple-500/20 text-purple-400  font-bold text-xs flex items-center justify-center shrink-0">
               3
             </span>
@@ -346,7 +346,7 @@ export function Slide4FourAreas() {
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-emerald-950/30 border border-emerald-500/30 flex items-start gap-2.5">
+          <div className="p-3 rounded-lg bg-emerald-900/30 border border-emerald-500/30 flex items-start gap-2.5">
             <span className="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400  font-bold text-xs flex items-center justify-center shrink-0">
               4
             </span>
@@ -534,7 +534,7 @@ git config --global init.defaultBranch main`;
               profile activity graph!
             </p>
 
-            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex flex-col gap-1.5">
+            <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 flex flex-col gap-1.5">
               <span className="text-[10px]  text-slate-400 uppercase">
                 Live GitHub Commit Badge Preview:
               </span>
@@ -645,7 +645,7 @@ echo "<h1>Hello World</h1>" > index.html`;
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
               Folder Tree State
             </h4>
-            <div className="p-3.5 rounded-lg bg-slate-950 border border-slate-800  text-xs flex flex-col gap-2">
+            <div className="p-3.5 rounded-lg bg-slate-900 border border-slate-800  text-xs flex flex-col gap-2">
               <div className="text-blue-400 font-bold">📁 my-website/</div>
               <div className="text-slate-300 pl-4">
                 ├── 📄 README.md{" "}
@@ -1366,7 +1366,7 @@ export function Slide16MergeConflicts() {
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-[11px]  text-slate-300">
+          <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-[11px]  text-slate-300">
             VS Code highlights conflicts with quick one-click resolution
             buttons!
           </div>
