@@ -3,6 +3,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import HomePage from './pages/HomePage';
 import SlideViewer from './pages/SlideViewer';
+import GitCourse from './courses/git/GitCourse';
 
 function parseHash(hash) {
   const cleanHash = hash.replace(/^#\/?/, '');
@@ -40,11 +41,18 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         {route.page === 'course' ? (
-          <SlideViewer
-            key={`${route.courseId}-${route.slideNum}`}
-            courseId={route.courseId}
-            initialSlide={route.slideNum}
-          />
+          route.courseId === 'git' ? (
+            <GitCourse
+              key={`git-${route.slideNum}`}
+              initialSlide={route.slideNum}
+            />
+          ) : (
+            <SlideViewer
+              key={`${route.courseId}-${route.slideNum}`}
+              courseId={route.courseId}
+              initialSlide={route.slideNum}
+            />
+          )
         ) : (
           <HomePage />
         )}

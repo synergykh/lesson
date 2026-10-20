@@ -35,7 +35,9 @@
   }
 }
 
-/* Light Theme Overrides */
+/* =========================================================
+   LIGHT THEME DESIGN SYSTEM (High Contrast & Clear Readability)
+   ========================================================= */
 [data-theme="light"],
 html:not(.dark):not([data-theme="dark"]) {
   color-scheme: light;
@@ -47,55 +49,431 @@ html:not(.dark):not([data-theme="dark"]) body {
   color: #0f172a !important;
 }
 
-[data-theme="light"] .bg-slate-950,
-html:not(.dark):not([data-theme="dark"]) .bg-slate-950 {
-  background-color: #f1f5f9 !important;
-  border-color: #cbd5e1 !important;
+/* App container */
+[data-theme="light"] #app-container,
+html:not(.dark):not([data-theme="dark"]) #app-container {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
 }
 
-[data-theme="light"] .bg-slate-900,
-html:not(.dark):not([data-theme="dark"]) .bg-slate-900 {
+/* Header & Footer Navigation Bars */
+[data-theme="light"] .top-bar,
+[data-theme="light"] .bottom-bar,
+html:not(.dark):not([data-theme="dark"]) .top-bar,
+html:not(.dark):not([data-theme="dark"]) .bottom-bar {
   background-color: #ffffff !important;
   border-color: #e2e8f0 !important;
+  color: #0f172a !important;
 }
 
-[data-theme="light"] .bg-slate-800,
-html:not(.dark):not([data-theme="dark"]) .bg-slate-800 {
+[data-theme="light"] .course-title-text,
+html:not(.dark):not([data-theme="dark"]) .course-title-text {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .slide-counter-wrapper,
+html:not(.dark):not([data-theme="dark"]) .slide-counter-wrapper {
   background-color: #f8fafc !important;
   border-color: #e2e8f0 !important;
   color: #334155 !important;
 }
 
-[data-theme="light"] .bg-slate-800:hover,
-html:not(.dark):not([data-theme="dark"]) .bg-slate-800:hover {
-  background-color: #f1f5f9 !important;
-  color: #2563eb !important;
+[data-theme="light"] .slide-counter-wrapper select,
+html:not(.dark):not([data-theme="dark"]) .slide-counter-wrapper select {
+  color: #ea580c !important;
 }
 
-[data-theme="light"] .border-slate-800,
-html:not(.dark):not([data-theme="dark"]) .border-slate-800 {
-  border-color: #e2e8f0 !important;
-}
-
-[data-theme="light"] .border-slate-700,
-html:not(.dark):not([data-theme="dark"]) .border-slate-700 {
-  border-color: #cbd5e1 !important;
-}
-
-[data-theme="light"] .text-white,
-[data-theme="light"] .text-slate-100,
-[data-theme="light"] .text-slate-200,
-html:not(.dark):not([data-theme="dark"]) .text-white,
-html:not(.dark):not([data-theme="dark"]) .text-slate-100,
-html:not(.dark):not([data-theme="dark"]) .text-slate-200 {
+[data-theme="light"] .slide-counter-wrapper select option,
+html:not(.dark):not([data-theme="dark"]) .slide-counter-wrapper select option {
+  background-color: #ffffff !important;
   color: #0f172a !important;
 }
 
-[data-theme="light"] .text-slate-300,
-[data-theme="light"] .text-slate-400,
-html:not(.dark):not([data-theme="dark"]) .text-slate-300,
-html:not(.dark):not([data-theme="dark"]) .text-slate-400 {
+/* Slide Content Card in Light Mode */
+[data-theme="light"] .slide-content-card,
+[data-theme="light"] .slides-container .slide-content-card,
+[data-theme="light"] .title-card-hero,
+[data-theme="light"] .summary-card,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08), 0 0 30px rgba(37, 99, 235, 0.04) !important;
+  color: #0f172a !important;
+}
+
+/* Headings & Text inside slide cards in light mode */
+[data-theme="light"] .slide-content-card .slide-title,
+[data-theme="light"] .slide-content-card .title-main-h1,
+[data-theme="light"] .slide-content-card h1,
+[data-theme="light"] .slide-content-card h2,
+[data-theme="light"] .slide-content-card h3,
+[data-theme="light"] .slide-content-card h4,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card .slide-title,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card .title-main-h1,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card h1,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card h2,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card h3,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card h4 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .slide-content-card .slide-subtitle,
+[data-theme="light"] .slide-content-card .title-tagline,
+[data-theme="light"] .slide-content-card p,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card .slide-subtitle,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card .title-tagline,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card p {
+  color: #334155 !important;
+}
+
+/* Neutral Info Cards inside slides */
+[data-theme="light"] .slide-content-card div[class*="bg-slate-800"],
+[data-theme="light"] .slide-content-card div[class*="bg-slate-900"]:not(.terminal-header),
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-slate-800"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-slate-900"]:not(.terminal-header) {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+/* Inner preview / filetree boxes */
+[data-theme="light"] .slide-content-card div[class*="bg-slate-950"]:not(.terminal-mockup):not(.terminal-body):not(.slide-visual-media),
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-slate-950"]:not(.terminal-mockup):not(.terminal-body):not(.slide-visual-media) {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-slate-950"]:not(.terminal-mockup):not(.terminal-body):not(.slide-visual-media) * {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-slate-950"]:not(.terminal-mockup) .text-rose-400 {
+  color: #e11d48 !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-slate-950"]:not(.terminal-mockup) .text-emerald-400 {
+  color: #059669 !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-slate-950"]:not(.terminal-mockup) .text-blue-400 {
+  color: #2563eb !important;
+  font-weight: 700;
+}
+
+/* Tinted Alert / Concept Cards in Light Mode */
+[data-theme="light"] .slide-content-card div[class*="bg-rose-950"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-rose-950"] {
+  background-color: #fff1f2 !important;
+  border-color: #fecdd3 !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-rose-950"] h4,
+[data-theme="light"] .slide-content-card div[class*="bg-rose-950"] .text-rose-300,
+[data-theme="light"] .slide-content-card div[class*="bg-rose-950"] .text-rose-400 {
+  color: #be123c !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-rose-950"] li,
+[data-theme="light"] .slide-content-card div[class*="bg-rose-950"] .text-rose-200 {
+  color: #881337 !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-emerald-950"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-emerald-950"] {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-emerald-950"] h4,
+[data-theme="light"] .slide-content-card div[class*="bg-emerald-950"] .text-emerald-300,
+[data-theme="light"] .slide-content-card div[class*="bg-emerald-950"] .text-emerald-400 {
+  color: #047857 !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-emerald-950"] li,
+[data-theme="light"] .slide-content-card div[class*="bg-emerald-950"] .text-emerald-200 {
+  color: #064e3b !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-sky-950"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-sky-950"] {
+  background-color: #f0f9ff !important;
+  border-color: #bae6fd !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-sky-950"] .text-sky-300,
+[data-theme="light"] .slide-content-card div[class*="bg-sky-950"] .text-sky-400 {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-amber-950"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-amber-950"] {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-amber-950"] .text-amber-300,
+[data-theme="light"] .slide-content-card div[class*="bg-amber-950"] .text-amber-400 {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-purple-950"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-purple-950"] {
+  background-color: #faf5ff !important;
+  border-color: #e9d5ff !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-purple-950"] .text-purple-300,
+[data-theme="light"] .slide-content-card div[class*="bg-purple-950"] .text-purple-400 {
+  color: #7e22ce !important;
+}
+
+/* Callouts / Alerts in Light Mode */
+[data-theme="light"] .slide-content-card div[class*="bg-sky-500/10"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-sky-500/10"] {
+  background-color: #f0f9ff !important;
+  border-color: #bae6fd !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-sky-500/10"] * {
+  color: #0369a1 !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-amber-500/10"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-amber-500/10"] {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-amber-500/10"] * {
+  color: #92400e !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-emerald-500/10"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-emerald-500/10"] {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-emerald-500/10"] * {
+  color: #065f46 !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-purple-500/10"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-purple-500/10"] {
+  background-color: #faf5ff !important;
+  border-color: #e9d5ff !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-purple-500/10"] * {
+  color: #6b21a8 !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-rose-500/10"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-rose-500/10"] {
+  background-color: #fff1f2 !important;
+  border-color: #fecdd3 !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-rose-500/10"] * {
+  color: #9f1239 !important;
+}
+
+[data-theme="light"] .slide-content-card div[class*="bg-blue-500/10"],
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div[class*="bg-blue-500/10"] {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+}
+[data-theme="light"] .slide-content-card div[class*="bg-blue-500/10"] * {
+  color: #1d4ed8 !important;
+}
+
+/* General Text classes outside of terminals in Light Mode */
+[data-theme="light"] .slide-content-card span.text-slate-300,
+[data-theme="light"] .slide-content-card span.text-slate-400,
+[data-theme="light"] .slide-content-card div.text-slate-300,
+[data-theme="light"] .slide-content-card div.text-slate-400,
+[data-theme="light"] .slide-content-card p.text-slate-300,
+[data-theme="light"] .slide-content-card p.text-slate-400,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card span.text-slate-300,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card span.text-slate-400,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div.text-slate-300,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div.text-slate-400 {
   color: #475569 !important;
+}
+
+[data-theme="light"] .slide-content-card span.text-white,
+[data-theme="light"] .slide-content-card div.text-white,
+[data-theme="light"] .slide-content-card strong,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card span.text-white,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card div.text-white,
+html:not(.dark):not([data-theme="dark"]) .slide-content-card strong {
+  color: #0f172a !important;
+}
+
+/* Colors outside of terminal in Light Mode */
+[data-theme="light"] .slide-content-card .text-emerald-400:not(.terminal-mockup *) {
+  color: #059669 !important;
+}
+[data-theme="light"] .slide-content-card .text-blue-400:not(.terminal-mockup *) {
+  color: #2563eb !important;
+}
+[data-theme="light"] .slide-content-card .text-purple-400:not(.terminal-mockup *) {
+  color: #9333ea !important;
+}
+[data-theme="light"] .slide-content-card .text-orange-400:not(.terminal-mockup *) {
+  color: #ea580c !important;
+}
+[data-theme="light"] .slide-content-card .text-amber-400:not(.terminal-mockup *) {
+  color: #d97706 !important;
+}
+[data-theme="light"] .slide-content-card .text-rose-400:not(.terminal-mockup *) {
+  color: #e11d48 !important;
+}
+
+/* Code elements outside terminal */
+[data-theme="light"] .slide-content-card code:not(.terminal-mockup code) {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Action Buttons: MUST ALWAYS HAVE WHITE TEXT */
+.btn-start-course,
+button.btn-start-course,
+button[class*="bg-orange-"],
+button[class*="bg-blue-"],
+a[class*="bg-blue-"],
+a[class*="bg-orange-"] {
+  color: #ffffff !important;
+}
+.btn-start-course *,
+button.btn-start-course * {
+  color: #ffffff !important;
+}
+
+/* Buttons outline / secondary in light mode */
+[data-theme="light"] button[class*="bg-slate-800"]:not(.copy-btn) {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+[data-theme="light"] button[class*="bg-slate-800"]:not(.copy-btn):hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* =========================================================
+   TERMINAL WINDOWS: ALWAYS HIGH-CONTRAST DARK THEME
+   ========================================================= */
+.terminal-mockup,
+[data-theme="light"] .terminal-mockup,
+html:not(.dark):not([data-theme="dark"]) .terminal-mockup {
+  background-color: #030712 !important;
+  border-color: #1f2937 !important;
+  color: #e5e7eb !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4) !important;
+}
+
+.terminal-header,
+[data-theme="light"] .terminal-header,
+html:not(.dark):not([data-theme="dark"]) .terminal-header {
+  background-color: #0b1120 !important;
+  border-bottom-color: #1f2937 !important;
+  color: #94a3b8 !important;
+}
+
+.terminal-title,
+[data-theme="light"] .terminal-title,
+html:not(.dark):not([data-theme="dark"]) .terminal-title {
+  color: #94a3b8 !important;
+}
+
+.terminal-body,
+[data-theme="light"] .terminal-body,
+html:not(.dark):not([data-theme="dark"]) .terminal-body {
+  background-color: #030712 !important;
+  color: #e5e7eb !important;
+}
+
+/* Terminal text protection in ALL modes */
+.terminal-mockup .term-cmd,
+[data-theme="light"] .terminal-mockup .term-cmd,
+html:not(.dark):not([data-theme="dark"]) .terminal-mockup .term-cmd {
+  color: #93c5fd !important;
+}
+
+.terminal-mockup .term-cmd > span:first-child,
+[data-theme="light"] .terminal-mockup .term-cmd > span:first-child {
+  color: #60a5fa !important;
+}
+
+.terminal-mockup .text-emerald-400,
+.terminal-mockup .text-green-400,
+[data-theme="light"] .terminal-mockup .text-emerald-400,
+[data-theme="light"] .terminal-mockup .text-green-400 {
+  color: #4ade80 !important;
+}
+
+.terminal-mockup .text-rose-400,
+.terminal-mockup .text-red-400,
+[data-theme="light"] .terminal-mockup .text-rose-400,
+[data-theme="light"] .terminal-mockup .text-rose-400 {
+  color: #f87171 !important;
+}
+
+.terminal-mockup .text-yellow-400,
+.terminal-mockup .text-amber-400,
+[data-theme="light"] .terminal-mockup .text-yellow-400,
+[data-theme="light"] .terminal-mockup .text-amber-400 {
+  color: #fbbf24 !important;
+}
+
+.terminal-mockup .text-cyan-400,
+[data-theme="light"] .terminal-mockup .text-cyan-400 {
+  color: #38bdf8 !important;
+}
+
+.terminal-mockup .text-blue-400,
+[data-theme="light"] .terminal-mockup .text-blue-400 {
+  color: #60a5fa !important;
+}
+
+.terminal-mockup .text-slate-200,
+.terminal-mockup .text-slate-300,
+[data-theme="light"] .terminal-mockup .text-slate-200,
+[data-theme="light"] .terminal-mockup .text-slate-300 {
+  color: #e2e8f0 !important;
+}
+
+.terminal-mockup .text-slate-400,
+.terminal-mockup .text-slate-500,
+[data-theme="light"] .terminal-mockup .text-slate-400,
+[data-theme="light"] .terminal-mockup .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+.terminal-mockup button,
+.terminal-mockup button.copy-btn,
+[data-theme="light"] .terminal-mockup button,
+[data-theme="light"] .terminal-mockup button.copy-btn {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+
+/* Modals in Light Mode */
+[data-theme="light"] .overview-content,
+[data-theme="light"] .shortcuts-modal > div,
+html:not(.dark):not([data-theme="dark"]) .overview-content,
+html:not(.dark):not([data-theme="dark"]) .shortcuts-modal > div {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .overview-grid button,
+html:not(.dark):not([data-theme="dark"]) .overview-grid button {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .overview-grid button:hover,
+html:not(.dark):not([data-theme="dark"]) .overview-grid button:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
 }
 
 [data-theme="light"] .kbd,
