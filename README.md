@@ -16,7 +16,7 @@ The platform is structured into a central **Curriculum Hub (`#/`)** that launche
 | **06** | **PostgreSQL & Neon** | `#/course/postgres` | Relational & Serverless Database Architecture (72 Slides) | psql CLI, DDL/DML, data types, UUID, relationships, joins, indexes, ACID, migrations, Neon branching, pooling |
 | **07** | **Vercel & Web Deployment** | `#/course/vercel` | Modern Web & Next.js Production Deployment (72 Slides) | Git CI/CD, Preview vs Production, Neon PostgreSQL integration, custom domains, DNS, HTTPS, rollbacks |
 | **08** | **Prompt Engineering** | `#/course/prompting` | Critical Thinking & AI-Assisted Development (75 Slides) | Prompt formula, context management, analysis before coding, task decomposition, safe coding agents, verification |
-| **09** | **Cloudflare** | `#/course/cloudflare` | Global Edge Infrastructure (65 Slides) | Domains, DNS, CDN caching, SSL/TLS, WAF security, Workers, R2 storage, edge routing |
+| **09** | **Cloudflare** | `#/course/cloudflare` | Global Edge Infrastructure (85 Slides) | Domains, DNS, CDN caching, SSL/TLS, WAF security, Workers, R2 storage, edge routing |
 
 ## Key Features
 
@@ -98,6 +98,8 @@ Lesson/
 ├── vite.config.js          # Vite configuration with React plugin
 ├── public/                 # Static assets
 ├── images/                 # Course illustrations, diagrams, and flag assets
+├── html/                   # Standalone interactive browser presentations (Cloudflare, Next.js, etc.)
+├── js/                     # Standalone deck scripts and bilingual translation dictionaries
 └── src/                    # React application source code
     ├── main.jsx            # React root application entry
     ├── App.jsx             # Hash-based router and root providers

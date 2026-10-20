@@ -150,7 +150,34 @@ html:not(.dark):not([data-theme="dark"]) .kbd {
   opacity: 1;
 }
 
-/* Presentation Card Dimensions: Width 7xl, Height 80% */
+/* Presentation Card Centering & Dimensions: Width 7xl, Height 80% */
+.slide-viewport {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.slides-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.slides-container .slide-item,
+.slides-container section.slide-item,
+.slides-container div.slide-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .slides-container .slide-content-card,
 .slides-container .title-card-hero,
 .slides-container .summary-card {
@@ -158,6 +185,9 @@ html:not(.dark):not([data-theme="dark"]) .kbd {
   max-width: 80rem !important;
   height: 80% !important;
   min-height: 80% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   overflow-y: auto !important;
 }
+
 
