@@ -84,9 +84,21 @@ export const courses = [
     tags: ["vercel deploy", "git integration", "env vars", "domains", "serverless", "rollbacks"]
   },
   {
+    id: "cloudflare",
+    title: "Cloudflare: Global Edge Infrastructure",
+    module: "MODULE 08",
+    level: "Intermediate / Production",
+    desc: "From your first domain and DNS records to global CDN, WAF, Workers, R2 storage, SSL/TLS, and edge deployment for resilient web systems.",
+    meta: "65 Slides • Global Edge",
+    category: "devops",
+    iconColor: "text-orange-400",
+    iconBg: "bg-orange-500/15 border-orange-500/30",
+    tags: ["dns", "cdn caching", "waf rules", "workers", "r2 storage", "zero trust"]
+  },
+  {
     id: "prompting",
     title: "Prompt Engineering & AI Development",
-    module: "MODULE 08",
+    module: "MODULE 09",
     level: "Advanced / AI-Assisted",
     desc: "Master prompt engineering, logical reasoning, codebase analysis, and safe coding agent workflows. Learn to evaluate evidence, plan architecture, and verify results.",
     meta: "75 Slides • AI & Engineering",
@@ -94,18 +106,6 @@ export const courses = [
     iconColor: "text-emerald-400",
     iconBg: "bg-emerald-500/15 border-emerald-500/30",
     tags: ["reasoning", "system prompts", "code agents", "verification", "task breakdown", "anti-patterns"]
-  },
-  {
-    id: "cloudflare",
-    title: "Cloudflare: Global Edge Infrastructure",
-    module: "MODULE 09",
-    level: "Intermediate / Production",
-    desc: "From your first domain and DNS records to global CDN, WAF, Workers, R2 storage, SSL/TLS, and edge deployment for resilient web systems.",
-    meta: "85 Slides • Global Edge",
-    category: "devops",
-    iconColor: "text-orange-400",
-    iconBg: "bg-orange-500/15 border-orange-500/30",
-    tags: ["dns", "cdn caching", "waf rules", "workers", "r2 storage", "zero trust"]
   }
 ];
 

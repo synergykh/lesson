@@ -6,7 +6,6 @@
   *,
   *::before,
   *::after {
-    border-radius: 0 !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -107,45 +106,61 @@ html:not(.dark):not([data-theme="dark"]) .kbd {
 }
 
 /* Fullscreen Behavior */
-:fullscreen #app-container, .fullscreen-active #app-container {
+:fullscreen #app-container,
+.fullscreen-active #app-container {
   height: 100vh;
   width: 100vw;
 }
 
-:fullscreen .slide-viewport, .fullscreen-active .slide-viewport {
+:fullscreen .slide-viewport,
+.fullscreen-active .slide-viewport {
   padding: 0;
   width: 100%;
   height: 100%;
 }
 
-:fullscreen .top-bar, .fullscreen-active .top-bar {
+:fullscreen .top-bar,
+.fullscreen-active .top-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   transform: translateY(-100%);
   opacity: 0;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
   z-index: 100;
 }
 
-:fullscreen .top-bar:hover, .fullscreen-active .top-bar:hover, :fullscreen .top-bar:focus-within, .fullscreen-active .top-bar:focus-within, .show-fs-header .top-bar {
+:fullscreen .top-bar:hover,
+.fullscreen-active .top-bar:hover,
+:fullscreen .top-bar:focus-within,
+.fullscreen-active .top-bar:focus-within,
+.show-fs-header .top-bar {
   transform: translateY(0);
   opacity: 1;
 }
 
-:fullscreen .bottom-bar, .fullscreen-active .bottom-bar {
+:fullscreen .bottom-bar,
+.fullscreen-active .bottom-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   transform: translateY(100%);
   opacity: 0;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
   z-index: 100;
 }
 
-:fullscreen .bottom-bar:hover, .fullscreen-active .bottom-bar:hover, :fullscreen .bottom-bar:focus-within, .fullscreen-active .bottom-bar:focus-within, .show-fs-footer .bottom-bar {
+:fullscreen .bottom-bar:hover,
+.fullscreen-active .bottom-bar:hover,
+:fullscreen .bottom-bar:focus-within,
+.fullscreen-active .bottom-bar:focus-within,
+.show-fs-footer .bottom-bar {
   transform: translateY(0);
   opacity: 1;
 }
@@ -189,5 +204,3 @@ html:not(.dark):not([data-theme="dark"]) .kbd {
   margin-right: auto !important;
   overflow-y: auto !important;
 }
-
-

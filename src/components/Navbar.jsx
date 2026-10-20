@@ -1,8 +1,8 @@
-import React from 'react';
-import { useTheme } from '../context/ThemeContext';
-import { useLanguage } from '../context/LanguageContext';
-import { Button } from './ui/button';
-import { Badge } from './ui/badge';
+import React from "react";
+import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -24,11 +24,11 @@ export default function Navbar() {
             <span>DevLessons</span>
           </a>
           <Badge variant="default" className="hidden sm:inline-flex">
-            {t('home_badge', 'FULLSTACK CURRICULUM')}
+            {t("home_badge", "FULLSTACK CURRICULUM")}
           </Badge>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           {/* Language Toggle */}
           <Button
             variant="outline"
@@ -37,14 +37,14 @@ export default function Navbar() {
             title="Toggle Language (English / ភាសាខ្មែរ)"
             aria-label="Toggle Language"
           >
-            {lang === 'en' ? (
+            {lang === "en" ? (
               <img
                 src="/images/en.png"
                 alt="English"
                 className="w-5 h-3.5 object-cover"
                 onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentNode.innerText = 'EN';
+                  e.target.style.display = "none";
+                  e.target.parentNode.innerText = "EN";
                 }}
               />
             ) : (
@@ -53,8 +53,8 @@ export default function Navbar() {
                 alt="Khmer"
                 className="w-5 h-3.5 object-cover"
                 onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentNode.innerText = 'KM';
+                  e.target.style.display = "none";
+                  e.target.parentNode.innerText = "KM";
                 }}
               />
             )}
@@ -68,7 +68,7 @@ export default function Navbar() {
             title="Toggle Light / Dark Mode"
             aria-label="Toggle Light / Dark Mode"
           >
-            {theme === 'dark' ? (
+            {theme === "dark" ? (
               <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16">
                 <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z" />
               </svg>
