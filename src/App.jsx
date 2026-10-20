@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import HomePage from './pages/HomePage';
-import SlideViewer from './pages/SlideViewer';
-import GitCourse from './courses/git/GitCourse';
+import { COURSE_COMPONENTS } from './courses';
 
 function parseHash(hash) {
   const cleanHash = hash.replace(/^#\/?/, '');
@@ -37,22 +36,27 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  const CourseComponent = route.page === 'course' ? COURSE_COMPONENTS[route.courseId] : null;
+
   return (
     <ThemeProvider>
       <LanguageProvider>
-        {route.page === 'course' ? (
-          route.courseId === 'git' ? (
-            <GitCourse
-              key={`git-${route.slideNum}`}
-              initialSlide={route.slideNum}
-            />
-          ) : (
-            <SlideViewer
+        {route.page === 'course' && CourseComponent ? (
+          <Suspense
+            fallback={
+              <div className="flex items-center justify-center h-screen bg-slate-900 text-slate-300">
+                <div className="text-center flex flex-col items-center gap-2">
+                  <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                  <span className="text-xs font-semibold">Loading lesson...</span>
+                </div>
+              </div>
+            }
+          >
+            <CourseComponent
               key={`${route.courseId}-${route.slideNum}`}
-              courseId={route.courseId}
               initialSlide={route.slideNum}
             />
-          )
+          </Suspense>
         ) : (
           <HomePage />
         )}

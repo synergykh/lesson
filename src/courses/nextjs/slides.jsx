@@ -1,0 +1,7430 @@
+import React from "react";
+
+// Slide 1: Next.js: From React to Production
+export function Slide1({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 01 — WEB TO NEXT.JS &bull; SLIDE 01 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js: From React to Production</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Build modern full-stack web applications with React and
+                    Next.js App Router.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div
+                className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center py-4"
+              >
+                <div className="lg:col-span-7 flex flex-col gap-4">
+                  <div
+                    className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400  text-xs w-max"
+                  >
+                    <svg
+                      className="w-3.5 h-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m10 15 5-3-5-3v6Z" />
+                    </svg>
+                    <span className="lang-en"
+                      >PRODUCTION-READY FULL-STACK FRAMEWORK</span
+                    >
+                    <span className="lang-km"
+                      >FRAMEWORK ពេញលេញសម្រាប់ PRODUCTION</span
+                    >
+                  </div>
+                  <h1
+                    className="text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight"
+                  >
+                    Next.js <span className="text-blue-500 ">15+</span
+                    ><br />
+                    <span className="text-slate-300 font-light text-2xl lg:text-3xl"
+                      >From React to Production</span
+                    >
+                  </h1>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    <span className="lang-en"
+                      >Master modern full-stack web engineering with React
+                      Server Components, App Router, Server Actions, PostgreSQL
+                      integration, and cloud deployment workflows.</span
+                    >
+                    <span className="lang-km"
+                      >រៀនបង្កើត Web Application កម្រិតខ្ពស់ជាមួយ React Server
+                      Components, App Router, Server Actions, ការតភ្ជាប់
+                      PostgreSQL និងការ Deploy ទៅកាន់ Production ដោយរលូន។</span
+                    >
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <button
+                      className="btn-start-course btn-nav px-5 py-2.5 text-sm flex items-center gap-2"
+                    onClick={onStart}>
+                      <svg
+                        className="w-4 h-4"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span className="lang-en">Start Course (75 Slides)</span>
+                      <span className="lang-km">ចាប់ផ្ដើមមេរៀន (៧៥ ស្លាយ)</span>
+                    </button>
+                    <button
+                      
+                      className="btn-icon px-4 py-2.5 text-sm"
+                    >
+                      <span className="lang-en">View Syllabus</span>
+                      <span className="lang-km">មើលមាតិកាទាំងអស់</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="lg:col-span-5 flex flex-col gap-3  text-xs"
+                >
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <div
+                      className="text-slate-400 text-[11px] uppercase tracking-wider mb-1 flex items-center justify-between"
+                    >
+                      <span>Core Stack</span>
+                      <span className="text-blue-400 font-bold">App Router</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 text-slate-200">
+                      <div className="p-2 bg-slate-900 border border-slate-800">
+                        React 19 &bull; TS
+                      </div>
+                      <div className="p-2 bg-slate-900 border border-slate-800">
+                        Server Components
+                      </div>
+                      <div className="p-2 bg-slate-900 border border-slate-800">
+                        Server Actions
+                      </div>
+                      <div className="p-2 bg-slate-900 border border-slate-800">
+                        PostgreSQL &bull; Neon
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="p-3 bg-blue-900/30 border border-blue-800/40 text-blue-300 text-xs flex items-center gap-2"
+                  >
+                    <svg
+                      className="w-4 h-4 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span
+                      >Bilingual English &bull; Khmer Support &bull; Press F for
+                      Fullscreen</span
+                    >
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 2: What You Will Learn
+export function Slide2({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 01 — WEB TO NEXT.JS &bull; SLIDE 02 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">What You Will Learn</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    The complete path from React basics to full-stack production
+                    architecture.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">React Fundamentals</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Next.js App Router</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Routing &amp; Layouts</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Server Components</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Data Fetching</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">PostgreSQL DB</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Authentication</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Vercel Production</div>
+                </div>
+                <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      1. Foundation to App Router
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Understand why React needs a framework, the mental
+                        shift from client SPA to hybrid Server/Client
+                        components, and file-based routing.</span
+                      ><span className="lang-km"
+                        >យល់ដឹងពីមូលហេតុដែល React ត្រូវការ framework
+                        និងការប្ដូរផ្នត់គំនិតពី SPA ធម្មតាទៅជា Hybrid
+                        Server/Client Components។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      2. Full-Stack Data &amp; Database
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Fetch data directly in Server Components, execute
+                        server mutations with Server Actions, connect to
+                        PostgreSQL, and handle streaming UI.</span
+                      ><span className="lang-km"
+                        >ទាញទិន្នន័យផ្ទាល់លើ Server Components,
+                        ធ្វើការកែប្រែទិន្នន័យតាម Server Actions, ភ្ជាប់ជាមួយ
+                        PostgreSQL និងប្រើ Streaming UI។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-purple-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      3. Security, Project &amp; Shipping
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Secure routes with authentication, manage environment
+                        secrets safely, build the complete TaskFlow SaaS, and
+                        ship to Vercel via Git.</span
+                      ><span className="lang-km"
+                        >ការពារ Routes ដោយ Authentication, គ្រប់គ្រង Env Secrets
+                        ឱ្យមានសុវត្ថិភាព, បង្កើតគម្រោង TaskFlow SaaS និង Deploy
+                        ទៅកាន់ Vercel។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 3: What Is Next.js?
+export function Slide3({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 01 — WEB TO NEXT.JS &bull; SLIDE 03 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">What Is Next.js?</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Understanding the full-stack React framework and its core
+                    capabilities.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <rect x="2" y="3" width="20" height="14" rx="0" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                      </svg>
+                      <span className="lang-en"
+                        >The React Framework for the Web</span
+                      ><span className="lang-km"
+                        >React Framework សម្រាប់ Full-Stack Web</span
+                      >
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Next.js is an open-source React framework created by
+                        Vercel. While React is a library for building user
+                        interfaces, Next.js provides the full architecture
+                        needed for production: routing, rendering, backend
+                        actions, and optimization.</span
+                      ><span className="lang-km"
+                        >Next.js គឺជា React framework បង្កើតឡើងដោយក្រុមហ៊ុន
+                        Vercel។ ខណៈពេលដែល React គឺជា UI Library, Next.js
+                        ផ្ដល់នូវរចនាសម្ព័ន្ធពេញលេញសម្រាប់ Production ដូចជា
+                        Routing, Rendering, Backend និង Optimization។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                    <svg
+                      className="w-4 h-4 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <div>
+                      <span className="lang-en"
+                        ><strong>Official Definition:</strong> Next.js is a
+                        React framework for building full-stack web
+                        applications. You use React Components to build user
+                        interfaces, and Next.js for additional features and
+                        optimizations.</span
+                      ><span className="lang-km"
+                        ><strong>និយមន័យផ្លូវការ៖</strong> Next.js គឺជា React
+                        framework សម្រាប់បង្កើត full-stack web applications។
+                        អ្នកប្រើ React ដើម្បីបង្កើត UI និងប្រើ Next.js
+                        សម្រាប់មុខងារ full-stack និងការបង្កើនល្បឿន។</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div
+                      className="text-blue-400 font-bold mb-2 flex items-center gap-2"
+                    >
+                      <svg
+                        className="w-3.5 h-3.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                        />
+                      </svg>
+                      <span>Next.js Built-in Capabilities</span>
+                    </div>
+                    <ul className="space-y-1.5 text-slate-300">
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span
+                          ><strong>File-System Routing:</strong> Folder-based
+                          pages, layouts, and nested routes</span
+                        >
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span
+                          ><strong>Server Components:</strong> Fast rendering
+                          with zero client-side JS bundle overhead</span
+                        >
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span
+                          ><strong>Server Actions:</strong> Type-safe
+                          asynchronous mutations directly from forms</span
+                        >
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span
+                          ><strong>Asset Optimization:</strong> Automatic WebP
+                          images, self-hosted fonts, scripts</span
+                        >
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span
+                          ><strong>Metadata &amp; SEO:</strong> Dynamic Open Graph
+                          and search engine tags built-in</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 4: React vs Next.js
+export function Slide4({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 01 — WEB TO NEXT.JS &bull; SLIDE 04 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">React vs Next.js</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Detailed architectural comparison between React and Next.js.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="overflow-x-auto">
+                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
+                    <thead>
+                      <tr>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">FEATURE / CRITERIA</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">STANDALONE REACT (VITE / CRA)</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">NEXT.JS (APP ROUTER)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="font-bold text-slate-300">Category</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">UI Library (view layer only)</td>
+                        <td className="text-blue-400 font-bold">
+                          Full-Stack Framework
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">Routing</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Third-party required (React Router, etc.)</td>
+                        <td className="text-green-400">
+                          Built-in File-System Routing (Folders &amp; Pages)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">Rendering</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Client-Side Rendering (CSR) by default</td>
+                        <td className="text-green-400">
+                          Server Components (RSC), SSR, SSG, Streaming
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">Data Fetching</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Client useEffect / TanStack Query</td>
+                        <td className="text-green-400">
+                          Direct async/await on Server &amp; Server Actions
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">Backend / DB</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Requires separate Express/Nest/FastAPI backend</td>
+                        <td className="text-green-400">
+                          Direct DB access &amp; Route Handlers built-in
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">SEO &amp; Metadata</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Difficult, requires React Helmet or prerender</td>
+                        <td className="text-green-400">
+                          Built-in static and dynamic Metadata API
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">React UI Library</div>
+                  <span className="text-blue-400 font-bold text-sm">+</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Next.js Framework Architecture</div>
+                  <span className="text-blue-400 font-bold text-sm">=</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">
+                    Production Full-Stack Application
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 5: When Should You Use Next.js?
+export function Slide5({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 01 — WEB TO NEXT.JS &bull; SLIDE 05 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">When Should You Use Next.js?</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Primary use cases and production scenarios where Next.js
+                    excels.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-4">
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-blue-400  text-xs font-bold mb-1">
+                    01 &bull; SAAS PLATFORMS
+                  </div>
+                  <h4 className="text-sm">Web Applications</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Multi-tenant software, subscription dashboards, complex
+                      authenticated workflows, and rich data
+                      visualization.</span
+                    ><span className="lang-km"
+                      >កម្មវិធី SaaS, ប្រព័ន្ធ Dashboard មាន Login,
+                      ការគ្រប់គ្រងទិន្នន័យស្មុគស្មាញ
+                      និងទាមទារសុវត្ថិភាពខ្ពស់។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-green-400  text-xs font-bold mb-1">
+                    02 &bull; E-COMMERCE
+                  </div>
+                  <h4 className="text-sm">Online Stores</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Instant page loads via static rendering for products,
+                      dynamic cart interactions, and superior SEO for high
+                      search ranking.</span
+                    ><span className="lang-km"
+                      >ហាងលក់ទំនិញអនឡាញ ទាមទារល្បឿនលឿនខ្លាំង (SEO)
+                      និងការទាញទិន្នន័យស្តុកតាម Real-time។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-orange-400  text-xs font-bold mb-1">
+                    03 &bull; CONTENT &amp; CMS
+                  </div>
+                  <h4 className="text-sm">Blogs &amp; News</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Content sites requiring incremental static regeneration,
+                      dynamic markdown rendering, and instant image
+                      optimization.</span
+                    ><span className="lang-km"
+                      >គេហទំព័រព័ត៌មាន ប្លុក ឬ Documentation ដែលត្រូវការ SEO ល្អ
+                      និងការ Render អត្ថបទរហ័ស។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-purple-400  text-xs font-bold mb-1">
+                    04 &bull; INTERNAL TOOLS
+                  </div>
+                  <h4 className="text-sm">Admin Portals</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Internal company portals, inventory trackers, and CRM
+                      systems with direct PostgreSQL database connections.</span
+                    ><span className="lang-km"
+                      >ប្រព័ន្ធគ្រប់គ្រងផ្ទៃក្នុងក្រុមហ៊ុន (Admin CRM / ERP)
+                      ដែលភ្ជាប់ទៅកាន់ PostgreSQL ដោយផ្ទាល់។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 6: Before Learning Next.js
+export function Slide6({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 02 — REQUIREMENTS &bull; SLIDE 06 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Before Learning Next.js</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Prerequisites and recommended background knowledge.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Essential Prerequisites
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Before learning Next.js, you should have a solid grasp
+                        of web fundamentals. Next.js builds on top of React, so
+                        attempting Next.js without React basics will lead to
+                        confusion about what comes from React vs what comes from
+                        Next.js.</span
+                      ><span className="lang-km"
+                        >មុននឹងរៀន Next.js អ្នកគប្បីយល់ច្បាស់ពីមូលដ្ឋានគ្រឹះ
+                        Web។ ដោយសារ Next.js បង្កើតលើ React បើគ្មានមូលដ្ឋាន React
+                        ទេ អ្នកនឹងច្រឡំរវាងអ្វីជារបស់ React និងអ្វីជារបស់
+                        Next.js។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                    <svg
+                      className="w-4 h-4 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <div>
+                      <span className="lang-en"
+                        ><strong>Good News:</strong> You do NOT need advanced
+                        React state machines or external router knowledge.
+                        Next.js simplifies routing and data fetching compared to
+                        old client SPAs!</span
+                      ><span className="lang-km"
+                        ><strong>ដំណឹងល្អ៖</strong> អ្នកមិនចាំបាច់ចេះបណ្ណាល័យ
+                        Router ស្មុគស្មាញនោះទេ! Next.js ជួយសម្រួល Routing និង
+                        Data Fetching ឱ្យកាន់តែងាយស្រួល។</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-2">
+                      Prerequisite Checklist
+                    </div>
+                    <div className="space-y-2">
+                      <div
+                        className="p-2 bg-slate-900 border border-slate-800 flex items-center justify-between"
+                      >
+                        <span className="text-slate-200"
+                          >1. HTML5 &amp; Semantic Elements</span
+                        >
+                        <span className="text-green-400 font-bold">Required</span>
+                      </div>
+                      <div
+                        className="p-2 bg-slate-900 border border-slate-800 flex items-center justify-between"
+                      >
+                        <span className="text-slate-200"
+                          >2. Modern CSS &amp; Tailwind CSS</span
+                        >
+                        <span className="text-green-400 font-bold">Required</span>
+                      </div>
+                      <div
+                        className="p-2 bg-slate-900 border border-slate-800 flex items-center justify-between"
+                      >
+                        <span className="text-slate-200"
+                          >3. JavaScript ES6+ (Async, Arrow,
+                          Destructuring)</span
+                        >
+                        <span className="text-green-400 font-bold">Required</span>
+                      </div>
+                      <div
+                        className="p-2 bg-slate-900 border border-slate-800 flex items-center justify-between"
+                      >
+                        <span className="text-slate-200"
+                          >4. React Core Basics (JSX, Components, Props)</span
+                        >
+                        <span className="text-green-400 font-bold">Required</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 7: React Fundamentals You Need
+export function Slide7({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 02 — REQUIREMENTS &bull; SLIDE 07 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">React Fundamentals You Need</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    The essential React building blocks required for Next.js App
+                    Router.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-blue-400  text-xs font-bold">
+                    01 &bull; COMPONENTS &amp; JSX
+                  </div>
+                  <h4>Reusable UI Functions</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Components are JavaScript functions returning JSX markup
+                      describing what the interface should look like.</span
+                    ><span className="lang-km"
+                      >Components គឺជា functions ដែល return JSX
+                      ដើម្បីកំណត់ទម្រង់ UI។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-green-400  text-xs font-bold">
+                    02 &bull; PROPS &amp; CHILDREN
+                  </div>
+                  <h4>Data Transfer</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Passing data from parent to child components via
+                      attributes and the special
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">children</code> prop.</span
+                    ><span className="lang-km"
+                      >ការបញ្ជូនទិន្នន័យពី Parent ទៅកាន់ Child តាមរយៈ props និង
+                      children។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-purple-400  text-xs font-bold">
+                    03 &bull; STATE &amp; HOOKS
+                  </div>
+                  <h4>Interactive Memory</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Using <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">useState</code> and
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">useEffect</code> for client-side state and
+                      life-cycle events.</span
+                    ><span className="lang-km"
+                      >ការប្រើប្រាស់ useState និង useEffect សម្រាប់រក្សាទុក
+                      state និងគ្រប់គ្រង lifecycle។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-orange-400  text-xs font-bold">
+                    04 &bull; EVENT LISTENERS
+                  </div>
+                  <h4>Handling Clicks &amp; Inputs</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Listening to user events via <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">onClick</code>,
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">onChange</code>, and
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">onSubmit</code> handlers.</span
+                    ><span className="lang-km"
+                      >ការចាប់ព្រឹត្តិការណ៍របស់អ្នកប្រើប្រាស់ដូចជា onClick,
+                      onChange និង onSubmit។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-cyan-400  text-xs font-bold">
+                    05 &bull; ASYNC / PROMISES
+                  </div>
+                  <h4>Asynchronous Data</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Handling asynchronous JavaScript promises using modern
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">async</code> and <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">await</code> syntax.</span
+                    ><span className="lang-km"
+                      >ការប្រើប្រាស់ async/await ដើម្បីរង់ចាំទិន្នន័យពី Network
+                      ឬ Database។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-pink-400  text-xs font-bold">
+                    06 &bull; SERVER VS CLIENT
+                  </div>
+                  <h4>Execution Boundaries</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Understanding that code can run either on the server
+                      environment or in the browser window.</span
+                    ><span className="lang-km"
+                      >ការបែងចែកថាតើកូដមួយណាត្រូវដំណើរការលើ Server ឬលើ Browser
+                      Client។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 8: Install Requirements
+export function Slide8({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 03 — CREATE NEXT.JS PROJECT &bull; SLIDE 08 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Install Requirements</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Setting up Node.js, package manager, and development tools.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Environment Prerequisites
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Next.js 15 requires Node.js version 18.18 or higher
+                        (version 20+ LTS is recommended). You also need a
+                        package manager (pnpm, npm, or bun) and a code editor
+                        like VS Code.</span
+                      ><span className="lang-km"
+                        >Next.js 15 តម្រូវឱ្យមាន Node.js កំណែ 18.18 ឡើងទៅ (ណែនាំ
+                        Node 20+ LTS)។ អ្នកក៏ត្រូវការ Package Manager (pnpm,
+                        npm, bun) និង Editor ដូចជា VS Code។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
+                    <svg
+                      className="w-4 h-4 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <div>
+                      <span className="lang-en"
+                        >Check your installed version in terminal using
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">node -v</code>. If outdated, install the latest
+                        LTS release from
+                        <a
+                          href="https://nodejs.org"
+                          target="_blank"
+                          className="underline text-blue-400"
+                          >nodejs.org</a
+                        >.</span
+                      ><span className="lang-km"
+                        >ពិនិត្យមើលកំណែ Node ក្នុង Terminal ដោយប្រើ
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">node -v</code>។ ប្រសិនបើយឺត សូមដំឡើងកំណែ LTS
+                        ចុងក្រោយពី nodejs.org។</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <div className="terminal-dots flex items-center gap-1.5">
+                        <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                        <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                        <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
+                      </div>
+                      <span className=" text-xs text-slate-400"
+                        >Verify Developer Environment</span
+                      >
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <div className="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">node -v</span>
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">v20.18.0 (LTS verified)</div>
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">pnpm -v</span>
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">9.12.0</div>
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git --version</span>
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">git version 2.43.0</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 9: Create a Next.js Application
+export function Slide9({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 03 — CREATE NEXT.JS PROJECT &bull; SLIDE 09 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Create a Next.js Application</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Bootstrapping a modern full-stack project with
+                    create-next-app.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <div className="terminal-dots flex items-center gap-1.5">
+                        <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                        <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                        <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
+                      </div>
+                      <span className=" text-xs text-slate-400"
+                        >Bootstrap Next.js Project</span
+                      >
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <div className="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5"
+                          >npx create-next-app@latest my-app</span
+                        >
+                      </div>
+                      <div className="term-out text-slate-300  text-xs"></div>
+                      <div className="text-slate-500  text-xs">
+                        # Interactive CLI Prompts:
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ? Would you like to use TypeScript? ... Yes
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ? Would you like to use ESLint? ... Yes
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ? Would you like to use Tailwind CSS? ... Yes
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ? Would you like your code inside a `src/` directory?
+                        ... No
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ? Would you like to use App Router? (recommended) ...
+                        Yes
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ? Would you like to use Turbopack for `next dev`? ...
+                        Yes
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ? Would you like to customize the import alias (@/*)?
+                        ... No
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-blue-400 font-bold mb-1">
+                      Recommended Configuration Options
+                    </h4>
+                    <p className="text-slate-300 text-xs mb-2">
+                      <span className="lang-en"
+                        >The CLI sets up everything needed for modern
+                        development in seconds.</span
+                      ><span className="lang-km"
+                        >CLI
+                        នឹងរៀបចំអ្វីៗទាំងអស់ដោយស្វ័យប្រវត្តិតែប៉ុន្មានវិនាទីប៉ុណ្ណោះ។</span
+                      >
+                    </p>
+                    <div className="space-y-1.5 text-slate-300">
+                      <div
+                        className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between"
+                      >
+                        <span>TypeScript</span
+                        ><span className="text-green-400">Type safety</span>
+                      </div>
+                      <div
+                        className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between"
+                      >
+                        <span>Tailwind CSS</span
+                        ><span className="text-green-400">Utility styling</span>
+                      </div>
+                      <div
+                        className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between"
+                      >
+                        <span>App Router</span
+                        ><span className="text-green-400">Modern standard</span>
+                      </div>
+                      <div
+                        className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between"
+                      >
+                        <span>Turbopack</span
+                        ><span className="text-green-400">Blazing dev server</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 10: Start Development Server
+export function Slide10({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 03 — CREATE NEXT.JS PROJECT &bull; SLIDE 10 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Start Development Server</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Launching the development server with Turbopack and Fast
+                    Refresh.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <div className="terminal-dots flex items-center gap-1.5">
+                        <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                        <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                        <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
+                      </div>
+                      <span className=" text-xs text-slate-400"
+                        >Start Local Development Server</span
+                      >
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <div className="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">cd my-app</span>
+                      </div>
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">npm run dev</span>
+                      </div>
+                      <div className="term-out text-slate-300  text-xs"></div>
+                      <div className="term-out text-slate-300  text-xs">▲ Next.js 15.0.0 (Turbopack)</div>
+                      <div className="term-out text-slate-300  text-xs">- Local: http://localhost:3000</div>
+                      <div className="term-out text-slate-300  text-xs">
+                        - Network: http://192.168.1.50:3000
+                      </div>
+                      <div className="term-out text-slate-300  text-xs"></div>
+                      <div className="term-out text-slate-300  text-xs">Ready in 450ms</div>
+                      <div className="term-out text-slate-300  text-xs">Compiling / ...</div>
+                      <div className="term-out text-slate-300  text-xs">
+                        Compiled / in 120ms (482 modules)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Fast Refresh &amp; Instant Feedback
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Open <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">http://localhost:3000</code> in your
+                        browser. Next.js includes Fast Refresh: whenever you
+                        edit any file inside <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code>, the browser
+                        updates instantaneously while preserving your
+                        application's state.</span
+                      ><span className="lang-km"
+                        >បើក <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">http://localhost:3000</code> លើ Browser។
+                        Next.js មានមុខងារ Fast Refresh៖
+                        រាល់ពេលអ្នកកែប្រែកូដក្នុង folder
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code> Browser នឹង Update ភ្លាមៗដោយមិនបាត់បង់
+                        State ឡើយ។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 11: Next.js Project Structure
+export function Slide11({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 04 — PROJECT STRUCTURE &bull; SLIDE 11 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js Project Structure</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Understanding the App Router layout, folders, and
+                    configuration files.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-2">
+                      my-app/ Directory Tree
+                    </div>
+                    <pre className="text-slate-300 leading-relaxed">
+my-app/
+├── app/                  <span className="text-blue-400 font-bold"># App Router routes &amp; pages</span>
+│   ├── favicon.ico
+│   ├── globals.css       <span className="text-slate-400"># Global CSS &amp; Tailwind</span>
+│   ├── layout.tsx        <span className="text-green-400 font-bold"># Root layout wrapper</span>
+│   └── page.tsx          <span className="text-green-400 font-bold"># Root page (/)</span>
+├── public/               <span className="text-slate-400"># Static assets (images, SVGs)</span>
+│   └── next.svg
+├── node_modules/
+├── next.config.ts        <span className="text-slate-400"># Next.js config</span>
+├── package.json          <span className="text-slate-400"># Dependencies &amp; scripts</span>
+├── postcss.config.mjs
+├── tailwind.config.ts    <span className="text-slate-400"># Tailwind CSS config</span>
+└── tsconfig.json         <span className="text-slate-400"># TypeScript config</span>
+      </pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      App Router Architecture
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >In Next.js App Router, routing is entirely determined
+                        by folders inside <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code>. Files named
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> become publicly accessible routes,
+                        while <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">layout.tsx</code> provides wrapping
+                        layouts.</span
+                      ><span className="lang-km"
+                        >ក្នុង Next.js App Router ការកំណត់ Routing
+                        ត្រូវបានធ្វើឡើងតាមរយៈ folders ក្នុង <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code>។
+                        ឯកសារឈ្មោះ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> ក្លាយជា Route សាធារណៈ
+                        ហើយ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">layout.tsx</code> ផ្ដល់នូវ Layout រួម។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 12: app/page.tsx
+export function Slide12({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 04 — PROJECT STRUCTURE &bull; SLIDE 12 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">app/page.tsx</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    The entry route file and main page component.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/page.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default function HomePage() &#123;
+  return (
+    &lt;main className="flex min-h-screen flex-col items-center justify-center p-24"&gt;
+      &lt;h1 className="text-4xl font-bold tracking-tight"&gt;
+        Hello Next.js
+      &lt;/h1&gt;
+      &lt;p className="mt-4 text-slate-400"&gt;
+        Welcome to your modern full-stack web application.
+      &lt;/p&gt;
+    &lt;/main&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-blue-400 font-bold mb-1">
+                      Simulated Browser Output (localhost:3000)
+                    </h4>
+                    <div
+                      className="p-4 bg-slate-900 border border-slate-800 flex flex-col items-center justify-center text-center"
+                    >
+                      <h1 className="text-xl font-bold text-white tracking-tight">
+                        Hello Next.js
+                      </h1>
+                      <p className="text-slate-400 text-xs mt-2">
+                        Welcome to your modern full-stack web application.
+                      </p>
+                      <span
+                        className="mt-4 px-2 py-0.5 bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[10px]"
+                        >Server Component</span
+                      >
+                    </div>
+                  </div>
+                  <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                    <div>
+                      <span className="lang-en"
+                        ><strong>Rule:</strong> The default export from
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> is the UI rendered for this route
+                        segment.</span
+                      ><span className="lang-km"
+                        ><strong>វិធាន៖</strong> Default export ពី
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> គឺជា UI ដែលត្រូវបង្ហាញសម្រាប់
+                        Route Segment នោះ។</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 13: app/layout.tsx
+export function Slide13({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 04 — PROJECT STRUCTURE &bull; SLIDE 13 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">app/layout.tsx</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Root layout, shared UI, and global HTML shell.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/layout.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import type &#123; Metadata &#125; from "next";
+import "./globals.css";
+
+export const metadata: Metadata = &#123;
+  title: "My Application",
+  description: "Built with Next.js App Router",
+&#125;;
+
+export default function RootLayout(&#123;
+  children,
+&#125;: &#123;
+  children: React.ReactNode;
+&#125;) &#123;
+  return (
+    &lt;html lang="en"&gt;
+      &lt;body className="bg-slate-900 text-slate-50 antialiased"&gt;
+        &#123;children&#125;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Root Layout Responsibilities
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >The Root Layout is required and defines the top-level
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;html&gt;</code> and
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;body&gt;</code> tags. It is shared across all
+                        pages in the app and never re-renders during navigation,
+                        preserving client state.</span
+                      ><span className="lang-km"
+                        >Root Layout គឺចាំបាច់ត្រូវតែមាន ដើម្បីកំណត់ tag
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;html&gt;</code> និង <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;body&gt;</code>។
+                        វាត្រូវបានប្រើរួមគ្នានៅគ្រប់ទំព័រ ហើយមិនត្រូវ Re-render
+                        ឡើងវិញពេល Navigation ឡើយ។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 14: File-System Routing
+export function Slide14({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 05 — ROUTING &bull; SLIDE 14 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">File-System Routing</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    How folders and pages map directly to public URLs.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-2">
+                      Folders Map Directly to URLs
+                    </div>
+                    <pre className="text-slate-300 leading-relaxed">
+app/
+├── page.tsx          &rarr;  <span className="text-green-400 font-bold">/</span>
+├── about/
+│   └── page.tsx      &rarr;  <span className="text-green-400 font-bold">/about</span>
+└── contact/
+    └── page.tsx      &rarr;  <span className="text-green-400 font-bold">/contact</span>
+      </pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Automatic Routing by Convention
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >You never have to maintain a separate route
+                        configuration file like in React Router. Simply create a
+                        folder with a <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> file, and Next.js
+                        automatically creates the endpoint URL.</span
+                      ><span className="lang-km"
+                        >អ្នកមិនបាច់សរសេរឯកសារ Route Config ស្មុគស្មាញឡើយ។
+                        គ្រាន់តែបង្កើត folder និងដាក់ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> ចូល
+                        Next.js នឹងបង្កើត URL នោះដោយស្វ័យប្រវត្តិ។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 15: Nested Routes
+export function Slide15({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 05 — ROUTING &bull; SLIDE 15 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Nested Routes</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Hierarchical route segments and nested UI layouts.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-2">
+                      Nested Dashboard Structure
+                    </div>
+                    <pre className="text-slate-300 leading-relaxed">
+app/
+└── dashboard/
+    ├── layout.tsx     <span className="text-blue-400"># Dashboard sidebar layout</span>
+    ├── page.tsx       &rarr;  <span className="text-green-400 font-bold">/dashboard</span>
+    ├── users/
+    │   └── page.tsx   &rarr;  <span className="text-green-400 font-bold">/dashboard/users</span>
+    └── settings/
+        └── page.tsx   &rarr;  <span className="text-green-400 font-bold">/dashboard/settings</span>
+      </pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-purple-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Nested Layouts &amp; Preserved State
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >The <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">dashboard/layout.tsx</code> wraps all routes
+                        beneath it. When a user switches between
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">/dashboard/users</code> and
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">/dashboard/settings</code>, the dashboard layout
+                        remains intact and only the inner page content
+                        re-renders!</span
+                      ><span className="lang-km"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">dashboard/layout.tsx</code> នឹងរុំព័ទ្ធគ្រប់
+                        Sub-routes ទាំងអស់។ ពេល User ប្ដូរពី /users ទៅ /settings
+                        នោះ Sidebar នឹងមិនបាត់បង់ state ឬ refresh ឡើយ។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 16: Dynamic Routes
+export function Slide16({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 05 — ROUTING &bull; SLIDE 16 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Dynamic Routes</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Capturing URL parameters with dynamic folder segments [id].
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/products/[id]/page.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default async function ProductPage(&#123;
+  params,
+&#125;: &#123;
+  params: Promise&lt;&#123; id: string &#125;&gt;;
+&#125;) &#123;
+  // In Next.js 15+, params is a Promise
+  const &#123; id &#125; = await params;
+
+  return (
+    &lt;div className="p-4"&gt;
+      &lt;h1 className="text-2xl font-bold"&gt;Product Details&lt;/h1&gt;
+      &lt;p className=" text-blue-400 mt-2"&gt;Product ID: &#123;id&#125;&lt;/p&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-blue-400 font-bold mb-1">
+                      Square Brackets [id] Convention
+                    </h4>
+                    <p className="text-slate-300 text-xs mb-2">
+                      <span className="lang-en"
+                        >Any folder with brackets creates dynamic segments that
+                        capture URL parameters.</span
+                      ><span className="lang-km"
+                        >Folder ដែលមានសញ្ញាវង់ក្រចក [id] នឹងចាប់យក Parameter ពី
+                        URL។</span
+                      >
+                    </p>
+                    <div className="space-y-1.5 text-slate-300">
+                      <div className="p-1.5 bg-slate-900 border border-slate-800">
+                        /products/123 &rarr; id = "123"
+                      </div>
+                      <div className="p-1.5 bg-slate-900 border border-slate-800">
+                        /products/macbook &rarr; id = "macbook"
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 17: Link Component
+export function Slide17({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 06 — NAVIGATION &bull; SLIDE 17 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Link Component</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Client-side navigation and automatic background route
+                    prefetching.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/ui/Navbar.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import Link from "next/link";
+
+export default function Navbar() &#123;
+  return (
+    &lt;nav className="flex gap-4 p-4 bg-slate-900 border-b border-slate-800"&gt;
+      &lt;Link href="/" className="hover:text-blue-400"&gt;
+        Home
+      &lt;/Link&gt;
+      &lt;Link href="/dashboard" className="hover:text-blue-400"&gt;
+        Dashboard
+      &lt;/Link&gt;
+      &lt;Link href="/about" className="hover:text-blue-400"&gt;
+        About
+      &lt;/Link&gt;
+    &lt;/nav&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Why next/link instead of &lt;a&gt;?
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >The <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;Link&gt;</code> component performs
+                        client-side transitions without full page reloads.
+                        Crucially, Next.js automatically prefetches linked pages
+                        in the viewport in the background, making navigation
+                        feel instant!</span
+                      ><span className="lang-km"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;Link&gt;</code>
+                        ធ្វើការផ្លាស់ប្ដូរទំព័រដោយមិនបាច់ Reload
+                        ទំព័រទាំងមូលឡើយ។ Next.js ថែមទាំង Pre-fetch
+                        ទិន្នន័យទំព័រនោះទុកជាមុន
+                        ធ្វើឱ្យការចុចបើកលឿនដូចផ្លេកបន្ទោរ!</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 18: Navigation Architecture
+export function Slide18({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 06 — NAVIGATION &bull; SLIDE 18 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Navigation Architecture</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Application site hierarchy and active navigation
+                    highlighting.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Home (/)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&bull;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Products (/products)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&bull;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Product 1 (/products/1)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&bull;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Dashboard (/dashboard)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&bull;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Users (/dashboard/users)</div>
+                </div>
+                <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Active Links with usePathname()
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >In Client Components, import
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">usePathname</code> from
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">next/navigation</code> to read the current URL
+                        path and apply active highlight styles to your nav
+                        items.</span
+                      ><span className="lang-km"
+                        >ក្នុង Client Components អ្នកអាចប្រើ
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">usePathname()</code> ពី
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">next/navigation</code> ដើម្បីដឹងពី Path
+                        បច្ចុប្បន្ន និងដាក់ពណ៌ Active លើ Nav link។</span
+                      >
+                    </p>
+                  </div>
+
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        Active Nav Link Pattern
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client";
+import &#123; usePathname &#125; from "next/navigation";
+import Link from "next/link";
+
+export function NavLink(&#123; href, label &#125;: &#123; href: string; label: string &#125;) &#123;
+  const pathname = usePathname();
+  const isActive = pathname === href;
+  return (
+    &lt;Link href=&#123;href&#125; className=&#123;isActive ? "text-blue-400 font-bold" : "text-slate-400"&#125;&gt;
+      &#123;label&#125;
+    &lt;/Link&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 19: What Is a Component?
+export function Slide19({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 07 — COMPONENTS &bull; SLIDE 19 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">What Is a Component?</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Reusable UI building blocks in React and Next.js.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        components/Button.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default function Button() &#123;
+  return (
+    &lt;button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition"&gt;
+      Click me
+    &lt;/button&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Reusable UI Units
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Components are the core foundation of React and Next.js
+                        applications. They encapsulate markup, styling, and
+                        behavior into self-contained, composable building blocks
+                        that can be reused anywhere.</span
+                      ><span className="lang-km"
+                        >Components គឺជាគ្រឹះចម្បងរបស់ React និង Next.js។
+                        វាបូកបញ្ចូល Markup, Styling និង Behavior
+                        ទៅជាដុំកូដដែលអាចយកទៅប្រើឡើងវិញនៅគ្រប់ទីកន្លែង។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 20: Props
+export function Slide20({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 07 — COMPONENTS &bull; SLIDE 20 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Props</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Passing dynamic data and children to reusable components.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        components/Button.tsx with Props
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">interface ButtonProps &#123;
+  children: React.ReactNode;
+  variant?: "primary" | "secondary";
+&#125;
+
+export function Button(&#123; children, variant = "primary" &#125;: ButtonProps) &#123;
+  const styles = variant === "primary"
+    ? "bg-blue-600 text-white hover:bg-blue-700"
+    : "bg-slate-800 text-slate-200 hover:bg-slate-700";
+
+  return (
+    &lt;button className=&#123;`px-4 py-2 font-medium text-sm transition $&#123;styles&#125;`&#125;&gt;
+      &#123;children&#125;
+    &lt;/button&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-green-400 font-bold mb-1">
+                      TypeScript Interface for Props
+                    </h4>
+                    <p className="text-slate-300 text-xs mb-2">
+                      <span className="lang-en"
+                        >Props pass configuration and data into components.
+                        Using TypeScript guarantees compile-time safety.</span
+                      ><span className="lang-km"
+                        >Props បញ្ជូនទិន្នន័យចូល component ហើយ TypeScript
+                        ជួយពិនិត្យកំហុសកូដជាមុន។</span
+                      >
+                    </p>
+
+                    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                      <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                        <span className="flex items-center gap-2">
+                          <svg
+                            className="w-3.5 h-3.5 text-blue-400"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                          </svg>
+                          Usage in Any Page
+                        </span>
+                        <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                          <svg
+                            className="w-3 h-3"
+                            viewBox="0 0 16 16"
+                            fill="currentColor"
+                          >
+                            <path
+                              d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                            />
+                            <path
+                              d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                            />
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;Button variant="primary"&gt;Save Changes&lt;/Button&gt;
+&lt;Button variant="secondary"&gt;Cancel&lt;/Button&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 21: Component Architecture
+export function Slide21({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 07 — COMPONENTS &bull; SLIDE 21 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Component Architecture</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Organizing components, modularity, and colocation best
+                    practices.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-2">
+                      Recommended Component Organization
+                    </div>
+                    <pre className="text-slate-300 leading-relaxed">
+app/
+├── components/           <span className="text-blue-400"># Shared UI components</span>
+│   ├── Button.tsx
+│   ├── Card.tsx
+│   ├── Modal.tsx
+│   └── Navbar.tsx
+└── dashboard/
+    ├── components/       <span className="text-green-400"># Dashboard-specific components</span>
+    │   └── UserTable.tsx
+    └── page.tsx
+      </pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-purple-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Modularity &amp; Colocation
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Colocate components close to where they are used. If a
+                        component is only used on the dashboard, keep it in
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/dashboard/components/</code>. If it is reused
+                        across the entire app, place it in a top-level
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">components/</code> folder.</span
+                      ><span className="lang-km"
+                        >ដាក់ component ជិតកន្លែងដែលវាត្រូវប្រើ។ បើប្រើតែលើ
+                        Dashboard ទុកក្នុង folder របស់ Dashboard។ បើប្រើទូទៅ
+                        ដាក់ក្នុង root <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">components/</code>។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 22: Server Components
+export function Slide22({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 08 — SERVER &amp; CLIENT COMPONENTS &bull; SLIDE 22 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Server Components</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Default server execution, direct async/await, and zero
+                    bundle size.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/products/page.tsx (Server Component)
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">// Server Component by default in App Router
+export default async function ProductsPage() &#123;
+  // Direct async data fetching on the server
+  const res = await fetch("https://api.example.com/products");
+  const products = await res.json();
+
+  return (
+    &lt;div className="p-4"&gt;
+      &lt;h1 className="text-2xl font-bold"&gt;Products List&lt;/h1&gt;
+      &lt;ul className="mt-4 space-y-2"&gt;
+        &#123;products.map((p: any) =&gt; (
+          &lt;li key=&#123;p.id&#125; className="p-3 bg-slate-900 border border-slate-800"&gt;
+            &#123;p.name&#125; - $&#123;p.price&#125;
+          &lt;/li&gt;
+        ))&#125;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Zero Client-Side JavaScript
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >In Next.js App Router, all components inside
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code> are
+                        <strong>React Server Components (RSC)</strong> by
+                        default. They run only on the server, have direct
+                        database access, and send pure rendered HTML to the
+                        browser with zero JavaScript bundle overhead!</span
+                      ><span className="lang-km"
+                        >ក្នុង App Router គ្រប់ component ទាំងអស់គឺជា Server
+                        Components ដោយស្វ័យប្រវត្តិ។ វាដំណើរការតែលើ Server
+                        អាចទាញទិន្នន័យពី DB ផ្ទាល់ និងមិនបន្ថែមទំហំ JS ទៅកាន់
+                        Browser ឡើយ!</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 23: Client Components
+export function Slide23({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 08 — SERVER &amp; CLIENT COMPONENTS &bull; SLIDE 23 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Client Components</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Using the "use client" directive for browser interactivity
+                    and state.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        components/Counter.tsx (Client Component)
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client";
+
+import &#123; useState &#125; from "react";
+
+export default function Counter() &#123;
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;button
+      onClick=&#123;() =&gt; setCount(count + 1)&#125;
+      className="px-4 py-2 bg-blue-600 text-white "
+    &gt;
+      Clicks: &#123;count&#125;
+    &lt;/button&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-green-400 font-bold mb-2">
+                      Interactive Simulator
+                    </h4>
+                    <p className="text-slate-300 text-xs mb-3">
+                      <span className="lang-en"
+                        >Test this client component live right here:</span
+                      ><span className="lang-km"
+                        >សាកល្បងចុចលើ Client Component ជាក់ស្ដែងនៅទីនេះ៖</span
+                      >
+                    </p>
+                    <div
+                      className="p-4 bg-slate-900 border border-slate-800 flex items-center justify-center gap-4"
+                    >
+                      <button
+                        id="sim-counter-btn"
+                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold transition"
+                      >
+                        Click to Increment
+                      </button>
+                      <span className="text-sm text-slate-200"
+                        >Count:
+                        <strong
+                          id="sim-counter-val"
+                          className="text-blue-400 font-bold"
+                          >0</strong
+                        ></span
+                      >
+                    </div>
+                  </div>
+                  <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                    <div>
+                      <span className="lang-en"
+                        >The <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client"</code> directive marks the
+                        boundary between server-rendered code and
+                        browser-interactive code.</span
+                      ><span className="lang-km"
+                        >ពាក្យបញ្ជា
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client"</code> កំណត់ព្រំដែនរវាងកូដ Server
+                        និងកូដ Interactive លើ Browser។</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 24: Server vs Client
+export function Slide24({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 08 — SERVER &amp; CLIENT COMPONENTS &bull; SLIDE 24 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Server vs Client</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Direct comparison of capabilities, environments, and
+                    performance impacts.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="overflow-x-auto">
+                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
+                    <thead>
+                      <tr>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">TASK / REQUIREMENT</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">SERVER COMPONENT (DEFAULT)</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">CLIENT COMPONENT ("use client")</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="font-bold text-slate-300">
+                          Fetch data from API or DB
+                        </td>
+                        <td className="text-green-400 font-bold">
+                          Yes (Direct async/await)
+                        </td>
+                        <td className="text-slate-500">
+                          Not recommended (use server first)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">
+                          Access Backend Resources / Secrets
+                        </td>
+                        <td className="text-green-400 font-bold">
+                          Yes (Completely secure)
+                        </td>
+                        <td className="text-red-400">
+                          No (Leaks to browser window)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">
+                          Client-Side State (useState, useReducer)
+                        </td>
+                        <td className="text-red-400">No</td>
+                        <td className="text-green-400 font-bold">Yes</td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">
+                          Event Listeners (onClick, onChange)
+                        </td>
+                        <td className="text-red-400">No</td>
+                        <td className="text-green-400 font-bold">Yes</td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-slate-300">
+                          Browser APIs (localStorage, window)
+                        </td>
+                        <td className="text-red-400">No (window is undefined)</td>
+                        <td className="text-green-400 font-bold">
+                          Yes (inside useEffect)
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 25: Choosing Server or Client
+export function Slide25({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 08 — SERVER &amp; CLIENT COMPONENTS &bull; SLIDE 25 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Choosing Server or Client</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    A decision tree to determine component boundaries.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex flex-col items-center">
+                  <div className="diag-node font-bold">
+                    Does this component need interactivity, state, or browser
+                    APIs?
+                  </div>
+                  <div className="flex items-center gap-16 my-2">
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="text-green-400 font-bold text-xs"
+                        >YES &darr;</span
+                      >
+                      <div className="diag-node active border-blue-500">
+                        Client Component ("use client")
+                      </div>
+                      <span className="text-slate-400 text-[11px] "
+                        >Buttons, dropdowns, forms with live state</span
+                      >
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="text-blue-400 font-bold text-xs"
+                        >NO &darr;</span
+                      >
+                      <div className="diag-node bg-slate-800">
+                        Server Component (Default)
+                      </div>
+                      <span className="text-slate-400 text-[11px] "
+                        >Data fetching, static cards, layouts, footers</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                  <div>
+                    <span className="lang-en"
+                      ><strong>Best Practice:</strong> Keep Client Components at
+                      the leaves of your component tree. Fetch data in the
+                      Server Component parent and pass it down as props.</span
+                    ><span className="lang-km"
+                      ><strong>វិធីសាស្ត្រល្អបំផុត៖</strong> ប្រើ Client
+                      Components តែនៅចុងស្លឹកនៃ Component Tree (ដូចជា Button,
+                      Dialog) និងរក្សា Parent ឱ្យនៅជា Server Component។</span
+                    >
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 26: Tailwind CSS in Next.js
+export function Slide26({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 09 — STYLING &bull; SLIDE 26 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Tailwind CSS in Next.js</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Modern utility-first styling configured with zero setup
+                    overhead.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        components/DashboardCard.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export function DashboardCard(&#123; title, value, change &#125;: any) &#123;
+  return (
+    &lt;div className="rounded-none bg-slate-900 border border-slate-800 p-4 shadow-sm"&gt;
+      &lt;h3 className="text-sm font-medium text-slate-400"&gt;&#123;title&#125;&lt;/h3&gt;
+      &lt;div className="mt-2 flex items-baseline gap-2"&gt;
+        &lt;span className="text-3xl font-extrabold text-white"&gt;&#123;value&#125;&lt;/span&gt;
+        &lt;span className="text-xs font-semibold text-green-400 "&gt;&#123;change&#125;&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-blue-400 font-bold mb-1">
+                      Tailwind CSS Built-in Integration
+                    </h4>
+                    <p className="text-slate-300 text-xs mb-2">
+                      <span className="lang-en"
+                        >Next.js automatically compiles Tailwind CSS during
+                        build, generating only the minimal CSS classes
+                        used.</span
+                      ><span className="lang-km"
+                        >Next.js នឹង Compile Tailwind CSS ដោយស្វ័យប្រវត្តិតែ
+                        class ណាដែលបានប្រើប៉ុណ្ណោះ។</span
+                      >
+                    </p>
+                    <div className="p-4 bg-slate-900 border border-slate-800">
+                      <div className="text-slate-400 text-xs mb-1">Total Users</div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-white"
+                          >24,520</span
+                        >
+                        <span className="text-xs text-green-400 font-bold"
+                          >+18.2%</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 27: Responsive UI
+export function Slide27({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 09 — STYLING &bull; SLIDE 27 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Responsive UI</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Building adaptable, mobile-first layouts with Tailwind
+                    breakpoints.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/dashboard/page.tsx (Responsive Grid)
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default function DashboardPage() &#123;
+  return (
+    &lt;div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 p-4"&gt;
+      &lt;div className="p-4 bg-slate-900 border border-slate-800"&gt;Card 1&lt;/div&gt;
+      &lt;div className="p-4 bg-slate-900 border border-slate-800"&gt;Card 2&lt;/div&gt;
+      &lt;div className="p-4 bg-slate-900 border border-slate-800"&gt;Card 3&lt;/div&gt;
+      &lt;div className="p-4 bg-slate-900 border border-slate-800"&gt;Card 4&lt;/div&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Mobile-First Breakpoints
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Always design mobile-first: default styles apply to
+                        mobile devices, and prefix modifiers like
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">sm:</code> (640px), <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">md:</code> (768px), and
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">lg:</code> (1024px) enhance the layout as screen
+                        size increases.</span
+                      ><span className="lang-km"
+                        >រចនា Mobile-first ជានិច្ច៖ Style ដើមសម្រាប់ Mobile
+                        ហើយប្រើ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">sm:</code>, <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">md:</code>,
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">lg:</code> ដើម្បីពង្រីក Layout
+                        ពេលអេក្រង់ធំឡើង។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 28: Fetching Data
+export function Slide28({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 10 — DATA FETCHING &bull; SLIDE 28 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Fetching Data</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Direct async/await data fetching in React Server Components.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/invoices/page.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default async function InvoicesPage() &#123;
+  // Directly awaited on the server during rendering
+  const res = await fetch("https://api.example.com/invoices", &#123;
+    // Next.js caching options:
+    next: &#123; revalidate: 60 &#125;, // ISR: cache for 60 seconds
+  &#125;);
+  const invoices = await res.json();
+
+  return (
+    &lt;div className="p-4"&gt;
+      &lt;h1 className="text-xl font-bold"&gt;Invoices (&#123;invoices.length&#125;)&lt;/h1&gt;
+      &#123;/* Render list */&#125;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Native fetch() Enhancements
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >In Server Components, you do NOT need
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">useEffect</code> or loading spinners for initial
+                        data! Next.js extends the native Web
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">fetch</code> API to allow granular caching,
+                        revalidation, and request deduplication.</span
+                      ><span className="lang-km"
+                        >ក្នុង Server Components អ្នកលែងត្រូវការ
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">useEffect</code> ទៀតហើយ! Next.js បានពង្រីក Web
+                        fetch() ឱ្យគាំទ្រ Caching, Revalidation និងកាត់បន្ថយ
+                        Request ស្ទួនដោយស្វ័យប្រវត្តិ។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 29: Database Access
+export function Slide29({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 10 — DATA FETCHING &bull; SLIDE 29 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Database Access</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Direct database querying on the server without intermediary
+                    API endpoints.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/users/page.tsx (Direct SQL Query)
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; sql &#125; from "@/lib/db";
+
+export default async function UsersPage() &#123;
+  // Direct SQL query execution on the server!
+  const users = await sql`SELECT id, name, email FROM users ORDER BY created_at DESC LIMIT 10`;
+
+  return (
+    &lt;div className="p-4"&gt;
+      &lt;h2 className="text-xl font-bold"&gt;Registered Users&lt;/h2&gt;
+      &lt;ul className="mt-3 divide-y divide-slate-800"&gt;
+        &#123;users.map((u) =&gt; (
+          &lt;li key=&#123;u.id&#125; className="py-2 text-sm"&gt;&#123;u.name&#125; (&#123;u.email&#125;)&lt;/li&gt;
+        ))&#125;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      No Extra API Layer Required
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Because Server Components run securely on the server,
+                        you can query your database directly using SQL or an ORM
+                        like Prisma or Drizzle. You do not need to create an
+                        intermediate REST endpoint just to read data!</span
+                      ><span className="lang-km"
+                        >ដោយសារ Server Components ដំណើរការលើ Server អ្នកអាច
+                        Query Database ផ្ទាល់តាម SQL ឬ ORM ដោយមិនបាច់បង្កើត REST
+                        API កណ្ដាលឱ្យហត់ឡើយ!</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 30: PostgreSQL & Cloud DBs
+export function Slide30({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 10 — DATA FETCHING &bull; SLIDE 30 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">PostgreSQL &amp; Cloud DBs</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Connecting Next.js to PostgreSQL, Neon, and serverless
+                    databases.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        lib/db.ts (Neon PostgreSQL Driver)
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; neon &#125; from "@neondatabase/serverless";
+
+if (!process.env.DATABASE_URL) &#123;
+  throw new Error("DATABASE_URL is missing in environment variables");
+&#125;
+
+export const sql = neon(process.env.DATABASE_URL);</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Modern Cloud Databases
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Serverless Postgres providers like
+                        <strong>Neon</strong> and
+                        <strong>Supabase</strong> provide connection pooling
+                        over HTTP/WebSockets, making them perfect for serverless
+                        Next.js functions and Vercel edge runtime.</span
+                      ><span className="lang-km"
+                        >Database ដូចជា Neon និង Supabase ផ្ដល់នូវ Connection
+                        Pooling តាម HTTP ដែលស័ក្តិសមបំផុតសម្រាប់ Serverless
+                        Next.js និង Vercel Edge Runtime។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 31: Rendering in Next.js
+export function Slide31({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 11 — RENDERING &bull; SLIDE 31 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Rendering in Next.js</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Static, Dynamic, and Streaming rendering strategies
+                    explained.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-blue-400  text-xs font-bold">
+                    01 &bull; STATIC RENDERING
+                  </div>
+                  <h4>Build Time Pre-render</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Routes are rendered once at build time or revalidated
+                      incrementally. Best for blogs, docs, and public marketing
+                      pages.</span
+                    ><span className="lang-km"
+                      >Render តែម្ដងពេល Build ឬ Revalidate តាមកាលកំណត់។
+                      ល្អបំផុតសម្រាប់ប្លុក និងទំព័រព័ត៌មាន។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-green-400  text-xs font-bold">
+                    02 &bull; DYNAMIC RENDERING
+                  </div>
+                  <h4>On-Demand Server Render</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Routes are rendered for each user request. Best for user
+                      dashboards, personalized carts, and real-time feeds.</span
+                    ><span className="lang-km"
+                      >Render ថ្មីរាល់ពេលមាន Request ពី User។ ល្អសម្រាប់
+                      Dashboard និងទិន្នន័យជាក់ស្ដែង។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-purple-400  text-xs font-bold">
+                    03 &bull; STREAMING UI
+                  </div>
+                  <h4>Progressive Delivery</h4>
+                  <p>
+                    <span className="lang-en"
+                      >HTML is progressively streamed from server to client as
+                      data becomes ready, reducing Time to First Byte
+                      (TTFB).</span
+                    ><span className="lang-km"
+                      >បញ្ជូន HTML ជាបណ្ដើរៗពី Server ទៅ Browser ជួយឱ្យ User ឃើញ
+                      UI ភ្លាមៗមិនបាច់ចាំ។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 32: Static vs Dynamic
+export function Slide32({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 11 — RENDERING &bull; SLIDE 32 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Static vs Dynamic</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Choosing between CDN cached static pages and fresh server
+                    requests.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div
+                    className="p-3 bg-slate-900 border border-slate-800 text-left flex-1"
+                  >
+                    <div className="text-blue-400 font-bold mb-1">
+                      STATIC (DEFAULT)
+                    </div>
+                    <div className="text-xs text-slate-300">
+                      Generated at Build &amp; Cached on CDN
+                    </div>
+                    <div className="text-[11px] text-green-400 mt-2 ">
+                      &bull; Fastest possible TTFB &bull; Low server costs
+                    </div>
+                  </div>
+                  <span className="text-slate-500 font-bold">VS</span>
+                  <div
+                    className="p-3 bg-slate-900 border border-slate-800 text-left flex-1"
+                  >
+                    <div className="text-purple-400 font-bold mb-1">
+                      DYNAMIC (REQUEST-TIME)
+                    </div>
+                    <div className="text-xs text-slate-300">
+                      Executed on Server for Each Request
+                    </div>
+                    <div className="text-[11px] text-blue-400 mt-2 ">
+                      &bull; Access cookies, headers, searchParams
+                    </div>
+                  </div>
+                </div>
+                <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                  <div>
+                    <span className="lang-en"
+                      >Next.js automatically switches a route to
+                      <strong>Dynamic</strong> if you use dynamic functions like
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">cookies()</code>, <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">headers()</code>, or read
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">searchParams</code>.</span
+                    ><span className="lang-km"
+                      >Next.js នឹងប្ដូរ Route ទៅជា
+                      <strong>Dynamic</strong> ដោយស្វ័យប្រវត្តិកាលណាអ្នកប្រើ
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">cookies()</code>, <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">headers()</code> ឬអាន
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">searchParams</code>។</span
+                    >
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 33: Streaming & Suspense
+export function Slide33({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 11 — RENDERING &bull; SLIDE 33 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Streaming &amp; Suspense</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Breaking down pages with React Suspense for progressive
+                    loading.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/dashboard/page.tsx with Suspense
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; Suspense &#125; from "react";
+import RevenueChart from "./RevenueChart";
+import &#123; RevenueSkeleton &#125; from "./Skeletons";
+
+export default function DashboardPage() &#123;
+  return (
+    &lt;div className="p-4"&gt;
+      &lt;h1 className="text-2xl font-bold"&gt;Analytics&lt;/h1&gt;
+
+      &#123;/* Streaming Boundary */&#125;
+      &lt;Suspense fallback=&#123;&lt;RevenueSkeleton /&gt;&#125;&gt;
+        &lt;RevenueChart /&gt;
+      &lt;/Suspense&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-purple-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Instant Loading Skeletons
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >React <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;Suspense&gt;</code> breaks down your
+                        page into independent chunks. The browser immediately
+                        receives the shell and skeleton UI, and slow data
+                        components stream into place as soon as they
+                        finish!</span
+                      ><span className="lang-km"
+                        >React Suspense បំបែកទំព័រជាចំណែកតូចៗ។ Browser
+                        នឹងទទួលបាន Skeleton UI ភ្លាមៗ
+                        ហើយទិន្នន័យដែលដំណើរការយឺតនឹង Stream
+                        ចូលតាមក្រោយពេលរួចរាល់។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 34: loading.tsx
+export function Slide34({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 12 — LOADING &amp; ERRORS &bull; SLIDE 34 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">loading.tsx</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Automatic loading states and skeleton UI screens.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/dashboard/loading.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default function Loading() &#123;
+  return (
+    &lt;div className="p-4 space-y-4 animate-pulse"&gt;
+      &lt;div className="h-8 w-48 bg-slate-800" /&gt;
+      &lt;div className="grid grid-cols-3 gap-4"&gt;
+        &lt;div className="h-32 bg-slate-800" /&gt;
+        &lt;div className="h-32 bg-slate-800" /&gt;
+        &lt;div className="h-32 bg-slate-800" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Zero-Config Suspense Boundary
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Adding a <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">loading.tsx</code> file automatically
+                        wraps your entire <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> in a React
+                        Suspense boundary. Next.js displays this skeleton
+                        immediately on navigation while the server prepares page
+                        data.</span
+                      ><span className="lang-km"
+                        >ការបង្កើត <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">loading.tsx</code> នឹងរុំ
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> ក្នុង React Suspense
+                        ដោយស្វ័យប្រវត្តិ។ User នឹងឃើញ Skeleton
+                        ភ្លាមៗពេលចុចចូលទំព័រនោះ។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 35: error.tsx
+export function Slide35({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 12 — LOADING &amp; ERRORS &bull; SLIDE 35 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">error.tsx</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Graceful error boundaries and recovery handling.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/dashboard/error.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client";
+
+export default function Error(&#123;
+  error,
+  reset,
+&#125;: &#123;
+  error: Error &amp; &#123; digest?: string &#125;;
+  reset: () =&gt; void;
+&#125;) &#123;
+  return (
+    &lt;div className="p-4 text-center bg-red-900/20 border border-red-800/40"&gt;
+      &lt;h2 className="text-xl font-bold text-red-400"&gt;Something went wrong!&lt;/h2&gt;
+      &lt;p className="text-xs text-slate-400 mt-1"&gt;&#123;error.message&#125;&lt;/p&gt;
+      &lt;button
+        onClick=&#123;() =&gt; reset()&#125;
+        className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white  text-xs"
+      &gt;
+        Try again
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-red-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Isolated Error Recovery
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">error.tsx</code> must always be a Client
+                        Component (<code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client"</code>). It catches
+                        runtime errors without crashing the whole application,
+                        allowing users to retry via <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">reset()</code>.</span
+                      ><span className="lang-km"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">error.tsx</code> ត្រូវតែជា Client Component។
+                        វាចាប់យក Error ដោយមិនធ្វើឱ្យគាំងទំព័រទាំងមូល
+                        និងផ្ដល់ប៊ូតុង
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">reset()</code> ដើម្បីសាកល្បងម្ដងទៀត។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 36: notFound() & not-found.tsx
+export function Slide36({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 12 — LOADING &amp; ERRORS &bull; SLIDE 36 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">notFound() &amp; not-found.tsx</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Gracefully handling 404 not found states.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/products/[id]/page.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; notFound &#125; from "next/navigation";
+import &#123; getProduct &#125; from "@/lib/db";
+
+export default async function ProductPage(&#123; params &#125;: any) &#123;
+  const &#123; id &#125; = await params;
+  const product = await getProduct(id);
+
+  // Trigger 404 if item doesn't exist
+  if (!product) &#123;
+    notFound();
+  &#125;
+
+  return &lt;h1&gt;&#123;product.name&#125;&lt;/h1&gt;;
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-amber-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Custom 404 Handlers
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Calling <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">notFound()</code> immediately halts
+                        rendering and displays your customized
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">not-found.tsx</code> file with proper HTTP 404
+                        status codes for search engines.</span
+                      ><span className="lang-km"
+                        >ការហៅ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">notFound()</code> នឹងបង្ហាញទំព័រ
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">not-found.tsx</code> ភ្លាមៗជាមួយកូដ HTTP 404
+                        ត្រឹមត្រូវសម្រាប់ Search Engines។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 37: Reading vs Changing Data
+export function Slide37({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 13 — SERVER ACTIONS / MUTATIONS &bull; SLIDE 37 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Reading vs Changing Data</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Understanding the mental model of reads and writes in App
+                    Router.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <div className="text-blue-400  text-xs font-bold mb-1">
+                      READ OPERATIONS
+                    </div>
+                    <h4>Server Components &amp; async/await</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Reading data happens directly in Server Components
+                        during rendering. No client JavaScript overhead or
+                        boilerplate state hooks required.</span
+                      ><span className="lang-km"
+                        >ការអានទិន្នន័យធ្វើឡើងក្នុង Server Components ផ្ទាល់ពេល
+                        Render។ មិនត្រូវការ boilerplate code ឬ state
+                        ស្មុគស្មាញឡើយ។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <div
+                      className="text-green-400  text-xs font-bold mb-1"
+                    >
+                      WRITE MUTATIONS
+                    </div>
+                    <h4>Server Actions &amp; Forms</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Creating, updating, and deleting data is handled
+                        securely by Server Actions invoked directly from native
+                        forms or button handlers.</span
+                      ><span className="lang-km"
+                        >ការបង្កើត កែប្រែ និងលុបទិន្នន័យ
+                        ត្រូវបានធ្វើឡើងដោយសុវត្ថិភាពតាមរយៈ Server Actions ពី
+                        Form ឬ Button។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 38: Server Action Concept
+export function Slide38({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 13 — SERVER ACTIONS / MUTATIONS &bull; SLIDE 38 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Server Action Concept</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Defining asynchronous mutations with the "use server"
+                    directive.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/actions/tasks.ts
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use server";
+
+import &#123; sql &#125; from "@/lib/db";
+import &#123; revalidatePath &#125; from "next/cache";
+
+export async function createTask(formData: FormData) &#123;
+  const title = formData.get("title") as string;
+  
+  if (!title || title.trim().length === 0) &#123;
+    throw new Error("Title is required");
+  &#125;
+
+  // Secure server-side database insertion
+  await sql`INSERT INTO tasks (title, completed) VALUES ($&#123;title&#125;, false)`;
+
+  // Instant cache revalidation!
+  revalidatePath("/dashboard/tasks");
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Asynchronous Server Mutations
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >The <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use server"</code> directive defines
+                        functions that run exclusively on the server. You can
+                        pass them directly to HTML forms. Next.js handles POST
+                        request serialization automatically!</span
+                      ><span className="lang-km"
+                        >ពាក្យបញ្ជា <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use server"</code> បង្កើត function
+                        ដែលដំណើរការលើ Server។ អ្នកអាចហៅវាពី Form ដោយផ្ទាល់ ហើយ
+                        Next.js នឹងចាត់ចែង POST Request ដោយស្វ័យប្រវត្តិ!</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 39: Form + Server Action
+export function Slide39({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 13 — SERVER ACTIONS / MUTATIONS &bull; SLIDE 39 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Form + Server Action</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Connecting native HTML forms directly to server action
+                    mutations.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        components/TaskForm.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; createTask &#125; from "@/app/actions/tasks";
+
+export function TaskForm() &#123;
+  return (
+    &lt;form action=&#123;createTask&#125; className="flex gap-2"&gt;
+      &lt;input
+        type="text"
+        name="title"
+        placeholder="Enter new task..."
+        required
+        className="px-3 py-2 bg-slate-900 border border-slate-700 text-sm flex-1"
+      /&gt;
+      &lt;button type="submit" className="px-4 py-2 bg-blue-600 text-white text-sm font-bold"&gt;
+        Add Task
+      &lt;/button&gt;
+    &lt;/form&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-green-400 font-bold mb-2">
+                      Live Simulated Server Action
+                    </h4>
+                    <form id="sim-task-form" className="flex gap-2 mb-3">
+                      <input
+                        id="sim-task-input"
+                        type="text"
+                        placeholder="Type a task and submit..."
+                        required
+                        className="px-2 py-1.5 bg-slate-900 border border-slate-700 text-slate-200 text-xs flex-1 outline-none"
+                      />
+                      <button
+                        type="submit"
+                        className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold transition"
+                      >
+                        Submit Action
+                      </button>
+                    </form>
+                    <div
+                      id="sim-task-status"
+                      className="text-[10px] text-blue-400 mb-2"
+                    >
+                      Ready to invoke server action
+                    </div>
+                    <div
+                      id="sim-task-list"
+                      className="space-y-1.5 max-h-36 overflow-y-auto"
+                    >
+                      <div
+                        className="p-2 bg-slate-900 border border-slate-800 text-xs text-slate-300"
+                      >
+                        Initial Task: Build SaaS UI
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 40: URL Search Parameters
+export function Slide40({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 14 — SEARCH &amp; PAGINATION &bull; SLIDE 40 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">URL Search Parameters</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Managing shareable search queries and pagination via the
+                    URL.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/invoices/page.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default async function InvoicesPage(&#123;
+  searchParams,
+&#125;: &#123;
+  searchParams: Promise&lt;&#123; query?: string; page?: string &#125;&gt;;
+&#125;) &#123;
+  const &#123; query = "", page = "1" &#125; = await searchParams;
+  
+  // Query DB filtered by search params
+  const invoices = await fetchInvoices(query, Number(page));
+
+  return (
+    &lt;div&gt;
+      &lt;SearchInput defaultValue=&#123;query&#125; /&gt;
+      &lt;InvoiceTable invoices=&#123;invoices&#125; /&gt;
+      &lt;Pagination currentPage=&#123;Number(page)&#125; /&gt;
+    &lt;/div&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-blue-400 font-bold mb-2">
+                      Live SearchParams Simulator
+                    </h4>
+                    <p className="text-slate-300 text-xs mb-2">
+                      Type below to see URL query string update:
+                    </p>
+                    <input
+                      id="sim-search-input"
+                      type="text"
+                      placeholder="Search invoices (e.g., Acme)..."
+                      className="w-full px-2 py-1.5 bg-slate-900 border border-slate-700 text-xs text-slate-200 outline-none mb-3"
+                    />
+                    <div
+                      className="p-2 bg-slate-900 border border-slate-800 text-[11px] text-green-400"
+                    >
+                      Current URL:
+                      <span id="sim-url-preview" className="text-slate-200"
+                        >/dashboard/invoices</span
+                      >
+                    </div>
+                  </div>
+                  <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                    <div>
+                      <span className="lang-en"
+                        >Using URL state makes pages bookmarkable, shareable,
+                        and supports browser back/forward buttons
+                        naturally!</span
+                      ><span className="lang-km"
+                        >ការប្រើ URL State ជួយឱ្យ User អាច Share Link, Bookmark
+                        និងប្រើប៊ូតុង Back/Forward របស់ Browser
+                        បានយ៉ាងត្រឹមត្រូវ!</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 41: Authentication Architecture
+export function Slide41({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 15 — AUTHENTICATION &bull; SLIDE 41 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Authentication Architecture</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Modern session management, HttpOnly cookies, and security
+                    flow.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">User Login Form</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Server Action Validate</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Create HttpOnly Cookie</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Middleware Guard</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Protected Dashboard</div>
+                </div>
+                <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Secure Cookie Sessions
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Modern Next.js auth stores session tokens in
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">HttpOnly</code>, <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">Secure</code> cookies.
+                        Unlike localStorage, HttpOnly cookies cannot be stolen
+                        by client-side XSS attacks.</span
+                      ><span className="lang-km"
+                        >Auth ក្នុង Next.js ប្រើ HttpOnly Cookies ដើម្បីរក្សាទុក
+                        Session Token។ ខុសពី localStorage, HttpOnly Cookies
+                        មិនអាចត្រូវបានលួចដោយ XSS Script ឡើយ។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Industry Standards
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Popular production choices include NextAuth.js
+                        (Auth.js), Clerk, Supabase Auth, or lightweight custom
+                        JWT session verifiers.</span
+                      ><span className="lang-km"
+                        >ជម្រើសពេញនិយមសម្រាប់ Production មានដូចជា Auth.js,
+                        Clerk, Supabase Auth ឬ Custom JWT Session។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 42: Public vs Protected Routes
+export function Slide42({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 15 — AUTHENTICATION &bull; SLIDE 42 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Public vs Protected Routes</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Securing routes with Next.js edge middleware.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        middleware.ts (Route Guard)
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; NextResponse &#125; from "next/server";
+import type &#123; NextRequest &#125; from "next/server";
+
+export function middleware(request: NextRequest) &#123;
+  const sessionToken = request.cookies.get("session")?.value;
+  const isDashboard = request.nextUrl.pathname.startsWith("/dashboard");
+
+  // Protect private routes
+  if (isDashboard &amp;&amp; !sessionToken) &#123;
+    return NextResponse.redirect(new URL("/login", request.url));
+  &#125;
+
+  return NextResponse.next();
+&#125;
+
+export const config = &#123;
+  matcher: ["/dashboard/:path*"],
+&#125;;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Edge-Speed Route Interception
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Next.js <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">middleware.ts</code> runs before a
+                        request completes. If an unauthenticated user tries to
+                        visit <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">/dashboard</code>, the middleware redirects
+                        them to <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">/login</code> before any page code even
+                        executes!</span
+                      ><span className="lang-km"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">middleware.ts</code> ដំណើរការមុនពេល Request
+                        ទៅដល់ទំព័រ។ បើ User មិនទាន់ Login ព្យាយាមចូល /dashboard
+                        នោះ Middleware នឹងបញ្ជូនទៅ /login ភ្លាមៗ!</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 43: Environment Variables
+export function Slide43({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 16 — ENVIRONMENT VARIABLES &bull; SLIDE 43 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Environment Variables</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Managing secrets safely with server-only vs NEXT_PUBLIC_
+                    variables.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        .env.local
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5"># SERVER ONLY (Secrets - never exposed to browser)
+DATABASE_URL="postgres://user:pass@ep-cool.neon.tech/neondb"
+AUTH_SECRET="super-secret-key-12345"
+STRIPE_SECRET_KEY="sk_live_xyz..."
+
+# CLIENT EXPOSED (Safe public values only)
+NEXT_PUBLIC_APP_URL="https://taskflow.io"
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_live_abc..."
+</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
+                    <svg
+                      className="w-4 h-4 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <div>
+                      <span className="lang-en"
+                        ><strong>Critical Security Rule:</strong> Never prefix
+                        database passwords or private API tokens with
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">NEXT_PUBLIC_</code>! Variables without that prefix
+                        remain strictly on the server.</span
+                      ><span className="lang-km"
+                        ><strong>វិធានសុវត្ថិភាពសំខាន់៖</strong> កុំប្រើ Prefix
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">NEXT_PUBLIC_</code> លើ Database Password ឬ Secret
+                        Keys ឱ្យសោះ! បើគ្មាន Prefix នោះទេ វាមានសុវត្ថិភាពលើ
+                        Server ជានិច្ច។</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 44: Metadata API
+export function Slide44({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 17 — SEO &amp; METADATA &bull; SLIDE 44 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Metadata API</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Defining static and dynamic document metadata for search
+                    ranking.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/about/page.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import type &#123; Metadata &#125; from "next";
+
+export const metadata: Metadata = &#123;
+  title: "About TaskFlow &amp;bull; Modern Task Management",
+  description: "Learn how TaskFlow empowers agile teams to ship faster.",
+  openGraph: &#123;
+    title: "About TaskFlow",
+    description: "Built for modern developers.",
+    images: ["/og-about.png"],
+  &#125;,
+&#125;;
+
+export default function AboutPage() &#123;
+  return &lt;h1&gt;About Us&lt;/h1&gt;;
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Built-in SEO Optimization
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Exporting a <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">metadata</code> object injects the
+                        correct <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;title&gt;</code>,
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;meta name="description"&gt;</code>, and Open
+                        Graph cards into the document
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;head&gt;</code> automatically.</span
+                      ><span className="lang-km"
+                        >ការ Export <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">metadata</code> នឹងបង្កើត tag
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;title&gt;</code>,
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;meta&gt;</code> និង Open Graph ក្នុង tag
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;head&gt;</code> ដោយស្វ័យប្រវត្តិ។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 45: SEO Best Practices
+export function Slide45({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 17 — SEO &amp; METADATA &bull; SLIDE 45 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">SEO Best Practices</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Building production sitemaps, robots rules, and social
+                    preview cards.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-blue-400  text-xs font-bold">
+                    01 &bull; SITEMAP GENERATION
+                  </div>
+                  <h4>app/sitemap.ts</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Generate a standard XML sitemap dynamically from your
+                      database records so Google indexers find every page.</span
+                    ><span className="lang-km"
+                      >បង្កើត sitemap.xml ដោយស្វ័យប្រវត្តិពីទិន្នន័យក្នុង DB
+                      ដើម្បីឱ្យ Google ងាយស្រួល Index។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-green-400  text-xs font-bold">
+                    02 &bull; ROBOTS RULES
+                  </div>
+                  <h4>app/robots.ts</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Define crawler indexing rules, disallow private admin
+                      routes, and link directly to your sitemap URL.</span
+                    ><span className="lang-km"
+                      >កំណត់វិធាន robots.txt ដើម្បីការពារផ្លូវ Private
+                      និងប្រាប់ទីតាំង Sitemap ដល់ Search Engines។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-purple-400  text-xs font-bold">
+                    03 &bull; SOCIAL CARDS
+                  </div>
+                  <h4>Open Graph &amp; Twitter</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Generate automated share preview images using Next.js
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">ImageResponse</code> or static OG image
+                      assets.</span
+                    ><span className="lang-km"
+                      >បង្កើតរូបភាព Preview ពេល Share លើ Facebook, Telegram ឬ X
+                      ដោយស្វ័យប្រវត្តិ។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 46: next/image
+export function Slide46({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 18 — IMAGES &amp; FONTS &bull; SLIDE 46 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">next/image</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    High performance, zero-CLS responsive image optimization.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        components/HeroBanner.tsx
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import Image from "next/image";
+
+export function HeroBanner() &#123;
+  return (
+    &lt;Image
+      src="/hero-dashboard.png"
+      alt="TaskFlow SaaS Dashboard Preview"
+      width=&#123;1200&#125;
+      height=&#123;630&#125;
+      priority // High priority preloading for above-the-fold image
+      className="border border-slate-800 shadow-2xl"
+    /&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4 className="text-green-400 font-bold mb-1">
+                      Automatic Image Optimizations
+                    </h4>
+                    <ul className="space-y-1.5 text-slate-300">
+                      <li>
+                        &bull; Converts PNG/JPEG to modern
+                        <strong>WebP &amp; AVIF</strong>
+                      </li>
+                      <li>
+                        &bull; Resizes images dynamically based on device screen
+                      </li>
+                      <li>
+                        &bull;
+                        <strong>Zero Cumulative Layout Shift (CLS)</strong> via
+                        width/height
+                      </li>
+                      <li>&bull; Lazy loads off-screen images automatically</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 47: next/font
+export function Slide47({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 18 — IMAGES &amp; FONTS &bull; SLIDE 47 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">next/font</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Automatic font self-hosting and zero layout shift.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/layout.tsx (Google Fonts Self-Hosting)
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; Plus_Jakarta_Sans, JetBrains_Mono &#125; from "next/font/google";
+
+const sans = Plus_Jakarta_Sans(&#123;
+  subsets: ["latin"],
+  variable: "--font-sans",
+&#125;);
+
+const mono = JetBrains_Mono(&#123;
+  subsets: ["latin"],
+  variable: "--",
+&#125;);
+
+export default function RootLayout(&#123; children &#125;: any) &#123;
+  return (
+    &lt;html lang="en" className=&#123;`$&#123;sans.variable&#125; $&#123;mono.variable&#125;`&#125;&gt;
+      &lt;body className="font-sans"&gt;&#123;children&#125;&lt;/body&gt;
+    &lt;/html&gt;
+  );
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Zero External Font Requests
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">next/font</code> downloads Google Fonts at build
+                        time and self-hosts them with your deployment assets.
+                        The browser never makes requests to Google servers,
+                        ensuring total privacy and eliminating layout
+                        shift!</span
+                      ><span className="lang-km"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">next/font</code> ទាញយក Fonts មកទុកក្នុងកញ្ចប់
+                        Build ដោយខ្លួនឯង។ Browser មិនចាំបាច់ផ្ញើ Request ទៅកាន់
+                        Google ឡើយ ជួយការពារ Privacy និងគ្មាន Layout
+                        Shift។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 48: Next.js as Full Stack
+export function Slide48({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 19 — API / BACKEND &bull; SLIDE 48 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js as Full Stack</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Unified full-stack architecture combining frontend, backend,
+                    and database.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">React UI (Client &amp; Server)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&larr;&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">
+                    Next.js App Server (Actions &amp; Handlers)
+                  </div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&larr;&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">PostgreSQL Database (Neon)</div>
+                </div>
+                <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>Unified Repository</h4>
+                    <p>
+                      <span className="lang-en"
+                        >One language (TypeScript), one project structure, and
+                        one deployment pipeline for both frontend and
+                        backend.</span
+                      ><span className="lang-km"
+                        >ប្រើភាសាតែមួយ (TypeScript) និង Project តែមួយ ទាំង
+                        Frontend និង Backend។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>Shared Types</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Database schemas and TypeScript types flow directly
+                        into UI components without code generation or API
+                        drift.</span
+                      ><span className="lang-km"
+                        >Types និង Data Models ត្រូវបានប្រើរួមគ្នារវាង DB និង UI
+                        ដោយគ្មានការភាន់ច្រឡំ។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>Edge &amp; Serverless</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Scales automatically to zero when idle and handles high
+                        traffic spikes seamlessly on cloud infrastructure.</span
+                      ><span className="lang-km"
+                        >Auto-scale តាមតម្រូវការជាក់ស្ដែងលើ Serverless Cloud
+                        Infrastructure។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 49: Route Handlers
+export function Slide49({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 19 — API / BACKEND &bull; SLIDE 49 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Route Handlers</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Building REST endpoints and external webhook receivers with
+                    route.ts.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        app/api/users/route.ts
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; NextResponse &#125; from "next/server";
+import &#123; sql &#125; from "@/lib/db";
+
+// Standard Web GET Handler
+export async function GET(request: Request) &#123;
+  const users = await sql`SELECT id, name, email FROM users`;
+  return NextResponse.json(&#123; success: true, data: users &#125;);
+&#125;
+
+// Standard Web POST Handler
+export async function POST(request: Request) &#123;
+  const body = await request.json();
+  const res = await sql`INSERT INTO users (name, email) VALUES ($&#123;body.name&#125;, $&#123;body.email&#125;) RETURNING *`;
+  return NextResponse.json(&#123; success: true, user: res[0] &#125;, &#123; status: 201 &#125;);
+&#125;</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      REST API &amp; Webhooks
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">route.ts</code> files create RESTful API
+                        endpoints using standard Web Request and Response
+                        objects. Use Route Handlers for mobile app APIs, public
+                        developer SDKs, and Stripe webhooks.</span
+                      ><span className="lang-km"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">route.ts</code> បង្កើត REST API Endpoints
+                        តាមស្តង់ដារ Web Request/Response។ ប្រើវាសម្រាប់ Mobile
+                        App API ឬ Webhooks ដូចជា Stripe ជាដើម។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 50: Security Basics
+export function Slide50({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 20 — SECURITY &bull; SLIDE 50 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Security Basics</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Core web security principles: validation, authorization, and
+                    sanitization.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-red-400  text-xs font-bold">
+                    RULE 01 &bull; UNTRUSTED CLIENT
+                  </div>
+                  <h4>Never Trust Input</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Client-side validation is only for UX. Always validate
+                      and sanitize all form fields and parameters on the server
+                      using Zod.</span
+                    ><span className="lang-km"
+                      >ការពិនិត្យកូដលើ Browser គឺសម្រាប់តែ UX ប៉ុណ្ណោះ។ ត្រូវ
+                      Validate ទិន្នន័យលើ Server ជានិច្ចដោយប្រើ Zod។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-blue-400  text-xs font-bold">
+                    RULE 02 &bull; AUTHORIZE EVERY ACTION
+                  </div>
+                  <h4>Check Permissions</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Always verify that the authenticated user owns the
+                      resource before executing any SQL update or
+                      deletion.</span
+                    ><span className="lang-km"
+                      >ត្រូវពិនិត្យមើលសិទ្ធិរបស់ User មុនពេលអនុញ្ញាតឱ្យកែប្រែ
+                      ឬលុបទិន្នន័យក្នុង Database។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-green-400  text-xs font-bold">
+                    RULE 03 &bull; SQL PARAMETERIZATION
+                  </div>
+                  <h4>Prevent Injections</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Never concatenate raw strings into SQL queries. Always
+                      use tagged template literals or ORMs to ensure automatic
+                      escaping.</span
+                    ><span className="lang-km"
+                      >កុំតភ្ជាប់ String ចូលក្នុង SQL Query ដោយផ្ទាល់។ ត្រូវប្រើ
+                      Parameterized Queries ដើម្បីការពារ SQL Injection។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 51: Client vs Server Security
+export function Slide51({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 20 — SECURITY &bull; SLIDE 51 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Client vs Server Security</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Understanding the security boundary between client and
+                    server.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-4 bg-red-900/20 border border-red-800/40">
+                    <div
+                      className="text-red-400 font-bold  text-xs mb-1 flex items-center gap-1.5"
+                    >
+                      <svg
+                        className="w-4 h-4"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      CLIENT BROWSER (UNTRUSTED)
+                    </div>
+                    <p className="text-slate-300 text-xs mb-2">
+                      <span className="lang-en"
+                        >Any user can inspect network traffic, edit DOM
+                        elements, and bypass client form checks.</span
+                      ><span className="lang-km"
+                        >User អាចកែប្រែ DOM និងបន្លំទិន្នន័យលើ Browser
+                        បានយ៉ាងងាយ។</span
+                      >
+                    </p>
+                    <ul className="text-[11px] text-red-300/80 space-y-1 ">
+                      <li>
+                        &bull; Do NOT put secret keys in Client Components
+                      </li>
+                      <li>
+                        &bull; Do NOT perform authorization checks on client
+                        alone
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="p-4 bg-green-900/20 border border-green-800/40">
+                    <div
+                      className="text-green-400 font-bold  text-xs mb-1 flex items-center gap-1.5"
+                    >
+                      <svg
+                        className="w-4 h-4"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      NEXT.JS SERVER (TRUSTED)
+                    </div>
+                    <p className="text-slate-300 text-xs mb-2">
+                      <span className="lang-en"
+                        >Protected execution environment isolated behind reverse
+                        proxies and private networks.</span
+                      ><span className="lang-km"
+                        >បរិស្ថានសុវត្ថិភាពខ្ពស់
+                        មិនអាចមើលឃើញពីខាងក្រៅដោយគ្មានការអនុញ្ញាត។</span
+                      >
+                    </p>
+                    <ul
+                      className="text-[11px] text-green-300/80 space-y-1 "
+                    >
+                      <li>
+                        &bull; Safely query PostgreSQL via private connection
+                        strings
+                      </li>
+                      <li>&bull; Validate input schemas strictly with Zod</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 52: Real Application Structure
+export function Slide52({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 21 — PROJECT ARCHITECTURE &bull; SLIDE 52 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Real Application Structure</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Production-grade folder architecture and route groups.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-2">
+                      Production SaaS Folder Layout
+                    </div>
+                    <pre className="text-slate-300 leading-relaxed">
+taskflow/
+├── app/
+│   ├── (auth)/             <span className="text-slate-400"># Route group (no URL impact)</span>
+│   │   ├── login/page.tsx
+│   │   └── register/page.tsx
+│   ├── (dashboard)/        <span className="text-slate-400"># Authenticated layout</span>
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   └── tasks/page.tsx
+│   ├── api/                <span className="text-slate-400"># Webhooks &amp; public APIs</span>
+│   ├── layout.tsx
+│   └── globals.css
+├── actions/                <span className="text-green-400 font-bold"># Server Actions (mutations)</span>
+├── components/ui/          <span className="text-blue-400 font-bold"># Design system components</span>
+├── lib/db.ts               <span className="text-purple-400 font-bold"># Database connection client</span>
+└── middleware.ts           <span className="text-amber-400 font-bold"># Route protection guard</span>
+      </pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Route Groups (auth) &amp; (dashboard)
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Folders wrapped in parentheses like
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">(auth)</code> organize your routes without adding
+                        their folder name to the URL path. This allows separate
+                        layouts for public login pages vs internal app
+                        dashboards!</span
+                      ><span className="lang-km"
+                        >Folder ក្នុងវង់ក្រចកដូចជា <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">(auth)</code> ជួយរៀបចំ
+                        Route ដោយមិនប៉ះពាល់ដល់ URL ឡើយ។ វាអនុញ្ញាតឱ្យយើងមាន
+                        Layout ដាច់ដោយឡែករវាង Login និង Dashboard!</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 53: TaskFlow Architecture
+export function Slide53({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 22 — BUILD A REAL PROJECT &bull; SLIDE 53 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">TaskFlow Architecture</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Architectural blueprint of our production task management
+                    application.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Next.js 15 Frontend (Tailwind UI)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&larr;&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">
+                    Server Actions &amp; React Server Components
+                  </div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&larr;&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Neon PostgreSQL (Serverless)</div>
+                </div>
+                <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>TaskFlow Features</h4>
+                    <p>
+                      <span className="lang-en"
+                        >A complete modern task management web application with
+                        authentication, real-time filters, PostgreSQL storage,
+                        and instant updates.</span
+                      ><span className="lang-km"
+                        >កម្មវិធីគ្រប់គ្រងកិច្ចការងារពេញលេញ មានប្រព័ន្ធ Login,
+                        តម្រងស្វែងរក, រក្សាទុកក្នុង PostgreSQL និង Update
+                        ភ្លាមៗ។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>App Router Patterns</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Leverages Server Components for lightning-fast reads
+                        and Server Actions for zero-API mutation handling.</span
+                      ><span className="lang-km"
+                        >ប្រើ Server Components សម្រាប់ទាញទិន្នន័យលឿន និង Server
+                        Actions សម្រាប់កែប្រែទិន្នន័យ។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>Production Ready</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Equipped with error boundaries, loading skeletons,
+                        responsive Tailwind UI, and Vercel edge
+                        deployment.</span
+                      ><span className="lang-km"
+                        >រៀបចំជាមួយ Loading Skeletons, Error Boundary
+                        និងត្រៀមសម្រាប់ Deploy លើ Vercel។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 54: TaskFlow Routes
+export function Slide54({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 22 — BUILD A REAL PROJECT &bull; SLIDE 54 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">TaskFlow Routes</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Complete route specification and access matrix for TaskFlow.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="overflow-x-auto">
+                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
+                    <thead>
+                      <tr>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">URL ROUTE</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">FILE LOCATION</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">PURPOSE &amp; ACCESS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="font-bold text-green-400 ">/</td>
+                        <td className=" text-slate-300">app/page.tsx</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Public marketing landing page</td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-green-400 ">
+                          /login
+                        </td>
+                        <td className=" text-slate-300">
+                          app/(auth)/login/page.tsx
+                        </td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">User authentication form</td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-blue-400 ">
+                          /dashboard
+                        </td>
+                        <td className=" text-slate-300">
+                          app/(dashboard)/page.tsx
+                        </td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Private overview metrics (Protected)</td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-blue-400 ">
+                          /dashboard/tasks
+                        </td>
+                        <td className=" text-slate-300">
+                          app/(dashboard)/tasks/page.tsx
+                        </td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Task management list with search &amp; filters</td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-blue-400 ">
+                          /dashboard/tasks/[id]
+                        </td>
+                        <td className=" text-slate-300">
+                          app/(dashboard)/tasks/[id]/page.tsx
+                        </td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Dynamic detail view and task editor</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 55: TaskFlow Database
+export function Slide55({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 22 — BUILD A REAL PROJECT &bull; SLIDE 55 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">TaskFlow Database</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Relational database schema with PostgreSQL and indexes.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-blue-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        PostgreSQL Schema (Neon)
+                      </span>
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">CREATE TABLE users (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE tasks (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  title VARCHAR(500) NOT NULL,
+  completed BOOLEAN DEFAULT FALSE,
+  due_date DATE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_tasks_user_id ON tasks(user_id);</code></pre>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Relational Data Modeling
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Foreign key constraints enforce referential integrity
+                        between users and their tasks. Indexes on
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">user_id</code> ensure lightning-fast dashboard
+                        queries even with millions of records.</span
+                      ><span className="lang-km"
+                        >ការប្រើ Foreign Key ធានានូវទំនាក់ទំនងត្រឹមត្រូវរវាង
+                        User និង Tasks។ Index លើ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">user_id</code> ជួយឱ្យ
+                        Query ទិន្នន័យបានលឿនបំផុត។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 56: TaskFlow Data Flow
+export function Slide56({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 22 — BUILD A REAL PROJECT &bull; SLIDE 56 /
+                    75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">TaskFlow Data Flow</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    End-to-end data mutation lifecycle from form to database and
+                    revalidation.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">1. User Submits Form</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">
+                    2. Server Action (createTask)
+                  </div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">3. Zod Validate Input</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">4. SQL Insert (PostgreSQL)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">5. revalidatePath()</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">6. UI Updates Instantly</div>
+                </div>
+                <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                  <div>
+                    <span className="lang-en"
+                      ><strong>The Power of revalidatePath:</strong> Notice that
+                      no manual client state updates or cache invalidation
+                      libraries were needed! Next.js re-renders the server
+                      component and streams the updated HTML list
+                      automatically.</span
+                    ><span className="lang-km"
+                      ><strong>អត្ថប្រយោជន៍នៃ revalidatePath៖</strong>
+                      អ្នកមិនបាច់សរសេរកូដ Update State ដោយដៃឡើយ! Next.js នឹង
+                      Re-render Server Component
+                      និងបញ្ជូនបញ្ជីទិន្នន័យថ្មីមកកាន់ UI
+                      ដោយស្វ័យប្រវត្តិ។</span
+                    >
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 57: Why Next.js Can Be Fast
+export function Slide57({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 23 — PERFORMANCE &bull; SLIDE 57 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Why Next.js Can Be Fast</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Architectural factors that power high performance in Next.js
+                    applications.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-blue-400  text-xs font-bold">
+                    01 &bull; MINIMAL JS
+                  </div>
+                  <h4>Zero Client Bundle</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Server Components do not ship JavaScript to the client.
+                      The browser downloads and parses less code, leading to
+                      instant First Contentful Paint.</span
+                    ><span className="lang-km"
+                      >Server Components មិនបញ្ជូនកូដ JavaScript ទៅ Browser ឡើយ
+                      ធ្វើឱ្យទំព័រដំណើរការលឿនខ្លាំង។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-green-400  text-xs font-bold">
+                    02 &bull; EDGE STREAMING
+                  </div>
+                  <h4>Parallel Data Pipelines</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Pages stream progressively over HTTP/2, letting users
+                      interact with parts of the page before slow data finishes
+                      loading.</span
+                    ><span className="lang-km"
+                      >ទំព័រ Stream តាម HTTP/2 ធ្វើឱ្យ User អាចចុចលើទំព័របាន
+                      ទោះបីជាទិន្នន័យខ្លះកំពុងដំណើរការក៏ដោយ។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-purple-400  text-xs font-bold">
+                    03 &bull; GLOBAL CACHING
+                  </div>
+                  <h4>Vercel Edge Network</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Static routes and cached assets are served from hundreds
+                      of Edge CDN locations worldwide within milliseconds.</span
+                    ><span className="lang-km"
+                      >ទំព័រ Static ត្រូវបានរក្សាទុកលើ Edge CDN ទូទាំងពិភពលោក
+                      ផ្ដល់ការឆ្លើយតបត្រឹមតែប៉ុន្មាន Millisecond។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 58: Avoid Unnecessary Client Components
+export function Slide58({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 23 — PERFORMANCE &bull; SLIDE 58 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+                    Avoid Unnecessary Client Components
+                  </h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Pushing the "use client" boundary down to interactive leaf
+                    components.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                  className="p-4 bg-red-900/20 border border-red-800/40  text-xs"
+                >
+                  <div
+                    className="text-red-400 font-bold mb-2 flex items-center gap-1.5"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    POOR PATTERN: Client at the Root
+                  </div>
+                  <pre className="text-slate-300">
+// app/dashboard/page.tsx
+"use client"; // Marks whole page as client!
+
+export default function Dashboard() &#123;
+  // Now entire tree ships to client bundle
+  return &lt;div&gt;...&lt;/div&gt;;
+&#125;
+    </pre
+                  >
+                </div>
+                <div
+                  className="p-4 bg-green-900/20 border border-green-800/40  text-xs"
+                >
+                  <div
+                    className="text-green-400 font-bold mb-2 flex items-center gap-1.5"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    RECOMMENDED: Client at Leaf Nodes
+                  </div>
+                  <pre className="text-slate-300">
+// app/dashboard/page.tsx (Server Component)
+import &#123; LikeButton &#125; from "./LikeButton"; // "use client"
+
+export default async function Dashboard() &#123;
+  const data = await getDbData();
+  return &lt;div&gt;&lt;LikeButton /&gt;&lt;/div&gt;;
+&#125;
+    </pre
+                  >
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 59: Production Build
+export function Slide59({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 24 — DEPLOYMENT &bull; SLIDE 59 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Production Build</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Building and previewing the optimized production bundle.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <div className="terminal-dots flex items-center gap-1.5">
+                        <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                        <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                        <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
+                      </div>
+                      <span className=" text-xs text-slate-400"
+                        >Create Production Build</span
+                      >
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <div className="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">npm run build</span>
+                      </div>
+                      <div className="term-out text-slate-300  text-xs"></div>
+                      <div className="term-out text-slate-300  text-xs">▲ Next.js 15.0.0</div>
+                      <div className="term-out text-slate-300  text-xs"></div>
+                      <div className="term-out text-slate-300  text-xs">Route (app) Size First Load JS</div>
+                      <div className="term-out text-slate-300  text-xs">┌ ○ / 5.2 kB 92.4 kB</div>
+                      <div className="term-out text-slate-300  text-xs">├ ○ /_not-found 872 B 88.1 kB</div>
+                      <div className="term-out text-slate-300  text-xs">├ ƒ /dashboard 1.4 kB 95.2 kB</div>
+                      <div className="term-out text-slate-300  text-xs">
+                        └ ƒ /dashboard/tasks 2.1 kB 96.8 kB
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        + First Load JS shared by all 87.2 kB
+                      </div>
+                      <div className="term-out text-slate-300  text-xs"></div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ○ (Static) prerendered as static content
+                      </div>
+                      <div className="term-out text-slate-300  text-xs">
+                        ƒ (Dynamic) server-rendered on demand
+                      </div>
+                      <div className="term-out text-slate-300  text-xs"></div>
+                      <div className="term-out text-slate-300  text-xs">Done: Compiled successfully</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-blue-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Build Output Inspection
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">npm run build</code> validates all TypeScript
+                        types, optimizes bundles, and generates the build
+                        summary indicating which routes are Static (○) vs
+                        Dynamic (ƒ). Test locally with
+                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">npm run start</code>.</span
+                      ><span className="lang-km"
+                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">npm run build</code> ពិនិត្យ TypeScript, Optimize
+                        JS bundles និងបង្ហាញថាតើ Route ណាជា Static (○) ឬ Dynamic
+                        (ƒ)។ សាកល្បងដោយ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">npm run start</code>។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 60: GitHub Workflow
+export function Slide60({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 24 — DEPLOYMENT &bull; SLIDE 60 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">GitHub Workflow</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Pushing branches and triggering continuous integration from
+                    GitHub.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                    <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                      <div className="terminal-dots flex items-center gap-1.5">
+                        <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                        <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                        <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
+                      </div>
+                      <span className=" text-xs text-slate-400"
+                        >Git Workflow for Next.js</span
+                      >
+                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
+                          />
+                          <path
+                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
+                          />
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <div className="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5"
+                          >git checkout -b feature/taskflow-auth</span
+                        >
+                      </div>
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git status</span>
+                      </div>
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git add .</span>
+                      </div>
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5"
+                          >git commit -m "feat: implement auth middleware and
+                          server actions"</span
+                        >
+                      </div>
+                      <div>
+                        <span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span>
+                        <span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5"
+                          >git push origin feature/taskflow-auth</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Connection to Git &amp; GitHub
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Following our previous Git course, every production
+                        Next.js project is version-controlled with Git. Pushing
+                        your branch to GitHub automatically triggers continuous
+                        integration and preview deployments!</span
+                      ><span className="lang-km"
+                        >ដូចដែលបានរៀនក្នុងវគ្គ Git កន្លងមក គ្រប់គម្រោង Next.js
+                        ត្រូវគ្រប់គ្រងដោយ Git។ ការ Push ទៅ GitHub នឹងបញ្ឆេះ
+                        CI/CD និងបង្កើត Preview Deployment
+                        ដោយស្វ័យប្រវត្តិ!</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 61: Vercel Deployment
+export function Slide61({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 24 — DEPLOYMENT &bull; SLIDE 61 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Vercel Deployment</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Zero-config Git integration, automatic builds, and preview
+                    environments.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">GitHub Repository</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Vercel Auto-Detect Next.js</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Edge Network Build</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Live Production URL</div>
+                </div>
+                <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>Zero Configuration</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Import your GitHub repo into Vercel and it configures
+                        build commands and output directories
+                        automatically.</span
+                      ><span className="lang-km"
+                        >ភ្ជាប់ GitHub Repo ទៅកាន់ Vercel វានឹងរៀបចំការ Build
+                        និង Deploy ដោយមិនបាច់ Config អ្វីឡើយ។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>Preview Environments</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Every pull request receives a unique preview URL for
+                        testing before merging to production.</span
+                      ><span className="lang-km"
+                        >រាល់ Pull Request ទទួលបាន Preview URL
+                        ផ្ទាល់ខ្លួនសម្រាប់ Test មុនពេល Merge។</span
+                      >
+                    </p>
+                  </div>
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>Instant Rollbacks</h4>
+                    <p>
+                      <span className="lang-en"
+                        >Revert to any previous deployment instantly with a
+                        single click if an issue ever occurs.</span
+                      ><span className="lang-km"
+                        >អាច Rollback ទៅកាន់ Deployment
+                        ចាស់វិញបានភ្លាមៗបើមានបញ្ហាកើតឡើង។</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 62: Develop -> Preview -> Ship
+export function Slide62({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 24 — DEPLOYMENT &bull; SLIDE 62 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Develop -&gt; Preview -&gt; Ship</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    The complete modern full-stack shipping cycle.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">1. DEVELOP (Local)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">2. PREVIEW (Branch PR)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">3. TEST (QA Team)</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">4. SHIP (Main Production)</div>
+                </div>
+                <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                  <div>
+                    <span className="lang-en"
+                      >This modern development workflow connects code authoring,
+                      version control, automated testing, and cloud
+                      infrastructure into a seamless engineering pipeline.</span
+                    ><span className="lang-km"
+                      >Workflow ទំនើបនេះភ្ជាប់ការសរសេរកូដ Git Version Control
+                      ការតេស្តស្វ័យប្រវត្តិ និង Cloud Deployment
+                      ទៅជាប្រព័ន្ធតែមួយយ៉ាងរលូន។</span
+                    >
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 63: Mistake: Everything Is Client
+export function Slide63({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 25 — COMMON MISTAKES &bull; SLIDE 63 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Mistake: Everything Is Client</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Why excessive client components degrade performance and
+                    bundle sizes.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 bg-red-900/20 border border-red-800/40">
+                  <div className="text-red-400 font-bold  text-xs mb-1">
+                    MISTAKE: Adding "use client" everywhere
+                  </div>
+                  <p className="text-slate-300 text-xs">
+                    <span className="lang-en"
+                      >Beginners often add <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client"</code> to every
+                      file as soon as they encounter any issue. This converts
+                      your app back into a heavy client SPA, discarding all
+                      performance and SEO benefits of Server Components!</span
+                    ><span className="lang-km"
+                      >អ្នកទើបរៀនតែងតែដាក់ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client"</code> លើគ្រប់
+                      file។ ការធ្វើបែបនេះធ្វើឱ្យ Next.js ក្លាយជា Client SPA
+                      ធម្មតាវិញ និងបាត់បង់អត្ថប្រយោជន៍ល្បឿនទាំងអស់!</span
+                    >
+                  </p>
+                </div>
+                <div className="p-4 bg-green-900/20 border border-green-800/40">
+                  <div className="text-green-400 font-bold  text-xs mb-1">
+                    SOLUTION: Keep Server as Default
+                  </div>
+                  <p className="text-slate-300 text-xs">
+                    <span className="lang-en"
+                      >Only introduce <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client"</code> when you
+                      explicitly need <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">useState</code>,
+                      <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">useEffect</code>, or click event handlers. Keep all
+                      layouts and pages as Server Components.</span
+                    ><span className="lang-km"
+                      >ប្រើ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client"</code> តែពេលត្រូវការ useState,
+                      useEffect ឬ Click Handler ពិតប្រាកដប៉ុណ្ណោះ។ ទុក Layouts
+                      និង Pages ជា Server Components ជានិច្ច។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 64: Mistake: Exposing Secrets
+export function Slide64({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 25 — COMMON MISTAKES &bull; SLIDE 64 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Mistake: Exposing Secrets</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Preventing accidental credential leaks via NEXT_PUBLIC_
+                    prefixes.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                  className="p-4 bg-red-900/20 border border-red-800/40  text-xs"
+                >
+                  <div className="text-red-400 font-bold mb-1">
+                    CRITICAL DANGER: Leaked Credentials
+                  </div>
+                  <div className="text-red-300">
+                    NEXT_PUBLIC_DATABASE_URL="postgres://..."
+                  </div>
+                  <p className="text-slate-400 text-xs mt-2">
+                    <span className="lang-en"
+                      >Prefixing secret keys with NEXT_PUBLIC_ embeds them
+                      directly into the public JavaScript bundle downloaded by
+                      every visitor!</span
+                    ><span className="lang-km"
+                      >ការដាក់ Prefix NEXT_PUBLIC_ លើ Secret Key នឹងបញ្ជូន
+                      Password នោះទៅកាន់ Browser របស់មនុស្សគ្រប់គ្នា!</span
+                    >
+                  </p>
+                </div>
+                <div
+                  className="p-4 bg-green-900/20 border border-green-800/40  text-xs"
+                >
+                  <div className="text-green-400 font-bold mb-1">
+                    SECURE FIX: Keep Secrets Private
+                  </div>
+                  <div className="text-green-300">
+                    DATABASE_URL="postgres://..."
+                  </div>
+                  <p className="text-slate-400 text-xs mt-2">
+                    <span className="lang-en"
+                      >Without the prefix, Next.js prevents this variable from
+                      ever leaking to the browser window.</span
+                    ><span className="lang-km"
+                      >បើគ្មាន Prefix ទេ Next.js នឹងរក្សាទុក Variable នោះលើ
+                      Server ដោយសុវត្ថិភាព 100%។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 65: Mistake: No Server Validation
+export function Slide65({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 25 — COMMON MISTAKES &bull; SLIDE 65 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Mistake: No Server Validation</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Why client-side form validation is never sufficient for
+                    security.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node border-red-500 text-red-400">
+                    Browser HTML &lt;input required /&gt; (Bypassed in 2 seconds
+                    via curl/Postman)
+                  </div>
+                  <span className="text-red-400 font-bold">&ne;</span>
+                  <div className="diag-node active border-green-500 text-green-400">
+                    Server Action Zod Schema Validation (Enforced 100%)
+                  </div>
+                </div>
+                <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
+                  <div>
+                    <span className="lang-en"
+                      ><strong>Always remember:</strong> Anyone can send raw
+                      HTTP POST requests to your server action endpoints. Never
+                      trust incoming formData without server-side
+                      validation!</span
+                    ><span className="lang-km"
+                      ><strong>ចងចាំជានិច្ច៖</strong> នរណាក៏អាចផ្ញើ HTTP POST
+                      មកកាន់ Server Action បានដែរ។ កុំទុកចិត្ត formData
+                      ដោយគ្មានការពិនិត្យលើ Server ឱ្យសោះ!</span
+                    >
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 66: Mistake: Poor Folder Architecture
+export function Slide66({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 25 — COMMON MISTAKES &bull; SLIDE 66 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Mistake: Poor Folder Architecture</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Avoiding disorganized directories and maintainability
+                    nightmares.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                  className="p-4 bg-red-900/20 border border-red-800/40  text-xs"
+                >
+                  <div className="text-red-400 font-bold mb-1">
+                    CHAOTIC ANTI-PATTERN
+                  </div>
+                  <pre className="text-slate-400">
+components/
+components2/
+final_ui/
+old_code/
+test_page/
+    </pre
+                  >
+                </div>
+                <div
+                  className="p-4 bg-green-900/20 border border-green-800/40  text-xs"
+                >
+                  <div className="text-green-400 font-bold mb-1">
+                    CLEAN PRODUCTION PATTERN
+                  </div>
+                  <pre className="text-slate-300">
+app/
+components/ui/
+actions/
+lib/
+types/
+    </pre
+                  >
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 67: Debugging Next.js
+export function Slide67({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 26 — DEBUGGING &bull; SLIDE 67 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Debugging Next.js</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Mastering tools for diagnosing server and client execution
+                    issues.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-4">
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-blue-400  text-xs font-bold mb-1">
+                    01 &bull; TERMINAL LOGS
+                  </div>
+                  <h4 className="text-sm">Server Logs</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Console.log inside Server Components and Server Actions
+                      prints directly to your VS Code terminal, not
+                      browser.</span
+                    ><span className="lang-km"
+                      >Console.log លើ Server Components បង្ហាញក្នុង Terminal
+                      មិនមែនលើ Browser ឡើយ។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-green-400  text-xs font-bold mb-1">
+                    02 &bull; REACT DEVTOOLS
+                  </div>
+                  <h4 className="text-sm">Component Tree</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Inspect props, state, and client component boundaries
+                      visually in your browser DevTools extension.</span
+                    ><span className="lang-km"
+                      >ពិនិត្យមើល Props, State និង Component Tree តាមរយៈ
+                      Extension React DevTools។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-orange-400  text-xs font-bold mb-1">
+                    03 &bull; NETWORK TAB
+                  </div>
+                  <h4 className="text-sm">RSC Payload</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Inspect the React Server Component payload streams and
+                      Server Action POST requests in real-time.</span
+                    ><span className="lang-km"
+                      >ពិនិត្យមើល Payload របស់ Server Components និង Server
+                      Action ក្នុង Network Tab។</span
+                    >
+                  </p>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-purple-400  text-xs font-bold mb-1">
+                    04 &bull; SOURCE MAPS
+                  </div>
+                  <h4 className="text-sm">TypeScript Debug</h4>
+                  <p>
+                    <span className="lang-en"
+                      >Set breakpoints in original TypeScript source files
+                      directly inside Chrome DevTools or VS Code debugger.</span
+                    ><span className="lang-km"
+                      >ដាក់ Breakpoint លើកូដ TypeScript ដើមក្នុង Chrome ឬ VS
+                      Code Debugger។</span
+                    >
+                  </p>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 68: Common Errors & Fixes
+export function Slide68({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 26 — DEBUGGING &bull; SLIDE 68 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Common Errors &amp; Fixes</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Diagnosing hydration mismatches, missing directives, and
+                    boundary errors.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="overflow-x-auto">
+                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
+                    <thead>
+                      <tr>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">ERROR MESSAGE</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">COMMON ROOT CAUSE</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">PROVEN FIX</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="text-red-400 font-bold">
+                          Hydration failed because initial UI does not match
+                        </td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                          Using browser values (window, Date.now()) during
+                          server render
+                        </td>
+                        <td className="text-green-400">
+                          Move browser checks into useEffect or use
+                          suppressHydrationWarning
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="text-red-400 font-bold">
+                          window is not defined
+                        </td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                          Accessing browser window API inside a Server Component
+                        </td>
+                        <td className="text-green-400">
+                          Add "use client" directive or check typeof window !==
+                          "undefined"
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="text-red-400 font-bold">
+                          Event handlers cannot be passed to Client Component
+                          props
+                        </td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                          Passing function props across Server to Client
+                          boundary
+                        </td>
+                        <td className="text-green-400">
+                          Use Server Actions or declare event handlers inside
+                          the Client Component
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 69: Modern Next.js Architecture
+export function Slide69({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 27 — FINAL ARCHITECTURE &bull; SLIDE 69 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Modern Next.js Architecture</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Master architectural diagram connecting all full-stack
+                    layers.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex flex-col gap-3">
+                  <div className="diag-node font-bold text-slate-200">
+                    CLIENT BROWSER (User Interaction &amp; State)
+                  </div>
+                  <div
+                    className="w-full flex items-center justify-center gap-2 text-blue-400  text-xs"
+                  >
+                    &darr; HTTP/2 Requests &bull; Form Server Actions &darr;
+                  </div>
+                  <div
+                    className="diag-node active font-bold text-blue-300 w-full text-center"
+                  >
+                    NEXT.JS APP ROUTER (Server Components &bull; Middleware
+                    &bull; Layouts)
+                  </div>
+                  <div
+                    className="w-full flex items-center justify-center gap-2 text-blue-400  text-xs"
+                  >
+                    &darr; Direct Type-Safe Server Calls &darr;
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 w-full text-center">
+                    <div className="diag-node bg-slate-900 border-slate-700">
+                      PostgreSQL (Neon)
+                    </div>
+                    <div className="diag-node bg-slate-900 border-slate-700">
+                      Auth / Session Engine
+                    </div>
+                    <div className="diag-node bg-slate-900 border-slate-700">
+                      External APIs &amp; S3
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 70: Next.js Commands Cheat Sheet
+export function Slide70({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 28 — CHEAT SHEET &bull; SLIDE 70 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js Commands Cheat Sheet</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Essential CLI commands for daily development and deployment.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-2  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-1">
+                      npx create-next-app@latest
+                    </div>
+                    <div className="text-slate-400">
+                      Scaffolds a new project with TypeScript, Tailwind, and App
+                      Router.
+                    </div>
+                  </div>
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-1">npm run dev</div>
+                    <div className="text-slate-400">
+                      Starts the local development server with Fast Refresh on
+                      port 3000.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-1">
+                      npm run build
+                    </div>
+                    <div className="text-slate-400">
+                      Compiles the optimized production application and checks
+                      types.
+                    </div>
+                  </div>
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-1">
+                      npm run start
+                    </div>
+                    <div className="text-slate-400">
+                      Runs the production server locally to verify the
+                      production build.
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 71: Next.js Special Files
+export function Slide71({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 28 — CHEAT SHEET &bull; SLIDE 71 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js Special Files</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Reference summary of App Router special file conventions.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="overflow-x-auto">
+                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
+                    <thead>
+                      <tr>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">FILE CONVENTION</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">ROLE IN APP ROUTER</th>
+                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">EXECUTION DEFAULT</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="font-bold text-blue-400">page.tsx</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Defines the unique UI for a route segment</td>
+                        <td className="text-green-400 font-bold">
+                          Server Component
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-blue-400">layout.tsx</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                          Shared UI wrapper that preserves state across
+                          navigation
+                        </td>
+                        <td className="text-green-400 font-bold">
+                          Server Component
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-blue-400">loading.tsx</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                          Instant loading skeleton wrapped in React Suspense
+                        </td>
+                        <td className="text-green-400 font-bold">
+                          Server Component
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-blue-400">error.tsx</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                          Error boundary UI for catching runtime exceptions
+                        </td>
+                        <td className="text-amber-400 font-bold">
+                          Client Component ("use client")
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-blue-400">not-found.tsx</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                          Custom 404 page rendered when notFound() is invoked
+                        </td>
+                        <td className="text-green-400 font-bold">
+                          Server Component
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold text-blue-400">route.ts</td>
+                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                          RESTful API endpoint responding with Request/Response
+                        </td>
+                        <td className="text-green-400 font-bold">
+                          Server Route Handler
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 72: Next.js Core Concepts
+export function Slide72({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 28 — CHEAT SHEET &bull; SLIDE 72 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js Core Concepts</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Comprehensive summary of core concepts mastered in this
+                    course.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-blue-400  text-xs font-bold">
+                    ROUTING &amp; RENDERING
+                  </div>
+                  <ul className="text-xs text-slate-300 space-y-1 ">
+                    <li>&bull; App Router folders</li>
+                    <li>&bull; Server Components</li>
+                    <li>&bull; "use client" boundaries</li>
+                    <li>&bull; Streaming &amp; Suspense</li>
+                  </ul>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-green-400  text-xs font-bold">
+                    DATA &amp; MUTATIONS
+                  </div>
+                  <ul className="text-xs text-slate-300 space-y-1 ">
+                    <li>&bull; Server async/await</li>
+                    <li>&bull; Direct PostgreSQL queries</li>
+                    <li>&bull; Server Actions ("use server")</li>
+                    <li>&bull; revalidatePath cache</li>
+                  </ul>
+                </div>
+                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                  <div className="text-purple-400  text-xs font-bold">
+                    OPTIMIZATION &amp; SHIPPING
+                  </div>
+                  <ul className="text-xs text-slate-300 space-y-1 ">
+                    <li>&bull; next/image &amp; next/font</li>
+                    <li>&bull; Metadata API &amp; SEO</li>
+                    <li>&bull; Middleware auth guards</li>
+                    <li>&bull; Vercel edge deployment</li>
+                  </ul>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 73: Final Challenge: Build Your Own SaaS
+export function Slide73({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 29 — FINAL CHALLENGE &bull; SLIDE 73 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+                    Final Challenge: Build Your Own SaaS
+                  </h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Comprehensive project requirements for the TaskFlow
+                    application.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-3  text-xs">
+                  <div className="p-3 bg-slate-900 border border-slate-800">
+                    <div className="text-blue-400 font-bold mb-2">
+                      TaskFlow SaaS Project Checklist
+                    </div>
+                    <ul className="space-y-1.5 text-slate-300">
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span>User Authentication (Register &amp; Login)</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span>Protected Dashboard layout with Middleware</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span>PostgreSQL Database integration via Neon</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span
+                          >Server Actions for Creating &amp; Updating Tasks</span
+                        >
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span>Search query &amp; pagination via searchParams</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span>Loading skeleton &amp; Error boundary recovery</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <svg
+                          className="w-3.5 h-3.5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span>Production deployment to Vercel via GitHub</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+                    <h4>
+                      <svg
+                        className="w-4 h-4 text-green-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Put Theory Into Practice
+                    </h4>
+                    <p>
+                      <span className="lang-en"
+                        >Building TaskFlow will solidify your understanding of
+                        real-world full-stack Next.js engineering. Complete this
+                        project and add it to your portfolio!</span
+                      ><span className="lang-km"
+                        >ការអនុវត្តបង្កើត TaskFlow នឹងពង្រឹងសមត្ថភាព Full-Stack
+                        Next.js របស់អ្នកឱ្យកាន់តែច្បាស់។
+                        បញ្ចប់គម្រោងនេះដើម្បីដាក់ក្នុង Portfolio របស់អ្នក!</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 74: Development Roadmap
+export function Slide74({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 29 — FINAL CHALLENGE &bull; SLIDE 74 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Development Roadmap</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Your complete full-stack web developer journey from
+                    fundamentals to production.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div className="slide-stack flex flex-col gap-3">
+                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">HTML &amp; CSS</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">JavaScript ES6+</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">React Basics</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Next.js App Router</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">PostgreSQL &amp; Auth</div>
+                  <span className="diag-arrow text-blue-400 font-bold text-center text-xs py-0.5">&rarr;</span>
+                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">Production Engineering</div>
+                </div>
+                <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+                  <div>
+                    <span className="lang-en"
+                      >You have completed the entire Next.js App Router
+                      curriculum. Continue building real applications,
+                      contributing to open-source, and staying curious!</span
+                    ><span className="lang-km"
+                      >អ្នកបានបញ្ចប់មេរៀន Next.js App Router ទាំងស្រុងហើយ។
+                      បន្តបង្កើត Project ជាក់ស្ដែង
+                      និងអភិវឌ្ឍសមត្ថភាពជានិច្ច!</span
+                    >
+                  </div>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+// Slide 75: Final Message
+export function Slide75({ onStart, onRestart }) {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+                <div className="slide-title-wrap flex flex-col gap-1">
+                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
+                    >SECTION 29 — FINAL CHALLENGE &bull; SLIDE 75 / 75</span
+                  >
+                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Final Message</h2>
+                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+                    Closing congratulations and call to action for production
+                    builders.
+                  </p>
+                </div>
+                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
+              </div>
+
+              <div
+                className="flex flex-col items-center justify-center text-center py-6 gap-5"
+              >
+                <div
+                  className="p-3 bg-blue-500/10 border border-blue-500/30 text-blue-400  text-xs"
+                >
+                  COURSE COMPLETE &bull; 75 / 75 SLIDES MASTERED
+                </div>
+                <blockquote
+                  className="text-xl lg:text-2xl font-bold text-white max-w-2xl leading-relaxed"
+                >
+                  <span className="lang-en"
+                    >"Learn the fundamentals. Understand the architecture. Build
+                    real applications. Ship to production."</span
+                  >
+                  <span className="lang-km"
+                    >"រៀនមូលដ្ឋានឱ្យរឹងមាំ។ យល់ពី Architecture។ បង្កើត
+                    Application ពិតប្រាកដ។ ហើយ Deploy ទៅ Production។"</span
+                  >
+                </blockquote>
+                <p className="text-slate-400 text-sm max-w-xl">
+                  <span className="lang-en"
+                    >Congratulations on completing the Next.js Mastery Course.
+                    You now possess the architectural foundation and hands-on
+                    skills to engineer world-class full-stack
+                    applications.</span
+                  >
+                  <span className="lang-km"
+                    >សូមអបអរសាទរដែលបានបញ្ចប់វគ្គសិក្សា Next.js Mastery!
+                    ឥឡូវនេះអ្នកមានចំណេះដឹងរឹងមាំក្នុងការបង្កើត Full-Stack Web
+                    Applications កម្រិតពិភពលោក។</span
+                  >
+                </p>
+                <div className="flex items-center gap-3 pt-2">
+                  <button
+                    
+                    className="btn-nav px-5 py-2.5 text-sm flex items-center gap-2"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span className="lang-en">Restart Presentation</span>
+                    <span className="lang-km">ចាប់ផ្ដើមឡើងវិញ</span>
+                  </button>
+                </div>
+              </div>
+    </div>
+  );
+}
+
+export const NEXTJS_META = {
+  id: "nextjs",
+  title: "Next.js: The React Framework for the Web",
+  module: "MODULE 03",
+  accent: "blue",
+};
+
+export const NEXTJS_SLIDES = [
+  {
+    id: 1,
+    title: "Next.js: From React to Production",
+    part: "SECTION 01 — WEB TO NEXT.JS",
+    Component: Slide1,
+  },
+  {
+    id: 2,
+    title: "What You Will Learn",
+    part: "SECTION 01 — WEB TO NEXT.JS",
+    Component: Slide2,
+  },
+  {
+    id: 3,
+    title: "What Is Next.js?",
+    part: "SECTION 01 — WEB TO NEXT.JS",
+    Component: Slide3,
+  },
+  {
+    id: 4,
+    title: "React vs Next.js",
+    part: "SECTION 01 — WEB TO NEXT.JS",
+    Component: Slide4,
+  },
+  {
+    id: 5,
+    title: "When Should You Use Next.js?",
+    part: "SECTION 01 — WEB TO NEXT.JS",
+    Component: Slide5,
+  },
+  {
+    id: 6,
+    title: "Before Learning Next.js",
+    part: "SECTION 02 — REQUIREMENTS",
+    Component: Slide6,
+  },
+  {
+    id: 7,
+    title: "React Fundamentals You Need",
+    part: "SECTION 02 — REQUIREMENTS",
+    Component: Slide7,
+  },
+  {
+    id: 8,
+    title: "Install Requirements",
+    part: "SECTION 03 — CREATE NEXT.JS PROJECT",
+    Component: Slide8,
+  },
+  {
+    id: 9,
+    title: "Create a Next.js Application",
+    part: "SECTION 03 — CREATE NEXT.JS PROJECT",
+    Component: Slide9,
+  },
+  {
+    id: 10,
+    title: "Start Development Server",
+    part: "SECTION 03 — CREATE NEXT.JS PROJECT",
+    Component: Slide10,
+  },
+  {
+    id: 11,
+    title: "Next.js Project Structure",
+    part: "SECTION 04 — PROJECT STRUCTURE",
+    Component: Slide11,
+  },
+  {
+    id: 12,
+    title: "app/page.tsx",
+    part: "SECTION 04 — PROJECT STRUCTURE",
+    Component: Slide12,
+  },
+  {
+    id: 13,
+    title: "app/layout.tsx",
+    part: "SECTION 04 — PROJECT STRUCTURE",
+    Component: Slide13,
+  },
+  {
+    id: 14,
+    title: "File-System Routing",
+    part: "SECTION 05 — ROUTING",
+    Component: Slide14,
+  },
+  {
+    id: 15,
+    title: "Nested Routes",
+    part: "SECTION 05 — ROUTING",
+    Component: Slide15,
+  },
+  {
+    id: 16,
+    title: "Dynamic Routes",
+    part: "SECTION 05 — ROUTING",
+    Component: Slide16,
+  },
+  {
+    id: 17,
+    title: "Link Component",
+    part: "SECTION 06 — NAVIGATION",
+    Component: Slide17,
+  },
+  {
+    id: 18,
+    title: "Navigation Architecture",
+    part: "SECTION 06 — NAVIGATION",
+    Component: Slide18,
+  },
+  {
+    id: 19,
+    title: "What Is a Component?",
+    part: "SECTION 07 — COMPONENTS",
+    Component: Slide19,
+  },
+  {
+    id: 20,
+    title: "Props",
+    part: "SECTION 07 — COMPONENTS",
+    Component: Slide20,
+  },
+  {
+    id: 21,
+    title: "Component Architecture",
+    part: "SECTION 07 — COMPONENTS",
+    Component: Slide21,
+  },
+  {
+    id: 22,
+    title: "Server Components",
+    part: "SECTION 08 — SERVER & CLIENT COMPONENTS",
+    Component: Slide22,
+  },
+  {
+    id: 23,
+    title: "Client Components",
+    part: "SECTION 08 — SERVER & CLIENT COMPONENTS",
+    Component: Slide23,
+  },
+  {
+    id: 24,
+    title: "Server vs Client",
+    part: "SECTION 08 — SERVER & CLIENT COMPONENTS",
+    Component: Slide24,
+  },
+  {
+    id: 25,
+    title: "Choosing Server or Client",
+    part: "SECTION 08 — SERVER & CLIENT COMPONENTS",
+    Component: Slide25,
+  },
+  {
+    id: 26,
+    title: "Tailwind CSS in Next.js",
+    part: "SECTION 09 — STYLING",
+    Component: Slide26,
+  },
+  {
+    id: 27,
+    title: "Responsive UI",
+    part: "SECTION 09 — STYLING",
+    Component: Slide27,
+  },
+  {
+    id: 28,
+    title: "Fetching Data",
+    part: "SECTION 10 — DATA FETCHING",
+    Component: Slide28,
+  },
+  {
+    id: 29,
+    title: "Database Access",
+    part: "SECTION 10 — DATA FETCHING",
+    Component: Slide29,
+  },
+  {
+    id: 30,
+    title: "PostgreSQL & Cloud DBs",
+    part: "SECTION 10 — DATA FETCHING",
+    Component: Slide30,
+  },
+  {
+    id: 31,
+    title: "Rendering in Next.js",
+    part: "SECTION 11 — RENDERING",
+    Component: Slide31,
+  },
+  {
+    id: 32,
+    title: "Static vs Dynamic",
+    part: "SECTION 11 — RENDERING",
+    Component: Slide32,
+  },
+  {
+    id: 33,
+    title: "Streaming & Suspense",
+    part: "SECTION 11 — RENDERING",
+    Component: Slide33,
+  },
+  {
+    id: 34,
+    title: "loading.tsx",
+    part: "SECTION 12 — LOADING & ERRORS",
+    Component: Slide34,
+  },
+  {
+    id: 35,
+    title: "error.tsx",
+    part: "SECTION 12 — LOADING & ERRORS",
+    Component: Slide35,
+  },
+  {
+    id: 36,
+    title: "notFound() & not-found.tsx",
+    part: "SECTION 12 — LOADING & ERRORS",
+    Component: Slide36,
+  },
+  {
+    id: 37,
+    title: "Reading vs Changing Data",
+    part: "SECTION 13 — SERVER ACTIONS / MUTATIONS",
+    Component: Slide37,
+  },
+  {
+    id: 38,
+    title: "Server Action Concept",
+    part: "SECTION 13 — SERVER ACTIONS / MUTATIONS",
+    Component: Slide38,
+  },
+  {
+    id: 39,
+    title: "Form + Server Action",
+    part: "SECTION 13 — SERVER ACTIONS / MUTATIONS",
+    Component: Slide39,
+  },
+  {
+    id: 40,
+    title: "URL Search Parameters",
+    part: "SECTION 14 — SEARCH & PAGINATION",
+    Component: Slide40,
+  },
+  {
+    id: 41,
+    title: "Authentication Architecture",
+    part: "SECTION 15 — AUTHENTICATION",
+    Component: Slide41,
+  },
+  {
+    id: 42,
+    title: "Public vs Protected Routes",
+    part: "SECTION 15 — AUTHENTICATION",
+    Component: Slide42,
+  },
+  {
+    id: 43,
+    title: "Environment Variables",
+    part: "SECTION 16 — ENVIRONMENT VARIABLES",
+    Component: Slide43,
+  },
+  {
+    id: 44,
+    title: "Metadata API",
+    part: "SECTION 17 — SEO & METADATA",
+    Component: Slide44,
+  },
+  {
+    id: 45,
+    title: "SEO Best Practices",
+    part: "SECTION 17 — SEO & METADATA",
+    Component: Slide45,
+  },
+  {
+    id: 46,
+    title: "next/image",
+    part: "SECTION 18 — IMAGES & FONTS",
+    Component: Slide46,
+  },
+  {
+    id: 47,
+    title: "next/font",
+    part: "SECTION 18 — IMAGES & FONTS",
+    Component: Slide47,
+  },
+  {
+    id: 48,
+    title: "Next.js as Full Stack",
+    part: "SECTION 19 — API / BACKEND",
+    Component: Slide48,
+  },
+  {
+    id: 49,
+    title: "Route Handlers",
+    part: "SECTION 19 — API / BACKEND",
+    Component: Slide49,
+  },
+  {
+    id: 50,
+    title: "Security Basics",
+    part: "SECTION 20 — SECURITY",
+    Component: Slide50,
+  },
+  {
+    id: 51,
+    title: "Client vs Server Security",
+    part: "SECTION 20 — SECURITY",
+    Component: Slide51,
+  },
+  {
+    id: 52,
+    title: "Real Application Structure",
+    part: "SECTION 21 — PROJECT ARCHITECTURE",
+    Component: Slide52,
+  },
+  {
+    id: 53,
+    title: "TaskFlow Architecture",
+    part: "SECTION 22 — BUILD A REAL PROJECT",
+    Component: Slide53,
+  },
+  {
+    id: 54,
+    title: "TaskFlow Routes",
+    part: "SECTION 22 — BUILD A REAL PROJECT",
+    Component: Slide54,
+  },
+  {
+    id: 55,
+    title: "TaskFlow Database",
+    part: "SECTION 22 — BUILD A REAL PROJECT",
+    Component: Slide55,
+  },
+  {
+    id: 56,
+    title: "TaskFlow Data Flow",
+    part: "SECTION 22 — BUILD A REAL PROJECT",
+    Component: Slide56,
+  },
+  {
+    id: 57,
+    title: "Why Next.js Can Be Fast",
+    part: "SECTION 23 — PERFORMANCE",
+    Component: Slide57,
+  },
+  {
+    id: 58,
+    title: "Avoid Unnecessary Client Components",
+    part: "SECTION 23 — PERFORMANCE",
+    Component: Slide58,
+  },
+  {
+    id: 59,
+    title: "Production Build",
+    part: "SECTION 24 — DEPLOYMENT",
+    Component: Slide59,
+  },
+  {
+    id: 60,
+    title: "GitHub Workflow",
+    part: "SECTION 24 — DEPLOYMENT",
+    Component: Slide60,
+  },
+  {
+    id: 61,
+    title: "Vercel Deployment",
+    part: "SECTION 24 — DEPLOYMENT",
+    Component: Slide61,
+  },
+  {
+    id: 62,
+    title: "Develop -> Preview -> Ship",
+    part: "SECTION 24 — DEPLOYMENT",
+    Component: Slide62,
+  },
+  {
+    id: 63,
+    title: "Mistake: Everything Is Client",
+    part: "SECTION 25 — COMMON MISTAKES",
+    Component: Slide63,
+  },
+  {
+    id: 64,
+    title: "Mistake: Exposing Secrets",
+    part: "SECTION 25 — COMMON MISTAKES",
+    Component: Slide64,
+  },
+  {
+    id: 65,
+    title: "Mistake: No Server Validation",
+    part: "SECTION 25 — COMMON MISTAKES",
+    Component: Slide65,
+  },
+  {
+    id: 66,
+    title: "Mistake: Poor Folder Architecture",
+    part: "SECTION 25 — COMMON MISTAKES",
+    Component: Slide66,
+  },
+  {
+    id: 67,
+    title: "Debugging Next.js",
+    part: "SECTION 26 — DEBUGGING",
+    Component: Slide67,
+  },
+  {
+    id: 68,
+    title: "Common Errors & Fixes",
+    part: "SECTION 26 — DEBUGGING",
+    Component: Slide68,
+  },
+  {
+    id: 69,
+    title: "Modern Next.js Architecture",
+    part: "SECTION 27 — FINAL ARCHITECTURE",
+    Component: Slide69,
+  },
+  {
+    id: 70,
+    title: "Next.js Commands Cheat Sheet",
+    part: "SECTION 28 — CHEAT SHEET",
+    Component: Slide70,
+  },
+  {
+    id: 71,
+    title: "Next.js Special Files",
+    part: "SECTION 28 — CHEAT SHEET",
+    Component: Slide71,
+  },
+  {
+    id: 72,
+    title: "Next.js Core Concepts",
+    part: "SECTION 28 — CHEAT SHEET",
+    Component: Slide72,
+  },
+  {
+    id: 73,
+    title: "Final Challenge: Build Your Own SaaS",
+    part: "SECTION 29 — FINAL CHALLENGE",
+    Component: Slide73,
+  },
+  {
+    id: 74,
+    title: "Development Roadmap",
+    part: "SECTION 29 — FINAL CHALLENGE",
+    Component: Slide74,
+  },
+  {
+    id: 75,
+    title: "Final Message",
+    part: "SECTION 29 — FINAL CHALLENGE",
+    Component: Slide75,
+  },
+];

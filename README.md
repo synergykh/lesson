@@ -113,10 +113,21 @@ Lesson/
     │   └── CourseIcons.jsx     # Course SVG icons
     ├── pages/              # Main view pages
     │   ├── HomePage.jsx        # Curriculum Hub with live search, filters, and roadmap
-    │   └── SlideViewer.jsx     # Fullscreen presentation slide deck engine
+    │   └── SlideViewer.jsx     # Course viewer delegate
+    ├── courses/            # Native React course presentation decks
+    │   ├── index.js            # Course registry and code-split loaders
+    │   ├── common/             # Shared CourseViewer shell, SlideHeader, TerminalBlock, ImageFrame
+    │   ├── git/                # Git course (GitCourse.jsx + slides.jsx)
+    │   ├── github/             # GitHub course (GithubCourse.jsx + slides.jsx)
+    │   ├── nextjs/             # Next.js course (NextjsCourse.jsx + slides.jsx)
+    │   ├── tailwindcss/        # Tailwind CSS course (TailwindCourse.jsx + slides.jsx)
+    │   ├── shadcn/             # Shadcn UI course (ShadcnCourse.jsx + slides.jsx)
+    │   ├── postgres/           # PostgreSQL & Neon course (PostgresCourse.jsx + slides.jsx)
+    │   ├── vercel/             # Vercel & Deployment course (VercelCourse.jsx + slides.jsx)
+    │   ├── cloudflare/         # Cloudflare course (CloudflareCourse.jsx + slides.jsx)
+    │   └── prompting/          # Prompt Engineering course (PromptingCourse.jsx + slides.jsx)
     └── data/               # Course metadata, slides, and localization
         ├── translations.json   # Bilingual EN / KM dictionary for all modules
         ├── translations.js     # Translation helper exports
-        ├── coursesIndex.js     # Curriculum course list and lazy loader
-        └── courses/            # Course slide decks (git, nextjs, postgres, etc.)
+        └── coursesIndex.js     # Curriculum course list and metadata
 ```
