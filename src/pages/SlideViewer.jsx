@@ -194,9 +194,11 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
             className="brand-logo flex items-center gap-2 font-extrabold text-[15px] text-white hover:text-blue-400 transition-colors no-underline"
             title="Back to Curriculum Hub"
           >
-            <div className="w-6 h-6 flex items-center justify-center text-blue-400">
-              <CourseIcon id={courseId} className="w-5 h-5" />
-            </div>
+            <img
+              src="/images/synergy.png"
+              alt="Synergy Logo"
+              className="w-6 h-6 object-contain shrink-0"
+            />
             <span className="hidden sm:inline">{courseData.title.split(':')[0]}</span>
           </a>
           <span

@@ -101,7 +101,7 @@ export const courses = [
     module: "MODULE 09",
     level: "Intermediate / Production",
     desc: "From your first domain and DNS records to global CDN, WAF, Workers, R2 storage, SSL/TLS, and edge deployment for resilient web systems.",
-    meta: "65 Slides • Global Edge",
+    meta: "85 Slides • Global Edge",
     category: "devops",
     iconColor: "text-orange-400",
     iconBg: "bg-orange-500/15 border-orange-500/30",

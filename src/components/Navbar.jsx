@@ -12,11 +12,13 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#/"
-            className="flex items-center gap-2 text-white font-extrabold text-base hover:text-blue-400 transition-colors no-underline"
+            className="flex items-center gap-2.5 text-white font-extrabold text-base hover:text-blue-400 transition-colors no-underline"
           >
-            <div className="w-7 h-7 bg-blue-600 flex items-center justify-center text-white font-mono font-bold text-sm">
-              DL
-            </div>
+            <img
+              src="/images/synergy.png"
+              alt="Synergy Logo"
+              className="w-8 h-8 object-contain shrink-0"
+            />
             <span>DevLessons</span>
           </a>
           <span className="text-xs font-mono px-2 py-0.5 bg-blue-500/10 text-blue-400 border border-blue-500/30 font-semibold hidden sm:inline-block">
