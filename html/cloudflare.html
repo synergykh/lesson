@@ -62,9 +62,6 @@
       };
     </script>
     <style>
-      * {
-        border-radius: 0 !important;
-      }
       *,
       *::before,
       *::after {
@@ -290,7 +287,7 @@
           </a>
           <span
             id="current-part-badge"
-            class="part-badge inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2 py-1 bg-orange-500/15 text-orange-400 border border-orange-500/30 font-mono"
+            class="part-badge inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2 py-1 bg-orange-500/15 text-orange-400 border border-orange-500/30"
             >MODULE 09</span
           >
         </div>
@@ -315,12 +312,12 @@
             />
           </button>
           <div
-            class="slide-counter-wrapper flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1"
+            class="slide-counter-wrapper flex items-center gap-1.5 text-xs text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1"
           >
             <span data-i18n="ui_slide">Slide</span>
             <select
               id="slide-jump-select"
-              class="bg-transparent text-orange-400 font-mono text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white"
+              class="bg-transparent text-orange-400 text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white"
               title="Jump to slide"
             ></select>
             <span
@@ -414,7 +411,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     data-i18n="s1_badge"
                     >MODULE 08 • GLOBAL EDGE INFRASTRUCTURE</span
                   >
@@ -473,12 +470,12 @@
                       <span class="text-xs text-slate-300"
                         >or press
                         <kbd
-                          class="kbd px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
+                          class="kbd px-1.5 py-0.5 text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
                           >Space</kbd
                         >
                         /
                         <kbd
-                          class="kbd px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
+                          class="kbd px-1.5 py-0.5 text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
                           >→</kbd
                         ></span
                       >
@@ -486,7 +483,7 @@
                   </div>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md"
+                  class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden text-xs shadow-md"
                 >
                   <div
                     class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -510,7 +507,7 @@
                     </button>
                   </div>
                   <div
-                    class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs"
+                    class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed text-xs"
                   >
                     <div>
                       <span class="text-orange-500 select-none mr-2 font-bold"
@@ -554,7 +551,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 01 • CLOUD PARADIGMS</span
                   >
                   <h2
@@ -569,7 +566,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400"
                   >CONCEPTS</span
                 >
               </div>
@@ -586,7 +583,7 @@
                     protection, and immediate downtime if the box crashes.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     User in Cambodia ──(240ms)──> US-East Data Center<br />
                     Single Server Failure = 100% Downtime
@@ -604,7 +601,7 @@
                     assets locally, and accelerates origin requests.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-400"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     User in Cambodia ──(12ms)──> Cloudflare Edge (Phnom Penh /
                     Bangkok)<br />
@@ -630,7 +627,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 01 • INFRASTRUCTURE TIMELINE</span
                   >
                   <h2
@@ -645,7 +642,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >EVOLUTION</span
                 >
               </div>
@@ -655,9 +652,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >1. Bare Metal</span
-                  >
+                  <span class="text-orange-400 font-bold">1. Bare Metal</span>
                   <span class="text-white font-bold">Dedicated Server</span>
                   <span class="text-slate-400"
                     >Manual hardware leasing, racking, physical maintenance.
@@ -667,9 +662,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >2. Virtualized</span
-                  >
+                  <span class="text-orange-400 font-bold">2. Virtualized</span>
                   <span class="text-white font-bold"
                     >VPS (Linode / Droplet)</span
                   >
@@ -681,7 +674,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >3. Managed Cloud</span
                   >
                   <span class="text-white font-bold"
@@ -695,9 +688,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >4. Global CDN</span
-                  >
+                  <span class="text-orange-400 font-bold">4. Global CDN</span>
                   <span class="text-white font-bold">Content Distribution</span>
                   <span class="text-slate-400"
                     >Caches images and scripts across continents to reduce
@@ -707,9 +698,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1 bg-orange-950/20 border-orange-500/40"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >5. Edge Cloud</span
-                  >
+                  <span class="text-orange-400 font-bold">5. Edge Cloud</span>
                   <span class="text-white font-bold">Cloudflare Mesh</span>
                   <span class="text-slate-300"
                     >Compute, DNS, WAF, and storage running directly on hundreds
@@ -735,7 +724,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 01 • MENTAL MODEL</span
                   >
                   <h2
@@ -750,7 +739,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >PARADIGM</span
                 >
               </div>
@@ -825,7 +814,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 02 • CORE PLATFORM</span
                   >
                   <h2
@@ -840,7 +829,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >OVERVIEW</span
                 >
               </div>
@@ -853,7 +842,7 @@
                     execution.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-3 font-mono text-[11px]"
+                    class="bg-slate-950 border border-slate-800 p-3 text-[11px]"
                   >
                     Visitor Request<br />
                     &nbsp;&nbsp;↓<br />
@@ -908,7 +897,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 02 • PLATFORM SURFACE</span
                   >
                   <h2
@@ -923,7 +912,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >ECOSYSTEM</span
                 >
               </div>
@@ -931,9 +920,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="text-orange-400 font-bold font-mono"
-                    >NETWORKING</span
-                  >
+                  <span class="text-orange-400 font-bold">NETWORKING</span>
                   <span class="text-white font-bold">DNS &amp; Registrar</span>
                   <span class="text-slate-400"
                     >Authoritative Anycast DNS, DNSSEC, automated CNAME
@@ -943,7 +930,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="text-red-400 font-bold font-mono">SECURITY</span>
+                  <span class="text-red-400 font-bold">SECURITY</span>
                   <span class="text-white font-bold">WAF &amp; DDoS</span>
                   <span class="text-slate-400"
                     >Managed OWASP rulesets, rate limiting, bot fight mode,
@@ -953,9 +940,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="text-green-400 font-bold font-mono"
-                    >PERFORMANCE</span
-                  >
+                  <span class="text-green-400 font-bold">PERFORMANCE</span>
                   <span class="text-white font-bold">CDN &amp; Routing</span>
                   <span class="text-slate-400"
                     >Global edge caching, Brotli compression, HTTP/3 QUIC, early
@@ -965,9 +950,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="text-purple-400 font-bold font-mono"
-                    >DEVELOPER</span
-                  >
+                  <span class="text-purple-400 font-bold">DEVELOPER</span>
                   <span class="text-white font-bold">Workers &amp; R2</span>
                   <span class="text-slate-400"
                     >Serverless V8 Isolates, S3-compatible R2 storage with 0
@@ -993,7 +976,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 02 • ARCHITECTURE</span
                   >
                   <h2
@@ -1008,7 +991,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400"
                   >ANYCAST</span
                 >
               </div>
@@ -1024,7 +1007,7 @@
                     routers in hundreds of cities worldwide.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     User in Phnom Penh → BGP routes to Phnom Penh Edge<br />
                     User in Tokyo → BGP routes to Tokyo Edge<br />
@@ -1067,7 +1050,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 03 • GETTING STARTED</span
                   >
                   <h2
@@ -1082,7 +1065,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >ACCOUNT</span
                 >
               </div>
@@ -1096,7 +1079,7 @@
                   >
                     <li>
                       Navigate to official site:
-                      <span class="font-mono text-orange-400"
+                      <span class="text-orange-400"
                         >https://www.cloudflare.com/</span
                       >
                     </li>
@@ -1110,9 +1093,7 @@
                     </li>
                     <li>
                       Log in to the dashboard:
-                      <span class="font-mono text-blue-400"
-                        >dash.cloudflare.com</span
-                      >
+                      <span class="text-blue-400">dash.cloudflare.com</span>
                     </li>
                   </ol>
                 </div>
@@ -1160,7 +1141,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 03 • SECURITY HYGIENE</span
                   >
                   <h2
@@ -1175,7 +1156,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >SECURITY</span
                 >
               </div>
@@ -1192,7 +1173,7 @@
                     delete your R2 storage buckets.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-green-400"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-green-400"
                   >
                     Settings → My Profile → Authentication → 2FA<br />
                     Preferred: Hardware Security Key (YubiKey / WebAuthn)<br />
@@ -1214,7 +1195,7 @@
                     >
                   </p>
                   <div
-                    class="p-2.5 bg-slate-950 border border-slate-800 font-mono text-[11px] text-orange-400"
+                    class="p-2.5 bg-slate-950 border border-slate-800 text-[11px] text-orange-400"
                   >
                     Always create: Scoped API Tokens<br />
                     Permission: Zone.DNS:Edit for taskflow.com ONLY<br />
@@ -1240,7 +1221,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 03 • MENTAL MODEL</span
                   >
                   <h2
@@ -1255,7 +1236,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >STRUCTURE</span
                 >
               </div>
@@ -1270,7 +1251,7 @@
                     Workers scripts, and Zero Trust tunnels.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Account: Acme Corp (ID: d9f81a7b...)<br />
                     ├── Users / RBAC Policies<br />
@@ -1290,7 +1271,7 @@
                     specific to that domain.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-400"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     Zone: taskflow.com (ID: 023e105f...)<br />
                     ├── DNS Records (A, CNAME, MX)<br />
@@ -1317,7 +1298,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 04 • DOMAIN BASICS</span
                   >
                   <h2
@@ -1331,7 +1312,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >DOMAIN HIERARCHY</span
                 >
               </div>
@@ -1343,7 +1324,7 @@
                 >
                   <h4 class="text-white font-bold">Domain Anatomy</h4>
                   <div
-                    class="font-mono text-sm text-center p-3 bg-slate-950 border border-slate-800"
+                    class="text-sm text-center p-3 bg-slate-950 border border-slate-800"
                   >
                     <span class="text-blue-400 font-bold">api</span>.<span
                       class="text-white font-bold"
@@ -1375,7 +1356,7 @@
                 >
                   <h4 class="text-white font-bold">Zone Tree Example</h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2.5 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2.5 text-[11px] text-slate-300"
                   >
                     taskflow.com (Apex Zone)<br />
                     ├── www.taskflow.com (Frontend landing)<br />
@@ -1404,7 +1385,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 04 • SEPARATION OF ROLES</span
                   >
                   <h2
@@ -1419,7 +1400,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/15 text-amber-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/15 text-amber-400"
                   >CRITICAL DISTINCTION</span
                 >
               </div>
@@ -1427,7 +1408,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >ROLE 1: REGISTRAR</span
                   >
                   <h4 class="text-white font-bold text-sm">
@@ -1442,7 +1423,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5 border-orange-500/40"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >ROLE 2: DNS PROVIDER</span
                   >
                   <h4 class="text-orange-400 font-bold text-sm">
@@ -1457,9 +1438,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-blue-400 font-bold"
-                    >ROLE 3: WEB HOST</span
-                  >
+                  <span class="text-blue-400 font-bold">ROLE 3: WEB HOST</span>
                   <h4 class="text-white font-bold text-sm">
                     Where code actually executes
                   </h4>
@@ -1487,7 +1466,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 05 • REGISTRATION SCENARIOS</span
                   >
                   <h2
@@ -1502,7 +1481,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >SCENARIOS</span
                 >
               </div>
@@ -1517,7 +1496,7 @@
                     Your domain was purchased on Namecheap, GoDaddy, or Porkbun.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Registrar (Namecheap)<br />
                     &nbsp;&nbsp;↓ (Change Nameservers)<br />
@@ -1541,7 +1520,7 @@
                     Registrar.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-400"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     Cloudflare Registrar (At-cost wholesale pricing)<br />
                     &nbsp;&nbsp;↓ (Automatically assigns)<br />
@@ -1573,7 +1552,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 06 • ONBOARDING WORKFLOW</span
                   >
                   <h2
@@ -1587,7 +1566,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >WORKFLOW</span
                 >
               </div>
@@ -1597,9 +1576,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >STEP 01</span
-                  >
+                  <span class="text-orange-400 font-bold">STEP 01</span>
                   <span class="text-white font-bold"
                     >Add Domain in Dashboard</span
                   >
@@ -1612,9 +1589,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >STEP 02</span
-                  >
+                  <span class="text-orange-400 font-bold">STEP 02</span>
                   <span class="text-white font-bold">Select Plan</span>
                   <span class="text-slate-300"
                     >Select Free plan ($0/mo) for standard websites, or Pro for
@@ -1624,7 +1599,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1 border-amber-500/40"
                 >
-                  <span class="font-mono text-amber-400 font-bold"
+                  <span class="text-amber-400 font-bold"
                     >STEP 03 (CRITICAL)</span
                   >
                   <span class="text-white font-bold">Review DNS Records</span>
@@ -1636,9 +1611,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >STEP 04</span
-                  >
+                  <span class="text-orange-400 font-bold">STEP 04</span>
                   <span class="text-white font-bold">Receive Nameservers</span>
                   <span class="text-slate-300"
                     >Cloudflare assigns 2 unique nameservers (e.g.,
@@ -1649,9 +1622,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >STEP 05</span
-                  >
+                  <span class="text-orange-400 font-bold">STEP 05</span>
                   <span class="text-white font-bold">Update Registrar</span>
                   <span class="text-slate-300"
                     >Log in to Namecheap/GoDaddy, select Custom DNS, and replace
@@ -1661,9 +1632,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-green-400 font-bold"
-                    >STEP 06</span
-                  >
+                  <span class="text-green-400 font-bold">STEP 06</span>
                   <span class="text-white font-bold">Zone Activation</span>
                   <span class="text-slate-300"
                     >Wait for propagation (usually 5 to 30 minutes). Cloudflare
@@ -1689,7 +1658,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-red-400"
                     >SECTION 06 • SAFETY WARNING</span
                   >
                   <h2
@@ -1704,7 +1673,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >DANGER ZONE</span
                 >
               </div>
@@ -1779,7 +1748,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 07 • NAMESERVERS</span
                   >
                   <h2
@@ -1794,7 +1763,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >CONCEPTS</span
                 >
               </div>
@@ -1811,7 +1780,7 @@
                     TLD servers to discover who holds the authoritative answers.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Client → Asks Resolver: "What is taskflow.com?"<br />
                     Resolver → Asks Root (.) → Asks .com TLD → Reaches
@@ -1831,7 +1800,7 @@
                     recursive resolver.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-400"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     Cloudflare Nameserver answers:<br />
                     "taskflow.com points to 104.21.72.18 with TTL 300s"
@@ -1856,7 +1825,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 07 • RESOLUTION LIFECYCLE</span
                   >
                   <h2
@@ -1871,12 +1840,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >FLOW DIAGRAM</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -1891,7 +1860,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   1. User types "taskflow.com" in Chrome └── Browser Cache?
                   ──(Miss)──> OS Cache? ──(Miss)──> Router DNS? 2. Request hits
@@ -1923,7 +1892,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 08 • DNS RECORDS</span
                   >
                   <h2
@@ -1937,7 +1906,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >RECORDS</span
                 >
               </div>
@@ -1945,15 +1914,13 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-blue-400 font-bold"
-                    >TYPE A (Address)</span
-                  >
+                  <span class="text-blue-400 font-bold">TYPE A (Address)</span>
                   <p class="text-slate-300">
                     Maps a hostname to an <strong>IPv4</strong> address (32-bit
                     number).
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-blue-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-blue-300"
                   >
                     Name: @<br />
                     Target: 198.51.100.24<br />
@@ -1963,7 +1930,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-purple-400 font-bold"
+                  <span class="text-purple-400 font-bold"
                     >TYPE AAAA (IPv6)</span
                   >
                   <p class="text-slate-300">
@@ -1971,7 +1938,7 @@
                     hexadecimal).
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-purple-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-purple-300"
                   >
                     Name: @<br />
                     Target: 2001:db8::1<br />
@@ -1981,7 +1948,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >TYPE CNAME (Alias)</span
                   >
                   <p class="text-slate-300">
@@ -1989,7 +1956,7 @@
                     Flattening at the apex!
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     Name: www<br />
                     Target: taskflow.com<br />
@@ -2015,7 +1982,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 08 • SERVICE RECORDS</span
                   >
                   <h2
@@ -2030,7 +1997,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >MAIL &amp; AUTH</span
                 >
               </div>
@@ -2038,7 +2005,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >MX (Mail Exchange)</span
                   >
                   <p class="text-slate-300">
@@ -2046,57 +2013,47 @@
                     Proton, Google Workspace).
                     <strong class="text-red-400">Must NEVER be proxied!</strong>
                   </p>
-                  <div
-                    class="font-mono text-[11px] bg-slate-950 p-1.5 text-slate-300"
-                  >
+                  <div class="text-[11px] bg-slate-950 p-1.5 text-slate-300">
                     MX @ mail.protonmail.ch (Priority 10)
                   </div>
                 </div>
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-green-400 font-bold"
+                  <span class="text-green-400 font-bold"
                     >TXT (Text &amp; Verification)</span
                   >
                   <p class="text-slate-300">
                     Holds arbitrary text for SPF email authentication, DKIM
                     signatures, and domain ownership tokens.
                   </p>
-                  <div
-                    class="font-mono text-[11px] bg-slate-950 p-1.5 text-slate-300"
-                  >
+                  <div class="text-[11px] bg-slate-950 p-1.5 text-slate-300">
                     TXT @ "v=spf1 include:_spf.protonmail.ch ~all"
                   </div>
                 </div>
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-purple-400 font-bold"
+                  <span class="text-purple-400 font-bold"
                     >CAA (Certificate Authority Authorization)</span
                   >
                   <p class="text-slate-300">
                     Declares which CAs (e.g. Let's Encrypt, DigiCert) are
                     allowed to issue SSL certificates for this domain.
                   </p>
-                  <div
-                    class="font-mono text-[11px] bg-slate-950 p-1.5 text-slate-300"
-                  >
+                  <div class="text-[11px] bg-slate-950 p-1.5 text-slate-300">
                     CAA @ 0 issue "letsencrypt.org"
                   </div>
                 </div>
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-blue-400 font-bold"
-                    >SRV &amp; NS</span
-                  >
+                  <span class="text-blue-400 font-bold">SRV &amp; NS</span>
                   <p class="text-slate-300">
                     SRV defines location of specific services (port, weight). NS
                     delegates subdomains to other nameservers.
                   </p>
-                  <div
-                    class="font-mono text-[11px] bg-slate-950 p-1.5 text-slate-300"
-                  >
+                  <div class="text-[11px] bg-slate-950 p-1.5 text-slate-300">
                     NS dev ns1.internal-corp.net
                   </div>
                 </div>
@@ -2119,7 +2076,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     data-i18n="ui_sim_label"
                     >SIMULATION ONLY</span
                   >
@@ -2135,7 +2092,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[10px] font-bold px-2 py-0.5 bg-orange-500/20 text-orange-400 border border-orange-500/30 font-mono"
+                  class="text-[10px] font-bold px-2 py-0.5 bg-orange-500/20 text-orange-400 border border-orange-500/30"
                   >SANDBOX</span
                 >
               </div>
@@ -2147,12 +2104,12 @@
                   <h4 class="text-white font-bold">Add DNS Record</h4>
                   <div class="grid grid-cols-2 gap-2">
                     <div>
-                      <label class="text-slate-400 text-[10px] block font-mono"
+                      <label class="text-slate-400 text-[10px] block"
                         >Type</label
                       >
                       <select
                         id="sim-dns-type"
-                        class="w-full bg-slate-900 border border-slate-700 text-white p-1 font-mono text-xs"
+                        class="w-full bg-slate-900 border border-slate-700 text-white p-1 text-xs"
                       >
                         <option value="A">A (IPv4)</option>
                         <option value="AAAA">AAAA (IPv6)</option>
@@ -2162,26 +2119,26 @@
                       </select>
                     </div>
                     <div>
-                      <label class="text-slate-400 text-[10px] block font-mono"
+                      <label class="text-slate-400 text-[10px] block"
                         >Name (@ or sub)</label
                       >
                       <input
                         type="text"
                         id="sim-dns-name"
                         placeholder="@"
-                        class="w-full bg-slate-900 border border-slate-700 text-white p-1 font-mono text-xs"
+                        class="w-full bg-slate-900 border border-slate-700 text-white p-1 text-xs"
                       />
                     </div>
                   </div>
                   <div>
-                    <label class="text-slate-400 text-[10px] block font-mono"
+                    <label class="text-slate-400 text-[10px] block"
                       >Target / Value</label
                     >
                     <input
                       type="text"
                       id="sim-dns-target"
                       placeholder="198.51.100.24"
-                      class="w-full bg-slate-900 border border-slate-700 text-white p-1 font-mono text-xs"
+                      class="w-full bg-slate-900 border border-slate-700 text-white p-1 text-xs"
                     />
                   </div>
                   <div class="flex items-center justify-between pt-1">
@@ -2212,7 +2169,7 @@
                   <div
                     class="border-t border-slate-800 pt-2 mt-1 flex flex-col gap-1.5"
                   >
-                    <span class="text-slate-400 text-[10px] font-mono"
+                    <span class="text-slate-400 text-[10px]"
                       >Test DNS Query Resolution</span
                     >
                     <div class="flex gap-1.5">
@@ -2221,7 +2178,7 @@
                         id="sim-query-input"
                         value="taskflow.com"
                         placeholder="taskflow.com"
-                        class="flex-1 bg-slate-900 border border-slate-700 text-white p-1 font-mono text-xs"
+                        class="flex-1 bg-slate-900 border border-slate-700 text-white p-1 text-xs"
                       />
                       <button
                         id="sim-btn-run-query"
@@ -2232,7 +2189,7 @@
                     </div>
                     <div
                       id="sim-query-output"
-                      class="bg-slate-900 border border-slate-800 p-2 font-mono text-[11px] min-h-[50px] text-slate-300"
+                      class="bg-slate-900 border border-slate-800 p-2 text-[11px] min-h-[50px] text-slate-300"
                     >
                       Click "Resolve" to test query against the virtual
                       Cloudflare nameserver.
@@ -2246,7 +2203,7 @@
                   <table class="w-full text-left border-collapse">
                     <thead>
                       <tr
-                        class="border-b border-slate-800 text-slate-400 font-mono text-[10px] uppercase"
+                        class="border-b border-slate-800 text-slate-400 text-[10px] uppercase"
                       >
                         <th class="p-1.5">Type</th>
                         <th class="p-1.5">Name</th>
@@ -2278,7 +2235,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 10 • PROXY STATUS</span
                   >
                   <h2
@@ -2293,7 +2250,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400"
                   >ORANGE VS GREY</span
                 >
               </div>
@@ -2313,7 +2270,7 @@
                     your origin.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     Visitor → Cloudflare Edge (CDN + WAF + DDoS) → Origin Server
                   </div>
@@ -2337,7 +2294,7 @@
                     Cloudflare proxy.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Visitor → Direct Connection to Origin IP (No WAF, No CDN)
                   </div>
@@ -2364,7 +2321,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 10 • DECISION MATRIX</span
                   >
                   <h2
@@ -2379,7 +2336,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >RULES</span
                 >
               </div>
@@ -2449,7 +2406,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 11 • REVERSE PROXY</span
                   >
                   <h2
@@ -2464,7 +2421,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >ARCHITECTURE</span
                 >
               </div>
@@ -2498,7 +2455,7 @@
                     your server's RAM or bandwidth.
                   </p>
                   <div
-                    class="p-2.5 bg-orange-500/10 border border-orange-500/20 text-orange-300 font-mono text-[11px]"
+                    class="p-2.5 bg-orange-500/10 border border-orange-500/20 text-orange-300 text-[11px]"
                   >
                     Client IP ──> [Cloudflare Edge (TLS Termination)] ──>
                     [Origin Server]
@@ -2523,7 +2480,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 11 • PROXY HEADERS</span
                   >
                   <h2
@@ -2538,7 +2495,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >HEADERS</span
                 >
               </div>
@@ -2559,7 +2516,7 @@
                   </p>
                 </div>
                 <div
-                  class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 font-mono text-[11px]"
+                  class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 text-[11px]"
                 >
                   <h4 class="text-orange-400 font-bold font-sans text-xs">
                     Essential Headers Injected by Cloudflare
@@ -2610,7 +2567,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 12 • CDN FUNDAMENTALS</span
                   >
                   <h2
@@ -2625,7 +2582,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >CDN</span
                 >
               </div>
@@ -2673,7 +2630,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 12 • CACHE ANATOMY</span
                   >
                   <h2
@@ -2688,7 +2645,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >CF-CACHE-STATUS</span
                 >
               </div>
@@ -2700,7 +2657,7 @@
                     1. First Request: Cache MISS
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     User in Phnom Penh requests /logo.png<br />
                     Cloudflare Edge (Phnom Penh) checks SSD: NOT FOUND<br />
@@ -2719,7 +2676,7 @@
                     2. Second Request: Cache HIT
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-green-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-green-300"
                   >
                     Next user in Phnom Penh requests /logo.png<br />
                     Cloudflare Edge finds copy in local memory/SSD<br />
@@ -2750,7 +2707,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 13 • CACHING TIERS</span
                   >
                   <h2
@@ -2765,7 +2722,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >MULTI-TIER</span
                 >
               </div>
@@ -2773,7 +2730,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-blue-400 font-bold"
+                  <span class="text-blue-400 font-bold"
                     >TIER 1: BROWSER CACHE</span
                   >
                   <p class="text-slate-300">
@@ -2784,7 +2741,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5 border-orange-500/40"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >TIER 2: EDGE CDN CACHE</span
                   >
                   <p class="text-slate-300">
@@ -2796,7 +2753,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-purple-400 font-bold"
+                  <span class="text-purple-400 font-bold"
                     >TIER 3: ORIGIN CACHE</span
                   >
                   <p class="text-slate-300">
@@ -2824,7 +2781,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 13 • HTTP HEADERS</span
                   >
                   <h2
@@ -2839,13 +2796,13 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >SPECIFICATION</span
                 >
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                 <div
-                  class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 font-mono text-[11px]"
+                  class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 text-[11px]"
                 >
                   <h4 class="text-white font-bold font-sans text-xs">
                     Essential Directives
@@ -2882,7 +2839,7 @@
                     Production Example: Static Bundles
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-green-400"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-green-400"
                   >
                     Cache-Control: public, max-age=31536000, immutable
                   </div>
@@ -2912,7 +2869,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 13 • INVALIDATION</span
                   >
                   <h2
@@ -2927,7 +2884,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >PURGING</span
                 >
               </div>
@@ -2935,7 +2892,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5 border-red-500/30"
                 >
-                  <span class="font-mono text-red-400 font-bold"
+                  <span class="text-red-400 font-bold"
                     >1. Purge Everything</span
                   >
                   <h4 class="text-white font-bold text-sm">
@@ -2950,7 +2907,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >2. Purge by Single URL</span
                   >
                   <h4 class="text-white font-bold text-sm">
@@ -2966,7 +2923,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-green-400 font-bold"
+                  <span class="text-green-400 font-bold"
                     >3. Cache-Tags (Enterprise)</span
                   >
                   <h4 class="text-white font-bold text-sm">
@@ -2997,7 +2954,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-red-400"
                     >SECTION 13 • CRITICAL SAFETY</span
                   >
                   <h2
@@ -3012,7 +2969,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >DATA LEAK RISK</span
                 >
               </div>
@@ -3072,7 +3029,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 14 • CRYPTOGRAPHY</span
                   >
                   <h2
@@ -3087,7 +3044,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >TLS 1.3</span
                 >
               </div>
@@ -3135,7 +3092,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-red-400"
                     >SECTION 14 • THE SECURITY ILLUSION</span
                   >
                   <h2
@@ -3149,12 +3106,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >TWO LEGS</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -3169,7 +3126,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   LEG 1: Browser ────────(Encrypted HTTPS)────────> Cloudflare
                   Edge │ [Is Leg 2 also encrypted?] │ LEG 2: Cloudflare Edge
@@ -3198,7 +3155,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 15 • SSL MODES</span
                   >
                   <h2
@@ -3213,7 +3170,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >SSL MODES</span
                 >
               </div>
@@ -3221,7 +3178,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-slate-400 font-bold">1. Off</span>
+                  <span class="text-slate-400 font-bold">1. Off</span>
                   <span class="text-white font-bold">No Encryption</span>
                   <span class="text-slate-400"
                     >Plaintext HTTP only on both legs. Legacy, insecure, never
@@ -3231,9 +3188,7 @@
                 <div
                   class="bg-slate-800/80 border border-red-500/30 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-red-400 font-bold"
-                    >2. Flexible</span
-                  >
+                  <span class="text-red-400 font-bold">2. Flexible</span>
                   <span class="text-white font-bold">Insecure Hybrid</span>
                   <span class="text-slate-400"
                     >Browser to Cloudflare is HTTPS. Cloudflare to origin is
@@ -3243,9 +3198,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-yellow-400 font-bold"
-                    >3. Full</span
-                  >
+                  <span class="text-yellow-400 font-bold">3. Full</span>
                   <span class="text-white font-bold"
                     >Encrypted (No Validation)</span
                   >
@@ -3257,9 +3210,7 @@
                 <div
                   class="bg-slate-800/80 border border-green-500/40 p-3 flex flex-col gap-1 bg-green-950/20"
                 >
-                  <span class="font-mono text-green-400 font-bold"
-                    >4. Full (Strict)</span
-                  >
+                  <span class="text-green-400 font-bold">4. Full (Strict)</span>
                   <span class="text-white font-bold">Production Standard</span>
                   <span class="text-slate-300"
                     >Both legs encrypted. Cloudflare validates origin
@@ -3285,7 +3236,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-red-400"
                     >SECTION 15 • PITFALL</span
                   >
                   <h2
@@ -3300,7 +3251,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >AVOID FLEXIBLE</span
                 >
               </div>
@@ -3317,7 +3268,7 @@
                     <code>return 301 https://$host$request_uri;</code>, Nginx
                     sends redirect back to browser. Cloudflare repeats on port
                     80. Result:
-                    <span class="text-red-400 font-mono font-bold"
+                    <span class="text-red-400 font-bold"
                       >ERR_TOO_MANY_REDIRECTS</span
                     >.
                   </p>
@@ -3354,7 +3305,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 15 • ORIGIN CERTIFICATES</span
                   >
                   <h2
@@ -3369,7 +3320,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >FREE 15-YEAR CERT</span
                 >
               </div>
@@ -3386,7 +3337,7 @@
                   </p>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]"
+                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -3420,7 +3371,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 16 • CHECKLIST</span
                   >
                   <h2
@@ -3435,7 +3386,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >CHECKLIST</span
                 >
               </div>
@@ -3478,7 +3429,7 @@
                 >
                   <h4 class="text-white font-bold">Verification Command</h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     $ curl -Iv https://taskflow.com<br />
                     * TLS 1.3 connection using TLS_AES_256_GCM_SHA384<br />
@@ -3506,7 +3457,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 17 • DDOS MITIGATION</span
                   >
                   <h2
@@ -3521,7 +3472,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >DEFENSE</span
                 >
               </div>
@@ -3571,7 +3522,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 18 • WAF</span
                   >
                   <h2
@@ -3586,7 +3537,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >FIREWALL</span
                 >
               </div>
@@ -3615,7 +3566,7 @@
                     syntax.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     (http.request.uri.path contains "/admin" and not ip.src in
                     {203.0.113.50})<br />
@@ -3641,7 +3592,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 18 • WAF ACTIONS</span
                   >
                   <h2
@@ -3656,7 +3607,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >ACTIONS</span
                 >
               </div>
@@ -3664,9 +3615,7 @@
                 <div
                   class="bg-slate-800/80 border border-green-500/30 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-green-400 font-bold"
-                    >ALLOW / SKIP</span
-                  >
+                  <span class="text-green-400 font-bold">ALLOW / SKIP</span>
                   <p class="text-slate-300">
                     Explicitly bypasses other security checks. Use for trusted
                     partner webhook IPs (e.g. Stripe, GitHub).
@@ -3675,7 +3624,7 @@
                 <div
                   class="bg-slate-800/80 border border-orange-500/30 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >MANAGED CHALLENGE</span
                   >
                   <p class="text-slate-300">
@@ -3687,7 +3636,7 @@
                 <div
                   class="bg-slate-800/80 border border-red-500/30 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-red-400 font-bold">BLOCK</span>
+                  <span class="text-red-400 font-bold">BLOCK</span>
                   <p class="text-slate-300">
                     Returns an immediate HTTP 403 Forbidden with a branded error
                     page. Drops payload before reaching origin.
@@ -3712,7 +3661,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 19 • RATE LIMITING</span
                   >
                   <h2
@@ -3727,7 +3676,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >RATE LIMITING</span
                 >
               </div>
@@ -3746,7 +3695,7 @@
                   </p>
                 </div>
                 <div
-                  class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 font-mono text-[11px]"
+                  class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 text-[11px]"
                 >
                   <h4 class="text-orange-400 font-bold font-sans text-xs">
                     Production Rule Example
@@ -3789,7 +3738,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 20 • BOT MANAGEMENT</span
                   >
                   <h2
@@ -3804,7 +3753,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >BOT MANAGEMENT</span
                 >
               </div>
@@ -3858,7 +3807,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 21 • RULES ENGINE</span
                   >
                   <h2
@@ -3873,7 +3822,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >RULES</span
                 >
               </div>
@@ -3881,9 +3830,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >Redirect Rules</span
-                  >
+                  <span class="text-orange-400 font-bold">Redirect Rules</span>
                   <span class="text-white font-bold">Edge 301 / 302</span>
                   <span class="text-slate-400"
                     >Redirect www to apex or migrate old URL paths without
@@ -3893,9 +3840,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-blue-400 font-bold"
-                    >Transform Rules</span
-                  >
+                  <span class="text-blue-400 font-bold">Transform Rules</span>
                   <span class="text-white font-bold"
                     >Header &amp; URL Rewrite</span
                   >
@@ -3907,9 +3852,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-green-400 font-bold"
-                    >Cache Rules</span
-                  >
+                  <span class="text-green-400 font-bold">Cache Rules</span>
                   <span class="text-white font-bold">Fine-Grained TTL</span>
                   <span class="text-slate-400"
                     >Override edge cache TTL for specific patterns (e.g.
@@ -3919,9 +3862,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-purple-400 font-bold"
-                    >Config Rules</span
-                  >
+                  <span class="text-purple-400 font-bold">Config Rules</span>
                   <span class="text-white font-bold">Security Overrides</span>
                   <span class="text-slate-400"
                     >Disable Rocket Loader or tweak security levels for specific
@@ -3947,7 +3888,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 22 • REDIRECTS</span
                   >
                   <h2
@@ -3962,7 +3903,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >CANONICAL</span
                 >
               </div>
@@ -3982,7 +3923,7 @@
                   </p>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]"
+                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-orange-400 font-bold"
@@ -4016,7 +3957,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 23 • SUBDOMAIN ROUTING</span
                   >
                   <h2
@@ -4031,12 +3972,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >TOPOLOGY</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -4051,7 +3992,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   CLOUDFLARE ZONE: taskflow.com ├── taskflow.com ──(CNAME
                   Proxied)──> Vercel Production (Landing Page) ├──
@@ -4082,7 +4023,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 24 • FULLSTACK TOPOLOGY</span
                   >
                   <h2
@@ -4097,7 +4038,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >STACK A</span
                 >
               </div>
@@ -4147,7 +4088,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 25 • FULLSTACK TOPOLOGY</span
                   >
                   <h2
@@ -4162,7 +4103,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >STACK B</span
                 >
               </div>
@@ -4179,7 +4120,7 @@
                     external TLS 1.3 and handles caching.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Visitor → Cloudflare Edge (Proxied A Record)<br />
                     &nbsp;&nbsp;↓ (Port 443 with Origin CA Certificate)<br />
@@ -4220,7 +4161,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 26 • SERVERLESS REVOLUTION</span
                   >
                   <h2
@@ -4235,7 +4176,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400"
                   >WORKERS</span
                 >
               </div>
@@ -4290,7 +4231,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 26 • WORKER CODE</span
                   >
                   <h2
@@ -4305,12 +4246,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >SYNTAX</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -4325,7 +4266,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   export default { async fetch(request: Request, env: Env, ctx:
                   ExecutionContext): Promise&lt;Response&gt; { const url = new
@@ -4356,7 +4297,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 27 • WORKFLOW</span
                   >
                   <h2
@@ -4371,7 +4312,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >DEVELOPMENT</span
                 >
               </div>
@@ -4410,7 +4351,7 @@
                     Option B: Modern Professional CLI (Recommended)
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300 space-y-1"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300 space-y-1"
                   >
                     <div>$ pnpm create cloudflare@latest taskflow-api</div>
                     <div class="text-slate-400">
@@ -4444,7 +4385,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 28 • WORKER ROUTES</span
                   >
                   <h2
@@ -4459,7 +4400,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >ROUTING</span
                 >
               </div>
@@ -4487,7 +4428,7 @@
                     Intercept specific sub-paths of an existing proxied domain:
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     Route: taskflow.com/api/*<br />
                     Service: taskflow-api-worker<br />
@@ -4517,7 +4458,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 29 • EDGE API</span
                   >
                   <h2
@@ -4532,12 +4473,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >API GATEWAY</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -4552,7 +4493,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   export default { async fetch(req: Request):
                   Promise&lt;Response&gt; { const corsHeaders = {
@@ -4586,7 +4527,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-red-400"
                     >SECTION 30 • SECRETS & BINDINGS</span
                   >
                   <h2
@@ -4601,7 +4542,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >SECRETS</span
                 >
               </div>
@@ -4625,7 +4566,7 @@
                     Wrangler CLI:
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-400"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-400"
                   >
                     $ pnpm exec wrangler secret put DATABASE_URL<br />
                     Enter secret value: postgresql://...
@@ -4644,7 +4585,7 @@
                     <code>env</code> object.
                   </p>
                   <div
-                    class="p-2.5 bg-green-500/10 border border-green-500/20 text-green-300 font-mono text-[11px]"
+                    class="p-2.5 bg-green-500/10 border border-green-500/20 text-green-300 text-[11px]"
                   >
                     // No API key needed to talk to R2 bucket!<br />
                     await env.AVATARS_BUCKET.put("avatar.jpg", stream);
@@ -4669,7 +4610,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 31 • OBJECT STORAGE</span
                   >
                   <h2
@@ -4684,7 +4625,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >ZERO EGRESS</span
                 >
               </div>
@@ -4714,7 +4655,7 @@
                     (Class A/B).
                   </p>
                   <div
-                    class="p-2 bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300"
+                    class="p-2 bg-slate-950 border border-slate-800 text-[11px] text-slate-300"
                   >
                     Use for: User avatars, PDF reports, database backups, audio
                     files.
@@ -4739,7 +4680,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 32 • PRACTICAL R2</span
                   >
                   <h2
@@ -4754,12 +4695,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >IMPLEMENTATION</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -4774,7 +4715,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   // PUT /api/upload/avatar/:userId const key =
                   `avatars/${userId}-${Date.now()}.png`; await
@@ -4803,7 +4744,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 33 • KEY-VALUE</span
                   >
                   <h2
@@ -4818,7 +4759,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >KV STORE</span
                 >
               </div>
@@ -4833,7 +4774,7 @@
                     across edge caches worldwide in ~10 seconds.
                   </p>
                   <div
-                    class="p-2.5 bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300"
+                    class="p-2.5 bg-slate-950 border border-slate-800 text-[11px] text-slate-300"
                   >
                     await env.CONFIG_KV.get("FEATURE_AI_CHAT");<br />
                     await env.CONFIG_KV.put("MAINTENANCE_MODE", "false", {
@@ -4872,7 +4813,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 34 • STATEFUL EDGE</span
                   >
                   <h2
@@ -4887,7 +4828,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >DURABLE OBJECTS</span
                 >
               </div>
@@ -4937,7 +4878,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 35 • QUEUES</span
                   >
                   <h2
@@ -4952,7 +4893,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >QUEUES</span
                 >
               </div>
@@ -4970,7 +4911,7 @@
                   </p>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]"
+                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -5006,7 +4947,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 36 • ZERO TRUST</span
                   >
                   <h2
@@ -5021,7 +4962,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >ZERO TRUST</span
                 >
               </div>
@@ -5070,7 +5011,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 36 • ACCESS SSO</span
                   >
                   <h2
@@ -5085,12 +5026,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >ACCESS SSO</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -5105,7 +5046,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   Application: admin.taskflow.com Policy Name: Engineering Team
                   Only Action: Allow Rules: - Include: Emails ending in
@@ -5134,7 +5075,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 37 • TUNNELS</span
                   >
                   <h2
@@ -5149,7 +5090,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >CLOUDFLARED</span
                 >
               </div>
@@ -5200,7 +5141,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 38 • PRACTICAL TUNNEL</span
                   >
                   <h2
@@ -5215,12 +5156,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >DEMO</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -5235,7 +5176,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   # 1. Install cloudflared daemon $ brew install cloudflared #
                   or apt install cloudflared # 2. Login and authorize your zone
@@ -5266,7 +5207,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 39 • AUTOMATION API</span
                   >
                   <h2
@@ -5281,12 +5222,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >REST API</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -5301,7 +5242,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   $ curl -X POST
                   "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records"
@@ -5329,7 +5270,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 40 • WRANGLER CLI</span
                   >
                   <h2
@@ -5344,13 +5285,13 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >WRANGLER</span
                 >
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                 <div
-                  class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 font-mono text-[11px]"
+                  class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 text-[11px]"
                 >
                   <h4 class="text-white font-bold font-sans text-xs">
                     Essential Wrangler Commands
@@ -5382,7 +5323,7 @@
                   </div>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]"
+                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -5417,7 +5358,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 41 • CI/CD AUTOMATION</span
                   >
                   <h2
@@ -5432,12 +5373,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >GITHUB ACTIONS</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -5452,7 +5393,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   name: Deploy Worker to Cloudflare on: push: branches: [main]
                   jobs: deploy: runs-on: ubuntu-latest steps: - uses:
@@ -5481,7 +5422,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 42 • CLOUDFLARE PAGES</span
                   >
                   <h2
@@ -5496,7 +5437,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >PAGES</span
                 >
               </div>
@@ -5555,7 +5496,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 42 • ARCHITECTURAL COMPARISON</span
                   >
                   <h2
@@ -5570,7 +5511,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >COMPARISON</span
                 >
               </div>
@@ -5578,7 +5519,7 @@
                 <div
                   class="bg-slate-800/80 border border-orange-500/30 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >Cloudflare Pages</span
                   >
                   <p class="text-slate-300 font-bold">
@@ -5592,7 +5533,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-blue-400 font-bold">Vercel</span>
+                  <span class="text-blue-400 font-bold">Vercel</span>
                   <p class="text-slate-300 font-bold">
                     Best-in-Class Next.js DX
                   </p>
@@ -5605,9 +5546,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-green-400 font-bold"
-                    >Traditional VPS</span
-                  >
+                  <span class="text-green-400 font-bold">Traditional VPS</span>
                   <p class="text-slate-300 font-bold">
                     Total Kernel &amp; Container Control
                   </p>
@@ -5636,7 +5575,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 43 • STATIC SITE WORKFLOW</span
                   >
                   <h2
@@ -5651,7 +5590,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >DEPLOYMENT</span
                 >
               </div>
@@ -5676,7 +5615,7 @@
                     <li>
                       Configure Build Settings:
                       <div
-                        class="bg-slate-950 p-2 font-mono text-[11px] text-orange-300 mt-1"
+                        class="bg-slate-950 p-2 text-[11px] text-orange-300 mt-1"
                       >
                         Build command: pnpm run build<br />
                         Build output directory: dist (or out for Next.js export)
@@ -5693,7 +5632,7 @@
                   </ol>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]"
+                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -5727,7 +5666,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 44 • NEXT.JS ADVISORY</span
                   >
                   <h2
@@ -5742,7 +5681,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/15 text-amber-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/15 text-amber-400"
                   >ADVISORY</span
                 >
               </div>
@@ -5793,7 +5732,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-red-400"
                     >SECTION 45 • EMAIL PRESERVATION</span
                   >
                   <h2
@@ -5808,7 +5747,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >SAFETY</span
                 >
               </div>
@@ -5842,7 +5781,7 @@
                   </ul>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]"
+                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -5876,7 +5815,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-red-400"
                     >SECTION 46 • PRE-MIGRATION</span
                   >
                   <h2
@@ -5891,7 +5830,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >10 COMMANDMENTS</span
                 >
               </div>
@@ -5959,7 +5898,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 47 • DNSSEC</span
                   >
                   <h2
@@ -5974,7 +5913,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400"
                   >DNSSEC</span
                 >
               </div>
@@ -6002,7 +5941,7 @@
                     <code>SERVFAIL</code>.
                   </p>
                   <div
-                    class="p-2 bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300"
+                    class="p-2 bg-slate-950 border border-slate-800 text-[11px] text-slate-300"
                   >
                     Migration rule: Delete old DS records at registrar → Switch
                     nameservers → Wait 24h → Enable Cloudflare DNSSEC and add
@@ -6028,7 +5967,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 48 • DEFENSE IN DEPTH</span
                   >
                   <h2
@@ -6043,12 +5982,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >DEFENSE IN DEPTH</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -6063,7 +6002,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   [INTERNET VISITOR] │ ▼ 1. Cloudflare Anycast DNS (DNSSEC
                   cryptographic integrity) │ ▼ 2. L3/L4 DDoS Mitigation
@@ -6095,7 +6034,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 49 • ORIGIN HARDENING</span
                   >
                   <h2
@@ -6110,7 +6049,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >HARDENING</span
                 >
               </div>
@@ -6126,7 +6065,7 @@
                     comes from Cloudflare's published IP ranges:
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-orange-300"
                   >
                     # Example UFW rule:<br />
                     $ sudo ufw allow from 173.245.48.0/20 to any port 443 proto
@@ -6168,7 +6107,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 50 • OBSERVABILITY</span
                   >
                   <h2
@@ -6183,7 +6122,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >OBSERVABILITY</span
                 >
               </div>
@@ -6191,7 +6130,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >1. Traffic Analytics</span
                   >
                   <p class="text-slate-300">
@@ -6202,9 +6141,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-red-400 font-bold"
-                    >2. Security Events</span
-                  >
+                  <span class="text-red-400 font-bold">2. Security Events</span>
                   <p class="text-slate-300">
                     Inspect blocked requests: IP address, matched WAF rule,
                     country, and user agent.
@@ -6213,7 +6150,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-green-400 font-bold"
+                  <span class="text-green-400 font-bold"
                     >3. Live Worker Tail</span
                   >
                   <p class="text-slate-300">
@@ -6240,7 +6177,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 51 • DNS TROUBLESHOOTING</span
                   >
                   <h2
@@ -6255,7 +6192,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >DIAGNOSTICS</span
                 >
               </div>
@@ -6265,7 +6202,7 @@
                 >
                   <h4 class="text-white font-bold">Diagnostic Flowchart</h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Domain doesn't load<br />
                     ├── 1. Check WHOIS nameservers: Are they Cloudflare's?<br />
@@ -6275,7 +6212,7 @@
                   </div>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]"
+                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold"
@@ -6309,7 +6246,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 52 • SSL TROUBLESHOOTING</span
                   >
                   <h2
@@ -6324,7 +6261,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/15 text-amber-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/15 text-amber-400"
                   >SSL ERRORS</span
                 >
               </div>
@@ -6389,7 +6326,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 53 • 502 &amp; 504</span
                   >
                   <h2
@@ -6404,7 +6341,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >GATEWAY ERRORS</span
                 >
               </div>
@@ -6419,7 +6356,7 @@
                     Nginx crashed.
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Check: $ sudo systemctl status nginx<br />
                     Check: $ pm2 status (Node.js app crashed?)
@@ -6435,7 +6372,7 @@
                     slow un-indexed database queries!
                   </p>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     Check: PostgreSQL slow query logs<br />
                     Check: EXPLAIN ANALYZE on hanging queries
@@ -6460,7 +6397,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >INTERACTIVE WORKSHOP</span
                   >
                   <h2
@@ -6475,7 +6412,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[10px] font-bold px-2 py-0.5 bg-green-500/20 text-green-400 border border-green-500/30 font-mono"
+                  class="text-[10px] font-bold px-2 py-0.5 bg-green-500/20 text-green-400 border border-green-500/30"
                   >SIMULATION</span
                 >
               </div>
@@ -6539,7 +6476,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 54 • PERFORMANCE</span
                   >
                   <h2
@@ -6554,7 +6491,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >SPEED</span
                 >
               </div>
@@ -6562,7 +6499,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-green-400 font-bold">Brotli</span>
+                  <span class="text-green-400 font-bold">Brotli</span>
                   <span class="text-white font-bold">Next-Gen Compression</span>
                   <span class="text-slate-400"
                     >Compresses text assets 20% smaller than standard
@@ -6572,9 +6509,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-blue-400 font-bold"
-                    >HTTP/3 (QUIC)</span
-                  >
+                  <span class="text-blue-400 font-bold">HTTP/3 (QUIC)</span>
                   <span class="text-white font-bold">UDP Transport</span>
                   <span class="text-slate-400"
                     >Zero head-of-line blocking on lossy mobile cellular
@@ -6584,7 +6519,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-purple-400 font-bold"
+                  <span class="text-purple-400 font-bold"
                     >Early Hints (103)</span
                   >
                   <span class="text-white font-bold">Parallel Preload</span>
@@ -6596,7 +6531,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
+                  <span class="text-orange-400 font-bold"
                     >Polish &amp; Mirage</span
                   >
                   <span class="text-white font-bold">Image Optimization</span>
@@ -6623,7 +6558,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 55 • COST CONTROL</span
                   >
                   <h2
@@ -6638,7 +6573,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400"
                   >PLANS</span
                 >
               </div>
@@ -6646,7 +6581,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-green-400 font-bold"
+                  <span class="text-green-400 font-bold"
                     >FREE PLAN ($0/mo)</span
                   >
                   <p class="text-slate-300">
@@ -6658,9 +6593,7 @@
                 <div
                   class="bg-slate-800/80 border border-orange-500/30 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-orange-400 font-bold"
-                    >PRO ($20/mo)</span
-                  >
+                  <span class="text-orange-400 font-bold">PRO ($20/mo)</span>
                   <p class="text-slate-300">
                     Cloudflare Managed WAF rulesets, Polish image optimization,
                     mobile speed acceleration, and faster analytics reporting.
@@ -6669,7 +6602,7 @@
                 <div
                   class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5"
                 >
-                  <span class="font-mono text-purple-400 font-bold"
+                  <span class="text-purple-400 font-bold"
                     >PAY-AS-YOU-GO WORKERS</span
                   >
                   <p class="text-slate-300">
@@ -6697,7 +6630,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 56 • GUIDED PROJECT</span
                   >
                   <h2
@@ -6712,12 +6645,12 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >MASTER TOPOLOGY</span
                 >
               </div>
               <div
-                class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md"
+                class="terminal-window bg-slate-950 border border-slate-800 text-xs shadow-md"
               >
                 <div
                   class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"
@@ -6732,7 +6665,7 @@
                   </button>
                 </div>
                 <div
-                  class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto"
+                  class="terminal-body p-3 text-xs leading-relaxed text-slate-300 overflow-x-auto"
                 >
                   USERS (Browsers, Mobile Apps worldwide) │ ▼ (Anycast TLS 1.3)
                   CLOUDFLARE GLOBAL EDGE ├── DNS (taskflow.com) ├── DDoS
@@ -6763,7 +6696,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     data-i18n="ui_checklist_title"
                     >PRODUCTION LAUNCH AUDIT</span
                   >
@@ -6787,7 +6720,7 @@
                 </button>
               </div>
 
-              <div class="flex items-center justify-between text-xs font-mono">
+              <div class="flex items-center justify-between text-xs">
                 <span id="check-count-label" class="text-green-400 font-bold"
                   >0 of 20 Checked (0%)</span
                 >
@@ -7023,7 +6956,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     data-i18n="ui_arch_explorer_title"
                     >INTERACTIVE VISUALIZER</span
                   >
@@ -7039,7 +6972,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[10px] font-bold px-2 py-0.5 bg-blue-500/20 text-blue-400 border border-blue-500/30 font-mono"
+                  class="text-[10px] font-bold px-2 py-0.5 bg-blue-500/20 text-blue-400 border border-blue-500/30"
                   >EXPLORER</span
                 >
               </div>
@@ -7089,10 +7022,10 @@
                 <div class="flex items-center justify-between">
                   <span
                     id="arch-detail-badge"
-                    class="font-mono text-[10px] font-bold text-orange-400 uppercase"
+                    class="text-[10px] font-bold text-orange-400 uppercase"
                     >EDGE ENTRY POINT</span
                   >
-                  <span class="text-[11px] font-mono text-slate-400"
+                  <span class="text-[11px] text-slate-400"
                     >Global PoP Active</span
                   >
                 </div>
@@ -7112,24 +7045,24 @@
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-1">
                   <div>
-                    <span class="text-[10px] text-slate-400 font-mono block"
+                    <span class="text-[10px] text-slate-400 block"
                       >Data Flow:</span
                     >
                     <div
                       id="arch-detail-flow"
-                      class="bg-slate-900 border border-slate-800 p-2 font-mono text-[11px] text-green-400"
+                      class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-green-400"
                     >
                       Client Resolver → Anycast 1.1.1.1 / 1.0.0.1 → Proxied
                       Virtual IP
                     </div>
                   </div>
                   <div>
-                    <span class="text-[10px] text-slate-400 font-mono block"
+                    <span class="text-[10px] text-slate-400 block"
                       >Key Capabilities:</span
                     >
                     <div
                       id="arch-detail-settings"
-                      class="bg-slate-900 border border-slate-800 p-2 font-mono text-[11px] text-orange-300"
+                      class="bg-slate-900 border border-slate-800 p-2 text-[11px] text-orange-300"
                     >
                       Automatic TTL, CNAME flattening, DNSSEC signing,
                       multi-record health checks.
@@ -7155,7 +7088,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-red-400"
                     >SECTION 58 • COMMON PITFALLS</span
                   >
                   <h2
@@ -7170,7 +7103,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400"
                   >PITFALLS</span
                 >
               </div>
@@ -7255,7 +7188,7 @@
               >
                 <div>
                   <span
-                    class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400"
+                    class="text-[11px] font-bold uppercase tracking-wider text-orange-400"
                     >SECTION 59 • FINAL SUMMARY</span
                   >
                   <h2
@@ -7270,7 +7203,7 @@
                   </p>
                 </div>
                 <span
-                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono"
+                  class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400"
                   >COMPLETE</span
                 >
               </div>
@@ -7282,7 +7215,7 @@
                     Core Mental Model Summary
                   </h4>
                   <div
-                    class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300"
+                    class="bg-slate-950 border border-slate-800 p-2 text-[11px] text-slate-300"
                   >
                     DOMAIN → NAMESERVERS → DNS → PROXY → SSL/TLS → CDN → WAF →
                     APP → DB<br /><br />
@@ -7294,7 +7227,7 @@
                   </div>
                 </div>
                 <div
-                  class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]"
+                  class="terminal-window bg-slate-950 border border-slate-800 text-[11px]"
                 >
                   <div
                     class="p-2 bg-slate-900 border-b border-slate-800 text-green-400 font-bold"
@@ -7335,32 +7268,32 @@
         >
           <span
             ><kbd
-              class="kbd px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
+              class="kbd px-1.5 py-0.5 text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
               >←</kbd
             >
             <kbd
-              class="kbd px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
+              class="kbd px-1.5 py-0.5 text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
               >→</kbd
             >
             Navigate</span
           >
           <span
             ><kbd
-              class="kbd px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
+              class="kbd px-1.5 py-0.5 text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
               >Space</kbd
             >
             Next</span
           >
           <span
             ><kbd
-              class="kbd px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
+              class="kbd px-1.5 py-0.5 text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
               >O</kbd
             >
             Overview</span
           >
           <span
             ><kbd
-              class="kbd px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
+              class="kbd px-1.5 py-0.5 text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200"
               >Ctrl+K</kbd
             >
             Search</span
@@ -7557,7 +7490,7 @@
           <input
             type="text"
             id="search-input"
-            class="w-full bg-slate-950 border border-slate-700 p-2.5 font-mono text-xs text-white outline-none focus:border-orange-500"
+            class="w-full bg-slate-950 border border-slate-700 p-2.5 text-xs text-white outline-none focus:border-orange-500"
             placeholder="Search Cloudflare, DNS, SSL, Workers, R2, WAF (Ctrl + K)..."
           />
           <div

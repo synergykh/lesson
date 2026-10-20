@@ -25,13 +25,13 @@ export default function SlideHeader({
       <div className="slide-title-wrap flex flex-col gap-1">
         <div className="flex items-center gap-2">
           <span
-            className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider uppercase border ${badgeClass}`}
+            className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px]  font-bold tracking-wider uppercase border ${badgeClass}`}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
             Slide {String(slideNum).padStart(2, "0")} / {totalSlides}
           </span>
           {badgeText && (
-            <span className="text-[11px] font-mono font-semibold text-slate-400 uppercase tracking-wider">
+            <span className="text-[11px]  font-semibold text-slate-400 uppercase tracking-wider">
               {badgeText}
             </span>
           )}

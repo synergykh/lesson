@@ -9,10 +9,9 @@ export default {
       DEFAULT: "4px",
       md: "6px",
       lg: "8px",
-      xl: "12px",
-      "2xl": "16px",
-      "3xl": "20px",
-      full: "0px",
+      xl: "10px",
+      "2xl": "12px",
+      "3xl": "16px",
     },
     extend: {
       borderRadius: {
@@ -21,10 +20,9 @@ export default {
         DEFAULT: "4px",
         md: "6px",
         lg: "8px",
-        xl: "12px",
-        "2xl": "16px",
-        "3xl": "0px",
-        full: "0px",
+        xl: "10px",
+        "2xl": "12px",
+        "3xl": "16px",
       },
       colors: {
         brand: {

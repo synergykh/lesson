@@ -182,7 +182,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
     return (
       <div className="h-screen w-screen bg-slate-950 text-white flex flex-col items-center justify-center gap-3">
         <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent animate-spin"></div>
-        <span className="font-mono text-xs text-slate-400">
+        <span className=" text-xs text-slate-400">
           Loading lesson slides...
         </span>
       </div>
@@ -231,7 +231,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
           </a>
           <Badge
             variant="default"
-            className="hidden sm:inline-flex font-mono text-[11px]"
+            className="hidden sm:inline-flex  text-[11px]"
           >
             {currentSlide.part || "SECTION"}
           </Badge>
@@ -239,12 +239,12 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
 
         <div className="top-controls flex items-center gap-1">
           {/* Jump to Slide dropdown */}
-          <div className="slide-counter-wrapper h-[34px] px-2.5 flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-950 border border-slate-800">
+          <div className="slide-counter-wrapper h-[34px] px-2.5 flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800">
             <span>{t("ui_slide", "Slide")}</span>
             <select
               value={currentIndex}
               onChange={(e) => setCurrentIndex(Number(e.target.value))}
-              className="bg-transparent text-blue-400 font-mono text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white"
+              className="bg-transparent text-blue-400  text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white"
               title="Jump to slide"
             >
               {slides.map((s, idx) => (
@@ -438,10 +438,10 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
       <footer className="bottom-bar flex items-center justify-between h-[50px] px-4 bg-slate-900 border-t border-slate-800 z-50 shrink-0 text-xs text-slate-400">
         <div className="progress-section flex items-center gap-3">
           <Progress value={progressPercent} className="w-28 sm:w-36 h-2" />
-          <span className="font-mono text-xs text-slate-300 font-bold hidden sm:inline">
+          <span className=" text-xs text-slate-300 font-bold hidden sm:inline">
             {progressPercent}%
           </span>
-          <span className="text-slate-400 font-mono text-[11px] truncate max-w-[200px] hidden md:inline">
+          <span className="text-slate-400  text-[11px] truncate max-w-[200px] hidden md:inline">
             {currentSlide.part}
           </span>
         </div>
@@ -449,32 +449,32 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
         <div className="keyboard-hints hidden lg:flex items-center gap-2 text-slate-400 text-xs">
           <span>{t("ui_nav", "Navigation")}:</span>
           <span>
-            <kbd className="kbd px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               ←
             </kbd>{" "}
             /{" "}
-            <kbd className="kbd px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               →
             </kbd>{" "}
             or{" "}
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               Space
             </kbd>
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               O
             </kbd>{" "}
             Overview
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               F
             </kbd>{" "}
             Fullscreen
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               T
             </kbd>{" "}
             Theme
@@ -545,10 +545,10 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] font-bold text-blue-400">
+                    <span className=" text-[11px] font-bold text-blue-400">
                       #{idx + 1}
                     </span>
-                    <span className="text-[10px] font-mono uppercase text-slate-400 truncate max-w-[120px]">
+                    <span className="text-[10px]  uppercase text-slate-400 truncate max-w-[120px]">
                       {s.part}
                     </span>
                   </div>
@@ -583,41 +583,35 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Next Slide</span>
-                <span className="font-mono text-slate-200 font-bold">
-                  → / Space
-                </span>
+                <span className=" text-slate-200 font-bold">→ / Space</span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Previous Slide</span>
-                <span className="font-mono text-slate-200 font-bold">
-                  ← / Backspace
-                </span>
+                <span className=" text-slate-200 font-bold">← / Backspace</span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>First Slide</span>
-                <span className="font-mono text-slate-200 font-bold">Home</span>
+                <span className=" text-slate-200 font-bold">Home</span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Last Slide</span>
-                <span className="font-mono text-slate-200 font-bold">End</span>
+                <span className=" text-slate-200 font-bold">End</span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Slide Overview</span>
-                <span className="font-mono text-slate-200 font-bold">
-                  O / G
-                </span>
+                <span className=" text-slate-200 font-bold">O / G</span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Fullscreen</span>
-                <span className="font-mono text-slate-200 font-bold">F</span>
+                <span className=" text-slate-200 font-bold">F</span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Theme Toggle</span>
-                <span className="font-mono text-slate-200 font-bold">T</span>
+                <span className=" text-slate-200 font-bold">T</span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Close Modal</span>
-                <span className="font-mono text-slate-200 font-bold">Esc</span>
+                <span className=" text-slate-200 font-bold">Esc</span>
               </Card>
             </div>
           </Card>

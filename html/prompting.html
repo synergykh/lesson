@@ -24,7 +24,7 @@
   </script>
   <style>
     * {
-      border-radius: 0 !important;
+      
     }
     *, *::before, *::after {
       scrollbar-width: none;
@@ -260,16 +260,16 @@
           <svg class="brand-icon w-5 h-5 text-blue-500 fill-current" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           <span data-i18n="ui_brand">AI &amp; Prompt Engineering</span>
         </a>
-        <span class="part-badge inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2 py-1 bg-blue-600/15 text-blue-400 border border-blue-500/30 font-mono" id="current-part-badge">SECTION 01: UNDERSTANDING AI</span>
+        <span class="part-badge inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2 py-1 bg-blue-600/15 text-blue-400 border border-blue-500/30 " id="current-part-badge">SECTION 01: UNDERSTANDING AI</span>
       </div>
 
       <div class="top-controls flex items-center gap-2">
-        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1">
+        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1">
           <span data-i18n="ui_slide">Slide</span>
           <span id="current-slide-num" class="font-bold text-blue-400">1</span>
           <span data-i18n="ui_of">of</span>
           <span id="total-slides-num" class="font-bold text-slate-300">75</span>
-          <select id="slide-jump-select" class="bg-transparent text-blue-400 font-mono text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white" aria-label="Jump to Slide"></select>
+          <select id="slide-jump-select" class="bg-transparent text-blue-400  text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white" aria-label="Jump to Slide"></select>
         </div>
 
         <button id="btn-search" class="btn-icon inline-flex items-center justify-center gap-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold cursor-pointer transition-colors" title="Search Presentation (Ctrl+K)">
@@ -309,13 +309,13 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p1_badge">SECTION 01: UNDERSTANDING AI</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p1_badge">SECTION 01: UNDERSTANDING AI</span>
                 <h1 class="slide-title title-main-h1 text-2xl md:text-3xl font-extrabold text-white m-0 leading-tight" data-i18n="s1_head">What AI Is and How Language Models Work</h1>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s1_sub">Probabilistic text prediction vs. deterministic computation</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">MODULE 09</span>
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">CRITICAL THINKING</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">MODULE 09</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">CRITICAL THINKING</span>
               </div>
             </div>
             <div class="title-hero-grid grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-4 items-center">
@@ -337,13 +337,13 @@
                   <svg width="14" height="14" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
                 </button>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">mental-model — verification pipeline</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 Question / Specification
       ↓
 AI Interprets Context &amp; Tokens
@@ -365,12 +365,12 @@ Production Delivery
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p1_badge">SECTION 01: UNDERSTANDING AI</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p1_badge">SECTION 01: UNDERSTANDING AI</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s2_head">Hallucinations &amp; Failure Modes</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s2_sub">Why AI invents APIs, packages, and syntax out of thin air</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">HALLUCINATIONS</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">HALLUCINATIONS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -388,13 +388,13 @@ Production Delivery
                   <div><strong>Key Principle:</strong> AI output is a proposal to evaluate with proof, never automatically a fact to trust blindly.</div>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">hallucination — real example</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
 <span class="term-comment">// Model suggested function:</span>
 <span class="text-red-400">import { useDatabaseCache } from 'next/cache';</span>
 <span class="term-comment">// FATAL ERROR: Module 'next/cache' has no exported</span>
@@ -417,12 +417,12 @@ const getCachedUsers = unstable_cache(
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p1_badge">SECTION 01: UNDERSTANDING AI</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p1_badge">SECTION 01: UNDERSTANDING AI</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s3_head">The Verification Protocol</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s3_sub">Evidence-based software engineering with AI assistance</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">VERIFICATION</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">VERIFICATION</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -442,9 +442,9 @@ const getCachedUsers = unstable_cache(
                     <tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Evidence Source</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">What It Confirms</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">AI Risk Avoided</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">tsc --noEmit</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Type safety, API contracts</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Hallucinated properties</td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm test</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Logic, edge cases</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Silent regression bugs</td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git diff</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Scope, unrequested edits</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Collateral file destruction</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">tsc --noEmit</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Type safety, API contracts</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Hallucinated properties</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm test</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Logic, edge cases</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Silent regression bugs</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git diff</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Scope, unrequested edits</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Collateral file destruction</td></tr>
                     <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Server Telemetry</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Latency, memory, locks</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Unindexed query bottlenecks</td></tr>
                   </tbody>
                 </table>
@@ -457,12 +457,12 @@ const getCachedUsers = unstable_cache(
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p2_badge">SECTION 02: WHAT IS A PROMPT?</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p2_badge">SECTION 02: WHAT IS A PROMPT?</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s4_head">Vague Requests vs. Precise Specifications</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s4_sub">Why 'make me a website' fails and detailed prompts succeed</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">SPECIFICATIONS</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">SPECIFICATIONS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -476,13 +476,13 @@ const getCachedUsers = unstable_cache(
                   <p data-i18n="s4_c2_p">Asking 'How do I do auth?' yields a generic tutorial. Prompting 'Implement NextAuth v5 session middleware matching our schema with role-based guards' yields production code.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">prompt-contrast — comparison</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400 font-bold">❌ WEAK PROMPT:</span>
 "Make me a website."
 → Generates a generic HTML/CSS landing page with lorem ipsum.
@@ -502,12 +502,12 @@ clean git diff. Inspect existing db/schema.ts before coding."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p2_badge">SECTION 02: WHAT IS A PROMPT?</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p2_badge">SECTION 02: WHAT IS A PROMPT?</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s5_head">Weak vs. Strong Prompt Comparison</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s5_sub">Deconstructing prompt quality with real engineering examples</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">ANATOMY</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">ANATOMY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -537,12 +537,12 @@ Result: Produces idiomatic server actions, imports your existing db client, pres
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p2_badge">SECTION 02: WHAT IS A PROMPT?</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p2_badge">SECTION 02: WHAT IS A PROMPT?</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s6_head">The Prompt Economy</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s6_sub">Token budgets, signal-to-noise ratio, and prompt hygiene</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">EFFICIENCY</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">EFFICIENCY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -583,12 +583,12 @@ Result: Produces idiomatic server actions, imports your existing db client, pres
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p3_badge">SECTION 03: THE PROMPT FORMULA</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p3_badge">SECTION 03: THE PROMPT FORMULA</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s7_head">The 7-Pillar Universal Prompt Formula</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s7_sub">Role + Goal + Context + Requirements + Constraints + Output + Verification</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">FORMULA</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">FORMULA</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -602,13 +602,13 @@ Result: Produces idiomatic server actions, imports your existing db client, pres
                   <p data-i18n="s7_c2_p">Context provides current state, files, versions, and dependencies. Requirements state the exact capabilities the solution must deliver.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">formula — 7 pillars</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 1. ROLE:          Senior Full-Stack Developer
 2. GOAL:          Optimize database queries on /dashboard
 3. CONTEXT:       Next.js 15, Neon PostgreSQL, Drizzle ORM
@@ -626,12 +626,12 @@ Result: Produces idiomatic server actions, imports your existing db client, pres
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p3_badge">SECTION 03: THE PROMPT FORMULA</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p3_badge">SECTION 03: THE PROMPT FORMULA</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s8_head">Constraints, Output &amp; Verification</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s8_sub">Guarding boundaries and defining proof of correctness</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">GUARDRAILS</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">GUARDRAILS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -657,12 +657,12 @@ Result: Produces idiomatic server actions, imports your existing db client, pres
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p3_badge">SECTION 03: THE PROMPT FORMULA</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p3_badge">SECTION 03: THE PROMPT FORMULA</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s9_head">Formula in Action: Fullstack Optimization</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s9_sub">A production example applying all 7 prompt pillars</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">EXAMPLE</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">EXAMPLE</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -676,13 +676,13 @@ Result: Produces idiomatic server actions, imports your existing db client, pres
                   <p data-i18n="s9_c2_p">The formula is a mental checklist, not an immutable dogma. For a 2-line bug fix, focus on Goal, Context, and Constraints; for architectural changes, use all 7.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">production-prompt.txt</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 Act as a Senior Database Architect.
 Analyze the slow query on GET /api/dashboard.
 Context: Neon PostgreSQL, Drizzle ORM, table 'orders' (2M rows).
@@ -700,12 +700,12 @@ Verification: Query execution time drops under 35ms.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p4_badge">SECTION 04: CONTEXT IS EVERYTHING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p4_badge">SECTION 04: CONTEXT IS EVERYTHING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s10_head">Context Density &amp; Attention Allocation</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s10_sub">How language models process context windows and why relevance matters</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">CONTEXT</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">CONTEXT</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -719,8 +719,8 @@ Verification: Query execution time drops under 35ms.
                   <p data-i18n="s10_c2_p">Always provide: Exact package versions, database schemas, relevant route handlers, actual error stack traces, and existing conventions.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body text-xs font-mono">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body text-xs ">
 <span class="text-red-400">Weak Context:</span>
 "My app broke with status 500. Fix it."
 → Zero clues. AI has to guess between 100 possible causes.
@@ -740,12 +740,12 @@ DATABASE_URL is defined in .env.local. Verify connection string."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p4_badge">SECTION 04: CONTEXT IS EVERYTHING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p4_badge">SECTION 04: CONTEXT IS EVERYTHING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s11_head">Context Pyramid: What to Include</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s11_sub">Structuring contextual information from foundation to incident</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">PYRAMID</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">PYRAMID</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -767,8 +767,8 @@ DATABASE_URL is defined in .env.local. Verify connection string."
                   <tbody>
                     <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">1</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Framework / Runtime</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Next.js 15.1, Node.js 20.x, Linux</td></tr>
                     <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">2</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Database / ORM</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">PostgreSQL 16 on Neon, Drizzle ORM</td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">3</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Target File</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/dashboard/actions.ts</code></td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">4</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Telemetry</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">HTTP 500, error code <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">23505</code></td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">3</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Target File</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/dashboard/actions.ts</code></td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">4</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Telemetry</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">HTTP 500, error code <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">23505</code></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -780,12 +780,12 @@ DATABASE_URL is defined in .env.local. Verify connection string."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p4_badge">SECTION 04: CONTEXT IS EVERYTHING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p4_badge">SECTION 04: CONTEXT IS EVERYTHING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s12_head">The Minimal Sufficient Context Rule</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s12_sub">Maximizing model intelligence while eliminating noise</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">PRECISION</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">PRECISION</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -811,12 +811,12 @@ DATABASE_URL is defined in .env.local. Verify connection string."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p5_badge">SECTION 05: DEFINE THE ROLE CORRECTLY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p5_badge">SECTION 05: DEFINE THE ROLE CORRECTLY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s13_head">Role Priming: Framing Perspectives</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s13_sub">Guiding the model's vocabulary, skepticism, and review standards</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">ROLE PRIMING</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">ROLE PRIMING</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -830,13 +830,13 @@ DATABASE_URL is defined in .env.local. Verify connection string."
                   <p data-i18n="s13_c2_p">'Act as a coder' produces beginner-friendly code with tutorial comments. 'Act as a Senior Distributed Systems Engineer' focuses on idempotency, race conditions, and latency.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">role-comparison</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-slate-400">"Act as a developer"</span>
 → Writes a basic fetch() function without error handling or retries.
 
@@ -853,12 +853,12 @@ and structured telemetry logging.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p5_badge">SECTION 05: DEFINE THE ROLE CORRECTLY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p5_badge">SECTION 05: DEFINE THE ROLE CORRECTLY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s14_head">The Expert Personas Catalog</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s14_sub">Targeted personas for distinct software engineering disciplines</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">PERSONAS</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">PERSONAS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -893,12 +893,12 @@ and structured telemetry logging.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p5_badge">SECTION 05: DEFINE THE ROLE CORRECTLY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p5_badge">SECTION 05: DEFINE THE ROLE CORRECTLY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s15_head">Role-Playing Does Not Guarantee Accuracy</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s15_sub">A critical boundary: Persona sets tone, not verified expertise</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">LIMITATIONS</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">LIMITATIONS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -924,12 +924,12 @@ and structured telemetry logging.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p6_badge">SECTION 06: REQUIREMENTS AND CONSTRAINTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p6_badge">SECTION 06: REQUIREMENTS AND CONSTRAINTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s16_head">Requirements vs. Constraints</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s16_sub">Defining what must be accomplished versus what must never happen</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">REQUIREMENTS</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">REQUIREMENTS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -949,12 +949,12 @@ and structured telemetry logging.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p6_badge">SECTION 06: REQUIREMENTS AND CONSTRAINTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p6_badge">SECTION 06: REQUIREMENTS AND CONSTRAINTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s17_head">Guardrails for Legacy &amp; Production Systems</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s17_sub">Preventing accidental rewrites, breaking changes, and visual degradation</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">SAFETY</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">SAFETY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -968,13 +968,13 @@ and structured telemetry logging.
                   <p data-i18n="s17_c2_p">Demand that public API contracts, database column names, and client query parameters remain 100% backward compatible unless deprecation was requested.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">constraints-example</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs text-amber-300">
+                <div class="terminal-body  text-xs text-amber-300">
 CONSTRAINTS:
 - Keep all border-radius strictly at 0px.
 - Use pnpm as the ONLY package manager; do not run npm.
@@ -991,12 +991,12 @@ CONSTRAINTS:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p6_badge">SECTION 06: REQUIREMENTS AND CONSTRAINTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p6_badge">SECTION 06: REQUIREMENTS AND CONSTRAINTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s18_head">Writing Strict Acceptance Criteria</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s18_sub">The checklist that turns subjective tasks into binary passes or fails</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">DEFINITION OF DONE</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">DEFINITION OF DONE</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1010,8 +1010,8 @@ CONSTRAINTS:
                   <p data-i18n="s18_c2_p">Instruct the model: 'Before printing the final response, self-review your code against every requirement and constraint. Explicitly list any trade-offs made.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 ACCEPTANCE CHECKLIST:
 [ ] Task is complete ONLY when `pnpm build` succeeds with zero errors.
 [ ] All query parameters are sanitized against SQL injection.
@@ -1027,12 +1027,12 @@ ACCEPTANCE CHECKLIST:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p7_badge">SECTION 07: ASK AI TO ANALYZE BEFORE CODING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p7_badge">SECTION 07: ASK AI TO ANALYZE BEFORE CODING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s19_head">Investigation First, Implementation Second</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s19_sub">Why jumping straight into code generates architectural debt</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">INSPECT FIRST</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">INSPECT FIRST</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1073,12 +1073,12 @@ ACCEPTANCE CHECKLIST:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p7_badge">SECTION 07: ASK AI TO ANALYZE BEFORE CODING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p7_badge">SECTION 07: ASK AI TO ANALYZE BEFORE CODING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s20_head">The 8-Point Codebase Inspection Prompt</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s20_sub">A complete framework for auditing an existing implementation</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">FRAMEWORK</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">FRAMEWORK</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1091,13 +1091,13 @@ ACCEPTANCE CHECKLIST:
                 <p data-i18n="s20_c2_p">5. Potential edge-case bugs &amp; security risks. 6. Side effects of modifying files. 7. Incremental implementation steps. 8. Test verification plan.</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                 <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                 <span class="terminal-title text-[11px] text-slate-400 font-semibold">audit-prompt-template.txt</span>
                 <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
               </div>
-              <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 Do not modify any files yet.
 Inspect the existing codebase and explain:
 1. The current architecture and directory responsibilities.
@@ -1116,12 +1116,12 @@ Support findings with file paths and line number citations.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p7_badge">SECTION 07: ASK AI TO ANALYZE BEFORE CODING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p7_badge">SECTION 07: ASK AI TO ANALYZE BEFORE CODING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s21_head">Distinguishing Facts from Assumptions</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s21_sub">Requiring empirical proof and file citations from the model</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">EVIDENCE</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">EVIDENCE</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1141,8 +1141,8 @@ Support findings with file paths and line number citations.
                     <tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Claim Type</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Unacceptable Form</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Acceptable Evidence Form</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Database Table</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">"It probably has a users table"</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">db/schema.ts:14-28 (table 'users')</code></td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Auth Status</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">"Auth looks secure"</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">middleware.ts:8 checks req.auth token</code></td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Database Table</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">"It probably has a users table"</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">db/schema.ts:14-28 (table 'users')</code></td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Auth Status</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">"Auth looks secure"</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">middleware.ts:8 checks req.auth token</code></td></tr>
                     <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Missing Context</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Inventing port numbers</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">"Database port not found in .env; please provide."</td></tr>
                   </tbody>
                 </table>
@@ -1155,12 +1155,12 @@ Support findings with file paths and line number citations.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p7_badge">SECTION 07: ASK AI TO ANALYZE BEFORE CODING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p7_badge">SECTION 07: ASK AI TO ANALYZE BEFORE CODING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s22_head">The Professional Engineering Workflow</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s22_sub">Understand -> Inspect -> Analyze -> Identify Risks -> Plan -> Implement -> Verify</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">WORKFLOW</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">WORKFLOW</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1174,8 +1174,8 @@ Support findings with file paths and line number citations.
                   <p data-i18n="s22_c2_p">Spending 2 minutes on analysis prevents 2 hours of debugging hallucinated imports, broken state synchronizations, and circular dependencies.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 STAGE 1: Understand user problem &amp; boundaries
 STAGE 2: Inspect existing source code files
 STAGE 3: Analyze constraints, versions &amp; data flow
@@ -1193,12 +1193,12 @@ STAGE 7: Verify with linters, tests, and diff review
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p8_badge">SECTION 08: THINK BEFORE SOLVING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p8_badge">SECTION 08: THINK BEFORE SOLVING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s23_head">Deconstructing Problems Methodically</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s23_sub">Observation is not causation: Diagnosing before prescribing</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">DIAGNOSTICS</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">DIAGNOSTICS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1224,12 +1224,12 @@ STAGE 7: Verify with linters, tests, and diff review
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p8_badge">SECTION 08: THINK BEFORE SOLVING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p8_badge">SECTION 08: THINK BEFORE SOLVING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s24_head">The Scientific Method in Software</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s24_sub">Observation -> Hypothesis -> Experiment -> Verification -> Targeted Fix</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">SCIENTIFIC METHOD</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">SCIENTIFIC METHOD</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1270,12 +1270,12 @@ STAGE 7: Verify with linters, tests, and diff review
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p8_badge">SECTION 08: THINK BEFORE SOLVING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p8_badge">SECTION 08: THINK BEFORE SOLVING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s25_head">Case Study: The Slow Dashboard</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s25_sub">Real-world walkthrough from panic to empirical resolution</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">CASE STUDY</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">CASE STUDY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1306,12 +1306,12 @@ CREATE INDEX idx_orders_customer_id ON orders(customer_id);
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p9_badge">SECTION 09: LOGICAL THINKING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p9_badge">SECTION 09: LOGICAL THINKING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s26_head">Core Mental Models for Programmers</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s26_sub">Deductive reasoning, first principles, and edge-case discovery</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">MENTAL MODELS</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">MENTAL MODELS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1325,13 +1325,13 @@ CREATE INDEX idx_orders_customer_id ON orders(customer_id);
                   <p data-i18n="s26_c2_p">Just because authentication worked in 10 local tests does not prove it works in production under distributed session load. Verify boundaries logically.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">logical-framework</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 OBSERVATION: API request fails with status 403.
 DEDUCTION:
 1. Status 403 means Forbidden (client is authenticated, but lacks permission).
@@ -1348,12 +1348,12 @@ CONCLUSION: Check role permissions on user record, not password hashing!
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p9_badge">SECTION 09: LOGICAL THINKING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p9_badge">SECTION 09: LOGICAL THINKING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s27_head">Case Analysis: 'Login Fails'</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s27_sub">Mapping multiple potential root causes systematically</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">DECISION TREE</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">DECISION TREE</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1373,10 +1373,10 @@ CONCLUSION: Check role permissions on user record, not password hashing!
                     <tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">HTTP Code</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Layer of Failure</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Evidence to Inspect</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">401 Unauthorized</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Client Credentials</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Password hash compare, email spelling</td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">403 Forbidden</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Access Permissions</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">User role, tenant_id guard</td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">500 Server Error</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Backend Crash / DB</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Server terminal logs, Neon pool limit</td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">504 Gateway Timeout</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Network / Upstream</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Deadlock in DB transaction</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">401 Unauthorized</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Client Credentials</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Password hash compare, email spelling</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">403 Forbidden</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Access Permissions</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">User role, tenant_id guard</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">500 Server Error</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Backend Crash / DB</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Server terminal logs, Neon pool limit</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">504 Gateway Timeout</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Network / Upstream</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Deadlock in DB transaction</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1388,12 +1388,12 @@ CONCLUSION: Check role permissions on user record, not password hashing!
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p9_badge">SECTION 09: LOGICAL THINKING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p9_badge">SECTION 09: LOGICAL THINKING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s28_head">Cognitive Biases When Using AI</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s28_sub">Guarding against automation bias, anchoring, and confirmation bias</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">BIAS AUDIT</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">BIAS AUDIT</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1419,12 +1419,12 @@ CONCLUSION: Check role permissions on user record, not password hashing!
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p10_badge">SECTION 10: DECOMPOSE COMPLEX TASKS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p10_badge">SECTION 10: DECOMPOSE COMPLEX TASKS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s29_head">The Art of Task Decomposition</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s29_sub">Converting overwhelming monolithic epics into atomic milestones</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">DECOMPOSITION</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">DECOMPOSITION</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1438,8 +1438,8 @@ CONCLUSION: Check role permissions on user record, not password hashing!
                   <p data-i18n="s29_c2_p">Every task assigned to an AI should have a single, verifiable deliverable that can be compiled, tested, and reviewed in under 10 minutes.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400">MONOLITHIC PROMPT:</span>
 "Create a complete e-commerce store with Stripe, database, admin panel,
 email notifications, reviews, inventory, and discounts."
@@ -1459,12 +1459,12 @@ Include foreign keys, UUID primary keys, and indexes. Do not write UI yet."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p10_badge">SECTION 10: DECOMPOSE COMPLEX TASKS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p10_badge">SECTION 10: DECOMPOSE COMPLEX TASKS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s30_head">Deconstruction Case: Enterprise POS System</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s30_sub">Breaking an 11-module retail system into ordered dependencies</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">DEPENDENCY TREE</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">DEPENDENCY TREE</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1478,8 +1478,8 @@ Include foreign keys, UUID primary keys, and indexes. Do not write UI yet."
                   <p data-i18n="s30_c2_p">Building UI checkout buttons before defining transaction lock mechanisms or inventory concurrency constraints guarantees extensive refactoring.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 POS SYSTEM DECOMPOSITION:
 ├── 01_DATABASE:   Schemas, foreign keys, indexes
 ├── 02_AUTH:       Cashier vs Manager RBAC permissions
@@ -1497,12 +1497,12 @@ POS SYSTEM DECOMPOSITION:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p10_badge">SECTION 10: DECOMPOSE COMPLEX TASKS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p10_badge">SECTION 10: DECOMPOSE COMPLEX TASKS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s31_head">Sub-Task Prompting Workflow</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s31_sub">Maintaining momentum and architectural consistency across sessions</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">MOMENTUM</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">MOMENTUM</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1528,12 +1528,12 @@ POS SYSTEM DECOMPOSITION:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p11_badge">SECTION 11: PLANNING BEFORE IMPLEMENTATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p11_badge">SECTION 11: PLANNING BEFORE IMPLEMENTATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s32_head">Generating Incremental Implementation Plans</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s32_sub">Why code execution must be gated behind written architectural approval</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">PLAN FIRST</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">PLAN FIRST</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1547,8 +1547,8 @@ POS SYSTEM DECOMPOSITION:
                   <p data-i18n="s32_c2_p">Reviewing a 10-line bulleted plan takes 30 seconds and reveals flawed assumptions before a single file or database table is touched.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 PROMPT TO REQUEST A PLAN:
 "Based on your codebase analysis, create an incremental implementation plan.
 For every step, specify:
@@ -1567,12 +1567,12 @@ Do NOT implement yet. Wait for my approval."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p11_badge">SECTION 11: PLANNING BEFORE IMPLEMENTATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p11_badge">SECTION 11: PLANNING BEFORE IMPLEMENTATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s33_head">Anatomy of an Actionable Plan</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s33_sub">Step, files, dependencies, rollback strategy, and acceptance tests</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">PLAN STRUCTURE</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">PLAN STRUCTURE</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1607,12 +1607,12 @@ Do NOT implement yet. Wait for my approval."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p11_badge">SECTION 11: PLANNING BEFORE IMPLEMENTATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p11_badge">SECTION 11: PLANNING BEFORE IMPLEMENTATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s34_head">When to Plan vs. When to Code Directly</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s34_sub">Balancing engineering rigour with rapid development velocity</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">VELOCITY</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">VELOCITY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1632,12 +1632,12 @@ Do NOT implement yet. Wait for my approval."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p12_badge">SECTION 12: PROMPTING FOR CODE GENERATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p12_badge">SECTION 12: PROMPTING FOR CODE GENERATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s35_head">Precision Code Generation</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s35_sub">Getting clean, production-grade, framework-idiomatic code</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">CODE GEN</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">CODE GEN</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1651,8 +1651,8 @@ Do NOT implement yet. Wait for my approval."
                   <p data-i18n="s35_c2_p">Explicitly demand validation: 'Validate all external input using Zod schemas; handle null, undefined, and empty array edge cases cleanly.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="term-comment">// Clean, early-return, strictly-typed production action:</span>
 export async function updateTask(rawInput: unknown) {
   const parsed = updateTaskSchema.safeParse(rawInput);
@@ -1676,12 +1676,12 @@ export async function updateTask(rawInput: unknown) {
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p12_badge">SECTION 12: PROMPTING FOR CODE GENERATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p12_badge">SECTION 12: PROMPTING FOR CODE GENERATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s36_head">Preventing Anti-Patterns &amp; Bloat</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s36_sub">Eliminating hallucinated libraries, premature abstractions, and commented noise</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">ANTI-BLOAT</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">ANTI-BLOAT</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1695,8 +1695,8 @@ export async function updateTask(rawInput: unknown) {
                   <p data-i18n="s36_c2_p">Constraint: 'Do not add obvious comments explaining syntax. Only preserve comments that document non-obvious business logic or algorithmic nuance.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400">// BAD: Bloated with obvious comments</span>
 // This sets x to 5
 const x = 5;
@@ -1716,12 +1716,12 @@ return currentAttempt + 1;
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p12_badge">SECTION 12: PROMPTING FOR CODE GENERATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p12_badge">SECTION 12: PROMPTING FOR CODE GENERATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s37_head">Complete Working Code Requirement</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s37_sub">Banning placeholders, ellipses, and unhelpful TODOs</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">NO PLACEHOLDERS</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">NO PLACEHOLDERS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1747,12 +1747,12 @@ return currentAttempt + 1;
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p13_badge">SECTION 13: PROMPTING FOR UI DESIGN</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p13_badge">SECTION 13: PROMPTING FOR UI DESIGN</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s38_head">UI Reproduction vs. Arbitrary Redesign</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s38_sub">Guiding AI to match existing design systems with pixel precision</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">DESIGN FIDELITY</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">DESIGN FIDELITY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1766,12 +1766,12 @@ return currentAttempt + 1;
                   <p data-i18n="s38_c2_p">Provide exact design tokens: Background hex codes, text color variables, spacing scale (e.g. max 20px), and mobile breakpoint conventions.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 EXACT UI SPECIFICATION:
 - Theme: Dark palette (bg: #020617, card: #0f172a, border: #1e293b)
 - Spacing: Never exceed 20px (use 4px, 8px, 12px, 16px, 20px)
-- Corners: border-radius: 0px !important; on all elements
+- Corners:  on all elements
 - Text: Crisp white (#ffffff) on dark backgrounds
 - Buttons: Blue button text MUST be #ffffff (never black)
                 </div>
@@ -1784,12 +1784,12 @@ EXACT UI SPECIFICATION:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p13_badge">SECTION 13: PROMPTING FOR UI DESIGN</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p13_badge">SECTION 13: PROMPTING FOR UI DESIGN</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s39_head">Component-Driven Prompting</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s39_sub">Building reusable, accessible, and responsive UI components</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">ACCESSIBILITY</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">ACCESSIBILITY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1823,12 +1823,12 @@ EXACT UI SPECIFICATION:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p13_badge">SECTION 13: PROMPTING FOR UI DESIGN</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p13_badge">SECTION 13: PROMPTING FOR UI DESIGN</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s40_head">The 4 Levels of UI Requests</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s40_sub">Inspiration vs. Pixel Clone vs. Incremental Polish vs. Total Redesign</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">TAXONOMY</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">TAXONOMY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1854,12 +1854,12 @@ EXACT UI SPECIFICATION:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p14_badge">SECTION 14: DEBUGGING WITH AI</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p14_badge">SECTION 14: DEBUGGING WITH AI</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s41_head">Structured Debugging Protocols</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s41_sub">Extracting root causes instead of playing whack-a-mole with symptoms</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">DEBUGGING</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">DEBUGGING</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1873,13 +1873,13 @@ EXACT UI SPECIFICATION:
                   <p data-i18n="s41_c2_p">Pasting only the last error line ('Internal Server Error 500') leaves the AI blind. Paste the first relevant error in the call stack.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">debug-template.txt</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 Expected: Task status updates to 'completed' on click.
 Observed: UI spinner spins infinitely; network tab shows 500.
 Logs:
@@ -1897,12 +1897,12 @@ Environment: Next.js 15.1, Node 20.10, PostgreSQL Neon.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p14_badge">SECTION 14: DEBUGGING WITH AI</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p14_badge">SECTION 14: DEBUGGING WITH AI</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s42_head">The 8-Step Debugging Cycle</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s42_sub">Observe -> Reproduce -> Collect Evidence -> Hypothesize -> Test -> Fix -> Regression Test -> Document</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">CYCLE</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">CYCLE</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1943,12 +1943,12 @@ Environment: Next.js 15.1, Node 20.10, PostgreSQL Neon.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p14_badge">SECTION 14: DEBUGGING WITH AI</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p14_badge">SECTION 14: DEBUGGING WITH AI</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s43_head">Investigating Ephemeral &amp; Race Condition Bugs</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s43_sub">Handling asynchronous timing, database deadlocks, and memory leaks</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">CONCURRENCY</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">CONCURRENCY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1962,8 +1962,8 @@ Environment: Next.js 15.1, Node 20.10, PostgreSQL Neon.
                   <p data-i18n="s43_c2_p">Investigate differences between local dev and cloud edge runtimes (e.g. Node.js vs Edge runtime APIs, file system access, cold-start latency).</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 CONCURRENCY PROMPT:
 "Inspect this Server Action for concurrent execution hazards.
 What happens if two users submit the form at the exact same millisecond?
@@ -1979,12 +1979,12 @@ or optimistic versioning column to guarantee idempotency."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p15_badge">SECTION 15: PROMPTING FOR SECURITY AUDITS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p15_badge">SECTION 15: PROMPTING FOR SECURITY AUDITS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s44_head">Evidence-Based Security Reviews</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s44_sub">Turning models into ruthless code auditors without destructive actions</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">SECURITY</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">SECURITY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1998,13 +1998,13 @@ or optimistic versioning column to guarantee idempotency."
                   <p data-i18n="s44_c2_p">Audit: Injection, Broken Auth, Sensitive Data Exposure, XML/Entity flaws, Broken Access Control, Security Misconfiguration, XSS, Insecure Deserialization.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">security-audit-prompt.txt</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 Perform a strictly read-only security audit of app/api/.
 Focus on:
 1. SQL injection &amp; unescaped dynamic queries
@@ -2022,12 +2022,12 @@ Report findings by Severity (Critical/High/Med) with file lines and PoC.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p15_badge">SECTION 15: PROMPTING FOR SECURITY AUDITS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p15_badge">SECTION 15: PROMPTING FOR SECURITY AUDITS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s45_head">Standard Security Finding Format</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s45_sub">Severity, Affected Path, Vulnerability, Exploit Scenario, Remediation, Verification</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">VULNERABILITY REPORT</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">VULNERABILITY REPORT</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2061,12 +2061,12 @@ Report findings by Severity (Critical/High/Med) with file lines and PoC.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p15_badge">SECTION 15: PROMPTING FOR SECURITY AUDITS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p15_badge">SECTION 15: PROMPTING FOR SECURITY AUDITS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s46_head">Multi-Tenant &amp; Secret Isolation</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s46_sub">Guarding against data leaks, exposed tokens, and IDOR vulnerabilities</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">DATA ISOLATION</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">DATA ISOLATION</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2080,8 +2080,8 @@ Report findings by Severity (Critical/High/Med) with file lines and PoC.
                   <p data-i18n="s46_c2_p">Verify that server secrets (DATABASE_URL, API tokens) are never bundled into client-side JS or logged in public telemetry.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400">// DANGEROUS IDOR VULNERABILITY:</span>
 await db.select().from(invoices).where(eq(invoices.id, params.id));
 
@@ -2100,12 +2100,12 @@ await db.select().from(invoices).where(and(
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p16_badge">SECTION 16: PROMPTING FOR CODE REVIEW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p16_badge">SECTION 16: PROMPTING FOR CODE REVIEW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s47_head">The Production Code Reviewer Persona</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s47_sub">Reviewing for correctness, safety, and performance rather than stylistic bike-shedding</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">CODE REVIEW</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">CODE REVIEW</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2140,12 +2140,12 @@ await db.select().from(invoices).where(and(
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p16_badge">SECTION 16: PROMPTING FOR CODE REVIEW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p16_badge">SECTION 16: PROMPTING FOR CODE REVIEW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s48_head">Reviewing Diffs Effectively</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s48_sub">Feeding Git diffs to AI for surgical pre-commit audits</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">GIT DIFF</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">GIT DIFF</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2159,8 +2159,8 @@ await db.select().from(invoices).where(and(
                   <p data-i18n="s48_c2_p">Confirm that only files relevant to the task were modified. Flag any collateral edits to config files or unrelated modules.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 DIFF AUDIT PROMPT:
 "Review this git diff before I commit:
 `git diff`
@@ -2178,12 +2178,12 @@ Answer:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p16_badge">SECTION 16: PROMPTING FOR CODE REVIEW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p16_badge">SECTION 16: PROMPTING FOR CODE REVIEW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s49_head">Code Review vs. Code Rewriting</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s49_sub">Preserving project architecture and preventing unauthorized refactoring</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">PRESERVATION</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">PRESERVATION</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2209,12 +2209,12 @@ Answer:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p17_badge">SECTION 17: PROMPTING FOR DATABASE CHANGES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p17_badge">SECTION 17: PROMPTING FOR DATABASE CHANGES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s50_head">Database Migrations &amp; Data Safety</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s50_sub">Protecting schemas, tables, and production data from reckless alterations</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">DATA SAFETY</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">DATA SAFETY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2228,8 +2228,8 @@ Answer:
                   <p data-i18n="s50_c2_p">Instruct: 'Analyze this schema change. Explain table locks, performance impact on large tables, backward compatibility, and write a reversible DOWN migration.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 <span class="text-red-400">HAZARDOUS AI MIGRATION:</span>
 ALTER TABLE orders ADD COLUMN status VARCHAR(20) NOT NULL;
 → Table lock on 10M rows causes downtime!
@@ -2247,12 +2247,12 @@ ALTER TABLE orders ADD COLUMN status VARCHAR(20) DEFAULT 'pending';
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p17_badge">SECTION 17: PROMPTING FOR DATABASE CHANGES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p17_badge">SECTION 17: PROMPTING FOR DATABASE CHANGES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s51_head">PostgreSQL &amp; Neon Specific Considerations</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s51_sub">Connection pooling, serverless branching, and index optimization</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">NEON POSTGRES</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">NEON POSTGRES</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2293,12 +2293,12 @@ ALTER TABLE orders ADD COLUMN status VARCHAR(20) DEFAULT 'pending';
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p17_badge">SECTION 17: PROMPTING FOR DATABASE CHANGES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p17_badge">SECTION 17: PROMPTING FOR DATABASE CHANGES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s52_head">Data Loss Prevention Checklist</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s52_sub">Flagging DROP, TRUNCATE, ALTER TYPE, and table rewrite hazards</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">ZERO LOSS</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">ZERO LOSS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2312,8 +2312,8 @@ ALTER TABLE orders ADD COLUMN status VARCHAR(20) DEFAULT 'pending';
                   <p data-i18n="s52_c2_p">Require the model to provide verification queries: SELECT statements to confirm index usage, foreign key integrity, and row counts before and after.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 VERIFICATION QUERIES TO REQUEST:
 -- 1. Check index validity:
 SELECT indexrelid::regclass, indisvalid FROM pg_index WHERE indisvalid = false;
@@ -2329,12 +2329,12 @@ SELECT count(*) FROM orders;
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p18_badge">SECTION 18: USING AI CODING AGENTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p18_badge">SECTION 18: USING AI CODING AGENTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s53_head">From Chatbots to Autonomous Coding Agents</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s53_sub">Understanding IDE assistants, repo-aware CLI tools, and background agents</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">AGENTS</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">AGENTS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2368,12 +2368,12 @@ SELECT count(*) FROM orders;
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p18_badge">SECTION 18: USING AI CODING AGENTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p18_badge">SECTION 18: USING AI CODING AGENTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s54_head">Agent Capabilities &amp; Permission Boundaries</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s54_sub">Granting enough power to solve tasks while preventing catastrophic errors</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">PERMISSIONS</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">PERMISSIONS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2399,12 +2399,12 @@ SELECT count(*) FROM orders;
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p18_badge">SECTION 18: USING AI CODING AGENTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p18_badge">SECTION 18: USING AI CODING AGENTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s55_head">Guiding Agents with Context Files</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s55_sub">Using AGENTS.md, rules, and customization skills to govern behavior</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">AGENTS.MD</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">AGENTS.MD</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2418,8 +2418,8 @@ SELECT count(*) FROM orders;
                   <p data-i18n="s55_c2_p">A strong rules file ensures the agent adheres to your architecture and conventions across every prompt and every session automatically.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 # AGENTS.md / Repository Instructions
 - Package Manager: Use pnpm ONLY (never npm or yarn)
 - Version Control: NEVER execute git add, git commit, or git push
@@ -2436,12 +2436,12 @@ SELECT count(*) FROM orders;
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p19_badge">SECTION 19: SAFE AGENT WORKFLOW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p19_badge">SECTION 19: SAFE AGENT WORKFLOW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s56_head">The 10-Step Safe Agent Protocol</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s56_sub">A bulletproof engineering lifecycle for repository-level AI automation</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">10 STEPS</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">10 STEPS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2461,12 +2461,12 @@ SELECT count(*) FROM orders;
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p19_badge">SECTION 19: SAFE AGENT WORKFLOW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p19_badge">SECTION 19: SAFE AGENT WORKFLOW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s57_head">Git as Your Safety Shield</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s57_sub">Feature branches, clean commits, and the sacred rule of unstaged changes</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">GIT SHIELD</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">GIT SHIELD</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2480,8 +2480,8 @@ SELECT count(*) FROM orders;
                   <p data-i18n="s57_c2_p">Always run experimental agent tasks on a dedicated git branch (`feature/ai-experiment`). If the agent derails, discard the branch instantly.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 $ git checkout -b feature/ai-refactor
 # Run AI Agent task here...
 $ git status
@@ -2499,12 +2499,12 @@ $ git diff
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p19_badge">SECTION 19: SAFE AGENT WORKFLOW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p19_badge">SECTION 19: SAFE AGENT WORKFLOW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s58_head">Red Lines for AI Agents</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s58_sub">Operations that must ALWAYS require explicit human authorization</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">RED LINES</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">RED LINES</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2524,9 +2524,9 @@ $ git diff
                     <tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Forbidden Action</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Catastrophic Risk</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Human Safeguard</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git push origin main</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Untested code live</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Protected branches in GitHub</td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm db:reset</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Complete data wipe</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Read-only database roles</td></tr>
-                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">curl ... | bash</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Arbitrary code injection</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Inspect scripts before pipe</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git push origin main</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Untested code live</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Protected branches in GitHub</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm db:reset</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Complete data wipe</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Read-only database roles</td></tr>
+                    <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">curl ... | bash</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Arbitrary code injection</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Inspect scripts before pipe</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -2538,12 +2538,12 @@ $ git diff
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p20_badge">SECTION 20: THINKING ABOUT TRADEOFFS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p20_badge">SECTION 20: THINKING ABOUT TRADEOFFS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s59_head">Technical Decisions Have No Free Lunches</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s59_sub">Forcing AI to analyze trade-offs instead of peddling one-size-fits-all hype</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">TRADEOFFS</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">TRADEOFFS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2557,8 +2557,8 @@ $ git diff
                   <p data-i18n="s59_c2_p">SQLite is better for embedded CLI tools; Neon PostgreSQL is better for distributed web apps. The 'best' tech stack depends entirely on requirements.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 TRADEOFF PROMPT:
 "Do not recommend a single library.
 Compare:
@@ -2576,12 +2576,12 @@ and connection pooling in Next.js Serverless."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p20_badge">SECTION 20: THINKING ABOUT TRADEOFFS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p20_badge">SECTION 20: THINKING ABOUT TRADEOFFS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s60_head">Classical Software Dilemmas</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s60_sub">Evaluating real engineering trade-offs with AI assistance</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">DILEMMAS</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">DILEMMAS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2601,12 +2601,12 @@ and connection pooling in Next.js Serverless."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p21_badge">SECTION 21: HOW TO VERIFY AI ANSWERS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p21_badge">SECTION 21: HOW TO VERIFY AI ANSWERS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s61_head">The Verification Playbook</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s61_sub">10 empirical techniques to confirm code correctness independently</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">PLAYBOOK</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">PLAYBOOK</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2647,12 +2647,12 @@ and connection pooling in Next.js Serverless."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p21_badge">SECTION 21: HOW TO VERIFY AI ANSWERS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p21_badge">SECTION 21: HOW TO VERIFY AI ANSWERS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s62_head">Eloquence Is Not Evidence</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s62_sub">Overcoming the psychological trap of polished AI rhetoric</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">CRITICAL SKEPTICISM</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">CRITICAL SKEPTICISM</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2678,12 +2678,12 @@ and connection pooling in Next.js Serverless."
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p22_badge">SECTION 22: HANDLING UNCERTAINTY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p22_badge">SECTION 22: HANDLING UNCERTAINTY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s63_head">Forcing AI to Declare Uncertainty</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s63_sub">Preventing confident guesses when data is incomplete or ambiguous</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">UNCERTAINTY</span>
+                <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">UNCERTAINTY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2697,8 +2697,8 @@ and connection pooling in Next.js Serverless."
                   <p data-i18n="s63_c2_p">'If you are unsure of an API parameter or database column, say "I need to inspect file X" instead of guessing its syntax.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 EPISTEMIC RESPONSE FORMAT:
 1. VERIFIED FACTS: Found table 'users' in db/schema.ts line 14.
 2. STRONG INFERENCES: Function uses NextAuth because session is checked.
@@ -2714,12 +2714,12 @@ EPISTEMIC RESPONSE FORMAT:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p22_badge">SECTION 22: HANDLING UNCERTAINTY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p22_badge">SECTION 22: HANDLING UNCERTAINTY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s64_head">Navigating Evolving Library Ecosystems</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s64_sub">Handling breaking version changes and training data cutoffs</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">VERSIONS</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">VERSIONS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2745,12 +2745,12 @@ EPISTEMIC RESPONSE FORMAT:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p23_badge">SECTION 23: COMMON PROMPTING MISTAKES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p23_badge">SECTION 23: COMMON PROMPTING MISTAKES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s65_head">The 10 Deadly Prompting Sins (Part 1)</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s65_sub">Recognizing and correcting destructive communication anti-patterns</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">ANTI-PATTERNS</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">ANTI-PATTERNS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2770,12 +2770,12 @@ EPISTEMIC RESPONSE FORMAT:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p23_badge">SECTION 23: COMMON PROMPTING MISTAKES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p23_badge">SECTION 23: COMMON PROMPTING MISTAKES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s66_head">The 10 Deadly Prompting Sins (Part 2)</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s66_sub">Preventing scope creep, missing constraints, and blind faith</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">ANTI-PATTERNS</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">ANTI-PATTERNS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2795,12 +2795,12 @@ EPISTEMIC RESPONSE FORMAT:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p23_badge">SECTION 23: COMMON PROMPTING MISTAKES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p23_badge">SECTION 23: COMMON PROMPTING MISTAKES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s67_head">The 10 Deadly Prompting Sins (Part 3)</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s67_sub">Fixing symptom-chasing and runaway file churn</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 font-mono inline-flex items-center gap-1">ANTI-PATTERNS</span>
+                <span class="tag-badge danger text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400  inline-flex items-center gap-1">ANTI-PATTERNS</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2820,12 +2820,12 @@ EPISTEMIC RESPONSE FORMAT:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p24_badge">SECTION 24: PROMPT ITERATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p24_badge">SECTION 24: PROMPT ITERATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s68_head">The Prompt Refinement Loop</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s68_sub">Iterative precision: Honing answers across sequential turns</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">REFINEMENT</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">REFINEMENT</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2866,12 +2866,12 @@ EPISTEMIC RESPONSE FORMAT:
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p24_badge">SECTION 24: PROMPT ITERATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p24_badge">SECTION 24: PROMPT ITERATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s69_head">A 3-Step Iteration Walkthrough</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s69_sub">Transforming a mediocre draft into a rock-solid production module</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">WALKTHROUGH</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">WALKTHROUGH</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2885,8 +2885,8 @@ EPISTEMIC RESPONSE FORMAT:
                   <p data-i18n="s69_c2_p">Turn 3: 'Now add Zod input validation, wrap in a database transaction, handle unique constraint collision, and add a unit test.'</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 Turn 1: "Write a function to create a task." → Returns dummy in-memory array.
 Turn 2: "Connect to our Neon PostgreSQL Drizzle instance in db/client.ts." → Real SQL.
 Turn 3: "Add Zod validation, check session user_id, handle database error." → Production ready!
@@ -2900,12 +2900,12 @@ Turn 3: "Add Zod validation, check session user_id, handle database error." → 
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p25_badge">SECTION 25: REAL-WORLD PROJECT: TASKFLOW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p25_badge">SECTION 25: REAL-WORLD PROJECT: TASKFLOW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s70_head">Case Study: TaskFlow SaaS Platform</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s70_sub">Applying AI collaboration to a complete Next.js &amp; Neon application</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">TASKFLOW</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">TASKFLOW</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2919,8 +2919,8 @@ Turn 3: "Add Zod validation, check session user_id, handle database error." → 
                   <p data-i18n="s70_c2_p">Phase 1: Spec Analysis -> Phase 2: Schema Design -> Phase 3: Auth &amp; RBAC -> Phase 4: Data Layer -> Phase 5: UI Components -> Phase 6: Testing -> Phase 7: Audit -> Phase 8: Deploy.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 TaskFlow Architecture Flow:
 Browser (Client React / Tailwind)
    ↓ (Server Actions / Zod Validation)
@@ -2939,12 +2939,12 @@ Production Live at taskflow.dev
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p25_badge">SECTION 25: REAL-WORLD PROJECT: TASKFLOW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p25_badge">SECTION 25: REAL-WORLD PROJECT: TASKFLOW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s71_head">TaskFlow Phase Breakdown: What to Prompt</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s71_sub">Exact prompts for each phase of the project lifecycle</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">PHASES</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">PHASES</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2964,12 +2964,12 @@ Production Live at taskflow.dev
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p26_badge">SECTION 26: PRACTICAL PROMPT LIBRARY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p26_badge">SECTION 26: PRACTICAL PROMPT LIBRARY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s72_head">Production-Grade Reusable Prompt Templates</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s72_sub">Battle-tested templates with copy-to-clipboard functionality</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">LIBRARY</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">LIBRARY</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2978,7 +2978,7 @@ Production Live at taskflow.dev
                   <h4 class="text-blue-400">1. Codebase Architecture Audit</h4>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="template-content text-xs font-mono text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
+                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
 Do not write or modify code yet.
 Inspect the existing codebase and explain:
 1. Architecture, routing, and file responsibilities.
@@ -2994,7 +2994,7 @@ Support findings with file paths.
                   <h4 class="text-blue-400">2. Surgical Bug Investigation</h4>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="template-content text-xs font-mono text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
+                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
 Analyze this error before proposing a fix.
 Expected: [Describe expected outcome]
 Observed: [Describe actual outcome]
@@ -3009,7 +3009,7 @@ and propose smallest safe fix with a regression test.
                   <h4 class="text-blue-400">3. Read-Only Security Review</h4>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="template-content text-xs font-mono text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
+                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
 Perform a strictly read-only security audit.
 Audit: Auth guards, SQL injection, IDOR, secret leaks,
 and multi-tenant isolation.
@@ -3023,7 +3023,7 @@ with file paths, line numbers, exploit scenarios, and patches.
                   <h4 class="text-blue-400">4. Database Migration Safety Audit</h4>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="template-content text-xs font-mono text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
+                <div class="template-content text-xs  text-slate-300 mt-2 bg-slate-950 p-2 border border-slate-800">
 Analyze this schema change against Neon PostgreSQL.
 Check for table locks, downtime on large tables,
 foreign key cascades, and data loss risks.
@@ -3039,12 +3039,12 @@ and verification SELECT queries.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p27_badge">SECTION 27: INTERACTIVE PROMPT BUILDER</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p27_badge">SECTION 27: INTERACTIVE PROMPT BUILDER</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s73_head">Interactive Universal Prompt Workshop</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s73_sub">Assemble structured, high-precision prompts with real-time feedback</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">WORKSHOP</span>
+                <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">WORKSHOP</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -3087,7 +3087,7 @@ and verification SELECT queries.
 
                 <div class="text-xs">
                   <label class="block font-bold mb-1 text-slate-300">Requirements</label>
-                  <textarea id="builder-reqs" rows="2" class="w-full bg-slate-900 border border-slate-700 p-1.5 text-white font-mono text-[11px]">- Validate query parameters with Zod
+                  <textarea id="builder-reqs" rows="2" class="w-full bg-slate-900 border border-slate-700 p-1.5 text-white  text-[11px]">- Validate query parameters with Zod
 - Enforce tenant user_id authorization
 - Include loading skeleton and empty state
 - Add automated unit test for filtering logic</textarea>
@@ -3095,7 +3095,7 @@ and verification SELECT queries.
 
                 <div class="text-xs">
                   <label class="block font-bold mb-1 text-slate-300">Constraints</label>
-                  <textarea id="builder-constraints" rows="2" class="w-full bg-slate-900 border border-slate-700 p-1.5 text-white font-mono text-[11px]">- Do not modify database schema
+                  <textarea id="builder-constraints" rows="2" class="w-full bg-slate-900 border border-slate-700 p-1.5 text-white  text-[11px]">- Do not modify database schema
 - Do not introduce new npm packages
 - Preserve existing UI theme tokens and zero border-radius
 - Do not commit secrets</textarea>
@@ -3132,7 +3132,7 @@ and verification SELECT queries.
                     <span class="terminal-title text-[11px] text-slate-400 font-semibold">generated-prompt.txt (Editable)</span>
                     <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy Prompt</button>
                   </div>
-                  <pre id="builder-output-code" contenteditable="true" spellcheck="false" class="terminal-body text-xs font-mono whitespace-pre-wrap max-h-[340px] overflow-y-auto focus:outline-none focus:ring-1 focus:ring-blue-500"></pre>
+                  <pre id="builder-output-code" contenteditable="true" spellcheck="false" class="terminal-body text-xs  whitespace-pre-wrap max-h-[340px] overflow-y-auto focus:outline-none focus:ring-1 focus:ring-blue-500"></pre>
                 </div>
 
                 <div id="builder-compare-box" class="info-card border-blue-500/40 hidden">
@@ -3150,12 +3150,12 @@ and verification SELECT queries.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p28_badge">SECTION 28: INTERACTIVE ANALYSIS WORKSHOP</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p28_badge">SECTION 28: INTERACTIVE ANALYSIS WORKSHOP</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s74_head">Interactive Scenario &amp; Troubleshooting Exercises</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s74_sub">Test your engineering intuition on real-world production incidents</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">EXERCISE</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">EXERCISE</span>
               </div>
             </div>
             <div class="slide-stack flex flex-col gap-3">
@@ -3252,12 +3252,12 @@ and verification SELECT queries.
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p29_badge">SECTION 29: FINAL CHEAT SHEET</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="p29_badge">SECTION 29: FINAL CHEAT SHEET</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s75_head">The Master Engineering Workflow &amp; Architecture</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s75_sub">Understand -> Analyze -> Plan -> Implement -> Test -> Review -> Verify -> Deliver</p>
               </div>
               <div class="slide-badge-group flex items-center gap-2">
-                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">CHEAT SHEET</span>
+                <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">CHEAT SHEET</span>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -3271,13 +3271,13 @@ and verification SELECT queries.
                   <p data-i18n="s75_c2_p">Human Architect defines problem -> AI acts as accelerated copilot -> Human inspects proposals -> Automated suite verifies truth -> Production releases safely.</p>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">final-architecture — human &amp; ai symbiosis</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body font-mono text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
+                <div class="terminal-body  text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed">
 Human Developer (Problem Definition &amp; Acceptance Constraints)
       ↓
 AI Copilot / Agent (Read-Only Codebase Analysis &amp; Plan Proposal)
@@ -3305,10 +3305,10 @@ Safe Production Deployment
         <div id="progress-bar-fill" class="progress-bar h-full bg-blue-600 transition-all duration-150" style="width: 1.33%;"></div>
       </div>
       <div class="nav-shortcuts-hint flex items-center gap-2 text-xs text-slate-400">
-        <span><kbd class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</kbd> <kbd class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</kbd> Navigate</span>
-        <span><kbd class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</kbd> Next</span>
-        <span><kbd class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</kbd> Overview</span>
-        <span><kbd class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Ctrl+K</kbd> Search</span>
+        <span><kbd class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</kbd> <kbd class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</kbd> Navigate</span>
+        <span><kbd class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</kbd> Next</span>
+        <span><kbd class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</kbd> Overview</span>
+        <span><kbd class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Ctrl+K</kbd> Search</span>
       </div>
       <div class="nav-buttons-group flex items-center gap-2">
         <button id="btn-prev" class="btn-nav inline-flex items-center gap-2 px-3 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" disabled>
@@ -3339,14 +3339,14 @@ Safe Production Deployment
           <button class="modal-close">&times;</button>
         </div>
         <div class="shortcut-grid grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Next Slide</span><div><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">L</span></div></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Previous Slide</span><div><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Backspace</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">H</span></div></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>First Slide</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Home</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Last Slide</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">End</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Search Presentation</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Ctrl + K</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Overview Grid</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</span> / <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">G</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Theme</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">T</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Fullscreen</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">F</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Next Slide</span><div><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span> <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span> <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">L</span></div></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Previous Slide</span><div><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span> <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Backspace</span> <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">H</span></div></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>First Slide</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Home</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Last Slide</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">End</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Search Presentation</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Ctrl + K</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Overview Grid</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</span> / <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">G</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Theme</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">T</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Fullscreen</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">F</span></div>
         </div>
       </div>
     </div>
@@ -3357,7 +3357,7 @@ Safe Production Deployment
           <div class="modal-title text-lg font-extrabold text-white m-0">Search Presentation</div>
           <button class="modal-close">&times;</button>
         </div>
-        <input type="text" id="search-input" class="search-input-box w-full bg-slate-950 border border-slate-700 p-2.5 font-mono text-xs text-white outline-none focus:border-blue-500" placeholder="Search prompts, concepts, workflows (Ctrl+K)..." data-i18n-placeholder="ui_search_placeholder">
+        <input type="text" id="search-input" class="search-input-box w-full bg-slate-950 border border-slate-700 p-2.5  text-xs text-white outline-none focus:border-blue-500" placeholder="Search prompts, concepts, workflows (Ctrl+K)..." data-i18n-placeholder="ui_search_placeholder">
         <div id="search-results" class="search-results-list flex flex-col gap-2 max-h-[380px] overflow-y-auto"></div>
       </div>
     </div>

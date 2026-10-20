@@ -9,7 +9,14 @@ export const courses = [
     category: "foundations",
     iconColor: "text-orange-500",
     iconBg: "bg-orange-500/15 border-orange-500/30",
-    tags: ["git init", "git status", "git add", "git commit", "git branch", ".gitignore"]
+    tags: [
+      "git init",
+      "git status",
+      "git add",
+      "git commit",
+      "git branch",
+      ".gitignore",
+    ],
   },
   {
     id: "github",
@@ -21,7 +28,14 @@ export const courses = [
     category: "foundations",
     iconColor: "text-purple-400",
     iconBg: "bg-purple-500/15 border-purple-500/30",
-    tags: ["git remote", "git push", "git pull", "clone", "pull request", "fork"]
+    tags: [
+      "git remote",
+      "git push",
+      "git pull",
+      "clone",
+      "pull request",
+      "fork",
+    ],
   },
   {
     id: "nextjs",
@@ -33,7 +47,14 @@ export const courses = [
     category: "frontend",
     iconColor: "text-white",
     iconBg: "bg-white/10 border-white/20",
-    tags: ["app router", "server components", "client components", "layouts", "routing", "api routes"]
+    tags: [
+      "app router",
+      "server components",
+      "client components",
+      "layouts",
+      "routing",
+      "api routes",
+    ],
   },
   {
     id: "tailwindcss",
@@ -45,7 +66,14 @@ export const courses = [
     category: "frontend",
     iconColor: "text-sky-400",
     iconBg: "bg-sky-500/15 border-sky-500/30",
-    tags: ["utility-first", "flexbox", "grid", "responsive", "dark mode", "arbitrary values"]
+    tags: [
+      "utility-first",
+      "flexbox",
+      "grid",
+      "responsive",
+      "dark mode",
+      "arbitrary values",
+    ],
   },
   {
     id: "shadcn",
@@ -57,7 +85,7 @@ export const courses = [
     category: "frontend",
     iconColor: "text-slate-100",
     iconBg: "bg-slate-800 border-slate-700",
-    tags: ["radix ui", "components", "cli", "cva", "cn()", "accessibility"]
+    tags: ["radix ui", "components", "cli", "cva", "cn()", "accessibility"],
   },
   {
     id: "postgres",
@@ -69,7 +97,14 @@ export const courses = [
     category: "backend",
     iconColor: "text-blue-400",
     iconBg: "bg-blue-500/15 border-blue-500/30",
-    tags: ["psql", "sql queries", "relations", "indexes", "transactions", "neon branch"]
+    tags: [
+      "psql",
+      "sql queries",
+      "relations",
+      "indexes",
+      "transactions",
+      "neon branch",
+    ],
   },
   {
     id: "vercel",
@@ -81,7 +116,14 @@ export const courses = [
     category: "devops",
     iconColor: "text-white",
     iconBg: "bg-slate-900 border-slate-800",
-    tags: ["vercel deploy", "git integration", "env vars", "domains", "serverless", "rollbacks"]
+    tags: [
+      "vercel deploy",
+      "git integration",
+      "env vars",
+      "domains",
+      "serverless",
+      "rollbacks",
+    ],
   },
   {
     id: "cloudflare",
@@ -93,7 +135,14 @@ export const courses = [
     category: "devops",
     iconColor: "text-orange-400",
     iconBg: "bg-orange-500/15 border-orange-500/30",
-    tags: ["dns", "cdn caching", "waf rules", "workers", "r2 storage", "zero trust"]
+    tags: [
+      "dns",
+      "cdn caching",
+      "waf rules",
+      "workers",
+      "r2 storage",
+      "zero trust",
+    ],
   },
   {
     id: "prompting",
@@ -105,8 +154,15 @@ export const courses = [
     category: "ai",
     iconColor: "text-emerald-400",
     iconBg: "bg-emerald-500/15 border-emerald-500/30",
-    tags: ["reasoning", "system prompts", "code agents", "verification", "task breakdown", "anti-patterns"]
-  }
+    tags: [
+      "reasoning",
+      "system prompts",
+      "code agents",
+      "verification",
+      "task breakdown",
+      "anti-patterns",
+    ],
+  },
 ];
 
 export async function loadCourseData(courseId) {

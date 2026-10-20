@@ -90,33 +90,25 @@ export default function HomePage() {
           {/* Quick Stats Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 border-t border-slate-800/80">
             <div className="bg-slate-950 border border-slate-800 p-3 text-center">
-              <span className="text-lg font-mono font-bold text-blue-400">
-                9
-              </span>
+              <span className="text-lg  font-bold text-blue-400">9</span>
               <p className="text-xs text-slate-400 m-0">
                 {t("home_stat_1_lbl", "Mastery Lessons")}
               </p>
             </div>
             <div className="bg-slate-950 border border-slate-800 p-3 text-center">
-              <span className="text-lg font-mono font-bold text-blue-400">
-                424
-              </span>
+              <span className="text-lg  font-bold text-blue-400">424</span>
               <p className="text-xs text-slate-400 m-0">
                 {t("home_stat_2_lbl", "Interactive Slides")}
               </p>
             </div>
             <div className="bg-slate-950 border border-slate-800 p-3 text-center">
-              <span className="text-lg font-mono font-bold text-blue-400">
-                100%
-              </span>
+              <span className="text-lg  font-bold text-blue-400">100%</span>
               <p className="text-xs text-slate-400 m-0">
                 {t("home_stat_3_lbl", "Real Code & Terminal")}
               </p>
             </div>
             <div className="bg-slate-950 border border-slate-800 p-3 text-center">
-              <span className="text-lg font-mono font-bold text-blue-400">
-                EN / KM
-              </span>
+              <span className="text-lg  font-bold text-blue-400">EN / KM</span>
               <p className="text-xs text-slate-400 m-0">
                 {t("home_stat_4_lbl", "Bilingual Support")}
               </p>

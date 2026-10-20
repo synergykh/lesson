@@ -6,7 +6,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border-radius: 0 !important;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -43,9 +42,6 @@
   --font-sans:
     "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
-  --font-mono:
-    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    monospace;
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 12px;
@@ -181,7 +177,6 @@ body.lang-km .title-main-h1 {
   background: rgba(37, 99, 235, 0.12);
   color: var(--accent-blue);
   border: 1px solid rgba(56, 189, 248, 0.25);
-  font-family: var(--font-mono);
 }
 
 .top-controls {
@@ -252,7 +247,7 @@ html[lang="km"] .lang-flag-km {
   align-items: center;
   gap: var(--sp-1);
   font-size: 12px;
-  font-family: var(--font-mono);
+
   color: var(--text-secondary);
   background: var(--bg-deep);
   border: 1px solid var(--border-default);
@@ -263,7 +258,7 @@ html[lang="km"] .lang-flag-km {
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
   color: var(--text-primary);
-  font-family: var(--font-mono);
+
   font-size: 12px;
   padding: 2px 4px;
   cursor: pointer;
@@ -329,7 +324,6 @@ html[lang="km"] .lang-flag-km {
 }
 
 .slide-meta-label {
-  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -364,7 +358,7 @@ html[lang="km"] .lang-flag-km {
   border: 1px solid var(--border-default);
   background: var(--bg-surface-elevated);
   color: var(--text-secondary);
-  font-family: var(--font-mono);
+
   display: inline-flex;
   align-items: center;
   gap: var(--sp-1);
@@ -442,7 +436,7 @@ html[lang="km"] .lang-flag-km {
   background: var(--bg-terminal);
   border: 1px solid var(--border-default);
   overflow: hidden;
-  font-family: var(--font-mono);
+
   font-size: 12px;
 }
 
@@ -527,7 +521,7 @@ html[lang="km"] .lang-flag-km {
   background: var(--bg-terminal);
   border: 1px solid var(--border-default);
   padding: var(--sp-3);
-  font-family: var(--font-mono);
+
   font-size: 12px;
   overflow-x: auto;
   color: #3b82f6;
@@ -618,7 +612,7 @@ html[lang="km"] .lang-flag-km {
 .kbd {
   display: inline-block;
   padding: 2px 6px;
-  font-family: var(--font-mono);
+
   font-size: 11px;
   font-weight: 700;
   background: var(--bg-surface-elevated);
@@ -1014,7 +1008,7 @@ html[lang="km"] .lang-flag-km {
   height: 20px;
   font-size: 11px;
   font-weight: 700;
-  font-family: var(--font-mono);
+
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-default);
   color: var(--accent-blue);
@@ -1059,7 +1053,6 @@ html[lang="km"] .lang-flag-km {
 }
 
 .overview-card-num {
-  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
   color: var(--accent-blue);

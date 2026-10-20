@@ -54,7 +54,7 @@
   </script>
   <style>
     * {
-      border-radius: 0 !important;
+      
     }
     *, *::before, *::after {
       scrollbar-width: none;
@@ -292,7 +292,7 @@
           </svg>
           <span data-i18n="ui_brand">Vercel &amp; Web Deployment</span>
         </a>
-        <span id="current-part-badge" class="part-badge inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2 py-1 bg-blue-600/15 text-blue-400 border border-blue-500/30 font-mono">MODULE 06</span>
+        <span id="current-part-badge" class="part-badge inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-2 py-1 bg-blue-600/15 text-blue-400 border border-blue-500/30 ">MODULE 06</span>
       </div>
 
       <div class="top-controls flex items-center gap-2">
@@ -300,9 +300,9 @@
           <img class="lang-flag-en w-5 h-3.5 object-cover" src="../images/en.png" alt="English">
           <img class="lang-flag-km w-5 h-3.5 object-cover" src="../images/km.png" alt="Khmer" style="display: none;">
         </button>
-        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1">
+        <div class="slide-counter-wrapper flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800 px-2 py-1">
           <span data-i18n="ui_slide">Slide</span>
-          <select id="slide-jump-select" class="bg-transparent text-blue-400 font-mono text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white" title="Jump to slide"></select>
+          <select id="slide-jump-select" class="bg-transparent text-blue-400  text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white" title="Jump to slide"></select>
           <span><span data-i18n="ui_of">of</span> <span id="total-slides-num">72</span></span>
         </div>
         <button id="btn-overview" class="btn-icon inline-flex items-center justify-center gap-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold cursor-pointer transition-colors" title="Slide Overview (O)">
@@ -329,7 +329,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="title-hero-grid grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-4 items-center">
               <div>
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="s1_badge">MODULE 06 • PRODUCTION INFRASTRUCTURE</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400" data-i18n="s1_badge">MODULE 06 • PRODUCTION INFRASTRUCTURE</span>
                 <h1 class="title-main-h1 text-3xl md:text-4xl font-extrabold text-white m-0 mb-1 leading-tight" data-i18n="s1_title">Vercel &amp; Web Deployment<br><span class="title-accent text-blue-400 font-extrabold">From Zero to Production Masterclass</span></h1>
                 <p class="title-tagline text-sm text-slate-300 italic m-0 mb-3" data-i18n="s1_tagline">“Deploy, scale, and maintain high-performance fullstack web applications”</p>
                 <div class="slide-stack flex flex-col gap-3">
@@ -342,22 +342,22 @@
                       <span data-i18n="ui_start">Start Course</span>
                       <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
                     </button>
-                    <span class="text-xs text-slate-300">or press <kbd class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</kbd> / <kbd class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</kbd></span>
+                    <span class="text-xs text-slate-300">or press <kbd class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</kbd> / <kbd class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</kbd></span>
                   </div>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                   <div class="terminal-dots flex items-center gap-1.5"><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span><span class="terminal-dot w-2.5 h-2.5 rounded-full inline-block"></span></div>
                   <span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — production pipeline</span>
                   <button class="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button>
                 </div>
-                <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+                <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                   <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">pnpm dlx vercel deploy --prod</span></div>
-                  <div class="term-out text-slate-300 font-mono text-xs">▲ Vercel CLI 39.x.x</div>
-                  <div class="term-out text-slate-300 font-mono text-xs">✓ Linking to acme-projects/taskflow</div>
-                  <div class="term-out text-slate-300 font-mono text-xs">✓ Uploading project files (1.2 MB)</div>
-                  <div class="term-out text-slate-300 font-mono text-xs">✓ Production deployment created</div>
+                  <div class="term-out text-slate-300  text-xs">▲ Vercel CLI 39.x.x</div>
+                  <div class="term-out text-slate-300  text-xs">✓ Linking to acme-projects/taskflow</div>
+                  <div class="term-out text-slate-300  text-xs">✓ Uploading project files (1.2 MB)</div>
+                  <div class="term-out text-slate-300  text-xs">✓ Production deployment created</div>
                   <div class="term-success">● Production: https://taskflow.vercel.app [38s]</div>
                   <div class="term-comment"># Global Edge CDN • SSL Active • Database Connected</div>
                 </div>
@@ -370,22 +370,22 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 01 • CONCEPTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 01 • CONCEPTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s2_title">What is Deployment?</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s2_sub">Transitioning code from your local computer to the global internet</p>
               </div>
-              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">CORE CONCEPT</span>
+              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">CORE CONCEPT</span>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Local Development (localhost:3000)</h4>
                 <p>Runs solely on your machine inside Node.js. Only accessible by you via local loopback. Stops when your computer closes or terminal shuts down.</p>
-                <div class="code-block bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">$ pnpm run dev<br>Ready in 1200ms on http://localhost:3000</div>
+                <div class="code-block bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">$ pnpm run dev<br>Ready in 1200ms on http://localhost:3000</div>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Production Deployment (Public Internet)</h4>
                 <p>Packaged, optimized, and hosted on high-availability cloud servers around the world. Accessible 24/7/365 by millions of users with automated HTTPS.</p>
-                <div class="code-block bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">Production URL: https://taskflow.com<br>Response time: 24ms from Global Edge Network</div>
+                <div class="code-block bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">Production URL: https://taskflow.com<br>Response time: 24ms from Global Edge Network</div>
               </div>
             </div>
           </div>
@@ -395,11 +395,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 01 • ARCHITECTURE</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 01 • ARCHITECTURE</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s3_title">The Production Deployment Pipeline</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s3_sub">Architectural path from developer code to global visitors</p>
               </div>
-              <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">ARCHITECTURE</span>
+              <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">ARCHITECTURE</span>
             </div>
             <div class="flow-diagram flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
               <div class="flow-step flex flex-col items-center text-center gap-1 flex-1 p-2 bg-slate-900 border border-slate-800">
@@ -445,7 +445,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 01 • EXECUTION MODELS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 01 • EXECUTION MODELS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s4_title">Static Websites vs Fullstack Applications</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s4_sub">Understanding execution models: Static Files, SSR, and Serverless APIs</p>
               </div>
@@ -471,11 +471,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 02 • PLATFORM OVERVIEW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 02 • PLATFORM OVERVIEW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s5_title">What is Vercel?</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s5_sub">The native cloud platform for Next.js and the modern web</p>
               </div>
-              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">VERCEL</span>
+              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">VERCEL</span>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
@@ -494,7 +494,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 02 • CORE FEATURES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 02 • CORE FEATURES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s6_title">Core Platform Capabilities</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s6_sub">Git automation, Global Edge Network, Serverless functions, and instant previews</p>
               </div>
@@ -502,7 +502,7 @@
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>1. Continuous Git Deployment</h4>
-                <p>Automatic builds on every <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git push</code>. Pull requests generate live staging preview URLs instantly for team review.</p>
+                <p>Automatic builds on every <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">git push</code>. Pull requests generate live staging preview URLs instantly for team review.</p>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>2. Global Edge Network (CDN)</h4>
@@ -524,7 +524,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 02 • BUILD LIFECYCLE</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 02 • BUILD LIFECYCLE</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s7_title">What Happens During a Vercel Build?</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s7_sub">Behind the scenes of containerized build runners and artifact generation</p>
               </div>
@@ -545,7 +545,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 02 • ECOSYSTEM</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 02 • ECOSYSTEM</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s8_title">Supported Frameworks on Vercel</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s8_sub">First-class support for Next.js, Astro, Remix, SvelteKit, Vite, and static HTML</p>
               </div>
@@ -562,7 +562,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 03 • SETUP</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 03 • SETUP</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s9_title">Creating Your Vercel Account</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s9_sub">Step-by-step signup via GitHub integration on vercel.com</p>
               </div>
@@ -570,7 +570,7 @@
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>1. Visit Official Site</h4>
-                <p>Navigate to <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">https://vercel.com/</code> and click <strong>Sign Up</strong>.</p>
+                <p>Navigate to <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">https://vercel.com/</code> and click <strong>Sign Up</strong>.</p>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>2. Select Continue with GitHub</h4>
@@ -592,7 +592,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 03 • ACCOUNTS &amp; TEAMS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 03 • ACCOUNTS &amp; TEAMS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s10_title">Personal Account vs Team Workspace</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s10_sub">Understanding account scopes, team collaboration, and permissions</p>
               </div>
@@ -614,7 +614,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 03 • DASHBOARD TOUR</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 03 • DASHBOARD TOUR</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s11_title">Navigating the Vercel Dashboard</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s11_sub">Overview of Projects, Deployments, Domains, Integrations, and Analytics</p>
               </div>
@@ -630,14 +630,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 04 • READINESS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 04 • READINESS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s12_title">Preparing a Next.js Project for Deployment</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s12_sub">Verifying package.json scripts, dependencies, and local build integrity</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">package.json — verify standard build script</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div>{</div>
                 <div>  "name": "taskflow",</div>
                 <div>  "scripts": {</div>
@@ -656,17 +656,17 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 04 • LOCAL VALIDATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 04 • LOCAL VALIDATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s13_title">Local Build Verification</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s13_sub">Catching compilation and type errors before pushing to GitHub</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — run local production build</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">pnpm run build</span></div>
-                <div class="term-out text-slate-300 font-mono text-xs">▲ Next.js 15.0.0</div>
-                <div class="term-out text-slate-300 font-mono text-xs">✓ Generating static pages (6/6)</div>
+                <div class="term-out text-slate-300  text-xs">▲ Next.js 15.0.0</div>
+                <div class="term-out text-slate-300  text-xs">✓ Generating static pages (6/6)</div>
                 <div class="term-success">✓ Finalized build artifact in .next/</div>
               </div>
             </div>
@@ -677,15 +677,15 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 04 • SECURITY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 04 • SECURITY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s14_title">Environment Variables Audit</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s14_sub">Keeping secrets in .env.local and out of version control</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">SECURITY RULE</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">SECURITY RULE</span>
             </div>
             <div class="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
               <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
-              <div><strong>NEVER COMMIT .env.local TO GIT!</strong> Verify that <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.env*.local</code> is listed in your <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.gitignore</code> file. Database passwords committed to GitHub can be stolen by scrapers within seconds.</div>
+              <div><strong>NEVER COMMIT .env.local TO GIT!</strong> Verify that <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.env*.local</code> is listed in your <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.gitignore</code> file. Database passwords committed to GitHub can be stolen by scrapers within seconds.</div>
             </div>
           </div>
         </section>
@@ -694,16 +694,16 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 04 • GIT HEALTH</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 04 • GIT HEALTH</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s15_title">Git Repository Health Check</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s15_sub">Clean working tree, .gitignore rules, and production branch alignment</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — inspect git status</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git status</span></div>
-                <div class="term-out text-slate-300 font-mono text-xs">On branch main</div>
+                <div class="term-out text-slate-300  text-xs">On branch main</div>
                 <div class="term-success">nothing to commit, working tree clean</div>
               </div>
             </div>
@@ -714,7 +714,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 05 • GITHUB</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 05 • GITHUB</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s16_title">Creating a GitHub Repository</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s16_sub">Setting up a public or private repository for project hosting</p>
               </div>
@@ -736,14 +736,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 05 • PUSHING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 05 • PUSHING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s17_title">Pushing Code to GitHub</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s17_sub">Connecting local repository to remote origin with git push</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — link remote &amp; push</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git remote add origin https://github.com/your-username/taskflow.git</span></div>
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git branch -M main</span></div>
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git push -u origin main</span></div>
@@ -757,14 +757,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 05 • AUDIT</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 05 • AUDIT</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s18_title">Verifying Repository on GitHub</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s18_sub">Checking branches, commits, and ensuring no secrets leaked</p>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>1. Inspect File Tree</h4><p>Ensure <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">package.json</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code> directory, and source files are at the root. Confirm <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.env.local</code> is absent.</p></div>
-              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>2. Confirm Default Branch</h4><p>Confirm the default branch is <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code> in GitHub repository Settings -> Branches.</p></div>
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>1. Inspect File Tree</h4><p>Ensure <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">package.json</code>, <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code> directory, and source files are at the root. Confirm <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.env.local</code> is absent.</p></div>
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>2. Confirm Default Branch</h4><p>Confirm the default branch is <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code> in GitHub repository Settings -> Branches.</p></div>
             </div>
           </div>
         </section>
@@ -773,14 +773,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 06 • VERCEL IMPORT</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 06 • VERCEL IMPORT</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s19_title">Importing a Project into Vercel</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s19_sub">Connecting your GitHub account and selecting the repository</p>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Step 1: Add New... -> Project</h4><p>Click the black <strong>Add New...</strong> button in your Vercel Dashboard and select <strong>Project</strong>.</p></div>
-              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Step 2: Import Git Repository</h4><p>Locate your <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow</code> repository in the list and click the blue <strong>Import</strong> button.</p></div>
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Step 2: Import Git Repository</h4><p>Locate your <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow</code> repository in the list and click the blue <strong>Import</strong> button.</p></div>
             </div>
           </div>
         </section>
@@ -789,14 +789,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 06 • CONFIGURATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 06 • CONFIGURATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s20_title">Framework Detection &amp; Root Directory</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s20_sub">Automatic Next.js detection and monorepo path configuration</p>
               </div>
             </div>
             <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
               <h4>Framework Preset: Next.js</h4>
-              <p>Vercel reads your <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">package.json</code> dependencies and automatically selects <strong>Next.js</strong>. If your app is inside a subfolder (monorepo), click <strong>Edit</strong> next to Root Directory and pick the folder.</p>
+              <p>Vercel reads your <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">package.json</code> dependencies and automatically selects <strong>Next.js</strong>. If your app is inside a subfolder (monorepo), click <strong>Edit</strong> next to Root Directory and pick the folder.</p>
             </div>
           </div>
         </section>
@@ -805,7 +805,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 06 • BUILD OVERRIDES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 06 • BUILD OVERRIDES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s21_title">Build and Output Settings</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s21_sub">Understanding default presets and custom build commands</p>
               </div>
@@ -813,9 +813,9 @@
             <table class="clean-table w-full border-collapse text-xs border border-slate-800">
               <thead><tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Setting</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Default Preset</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">When to Override</th></tr></thead>
               <tbody>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Build Command</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">next build</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">When running Prisma generate or custom scripts first</td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Output Directory</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.next</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Managed automatically by Next.js preset</td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Install Command</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm install</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">When using custom package flags</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Build Command</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">next build</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">When running Prisma generate or custom scripts first</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Output Directory</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.next</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Managed automatically by Next.js preset</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Install Command</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm install</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">When using custom package flags</td></tr>
               </tbody>
             </table>
           </div>
@@ -825,16 +825,16 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 06 • INITIAL SECRETS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 06 • INITIAL SECRETS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s22_title">Configuring Initial Environment Variables</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s22_sub">Supplying production keys before triggering the first build</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">Vercel UI — Environment Variables Section</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div>Key: <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">DATABASE_URL</span></div>
-                <div>Value: <span class="term-out text-slate-300 font-mono text-xs">postgresql://neondb_owner:***@ep-mute-123.neon.tech/neondb?sslmode=require</span></div>
+                <div>Value: <span class="term-out text-slate-300  text-xs">postgresql://neondb_owner:***@ep-mute-123.neon.tech/neondb?sslmode=require</span></div>
                 <div>Target Environments: <span class="term-success">Production, Preview, Development</span></div>
               </div>
             </div>
@@ -845,11 +845,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 07 • EXECUTION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 07 • EXECUTION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s23_title">The First Deployment Lifecycle</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s23_sub">From git push to active URL in under 60 seconds</p>
               </div>
-              <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">READY TO DEPLOY</span>
+              <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">READY TO DEPLOY</span>
             </div>
             <div class="flow-diagram flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
               <div class="flow-step flex flex-col items-center text-center gap-1 flex-1 p-2 bg-slate-900 border border-slate-800"><div class="flow-step-icon w-8 h-8 flex items-center justify-center bg-slate-800 border border-slate-700 text-blue-400 mb-1">📦</div><div class="flow-step-name text-xs font-bold text-slate-200">Queued</div><div class="flow-step-desc text-[11px] text-slate-400">Runner allocated</div></div>
@@ -867,14 +867,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 07 • LOGS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 07 • LOGS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s24_title">Inspecting Live Build Logs</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s24_sub">Real-time streaming output, dependency caching, and build steps</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">Vercel Build Inspector (Streaming)</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div>[14:20:01.120] Running build in Washington, D.C., USA (East) – iad1</div>
                 <div>[14:20:02.430] Cloning github.com/acme/taskflow (Branch: main, Commit: 8f2a1b9)</div>
                 <div>[14:20:04.100] Running "pnpm install"</div>
@@ -890,7 +890,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 07 • DOMAINS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 07 • DOMAINS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s25_title">Deployment URLs &amp; Production Aliases</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s25_sub">Understanding vercel.app domains and canonical aliases</p>
               </div>
@@ -898,13 +898,13 @@
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>1. Immutable Deployment URL</h4>
-                <p><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">https://taskflow-8f2a1b9-acme.vercel.app</code></p>
+                <p><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">https://taskflow-8f2a1b9-acme.vercel.app</code></p>
                 <p>Specific to this exact commit. Will permanently point to this build and never changes.</p>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>2. Production Canonical Alias</h4>
-                <p><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">https://taskflow.vercel.app</code></p>
-                <p>Always points to the latest successful release of your production branch (<code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code>).</p>
+                <p><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">https://taskflow.vercel.app</code></p>
+                <p>Always points to the latest successful release of your production branch (<code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code>).</p>
               </div>
             </div>
           </div>
@@ -914,7 +914,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 07 • VERIFICATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 07 • VERIFICATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s26_title">Post-Deployment Verification</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s26_sub">Testing client hydration, API routes, and network requests</p>
               </div>
@@ -922,7 +922,7 @@
             <div class="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>1. Inspect Console</h4><p>Open browser DevTools (F12) and ensure zero unhandled hydration errors.</p></div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>2. Test Server API</h4><p>Trigger a form submission or API fetch to ensure backend Route Handlers return 200 OK.</p></div>
-              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>3. Network Tab</h4><p>Confirm assets return <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">x-vercel-cache: HIT</code> for instant global edge delivery.</p></div>
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>3. Network Tab</h4><p>Confirm assets return <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">x-vercel-cache: HIT</code> for instant global edge delivery.</p></div>
             </div>
           </div>
         </section>
@@ -931,17 +931,17 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 08 • STAGING CONCEPTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 08 • STAGING CONCEPTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s27_title">Preview Deployments vs Production</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s27_sub">Isolated staging environments for every branch and pull request</p>
               </div>
-              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">CORE WORKFLOW</span>
+              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">CORE WORKFLOW</span>
             </div>
             <table class="clean-table w-full border-collapse text-xs border border-slate-800">
               <thead><tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Feature</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Preview Deployment</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Production Deployment</th></tr></thead>
               <tbody>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Triggered By</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Git feature branches or Pull Requests</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Merged to <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code> branch</td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">URL Format</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow-git-feature-acme.vercel.app</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow.com</code> / <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow.vercel.app</code></td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Triggered By</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Git feature branches or Pull Requests</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Merged to <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code> branch</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">URL Format</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow-git-feature-acme.vercel.app</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow.com</code> / <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow.vercel.app</code></td></tr>
                 <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Environment Variables</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Preview environment scope</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Production environment scope</td></tr>
                 <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Traffic</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Internal team, QA testers, reviewers</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Real live public users</td></tr>
               </tbody>
@@ -953,14 +953,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 08 • GITFLOW</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 08 • GITFLOW</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s28_title">Git Branching Workflow for Vercel</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s28_sub">Main branch for production, feature branches for preview testing</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">bash — feature branch to preview</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git checkout -b feature/user-auth</span></div>
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git commit -am "feat: implement session auth"</span></div>
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">git push -u origin feature/user-auth</span></div>
@@ -974,7 +974,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 08 • COLLABORATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 08 • COLLABORATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s29_title">Pull Request Previews &amp; Team Feedback</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s29_sub">Automated Vercel bot comments, preview URLs, and visual inspection</p>
               </div>
@@ -990,7 +990,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 08 • PROMOTION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 08 • PROMOTION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s30_title">Promoting Previews to Production</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s30_sub">Instant traffic switch with zero rebuilds and zero downtime</p>
               </div>
@@ -1006,7 +1006,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 09 • AUTOMATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 09 • AUTOMATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s31_title">Automatic Deployments via Git Push</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s31_sub">How webhooks trigger instant builds whenever code is pushed</p>
               </div>
@@ -1027,7 +1027,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 09 • CHECKS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 09 • CHECKS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s32_title">GitHub Commit Status Checks</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s32_sub">Vercel deployment checks integrated into GitHub Pull Requests</p>
               </div>
@@ -1043,14 +1043,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 09 • DEPLOY HOOKS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 09 • DEPLOY HOOKS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s33_title">Deploy Hooks for External Triggers</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s33_sub">Triggering builds from CMS publishing events and webhooks</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">curl — trigger deployment via HTTP POST</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-prompt text-blue-500 select-none mr-2 font-bold">$</span> <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_xxx/token_yyy</span></div>
                 <div class="term-success">{"job":{"id":"job_123","state":"QUEUED","createdAt":1700000000}}</div>
               </div>
@@ -1062,16 +1062,16 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • CONFIGURATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • CONFIGURATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s34_title">Environment Variables Mental Model</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s34_sub">Separating configuration from code across development stages</p>
               </div>
-              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">12-FACTOR APP</span>
+              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">12-FACTOR APP</span>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Code Remains Identical</h4>
-                <p>Your source code never hardcodes database URLs, Stripe API keys, or secret tokens. The application reads from <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">process.env</code> at runtime.</p>
+                <p>Your source code never hardcodes database URLs, Stripe API keys, or secret tokens. The application reads from <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">process.env</code> at runtime.</p>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Cloud Injected at Build &amp; Runtime</h4>
@@ -1085,7 +1085,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • SCOPING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • SCOPING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s35_title">Environment Scope: Dev, Preview, Production</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s35_sub">Targeting distinct databases and API keys per deployment stage</p>
               </div>
@@ -1093,9 +1093,9 @@
             <table class="clean-table w-full border-collapse text-xs border border-slate-800">
               <thead><tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Target Scope</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Usage</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Example DATABASE_URL</th></tr></thead>
               <tbody>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Production</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Live <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code> branch</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">...neon.tech/neondb_prod</code></td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Preview</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">PRs and feature branches</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">...neon.tech/neondb_preview</code></td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Development</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Pulled locally with Vercel CLI</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">...neon.tech/neondb_dev</code></td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Production</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Live <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">main</code> branch</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">...neon.tech/neondb_prod</code></td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Preview</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">PRs and feature branches</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">...neon.tech/neondb_preview</code></td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Development</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Pulled locally with Vercel CLI</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">...neon.tech/neondb_dev</code></td></tr>
               </tbody>
             </table>
           </div>
@@ -1105,21 +1105,21 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • SECURITY BOUNDARY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • SECURITY BOUNDARY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s36_title">The NEXT_PUBLIC_* Security Boundary</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s36_sub">Preventing client bundle leakage of private server secrets</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">CRITICAL</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">CRITICAL</span>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Server-Only (Secret)</h4>
-                <p><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">DATABASE_URL</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">STRIPE_SECRET_KEY</code></p>
+                <p><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">DATABASE_URL</code>, <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">STRIPE_SECRET_KEY</code></p>
                 <p>Never prefixed with NEXT_PUBLIC_. Only accessible inside Server Components, Route Handlers, and Server Actions.</p>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Client-Exposed (Public)</h4>
-                <p><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">NEXT_PUBLIC_APP_NAME</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">NEXT_PUBLIC_MAP_KEY</code></p>
+                <p><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">NEXT_PUBLIC_APP_NAME</code>, <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">NEXT_PUBLIC_MAP_KEY</code></p>
                 <p>Inlined directly into browser JavaScript bundle during build. Accessible by anyone viewing website source.</p>
               </div>
             </div>
@@ -1130,7 +1130,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • DASHBOARD CONFIG</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • DASHBOARD CONFIG</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s37_title">Managing Variables in Vercel Dashboard</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s37_sub">Adding, editing, masking, and bulk uploading environment variables</p>
               </div>
@@ -1146,11 +1146,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • REDEPLOYMENT</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 10 • REDEPLOYMENT</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s38_title">The Redeployment Requirement</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s38_sub">Why updated environment variables require a new deployment</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">IMPORTANT</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">IMPORTANT</span>
             </div>
             <div class="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
               <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
@@ -1163,7 +1163,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 11 • APP ROUTER</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 11 • APP ROUTER</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s39_title">Next.js App Router on Vercel</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s39_sub">Server Components, Client Components, and Edge routing</p>
               </div>
@@ -1185,14 +1185,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 11 • RENDERING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 11 • RENDERING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s40_title">Static vs Dynamic Rendering Modes</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s40_sub">Controlling cache headers and server rendering behavior</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">app/dashboard/page.tsx — control dynamic rendering</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-comment">// Force dynamic server-rendering on every visitor request</span></div>
                 <div><span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">export const dynamic = 'force-dynamic';</span></div>
                 <div><span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">export const revalidate = 0;</span></div>
@@ -1205,14 +1205,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 11 • SERVER ACTIONS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 11 • SERVER ACTIONS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s41_title">Server Actions &amp; Route Handlers</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s41_sub">Executing secure backend mutations on serverless functions</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">app/actions.ts — server action running on Vercel</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">'use server';</span></div>
                 <div>import { sql } from '@vercel/postgres';</div>
                 <div>export async function createTask(formData: FormData) {</div>
@@ -1228,7 +1228,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 11 • OPTIMIZATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 11 • OPTIMIZATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s42_title">Image Optimization &amp; Global Edge</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s42_sub">Next.js image resizing, WebP conversion, and CDN distribution</p>
               </div>
@@ -1244,11 +1244,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 12 • FULLSTACK</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 12 • FULLSTACK</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s43_title">Fullstack Architecture: Vercel + Neon</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s43_sub">Serverless web frontend connecting to serverless PostgreSQL</p>
               </div>
-              <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">ARCHITECTURE</span>
+              <span class="tag-badge flow text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">ARCHITECTURE</span>
             </div>
             <div class="flow-diagram flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
               <div class="flow-step flex flex-col items-center text-center gap-1 flex-1 p-2 bg-slate-900 border border-slate-800"><div class="flow-step-icon w-8 h-8 flex items-center justify-center bg-slate-800 border border-slate-700 text-blue-400 mb-1">🌐</div><div class="flow-step-name text-xs font-bold text-slate-200">Browser</div><div class="flow-step-desc text-[11px] text-slate-400">User request</div></div>
@@ -1264,14 +1264,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 12 • CONNECTION STRING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 12 • CONNECTION STRING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s44_title">Obtaining Neon Connection Strings</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s44_sub">Pooled connections with sslmode=require for serverless queries</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">Neon Dashboard — Pooled Connection String</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div><span class="term-comment"># Use the Pooled connection mode (-pooler suffix in host)</span></div>
                 <div><span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">DATABASE_URL="postgresql://neondb_owner:***@ep-mute-wave-123456-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"</span></div>
               </div>
@@ -1283,7 +1283,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 12 • CONFIGURATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 12 • CONFIGURATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s45_title">Configuring DATABASE_URL in Vercel</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s45_sub">Setting up separate database instances for preview and production</p>
               </div>
@@ -1299,14 +1299,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 12 • MIGRATIONS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 12 • MIGRATIONS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s46_title">Database Migration Strategy</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s46_sub">Safely applying schema migrations before application deployment</p>
               </div>
             </div>
             <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
               <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
-              <div>Always execute database migrations (e.g. <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm prisma migrate deploy</code> or <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm drizzle-kit migrate</code>) before or during the build phase so new database columns exist when your new code runs!</div>
+              <div>Always execute database migrations (e.g. <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm prisma migrate deploy</code> or <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm drizzle-kit migrate</code>) before or during the build phase so new database columns exist when your new code runs!</div>
             </div>
           </div>
         </section>
@@ -1315,7 +1315,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • DOMAINS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • DOMAINS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s47_title">Custom Domain Mental Model</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s47_sub">Apex domains vs subdomains and how DNS routing operates</p>
               </div>
@@ -1323,12 +1323,12 @@
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Apex / Root Domain</h4>
-                <p><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow.com</code> (no prefix before root name)</p>
+                <p><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow.com</code> (no prefix before root name)</p>
                 <p>Requires an <strong>A Record</strong> pointing to Vercel's Anycast IP.</p>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Subdomain</h4>
-                <p><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app.taskflow.com</code> or <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">www.taskflow.com</code></p>
+                <p><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app.taskflow.com</code> or <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">www.taskflow.com</code></p>
                 <p>Requires a <strong>CNAME Record</strong> pointing to Vercel's DNS alias.</p>
               </div>
             </div>
@@ -1339,7 +1339,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • DNS RECORDS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • DNS RECORDS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s48_title">DNS Record Types: A vs CNAME</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s48_sub">Configuring 76.76.21.21 for root and cname.vercel-dns.com for subdomains</p>
               </div>
@@ -1347,8 +1347,8 @@
             <table class="clean-table w-full border-collapse text-xs border border-slate-800">
               <thead><tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Record Type</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Host / Name</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Value / Target</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Purpose</th></tr></thead>
               <tbody>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><strong>A</strong></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@</code> (root)</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">76.76.21.21</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Points apex domain to Vercel global IP</td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><strong>CNAME</strong></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">www</code> or <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">cname.vercel-dns.com</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Aliases subdomain to Vercel edge network</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><strong>A</strong></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@</code> (root)</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">76.76.21.21</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Points apex domain to Vercel global IP</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><strong>CNAME</strong></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">www</code> or <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">cname.vercel-dns.com</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Aliases subdomain to Vercel edge network</td></tr>
               </tbody>
             </table>
           </div>
@@ -1358,13 +1358,13 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • REGISTRARS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • REGISTRARS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s49_title">Step-by-Step Registrar Configuration</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s49_sub">Adding DNS records in Namecheap, Cloudflare, or GoDaddy</p>
               </div>
             </div>
             <div class="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>1. Vercel Project</h4><p>Settings -> Domains -> Enter <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">yourdomain.com</code> and click Add.</p></div>
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>1. Vercel Project</h4><p>Settings -> Domains -> Enter <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">yourdomain.com</code> and click Add.</p></div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>2. Registrar DNS</h4><p>Open Namecheap/Cloudflare -> DNS Management -> Add A &amp; CNAME records.</p></div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>3. Wait for Verification</h4><p>Vercel polls DNS until records resolve and issues SSL certificate.</p></div>
             </div>
@@ -1375,11 +1375,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • EMAIL SAFETY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • EMAIL SAFETY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s50_title">Preserving Email DNS Records</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s50_sub">Avoiding email disruption by protecting MX, SPF, DKIM, and DMARC</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">DANGER ZONE</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">DANGER ZONE</span>
             </div>
             <div class="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
               <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
@@ -1392,7 +1392,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • PROPAGATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 13 • PROPAGATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s51_title">DNS Propagation &amp; Automatic SSL</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s51_sub">Let's Encrypt TLS certificate generation and HTTPS enforcement</p>
               </div>
@@ -1408,7 +1408,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 14 • SECURITY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 14 • SECURITY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s52_title">HTTPS &amp; Transport Security</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s52_sub">HSTS headers, modern TLS cipher suites, and redirect rules</p>
               </div>
@@ -1424,14 +1424,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 14 • HARDENING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 14 • HARDENING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s53_title">Application Hardening on Vercel</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s53_sub">Content Security Policy (CSP), rate limiting, and input sanitization</p>
               </div>
             </div>
             <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
               <h4>Security Headers in next.config.js</h4>
-              <p>Configure <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">X-Content-Type-Options: nosniff</code>, <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">X-Frame-Options: DENY</code>, and Content Security Policy (CSP) headers to prevent XSS and clickjacking attacks.</p>
+              <p>Configure <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">X-Content-Type-Options: nosniff</code>, <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">X-Frame-Options: DENY</code>, and Content Security Policy (CSP) headers to prevent XSS and clickjacking attacks.</p>
             </div>
           </div>
         </section>
@@ -1440,7 +1440,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 14 • AUDITING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 14 • AUDITING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s54_title">Secret Auditing &amp; Remediation</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s54_sub">Scanning repositories for leaks and rotating compromised credentials</p>
               </div>
@@ -1456,7 +1456,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 15 • IMMUTABILITY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 15 • IMMUTABILITY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s55_title">Immutable Deployments</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s55_sub">Why every build is a permanent, immutable snapshot</p>
               </div>
@@ -1472,11 +1472,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 15 • EMERGENCY RESTORE</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 15 • EMERGENCY RESTORE</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s56_title">Instant Rollback Workflow</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s56_sub">Restoring a previous working deployment in seconds</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">EMERGENCY FIX</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">EMERGENCY FIX</span>
             </div>
             <div class="flow-diagram flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
               <div class="flow-step flex flex-col items-center text-center gap-1 flex-1 p-2 bg-slate-900 border border-slate-800"><div class="flow-step-icon w-8 h-8 flex items-center justify-center bg-slate-800 border border-slate-700 text-blue-400 mb-1">1</div><div class="flow-step-name text-xs font-bold text-slate-200">Bug Detected</div><div class="flow-step-desc text-[11px] text-slate-400">Production error</div></div>
@@ -1494,11 +1494,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 15 • THE MIGRATION TRAP</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 15 • THE MIGRATION TRAP</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s57_title">The Code vs Database Rollback Discrepancy</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s57_sub">Why rolling back code does NOT undo database schema changes</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">CRITICAL WARNING</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">CRITICAL WARNING</span>
             </div>
             <div class="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
               <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
@@ -1511,7 +1511,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 16 • DEBUGGING</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 16 • DEBUGGING</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s58_title">Build Logs vs Runtime Logs</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s58_sub">Differentiating compile-time failures from production exceptions</p>
               </div>
@@ -1519,7 +1519,7 @@
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Build Logs (Compile-Time)</h4>
-                <p>Captures <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm install</code> and <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">next build</code>. Look here when deployment status shows red failed build. Common causes: TypeScript, ESLint, missing packages.</p>
+                <p>Captures <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm install</code> and <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">next build</code>. Look here when deployment status shows red failed build. Common causes: TypeScript, ESLint, missing packages.</p>
               </div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                 <h4>Runtime Logs (Production)</h4>
@@ -1533,14 +1533,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 16 • COMMON BUILD ERRORS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 16 • COMMON BUILD ERRORS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s59_title">Diagnosing Common Build Failures</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s59_sub">Missing dependencies, TypeScript errors, and incorrect root directory</p>
               </div>
             </div>
-            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+            <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">Error: Module not found: Can't resolve 'clsx'</span></div>
-              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs">
+              <div class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs">
                 <div class="term-warn">Cause: Package installed globally or missing from package.json dependencies.</div>
                 <div>Solution: Run <span class="term-cmd text-blue-400 font-bold flex items-center gap-1.5">pnpm add clsx</span> locally, commit package.json and pnpm-lock.yaml, then push.</div>
               </div>
@@ -1552,7 +1552,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 16 • RUNTIME ERRORS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 16 • RUNTIME ERRORS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s60_title">Diagnosing Runtime 500 Errors</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s60_sub">Database timeouts, connection exhaustion, and uncaught exceptions</p>
               </div>
@@ -1568,7 +1568,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 16 • DEBUG METHOD</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 16 • DEBUG METHOD</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s61_title">The 5-Step Systematic Debugging Flow</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s61_sub">Reproduce -> Read Log -> Isolate Error -> Patch -> Verify</p>
               </div>
@@ -1589,14 +1589,14 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 17 • PERFORMANCE</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 17 • PERFORMANCE</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s62_title">Build Performance &amp; Turbopack</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s62_sub">Utilizing build caching, package deduplication, and fast compilation</p>
               </div>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Vercel Remote Build Cache</h4><p>Caches unchanged dependency builds across runs, cutting build times from minutes to seconds.</p></div>
-              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Bundle Analyzer</h4><p>Run <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@next/bundle-analyzer</code> to spot bloated libraries and split code efficiently.</p></div>
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Bundle Analyzer</h4><p>Run <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@next/bundle-analyzer</code> to spot bloated libraries and split code efficiently.</p></div>
             </div>
           </div>
         </section>
@@ -1605,7 +1605,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 17 • DATABASE LATENCY</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 17 • DATABASE LATENCY</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s63_title">Serverless Optimization &amp; Connection Pooling</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s63_sub">Preventing cold starts and connection limits with Neon Serverless driver</p>
               </div>
@@ -1621,7 +1621,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 18 • COST CONTROL</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 18 • COST CONTROL</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s64_title">Vercel Plan Limits &amp; Cost Management</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s64_sub">Understanding Hobby vs Pro bandwidth, function duration, and spending controls</p>
               </div>
@@ -1637,16 +1637,16 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 19 • GUIDED PROJECT</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 19 • GUIDED PROJECT</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s65_title">Guided Project: TaskFlow Architecture</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s65_sub">Production blueprint for Next.js, Neon PostgreSQL, and Vercel</p>
               </div>
-              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 font-mono inline-flex items-center gap-1">REAL WORLD</span>
+              <span class="tag-badge info text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">REAL WORLD</span>
             </div>
             <div class="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Frontend</h4><p>Next.js 15 App Router, Tailwind CSS, Shadcn UI components, Responsive UI.</p></div>
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Database</h4><p>Neon Serverless PostgreSQL, Prisma schema, pooled connection string.</p></div>
-              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Hosting &amp; Domain</h4><p>Vercel Edge Network, custom domain <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow.com</code>, automated HTTPS.</p></div>
+              <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>Hosting &amp; Domain</h4><p>Vercel Edge Network, custom domain <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">taskflow.com</code>, automated HTTPS.</p></div>
             </div>
           </div>
         </section>
@@ -1655,11 +1655,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 19 • INTERACTIVE SIMULATOR</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 19 • INTERACTIVE SIMULATOR</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s66_title">Interactive Deployment Simulator</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s66_sub">Simulate connecting repos, setting env vars, building, and deploying</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1" data-i18n="ui_sim_label">SIMULATION ONLY</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1" data-i18n="ui_sim_label">SIMULATION ONLY</span>
             </div>
             <div class="slide-stack flex flex-col gap-3">
               <div class="flex items-center justify-between flex-wrap gap-2">
@@ -1676,12 +1676,12 @@
                     <input type="checkbox" id="sim-fail-toggle">
                     <span>Simulate Build Failure</span>
                   </label>
-                  <span id="sim-status-indicator" class="font-bold font-mono text-green-400">CONNECTED</span>
+                  <span id="sim-status-indicator" class="font-bold  text-green-400">CONNECTED</span>
                 </div>
               </div>
-              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden font-mono text-xs shadow-md">
+              <div class="terminal-window bg-slate-950 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span class="terminal-title text-[11px] text-slate-400 font-semibold">simulation output runner</span></div>
-                <pre id="sim-terminal-body" class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed font-mono text-xs whitespace-pre-wrap text-xs"></pre>
+                <pre id="sim-terminal-body" class="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs whitespace-pre-wrap text-xs"></pre>
               </div>
             </div>
           </div>
@@ -1691,21 +1691,21 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 19 • DNS SIMULATOR</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 19 • DNS SIMULATOR</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s67_title">Interactive Domain &amp; DNS Simulator</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s67_sub">Experiment with Apex, CNAME, and SSL verification live</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1" data-i18n="ui_sim_label">SIMULATION ONLY</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1" data-i18n="ui_sim_label">SIMULATION ONLY</span>
             </div>
             <div class="slide-stack flex flex-col gap-3">
               <div class="flex gap-3 flex-wrap items-center">
-                <input id="dns-domain-input" type="text" value="taskflow-app.com" class="bg-slate-800 border border-slate-700 text-white px-2 py-1 font-mono text-xs w-[220px] outline-none" placeholder="Enter domain...">
+                <input id="dns-domain-input" type="text" value="taskflow-app.com" class="bg-slate-800 border border-slate-700 text-white px-2 py-1  text-xs w-[220px] outline-none" placeholder="Enter domain...">
                 <select id="dns-record-type" class="bg-slate-800 border border-slate-700 text-white px-2 py-1 text-xs outline-none">
                   <option value="apex">Apex / Root (@)</option>
                   <option value="subdomain">Subdomain (app / www)</option>
                 </select>
                 <button id="btn-verify-dns" class="btn-nav btn-primary-action inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline">Verify DNS &amp; SSL</button>
-                <span id="dns-verify-result" class="text-xs font-bold font-mono"></span>
+                <span id="dns-verify-result" class="text-xs font-bold "></span>
               </div>
               <table class="clean-table w-full border-collapse text-xs border border-slate-800">
                 <thead><tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Record Type</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Name / Host</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Target Value</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Status</th></tr></thead>
@@ -1713,7 +1713,7 @@
                   <tr>
                     <td id="dns-val-type" class="font-bold text-blue-400">A</td>
                     <td id="dns-val-name">@</td>
-                    <td id="dns-val-target" class="font-mono">76.76.21.21</td>
+                    <td id="dns-val-target" class="">76.76.21.21</td>
                     <td id="dns-val-status">Configured</td>
                   </tr>
                 </tbody>
@@ -1726,12 +1726,12 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 20 • VERIFICATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 20 • VERIFICATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s68_title">Interactive Production Checklist</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s68_sub">Comprehensive interactive checklist saved to your browser</p>
               </div>
               <div class="flex items-center gap-2">
-                <span id="checklist-count" class="text-xs font-mono text-blue-400">0 / 8 Checked</span>
+                <span id="checklist-count" class="text-xs  text-blue-400">0 / 8 Checked</span>
                 <button id="btn-reset-checklist" class="btn-nav inline-flex items-center gap-2 px-3 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline px-2 py-0.5 text-[11px]">Reset</button>
               </div>
             </div>
@@ -1742,7 +1742,7 @@
               <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <label class="flex items-start gap-2 text-[12.5px] cursor-pointer">
                   <input type="checkbox" data-check-key="chk_build" class="checklist-checkbox mt-1">
-                  <span>1. Local build succeeded (<code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm run build</code> passed zero errors)</span>
+                  <span>1. Local build succeeded (<code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm run build</code> passed zero errors)</span>
                 </label>
                 <label class="flex items-start gap-2 text-[12.5px] cursor-pointer">
                   <input type="checkbox" data-check-key="chk_env" class="checklist-checkbox mt-1">
@@ -1781,11 +1781,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 21 • MISTAKES</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 21 • MISTAKES</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s69_title">Top 10 Costly Deployment Mistakes</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s69_sub">Critical errors developers make and exact steps to avoid them</p>
               </div>
-              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 font-mono inline-flex items-center gap-1">AVOID THESE</span>
+              <span class="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">AVOID THESE</span>
             </div>
             <div class="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors"><h4>1. Forgetting to Redeploy after updating Env Vars</h4><p>Changing an env var doesn't update old builds. Must trigger Redeploy.</p></div>
@@ -1800,7 +1800,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 21 • SMOKE TESTS</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 21 • SMOKE TESTS</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s70_title">Production Verification &amp; Health Checks</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s70_sub">End-to-end testing of auth, database CRUD, and responsiveness</p>
               </div>
@@ -1817,7 +1817,7 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 22 • REFERENCE</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 22 • REFERENCE</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s71_title">Vercel Deployment Cheat Sheet</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s71_sub">Quick reference guide for CLI, Git commands, DNS values, and rules</p>
               </div>
@@ -1825,10 +1825,10 @@
             <table class="clean-table w-full border-collapse text-xs border border-slate-800">
               <thead><tr><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Action</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Command / Record</th><th class="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">Notes</th></tr></thead>
               <tbody>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Test Local Build</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm run build</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Run before pushing code</td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Deploy via CLI</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm dlx vercel --prod</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Manual production deployment</td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Apex Domain DNS</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">A Record -> <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">76.76.21.21</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Points root to Vercel</td></tr>
-                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Subdomain DNS</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">CNAME -> <code class="font-mono text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">cname.vercel-dns.com</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Points subdomains to Vercel</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Test Local Build</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm run build</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Run before pushing code</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Deploy via CLI</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200"><code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm dlx vercel --prod</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Manual production deployment</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Apex Domain DNS</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">A Record -> <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">76.76.21.21</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Points root to Vercel</td></tr>
+                <tr><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Subdomain DNS</td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">CNAME -> <code class=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">cname.vercel-dns.com</code></td><td class="px-3 py-2 border-b border-slate-800 text-slate-200">Points subdomains to Vercel</td></tr>
               </tbody>
             </table>
           </div>
@@ -1838,11 +1838,11 @@
           <div class="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4 shadow-2xl overflow-y-auto">
             <div class="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
               <div class="slide-title-wrap flex flex-col gap-1">
-                <span class="slide-meta-label font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 22 • MASTERCLASS GRADUATION</span>
+                <span class="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400">PART 22 • MASTERCLASS GRADUATION</span>
                 <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s72_title">Course Summary &amp; Master Architecture</h2>
                 <p class="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s72_sub">Congratulations! You have mastered production web deployments on Vercel</p>
               </div>
-              <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400 font-mono inline-flex items-center gap-1">COMPLETED</span>
+              <span class="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">COMPLETED</span>
             </div>
             <div class="slide-stack flex flex-col gap-3">
               <div class="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
@@ -1867,11 +1867,11 @@
       <div class="bottom-content flex items-center justify-between h-[50px] px-4 bg-slate-900 border-t border-slate-800 z-50 shrink-0 relative">
         <div class="nav-shortcuts-hint flex items-center gap-2 text-xs text-slate-400">
           <span>Shortcuts:</span>
-          <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span> / <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span>
+          <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span> / <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span>
           <span>Next</span>
-          <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span>
+          <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span>
           <span>Prev</span>
-          <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Ctrl+K</span>
+          <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Ctrl+K</span>
           <span>Search</span>
         </div>
         <div class="nav-buttons-group flex items-center gap-2">
@@ -1904,7 +1904,7 @@
           <button class="modal-close">&times;</button>
         </div>
         <div class="pt-1 pb-3">
-          <input id="search-input" type="text" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 text-white text-xs font-mono outline-none focus:border-blue-500" placeholder="Search deployment concepts, commands, topics (Ctrl + K)...">
+          <input id="search-input" type="text" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 text-white text-xs  outline-none focus:border-blue-500" placeholder="Search deployment concepts, commands, topics (Ctrl + K)...">
         </div>
         <div id="search-results" class="max-h-[55vh] overflow-y-auto"></div>
       </div>
@@ -1917,14 +1917,14 @@
           <button class="modal-close">&times;</button>
         </div>
         <div class="shortcut-grid grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Next Slide</span><div><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span></div></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Previous Slide</span><div><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span> <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Backspace</span></div></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>First Slide</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Home</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Last Slide</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">End</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Search Topics</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Ctrl+K</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Overview Grid</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</span> / <span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">G</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Theme</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">T</span></div>
-          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Fullscreen</span><span class="kbd inline-block px-1.5 py-0.5 font-mono text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">F</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Next Slide</span><div><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</span> <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</span></div></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Previous Slide</span><div><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">←</span> <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Backspace</span></div></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>First Slide</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Home</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Last Slide</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">End</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Search Topics</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Ctrl+K</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Overview Grid</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">O</span> / <span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">G</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Theme</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">T</span></div>
+          <div class="shortcut-item flex items-center justify-between px-3 py-2 bg-slate-800 border border-slate-700 text-xs text-slate-300"><span>Toggle Fullscreen</span><span class="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">F</span></div>
         </div>
       </div>
     </div>

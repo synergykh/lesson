@@ -1,5 +1,5 @@
-import React from 'react';
-import { useLanguage } from '../context/LanguageContext';
+import React from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -19,9 +19,15 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center flex-wrap justify-center gap-4 text-slate-400">
-          <span className="font-mono text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700">React + Vite</span>
-          <span className="font-mono text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700">Tailwind CSS</span>
-          <span className="font-mono text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700">Bilingual EN / KM</span>
+          <span className=" text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700">
+            React + Vite
+          </span>
+          <span className=" text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700">
+            Tailwind CSS
+          </span>
+          <span className=" text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700">
+            Bilingual EN / KM
+          </span>
         </div>
 
         <div>

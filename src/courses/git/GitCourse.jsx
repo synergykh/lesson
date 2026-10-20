@@ -30,7 +30,12 @@ export default function GitCourse({ initialSlide = 1 }) {
     const handleKeyDown = (e) => {
       if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
 
-      if (e.key === "ArrowRight" || e.key === " " || e.key === "l" || e.key === "L") {
+      if (
+        e.key === "ArrowRight" ||
+        e.key === " " ||
+        e.key === "l" ||
+        e.key === "L"
+      ) {
         e.preventDefault();
         setCurrentIndex((prev) => Math.min(prev + 1, totalSlides - 1));
       } else if (e.key === "ArrowLeft" || e.key === "h" || e.key === "H") {
@@ -79,7 +84,8 @@ export default function GitCourse({ initialSlide = 1 }) {
       setIsFullscreen(!!document.fullscreenElement);
     };
     document.addEventListener("fullscreenchange", handleFsChange);
-    return () => document.removeEventListener("fullscreenchange", handleFsChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFsChange);
   }, []);
 
   const currentSlide = GIT_SLIDES[currentIndex];
@@ -118,7 +124,7 @@ export default function GitCourse({ initialSlide = 1 }) {
 
           <Badge
             variant="default"
-            className="hidden sm:inline-flex font-mono text-[11px] bg-orange-500/10 text-orange-400 border border-orange-500/30"
+            className="hidden sm:inline-flex  text-[11px] bg-orange-500/10 text-orange-400 border border-orange-500/30"
           >
             {currentSlide.part || "MODULE 01"}
           </Badge>
@@ -126,12 +132,12 @@ export default function GitCourse({ initialSlide = 1 }) {
 
         <div className="top-controls flex items-center gap-1.5">
           {/* Jump to Slide dropdown */}
-          <div className="slide-counter-wrapper h-[34px] px-2.5 rounded-lg flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-950 border border-slate-800">
-            <span>Slide</span>
+          <div className="slide-counter-wrapper h-[34px] px-2.5 rounded-lg flex items-center gap-1.5 text-xs  text-slate-300 bg-slate-950 border border-slate-800">
+            <span>{t("ui_slide", "Slide")}</span>
             <select
               value={currentIndex}
               onChange={(e) => setCurrentIndex(Number(e.target.value))}
-              className="bg-transparent text-orange-400 font-mono text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white"
+              className="bg-transparent text-orange-400  text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white"
               title="Jump to slide"
             >
               {GIT_SLIDES.map((s, idx) => (
@@ -141,7 +147,8 @@ export default function GitCourse({ initialSlide = 1 }) {
               ))}
             </select>
             <span>
-              of <span className="font-bold text-white">{totalSlides}</span>
+              {t("ui_of", "of")}{" "}
+              <span className="font-bold text-white">{totalSlides}</span>
             </span>
           </div>
 
@@ -211,11 +218,17 @@ export default function GitCourse({ initialSlide = 1 }) {
             aria-label="Toggle Light / Dark Mode"
           >
             {theme === "dark" ? (
-              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
+              <svg
+                className="w-4 h-4 fill-current shrink-0"
+                viewBox="0 0 16 16"
+              >
                 <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z" />
               </svg>
             ) : (
-              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
+              <svg
+                className="w-4 h-4 fill-current shrink-0"
+                viewBox="0 0 16 16"
+              >
                 <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
               </svg>
             )}
@@ -243,7 +256,7 @@ export default function GitCourse({ initialSlide = 1 }) {
             key={currentSlide.id}
             className="slide-item active w-full max-w-7xl h-full mx-auto flex flex-col justify-center items-center"
           >
-            <div className="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between gap-4 shadow-2xl overflow-y-auto rounded-2xl">
+            <div className="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between gap-4 shadow-2xl overflow-y-auto rounded-lgl">
               <CurrentSlideComponent
                 onStart={() => setCurrentIndex(1)}
                 onRestart={() => setCurrentIndex(0)}
@@ -256,44 +269,48 @@ export default function GitCourse({ initialSlide = 1 }) {
       {/* Bottom Navigation Bar */}
       <footer className="bottom-bar flex items-center justify-between h-[50px] px-4 bg-slate-900 border-t border-slate-800 z-50 shrink-0 text-xs text-slate-400">
         <div className="progress-section flex items-center gap-3">
-          <Progress value={progressPercent} className="w-28 sm:w-36 h-2 bg-slate-800" />
-          <span className="font-mono text-xs text-slate-300 font-bold hidden sm:inline">
+          <Progress
+            value={progressPercent}
+            className="w-28 sm:w-36 h-2 bg-slate-800"
+            indicatorClassName="bg-orange-500"
+          />
+          <span className=" text-xs text-slate-300 font-bold hidden sm:inline">
             {progressPercent}%
           </span>
-          <span className="text-slate-400 font-mono text-[11px] truncate max-w-[200px] hidden md:inline">
+          <span className="text-slate-400  text-[11px] truncate max-w-[200px] hidden md:inline">
             {currentSlide.part}
           </span>
         </div>
 
         <div className="keyboard-hints hidden lg:flex items-center gap-2 text-slate-400 text-xs">
-          <span>Navigate:</span>
+          <span>{t("ui_nav_hint", "Navigation:")}</span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               ←
             </kbd>{" "}
             /{" "}
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               →
             </kbd>{" "}
             or{" "}
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               Space
             </kbd>
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               O
             </kbd>{" "}
             Overview
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               F
             </kbd>{" "}
             Fullscreen
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
+            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
               T
             </kbd>{" "}
             Theme
@@ -307,17 +324,21 @@ export default function GitCourse({ initialSlide = 1 }) {
             onClick={() => setCurrentIndex((prev) => Math.max(prev - 1, 0))}
             disabled={currentIndex === 0}
             className="h-8 px-3 text-xs flex items-center gap-1 bg-slate-800 hover:bg-slate-700 text-white border-slate-700 disabled:opacity-40"
+            title="Previous Slide (Left Arrow or H)"
           >
-            ← Prev
+            ← {t("ui_prev", "Prev")}
           </Button>
           <Button
             variant="outline"
             size="sm"
-            onClick={() => setCurrentIndex((prev) => Math.min(prev + 1, totalSlides - 1))}
+            onClick={() =>
+              setCurrentIndex((prev) => Math.min(prev + 1, totalSlides - 1))
+            }
             disabled={currentIndex === totalSlides - 1}
             className="h-8 px-3 text-xs flex items-center gap-1 bg-orange-600 hover:bg-orange-500 text-white border-orange-500 disabled:opacity-40"
+            title="Next Slide (Right Arrow or Space)"
           >
-            Next →
+            {t("ui_next", "Next")} →
           </Button>
         </div>
       </footer>
@@ -329,13 +350,17 @@ export default function GitCourse({ initialSlide = 1 }) {
           onClick={() => setOverviewOpen(false)}
         >
           <div
-            className="overview-content w-full max-w-5xl max-h-[85vh] bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-4 shadow-2xl overflow-hidden"
+            className="overview-content w-full max-w-5xl max-h-[85vh] bg-slate-900 border border-slate-800 rounded-lg p-5 flex flex-col gap-4 shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-base text-white">Git Course Slide Overview</span>
-                <span className="text-xs text-slate-400 font-mono">({totalSlides} slides)</span>
+                <span className="font-bold text-base text-white">
+                  Git Course Slide Overview
+                </span>
+                <span className="text-xs text-slate-400 ">
+                  ({totalSlides} slides)
+                </span>
               </div>
               <Button
                 variant="outline"
@@ -363,14 +388,16 @@ export default function GitCourse({ initialSlide = 1 }) {
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono text-orange-400 font-bold">
+                    <span className="text-[10px]  text-orange-400 font-bold">
                       #{idx + 1}
                     </span>
-                    <span className="text-[9px] font-mono text-slate-500 uppercase truncate max-w-[80px]">
+                    <span className="text-[9px]  text-slate-500 uppercase truncate max-w-[80px]">
                       {slide.part}
                     </span>
                   </div>
-                  <div className="text-xs font-bold truncate text-white">{slide.title}</div>
+                  <div className="text-xs font-bold truncate text-white">
+                    {slide.title}
+                  </div>
                 </button>
               ))}
             </div>
@@ -385,11 +412,13 @@ export default function GitCourse({ initialSlide = 1 }) {
           onClick={() => setShortcutsOpen(false)}
         >
           <div
-            className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-4 shadow-2xl"
+            className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-lg p-5 flex flex-col gap-4 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <span className="font-bold text-sm text-white">Keyboard Navigation Shortcuts</span>
+              <span className="font-bold text-sm text-white">
+                Keyboard Navigation Shortcuts
+              </span>
               <Button
                 variant="outline"
                 size="sm"
@@ -402,27 +431,29 @@ export default function GitCourse({ initialSlide = 1 }) {
             <div className="flex flex-col gap-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span className="text-slate-300">Next Slide</span>
-                <span className="font-mono text-slate-400">Right Arrow / Space / L</span>
+                <span className=" text-slate-400">Right Arrow / Space / L</span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span className="text-slate-300">Previous Slide</span>
-                <span className="font-mono text-slate-400">Left Arrow / H</span>
+                <span className=" text-slate-400">Left Arrow / H</span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span className="text-slate-300">First / Last Slide</span>
-                <span className="font-mono text-slate-400">Home / End</span>
+                <span className=" text-slate-400">Home / End</span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span className="text-slate-300">Slide Overview Grid</span>
-                <span className="font-mono text-slate-400">O</span>
+                <span className=" text-slate-400">O</span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
                 <span className="text-slate-300">Toggle Fullscreen</span>
-                <span className="font-mono text-slate-400">F</span>
+                <span className=" text-slate-400">F</span>
               </div>
               <div className="flex justify-between items-center py-1">
-                <span className="text-slate-300">Toggle Theme (Light / Dark)</span>
-                <span className="font-mono text-slate-400">T</span>
+                <span className="text-slate-300">
+                  Toggle Theme (Light / Dark)
+                </span>
+                <span className=" text-slate-400">T</span>
               </div>
             </div>
           </div>

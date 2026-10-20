@@ -1523,7 +1523,7 @@ function initSimulators() {
         const item = document.createElement("div");
         item.className =
           "flex items-center justify-between p-2 bg-slate-900 border border-slate-800 text-xs text-slate-200";
-        item.innerHTML = `<span>${text}</span><span class="text-green-400 font-mono text-[10px] flex items-center gap-1">Saved to DB <svg class="w-3 h-3 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>`;
+        item.innerHTML = `<span>${text}</span><span class="text-green-400  text-[10px] flex items-center gap-1">Saved to DB <svg class="w-3 h-3 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>`;
         taskList.prepend(item);
         taskInput.value = "";
         if (taskStatus)
