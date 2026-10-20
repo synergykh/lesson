@@ -1,8 +1,21 @@
-.PHONY: run serve
+.PHONY: setup install dev build preview run serve
 
 PORT ?= 3000
 
-run:
-	python3 -m http.server $(PORT)
+install:
+	pnpm install
 
-serve: run
+setup: install
+
+dev:
+	pnpm run dev --port $(PORT)
+
+build:
+	pnpm run build
+
+preview:
+	pnpm run preview --port $(PORT)
+
+run: dev
+
+serve: dev

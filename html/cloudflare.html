@@ -1626,8 +1626,1319 @@ CLOUDFLARE ZONE: taskflow.com
           </div>
         </section>
 
-        <!-- Placeholder insertion marker for Slides 46 to 85 -->
-        <!-- INSERT_SLIDES_46_TO_85_HERE -->
+        <!-- SLIDE 46 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PRODUCTION FULLSTACK" data-part-key="part_9" id="slide-46">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 25 • FULLSTACK TOPOLOGY</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s46_title">Cloudflare + Self-Hosted VPS Architecture</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s46_sub">Visitor → Cloudflare → Nginx / Docker → Application → PostgreSQL</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono">STACK B</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Ubuntu / Debian Production Topology</h4>
+                <p class="text-slate-300">Run your Laravel, Go, or Next.js app in Docker containers or systemd behind an Nginx reverse proxy. Cloudflare terminates external TLS 1.3 and handles caching.</p>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300">
+                  Visitor → Cloudflare Edge (Proxied A Record)<br>
+                  &nbsp;&nbsp;↓ (Port 443 with Origin CA Certificate)<br>
+                  VPS Nginx Reverse Proxy<br>
+                  &nbsp;&nbsp;↓ (localhost:3000)<br>
+                  Node.js / Laravel App ⇄ PostgreSQL / Redis
+                </div>
+              </div>
+              <div class="bg-slate-800/80 border border-red-500/30 p-3.5 flex flex-col gap-2">
+                <h4 class="text-red-400 font-bold">Mandatory Origin Hardening</h4>
+                <p class="text-slate-300">If your VPS IP is known, attackers can bypass Cloudflare and DDoS your server directly. You MUST configure UFW to only accept inbound port 80/443 traffic from Cloudflare's published IP ranges!</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 47 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="WORKERS & EDGE COMPUTE" data-part-key="part_10" id="slide-47">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 26 • SERVERLESS REVOLUTION</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s47_title">Introduction to Cloudflare Workers</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s47_sub">Edge serverless execution powered by V8 isolates with 0ms cold starts</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-orange-500/30 bg-orange-500/15 text-orange-400 font-mono">WORKERS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Containers vs V8 Isolates</h4>
+                <p class="text-slate-300">Traditional AWS Lambda serverless spins up micro-containers or Node.js runtimes, causing painful 500ms–2000ms "cold starts".</p>
+                <p class="text-slate-300"><strong class="text-orange-400">Cloudflare Workers</strong> runs on Google Chrome's V8 engine using lightweight "Isolates". Hundreds of thousands of isolates run safely in a single shared memory process with <strong class="text-green-400">0ms cold start</strong>.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Global Distributed Execution</h4>
+                <p class="text-slate-300">Your Worker script is deployed to all 330+ Cloudflare edge data centers simultaneously. A user in Tokyo executes code in Tokyo; a user in London executes code in London.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 48 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="WORKERS & EDGE COMPUTE" data-part-key="part_10" id="slide-48">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 26 • WORKER CODE</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s48_title">Anatomy of a Cloudflare Worker</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s48_sub">The standard fetch handler, Request, Response, and Context objects</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">SYNTAX</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">src/index.ts — Modern ES Module Worker</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+export default {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise&lt;Response&gt; {
+    const url = new URL(request.url);
+
+    if (url.pathname === "/api/health") {
+      return Response.json({ status: "healthy", edgeRegion: request.cf?.colo || "UNKNOWN" });
+    }
+
+    // Pass through to origin or modify headers
+    const response = await fetch(request);
+    const newResponse = new Response(response.body, response);
+    newResponse.headers.set("X-Powered-By", "Cloudflare Workers Edge");
+    return newResponse;
+  }
+};
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 49 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="WORKERS & EDGE COMPUTE" data-part-key="part_10" id="slide-49">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 27 • WORKFLOW</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s49_title">Creating Your First Worker</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s49_sub">Dashboard live editor vs modern local development with Wrangler CLI</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">DEVELOPMENT</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Option A: Dashboard Quick Creation</h4>
+                <ol class="list-decimal list-inside space-y-1.5 text-slate-300">
+                  <li>In Cloudflare dashboard, click <strong>Workers &amp; Pages</strong>.</li>
+                  <li>Click <strong>Create Application</strong> → <strong>Create Worker</strong>.</li>
+                  <li>Name it <code>hello-worker</code> and click <strong>Deploy</strong>.</li>
+                  <li>Click <strong>Edit code</strong> to edit directly in the web browser.</li>
+                </ol>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-orange-400 font-bold">Option B: Modern Professional CLI (Recommended)</h4>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300 space-y-1">
+                  <div>$ pnpm create cloudflare@latest taskflow-api</div>
+                  <div class="text-slate-400"># Choose "Hello World" Worker with TypeScript</div>
+                  <div>$ cd taskflow-api</div>
+                  <div>$ pnpm run dev &nbsp;&nbsp;<span class="text-green-400"># Local Miniflare server</span></div>
+                  <div>$ pnpm run deploy</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 50 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="WORKERS & EDGE COMPUTE" data-part-key="part_10" id="slide-50">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 28 • WORKER ROUTES</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s50_title">Worker Routes &amp; Custom Hostnames</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s50_sub">Binding Workers to api.example.com/* or intercepting origin traffic</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">ROUTING</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Pattern 1: Dedicated Subdomain (Custom Domain)</h4>
+                <p class="text-slate-300">Attach the Worker directly to <code>api.taskflow.com</code> in the Workers Settings. All requests to that hostname execute your Worker with automatic SSL certificate management.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-orange-400 font-bold">Pattern 2: Route Matching (Path Interception)</h4>
+                <p class="text-slate-300">Intercept specific sub-paths of an existing proxied domain:</p>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-300">
+                  Route: taskflow.com/api/*<br>
+                  Service: taskflow-api-worker<br>
+                  Zone: taskflow.com
+                </div>
+                <p class="text-slate-400 text-[11px]">Requests to <code>taskflow.com/api/*</code> hit the Worker. All other paths continue normally to Vercel/VPS!</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 51 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="WORKERS & EDGE COMPUTE" data-part-key="part_10" id="slide-51">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 29 • EDGE API</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s51_title">Building an Edge API with Workers</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s51_sub">Handling HTTP methods, JSON responses, CORS headers, and error handling</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono">API GATEWAY</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">Edge API Router Example</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+export default {
+  async fetch(req: Request): Promise&lt;Response&gt; {
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization"
+    };
+
+    if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
+
+    const url = new URL(req.url);
+    if (url.pathname === "/api/tasks" && req.method === "GET") {
+      const tasks = [{ id: 1, title: "Review Cloudflare WAF", status: "completed" }];
+      return Response.json(tasks, { headers: corsHeaders });
+    }
+
+    return new Response("Not Found", { status: 404, headers: corsHeaders });
+  }
+};
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 52 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="WORKERS & EDGE COMPUTE" data-part-key="part_10" id="slide-52">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400">SECTION 30 • SECRETS & BINDINGS</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s52_title">Secrets, Env Variables &amp; Bindings</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s52_sub">Securing API keys and binding storage primitives without client leaks</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono">SECRETS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">1. Plaintext Variables vs Encrypted Secrets</h4>
+                <p class="text-slate-300">Non-sensitive variables (e.g. <code>ENVIRONMENT = "production"</code>) belong in <code>wrangler.jsonc</code>.</p>
+                <p class="text-slate-300"><strong class="text-red-400">Secrets (API tokens, database keys)</strong> must NEVER be committed to Git. Store them encrypted using Wrangler CLI:</p>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-400">
+                  $ pnpm exec wrangler secret put DATABASE_URL<br>
+                  Enter secret value: postgresql://...
+                </div>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">2. The "Bindings" Paradigm</h4>
+                <p class="text-slate-300">Unlike traditional clouds where you manage connection strings, IP addresses, and SDK credentials, Cloudflare binds resources (KV, R2, Queues) directly to the Worker's <code>env</code> object.</p>
+                <div class="p-2.5 bg-green-500/10 border border-green-500/20 text-green-300 font-mono text-[11px]">
+                  // No API key needed to talk to R2 bucket!<br>
+                  await env.AVATARS_BUCKET.put("avatar.jpg", stream);
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 53 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="STORAGE PRIMITIVES" data-part-key="part_11" id="slide-53">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 31 • OBJECT STORAGE</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s53_title">Cloudflare R2 Object Storage</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s53_sub">S3-compatible object storage with ZERO data egress bandwidth fees</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">ZERO EGRESS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">The AWS S3 Egress Tax Problem</h4>
+                <p class="text-slate-300">AWS charges $0.09 per gigabyte whenever users download files from S3. For video, image-heavy apps, or database backups, egress bandwidth bills often exceed compute costs by 10x!</p>
+              </div>
+              <div class="bg-slate-800/80 border border-green-500/30 p-3.5 flex flex-col gap-2">
+                <h4 class="text-green-400 font-bold">The R2 Revolution</h4>
+                <p class="text-slate-300"><strong class="text-white">Cloudflare R2</strong> provides 100% S3-compatible API semantics with <strong class="text-green-400 font-bold">$0.00 egress fees</strong>. You only pay for stored gigabytes and API operations (Class A/B).</p>
+                <div class="p-2 bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300">
+                  Use for: User avatars, PDF reports, database backups, audio files.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 54 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="STORAGE PRIMITIVES" data-part-key="part_11" id="slide-54">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 32 • PRACTICAL R2</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s54_title">Practical R2: TaskFlow Avatar Storage</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s54_sub">Secure image uploads via Worker, pre-signed URLs, and bucket permissions</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono">IMPLEMENTATION</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">Worker R2 Upload Handler</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+// PUT /api/upload/avatar/:userId
+const key = `avatars/${userId}-${Date.now()}.png`;
+
+await env.USER_BUCKET.put(key, request.body, {
+  httpMetadata: { contentType: "image/png" }
+});
+
+// Store key in Neon PostgreSQL: "avatars/usr_123-1729410000.png"
+// Serve via public custom domain: https://cdn.taskflow.com/avatars/...
+return Response.json({ success: true, key });
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 55 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="STORAGE PRIMITIVES" data-part-key="part_11" id="slide-55">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 33 • KEY-VALUE</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s55_title">Cloudflare KV: Global Key-Value Store</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s55_sub">High-read, low-write eventual consistency for configuration and caches</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">KV STORE</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">What is Cloudflare KV?</h4>
+                <p class="text-slate-300">A globally distributed key-value data store optimized for ultra-fast, low-latency reads. Once written, data replicates across edge caches worldwide in ~10 seconds.</p>
+                <div class="p-2.5 bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300">
+                  await env.CONFIG_KV.get("FEATURE_AI_CHAT");<br>
+                  await env.CONFIG_KV.put("MAINTENANCE_MODE", "false", { expirationTtl: 3600 });
+                </div>
+              </div>
+              <div class="bg-slate-800/80 border border-red-500/30 p-3.5 flex flex-col gap-2">
+                <h4 class="text-red-400 font-bold">What KV is NOT</h4>
+                <p class="text-slate-300"><strong class="text-white">NOT a Relational Database:</strong> KV has no SQL, no table joins, and no ACID multi-row transactions. Do NOT use it for user balances, banking, or complex relations. Use Neon PostgreSQL for that!</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 56 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="STORAGE PRIMITIVES" data-part-key="part_11" id="slide-56">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 34 • STATEFUL EDGE</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s56_title">Cloudflare Durable Objects</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s56_sub">Strongly consistent, stateful coordination for real-time multiplayer &amp; WebSockets</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono">DURABLE OBJECTS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">The Stateless Serverless Dilemma</h4>
+                <p class="text-slate-300">Standard serverless workers are ephemeral and stateless. If 10 users join a live chatroom or collaborate on a Google Docs canvas, how do they coordinate in real-time with zero race conditions?</p>
+              </div>
+              <div class="bg-slate-800/80 border border-purple-500/30 p-3.5 flex flex-col gap-2">
+                <h4 class="text-purple-400 font-bold">Single-Point-of-Truth Coordination</h4>
+                <p class="text-slate-300">Durable Objects provide guaranteed single-instance coordination. All WebSocket connections for chat room <code>#room-101</code> route to the exact same physical actor instance with embedded transactional SQLite storage.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 57 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="STORAGE PRIMITIVES" data-part-key="part_11" id="slide-57">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 35 • QUEUES</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s57_title">Cloudflare Queues: Background Jobs</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s57_sub">Guaranteed message delivery for email, heavy processing, and webhooks</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">QUEUES</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Decoupling Edge from Heavy Work</h4>
+                <p class="text-slate-300">Never make a user wait 5 seconds while your API generates a PDF invoice or calls Resend to send a welcome email. Publish a message to a queue and respond to the user in 15ms.</p>
+              </div>
+              <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]">
+                <div class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold">Producer &amp; Consumer Pattern</div>
+                <div class="p-3 text-slate-200 leading-relaxed overflow-x-auto">
+// Producer Worker (API):
+await env.EMAIL_QUEUE.send({ to: "user@example.com", template: "welcome" });
+
+// Consumer Worker:
+export default {
+  async queue(batch: MessageBatch, env: Env) {
+    for (const msg of batch.messages) {
+      await sendEmail(msg.body);
+      msg.ack();
+    }
+  }
+};
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 58 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="ZERO TRUST & TUNNELS" data-part-key="part_12" id="slide-58">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 36 • ZERO TRUST</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s58_title">Cloudflare Zero Trust Architecture</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s58_sub">Never trust, always verify: Identity-based security replacing legacy VPNs</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono">ZERO TRUST</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">The Flaw of Legacy Corporate VPNs</h4>
+                <p class="text-slate-300">Traditional VPNs follow "castle and moat" security. Once an employee connects to the VPN, they have access to the entire private internal subnet (printers, databases, servers).</p>
+              </div>
+              <div class="bg-slate-800/80 border border-purple-500/30 p-3.5 flex flex-col gap-2">
+                <h4 class="text-purple-400 font-bold">Zero Trust: Granular Identity Access</h4>
+                <p class="text-slate-300">Every single request to an internal application is authenticated against your identity provider (Google Workspace, GitHub, Okta), checking user identity, device posture, and geolocation.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 59 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="ZERO TRUST & TUNNELS" data-part-key="part_12" id="slide-59">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 36 • ACCESS SSO</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s59_title">Cloudflare Access for Private Apps</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s59_sub">Protect internal admin dashboards with Google, GitHub, or Okta SSO</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">ACCESS SSO</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">protecting-internal-admin-dashboard</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+Application: admin.taskflow.com
+Policy Name: Engineering Team Only
+Action: Allow
+Rules:
+  - Include: Emails ending in @acme.com
+  - Require: 2FA Authentication via Google Workspace SSO
+  - Block: IP Country outside Cambodia / Singapore
+
+Result: An unauthenticated stranger loading admin.taskflow.com sees a clean Cloudflare login screen. Zero packets reach your backend until identity is verified!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 60 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="ZERO TRUST & TUNNELS" data-part-key="part_12" id="slide-60">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 37 • TUNNELS</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s60_title">Cloudflare Tunnel (cloudflared)</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s60_sub">Secure outbound-only connection from private servers without open ports</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">CLOUDFLARED</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Zero Inbound Firewall Ports Needed</h4>
+                <p class="text-slate-300">Normally, web servers require port 80 and 443 to be publicly exposed to the internet. With <strong>Cloudflare Tunnel</strong>, a lightweight daemon (<code>cloudflared</code>) runs on your server and creates an encrypted OUTBOUND tunnel to the nearest Cloudflare data center.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-green-500/30 p-3.5 flex flex-col gap-2">
+                <h4 class="text-green-400 font-bold">Unmatched Attack Immunity</h4>
+                <p class="text-slate-300">You can completely close all incoming ports on your firewall (even ports 80/443). The server has zero public IP surface for hackers to scan!</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 61 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="ZERO TRUST & TUNNELS" data-part-key="part_12" id="slide-61">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 38 • PRACTICAL TUNNEL</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s61_title">Practical Tunnel: Exposing Localhost</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s61_sub">Exposing localhost:3000 to app.example.com securely in 3 minutes</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">DEMO</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">cloudflared-quick-tunnel</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+# 1. Install cloudflared daemon
+$ brew install cloudflared  # or apt install cloudflared
+
+# 2. Login and authorize your zone
+$ cloudflared tunnel login
+
+# 3. Create a named tunnel
+$ cloudflared tunnel create local-dev-tunnel
+
+# 4. Route hostname to tunnel
+$ cloudflared tunnel route dns local-dev-tunnel dev.taskflow.com
+
+# 5. Run tunnel pointing to local Next.js server
+$ cloudflared tunnel run --url http://localhost:3000 local-dev-tunnel
+# Live at: https://dev.taskflow.com (with automated SSL and DDoS protection!)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 62 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="DEVELOPER TOOLING" data-part-key="part_13" id="slide-62">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 39 • AUTOMATION API</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s62_title">Cloudflare API &amp; Scoped Tokens</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s62_sub">Automating zone settings and deployments using least-privilege tokens</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono">REST API</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">Automated DNS Record Update via REST API</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+$ curl -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+     -H "Authorization: Bearer $CF_API_TOKEN" \
+     -H "Content-Type: application/json" \
+     --data '{
+       "type": "A",
+       "name": "staging.taskflow.com",
+       "content": "198.51.100.88",
+       "ttl": 1,
+       "proxied": true
+     }'
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 63 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="DEVELOPER TOOLING" data-part-key="part_13" id="slide-63">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 40 • WRANGLER CLI</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s63_title">Wrangler CLI Development Workflow</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s63_sub">wrangler dev, deploy, tail, and configuring wrangler.jsonc / toml</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">WRANGLER</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 font-mono text-[11px]">
+                <h4 class="text-white font-bold font-sans text-xs">Essential Wrangler Commands</h4>
+                <div class="space-y-1 text-slate-300">
+                  <div><span class="text-orange-400 font-bold">$ pnpm exec wrangler login</span></div>
+                  <div><span class="text-blue-400 font-bold">$ pnpm exec wrangler dev</span> # Local emulation</div>
+                  <div><span class="text-green-400 font-bold">$ pnpm exec wrangler deploy</span> # Deploy to 330+ PoPs</div>
+                  <div><span class="text-purple-400 font-bold">$ pnpm exec wrangler tail</span> # Stream real-time edge logs</div>
+                </div>
+              </div>
+              <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]">
+                <div class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold">wrangler.jsonc</div>
+                <div class="p-3 text-slate-300 leading-relaxed overflow-x-auto">
+{
+  "name": "taskflow-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "r2_buckets": [
+    { "binding": "USER_BUCKET", "bucket_name": "taskflow-assets" }
+  ]
+}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 64 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="DEVELOPER TOOLING" data-part-key="part_13" id="slide-64">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 41 • CI/CD AUTOMATION</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s64_title">Git Integration &amp; CI/CD Pipelines</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s64_sub">Automating Workers and Pages deployments from GitHub pull requests</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">GITHUB ACTIONS</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">.github/workflows/deploy.yml</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+name: Deploy Worker to Cloudflare
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 65 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PAGES & JAMSTACK" data-part-key="part_14" id="slide-65">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 42 • CLOUDFLARE PAGES</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s65_title">Cloudflare Pages Platform</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s65_sub">Modern Jamstack and fullstack web hosting with automatic Git deployments</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">PAGES</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">What is Cloudflare Pages?</h4>
+                <p class="text-slate-300">Cloudflare's developer-first Jamstack platform. Connect your GitHub or GitLab repo, and every <code>git push</code> triggers an automatic containerized build and global edge deployment.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-orange-400 font-bold">Key Platform Features</h4>
+                <ul class="list-disc list-inside space-y-1 text-slate-300">
+                  <li>Unlimited free bandwidth with zero surprise overage fees.</li>
+                  <li>Automated preview deployments for every Pull Request.</li>
+                  <li>Fullstack support: drop functions into a <code>/functions</code> directory.</li>
+                  <li>Instant custom domain mapping to your Cloudflare zone.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 66 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PAGES & JAMSTACK" data-part-key="part_14" id="slide-66">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 42 • ARCHITECTURAL COMPARISON</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s66_title">Pages vs Vercel vs Traditional VPS</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s66_sub">Architectural comparison: strengths, trade-offs, and when to pick each</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono">COMPARISON</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div class="bg-slate-800/80 border border-orange-500/30 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-orange-400 font-bold">Cloudflare Pages</span>
+                <p class="text-slate-300 font-bold">Unrivaled Edge Bandwidth &amp; Cost</p>
+                <p class="text-slate-400">Best for static sites, Vite, Astro, and edge workers. Zero bandwidth billing surprises. Instant global propagation.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-blue-400 font-bold">Vercel</span>
+                <p class="text-slate-300 font-bold">Best-in-Class Next.js DX</p>
+                <p class="text-slate-400">Native creator of Next.js with zero-config ISR, Server Components, and AI streaming. Higher bandwidth costs at large scale.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-green-400 font-bold">Traditional VPS</span>
+                <p class="text-slate-300 font-bold">Total Kernel &amp; Container Control</p>
+                <p class="text-slate-400">Best for long-running cron jobs, websockets, local Postgres databases, and Docker microservices. Requires manual OS patching.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 67 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PAGES & JAMSTACK" data-part-key="part_14" id="slide-67">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 43 • STATIC SITE WORKFLOW</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s67_title">Deploying a Static Web App to Pages</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s67_sub">Connecting GitHub repository, build configurations, and custom domains</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">DEPLOYMENT</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Step-by-Step Pages Setup</h4>
+                <ol class="list-decimal list-inside space-y-1.5 text-slate-300">
+                  <li>In Cloudflare Dashboard: <strong>Workers &amp; Pages</strong> → <strong>Create application</strong> → <strong>Pages</strong>.</li>
+                  <li>Click <strong>Connect to Git</strong> and select your GitHub repository.</li>
+                  <li>Configure Build Settings:
+                    <div class="bg-slate-950 p-2 font-mono text-[11px] text-orange-300 mt-1">
+                      Build command: pnpm run build<br>
+                      Build output directory: dist (or out for Next.js export)
+                    </div>
+                  </li>
+                  <li>Click <strong>Save and Deploy</strong>. Your site is live on <code>*.pages.dev</code>.</li>
+                  <li>Navigate to <strong>Custom Domains</strong> and map <code>taskflow.com</code> in one click!</li>
+                </ol>
+              </div>
+              <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]">
+                <div class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold">Direct CLI Deploy (No Git required)</div>
+                <div class="p-3 text-slate-300 leading-relaxed overflow-x-auto">
+$ pnpm run build
+$ pnpm exec wrangler pages deploy ./dist \
+    --project-name=taskflow-web
+
+✨ Success! Uploaded 42 files (1.4s)
+🌎 https://taskflow-web.pages.dev
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 68 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PAGES & JAMSTACK" data-part-key="part_14" id="slide-68">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 44 • NEXT.JS ADVISORY</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s68_title">Next.js on Cloudflare: Real-World Guide</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s68_sub">Static export vs OpenNext vs edge runtime considerations and compatibility</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/15 text-amber-400 font-mono">ADVISORY</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Path A: Static Export (100% Solid)</h4>
+                <p class="text-slate-300">Set <code>output: 'export'</code> in <code>next.config.js</code>. Generates pure HTML/CSS/JS files in the <code>/out</code> folder. Deploys flawlessly to Cloudflare Pages with zero edge runtime incompatibilities.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-amber-500/30 p-3.5 flex flex-col gap-2">
+                <h4 class="text-amber-400 font-bold">Path B: Dynamic SSR with OpenNext</h4>
+                <p class="text-slate-300">If using dynamic Server-Side Rendering (SSR) or Server Actions, use <code>@opennextjs/cloudflare</code>. Keep in mind that Cloudflare Workers run on V8 Isolates, not full Node.js. Node-specific libraries (like <code>fs</code> or native C++ addons) will fail.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 69 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="SAFETY & MIGRATION" data-part-key="part_15" id="slide-69">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400">SECTION 45 • EMAIL PRESERVATION</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s69_title">Email DNS: MX, SPF, DKIM &amp; DMARC</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s69_sub">How to prevent broken corporate email when transferring DNS to Cloudflare</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono">SAFETY</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">The 4 Critical Email Records</h4>
+                <ul class="space-y-1 text-slate-300">
+                  <li><strong class="text-orange-400">MX:</strong> Points to mail servers (Google, Proton, Outlook). <span class="text-red-400 font-bold">Must be DNS ONLY!</span></li>
+                  <li><strong class="text-blue-400">SPF (TXT):</strong> Defines which server IPs can send email for your domain.</li>
+                  <li><strong class="text-green-400">DKIM (TXT/CNAME):</strong> Cryptographic signature proving emails weren't forged.</li>
+                  <li><strong class="text-purple-400">DMARC (TXT):</strong> Tells receiving servers what to do if SPF/DKIM fail.</li>
+                </ul>
+              </div>
+              <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]">
+                <div class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold">Verification Commands</div>
+                <div class="p-3 text-slate-300 leading-relaxed overflow-x-auto">
+$ dig taskflow.com MX +short
+10 mail.protonmail.ch.
+
+$ dig _dmarc.taskflow.com TXT +short
+"v=DMARC1; p=reject; rua=mailto:dmarc@taskflow.com"
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 70 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="SAFETY & MIGRATION" data-part-key="part_15" id="slide-70">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400">SECTION 46 • PRE-MIGRATION</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s70_title">Pre-Migration DNS Safety Checklist</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s70_sub">10 critical audit checks before changing nameservers at your registrar</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono">10 COMMANDMENTS</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1">
+                <span class="text-orange-400 font-bold">1. Export Zone File</span>
+                <span class="text-slate-300">Download a full BIND/zone backup from your existing registrar or DNS host.</span>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1">
+                <span class="text-orange-400 font-bold">2. Audit MX &amp; Email TXT</span>
+                <span class="text-slate-300">Compare every MX, SPF, DKIM, and DMARC record side-by-side with imported records.</span>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1">
+                <span class="text-orange-400 font-bold">3. Check Staging &amp; Internal Subdomains</span>
+                <span class="text-slate-300">Ensure non-public subdomains (e.g. <code>qa.taskflow.com</code>) are manually added.</span>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1">
+                <span class="text-orange-400 font-bold">4. Audit DNSSEC Status</span>
+                <span class="text-slate-300">Disable old DS records at registrar before switching nameservers to prevent lookup failure.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 71 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="SAFETY & MIGRATION" data-part-key="part_15" id="slide-71">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 47 • DNSSEC</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s71_title">DNSSEC: Security &amp; Migration Gotchas</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s71_sub">Cryptographic validation of DNS records and how misconfigured DS records break resolution</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/15 text-purple-400 font-mono">DNSSEC</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">What DNSSEC Protects</h4>
+                <p class="text-slate-300">DNS Security Extensions (DNSSEC) signs DNS responses with cryptographic keys (RRSIG). Prevents DNS spoofing / cache poisoning where hackers hijack traffic to fake servers.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-red-500/30 p-3.5 flex flex-col gap-2">
+                <h4 class="text-red-400 font-bold">The Migration Trap (SERVFAIL)</h4>
+                <p class="text-slate-300">If DNSSEC is active at your registrar with your OLD DNS provider, changing nameservers to Cloudflare will cause DNS resolvers worldwide to fail verification and return <code>SERVFAIL</code>.</p>
+                <div class="p-2 bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300">
+                  Migration rule: Delete old DS records at registrar → Switch nameservers → Wait 24h → Enable Cloudflare DNSSEC and add new DS record.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 72 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="SECURITY & OBSERVABILITY" data-part-key="part_16" id="slide-72">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 48 • DEFENSE IN DEPTH</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s72_title">Defense in Depth Security Model</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s72_sub">Multi-layered perimeter: DNS → DDoS → WAF → Rate Limit → TLS → Access → Origin</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono">DEFENSE IN DEPTH</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">layered-security-flow</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+[INTERNET VISITOR]
+      │
+      ▼
+1. Cloudflare Anycast DNS (DNSSEC cryptographic integrity)
+      │
+      ▼
+2. L3/L4 DDoS Mitigation (Volumetric SYN/UDP floods dropped at edge)
+      │
+      ▼
+3. TLS 1.3 Termination (Modern ciphers, HSTS, HTTP/3 QUIC)
+      │
+      ▼
+4. Web Application Firewall (WAF) (OWASP SQLi/XSS inspection)
+      │
+      ▼
+5. Rate Limiting &amp; Bot Management (Turnstile human verification)
+      │
+      ▼
+6. Zero Trust Access (Identity SSO for internal paths /admin)
+      │
+      ▼
+[ORIGIN FIREWALL] (Only accepts packets from Cloudflare IPs / Authenticated Pulls)
+      │
+      ▼
+[APPLICATION SERVER] (Next.js / Laravel / Go on Port 443)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 73 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="SECURITY & OBSERVABILITY" data-part-key="part_16" id="slide-73">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 49 • ORIGIN HARDENING</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s73_title">Origin Server Hardening</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s73_sub">Restricting origin firewall to Cloudflare IP ranges and Authenticated Origin Pulls</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">HARDENING</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">1. Cloudflare IP Whitelisting (UFW)</h4>
+                <p class="text-slate-300">Drop all incoming traffic on ports 80 and 443 unless it comes from Cloudflare's published IP ranges:</p>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-orange-300">
+                  # Example UFW rule:<br>
+                  $ sudo ufw allow from 173.245.48.0/20 to any port 443 proto tcp<br>
+                  $ sudo ufw allow from 103.21.244.0/22 to any port 443 proto tcp<br>
+                  $ sudo ufw default deny incoming
+                </div>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">2. Authenticated Origin Pulls (mTLS)</h4>
+                <p class="text-slate-300">Cloudflare presents a client SSL certificate to your origin Nginx server. If an attacker connects directly to your IP over HTTPS, Nginx rejects the TLS handshake because the client lacks Cloudflare's certificate.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 74 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="SECURITY & OBSERVABILITY" data-part-key="part_16" id="slide-74">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 50 • OBSERVABILITY</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s74_title">Observability, Logs &amp; Analytics</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s74_sub">Monitoring HTTP traffic, cache hit ratios, security events, and wrangler tail</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">OBSERVABILITY</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-orange-400 font-bold">1. Traffic Analytics</span>
+                <p class="text-slate-300">Requests, bandwidth saved, unique visitors, and cache hit percentage over 24 hours.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-red-400 font-bold">2. Security Events</span>
+                <p class="text-slate-300">Inspect blocked requests: IP address, matched WAF rule, country, and user agent.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-green-400 font-bold">3. Live Worker Tail</span>
+                <p class="text-slate-300">Stream <code>console.log()</code> and unhandled exceptions in real-time from edge data centers.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 75 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="TROUBLESHOOTING" data-part-key="part_17" id="slide-75">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 51 • DNS TROUBLESHOOTING</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s75_title">Troubleshooting: DNS Failures</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s75_sub">Systematic diagnostic tree: nameserver verification, dig queries, and TTL</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono">DIAGNOSTICS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-white font-bold">Diagnostic Flowchart</h4>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300">
+                  Domain doesn't load<br>
+                  ├── 1. Check WHOIS nameservers: Are they Cloudflare's?<br>
+                  ├── 2. Run dig +trace: Is there a delegation failure?<br>
+                  ├── 3. Check Proxy status: Orange Cloud vs Grey Cloud<br>
+                  └── 4. Check DNSSEC: Is old DS record still at registrar?
+                </div>
+              </div>
+              <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]">
+                <div class="p-2 bg-slate-900 border-b border-slate-800 text-slate-400 font-bold">Terminal Diagnostic Commands</div>
+                <div class="p-3 text-slate-300 leading-relaxed overflow-x-auto">
+$ dig +short NS taskflow.com
+pete.ns.cloudflare.com.
+kloe.ns.cloudflare.com.
+
+$ dig +short taskflow.com @1.1.1.1
+104.21.72.18
+172.67.142.9
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 76 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="TROUBLESHOOTING" data-part-key="part_17" id="slide-76">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 52 • SSL TROUBLESHOOTING</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s76_title">Troubleshooting: SSL &amp; Redirect Loops</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s76_sub">Diagnosing ERR_TOO_MANY_REDIRECTS, pending certificates, and mixed content</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/15 text-amber-400 font-mono">SSL ERRORS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="text-orange-400 font-bold">1. ERR_TOO_MANY_REDIRECTS</span>
+                <p class="text-slate-300">Cause: SSL mode is set to <strong>Flexible</strong> while origin redirects HTTP to HTTPS. <span class="text-green-400">Fix: Set mode to Full (Strict).</span></p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="text-orange-400 font-bold">2. SSL Handshake Failed (525)</span>
+                <p class="text-slate-300">Cause: Cloudflare cannot complete TLS handshake with origin. <span class="text-green-400">Fix: Check origin port 443 is listening and TLSv1.2/1.3 enabled.</span></p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="text-orange-400 font-bold">3. Mixed Content Warnings</span>
+                <p class="text-slate-300">Cause: HTTPS page loading images over <code>http://</code>. <span class="text-green-400">Fix: Enable Automatic HTTPS Rewrites in Cloudflare.</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 77 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="TROUBLESHOOTING" data-part-key="part_17" id="slide-77">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 53 • 502 &amp; 504</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s77_title">Troubleshooting: 502 &amp; 504 Errors</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s77_sub">Is the origin down, port closed, firewall blocking Cloudflare, or timing out?</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono">GATEWAY ERRORS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-red-400 font-bold">502 Bad Gateway</h4>
+                <p class="text-slate-300">Cloudflare reached your server's IP, but the server returned an invalid response, closed the TCP connection abruptly, or Nginx crashed.</p>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300">
+                  Check: $ sudo systemctl status nginx<br>
+                  Check: $ pm2 status (Node.js app crashed?)
+                </div>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-amber-400 font-bold">504 Gateway Timeout</h4>
+                <p class="text-slate-300">Cloudflare established a connection, but your origin took longer than 100 seconds to respond. Almost always caused by slow un-indexed database queries!</p>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300">
+                  Check: PostgreSQL slow query logs<br>
+                  Check: EXPLAIN ANALYZE on hanging queries
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 78: INTERACTIVE TROUBLESHOOTING SIMULATOR -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="TROUBLESHOOTING" data-part-key="part_17" id="slide-78">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-3 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-2 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">INTERACTIVE WORKSHOP</span>
+                <h2 class="slide-title text-xl font-extrabold text-white m-0" data-i18n="s78_title">INTERACTIVE: Diagnostic Simulator</h2>
+                <p class="text-[12px] text-slate-400 m-0" data-i18n="s78_sub">Test your diagnostic skills across real-world Cloudflare production outages</p>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-green-500/20 text-green-400 border border-green-500/30 font-mono">SIMULATION</span>
+            </div>
+
+            <div class="flex items-center gap-2 overflow-x-auto pb-1">
+              <button class="scenario-nav-btn active px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer">1. Redirect Loop</button>
+              <button class="scenario-nav-btn px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer">2. Broken Email</button>
+              <button class="scenario-nav-btn px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer">3. 502 Bad Gateway</button>
+              <button class="scenario-nav-btn px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer">4. Leaked Origin IP</button>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 p-3 flex flex-col gap-2">
+              <h4 id="trouble-scenario-title" class="text-white font-bold text-sm"></h4>
+              <p id="trouble-scenario-desc" class="text-xs text-slate-300 leading-relaxed"></p>
+            </div>
+
+            <div id="trouble-options-container" class="flex flex-col gap-2"></div>
+            <div id="trouble-feedback-panel" class="hidden"></div>
+          </div>
+        </section>
+
+        <!-- SLIDE 79 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PERFORMANCE & PLANS" data-part-key="part_18" id="slide-79">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 54 • PERFORMANCE</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s79_title">Performance Optimization at the Edge</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s79_sub">Brotli compression, Early Hints, HTTP/3 (QUIC), and cache optimization</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">SPEED</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1">
+                <span class="font-mono text-green-400 font-bold">Brotli</span>
+                <span class="text-white font-bold">Next-Gen Compression</span>
+                <span class="text-slate-400">Compresses text assets 20% smaller than standard Gzip.</span>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1">
+                <span class="font-mono text-blue-400 font-bold">HTTP/3 (QUIC)</span>
+                <span class="text-white font-bold">UDP Transport</span>
+                <span class="text-slate-400">Zero head-of-line blocking on lossy mobile cellular networks.</span>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1">
+                <span class="font-mono text-purple-400 font-bold">Early Hints (103)</span>
+                <span class="text-white font-bold">Parallel Preload</span>
+                <span class="text-slate-400">Sends CSS preload hints to browser while server prepares HTML.</span>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1">
+                <span class="font-mono text-orange-400 font-bold">Polish &amp; Mirage</span>
+                <span class="text-white font-bold">Image Optimization</span>
+                <span class="text-slate-400">Auto-converts JPEG/PNG to WebP/AVIF dynamically.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 80 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PERFORMANCE & PLANS" data-part-key="part_18" id="slide-80">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 55 • COST CONTROL</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s80_title">Cloudflare Plans &amp; Cost Awareness</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s80_sub">Understanding Free tier limits, Pro, Pay-as-you-go Workers/R2, and Enterprise features</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/15 text-blue-400 font-mono">PLANS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-green-400 font-bold">FREE PLAN ($0/mo)</span>
+                <p class="text-slate-300">Fast Anycast DNS, unlimited CDN bandwidth, unmetered DDoS mitigation, free SSL, 100,000 Worker requests/day, 10 GB free R2 storage.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-orange-500/30 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-orange-400 font-bold">PRO ($20/mo)</span>
+                <p class="text-slate-300">Cloudflare Managed WAF rulesets, Polish image optimization, mobile speed acceleration, and faster analytics reporting.</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5">
+                <span class="font-mono text-purple-400 font-bold">PAY-AS-YOU-GO WORKERS</span>
+                <p class="text-slate-300">Workers Paid ($5/mo) unlocks 10M requests, CPU time limits up to 30s, and standard rates on KV, Durable Objects, and Queues.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 81 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PROJECT & CHECKLIST" data-part-key="part_19" id="slide-81">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 56 • GUIDED PROJECT</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s81_title">TaskFlow Cloud Master Architecture</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s81_sub">End-to-end production topology integrating Cloudflare, Next.js, and Neon</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">MASTER TOPOLOGY</span>
+            </div>
+            <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-xs shadow-md">
+              <div class="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+                <span class="text-[11px] text-slate-400">taskflow-production-topology</span>
+                <button class="btn-copy text-[11px] px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300">Copy</button>
+              </div>
+              <div class="terminal-body p-3 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+USERS (Browsers, Mobile Apps worldwide)
+  │
+  ▼ (Anycast TLS 1.3)
+CLOUDFLARE GLOBAL EDGE
+  ├── DNS (taskflow.com)
+  ├── DDoS Scrubbing &amp; WAF Rules
+  ├── Rate Limiting on /api/auth/login
+  ├── Edge Cache for Static Bundles
+  │
+  ├──► Route: api.taskflow.com/* ─────────► Cloudflare Worker (Edge API Gateway)
+  │                                           │
+  ├──► Route: cdn.taskflow.com/* ─────────► Cloudflare R2 Bucket (Avatars &amp; Attachments)
+  │
+  └──► Route: taskflow.com &amp; app.taskflow.com ──► Vercel (Next.js App Router)
+                                                    │
+                                                    ▼ (Connection Pooler)
+                                                Neon Serverless PostgreSQL
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 82: INTERACTIVE PRODUCTION CHECKLIST -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PROJECT & CHECKLIST" data-part-key="part_20" id="slide-82">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-3 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-2 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400" data-i18n="ui_checklist_title">PRODUCTION LAUNCH AUDIT</span>
+                <h2 class="slide-title text-xl font-extrabold text-white m-0" data-i18n="s82_title">INTERACTIVE: Production Launch Checklist</h2>
+                <p class="text-[12px] text-slate-400 m-0" data-i18n="s82_sub">Interactive 20-point checklist saved to localStorage for your next launch</p>
+              </div>
+              <button id="btn-reset-checklist" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white text-xs font-bold cursor-pointer" data-i18n="ui_reset_checklist">Reset Checklist</button>
+            </div>
+
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span id="check-count-label" class="text-green-400 font-bold">0 of 20 Checked (0%)</span>
+              <div class="w-[200px] h-2 bg-slate-800 border border-slate-700 overflow-hidden">
+                <div id="check-progress-bar" class="h-full bg-green-500 transition-all duration-200" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs max-h-[300px] overflow-y-auto p-1">
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_1"><span>1. Account 2FA enabled with hardware/TOTP</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_2"><span>2. Scoped API tokens used instead of Global Key</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_3"><span>3. Full DNS zone backup exported before nameserver switch</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_4"><span>4. MX and email SPF/DKIM TXT records verified</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_5"><span>5. MX records set strictly to DNS Only (Grey Cloud)</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_6"><span>6. DNSSEC coordinated safely at domain registrar</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_7"><span>7. Web records (A/CNAME) Orange-clouded (Proxied)</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_8"><span>8. SSL/TLS mode set to Full (Strict)</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_9"><span>9. Origin server has valid SSL certificate installed</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_10"><span>10. 'Always Use HTTPS' enabled in Edge Certificates</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_11"><span>11. HSTS enabled with max-age=31536000</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_12"><span>12. WAF Managed Rules active against OWASP top 10</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_13"><span>13. Rate limiting configured on /api/login endpoint</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_14"><span>14. Origin firewall restricts 80/443 to Cloudflare IPs</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_15"><span>15. Cache-Control headers verified (no auth leaks)</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_16"><span>16. Worker secrets stored via wrangler secret put</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_17"><span>17. R2 bucket access permissions strictly private</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_18"><span>18. Canonical 301 redirect rule (www to apex) tested</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_19"><span>19. Mobile and HTTP/3 QUIC connection verified</span></label>
+              <label class="flex items-center gap-2 p-2 bg-slate-800/80 border border-slate-800 hover:border-slate-700 cursor-pointer"><input type="checkbox" class="prod-check-item cursor-pointer" data-check-key="chk_20"><span>20. Real-time logging (wrangler tail &amp; HTTP logs) checked</span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 83: INTERACTIVE ARCHITECTURE EXPLORER -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PROJECT & CHECKLIST" data-part-key="part_20" id="slide-83">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-3 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-2 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400" data-i18n="ui_arch_explorer_title">INTERACTIVE VISUALIZER</span>
+                <h2 class="slide-title text-xl font-extrabold text-white m-0" data-i18n="s83_title">INTERACTIVE: Architecture Explorer</h2>
+                <p class="text-[12px] text-slate-400 m-0" data-i18n="s83_sub">Click through Cloudflare layers to visualize data flow and responsibilities</p>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-blue-500/20 text-blue-400 border border-blue-500/30 font-mono">EXPLORER</span>
+            </div>
+
+            <div class="flex items-center gap-2 overflow-x-auto pb-1">
+              <button class="arch-layer-btn btn-primary-action px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer" data-layer="dns">1. Anycast DNS</button>
+              <button class="arch-layer-btn px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer" data-layer="cdn">2. CDN &amp; Caching</button>
+              <button class="arch-layer-btn px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer" data-layer="waf">3. WAF &amp; DDoS</button>
+              <button class="arch-layer-btn px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer" data-layer="workers">4. Workers Compute</button>
+              <button class="arch-layer-btn px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer" data-layer="r2">5. R2 Storage</button>
+              <button class="arch-layer-btn px-2.5 py-1 text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 cursor-pointer" data-layer="tunnel">6. Zero Trust Tunnel</button>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 p-3.5 flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <span id="arch-detail-badge" class="font-mono text-[10px] font-bold text-orange-400 uppercase">EDGE ENTRY POINT</span>
+                <span class="text-[11px] font-mono text-slate-400">Global PoP Active</span>
+              </div>
+              <h4 id="arch-detail-title" class="text-white font-bold text-base m-0">Authoritative Anycast DNS</h4>
+              <p id="arch-detail-desc" class="text-xs text-slate-300 leading-relaxed m-0">The entry door to your entire online presence. Cloudflare Anycast responds from 330+ cities worldwide in under 12ms. Proxied records resolve to Cloudflare edge IPs.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-1">
+                <div>
+                  <span class="text-[10px] text-slate-400 font-mono block">Data Flow:</span>
+                  <div id="arch-detail-flow" class="bg-slate-900 border border-slate-800 p-2 font-mono text-[11px] text-green-400">
+                    Client Resolver → Anycast 1.1.1.1 / 1.0.0.1 → Proxied Virtual IP
+                  </div>
+                </div>
+                <div>
+                  <span class="text-[10px] text-slate-400 font-mono block">Key Capabilities:</span>
+                  <div id="arch-detail-settings" class="bg-slate-900 border border-slate-800 p-2 font-mono text-[11px] text-orange-300">
+                    Automatic TTL, CNAME flattening, DNSSEC signing, multi-record health checks.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 84 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PROJECT & CHECKLIST" data-part-key="part_20" id="slide-84">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-red-400">SECTION 58 • COMMON PITFALLS</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s84_title">Top 10 Costly Cloudflare Mistakes</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s84_sub">Avoid common pitfalls that cause downtime, security leaks, and email failures</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/15 text-red-400 font-mono">PITFALLS</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 1. Switching nameservers without checking DNS:</span> Missing records break subdomains and email instantly.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 2. Orange-clouding MX / mail records:</span> Cloudflare HTTP proxy drops SMTP traffic completely.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 3. Using Flexible SSL mode:</span> Causes infinite redirect loops and leaves origin plaintext.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 4. Leaking origin server IP:</span> Attackers bypass Cloudflare WAF and hit your server directly.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 5. Caching private user data:</span> Misconfigured cache rules leak user auth tokens across browsers.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 6. Leaving old DNSSEC active:</span> Causes global SERVFAIL errors on newly assigned nameservers.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 7. Hardcoding API secrets in Workers code:</span> Always use <code>wrangler secret put</code>.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 8. Making R2 storage buckets public blindly:</span> Exposes internal assets and documents.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 9. Using Global API Key instead of Scoped Token:</span> Breached CI token compromises entire account.</div>
+              <div class="p-2 bg-slate-800/80 border border-red-500/30"><span class="text-red-400 font-bold">❌ 10. Assuming Cloudflare alone makes origin secure:</span> Origin code still requires validation and SQL sanitization.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 85 -->
+        <section class="slide-item w-full max-w-[1100px] mx-auto flex-col" data-part="PROJECT & CHECKLIST" data-part-key="part_20" id="slide-85">
+          <div class="slide-content-card w-full bg-slate-900 border border-slate-800 p-5 flex flex-col gap-4 shadow-2xl">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+              <div>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-orange-400">SECTION 59 • FINAL SUMMARY</span>
+                <h2 class="slide-title text-2xl font-extrabold text-white m-0 leading-tight" data-i18n="s85_title">The Master Cloudflare Cheat Sheet</h2>
+                <p class="text-[13px] text-slate-400 m-0" data-i18n="s85_sub">Essential summary, key mental models, command reference, and best practices</p>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/15 text-green-400 font-mono">COMPLETE</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
+                <h4 class="text-orange-400 font-bold">Core Mental Model Summary</h4>
+                <div class="bg-slate-950 border border-slate-800 p-2 font-mono text-[11px] text-slate-300">
+                  DOMAIN → NAMESERVERS → DNS → PROXY → SSL/TLS → CDN → WAF → APP → DB<br><br>
+                  • WORKERS → 0ms Cold Start Edge Compute<br>
+                  • R2 → S3-Compatible Object Storage ($0 Egress)<br>
+                  • KV → Low-Latency Global Key/Value Store<br>
+                  • DURABLE OBJECTS → Stateful Edge Coordination<br>
+                  • ZERO TRUST → Identity Access &amp; Outbound Tunnels
+                </div>
+              </div>
+              <div class="terminal-window bg-slate-950 border border-slate-800 font-mono text-[11px]">
+                <div class="p-2 bg-slate-900 border-b border-slate-800 text-green-400 font-bold">Essential Developer Commands</div>
+                <div class="p-3 text-slate-200 leading-relaxed overflow-x-auto">
+$ pnpm exec wrangler dev        # Emulate Worker locally
+$ pnpm exec wrangler deploy     # Deploy to 330+ cities
+$ pnpm exec wrangler tail       # Live edge streaming logs
+$ pnpm exec wrangler secret put # Store encrypted key
+$ cloudflared tunnel run        # Expose localhost port
+$ dig taskflow.com @1.1.1.1     # Verify Anycast DNS
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
       </div>
     </main>
