@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { loadCourseData } from '../data/coursesIndex';
-import { useLanguage } from '../context/LanguageContext';
-import { useTheme } from '../context/ThemeContext';
-import { Button } from '../components/ui/button';
-import { Badge } from '../components/ui/badge';
-import { Progress } from '../components/ui/progress';
-import { Card } from '../components/ui/card';
+import React, { useEffect, useState, useRef } from "react";
+import { loadCourseData } from "../data/coursesIndex";
+import { useLanguage } from "../context/LanguageContext";
+import { useTheme } from "../context/ThemeContext";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { Progress } from "../components/ui/progress";
+import { Card } from "../components/ui/card";
 
 export default function SlideViewer({ courseId, initialSlide = 1 }) {
   const { lang, toggleLang, t } = useLanguage();
@@ -32,7 +32,10 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
       .then((data) => {
         if (!mounted) return;
         setCourseData(data);
-        const validIndex = Math.max(0, Math.min(initialSlide - 1, data.slides.length - 1));
+        const validIndex = Math.max(
+          0,
+          Math.min(initialSlide - 1, data.slides.length - 1),
+        );
         setCurrentIndex(validIndex);
         setLoading(false);
       })
@@ -58,9 +61,9 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
   useEffect(() => {
     if (!slideRef.current || !courseData) return;
 
-    const elements = slideRef.current.querySelectorAll('[data-i18n]');
+    const elements = slideRef.current.querySelectorAll("[data-i18n]");
     elements.forEach((el) => {
-      const key = el.getAttribute('data-i18n');
+      const key = el.getAttribute("data-i18n");
       const translated = t(key);
       if (translated && translated !== key) {
         el.innerHTML = translated;
@@ -68,14 +71,16 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
     });
 
     // Also handle copy buttons inside terminal/code blocks
-    const copyBtns = slideRef.current.querySelectorAll('.btn-copy');
+    const copyBtns = slideRef.current.querySelectorAll(".btn-copy");
     copyBtns.forEach((btn) => {
       btn.onclick = () => {
-        const terminalBody = btn.closest('.terminal-window')?.querySelector('.terminal-body');
+        const terminalBody = btn
+          .closest(".terminal-window")
+          ?.querySelector(".terminal-body");
         if (terminalBody) {
           navigator.clipboard.writeText(terminalBody.innerText).then(() => {
             const original = btn.innerText;
-            btn.innerText = 'Copied!';
+            btn.innerText = "Copied!";
             setTimeout(() => {
               btn.innerText = original;
             }, 1800);
@@ -85,7 +90,9 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
     });
 
     // Also handle start-course button on slide 1
-    const startBtn = slideRef.current.querySelector('#btn-start-course, .btn-start-course');
+    const startBtn = slideRef.current.querySelector(
+      "#btn-start-course, .btn-start-course",
+    );
     if (startBtn) {
       startBtn.onclick = () => {
         setCurrentIndex(1);
@@ -99,40 +106,55 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
     const total = courseData.slides.length;
 
     const handleKeyDown = (e) => {
-      if (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) return;
+      if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
 
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'l' || e.key === 'L') {
+      if (
+        e.key === "ArrowRight" ||
+        e.key === " " ||
+        e.key === "l" ||
+        e.key === "L"
+      ) {
         e.preventDefault();
         setCurrentIndex((prev) => Math.min(prev + 1, total - 1));
-      } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'h' || e.key === 'H') {
+      } else if (
+        e.key === "ArrowLeft" ||
+        e.key === "Backspace" ||
+        e.key === "h" ||
+        e.key === "H"
+      ) {
         e.preventDefault();
         setCurrentIndex((prev) => Math.max(prev - 1, 0));
-      } else if (e.key === 'Home') {
+      } else if (e.key === "Home") {
         e.preventDefault();
         setCurrentIndex(0);
-      } else if (e.key === 'End') {
+      } else if (e.key === "End") {
         e.preventDefault();
         setCurrentIndex(total - 1);
-      } else if (e.key === 'o' || e.key === 'O' || e.key === 'g' || e.key === 'G') {
+      } else if (
+        e.key === "o" ||
+        e.key === "O" ||
+        e.key === "g" ||
+        e.key === "G"
+      ) {
         e.preventDefault();
         setOverviewOpen((prev) => !prev);
-      } else if (e.key === '?' || (e.key === '/' && e.shiftKey)) {
+      } else if (e.key === "?" || (e.key === "/" && e.shiftKey)) {
         e.preventDefault();
         setShortcutsOpen((prev) => !prev);
-      } else if (e.key === 'f' || e.key === 'F') {
+      } else if (e.key === "f" || e.key === "F") {
         e.preventDefault();
         toggleFullscreenMode();
-      } else if (e.key === 't' || e.key === 'T') {
+      } else if (e.key === "t" || e.key === "T") {
         e.preventDefault();
         toggleTheme();
-      } else if (e.key === 'Escape') {
+      } else if (e.key === "Escape") {
         setOverviewOpen(false);
         setShortcutsOpen(false);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [courseData, toggleTheme]);
 
   const toggleFullscreenMode = () => {
@@ -149,15 +171,17 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
     const onFsChange = () => {
       setIsFullscreen(Boolean(document.fullscreenElement));
     };
-    document.addEventListener('fullscreenchange', onFsChange);
-    return () => document.removeEventListener('fullscreenchange', onFsChange);
+    document.addEventListener("fullscreenchange", onFsChange);
+    return () => document.removeEventListener("fullscreenchange", onFsChange);
   }, []);
 
   if (loading) {
     return (
       <div className="h-screen w-screen bg-slate-950 text-white flex flex-col items-center justify-center gap-3">
         <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent animate-spin"></div>
-        <span className="font-mono text-xs text-slate-400">Loading lesson slides...</span>
+        <span className="font-mono text-xs text-slate-400">
+          Loading lesson slides...
+        </span>
       </div>
     );
   }
@@ -166,7 +190,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
     return (
       <div className="h-screen w-screen bg-slate-950 text-white flex flex-col items-center justify-center gap-4 p-4 text-center">
         <h2 className="text-xl font-bold text-red-400">Error Loading Course</h2>
-        <p className="text-sm text-slate-400">{error || 'Course not found'}</p>
+        <p className="text-sm text-slate-400">{error || "Course not found"}</p>
         <Button asChild>
           <a href="#/">Return to Curriculum Hub</a>
         </Button>
@@ -198,20 +222,22 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
               alt="Synergy Logo"
               className="w-6 h-6 object-contain shrink-0"
             />
-            <span className="hidden sm:inline">{courseData.title.split(':')[0]}</span>
+            <span className="hidden sm:inline">
+              {courseData.title.split(":")[0]}
+            </span>
           </a>
           <Badge
             variant="default"
             className="hidden sm:inline-flex font-mono text-[11px]"
           >
-            {currentSlide.part || 'SECTION'}
+            {currentSlide.part || "SECTION"}
           </Badge>
         </div>
 
-        <div className="top-controls flex items-center gap-2">
+        <div className="top-controls flex items-center gap-1">
           {/* Jump to Slide dropdown */}
           <div className="slide-counter-wrapper h-[34px] px-2.5 flex items-center gap-1.5 text-xs font-mono text-slate-300 bg-slate-950 border border-slate-800">
-            <span>{t('ui_slide', 'Slide')}</span>
+            <span>{t("ui_slide", "Slide")}</span>
             <select
               value={currentIndex}
               onChange={(e) => setCurrentIndex(Number(e.target.value))}
@@ -225,7 +251,8 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
               ))}
             </select>
             <span>
-              {t('ui_of', 'of')} <span className="font-bold text-white">{totalSlides}</span>
+              {t("ui_of", "of")}{" "}
+              <span className="font-bold text-white">{totalSlides}</span>
             </span>
           </div>
 
@@ -237,14 +264,14 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
             title="Toggle Language (English / ភាសាខ្មែរ)"
             aria-label="Toggle Language"
           >
-            {lang === 'en' ? (
+            {lang === "en" ? (
               <img
                 src="/images/en.png"
                 alt="English"
                 className="w-5 h-3.5 object-cover"
                 onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentNode.innerText = 'EN';
+                  e.target.style.display = "none";
+                  e.target.parentNode.innerText = "EN";
                 }}
               />
             ) : (
@@ -253,8 +280,8 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
                 alt="Khmer"
                 className="w-5 h-3.5 object-cover"
                 onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentNode.innerText = 'KM';
+                  e.target.style.display = "none";
+                  e.target.parentNode.innerText = "KM";
                 }}
               />
             )}
@@ -294,12 +321,18 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
             title="Toggle Light / Dark Mode (T)"
             aria-label="Toggle Light / Dark Mode"
           >
-            {theme === 'dark' ? (
-              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
+            {theme === "dark" ? (
+              <svg
+                className="w-4 h-4 fill-current shrink-0"
+                viewBox="0 0 16 16"
+              >
                 <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z" />
               </svg>
             ) : (
-              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
+              <svg
+                className="w-4 h-4 fill-current shrink-0"
+                viewBox="0 0 16 16"
+              >
                 <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
               </svg>
             )}
@@ -342,16 +375,16 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
         </div>
 
         <div className="keyboard-hints hidden lg:flex items-center gap-2 text-slate-400 text-xs">
-          <span>{t('ui_nav', 'Navigation')}:</span>
+          <span>{t("ui_nav", "Navigation")}:</span>
           <span>
             <kbd className="kbd px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
               ←
-            </kbd>{' '}
-            /{' '}
+            </kbd>{" "}
+            /{" "}
             <kbd className="kbd px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
               →
-            </kbd>{' '}
-            or{' '}
+            </kbd>{" "}
+            or{" "}
             <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
               Space
             </kbd>
@@ -359,19 +392,19 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
           <span>
             <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
               O
-            </kbd>{' '}
+            </kbd>{" "}
             Overview
           </span>
           <span>
             <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
               F
-            </kbd>{' '}
+            </kbd>{" "}
             Fullscreen
           </span>
           <span>
             <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-mono">
               T
-            </kbd>{' '}
+            </kbd>{" "}
             Theme
           </span>
         </div>
@@ -387,17 +420,19 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
             <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
               <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
             </svg>
-            <span>{t('ui_prev', 'Previous')}</span>
+            <span>{t("ui_prev", "Previous")}</span>
           </Button>
 
           <Button
             variant="default"
             size="sm"
-            onClick={() => setCurrentIndex((prev) => Math.min(totalSlides - 1, prev + 1))}
+            onClick={() =>
+              setCurrentIndex((prev) => Math.min(totalSlides - 1, prev + 1))
+            }
             disabled={currentIndex === totalSlides - 1}
             title="Next Slide (Right Arrow or Space)"
           >
-            <span>{t('ui_next', 'Next')}</span>
+            <span>{t("ui_next", "Next")}</span>
             <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
               <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
             </svg>
@@ -433,8 +468,8 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
                   }}
                   className={`p-2.5 cursor-pointer flex flex-col gap-1 transition-colors ${
                     currentIndex === idx
-                      ? 'border-blue-500 bg-blue-950/40'
-                      : 'bg-slate-800 border-slate-700 hover:border-blue-500'
+                      ? "border-blue-500 bg-blue-950/40"
+                      : "bg-slate-800 border-slate-700 hover:border-blue-500"
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -476,11 +511,15 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Next Slide</span>
-                <span className="font-mono text-slate-200 font-bold">→ / Space</span>
+                <span className="font-mono text-slate-200 font-bold">
+                  → / Space
+                </span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Previous Slide</span>
-                <span className="font-mono text-slate-200 font-bold">← / Backspace</span>
+                <span className="font-mono text-slate-200 font-bold">
+                  ← / Backspace
+                </span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>First Slide</span>
@@ -492,7 +531,9 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Slide Overview</span>
-                <span className="font-mono text-slate-200 font-bold">O / G</span>
+                <span className="font-mono text-slate-200 font-bold">
+                  O / G
+                </span>
               </Card>
               <Card className="flex items-center justify-between p-2.5 bg-slate-800 border-slate-700 text-slate-300">
                 <span>Fullscreen</span>

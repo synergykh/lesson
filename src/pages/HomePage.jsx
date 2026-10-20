@@ -71,7 +71,7 @@ export default function HomePage() {
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-5 flex flex-col gap-2">
         {/* Hero Section */}
-        <Card className="p-5 flex flex-col gap-3">
+        <Card className="p-4 flex flex-col gap-3">
           <div className="flex items-center gap-2">
             <Badge variant="default">
               {t("home_badge", "MODERN DEVELOPER ROADMAP")}
@@ -199,7 +199,7 @@ export default function HomePage() {
 
         {/* Course Cards Grid */}
         {filteredCourses.length === 0 ? (
-          <Card className="p-8 text-center text-slate-400 text-sm">
+          <Card className="p-4 text-center text-slate-400 text-sm">
             No courses match your search "{searchQuery}".
           </Card>
         ) : (
