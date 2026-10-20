@@ -316,7 +316,7 @@ export default function SlideViewer({ courseId, initialSlide = 1 }) {
         </div>
       </header>
 
-      {/* Main Slide Viewport (width 7xl, height 70% inner card) */}
+      {/* Main Slide Viewport (width 7xl, height 80% inner card) */}
       <main className="slide-viewport flex-1 h-[calc(100vh-104px)] flex items-center justify-center p-4 overflow-y-auto overflow-x-hidden relative">
         <div
           ref={slideRef}

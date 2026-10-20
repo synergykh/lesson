@@ -149,3 +149,15 @@ html:not(.dark):not([data-theme="dark"]) .kbd {
   transform: translateY(0);
   opacity: 1;
 }
+
+/* Presentation Card Dimensions: Width 7xl, Height 80% */
+.slides-container .slide-content-card,
+.slides-container .title-card-hero,
+.slides-container .summary-card {
+  width: 100% !important;
+  max-width: 80rem !important;
+  height: 80% !important;
+  min-height: 80% !important;
+  overflow-y: auto !important;
+}
+
