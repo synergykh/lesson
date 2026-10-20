@@ -203,4 +203,28 @@ html:not(.dark):not([data-theme="dark"]) .kbd {
   margin-left: auto !important;
   margin-right: auto !important;
   overflow-y: auto !important;
+  border-radius: 14px;
+  background: radial-gradient(circle at top right, rgba(30, 41, 59, 0.4), transparent 50%), #0f172a;
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(37, 99, 235, 0.05) !important;
 }
+
+[data-theme="light"] .slides-container .slide-content-card,
+[data-theme="light"] .slides-container .title-card-hero,
+[data-theme="light"] .slides-container .summary-card {
+  background: radial-gradient(circle at top right, rgba(241, 245, 249, 0.8), transparent 50%), #ffffff !important;
+  border: 1px solid rgba(203, 213, 225, 0.9) !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08), 0 0 30px rgba(37, 99, 235, 0.04) !important;
+}
+
+.slide-visual-media {
+  border-radius: 10px;
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.slide-visual-media:hover {
+  transform: scale(1.01);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.7), 0 0 25px rgba(59, 130, 246, 0.15);
+}
+
