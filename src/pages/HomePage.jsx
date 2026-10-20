@@ -22,7 +22,7 @@ export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
-    { id: "all", label: "All Lessons", count: courses.length },
+    { id: "all", label: t("ui_all_lessons", "All Lessons"), count: courses.length },
     {
       id: "foundations",
       label: "Foundations",
@@ -159,7 +159,7 @@ export default function HomePage() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search courses, commands, topics (e.g. git commit, neon, server components)..."
+              placeholder={t("ui_search_placeholder", "Search courses, commands, topics (e.g. git commit, neon, server components)...")}
               className="pl-9 pr-8"
             />
             {searchQuery && (
@@ -196,75 +196,84 @@ export default function HomePage() {
           </Card>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {filteredCourses.map((c) => (
-              <Card
-                key={c.id}
-                className="flex flex-col justify-between hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/15 transition-all duration-150 group"
-              >
-                <a
-                  href={`#/course/${c.id}`}
-                  className="p-4 flex flex-col gap-3 no-underline"
+            {filteredCourses.map((c, idx) => {
+              const lKey = c.lessonKey || `l${idx + 1}`;
+              const localizedTitle = t(`${lKey}_title`, c.title);
+              const localizedDesc = t(`${lKey}_desc`, c.desc);
+              const localizedTag = t(`${lKey}_tag`, c.module);
+              const localizedLevel = t(`${lKey}_level`, c.level);
+              const localizedMeta = t(`${lKey}_meta`, c.meta);
+
+              return (
+                <Card
+                  key={c.id}
+                  className="flex flex-col justify-between hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/15 transition-all duration-150 group"
                 >
-                  {/* Module & Level Badge */}
-                  <div className="flex items-center justify-between">
-                    <Badge variant="default">{c.module}</Badge>
-                    <Badge variant="secondary">{c.level}</Badge>
-                  </div>
-
-                  {/* Icon & Title */}
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-11 h-11 flex items-center justify-center shrink-0 border ${c.iconBg} ${c.iconColor}`}
-                    >
-                      <CourseIcon id={c.id} className="w-6 h-6" />
-                    </div>
-                    <CardTitle className="group-hover:text-blue-400 transition-colors">
-                      {c.title}
-                    </CardTitle>
-                  </div>
-
-                  {/* Description */}
-                  <CardDescription className="line-clamp-3">
-                    {c.desc}
-                  </CardDescription>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {c.tags.map((tag) => (
-                      <Badge key={tag} variant="outline">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </a>
-
-                {/* Card Footer */}
-                <CardFooter className="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-auto">
-                  <span className="text-xs text-slate-500 font-semibold">
-                    {c.meta}
-                  </span>
-                  <Button
-                    size="sm"
-                    className="gap-1.5 group-hover:translate-x-0.5 transition-transform"
-                    asChild
+                  <a
+                    href={`#/course/${c.id}`}
+                    className="p-4 flex flex-col gap-3 no-underline"
                   >
-                    <a href={`#/course/${c.id}`} className="no-underline">
-                      <span>{t("ui_launch_lesson", "Start Lesson")}</span>
-                      <svg
-                        className="w-3 h-3"
-                        viewBox="0 0 16 16"
-                        fill="currentColor"
+                    {/* Module & Level Badge */}
+                    <div className="flex items-center justify-between">
+                      <Badge variant="default">{localizedTag}</Badge>
+                      <Badge variant="secondary">{localizedLevel}</Badge>
+                    </div>
+
+                    {/* Icon & Title */}
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-11 h-11 flex items-center justify-center shrink-0 border ${c.iconBg} ${c.iconColor}`}
                       >
-                        <path
-                          fillRule="evenodd"
-                          d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"
-                        />
-                      </svg>
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+                        <CourseIcon id={c.id} className="w-6 h-6" />
+                      </div>
+                      <CardTitle className="group-hover:text-blue-400 transition-colors">
+                        {localizedTitle}
+                      </CardTitle>
+                    </div>
+
+                    {/* Description */}
+                    <CardDescription className="line-clamp-3">
+                      {localizedDesc}
+                    </CardDescription>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {c.tags.map((tag) => (
+                        <Badge key={tag} variant="outline">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </a>
+
+                  {/* Card Footer */}
+                  <CardFooter className="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-auto">
+                    <span className="text-xs text-slate-500 font-semibold">
+                      {localizedMeta}
+                    </span>
+                    <Button
+                      size="sm"
+                      className="gap-1.5 group-hover:translate-x-0.5 transition-transform"
+                      asChild
+                    >
+                      <a href={`#/course/${c.id}`} className="no-underline">
+                        <span>{t("ui_launch_lesson", "Start Lesson")}</span>
+                        <svg
+                          className="w-3 h-3"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"
+                          />
+                        </svg>
+                      </a>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              );
+            })}
           </div>
         )}
       </main>

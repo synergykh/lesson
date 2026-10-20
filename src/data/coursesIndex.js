@@ -1,6 +1,7 @@
 export const courses = [
   {
     id: "git",
+    lessonKey: "l1",
     title: "Git: Local Version Control",
     module: "MODULE 01",
     level: "Beginner",
@@ -20,6 +21,7 @@ export const courses = [
   },
   {
     id: "github",
+    lessonKey: "l2",
     title: "GitHub: Cloud Repositories & Collaboration",
     module: "MODULE 02",
     level: "Beginner",
@@ -39,6 +41,7 @@ export const courses = [
   },
   {
     id: "nextjs",
+    lessonKey: "l3",
     title: "Next.js: The React Framework for the Web",
     module: "MODULE 03",
     level: "Intermediate",
@@ -58,6 +61,7 @@ export const courses = [
   },
   {
     id: "tailwindcss",
+    lessonKey: "l4",
     title: "Tailwind CSS: Modern Utility-First Styling",
     module: "MODULE 04",
     level: "Beginner / Intermediate",
@@ -77,6 +81,7 @@ export const courses = [
   },
   {
     id: "shadcn",
+    lessonKey: "l5",
     title: "Shadcn UI: Accessible Component Architecture",
     module: "MODULE 05",
     level: "Intermediate",
@@ -89,6 +94,7 @@ export const courses = [
   },
   {
     id: "postgres",
+    lessonKey: "l6",
     title: "PostgreSQL & Neon Database",
     module: "MODULE 06",
     level: "Intermediate / Production",
@@ -108,6 +114,7 @@ export const courses = [
   },
   {
     id: "vercel",
+    lessonKey: "l7",
     title: "Vercel & Web Deployment",
     module: "MODULE 07",
     level: "Intermediate / Production",
@@ -127,6 +134,7 @@ export const courses = [
   },
   {
     id: "cloudflare",
+    lessonKey: "l9",
     title: "Cloudflare: Global Edge Infrastructure",
     module: "MODULE 08",
     level: "Intermediate / Production",
@@ -146,6 +154,7 @@ export const courses = [
   },
   {
     id: "prompting",
+    lessonKey: "l8",
     title: "Prompt Engineering & AI Development",
     module: "MODULE 09",
     level: "Advanced / AI-Assisted",

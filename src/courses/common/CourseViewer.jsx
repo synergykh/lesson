@@ -1,9 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLanguage } from "../../context/LanguageContext";
+import { useLanguage, CourseLanguageContext } from "../../context/LanguageContext";
 import { useTheme } from "../../context/ThemeContext";
 import { Button } from "../../components/ui/button";
 import { Badge } from "../../components/ui/badge";
 import { Progress } from "../../components/ui/progress";
+import { applyGitSlideTranslations } from "./gitSlideTranslator";
+
+const LESSON_KEY_MAP = {
+  git: "l1",
+  github: "l2",
+  nextjs: "l3",
+  tailwindcss: "l4",
+  shadcn: "l5",
+  postgres: "l6",
+  vercel: "l7",
+  cloudflare: "l9",
+  prompting: "l8",
+};
 
 const ACCENT_STYLES = {
   orange: {
@@ -75,6 +88,10 @@ export default function CourseViewer({
   const { lang, toggleLang, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
+  const courseT = (key, fallback = "") => t(key, fallback, courseId);
+  const lKey = LESSON_KEY_MAP[courseId];
+  const displayCourseTitle = lKey ? t(`${lKey}_title`, courseTitle) : courseTitle;
+
   const totalSlides = slides.length;
   const validInitial = Math.max(0, Math.min(initialSlide - 1, totalSlides - 1));
   const [currentIndex, setCurrentIndex] = useState(validInitial);
@@ -85,6 +102,12 @@ export default function CourseViewer({
   const slideContainerRef = useRef(null);
   const colors = ACCENT_STYLES[accent] || ACCENT_STYLES.orange;
 
+  const getSlideCleanTitle = (s, idx) => {
+    const num = idx + 1;
+    const titleVal = courseT(`s${num}_head`, courseT(`s${num}_title`, s.title));
+    return (titleVal || s.title || "").replace(/<[^>]*>/g, " ").trim();
+  };
+
   // Sync slide hash to URL
   useEffect(() => {
     window.location.hash = `#/course/${courseId}/${currentIndex + 1}`;
@@ -94,14 +117,56 @@ export default function CourseViewer({
   useEffect(() => {
     if (!slideContainerRef.current) return;
 
+    // Text elements with data-i18n
     const elements = slideContainerRef.current.querySelectorAll("[data-i18n]");
     elements.forEach((el) => {
       const key = el.getAttribute("data-i18n");
-      const translated = t(key);
+      const translated = courseT(key);
+      if (translated && translated !== key) {
+        el.textContent = translated;
+      }
+    });
+
+    // HTML elements with data-i18n-html
+    const htmlElements = slideContainerRef.current.querySelectorAll("[data-i18n-html]");
+    htmlElements.forEach((el) => {
+      const key = el.getAttribute("data-i18n-html");
+      const translated = courseT(key);
       if (translated && translated !== key) {
         el.innerHTML = translated;
       }
     });
+
+    // Translate slide title and subtitle inside slide component if present
+    const slideNum = currentIndex + 1;
+    const titleEl = slideContainerRef.current.querySelector(".slide-title, .title-main-h1");
+    if (titleEl) {
+      const transTitle = courseT(`s${slideNum}_head`, courseT(`s${slideNum}_title`));
+      if (transTitle && transTitle !== `s${slideNum}_title` && transTitle !== `s${slideNum}_head`) {
+        titleEl.innerHTML = transTitle;
+      }
+    }
+
+    const subEl = slideContainerRef.current.querySelector(".slide-subtitle, .title-tagline");
+    if (subEl) {
+      const transSub = courseT(`s${slideNum}_sub`, courseT(`s${slideNum}_desc`));
+      if (transSub && transSub !== `s${slideNum}_sub` && transSub !== `s${slideNum}_desc`) {
+        subEl.innerHTML = transSub;
+      }
+    }
+
+    const metaEl = slideContainerRef.current.querySelector(".slide-meta-label");
+    if (metaEl) {
+      const transMeta = courseT(`s${slideNum}_cat`, courseT(`p${slideNum}_badge`));
+      if (transMeta && transMeta !== `s${slideNum}_cat` && transMeta !== `p${slideNum}_badge`) {
+        metaEl.textContent = transMeta;
+      }
+    }
+
+    // Run Git-specific element translation
+    if (courseId === "git" || courseId === "github") {
+      applyGitSlideTranslations(slideContainerRef.current, slideNum, courseT, lang);
+    }
 
     const copyBtns = slideContainerRef.current.querySelectorAll(".btn-copy, .copy-btn");
     copyBtns.forEach((btn) => {
@@ -114,7 +179,7 @@ export default function CourseViewer({
         if (textToCopy) {
           navigator.clipboard.writeText(textToCopy.trim()).then(() => {
             const original = btn.innerText;
-            btn.innerText = "Copied!";
+            btn.innerText = t("ui_copied", "Copied!");
             setTimeout(() => {
               btn.innerText = original;
             }, 1800);
@@ -122,7 +187,7 @@ export default function CourseViewer({
         }
       };
     });
-  }, [currentIndex, lang, t]);
+  }, [currentIndex, lang, courseId]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -197,63 +262,64 @@ export default function CourseViewer({
   const progressPercent = Math.round(((currentIndex + 1) / totalSlides) * 100);
 
   return (
-    <div
-      id="app-container"
-      className="flex flex-col h-screen w-screen overflow-hidden bg-slate-900 text-white font-sans select-none"
-    >
-      {/* Top Header Bar */}
-      <header className="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
-        <div className="flex items-center gap-3">
-          <a
-            href="#/"
-            className="flex items-center gap-2 text-white no-underline hover:opacity-85 transition-opacity"
-            title="Return to Synergy Lessons"
-          >
-            <img
-              src="/images/synergy.png"
-              alt="Synergy Logo"
-              className="w-7 h-7 object-contain"
-            />
-            <span className="font-extrabold text-sm tracking-tight hidden md:inline">
-              SYNERGY
-            </span>
-          </a>
-
-          <div className="h-4 w-px bg-slate-800 hidden sm:block" />
-
-          <span className="course-title-text font-bold text-xs sm:text-sm text-slate-200 truncate max-w-[180px] sm:max-w-[260px] md:max-w-none">
-            {courseTitle}
-          </span>
-
-          <Badge
-            variant="default"
-            className={`hidden sm:inline-flex text-[11px] ${colors.badge}`}
-          >
-            {currentSlide.part || defaultPart}
-          </Badge>
-        </div>
-
-        <div className="top-controls flex items-center gap-1.5">
-          {/* Jump to Slide dropdown */}
-          <div className="slide-counter-wrapper h-[34px] px-2.5 rounded-lg flex items-center gap-1.5 text-xs text-slate-300 bg-slate-900 border border-slate-800">
-            <span>{t("ui_slide", "Slide")}</span>
-            <select
-              value={currentIndex}
-              onChange={(e) => setCurrentIndex(Number(e.target.value))}
-              className={`bg-transparent ${colors.selectText} text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white`}
-              title="Jump to slide"
+    <CourseLanguageContext.Provider value={{ courseId }}>
+      <div
+        id="app-container"
+        className="flex flex-col h-screen w-screen overflow-hidden bg-slate-900 text-white font-sans select-none"
+      >
+        {/* Top Header Bar */}
+        <header className="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
+          <div className="flex items-center gap-3">
+            <a
+              href="#/"
+              className="flex items-center gap-2 text-white no-underline hover:opacity-85 transition-opacity"
+              title="Return to Synergy Lessons"
             >
-              {slides.map((s, idx) => (
-                <option key={s.id || idx} value={idx}>
-                  {idx + 1} - {s.title}
-                </option>
-              ))}
-            </select>
-            <span>
-              {t("ui_of", "of")}{" "}
-              <span className="font-bold text-white">{totalSlides}</span>
+              <img
+                src="/images/synergy.png"
+                alt="Synergy Logo"
+                className="w-7 h-7 object-contain"
+              />
+              <span className="font-extrabold text-sm tracking-tight hidden md:inline">
+                SYNERGY
+              </span>
+            </a>
+
+            <div className="h-4 w-px bg-slate-800 hidden sm:block" />
+
+            <span className="course-title-text font-bold text-xs sm:text-sm text-slate-200 truncate max-w-[180px] sm:max-w-[260px] md:max-w-none">
+              {displayCourseTitle}
             </span>
+
+            <Badge
+              variant="default"
+              className={`hidden sm:inline-flex text-[11px] ${colors.badge}`}
+            >
+              {courseT(currentSlide.partKey || `part_${currentIndex + 1}`, currentSlide.part || defaultPart)}
+            </Badge>
           </div>
+
+          <div className="top-controls flex items-center gap-1.5">
+            {/* Jump to Slide dropdown */}
+            <div className="slide-counter-wrapper h-[34px] px-2.5 rounded-lg flex items-center gap-1.5 text-xs text-slate-300 bg-slate-900 border border-slate-800">
+              <span>{t("ui_slide", "Slide")}</span>
+              <select
+                value={currentIndex}
+                onChange={(e) => setCurrentIndex(Number(e.target.value))}
+                className={`bg-transparent ${colors.selectText} text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white`}
+                title="Jump to slide"
+              >
+                {slides.map((s, idx) => (
+                  <option key={s.id || idx} value={idx}>
+                    {idx + 1} - {getSlideCleanTitle(s, idx)}
+                  </option>
+                ))}
+              </select>
+              <span>
+                {t("ui_of", "of")}{" "}
+                <span className="font-bold text-white">{totalSlides}</span>
+              </span>
+            </div>
 
           {/* Language Toggle */}
           <Button
@@ -460,10 +526,10 @@ export default function CourseViewer({
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-base text-white">
-                  {courseTitle} Slide Overview
+                  {t("ui_overview_title", `${displayCourseTitle} Slide Overview`)}
                 </span>
                 <span className="text-xs text-slate-400">
-                  ({totalSlides} slides)
+                  ({totalSlides} {t("ui_slides", "slides")})
                 </span>
               </div>
               <Button
@@ -472,38 +538,47 @@ export default function CourseViewer({
                 onClick={() => setOverviewOpen(false)}
                 className="h-8 px-2.5 text-xs bg-slate-800 text-slate-200 border-slate-700"
               >
-                Close (Esc)
+                {t("ui_close", "Close (Esc)")}
               </Button>
             </div>
 
             <div className="overview-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 overflow-y-auto p-1">
-              {slides.map((slide, idx) => (
-                <button
-                  key={slide.id || idx}
-                  type="button"
-                  onClick={() => {
-                    setCurrentIndex(idx);
-                    setOverviewOpen(false);
-                  }}
-                  className={`p-3 rounded-lg border text-left flex flex-col gap-1.5 transition-all cursor-pointer ${
-                    currentIndex === idx
-                      ? colors.overviewActive
-                      : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900"
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className={`text-[10px] ${colors.overviewNum} font-bold`}>
-                      #{idx + 1}
-                    </span>
-                    <span className="text-[9px] text-slate-500 uppercase truncate max-w-[80px]">
-                      {slide.part || defaultPart}
-                    </span>
-                  </div>
-                  <div className="text-xs font-bold truncate text-white">
-                    {slide.title}
-                  </div>
-                </button>
-              ))}
+              {slides.map((slide, idx) => {
+                const num = idx + 1;
+                const slideTitle = getSlideCleanTitle(slide, idx);
+                const slidePart = courseT(
+                  slide.partKey || `part_${num}`,
+                  slide.part || defaultPart
+                );
+
+                return (
+                  <button
+                    key={slide.id || idx}
+                    type="button"
+                    onClick={() => {
+                      setCurrentIndex(idx);
+                      setOverviewOpen(false);
+                    }}
+                    className={`p-3 rounded-lg border text-left flex flex-col gap-1.5 transition-all cursor-pointer ${
+                      currentIndex === idx
+                        ? colors.overviewActive
+                        : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className={`text-[10px] ${colors.overviewNum} font-bold`}>
+                        #{num}
+                      </span>
+                      <span className="text-[9px] text-slate-500 uppercase truncate max-w-[80px]">
+                        {slidePart}
+                      </span>
+                    </div>
+                    <div className="text-xs font-bold truncate text-white">
+                      {slideTitle}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -521,7 +596,7 @@ export default function CourseViewer({
           >
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <span className="font-bold text-sm text-white">
-                Keyboard Navigation Shortcuts
+                {t("ui_shortcuts_title", "Keyboard Navigation Shortcuts")}
               </span>
               <Button
                 variant="outline"
@@ -529,16 +604,16 @@ export default function CourseViewer({
                 onClick={() => setShortcutsOpen(false)}
                 className="h-8 px-2.5 text-xs bg-slate-800 text-slate-200 border-slate-700"
               >
-                Close (Esc)
+                {t("ui_close", "Close (Esc)")}
               </Button>
             </div>
             <div className="flex flex-col gap-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span className="text-slate-300">Next Slide</span>
+                <span className="text-slate-300">{t("ui_next", "Next Slide")}</span>
                 <span className="text-slate-400">Right Arrow / Space / L</span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span className="text-slate-300">Previous Slide</span>
+                <span className="text-slate-300">{t("ui_prev", "Previous Slide")}</span>
                 <span className="text-slate-400">Left Arrow / H</span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
@@ -564,5 +639,6 @@ export default function CourseViewer({
         </div>
       )}
     </div>
+    </CourseLanguageContext.Provider>
   );
 }

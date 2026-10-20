@@ -1,4 +1,5 @@
 import React from "react";
+import { useCourseLanguage } from "../../context/LanguageContext";
 
 export default function SlideHeader({
   slideNum,
@@ -8,6 +9,8 @@ export default function SlideHeader({
   subtitle,
   badgeColor = "blue",
 }) {
+  const { t } = useCourseLanguage();
+
   const colorMap = {
     blue: "border-blue-500/30 bg-blue-500/10 text-blue-400",
     green: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
@@ -19,6 +22,16 @@ export default function SlideHeader({
   };
 
   const badgeClass = colorMap[badgeColor] || colorMap.blue;
+
+  const displayTitle = slideNum
+    ? t(`s${slideNum}_head`, t(`s${slideNum}_title`, title))
+    : title;
+  const displaySub = slideNum
+    ? t(`s${slideNum}_sub`, t(`s${slideNum}_desc`, subtitle))
+    : subtitle;
+  const displayBadge = badgeText
+    ? t(`p${slideNum}_badge`, t(`s${slideNum}_cat`, badgeText))
+    : badgeText;
 
   return (
     <div className="slide-header flex items-start justify-between border-b border-slate-800/80 pb-3 gap-3 shrink-0">
@@ -32,19 +45,21 @@ export default function SlideHeader({
               Slide {String(slideNum).padStart(2, "0")} / {totalSlides}
             </span>
           )}
-          {badgeText && (
+          {displayBadge && (
             <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-              {badgeText}
+              {displayBadge}
             </span>
           )}
         </div>
-        <h2 className="slide-title text-2xl md:text-3xl font-black text-white m-0 tracking-tight leading-snug">
-          {title}
-        </h2>
-        {subtitle && (
-          <p className="slide-subtitle text-xs md:text-sm text-slate-400 m-0">
-            {subtitle}
-          </p>
+        <h2
+          className="slide-title text-2xl md:text-3xl font-black text-white m-0 tracking-tight leading-snug"
+          dangerouslySetInnerHTML={{ __html: displayTitle }}
+        />
+        {displaySub && (
+          <p
+            className="slide-subtitle text-xs md:text-sm text-slate-400 m-0"
+            dangerouslySetInnerHTML={{ __html: displaySub }}
+          />
         )}
       </div>
     </div>
