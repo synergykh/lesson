@@ -9,19 +9,23 @@ import ImageFrame from "./components/ImageFrame";
 // ==========================================
 export function Slide1Welcome({ onStart }) {
   return (
-    <div className="title-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-1 min-h-0">
+    <div className="title-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch flex-1 min-h-0">
       <div className="lg:col-span-6 flex flex-col justify-between gap-4">
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-bold tracking-wider uppercase bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 dark:bg-orange-400 animate-pulse" />
             MODULE 01 • LESSON 01
           </span>
-          <span className="text-xs text-slate-500 dark:text-slate-400">SYNERGY ACADEMY</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">
+            SYNERGY ACADEMY
+          </span>
         </div>
         <h1 className="title-main-h1 text-3xl md:text-5xl font-black text-slate-900 dark:text-white m-0 leading-tight">
           Git &amp; GitHub
           <br />
-          <span className="text-orange-500 dark:text-orange-400">From Zero to Your First Push</span>
+          <span className="text-orange-500 dark:text-orange-400">
+            From Zero to Your First Push
+          </span>
         </h1>
         <p className="title-tagline text-sm md:text-base text-slate-600 dark:text-slate-300 m-0">
           The complete visual guide to modern local version control and cloud
@@ -30,19 +34,25 @@ export function Slide1Welcome({ onStart }) {
 
         <div className="grid grid-cols-3 gap-2.5 py-1">
           <div className="p-2.5 rounded bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex flex-col gap-0.5">
-            <span className="text-[11px] text-slate-500 dark:text-slate-400">Curriculum</span>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400">
+              Curriculum
+            </span>
             <span className="text-xs font-bold text-slate-900 dark:text-white">
               23 Visual Slides
             </span>
           </div>
           <div className="p-2.5 rounded bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex flex-col gap-0.5">
-            <span className="text-[11px] text-slate-500 dark:text-slate-400">Learning Mode</span>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400">
+              Learning Mode
+            </span>
             <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
               Interactive CLI
             </span>
           </div>
           <div className="p-2.5 rounded bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex flex-col gap-0.5">
-            <span className="text-[11px] text-slate-500 dark:text-slate-400">Skill Level</span>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400">
+              Skill Level
+            </span>
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
               Zero to Hero
             </span>
@@ -112,7 +122,10 @@ export function Slide2GitVsGithub() {
               A <strong>version control system</strong> installed on your
               machine. Tracks exact file revisions, branches, and commits
               offline in the hidden{" "}
-              <code className="text-orange-600 dark:text-orange-400">.git/</code> directory.
+              <code className="text-orange-600 dark:text-orange-400">
+                .git/
+              </code>{" "}
+              directory.
             </p>
             <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400">
               <span>• Runs 100% Offline</span>
@@ -182,7 +195,10 @@ export function Slide3WhyGit() {
         <div className="info-card lg:col-span-6 p-4 rounded bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-500/30 flex flex-col justify-between gap-3 shadow-xs">
           <div className="flex items-center justify-between border-b border-rose-200 dark:border-rose-500/20 pb-2">
             <h4 className="text-xs font-bold text-rose-700 dark:text-rose-300 flex items-center gap-1.5 uppercase tracking-wider">
-              <span className="text-rose-500 dark:text-rose-400 text-base">✕</span> The Old Nightmare (Without Git)
+              <span className="text-rose-500 dark:text-rose-400 text-base">
+                ✕
+              </span>{" "}
+              The Old Nightmare (Without Git)
             </h4>
             <span className="text-[10px] px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-500/20 text-rose-700 dark:text-rose-400 font-bold">
               CHAOS
@@ -201,13 +217,22 @@ export function Slide3WhyGit() {
           </div>
           <ul className="list-none p-0 m-0 flex flex-col gap-2 text-xs text-rose-900 dark:text-rose-200">
             <li className="flex items-center gap-2">
-              <span className="text-rose-500 dark:text-rose-400 font-bold">✗</span> Accidentally deleting working code with no undo
+              <span className="text-rose-500 dark:text-rose-400 font-bold">
+                ✗
+              </span>{" "}
+              Accidentally deleting working code with no undo
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-rose-500 dark:text-rose-400 font-bold">✗</span> Two teammates overwriting each other's files
+              <span className="text-rose-500 dark:text-rose-400 font-bold">
+                ✗
+              </span>{" "}
+              Two teammates overwriting each other's files
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-rose-500 dark:text-rose-400 font-bold">✗</span> Zero audit trail of who broke production or when
+              <span className="text-rose-500 dark:text-rose-400 font-bold">
+                ✗
+              </span>{" "}
+              Zero audit trail of who broke production or when
             </li>
           </ul>
         </div>
@@ -215,7 +240,10 @@ export function Slide3WhyGit() {
         <div className="info-card lg:col-span-6 p-4 rounded bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-500/30 flex flex-col justify-between gap-3 shadow-xs">
           <div className="flex items-center justify-between border-b border-emerald-200 dark:border-emerald-500/20 pb-2">
             <h4 className="text-xs font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5 uppercase tracking-wider">
-              <span className="text-emerald-500 dark:text-emerald-400 text-base">✓</span> The Modern Solution (With Git)
+              <span className="text-emerald-500 dark:text-emerald-400 text-base">
+                ✓
+              </span>{" "}
+              The Modern Solution (With Git)
             </h4>
             <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold">
               CONFIDENCE
@@ -233,16 +261,25 @@ export function Slide3WhyGit() {
           </div>
           <ul className="list-none p-0 m-0 flex flex-col gap-2 text-xs text-emerald-900 dark:text-emerald-200">
             <li className="flex items-center gap-2">
-              <span className="text-emerald-500 dark:text-emerald-400 font-bold">✓</span>{" "}
-              <strong>Time Machine:</strong> Jump to any commit in your project history
+              <span className="text-emerald-500 dark:text-emerald-400 font-bold">
+                ✓
+              </span>{" "}
+              <strong>Time Machine:</strong> Jump to any commit in your project
+              history
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-emerald-500 dark:text-emerald-400 font-bold">✓</span>{" "}
-              <strong>Safe Sandbox:</strong> Branch off and experiment without risking main
+              <span className="text-emerald-500 dark:text-emerald-400 font-bold">
+                ✓
+              </span>{" "}
+              <strong>Safe Sandbox:</strong> Branch off and experiment without
+              risking main
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-emerald-500 dark:text-emerald-400 font-bold">✓</span>{" "}
-              <strong>Full Accountability:</strong> Every line has author and reason stamped
+              <span className="text-emerald-500 dark:text-emerald-400 font-bold">
+                ✓
+              </span>{" "}
+              <strong>Full Accountability:</strong> Every line has author and
+              reason stamped
             </li>
           </ul>
         </div>
@@ -283,7 +320,8 @@ export function Slide4FourAreas() {
                 Working Directory
               </div>
               <div className="text-[11px] text-slate-600 dark:text-slate-300">
-                Your actual files on disk you edit in VS Code. Changes are untracked or modified.
+                Your actual files on disk you edit in VS Code. Changes are
+                untracked or modified.
               </div>
             </div>
           </div>
@@ -295,10 +333,13 @@ export function Slide4FourAreas() {
             <div>
               <div className="text-xs font-bold text-amber-700 dark:text-amber-300">
                 Staging Area (Index){" "}
-                <code className="text-amber-600 dark:text-amber-400 font-mono text-[10px]">git add</code>
+                <code className="text-amber-600 dark:text-amber-400 font-mono text-[10px]">
+                  git add
+                </code>
               </div>
               <div className="text-[11px] text-slate-600 dark:text-slate-300">
-                The preparation lounge. You curate exactly which file changes will be saved in the next snapshot.
+                The preparation lounge. You curate exactly which file changes
+                will be saved in the next snapshot.
               </div>
             </div>
           </div>
@@ -310,11 +351,16 @@ export function Slide4FourAreas() {
             <div>
               <div className="text-xs font-bold text-purple-700 dark:text-purple-300">
                 Local Repository{" "}
-                <code className="text-purple-600 dark:text-purple-400 font-mono text-[10px]">git commit</code>
+                <code className="text-purple-600 dark:text-purple-400 font-mono text-[10px]">
+                  git commit
+                </code>
               </div>
               <div className="text-[11px] text-slate-600 dark:text-slate-300">
                 Your local database inside{" "}
-                <code className="text-purple-700 dark:text-purple-300 font-mono">.git/</code> storing permanent commit snapshots with cryptographic hashes.
+                <code className="text-purple-700 dark:text-purple-300 font-mono">
+                  .git/
+                </code>{" "}
+                storing permanent commit snapshots with cryptographic hashes.
               </div>
             </div>
           </div>
@@ -326,10 +372,13 @@ export function Slide4FourAreas() {
             <div>
               <div className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
                 Remote Repository (GitHub){" "}
-                <code className="text-emerald-600 dark:text-emerald-400 font-mono text-[10px]">git push</code>
+                <code className="text-emerald-600 dark:text-emerald-400 font-mono text-[10px]">
+                  git push
+                </code>
               </div>
               <div className="text-[11px] text-slate-600 dark:text-slate-300">
-                The cloud copy hosted on GitHub for team collaboration, code reviews, and remote backups.
+                The cloud copy hosted on GitHub for team collaboration, code
+                reviews, and remote backups.
               </div>
             </div>
           </div>
@@ -391,16 +440,24 @@ export function Slide5CheckInstall() {
             </h4>
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
               If you get{" "}
-              <code className="text-rose-600 dark:text-rose-400 font-mono">command not found: git</code>,
-              install it for your OS in 30 seconds:
+              <code className="text-rose-600 dark:text-rose-400 font-mono">
+                command not found: git
+              </code>
+              , install it for your OS in 30 seconds:
             </p>
             <div className="flex flex-col gap-2.5 text-xs">
               <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-slate-700 dark:text-slate-300">macOS:</span>
-                <code className="text-sky-600 dark:text-sky-400 font-mono">xcode-select --install</code>
+                <span className="text-slate-700 dark:text-slate-300">
+                  macOS:
+                </span>
+                <code className="text-sky-600 dark:text-sky-400 font-mono">
+                  xcode-select --install
+                </code>
               </div>
               <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-slate-700 dark:text-slate-300">Windows:</span>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Windows:
+                </span>
                 <a
                   href="https://git-scm.com"
                   target="_blank"
@@ -411,8 +468,12 @@ export function Slide5CheckInstall() {
                 </a>
               </div>
               <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-slate-700 dark:text-slate-300">Ubuntu/Debian:</span>
-                <code className="text-emerald-600 dark:text-emerald-400 font-mono">sudo apt install git</code>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Ubuntu/Debian:
+                </span>
+                <code className="text-emerald-600 dark:text-emerald-400 font-mono">
+                  sudo apt install git
+                </code>
               </div>
             </div>
           </div>
@@ -620,7 +681,9 @@ echo "<h1>Hello World</h1>" > index.html`;
               Folder Tree State
             </h4>
             <div className="p-3.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono text-xs flex flex-col gap-2">
-              <div className="text-blue-600 dark:text-blue-400 font-bold">📁 my-website/</div>
+              <div className="text-blue-600 dark:text-blue-400 font-bold">
+                📁 my-website/
+              </div>
               <div className="text-slate-700 dark:text-slate-300 pl-4">
                 ├── 📄 README.md{" "}
                 <span className="text-slate-500 text-[10px]">
@@ -748,7 +811,9 @@ export function Slide9GitStatus() {
           </TerminalBlock>
 
           <div className="alert-callout info p-3 rounded bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 text-rose-800 dark:text-rose-300 text-xs flex items-center gap-2">
-            <span className="font-bold text-rose-600 dark:text-rose-400">RED</span>
+            <span className="font-bold text-rose-600 dark:text-rose-400">
+              RED
+            </span>
             <span>
               Files listed in red are <strong>Untracked</strong>: Git sees them
               on disk, but they are not yet part of your commit snapshot.
@@ -819,7 +884,9 @@ git status`;
           </TerminalBlock>
 
           <div className="alert-callout tip p-3 rounded bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
-            <span className="font-bold text-emerald-600 dark:text-emerald-400">GREEN</span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400">
+              GREEN
+            </span>
             <span>
               Files now turned <strong>GREEN</strong>! They are safely staged in
               the index, ready for the commit snapshot.
@@ -843,14 +910,18 @@ git status`;
                 </span>
               </div>
               <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
-                <code className="text-emerald-600 dark:text-emerald-400 font-bold font-mono">git add .</code>
+                <code className="text-emerald-600 dark:text-emerald-400 font-bold font-mono">
+                  git add .
+                </code>
                 <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Stages all new, modified, and deleted files in the current
                   folder.
                 </span>
               </div>
               <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
-                <code className="text-amber-600 dark:text-amber-400 font-bold font-mono">git add -A</code>
+                <code className="text-amber-600 dark:text-amber-400 font-bold font-mono">
+                  git add -A
+                </code>
                 <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Stages all changes across the entire repository root.
                 </span>
@@ -913,10 +984,14 @@ export function Slide11GitDiff() {
           <div className="p-3 rounded bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 text-sky-800 dark:text-sky-300 text-xs flex items-center gap-2">
             <span>🔍</span>
             <span>
-              <span className="text-emerald-600 dark:text-emerald-400 font-bold">+</span> indicates
-              added lines, while{" "}
-              <span className="text-rose-600 dark:text-rose-400 font-bold">-</span> indicates
-              removed lines.
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                +
+              </span>{" "}
+              indicates added lines, while{" "}
+              <span className="text-rose-600 dark:text-rose-400 font-bold">
+                -
+              </span>{" "}
+              indicates removed lines.
             </span>
           </div>
         </div>
@@ -928,7 +1003,9 @@ export function Slide11GitDiff() {
             </h4>
             <div className="flex flex-col gap-2.5 text-xs">
               <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                <code className="text-sky-600 dark:text-sky-400 font-bold font-mono">git diff</code>
+                <code className="text-sky-600 dark:text-sky-400 font-bold font-mono">
+                  git diff
+                </code>
                 <p className="text-slate-600 dark:text-slate-300 text-[11px] m-0 mt-0.5">
                   Compares Working Directory changes that have NOT yet been
                   staged.
@@ -1011,9 +1088,18 @@ export function Slide12GitCommit() {
               <span>📸</span> Anatomy of a Great Commit Message:
             </span>
             <span className="text-slate-700 dark:text-slate-300">
-              • <code className="text-purple-700 dark:text-purple-300 font-mono">feat:</code> new user feature
-              &nbsp;|&nbsp; <code className="text-emerald-700 dark:text-emerald-300 font-mono">fix:</code> bug
-              patch &nbsp;|&nbsp; <code className="text-sky-700 dark:text-sky-300 font-mono">docs:</code>{" "}
+              •{" "}
+              <code className="text-purple-700 dark:text-purple-300 font-mono">
+                feat:
+              </code>{" "}
+              new user feature &nbsp;|&nbsp;{" "}
+              <code className="text-emerald-700 dark:text-emerald-300 font-mono">
+                fix:
+              </code>{" "}
+              bug patch &nbsp;|&nbsp;{" "}
+              <code className="text-sky-700 dark:text-sky-300 font-mono">
+                docs:
+              </code>{" "}
               markdown update
             </span>
             <span className="text-slate-500 dark:text-slate-400 italic">
@@ -1134,15 +1220,24 @@ export function Slide14WhatIsBranch() {
             <span className="font-bold">🌿 Branch Naming Conventions:</span>
             <div className="flex flex-col gap-1 text-[11px] text-slate-700 dark:text-slate-300 font-mono">
               <span>
-                • <code className="text-cyan-600 dark:text-cyan-400">feature/user-login</code> (New
-                capabilities)
+                •{" "}
+                <code className="text-cyan-600 dark:text-cyan-400">
+                  feature/user-login
+                </code>{" "}
+                (New capabilities)
               </span>
               <span>
-                • <code className="text-emerald-600 dark:text-emerald-400">fix/checkout-button</code>{" "}
+                •{" "}
+                <code className="text-emerald-600 dark:text-emerald-400">
+                  fix/checkout-button
+                </code>{" "}
                 (Bug patches)
               </span>
               <span>
-                • <code className="text-purple-600 dark:text-purple-400">docs/api-guide</code>{" "}
+                •{" "}
+                <code className="text-purple-600 dark:text-purple-400">
+                  docs/api-guide
+                </code>{" "}
                 (Documentation)
               </span>
             </div>
@@ -1152,8 +1247,10 @@ export function Slide14WhatIsBranch() {
             <span>🛡️</span>
             <span>
               <strong>Golden Rule:</strong> The{" "}
-              <code className="text-slate-900 dark:text-white font-mono">main</code> branch must always be
-              stable and deployable.
+              <code className="text-slate-900 dark:text-white font-mono">
+                main
+              </code>{" "}
+              branch must always be stable and deployable.
             </span>
           </div>
         </div>
@@ -1237,7 +1334,10 @@ git merge feature/navbar`;
                 git switch
               </code>{" "}
               is the modern syntax introduced in Git 2.23 (cleaner than legacy{" "}
-              <code className="text-slate-500 dark:text-slate-400 font-mono">git checkout</code>).
+              <code className="text-slate-500 dark:text-slate-400 font-mono">
+                git checkout
+              </code>
+              ).
             </span>
           </div>
         </div>
@@ -1249,7 +1349,9 @@ git merge feature/navbar`;
             </h4>
             <div className="flex flex-col gap-2.5 text-xs">
               <div className="p-2 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                <span className="text-cyan-600 dark:text-cyan-400 font-bold font-mono">git branch</span>
+                <span className="text-cyan-600 dark:text-cyan-400 font-bold font-mono">
+                  git branch
+                </span>
                 <p className="text-slate-600 dark:text-slate-300 text-[11px] font-sans m-0 mt-0.5">
                   List all local branches (* marks current active branch).
                 </p>
@@ -1324,16 +1426,26 @@ export function Slide16MergeConflicts() {
                 <code className="text-rose-600 dark:text-rose-400 font-mono">
                   &lt;&lt;&lt;&lt;&lt;&lt;&lt;
                 </code>
-                , <code className="text-rose-600 dark:text-rose-400 font-mono">=======</code>,{" "}
+                ,{" "}
+                <code className="text-rose-600 dark:text-rose-400 font-mono">
+                  =======
+                </code>
+                ,{" "}
                 <code className="text-rose-600 dark:text-rose-400 font-mono">
                   &gt;&gt;&gt;&gt;&gt;&gt;&gt;
                 </code>
                 )
               </span>
               <span>
-                4. Run <code className="text-emerald-600 dark:text-emerald-400 font-mono">git add .</code>{" "}
-                &amp; <code className="text-emerald-600 dark:text-emerald-400 font-mono">git commit</code> to
-                finish!
+                4. Run{" "}
+                <code className="text-emerald-600 dark:text-emerald-400 font-mono">
+                  git add .
+                </code>{" "}
+                &amp;{" "}
+                <code className="text-emerald-600 dark:text-emerald-400 font-mono">
+                  git commit
+                </code>{" "}
+                to finish!
               </span>
             </div>
           </div>
@@ -1478,10 +1590,19 @@ export function Slide18PushPull() {
           <div className="p-3.5 rounded bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-xs flex flex-col gap-1">
             <span className="font-bold">Next pushes become super simple:</span>
             <span className="text-slate-700 dark:text-slate-300">
-              Because <code className="text-emerald-700 dark:text-emerald-300 font-mono">-u</code> sets up
-              upstream tracking, you can now simply run{" "}
-              <code className="text-emerald-700 dark:text-emerald-300 font-mono">git push</code> and{" "}
-              <code className="text-emerald-700 dark:text-emerald-300 font-mono">git pull</code>!
+              Because{" "}
+              <code className="text-emerald-700 dark:text-emerald-300 font-mono">
+                -u
+              </code>{" "}
+              sets up upstream tracking, you can now simply run{" "}
+              <code className="text-emerald-700 dark:text-emerald-300 font-mono">
+                git push
+              </code>{" "}
+              and{" "}
+              <code className="text-emerald-700 dark:text-emerald-300 font-mono">
+                git pull
+              </code>
+              !
             </span>
           </div>
         </div>
@@ -1540,8 +1661,11 @@ export function Slide19GitIgnore() {
             </span>
             <span>
               Never push credentials or{" "}
-              <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded text-slate-900 dark:text-white font-mono">.env</code> to GitHub. Automated bot
-              scanners inspect public repositories in under 3 seconds!
+              <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded text-slate-900 dark:text-white font-mono">
+                .env
+              </code>{" "}
+              to GitHub. Automated bot scanners inspect public repositories in
+              under 3 seconds!
             </span>
           </div>
         </div>
@@ -1663,7 +1787,10 @@ export function Slide21UndoMistakes() {
             </div>
             <span className="text-[11px] text-slate-600 dark:text-slate-300">
               Shelves changes safely; restore later with{" "}
-              <code className="text-emerald-600 dark:text-emerald-400 font-mono">git stash pop</code>.
+              <code className="text-emerald-600 dark:text-emerald-400 font-mono">
+                git stash pop
+              </code>
+              .
             </span>
           </div>
         </div>
@@ -1723,7 +1850,9 @@ git log --oneline --graph`;
                   3
                 </span>{" "}
                 Create branch{" "}
-                <code className="text-cyan-600 dark:text-cyan-400 font-mono">feature/styles</code>
+                <code className="text-cyan-600 dark:text-cyan-400 font-mono">
+                  feature/styles
+                </code>
               </div>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                 <span className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[10px] flex items-center justify-center font-bold">
@@ -1742,7 +1871,9 @@ git log --oneline --graph`;
                   6
                 </span>{" "}
                 Push to GitHub with{" "}
-                <code className="text-purple-600 dark:text-purple-400 font-mono">git push</code>
+                <code className="text-purple-600 dark:text-purple-400 font-mono">
+                  git push
+                </code>
               </div>
             </div>
           </div>

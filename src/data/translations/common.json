@@ -122,7 +122,11 @@
     "ui_back_home": "Curriculum Hub",
     "ui_sim_title": "Interactive Deployment Simulator",
     "part_21": "PART 21: COMMON MISTAKES",
-    "part_22": "PART 22: FINAL CHEAT SHEET"
+    "part_22": "PART 22: FINAL CHEAT SHEET",
+    "ui_read_docs": "Read Docs",
+    "docs_on_this_page": "On this page",
+    "docs_collapse_sidebar": "Collapse sidebar",
+    "docs_expand_sidebar": "Expand sidebar"
   },
   "km": {
     "ui_brand": "Git & GitHub",
@@ -247,6 +251,10 @@
     "ui_back_home": "ទំព័រដើមមេរៀន",
     "ui_sim_title": "ឧបករណ៍ក្លែងធ្វើការ Deploy ជាក់ស្តែង",
     "part_21": "ផ្នែកទី ២១៖ កំហុសទូទៅដែលត្រូវប្រុងប្រយ័ត្ន",
-    "part_22": "ផ្នែកទី ២២៖ តារាងសង្ខេបពាក្យបញ្ជា (CHEAT SHEET)"
+    "part_22": "ផ្នែកទី ២២៖ តារាងសង្ខេបពាក្យបញ្ជា (CHEAT SHEET)",
+    "ui_read_docs": "អានមេរៀន",
+    "docs_on_this_page": "នៅក្នុងទំព័រនេះ",
+    "docs_collapse_sidebar": "បង្រួមរបារចំហៀង",
+    "docs_expand_sidebar": "ពង្រីករបារចំហៀង"
   }
 }

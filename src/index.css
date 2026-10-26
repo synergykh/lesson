@@ -152,3 +152,59 @@
   object-fit: cover;
   display: block;
 }
+
+/* =========================================================
+   Documentation-first Layout Overrides
+   ========================================================= */
+.docs-content .slide-content-card {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.docs-content .slide-item {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.docs-content .title-hero-grid,
+.docs-content .slide-header,
+.docs-content .slide-stack {
+  height: auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+}
+
+.docs-content .slide-visual-media,
+.docs-content .real-image-card {
+  height: auto !important;
+  min-height: 220px !important;
+  max-height: 380px !important;
+}
+
+.docs-content .slide-visual-media img,
+.docs-content .real-image-card img {
+  max-height: 340px !important;
+  object-fit: cover !important;
+}
+
+.docs-content .terminal-mockup {
+  border-radius: 4px;
+}
+

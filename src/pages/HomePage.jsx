@@ -23,7 +23,11 @@ export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
-    { id: "all", label: t("ui_all_lessons", "All Lessons"), count: courses.length },
+    {
+      id: "all",
+      label: t("ui_all_lessons", "All Lessons"),
+      count: courses.length,
+    },
     {
       id: "foundations",
       label: "Foundations",
@@ -81,7 +85,7 @@ export default function HomePage() {
           <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white m-0 leading-tight">
             {t("home_title", "Fullstack Developer Curriculum")}
           </h1>
-          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-4xl leading-relaxed m-0">
+          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-7xl leading-relaxed m-0">
             {t(
               "home_sub",
               "9 practical, presentation-driven lessons designed to take you from your very first line of local Git version control all the way to building and deploying production-ready web apps with Next.js, Tailwind CSS, Shadcn UI, PostgreSQL with Neon Database, Vercel, Cloudflare, and AI Prompt Engineering.",
@@ -91,25 +95,33 @@ export default function HomePage() {
           {/* Quick Stats Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 border-t border-slate-200 dark:border-slate-800">
             <div className="rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 text-center">
-              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">9</span>
+              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                9
+              </span>
               <p className="text-xs text-slate-500 dark:text-slate-400 m-0">
                 {t("home_stat_1_lbl", "Mastery Lessons")}
               </p>
             </div>
             <div className="rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 text-center">
-              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">424</span>
+              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                424
+              </span>
               <p className="text-xs text-slate-500 dark:text-slate-400 m-0">
                 {t("home_stat_2_lbl", "Interactive Slides")}
               </p>
             </div>
             <div className="rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 text-center">
-              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">100%</span>
+              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                100%
+              </span>
               <p className="text-xs text-slate-500 dark:text-slate-400 m-0">
                 {t("home_stat_3_lbl", "Real Code & Terminal")}
               </p>
             </div>
             <div className="rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 text-center">
-              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">EN / KM</span>
+              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                EN / KM
+              </span>
               <p className="text-xs text-slate-500 dark:text-slate-400 m-0">
                 {t("home_stat_4_lbl", "Bilingual Support")}
               </p>
@@ -123,7 +135,7 @@ export default function HomePage() {
             <React.Fragment key={course.id}>
               <Button variant="outline" size="sm" asChild>
                 <a
-                  href={`#/course/${course.id}`}
+                  href={`#/docs/${course.id}/1`}
                   className="no-underline whitespace-nowrap"
                 >
                   {`0${idx + 1}. ${course.id.charAt(0).toUpperCase() + course.id.slice(1)}`}
@@ -145,7 +157,10 @@ export default function HomePage() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t("ui_search_placeholder", "Search courses, commands, topics (e.g. git commit, neon, server components)...")}
+              placeholder={t(
+                "ui_search_placeholder",
+                "Search courses, commands, topics (e.g. git commit, neon, server components)...",
+              )}
               className="pl-9 pr-8"
             />
             {searchQuery && (
@@ -196,7 +211,7 @@ export default function HomePage() {
                   className="flex flex-col justify-between hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/15 transition-all duration-150 group"
                 >
                   <a
-                    href={`#/course/${c.id}`}
+                    href={`#/docs/${c.id}/1`}
                     className="p-4 flex flex-col gap-3 no-underline"
                   >
                     {/* Module & Level Badge */}
@@ -212,7 +227,7 @@ export default function HomePage() {
                       >
                         <CourseIcon id={c.id} className="w-6 h-6" />
                       </div>
-                      <CardTitle className="group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+                      <CardTitle className="group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
                         {localizedTitle}
                       </CardTitle>
                     </div>
@@ -242,8 +257,11 @@ export default function HomePage() {
                       className="gap-1.5 group-hover:translate-x-0.5 transition-transform"
                       asChild
                     >
-                      <a href={`#/course/${c.id}`} className="no-underline flex items-center gap-1.5">
-                        <span>{t("ui_launch_lesson", "Start Lesson")}</span>
+                      <a
+                        href={`#/docs/${c.id}/1`}
+                        className="no-underline flex items-center gap-1.5"
+                      >
+                        <span>{t("ui_read_docs", "Read Docs")}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </a>
                     </Button>
