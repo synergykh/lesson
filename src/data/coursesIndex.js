@@ -6,7 +6,7 @@ export const courses = [
     module: "MODULE 01",
     level: "Beginner",
     desc: "Master local version control on your machine. Learn repository initialization, file tracking, staging, commits, branches, and the 4-layer mental model.",
-    meta: "23 Slides • Local Machine",
+    meta: "8 Lessons • Local Machine",
     category: "foundations",
     iconColor: "text-orange-500",
     iconBg: "bg-orange-500/15 border-orange-500/30",

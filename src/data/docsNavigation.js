@@ -19,15 +19,15 @@ export const DOCS_NAVIGATION = [
       "en": "Master local version control on your machine. Learn repository initialization, file tracking, staging, commits, branches, and the 4-layer mental model.",
       "km": "ស្វែងយល់ពីរបៀបដំណើរការ Git លើកុំព្យូទ័ររបស់អ្នក។ ចេះបង្កើត Repository, តាមដានឯកសារ, Staging, Commit, Branch និងយល់ពី Mental Model ទាំង ៤ ស្រទាប់។"
     },
-    "totalLessons": 23,
+    "totalLessons": 8,
     "sections": [
       {
         "id": "git-sec-1",
-        "part": "WELCOME",
-        "partKey": "part_welcome",
+        "part": "FOUNDATIONS",
+        "partKey": "part_foundations",
         "title": {
-          "en": "WELCOME",
-          "km": "សូមស្វាគមន៍"
+          "en": "FOUNDATIONS",
+          "km": "មូលដ្ឋានគ្រឹះ"
         },
         "lessons": [
           {
@@ -35,51 +35,51 @@ export const DOCS_NAVIGATION = [
             "number": 1,
             "slideId": "slide-1",
             "title": {
-              "en": "Git & GitHub From Zero to Your First Push",
-              "km": "Git & GitHub ពីកម្រិតដំបូងរហូតដល់ការ Push លើកដំបូង"
+              "en": "Mental Model & The 4 Git Areas",
+              "km": "Mental Model និងតំបន់ទាំង ៤ របស់ Git"
             },
             "subtitle": {
-              "en": "",
-              "km": ""
+              "en": "Understanding Git vs. GitHub, why version control matters, and the full 4-layer lifecycle",
+              "km": "Git ទល់នឹង GitHub, សារៈសំខាន់នៃ Version Control និងដំណើរការ ៤ ស្រទាប់ពេញលេញ"
             },
             "href": "#/docs/git/1"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-2",
-        "part": "OVERVIEW",
-        "partKey": "part_overview",
-        "title": {
-          "en": "OVERVIEW",
-          "km": "ទិដ្ឋភាពទូទៅ"
-        },
-        "lessons": [
+          },
           {
             "id": 2,
             "number": 2,
             "slideId": "slide-2",
             "title": {
-              "en": "What Are Git and GitHub?",
-              "km": "តើអ្វីជា Git និង GitHub?"
+              "en": "Installation & Developer Identity",
+              "km": "ការដំឡើង និងការកំណត់អត្តសញ្ញាណ"
             },
             "subtitle": {
-              "en": "Understanding the difference between the tool and the platform",
-              "km": "ស្វែងយល់ពីភាពខុសគ្នារវាងកម្មវិធី Git និងវេទិកា GitHub"
+              "en": "Terminal verification, OS install commands, and author credentials setup",
+              "km": "ការផ្ទៀងផ្ទាត់ terminal, ដំឡើងតាម OS និងកំណត់ឈ្មោះ/អ៊ីមែល"
             },
             "href": "#/docs/git/2"
-          },
+          }
+        ]
+      },
+      {
+        "id": "git-sec-2",
+        "part": "LOCAL LIFECYCLE",
+        "partKey": "part_lifecycle",
+        "title": {
+          "en": "LOCAL REPOSITORY LIFECYCLE",
+          "km": "ដំណើរការ REPOSITORY លើម៉ាស៊ីន"
+        },
+        "lessons": [
           {
             "id": 3,
             "number": 3,
             "slideId": "slide-3",
             "title": {
-              "en": "Why Do We Need Git?",
-              "km": "ហេតុអ្វីបានជាយើងត្រូវការ Git?"
+              "en": "Repository Initialization & Status",
+              "km": "ការបង្កើត Repository និងការពិនិត្យស្ថានភាព (git init & status)"
             },
             "subtitle": {
-              "en": "Solving the everyday chaos of software development",
-              "km": "ដោះស្រាយភាពរញ៉េរញ៉ៃក្នុងការអភិវឌ្ឍន៍កម្មវិធីប្រចាំថ្ងៃ"
+              "en": "Workspace setup, git init, .git directory internals, and git status diagnostics",
+              "km": "រៀបចំ folder គម្រោង, git init, រចនាសម្ព័ន្ធ .git និងការវិភាគដោយ git status"
             },
             "href": "#/docs/git/3"
           },
@@ -88,12 +88,12 @@ export const DOCS_NAVIGATION = [
             "number": 4,
             "slideId": "slide-4",
             "title": {
-              "en": "Git Vocabulary",
-              "km": "វាក្យសព្ទ Git សំខាន់ៗ"
+              "en": "Staging & Atomic Commits",
+              "km": "Staging និងការបង្កើត Commit ត្រឹមត្រូវ"
             },
             "subtitle": {
-              "en": "The essential glossary every developer uses daily",
-              "km": "ពាក្យបច្ចេកទេសដែលអ្នកសរសេរកម្មវិធីប្រើប្រាស់រាល់ថ្ងៃ"
+              "en": "git add, git diff inspection, atomic commits, SHA-1 hashes, and git log history",
+              "km": "git add, ការពិនិត្យ diff, ការ commit តាមស្តង់ដារ, SHA-1 hash និង git log"
             },
             "href": "#/docs/git/4"
           }
@@ -101,11 +101,11 @@ export const DOCS_NAVIGATION = [
       },
       {
         "id": "git-sec-3",
-        "part": "PART 1: INSTALLATION",
-        "partKey": "part_1",
+        "part": "BRANCHING & CONFLICTS",
+        "partKey": "part_branching",
         "title": {
-          "en": "PART 1: INSTALLATION",
-          "km": "ផ្នែកទី ១៖ ការដំឡើង"
+          "en": "BRANCHING & MERGING",
+          "km": "BRANCHES និងការបញ្ចូលកូដ"
         },
         "lessons": [
           {
@@ -113,12 +113,12 @@ export const DOCS_NAVIGATION = [
             "number": 5,
             "slideId": "slide-5",
             "title": {
-              "en": "Check if Git Is Installed",
-              "km": "ពិនិត្យមើលថាតើ Git ត្រូវបានដំឡើងឬនៅ"
+              "en": "Branching & Context Switching",
+              "km": "Branching និងការផ្លាស់ប្តូរបរិបទកូដ"
             },
             "subtitle": {
-              "en": "Verifying your terminal environment before starting",
-              "km": "ផ្ទៀងផ្ទាត់បរិស្ថាន terminal របស់អ្នកមុនពេលចាប់ផ្តើម"
+              "en": "Parallel development, git switch, fast-forward vs 3-way merges",
+              "km": "ការបង្កើត branch ដាច់ដោយឡែក, git switch, និងការបញ្ចូលកូដ merge"
             },
             "href": "#/docs/git/5"
           },
@@ -127,12 +127,12 @@ export const DOCS_NAVIGATION = [
             "number": 6,
             "slideId": "slide-6",
             "title": {
-              "en": "Basic Git Configuration",
-              "km": "ការកំណត់រចនាសម្ព័ន្ធមូលដ្ឋានរបស់ Git"
+              "en": "Mastering Merge Conflicts",
+              "km": "ការដោះស្រាយជម្លោះកូដ Merge Conflicts"
             },
             "subtitle": {
-              "en": "Introducing yourself to Git so your commits are attributed to you",
-              "km": "ណែនាំអត្តសញ្ញាណរបស់អ្នកទៅកាន់ Git ដើម្បីឱ្យរាល់ commit ភ្ជាប់ជាមួយឈ្មោះអ្នក"
+              "en": "Why conflicts occur, understanding diff markers, and 3-step manual resolution",
+              "km": "មូលហេតុនៃជម្លោះកូដ, ការយល់ពីសញ្ញាសម្គាល់ conflict, និងដំណោះស្រាយ ៣ ជំហាន"
             },
             "href": "#/docs/git/6"
           }
@@ -140,11 +140,11 @@ export const DOCS_NAVIGATION = [
       },
       {
         "id": "git-sec-4",
-        "part": "PART 2: CREATE A PROJECT",
-        "partKey": "part_2",
+        "part": "SAFETY & COLLABORATION",
+        "partKey": "part_collaboration",
         "title": {
-          "en": "PART 2: CREATE A PROJECT",
-          "km": "ផ្នែកទី ២៖ បង្កើតគម្រោង"
+          "en": "SAFETY & TEAM WORKFLOW",
+          "km": "សុវត្ថិភាព និងការងារជាក្រុម"
         },
         "lessons": [
           {
@@ -152,12 +152,12 @@ export const DOCS_NAVIGATION = [
             "number": 7,
             "slideId": "slide-7",
             "title": {
-              "en": "Create a New Project",
-              "km": "បង្កើតគម្រោងថ្មីមួយ"
+              "en": "Undoing Mistakes & Repository Hygiene",
+              "km": "ការកែកំហុស និងអនាម័យ Repository (.gitignore)"
             },
             "subtitle": {
-              "en": "Setting up a fresh folder and initial files in the terminal",
-              "km": "រៀបចំ folder និងឯកសារដំបូងនៅលើ terminal"
+              "en": "git restore, commit --amend, git stash shelving, and .gitignore rules",
+              "km": "git restore, commit --amend, git stash និងការការពារកូដសម្ងាត់ជាមួយ .gitignore"
             },
             "href": "#/docs/git/7"
           },
@@ -166,334 +166,14 @@ export const DOCS_NAVIGATION = [
             "number": 8,
             "slideId": "slide-8",
             "title": {
-              "en": "Initialize Git",
-              "km": "ចាប់ផ្តើម Git ក្នុងគម្រោង (git init)"
+              "en": "Remote Collaboration & Team Workflow",
+              "km": "ការតភ្ជាប់ GitHub និងដំណើរការការងារជាក្រុម"
             },
             "subtitle": {
-              "en": "Transforming a standard folder into a version-controlled repository",
-              "km": "បម្លែង folder ធម្មតាឱ្យក្លាយជា Git Repository ដែលមានការគ្រប់គ្រងកំណែកូដ"
+              "en": "git remote add, first push to main, git pull sync, and 4 golden rules",
+              "km": "git remote, ការ push ទៅ main, git pull និងច្បាប់មាសទាំង ៤ សម្រាប់អ្នកអភិវឌ្ឍន៍"
             },
             "href": "#/docs/git/8"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-5",
-        "part": "PART 3: CHECK PROJECT STATUS",
-        "partKey": "part_3",
-        "title": {
-          "en": "PART 3: CHECK PROJECT STATUS",
-          "km": "ផ្នែកទី ៣៖ ពិនិត្យស្ថានភាពគម្រោង"
-        },
-        "lessons": [
-          {
-            "id": 9,
-            "number": 9,
-            "slideId": "slide-9",
-            "title": {
-              "en": "git status",
-              "km": "ពិនិត្យស្ថានភាពគម្រោង (git status)"
-            },
-            "subtitle": {
-              "en": "Your most important diagnostic command in Git",
-              "km": "ពាក្យបញ្ជាវិភាគដែលសំខាន់បំផុតនៅក្នុង Git"
-            },
-            "href": "#/docs/git/9"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-6",
-        "part": "PART 4: STAGING",
-        "partKey": "part_4",
-        "title": {
-          "en": "PART 4: STAGING",
-          "km": "ផ្នែកទី ៤៖ STAGING AREA"
-        },
-        "lessons": [
-          {
-            "id": 10,
-            "number": 10,
-            "slideId": "slide-10",
-            "title": {
-              "en": "git add",
-              "km": "ការដាក់ឯកសារក្នុង Staging Area (git add)"
-            },
-            "subtitle": {
-              "en": "Selecting and preparing files for the next snapshot",
-              "km": "ជ្រើសរើស និងត្រៀមរៀបចំឯកសារសម្រាប់ snapshot បន្ទាប់"
-            },
-            "href": "#/docs/git/10"
-          },
-          {
-            "id": 11,
-            "number": 11,
-            "slideId": "slide-11",
-            "title": {
-              "en": "Check the Staged Changes",
-              "km": "ពិនិត្យមើលការផ្លាស់ប្តូរដែលបាន Stage"
-            },
-            "subtitle": {
-              "en": "Verifying that files moved into the staging area",
-              "km": "ផ្ទៀងផ្ទាត់ថាឯកសារបានផ្លាស់ទីទៅក្នុង Staging Area រួចរាល់"
-            },
-            "href": "#/docs/git/11"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-7",
-        "part": "PART 5: COMMIT",
-        "partKey": "part_5",
-        "title": {
-          "en": "PART 5: COMMIT",
-          "km": "ផ្នែកទី ៥៖ ការ COMMIT"
-        },
-        "lessons": [
-          {
-            "id": 12,
-            "number": 12,
-            "slideId": "slide-12",
-            "title": {
-              "en": "Create Your First Commit",
-              "km": "បង្កើត Commit ដំបូងរបស់អ្នក"
-            },
-            "subtitle": {
-              "en": "Capturing a permanent snapshot of your staged files",
-              "km": "រក្សាទុករូបថត snapshot ជាអចិន្ត្រៃយ៍នៃឯកសារដែលបាន stage"
-            },
-            "href": "#/docs/git/12"
-          },
-          {
-            "id": 13,
-            "number": 13,
-            "slideId": "slide-13",
-            "title": {
-              "en": "View Commit History",
-              "km": "មើលប្រវត្តិនៃការ Commit (git log)"
-            },
-            "subtitle": {
-              "en": "Browsing your project timeline with git log",
-              "km": "រំលឹកមើលបន្ទាត់ពេលវេលានៃគម្រោងរបស់អ្នក"
-            },
-            "href": "#/docs/git/13"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-8",
-        "part": "PART 11: BRANCHES",
-        "partKey": "part_11",
-        "title": {
-          "en": "PART 11: BRANCHES",
-          "km": "ផ្នែកទី ១១៖ BRANCHES (មែកធាងកូដ)"
-        },
-        "lessons": [
-          {
-            "id": 14,
-            "number": 14,
-            "slideId": "slide-14",
-            "title": {
-              "en": "Create a GitHub Account",
-              "km": "បង្កើតគណនី GitHub"
-            },
-            "subtitle": {
-              "en": "Your online profile and repository host",
-              "km": "កន្លែងផ្ទុកគម្រោងលើអ៊ីនធឺណិត និងប្រវត្តិរូបរបស់អ្នកសរសេរកម្មវិធី"
-            },
-            "href": "#/docs/git/14"
-          },
-          {
-            "id": 15,
-            "number": 15,
-            "slideId": "slide-15",
-            "title": {
-              "en": "Create a New GitHub Repository",
-              "km": "បង្កើត Repository ថ្មីនៅលើ GitHub"
-            },
-            "subtitle": {
-              "en": "Setting up the empty cloud destination for your project",
-              "km": "រៀបចំទីតាំងទទេនៅលើ Cloud សម្រាប់គម្រោងរបស់អ្នក"
-            },
-            "href": "#/docs/git/15"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-9",
-        "part": "PART 12: CHEAT SHEET",
-        "partKey": "part_12",
-        "title": {
-          "en": "PART 12: CHEAT SHEET",
-          "km": "ផ្នែកទី ១២៖ តារាងសង្ខេបពាក្យបញ្ជា"
-        },
-        "lessons": [
-          {
-            "id": 16,
-            "number": 16,
-            "slideId": "slide-16",
-            "title": {
-              "en": "Add GitHub Remote",
-              "km": "ភ្ជាប់ Local Git ទៅកាន់ GitHub"
-            },
-            "subtitle": {
-              "en": "Teaching your local repository the URL of your GitHub repository",
-              "km": "បង្រៀន local repository របស់អ្នកឱ្យស្គាល់ URL របស់ GitHub repository"
-            },
-            "href": "#/docs/git/16"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-10",
-        "part": "PART 13: BEGINNER MISTAKES",
-        "partKey": "part_13",
-        "title": {
-          "en": "PART 13: BEGINNER MISTAKES",
-          "km": "ផ្នែកទី ១៣៖ កំហុសទូទៅរបស់អ្នកចាប់ផ្តើម"
-        },
-        "lessons": [
-          {
-            "id": 17,
-            "number": 17,
-            "slideId": "slide-17",
-            "title": {
-              "en": "HTTPS vs SSH",
-              "km": "ការប្រៀបធៀប HTTPS និង SSH"
-            },
-            "subtitle": {
-              "en": "Understanding the two common connection protocols",
-              "km": "ស្វែងយល់ពីពិធីការតភ្ជាប់ទូទៅទាំងពីរ"
-            },
-            "href": "#/docs/git/17"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-11",
-        "part": "PART 14: GITIGNORE",
-        "partKey": "part_14",
-        "title": {
-          "en": "PART 14: .GITIGNORE",
-          "km": "ផ្នែកទី ១៤៖ ឯកសារ .GITIGNORE"
-        },
-        "lessons": [
-          {
-            "id": 18,
-            "number": 18,
-            "slideId": "slide-18",
-            "title": {
-              "en": "Rename Branch to main",
-              "km": "ប្តូរឈ្មោះ Branch ទៅជា main"
-            },
-            "subtitle": {
-              "en": "Standardizing your primary branch name to match modern GitHub",
-              "km": "កំណត់ឈ្មោះ branch ចម្បងឱ្យស្របតាមស្តង់ដារទំនើបរបស់ GitHub"
-            },
-            "href": "#/docs/git/18"
-          },
-          {
-            "id": 19,
-            "number": 19,
-            "slideId": "slide-19",
-            "title": {
-              "en": "Push to GitHub",
-              "km": "ដំណើរការ Push ទៅកាន់ GitHub"
-            },
-            "subtitle": {
-              "en": "The pivotal command: uploading your local commits to the cloud",
-              "km": "ពាក្យបញ្ជាដ៏សំខាន់បំផុត៖ ការ Upload commit ក្នុងម៉ាស៊ីនទៅកាន់ Cloud"
-            },
-            "href": "#/docs/git/19"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-12",
-        "part": "PART 15: COMPLETE WORKFLOW",
-        "partKey": "part_15",
-        "title": {
-          "en": "PART 15: COMPLETE WORKFLOW",
-          "km": "ផ្នែកទី ១៥៖ ដំណើរការការងារពេញលេញ"
-        },
-        "lessons": [
-          {
-            "id": 20,
-            "number": 20,
-            "slideId": "slide-20",
-            "title": {
-              "en": "Verify on GitHub",
-              "km": "ផ្ទៀងផ្ទាត់លទ្ធផលនៅលើ GitHub"
-            },
-            "subtitle": {
-              "en": "Seeing your code live on the web",
-              "km": "មើលឃើញកូដរបស់អ្នកផ្សាយផ្ទាល់នៅលើអ៊ីនធឺណិត"
-            },
-            "href": "#/docs/git/20"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-13",
-        "part": "PART 16: HANDS-ON EXERCISE",
-        "partKey": "part_16",
-        "title": {
-          "en": "PART 16: HANDS-ON EXERCISE",
-          "km": "ផ្នែកទី ១៦៖ លំហាត់អនុវត្តផ្ទាល់"
-        },
-        "lessons": [
-          {
-            "id": 21,
-            "number": 21,
-            "slideId": "slide-21",
-            "title": {
-              "en": "Common Beginner Mistakes",
-              "km": "Common Beginner Mistakes"
-            },
-            "subtitle": {
-              "en": "",
-              "km": ""
-            },
-            "href": "#/docs/git/21"
-          }
-        ]
-      },
-      {
-        "id": "git-sec-14",
-        "part": "WRAP UP",
-        "partKey": "part_wrapup",
-        "title": {
-          "en": "WRAP UP",
-          "km": "សេចក្តីសង្ខេបបញ្ចប់"
-        },
-        "lessons": [
-          {
-            "id": 22,
-            "number": 22,
-            "slideId": "slide-22",
-            "title": {
-              "en": "Hands-on Exercise",
-              "km": "Hands-on Exercise"
-            },
-            "subtitle": {
-              "en": "",
-              "km": ""
-            },
-            "href": "#/docs/git/22"
-          },
-          {
-            "id": 23,
-            "number": 23,
-            "slideId": "slide-23",
-            "title": {
-              "en": "Questions & Wrap Up",
-              "km": "Questions & Wrap Up"
-            },
-            "subtitle": {
-              "en": "",
-              "km": ""
-            },
-            "href": "#/docs/git/23"
           }
         ]
       }
