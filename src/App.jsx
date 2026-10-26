@@ -56,10 +56,12 @@ export default function App() {
         {route.page === "docs" ? (
           <Suspense
             fallback={
-              <div className="flex items-center justify-center h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+              <div className="flex items-center justify-center h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
                 <div className="text-center flex flex-col items-center gap-2">
                   <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
-                  <span className="text-xs font-semibold">Loading documentation...</span>
+                  <span className="text-xs font-semibold">
+                    Loading documentation...
+                  </span>
                 </div>
               </div>
             }

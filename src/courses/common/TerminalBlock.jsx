@@ -17,7 +17,7 @@ export default function TerminalBlock({
   };
 
   return (
-    <div className="terminal-mockup bg-slate-950 border border-slate-800 rounded overflow-hidden text-xs shadow-xl flex flex-col">
+    <div className="terminal-mockup bg-slate-900 border border-slate-800 rounded overflow-hidden text-xs shadow-xl flex flex-col">
       <div className="terminal-header flex items-center justify-between px-3.5 py-2.5 bg-slate-900 border-b border-slate-800">
         <div className="terminal-dots flex items-center gap-1.5">
           <span

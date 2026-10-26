@@ -8,19 +8,19 @@ Inspired by the usability, clean typography, and information architecture of mod
 
 The platform is structured into a central **Curriculum Hub (`#/`)** and a **Modern Documentation Platform (`#/docs/:courseId/:lessonId`)** comprising 448 comprehensive lessons across 9 modules:
 
-| # | Module | Docs Route | Lessons | Description & Core Focus |
-|---|---|---|---|---|
-| **01** | **Git** | `#/docs/git/1` | 23 Lessons | Local Version Control Fundamentals: `init`, `status`, `add`, `commit`, `log`, `branch`, `.gitignore`, 4-layer mental model |
-| **02** | **GitHub** | `#/docs/github/1` | 22 Lessons | Cloud Repositories & Collaboration: Remotes, SSH/HTTPS keys, `push -u`, `pull`, `clone`, Pull Requests, verified repos |
-| **03** | **Next.js** | `#/docs/nextjs/1` | 75 Lessons | Modern Fullstack React Framework: App Router, Server Components, Server Actions, PostgreSQL, Neon, Auth, Vercel |
-| **04** | **Tailwind CSS** | `#/docs/tailwindcss/1` | 12 Lessons | Modern Utility-First Styling: Sizing scale, flexbox/grid, mobile-first breakpoints, dark mode, transitions |
-| **05** | **Shadcn UI** | `#/docs/shadcn/1` | 12 Lessons | Accessible Component Architecture: Radix primitives, CLI init, component ownership, `cn()`, CVA variants, dialogs |
-| **06** | **PostgreSQL & Neon** | `#/docs/postgres/1` | 72 Lessons | Relational & Serverless Database Architecture: psql CLI, DDL/DML, relationships, joins, indexes, ACID, migrations, Neon branching |
-| **07** | **Vercel & Deployment** | `#/docs/vercel/1` | 72 Lessons | Modern Web Production Deployment: Git CI/CD, Preview vs Production, Neon integration, custom domains, DNS, HTTPS, rollbacks |
-| **08** | **Cloudflare** | `#/docs/cloudflare/1` | 85 Lessons | Global Edge Infrastructure: Domains, DNS, CDN caching, SSL/TLS, WAF security, Workers, R2 storage, edge routing |
-| **09** | **Prompt Engineering** | `#/docs/prompting/1` | 75 Lessons | Critical Thinking & AI Development: Prompt formula, context management, analysis before coding, safe coding agents, verification |
+| #      | Module                  | Docs Route             | Lessons    | Description & Core Focus                                                                                                          |
+| ------ | ----------------------- | ---------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **01** | **Git**                 | `#/docs/git/1`         | 23 Lessons | Local Version Control Fundamentals: `init`, `status`, `add`, `commit`, `log`, `branch`, `.gitignore`, 4-layer mental model        |
+| **02** | **GitHub**              | `#/docs/github/1`      | 22 Lessons | Cloud Repositories & Collaboration: Remotes, SSH/HTTPS keys, `push -u`, `pull`, `clone`, Pull Requests, verified repos            |
+| **03** | **Next.js**             | `#/docs/nextjs/1`      | 75 Lessons | Modern Fullstack React Framework: App Router, Server Components, Server Actions, PostgreSQL, Neon, Auth, Vercel                   |
+| **04** | **Tailwind CSS**        | `#/docs/tailwindcss/1` | 12 Lessons | Modern Utility-First Styling: Sizing scale, flexbox/grid, mobile-first breakpoints, dark mode, transitions                        |
+| **05** | **Shadcn UI**           | `#/docs/shadcn/1`      | 12 Lessons | Accessible Component Architecture: Radix primitives, CLI init, component ownership, `cn()`, CVA variants, dialogs                 |
+| **06** | **PostgreSQL & Neon**   | `#/docs/postgres/1`    | 72 Lessons | Relational & Serverless Database Architecture: psql CLI, DDL/DML, relationships, joins, indexes, ACID, migrations, Neon branching |
+| **07** | **Vercel & Deployment** | `#/docs/vercel/1`      | 72 Lessons | Modern Web Production Deployment: Git CI/CD, Preview vs Production, Neon integration, custom domains, DNS, HTTPS, rollbacks       |
+| **08** | **Cloudflare**          | `#/docs/cloudflare/1`  | 85 Lessons | Global Edge Infrastructure: Domains, DNS, CDN caching, SSL/TLS, WAF security, Workers, R2 storage, edge routing                   |
+| **09** | **Prompt Engineering**  | `#/docs/prompting/1`   | 75 Lessons | Critical Thinking & AI Development: Prompt formula, context management, analysis before coding, safe coding agents, verification  |
 
-*Note: Backward-compatible routes (e.g. `#/course/:courseId/:slideNum`) automatically resolve to the documentation platform.*
+_Note: Backward-compatible routes (e.g. `#/course/:courseId/:slideNum`) automatically resolve to the documentation platform._
 
 ## Key Features & Architecture
 
@@ -32,7 +32,7 @@ The platform is structured into a central **Curriculum Hub (`#/`)** and a **Mode
 - **Global Command Palette Search (`Ctrl+K` / `Cmd+K`):** Real-time client-side search indexing across all 448 lessons in both English and Khmer, with keyboard navigation (`↑`, `↓`, `Enter`, `Esc`).
 - **Strict 4px Design System:** Exact 4px corner radius (`rounded` / `rounded-[4px]`) on all UI elements (buttons, inputs, cards, callouts, code blocks, dropdowns). Clean hairline borders with no unnecessary heavy shadows or glassmorphism.
 - **Bilingual Support (EN / KM):** Complete localization across navigation, content, headings, breadcrumbs, search, and controls. Native Khmer typography powered by Google Fonts Kantumruy Pro with zero diacritic clipping.
-- **Developer-Grade Dual Themes (Dark & Light Mode):** Dark mode (slate-950/900 surfaces, slate-800 borders) and Light mode (slate-50/white surfaces, slate-200 borders) with persistent `localStorage` preference.
+- **Developer-Grade Dual Themes (Dark & Light Mode):** Dark mode (slate-900/900 surfaces, slate-800 borders) and Light mode (slate-50/white surfaces, slate-200 borders) with persistent `localStorage` preference.
 - **Fast Code-Split Bundling:** Each course's lesson content is lazy-loaded on demand via Vite dynamic imports, keeping the initial payload lightweight.
 
 ## Installation & Setup
@@ -49,14 +49,14 @@ pnpm run dev
 
 ## Makefile Commands
 
-| Command | Description |
-|---|---|
-| `make install` | Installs project dependencies using `pnpm install` |
-| `make dev` | Starts the local Vite development server on port 3000 (`http://localhost:3000`) |
-| `make build` | Builds the production bundle to `dist/` |
-| `make preview` | Previews the production build locally on port 3000 |
-| `make run` | Alias for `make dev` |
-| `make serve` | Alias for `make dev` |
+| Command        | Description                                                                     |
+| -------------- | ------------------------------------------------------------------------------- |
+| `make install` | Installs project dependencies using `pnpm install`                              |
+| `make dev`     | Starts the local Vite development server on port 3000 (`http://localhost:3000`) |
+| `make build`   | Builds the production bundle to `dist/`                                         |
+| `make preview` | Previews the production build locally on port 3000                              |
+| `make run`     | Alias for `make dev`                                                            |
+| `make serve`   | Alias for `make dev`                                                            |
 
 To run on a custom port:
 
@@ -66,25 +66,25 @@ make dev PORT=8080
 
 ## Keyboard Shortcuts
 
-| Shortcut | Action |
-|---|---|
-| `Ctrl+K` / `Cmd+K` | Open global documentation search |
-| `[` | Toggle desktop left sidebar collapse / expand |
-| `Esc` | Close search modal or mobile drawer |
-| `T` | Toggle Light / Dark theme |
-| `↑` / `↓` | Navigate search results |
-| `Enter` | Select active search result |
+| Shortcut           | Action                                        |
+| ------------------ | --------------------------------------------- |
+| `Ctrl+K` / `Cmd+K` | Open global documentation search              |
+| `[`                | Toggle desktop left sidebar collapse / expand |
+| `Esc`              | Close search modal or mobile drawer           |
+| `T`                | Toggle Light / Dark theme                     |
+| `↑` / `↓`          | Navigate search results                       |
+| `Enter`            | Select active search result                   |
 
 ## Technology Stack & Credits
 
-| Technology | Role | Website |
-|---|---|---|
-| **React** | Component-driven UI library for the application | [react.dev](https://react.dev/) |
-| **Vite** | Next-generation frontend tooling and bundler | [vite.dev](https://vite.dev/) |
-| **Tailwind CSS** | Utility-first CSS styling engine | [tailwindcss.com](https://tailwindcss.com/) |
-| **Lucide React** | Clean, tree-shakeable modern icon suite | [lucide.dev](https://lucide.dev/) |
-| **pnpm** | Fast, disk-space efficient package manager | [pnpm.io](https://pnpm.io/) |
-| **PostCSS & Autoprefixer** | CSS processing and vendor prefixing pipeline | [postcss.org](https://postcss.org/) |
+| Technology                 | Role                                            | Website                                     |
+| -------------------------- | ----------------------------------------------- | ------------------------------------------- |
+| **React**                  | Component-driven UI library for the application | [react.dev](https://react.dev/)             |
+| **Vite**                   | Next-generation frontend tooling and bundler    | [vite.dev](https://vite.dev/)               |
+| **Tailwind CSS**           | Utility-first CSS styling engine                | [tailwindcss.com](https://tailwindcss.com/) |
+| **Lucide React**           | Clean, tree-shakeable modern icon suite         | [lucide.dev](https://lucide.dev/)           |
+| **pnpm**                   | Fast, disk-space efficient package manager      | [pnpm.io](https://pnpm.io/)                 |
+| **PostCSS & Autoprefixer** | CSS processing and vendor prefixing pipeline    | [postcss.org](https://postcss.org/)         |
 
 ## Project Structure
 

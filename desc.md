@@ -7,6 +7,7 @@ This document outlines the UI, styling architecture, and design specifications f
 ## 1. Design Philosophy
 
 The interface is built around a **developer-first, minimal, and high-density** visual philosophy:
+
 - **Clean & Distraction-Free**: Visual clutter, heavy drop shadows, and ornamental gradients are eliminated in favor of clean borders, precise contrast, and focused typography.
 - **Consistent Geometric Rhythm**: All interactive and structural elements conform to a uniform 4px corner radius and compact spacing tokens.
 - **Dual Developer Themes**: Full dark and light mode support styled after modern developer environments (GitHub, VS Code, and terminal emulators).
@@ -17,13 +18,16 @@ The interface is built around a **developer-first, minimal, and high-density** v
 ## 2. Design System & Design Tokens
 
 ### Corner Radius (4px Strict Rule)
+
 Every structural and interactive element across the application uses an exact **4px** border radius:
+
 - **Cards & Containers**: Slide cards, course cards, info cards, terminal windows, modal dialogs (`rounded` / `rounded-[4px]`).
 - **Controls & Buttons**: Navigation buttons, copy buttons, modal close buttons, filter pills, language toggles (`rounded`).
 - **Badges & Tags**: Status pills, category tags, module markers, keyboard shortcuts (`<kbd>`, `rounded`).
 - **Images & Media**: Visual diagram cards and image frames (`rounded` with `overflow-hidden`).
 
 Global Tailwind configuration enforces:
+
 ```javascript
 borderRadius: {
   none: "0px",
@@ -39,7 +43,9 @@ borderRadius: {
 ```
 
 ### Spacing & Layout Rhythm
+
 Spacing follows a compact, balanced spacing scale:
+
 - `4px` (`gap-1`, `p-1`) — Micro gaps between badges, icon-label offsets, and dots.
 - `8px` (`gap-2`, `p-2`) — Button padding, list item gaps, and inline badge groups.
 - `12px` (`gap-3`, `p-3`) — Info card interiors, terminal headers, and callout padding.
@@ -51,13 +57,15 @@ Spacing follows a compact, balanced spacing scale:
 ## 3. Color Palette & Theming
 
 ### Dark Mode (Primary / Default)
-- **App Canvas**: `bg-slate-900` (`#0f172a`) and `bg-slate-950` (`#020617`).
+
+- **App Canvas**: `bg-slate-900` (`#0f172a`) and `bg-slate-900` (`#020617`).
 - **Card Backgrounds**: `bg-slate-900` / `bg-slate-800/80`.
 - **Borders & Dividers**: `border-slate-800` (`#1e293b`) and `border-slate-700/60` (`#334155`).
 - **Primary Text**: `text-white` (`#ffffff`) and `text-slate-200` (`#e2e8f0`).
 - **Secondary Text**: `text-slate-400` (`#94a3b8`) and `text-slate-500` (`#64748b`).
 
 ### Light Mode
+
 - **App Canvas**: `bg-slate-50` (`#f8fafc`).
 - **Card Backgrounds**: `bg-white` (`#ffffff`) and `bg-slate-100`.
 - **Borders & Dividers**: `border-slate-200` (`#e2e8f0`).
@@ -65,7 +73,9 @@ Spacing follows a compact, balanced spacing scale:
 - **Secondary Text**: `text-slate-600` (`#475569`).
 
 ### Semantic Color Accents
+
 Each course module has a designated brand color tint applied through alpha-channel backgrounds (`bg-{color}-500/10`) and borders (`border-{color}-500/30`):
+
 - **Git**: Orange (`orange-500` / `orange-400`)
 - **GitHub**: Purple (`purple-500` / `purple-400`)
 - **Next.js**: White / Slate (`white` in dark mode, `slate-900` in light mode)
@@ -81,6 +91,7 @@ Each course module has a designated brand color tint applied through alpha-chann
 ## 4. Typography & Bilingual Styling
 
 ### Font Stacks
+
 - **Latin / English (Default)**: Modern sans-serif stack (`Inter`, `system-ui`, `-apple-system`, `sans-serif`) for crisp, legible UI labels, headers, and documentation.
 - **Khmer (Bilingual `lang-km`)**: Dedicated **`Kantumruy Pro`** Google Font applied automatically via `body.lang-km`.
   - Heading adjustments: Scaled font size (`24px` for slide titles, `30px` for main titles) and expanded line-height (`1.35`) to ensure Khmer diacritic vowels and subscripts render without clipping.
@@ -91,6 +102,7 @@ Each course module has a designated brand color tint applied through alpha-chann
 ## 5. Icon System (Lucide React)
 
 All raw, inline, and heterogeneous SVGs have been replaced with **[Lucide React](https://lucide.dev/)** icons:
+
 - **Zero SVG Spaghetti**: No raw `<svg>` elements in React components or pages.
 - **Consistent Scaling**: Uniform icon sizing throughout the app:
   - Micro icons: `w-3 h-3` or `w-3.5 h-3.5` (inline button arrows, copy icons, checklist checks).
@@ -107,6 +119,7 @@ All raw, inline, and heterogeneous SVGs have been replaced with **[Lucide React]
 ## 6. Image & Card Media Design
 
 All visual diagrams, screenshots, and architecture flowcharts follow an **edge-to-edge, fit-full** layout specification:
+
 - **Container Structure**: `slide-visual-media` and `real-image-card` containers expand to `w-full h-full flex-1 min-h-0` to match the exact height of their sibling content column.
 - **Image Fill**: Images are rendered inside an `overflow-hidden flex-1 w-full min-h-0 relative` wrapper using:
   ```css
@@ -124,11 +137,13 @@ All visual diagrams, screenshots, and architecture flowcharts follow an **edge-t
 ## 7. UI Components & Layouts
 
 ### Hub Page (`#/`)
+
 - **Header**: Sticky navigation with module counter, bilingual language switcher (EN / KM), and theme toggle.
 - **Search & Filter Bar**: Instant real-time filtering with search query input, active category tabs, and clear button.
 - **Course Card Grid**: 3-column responsive grid (`grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4`). Each card features an accent icon, level badge, title, localized description, tag pills, and an action trigger.
 
 ### Course Viewer Shell (`CourseViewer.jsx`)
+
 - **Viewport**: Centered presentation stage (`slide-viewport`) with responsive max-width (`max-w-7xl`).
 - **Slide Card (`slide-content-card`)**: 80% viewport height container (`h-[80%] min-h-[80%]`) with internal vertical scroll if needed.
 - **Top Bar**: Minimal status bar showing course module title, current slide number, progress bar, theme switch, overview button, and fullscreen trigger.
@@ -137,6 +152,7 @@ All visual diagrams, screenshots, and architecture flowcharts follow an **edge-t
 - **Keyboard Shortcuts Modal**: Quick-reference guide showing keyboard controls (<kbd>Space</kbd>, <kbd>→</kbd>, <kbd>←</kbd>, <kbd>F</kbd>, <kbd>T</kbd>, <kbd>Esc</kbd>).
 
 ### Terminal & Code Windows
+
 - Realistic shell header with macOS-style 3-dot buttons (Red, Yellow, Green).
 - Color-coded prompts (`term-prompt text-blue-500 font-bold`).
 - Integrated clipboard copy button with Lucide `Copy` / `Check` icons and timeout feedback.

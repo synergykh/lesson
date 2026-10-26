@@ -315,7 +315,7 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
 
   return (
     <CourseLanguageContext.Provider value={{ courseId }}>
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans antialiased">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 flex flex-col font-sans antialiased">
         {/* Sticky Header */}
         <DocsHeader
           currentCourseId={courseId}
@@ -354,26 +354,6 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
                   section={section}
                   lesson={lesson}
                 />
-
-                {/* Lesson Top Meta Tag */}
-                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-b border-slate-200 dark:border-slate-800 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30">
-                      <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                      {course.module} &bull; LESSON{" "}
-                      {String(validNum).padStart(2, "0")}
-                    </span>
-                    <span className="text-[11px] text-slate-400 font-semibold uppercase">
-                      {section.title?.[lang] || section.title?.en}
-                    </span>
-                  </div>
-
-                  <div className="text-[11px] text-slate-400 flex items-center gap-2">
-                    <span>
-                      {validNum} of {course.totalLessons}
-                    </span>
-                  </div>
-                </div>
 
                 {/* Lesson Content Area */}
                 {loading ? (

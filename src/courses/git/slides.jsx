@@ -192,7 +192,7 @@ export function Slide3WhyGit() {
         badgeColor="orange"
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="info-card lg:col-span-6 p-4 rounded bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-500/30 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="info-card lg:col-span-6 p-4 rounded bg-rose-50 dark:bg-rose-900/30 border border-rose-200 dark:border-rose-500/30 flex flex-col justify-between gap-3 shadow-xs">
           <div className="flex items-center justify-between border-b border-rose-200 dark:border-rose-500/20 pb-2">
             <h4 className="text-xs font-bold text-rose-700 dark:text-rose-300 flex items-center gap-1.5 uppercase tracking-wider">
               <span className="text-rose-500 dark:text-rose-400 text-base">
@@ -204,7 +204,7 @@ export function Slide3WhyGit() {
               CHAOS
             </span>
           </div>
-          <div className="flex flex-col gap-2 text-[11px] bg-slate-900 dark:bg-slate-950 p-3 rounded border border-rose-200 dark:border-rose-500/20 font-mono">
+          <div className="flex flex-col gap-2 text-[11px] bg-slate-900 dark:bg-slate-900 p-3 rounded border border-rose-200 dark:border-rose-500/20 font-mono">
             <div className="text-slate-400">📁 desktop/my-project/</div>
             <div className="text-slate-400 pl-4">├── 📦 project-final.zip</div>
             <div className="text-slate-400 pl-4">├── 📦 project-final2.zip</div>
@@ -237,7 +237,7 @@ export function Slide3WhyGit() {
           </ul>
         </div>
 
-        <div className="info-card lg:col-span-6 p-4 rounded bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-500/30 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="info-card lg:col-span-6 p-4 rounded bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-500/30 flex flex-col justify-between gap-3 shadow-xs">
           <div className="flex items-center justify-between border-b border-emerald-200 dark:border-emerald-500/20 pb-2">
             <h4 className="text-xs font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5 uppercase tracking-wider">
               <span className="text-emerald-500 dark:text-emerald-400 text-base">
@@ -249,7 +249,7 @@ export function Slide3WhyGit() {
               CONFIDENCE
             </span>
           </div>
-          <div className="flex flex-col gap-2 text-[11px] bg-slate-900 dark:bg-slate-950 p-3 rounded border border-emerald-200 dark:border-emerald-500/20 font-mono">
+          <div className="flex flex-col gap-2 text-[11px] bg-slate-900 dark:bg-slate-900 p-3 rounded border border-emerald-200 dark:border-emerald-500/20 font-mono">
             <div className="text-slate-400">📁 my-project/</div>
             <div className="text-emerald-400 font-bold pl-4">
               ├── 📁 .git/ (entire infinite history stored here)
@@ -311,7 +311,7 @@ export function Slide4FourAreas() {
           />
         </div>
         <div className="lg:col-span-5 flex flex-col justify-between gap-2.5">
-          <div className="p-3 rounded bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-500/30 flex items-start gap-2.5">
+          <div className="p-3 rounded bg-sky-50 dark:bg-sky-900/40 border border-sky-200 dark:border-sky-500/30 flex items-start gap-2.5">
             <span className="w-6 h-6 rounded bg-sky-100 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 font-bold text-xs flex items-center justify-center shrink-0">
               1
             </span>
@@ -326,7 +326,7 @@ export function Slide4FourAreas() {
             </div>
           </div>
 
-          <div className="p-3 rounded bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/30 flex items-start gap-2.5">
+          <div className="p-3 rounded bg-amber-50 dark:bg-amber-900/40 border border-amber-200 dark:border-amber-500/30 flex items-start gap-2.5">
             <span className="w-6 h-6 rounded bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
               2
             </span>
@@ -344,7 +344,7 @@ export function Slide4FourAreas() {
             </div>
           </div>
 
-          <div className="p-3 rounded bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-500/30 flex items-start gap-2.5">
+          <div className="p-3 rounded bg-purple-50 dark:bg-purple-900/40 border border-purple-200 dark:border-purple-500/30 flex items-start gap-2.5">
             <span className="w-6 h-6 rounded bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 font-bold text-xs flex items-center justify-center shrink-0">
               3
             </span>
@@ -365,7 +365,7 @@ export function Slide4FourAreas() {
             </div>
           </div>
 
-          <div className="p-3 rounded bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-500/30 flex items-start gap-2.5">
+          <div className="p-3 rounded bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-200 dark:border-emerald-500/30 flex items-start gap-2.5">
             <span className="w-6 h-6 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0">
               4
             </span>

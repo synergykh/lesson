@@ -1,5 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Search, X, ChevronRight, FileText, Sparkles, Database, Globe, FolderGit2, GitBranch, Layers, Palette, Triangle, Cloud } from "lucide-react";
+import {
+  Search,
+  X,
+  ChevronRight,
+  FileText,
+  Sparkles,
+  Database,
+  Globe,
+  FolderGit2,
+  GitBranch,
+  Layers,
+  Palette,
+  Triangle,
+  Cloud,
+} from "lucide-react";
 import { SEARCH_INDEX, DOCS_NAVIGATION } from "../../data/docsNavigation";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -73,12 +87,12 @@ export default function DocsSearchModal({ isOpen, onClose }) {
       if (e.key === "ArrowDown") {
         e.preventDefault();
         setSelectedIndex((prev) =>
-          prev < filteredResults.length - 1 ? prev + 1 : 0
+          prev < filteredResults.length - 1 ? prev + 1 : 0,
         );
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
         setSelectedIndex((prev) =>
-          prev > 0 ? prev - 1 : filteredResults.length - 1
+          prev > 0 ? prev - 1 : filteredResults.length - 1,
         );
       } else if (e.key === "Enter" && filteredResults.length > 0) {
         e.preventDefault();
@@ -126,7 +140,10 @@ export default function DocsSearchModal({ isOpen, onClose }) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={t("ui_search_placeholder", "Search documentation lessons, topics, commands...")}
+            placeholder={t(
+              "ui_search_placeholder",
+              "Search documentation lessons, topics, commands...",
+            )}
             className="flex-1 bg-transparent text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none"
           />
           {query && (
@@ -151,8 +168,10 @@ export default function DocsSearchModal({ isOpen, onClose }) {
                 const IconComponent = ICON_MAP[item.icon] || FileText;
                 const isSelected = selectedIndex === idx;
                 const title = item.title?.[lang] || item.title?.en;
-                const courseTitle = item.courseTitle?.[lang] || item.courseTitle?.en;
-                const secTitle = item.sectionTitle?.[lang] || item.sectionTitle?.en;
+                const courseTitle =
+                  item.courseTitle?.[lang] || item.courseTitle?.en;
+                const secTitle =
+                  item.sectionTitle?.[lang] || item.sectionTitle?.en;
 
                 return (
                   <a
@@ -191,8 +210,17 @@ export default function DocsSearchModal({ isOpen, onClose }) {
             </div>
           ) : cleanQuery && filteredResults.length === 0 ? (
             <div className="py-12 text-center text-xs text-slate-500 dark:text-slate-400">
-              <p className="font-medium">{t("ui_search_no_results", "No documentation lessons found matching your query.")}</p>
-              <p className="text-[11px] text-slate-400 mt-1">Try searching for keywords like &ldquo;git status&rdquo;, &ldquo;app router&rdquo;, &ldquo;postgres&rdquo;, or &ldquo;tailwind&rdquo;.</p>
+              <p className="font-medium">
+                {t(
+                  "ui_search_no_results",
+                  "No documentation lessons found matching your query.",
+                )}
+              </p>
+              <p className="text-[11px] text-slate-400 mt-1">
+                Try searching for keywords like &ldquo;git status&rdquo;,
+                &ldquo;app router&rdquo;, &ldquo;postgres&rdquo;, or
+                &ldquo;tailwind&rdquo;.
+              </p>
             </div>
           ) : (
             <div className="p-3">
@@ -217,7 +245,8 @@ export default function DocsSearchModal({ isOpen, onClose }) {
                           {cTitle}
                         </span>
                         <span className="text-[10px] text-slate-400">
-                          {course.totalLessons} {t("ui_slides", "lessons")} &bull; {course.module}
+                          {course.totalLessons} {t("ui_slides", "lessons")}{" "}
+                          &bull; {course.module}
                         </span>
                       </div>
                     </a>
@@ -229,10 +258,23 @@ export default function DocsSearchModal({ isOpen, onClose }) {
         </div>
 
         {/* Footer shortcuts hint */}
-        <div className="px-4 py-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 flex items-center justify-between text-[11px] text-slate-400">
+        <div className="px-4 py-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-between text-[11px] text-slate-400">
           <div className="flex items-center gap-2">
-            <span>Navigate: <kbd className="px-1 rounded bg-slate-200 dark:bg-slate-800">↑</kbd> <kbd className="px-1 rounded bg-slate-200 dark:bg-slate-800">↓</kbd></span>
-            <span>Select: <kbd className="px-1 rounded bg-slate-200 dark:bg-slate-800">↵</kbd></span>
+            <span>
+              Navigate:{" "}
+              <kbd className="px-1 rounded bg-slate-200 dark:bg-slate-800">
+                ↑
+              </kbd>{" "}
+              <kbd className="px-1 rounded bg-slate-200 dark:bg-slate-800">
+                ↓
+              </kbd>
+            </span>
+            <span>
+              Select:{" "}
+              <kbd className="px-1 rounded bg-slate-200 dark:bg-slate-800">
+                ↵
+              </kbd>
+            </span>
           </div>
           <span>Total: 448 Lessons</span>
         </div>

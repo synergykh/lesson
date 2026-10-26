@@ -23,10 +23,12 @@ export default function CodeBlock({
     <div
       className={`code-block-container rounded border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 overflow-hidden my-4 text-xs ${className}`}
     >
-      <div className="flex items-center justify-between px-3.5 py-2 bg-slate-950/80 border-b border-slate-800">
+      <div className="flex items-center justify-between px-3.5 py-2 bg-slate-900/80 border-b border-slate-800">
         <div className="flex items-center gap-2">
           {filename ? (
-            <span className="font-mono text-[11px] text-slate-300 font-medium">{filename}</span>
+            <span className="font-mono text-[11px] text-slate-300 font-medium">
+              {filename}
+            </span>
           ) : (
             <span className="uppercase text-[10px] font-bold tracking-wider text-slate-400">
               {language}
@@ -36,7 +38,9 @@ export default function CodeBlock({
         <button
           type="button"
           onClick={handleCopy}
-          aria-label={copied ? t("ui_copied", "Copied!") : t("ui_copy", "Copy code")}
+          aria-label={
+            copied ? t("ui_copied", "Copied!") : t("ui_copy", "Copy code")
+          }
           className={`text-[11px] px-2.5 py-1 rounded font-medium flex items-center gap-1.5 transition-colors border ${
             copied
               ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"

@@ -11,7 +11,7 @@ export default function ImageFrame({
     <div
       className={`slide-visual-media relative w-full h-full flex-1 min-h-0 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded overflow-hidden flex flex-col shadow-lg group transition-all duration-300 hover:border-slate-300 dark:hover:border-slate-700 ${className}`}
     >
-      <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+      <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
         <img
           src={src}
           alt={alt}
