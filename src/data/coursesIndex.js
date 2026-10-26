@@ -26,7 +26,7 @@ export const courses = [
     module: "MODULE 02",
     level: "Beginner",
     desc: "Connect local projects to the cloud. Configure remotes, push code, handle branches, clone repositories, and collaborate with teams using Pull Requests.",
-    meta: "18 Slides • Cloud & Remote",
+    meta: "8 Lessons • Cloud & Remote",
     category: "foundations",
     iconColor: "text-purple-400",
     iconBg: "bg-purple-500/15 border-purple-500/30",

@@ -1,1317 +1,680 @@
-import React from "react";
-import { ArrowRight, AlertCircle } from "lucide-react";
+import React, { useState } from "react";
+import {
+  GitBranch,
+  Cloud,
+  FolderGit2,
+  ShieldCheck,
+  Key,
+  Lock,
+  CheckCircle2,
+  AlertTriangle,
+  ArrowRight,
+  GitPullRequest,
+  GitMerge,
+  Check,
+  Copy,
+  Sparkles,
+  Terminal,
+  FileCode,
+  Users,
+  Eye,
+  Sliders,
+  ShieldAlert,
+  Cpu,
+  Layers,
+  ExternalLink,
+  History,
+  RotateCcw,
+  CheckSquare,
+} from "lucide-react";
+import SlideHeader from "../common/SlideHeader";
+import TerminalBlock from "../common/TerminalBlock";
+import ImageFrame from "../common/ImageFrame";
 
-// Slide 1: MODULE 02 • CLOUD COLLABORATION: GitHub Masterclass
-export function Slide1({ onStart, onRestart }) {
+// -------------------------------------------------------------
+// SLIDE 1: Cloud Architecture & The Remote Model
+// -------------------------------------------------------------
+export function Slide1CloudArchitecture() {
   return (
     <div className="flex flex-col gap-4 flex-1">
-      <div className="title-hero-grid grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-4 items-stretch flex-1 min-h-0">
-        <div className="title-text-col flex flex-col justify-between gap-3">
-          <div className="inline-flex items-center gap-2 self-start px-2.5 py-1 bg-purple-500/15 border border-purple-500/30 text-purple-400  text-[11px] font-bold tracking-wider uppercase">
-            MODULE 02 • CLOUD COLLABORATION
-          </div>
-          <h1 className="title-main-h1 text-3xl md:text-4xl font-extrabold text-white m-0 leading-tight">
-            GitHub Masterclass
-            <br />
-            <span className="text-purple-400 font-extrabold">
-              Cloud Repositories &amp; Team Workflow
-            </span>
-          </h1>
-          <p className="text-sm text-slate-300 italic m-0">
-            “Host, collaborate, review, and ship code with developers anywhere
-            in the world”
-          </p>
+      <SlideHeader
+        slideNum={1}
+        totalSlides={8}
+        badgeText="FOUNDATIONS & ARCHITECTURE"
+        title="Cloud Architecture & The Remote Model"
+        subtitle="Understanding Git vs. GitHub, the central hub paradigm, and how remote repositories connect team members."
+        badgeColor="purple"
+      />
 
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex items-start gap-2">
-              <span className="w-2 h-2 rounded-full bg-purple-400 mt-1 shrink-0"></span>
-              <div>
-                <strong className="text-white block">
-                  Remote Repositories
-                </strong>
-                <span className="text-slate-400">
-                  origin, HTTPS &amp; SSH authentication
-                </span>
-              </div>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex items-start gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-400 mt-1 shrink-0"></span>
-              <div>
-                <strong className="text-white block">Syncing Code</strong>
-                <span className="text-slate-400">
-                  push, pull, tracking branches
-                </span>
-              </div>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex items-start gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 mt-1 shrink-0"></span>
-              <div>
-                <strong className="text-white block">
-                  Pull Requests &amp; Review
-                </strong>
-                <span className="text-slate-400">
-                  Diffs, approvals, 3 merge strategies
-                </span>
-              </div>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex items-start gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-400 mt-1 shrink-0"></span>
-              <div>
-                <strong className="text-white block">
-                  Production Governance
-                </strong>
-                <span className="text-slate-400">
-                  Branch protection, Issues, CI/CD Actions
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12px] leading-relaxed">
-            <div>
-              Step-by-step masterclass packed with real GitHub screenshots,
-              terminal commands, conflict resolution, and enterprise team
-              practices.
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 pt-1">
-            <button
-              className="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 border border-purple-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline rounded"
-              id="btn-start-course"
-              onClick={onStart}
-            >
-              Start Lesson <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-            <span className="text-xs text-slate-400">
-              or press{" "}
-              <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
-                Space
-              </kbd>{" "}
-              /{" "}
-              <kbd className="kbd px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">
-                →
-              </kbd>
-            </span>
-          </div>
-        </div>
-
-        <div className="title-visual-col flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git_flow_hero.jpg"
-                alt="Git and GitHub Synchronization Engine"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>{" "}
-                Cloud Sync &amp; CI/CD Architecture
-              </span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                GitHub Enterprise
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 2: Git (Local Machine) vs. GitHub (Cloud Platform)
-export function Slide2({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 01 • ARCHITECTURE
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Git (Local Machine) vs. GitHub (Cloud Platform)
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Distinguishing between your offline CLI engine and the world's
-            largest developer platform
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            Local vs. Cloud
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold  bg-orange-500/20 text-orange-400 border border-orange-500/30">
-                  01
+            <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1.5 font-bold text-xs text-orange-600 dark:text-orange-400">
+                  <GitBranch className="w-4 h-4" />
+                  <span>Git (The Local Engine)</span>
+                </div>
+                <span className="text-[10px] px-1.5 py-0.5 rounded font-bold uppercase bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-500/20">
+                  Local Tool
                 </span>
-                <h4 className="text-white text-sm font-bold m-0">
-                  Git (The Engine)
-                </h4>
               </div>
-              <ul className="text-xs text-slate-300 flex flex-col gap-1.5 p-0 m-0 list-none">
-                <li className="flex items-start gap-1.5">
-                  <span className="text-green-400 font-bold">✓</span> Installed
-                  on your local operating system
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-green-400 font-bold">✓</span> 100%
-                  offline, requires zero internet access
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-green-400 font-bold">✓</span> Manages
-                  commit history inside{" "}
-                  <code className="text-orange-400 bg-slate-900 px-1 ">
-                    .git/
-                  </code>
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-slate-400">•</span> Cannot share code
-                  with others on its own
-                </li>
-              </ul>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+                A command-line program running on your local machine. Takes cryptographic snapshots of your project history offline inside the hidden <code className="text-orange-600 dark:text-orange-400 font-mono font-semibold">.git/</code> folder.
+              </p>
+              <div className="flex flex-wrap gap-1.5 pt-1 text-[11px] text-slate-600 dark:text-slate-400 font-mono">
+                <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">100% Offline</span>
+                <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">SHA Hashes</span>
+                <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Fast Branches</span>
+              </div>
             </div>
 
-            <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold  bg-purple-500/20 text-purple-400 border border-purple-500/30">
-                  02
+            <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1.5 font-bold text-xs text-purple-600 dark:text-purple-400">
+                  <Cloud className="w-4 h-4" />
+                  <span>GitHub (The Cloud Hub)</span>
+                </div>
+                <span className="text-[10px] px-1.5 py-0.5 rounded font-bold uppercase bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-500/20">
+                  Cloud Platform
                 </span>
-                <h4 className="text-white text-sm font-bold m-0">
-                  GitHub (The Cloud)
-                </h4>
               </div>
-              <ul className="text-xs text-slate-300 flex flex-col gap-1.5 p-0 m-0 list-none">
-                <li className="flex items-start gap-1.5">
-                  <span className="text-green-400 font-bold">✓</span> Cloud
-                  hosting platform for Git repositories
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-green-400 font-bold">✓</span> Team Pull
-                  Requests &amp; Code Review
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-green-400 font-bold">✓</span> Automated
-                  CI/CD via GitHub Actions
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-green-400 font-bold">✓</span> Issue
-                  tracking, Kanban boards &amp; security scans
-                </li>
-              </ul>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+                The world's largest cloud hosting service for Git repositories. Empowers distributed teams with Pull Requests, code reviews, issue tracking, and automated CI/CD pipelines.
+              </p>
+              <div className="flex flex-wrap gap-1.5 pt-1 text-[11px] text-slate-600 dark:text-slate-400 font-mono">
+                <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Cloud Backup</span>
+                <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Pull Requests</span>
+                <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">CI/CD Actions</span>
+              </div>
             </div>
           </div>
 
-          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12px] leading-relaxed">
-            <div>
-              <strong>Core Mental Model:</strong> Git is like your personal
-              camera taking snapshots of code. GitHub is the cloud photo album
-              where your entire team shares, reviews, and collaborates on those
-              photos.
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
+              The Central "Remote" Paradigm
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1">
+                  1. Distributed Architecture
+                </span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+                  Every teammate has a 100% complete copy of the commit graph. You commit locally with zero latency, then push when ready to share.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1">
+                  2. Single Source of Truth
+                </span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+                  GitHub acts as the authoritative central hub. Production deployment servers pull strictly from GitHub's protected <code className="text-purple-600 dark:text-purple-400 font-mono font-semibold">main</code> branch.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3 rounded bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 text-purple-900 dark:text-purple-300 text-xs flex items-start gap-2.5 shadow-xs">
+            <Layers className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="font-bold text-purple-950 dark:text-purple-200 block mb-0.5">Understanding "origin":</strong>
+              <code className="font-mono text-purple-700 dark:text-purple-300 font-bold">origin</code> is simply Git's default nickname for your primary cloud repository URL. A repo can link to multiple remotes (e.g., <code className="font-mono">origin</code>, <code className="font-mono">upstream</code>, <code className="font-mono">staging</code>).
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/github_collaboration_workflow.jpg"
-                alt="GitHub Team Collaboration Workflow"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Local Repositories Synced to Central GitHub Hub</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Team Model
-              </span>
-            </div>
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="h-[230px] sm:h-[260px] min-h-0">
+            <ImageFrame
+              src="/images/git_flow_hero.jpg"
+              alt="Git and GitHub Cloud Synchronization Architecture"
+              caption="Distributed developer machines pushing commits to GitHub central hub"
+              badge="Cloud Architecture"
+            />
           </div>
+
+          <TerminalBlock
+            title="bash — Inspecting Remote Connections"
+            copyText={`git remote -v\ngit remote show origin`}
+          >
+            <div className="flex flex-col gap-1 font-mono text-xs">
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git remote -v</span>
+              </div>
+              <div className="text-slate-400 text-[11px] pl-3 border-l-2 border-slate-700 my-0.5">
+                origin  git@github.com:synergy/fullstack-app.git (fetch)<br />
+                origin  git@github.com:synergy/fullstack-app.git (push)
+              </div>
+              <div className="flex items-center gap-2 pt-1.5">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git remote show origin</span>
+              </div>
+              <div className="text-emerald-300 text-[11px] pl-3 border-l-2 border-emerald-500/40 my-0.5">
+                * remote origin<br />
+                &nbsp;&nbsp;Fetch URL: git@github.com:synergy/fullstack-app.git<br />
+                &nbsp;&nbsp;Push  URL: git@github.com:synergy/fullstack-app.git<br />
+                &nbsp;&nbsp;HEAD branch: main<br />
+                &nbsp;&nbsp;Remote branches: main tracked, feature/auth tracked
+              </div>
+            </div>
+          </TerminalBlock>
         </div>
       </div>
     </div>
   );
 }
 
-// Slide 3: The 4 Git Areas: Adding the Cloud Remote
-export function Slide3({ onStart, onRestart }) {
+// -------------------------------------------------------------
+// SLIDE 2: Authentication: SSH Keys vs. HTTPS & PAT
+// -------------------------------------------------------------
+export function Slide2Authentication() {
   return (
     <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 01 • ARCHITECTURE
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            The 4 Git Areas: Adding the Cloud Remote
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            How code moves across the 3 local stages and reaches your GitHub
-            remote
-          </p>
+      <SlideHeader
+        slideNum={2}
+        totalSlides={8}
+        badgeText="SECURITY & SETUP"
+        title="Authentication: SSH Keys vs. HTTPS & PAT"
+        subtitle="GitHub removed password authentication in 2021. Configure passwordless Ed25519 SSH keys or Personal Access Tokens."
+        badgeColor="purple"
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              The Asymmetric Cryptography Model
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <div className="p-2.5 rounded bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 flex flex-col gap-1">
+                <span className="font-bold text-rose-800 dark:text-rose-300 flex items-center gap-1">
+                  <Lock className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+                  Private Key (<code className="font-mono text-[10px]">id_ed25519</code>)
+                </span>
+                <p className="text-[11px] text-rose-900 dark:text-rose-300 leading-relaxed m-0">
+                  Lives strictly on your machine. <strong>Never</strong> share, email, or commit this file. It is your cryptographic signature.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 flex flex-col gap-1">
+                <span className="font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1">
+                  <Key className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  Public Key (<code className="font-mono text-[10px]">id_ed25519.pub</code>)
+                </span>
+                <p className="text-[11px] text-emerald-900 dark:text-emerald-300 leading-relaxed m-0">
+                  Shared freely with GitHub. GitHub uses this to encrypt challenge prompts that only your private key can decrypt.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+            <div className="p-2.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1 shadow-xs">
+              <span className="font-bold text-purple-700 dark:text-purple-400 flex items-center gap-1 text-[11px]">
+                <Key className="w-3.5 h-3.5" /> SSH (Ed25519)
+              </span>
+              <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                Industry standard. Set up once, zero passwords needed forever. Fast and tamper-proof.
+              </p>
+            </div>
+            <div className="p-2.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1 shadow-xs">
+              <span className="font-bold text-sky-700 dark:text-sky-400 flex items-center gap-1 text-[11px]">
+                <Lock className="w-3.5 h-3.5" /> HTTPS + PAT
+              </span>
+              <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                Personal Access Token. Ideal when corporate firewalls block SSH port 22.
+              </p>
+            </div>
+            <div className="p-2.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1 shadow-xs">
+              <span className="font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1 text-[11px]">
+                <Terminal className="w-3.5 h-3.5" /> GitHub CLI (gh)
+              </span>
+              <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                Run <code className="font-mono text-[10px]">gh auth login</code> for instant browser-based 1-click terminal authorization.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-3 rounded bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-900 dark:text-amber-300 text-xs flex items-start gap-2.5 shadow-xs">
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="font-bold text-amber-950 dark:text-amber-200 block mb-0.5">Security Golden Rule:</strong>
+              When copying your key to GitHub, always run <code className="font-mono font-semibold">cat ~/.ssh/id_ed25519.pub</code>. Never copy the private file without the <code className="font-mono font-semibold">.pub</code> extension!
+            </div>
+          </div>
         </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/10 text-blue-400 ">
-            4 Areas Model
-          </span>
+
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="h-[210px] sm:h-[240px] min-h-0">
+            <ImageFrame
+              src="/images/github/github_ssh_auth_diagram.jpg"
+              alt="GitHub SSH Key Verification Diagram"
+              caption="Asymmetric cryptographic verification between developer machine and GitHub"
+              badge="Security Protocol"
+            />
+          </div>
+
+          <TerminalBlock
+            title="bash — 3-Step SSH Setup & Test"
+            copyText={`ssh-keygen -t ed25519 -C "developer@example.com"\ncat ~/.ssh/id_ed25519.pub\nssh -T git@github.com`}
+          >
+            <div className="flex flex-col gap-1 font-mono text-xs">
+              <div className="text-slate-400 text-[11px]"># 1. Generate modern Ed25519 SSH key pair</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">ssh-keygen -t ed25519 -C "developer@example.com"</span>
+              </div>
+              <div className="text-slate-400 text-[11px] pl-3 border-l-2 border-slate-700">
+                Generating public/private ed25519 key pair... Saved to ~/.ssh/id_ed25519
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># 2. View and copy your PUBLIC key to GitHub Settings &gt; SSH Keys</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">cat ~/.ssh/id_ed25519.pub</span>
+              </div>
+              <div className="text-purple-300 text-[11px] pl-3 border-l-2 border-purple-500/50 break-all bg-slate-950/60 p-1.5 rounded">
+                ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPq9xKz4 developer@example.com
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># 3. Test your SSH connection</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">ssh -T git@github.com</span>
+              </div>
+              <div className="text-emerald-400 text-[11px] pl-3 border-l-2 border-emerald-500/50">
+                Hi developer! You've successfully authenticated, but GitHub does not provide shell access.
+              </div>
+            </div>
+          </TerminalBlock>
         </div>
       </div>
+    </div>
+  );
+}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-            <h4 className="text-white text-sm font-bold m-0 flex items-center gap-2">
-              <span className="text-purple-400">#</span> Pipeline from Editor to
-              Cloud
+// -------------------------------------------------------------
+// SLIDE 3: Creating, Publishing & Cloning Repositories
+// -------------------------------------------------------------
+export function Slide3PublishingCloning() {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <SlideHeader
+        slideNum={3}
+        totalSlides={8}
+        badgeText="REPOSITORY SETUP"
+        title="Creating, Publishing & Cloning Repositories"
+        subtitle="Master initializing cloud repos, linking local commits, upstream tracking flags, and cloning existing codebases."
+        badgeColor="purple"
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <FolderGit2 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              The 3-Step Publishing Formula
             </h4>
             <div className="flex flex-col gap-2 text-xs">
-              <div className="p-2 bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 font-bold text-xs flex items-center justify-center shrink-0">1</span>
                 <div>
-                  <strong className="text-slate-200">
-                    1. Working Directory
-                  </strong>{" "}
-                  <span className="text-slate-400 block text-[11px]">
-                    Uncommitted raw files on your computer disk
-                  </span>
+                  <strong className="text-slate-900 dark:text-white block font-mono text-[11px]">git remote add origin &lt;URL&gt;</strong>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400">Stores the remote URL locally under the alias <code className="font-mono">origin</code>.</span>
                 </div>
-                <code className="text-blue-400  text-[11px]">git add</code>
               </div>
-              <div className="p-2 bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 font-bold text-xs flex items-center justify-center shrink-0">2</span>
                 <div>
-                  <strong className="text-slate-200">
-                    2. Staging Area (Index)
-                  </strong>{" "}
-                  <span className="text-slate-400 block text-[11px]">
-                    Curation zone of changes ready for the snapshot
-                  </span>
+                  <strong className="text-slate-900 dark:text-white block font-mono text-[11px]">git branch -M main</strong>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400">Renames the primary local branch to modern industry standard <code className="font-mono">main</code>.</span>
                 </div>
-                <code className="text-blue-400  text-[11px]">git commit</code>
               </div>
-              <div className="p-2 bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 font-bold text-xs flex items-center justify-center shrink-0">3</span>
                 <div>
-                  <strong className="text-slate-200">
-                    3. Local Repository (.git)
-                  </strong>{" "}
-                  <span className="text-slate-400 block text-[11px]">
-                    Permanent commit graph stored locally on machine
-                  </span>
+                  <strong className="text-slate-900 dark:text-white block font-mono text-[11px]">git push -u origin main</strong>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400">Uploads all commits to GitHub and sets default upstream tracking.</span>
                 </div>
-                <code className="text-purple-400  text-[11px]">git push</code>
-              </div>
-              <div className="p-2 bg-purple-900/40 border border-purple-500/30 flex items-center justify-between">
-                <div>
-                  <strong className="text-purple-300">
-                    4. Remote (GitHub)
-                  </strong>{" "}
-                  <span className="text-purple-400/80 block text-[11px]">
-                    Central cloud server where teammates sync &amp; review
-                  </span>
-                </div>
-                <span className="text-emerald-400  text-[11px]">
-                  Cloud Hosted
-                </span>
               </div>
             </div>
           </div>
 
-          <div className="alert-callout info flex items-start gap-2.5 p-3 border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[12px] leading-relaxed">
-            <div>
-              <code className="text-blue-300 ">git push</code> transfers commits
-              from Area 3 to Area 4.{" "}
-              <code className="text-blue-300 ">git pull</code> fetches commits
-              from Area 4 directly down to your working tree.
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/git_four_areas.jpg"
-                alt="The 4 Core Git Areas"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Visual Transition Map: Working Tree to Remote</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Architecture
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 4: GitHub Authentication: SSH Keys vs. HTTPS & PAT
-export function Slide4({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 02 • SETUP &amp; AUTH
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            GitHub Authentication: SSH Keys vs. HTTPS &amp; PAT
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Setting up passwordless, cryptographic authentication for your
-            developer machine
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            Ed25519 Security
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-            <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                <span className="text-[11px] text-slate-400 ml-1">
-                  Generate Modern SSH Key
-                </span>
-              </div>
-              <button
-                className="copy-btn text-[11px] px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
-                data-copy='ssh-keygen -t ed25519 -C "your_email@example.com"&#10;cat ~/.ssh/id_ed25519.pub&#10;ssh -T git@github.com'
-              >
-                Copy
-              </button>
-            </div>
-            <div className="p-3 text-slate-200 leading-relaxed  text-xs flex flex-col gap-1.5">
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  ssh-keygen -t ed25519 -C "your_email@example.com"
-                </span>
-              </div>
-              <div className="text-slate-400 text-[11px]">
-                Generating public/private ed25519 key pair...
-              </div>
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  cat ~/.ssh/id_ed25519.pub
-                </span>
-              </div>
-              <div className="text-purple-300 text-[11px] break-all bg-slate-900 p-1.5 border border-slate-800">
-                ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG... user@mac
-              </div>
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  ssh -T git@github.com
-                </span>
-              </div>
-              <div className="text-emerald-400 text-[11px]">
-                Hi username! You've successfully authenticated.
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-purple-400 font-bold  text-[11px]">
-                SSH (Recommended)
-              </span>
-              <span className="text-slate-300">
-                Set once, never re-enter passwords. Used by software engineers
-                for CLI push/pull.
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-sky-400 font-bold  text-[11px]">
-                HTTPS + PAT
-              </span>
-              <span className="text-slate-300">
-                Requires Personal Access Token (classic or fine-grained) as
-                passwords are disabled.
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github/github_ssh_auth_diagram.jpg"
-                alt="GitHub SSH Keys Management Interface"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>GitHub Settings → SSH &amp; GPG Keys Form</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-                Verified Key
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 5: Creating a New GitHub Repository
-export function Slide5({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 03 • REPOSITORY SETUP
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Creating a New GitHub Repository
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Setting up the empty cloud destination for your project on
-            GitHub.com
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            github.com/new
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-            <h4 className="text-white text-sm font-bold m-0 flex items-center gap-2">
-              <span className="text-purple-400  text-[12px]">STEP-BY-STEP</span>{" "}
-              5 Steps on GitHub Web
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              What Does <code className="font-mono text-purple-600 dark:text-purple-400 font-semibold">-u</code> Actually Do?
             </h4>
-            <ul className="text-xs text-slate-300 flex flex-col gap-2 p-0 m-0 list-none">
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  1
-                </span>{" "}
-                Click the <strong>+</strong> icon at the top-right header and
-                select <strong>New repository</strong>.
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  2
-                </span>{" "}
-                Enter a concise Repository Name:{" "}
-                <code className="text-purple-300  bg-slate-900 px-1">
-                  my-app
-                </code>
-                .
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  3
-                </span>{" "}
-                Choose <strong>Public</strong> (visible to anyone) or{" "}
-                <strong>Private</strong> (team access only).
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  4
-                </span>{" "}
-                Click <strong>Create repository</strong>.
-              </li>
-            </ul>
-          </div>
-
-          <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12px] leading-relaxed rounded">
-            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
-            <div>
-              <strong>CRITICAL BEGINNER TRAP:</strong> If you already have code
-              on your computer, <strong>DO NOT</strong> check "Add a README
-              file", ".gitignore", or "license"! An empty repository allows a
-              smooth first push without merge conflicts.
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github_new_repo_ui.jpg"
-                alt="GitHub UI Mockup: Creating a new repository"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>GitHub Repository Creation Page Form</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Real UI
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 6: Connecting Local Git to Remote: git remote add origin
-export function Slide6({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 03 • REPOSITORY SETUP
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Connecting Local Git to Remote: git remote add origin
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Teaching your local repository the cloud address of your GitHub
-            repository
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/10 text-blue-400 ">
-            git remote
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-            <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                <span className="text-[11px] text-slate-400 ml-1">
-                  Terminal: Add Remote Origin
-                </span>
-              </div>
-              <button
-                className="copy-btn text-[11px] px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
-                data-copy="git remote add origin git@github.com:USERNAME/my-app.git&#10;git remote -v"
-              >
-                Copy
-              </button>
-            </div>
-            <div className="p-3 text-slate-200 leading-relaxed  text-xs flex flex-col gap-1.5">
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  git remote add origin git@github.com:USERNAME/my-app.git
-                </span>
-              </div>
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">git remote -v</span>
-              </div>
-              <div className="text-emerald-400 text-[11px]">
-                origin git@github.com:USERNAME/my-app.git (fetch)
-              </div>
-              <div className="text-emerald-400 text-[11px]">
-                origin git@github.com:USERNAME/my-app.git (push)
-              </div>
-            </div>
-          </div>
-
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3 flex flex-col gap-1.5 text-xs">
-            <strong className="text-white">Command Anatomy:</strong>
-            <div className="grid grid-cols-2 gap-2 text-[11px]">
-              <div>
-                <code className="text-blue-400 ">git remote</code>: Subsystem
-                manager
-              </div>
-              <div>
-                <code className="text-purple-400 ">add</code>: Register new
-                connection
-              </div>
-              <div>
-                <code className="text-emerald-400 ">origin</code>: Standard
-                remote alias
-              </div>
-              <div>
-                <code className="text-amber-400 ">&lt;URL&gt;</code>: Remote
-                GitHub endpoint
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/git_command_syntax.jpg"
-                alt="Git Command Syntax and Arguments"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Syntax Breakdown: Commands, Flags &amp; Arguments</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                CLI Syntax
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 7: The First Push: git push -u origin main
-export function Slide7({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 04 • PUSHING CODE
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            The First Push: git push -u origin main
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Publishing your local commit history and establishing upstream
-            branch tracking
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-            First Publish
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-            <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                <span className="text-[11px] text-slate-400 ml-1">
-                  Terminal: First Push Session
-                </span>
-              </div>
-              <button
-                className="copy-btn text-[11px] px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
-                data-copy="git branch -M main&#10;git push -u origin main"
-              >
-                Copy
-              </button>
-            </div>
-            <div className="p-3 text-slate-200 leading-relaxed  text-xs flex flex-col gap-1.5">
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">git branch -M main</span>
-              </div>
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  git push -u origin main
-                </span>
-              </div>
-              <div className="text-slate-400 text-[11px]">
-                Enumerating objects: 14, done.
-              </div>
-              <div className="text-slate-400 text-[11px]">
-                Counting objects: 100% (14/14), done.
-              </div>
-              <div className="text-slate-400 text-[11px]">
-                Writing objects: 100% (14/14), 3.24 KiB | 3.24 MiB/s, done.
-              </div>
-              <div className="text-emerald-400 text-[11px] font-bold">
-                * [new branch] main -&gt; main
-              </div>
-              <div className="text-sky-300 text-[11px]">
-                Branch 'main' set up to track remote branch 'main' from
-                'origin'.
-              </div>
-            </div>
-          </div>
-
-          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12px] leading-relaxed">
-            <div>
-              <strong>
-                Why the <code className=" text-blue-300">-u</code> flag is
-                essential:
-              </strong>{" "}
-              It sets the upstream reference link. Once configured, you can
-              simply type{" "}
-              <code className=" text-white bg-slate-900 px-1">git push</code> or{" "}
-              <code className=" text-white bg-slate-900 px-1">git pull</code>{" "}
-              without repeating "origin main" every time!
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git_flow_hero.jpg"
-                alt="Git Push Flow to Cloud"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Branch Synchronized with Remote origin/main</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-                Sync Complete
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 8: Exploring the GitHub Repository Interface
-export function Slide8({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 04 • PUSHING CODE
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Exploring the GitHub Repository Interface
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Navigating the code tree, commit history, branch switcher, and
-            releases
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            UI Navigation
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-purple-400 font-bold  text-[11px]">
-                1. Code File Tree
-              </span>
-              <span className="text-slate-300">
-                Browse folders, source code, and automatic README.md
-                documentation rendering.
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-blue-400 font-bold  text-[11px]">
-                2. Commit History
-              </span>
-              <span className="text-slate-300">
-                Click commit count to see timeline, author avatars, and exact
-                diffs per commit.
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-emerald-400 font-bold  text-[11px]">
-                3. Branch Dropdown
-              </span>
-              <span className="text-slate-300">
-                Switch between <code className=" text-emerald-300">main</code>,
-                tags, and active team feature branches.
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-amber-400 font-bold  text-[11px]">
-                4. Green Code Button
-              </span>
-              <span className="text-slate-300">
-                Copy clone URLs (HTTPS/SSH), download ZIP, or launch cloud
-                Codespaces in 1 click.
-              </span>
-            </div>
-          </div>
-
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3 text-xs flex items-center justify-between">
-            <span className="text-slate-300">
-              Keyboard Pro-Tip: Press{" "}
-              <kbd className="kbd px-1.5 py-0.5 bg-slate-900 border border-slate-700 text-purple-400  font-bold">
-                t
-              </kbd>{" "}
-              on any GitHub repo to jump to file search!
-            </span>
-            <span className="text-slate-400  text-[11px]">Shortcut</span>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github_repo_view.jpg"
-                alt="GitHub Repository Main Dashboard"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Verified GitHub Project Repository View</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Live Dashboard
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 9: The Daily Team Rhythm: Push & Pull
-export function Slide9({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 05 • DAILY WORKFLOW
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            The Daily Team Rhythm: Push &amp; Pull
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            The 4-stage synchronization habit practiced by modern engineering
-            teams
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            Daily Loop
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-col gap-2 text-xs">
-            <div className="p-2.5 bg-slate-800/80 border border-slate-800 flex items-start gap-2.5">
-              <span className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                1
-              </span>
-              <div>
-                <strong className="text-white block">
-                  Morning Pull: Fetch Team Updates
-                </strong>
-                <code className="text-blue-400  text-[11px] bg-slate-900 px-1 py-0.5 border border-slate-800">
-                  git pull origin main
-                </code>
-                <span className="text-slate-400 block mt-0.5 text-[11px]">
-                  Always pull before coding to prevent stale branches and merge
-                  conflicts.
-                </span>
-              </div>
-            </div>
-
-            <div className="p-2.5 bg-slate-800/80 border border-slate-800 flex items-start gap-2.5">
-              <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                2
-              </span>
-              <div>
-                <strong className="text-white block">
-                  Stage &amp; Review Changes
-                </strong>
-                <code className="text-purple-400  text-[11px] bg-slate-900 px-1 py-0.5 border border-slate-800">
-                  git add . &amp;&amp; git status
-                </code>
-                <span className="text-slate-400 block mt-0.5 text-[11px]">
-                  Check modified files and ensure no temporary log or build
-                  files get staged.
-                </span>
-              </div>
-            </div>
-
-            <div className="p-2.5 bg-slate-800/80 border border-slate-800 flex items-start gap-2.5">
-              <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                3
-              </span>
-              <div>
-                <strong className="text-white block">
-                  Commit with Clear Message
-                </strong>
-                <code className="text-emerald-400  text-[11px] bg-slate-900 px-1 py-0.5 border border-slate-800">
-                  git commit -m "feat: implement user settings"
-                </code>
-                <span className="text-slate-400 block mt-0.5 text-[11px]">
-                  Write descriptive conventional commit messages.
-                </span>
-              </div>
-            </div>
-
-            <div className="p-2.5 bg-slate-800/80 border border-slate-800 flex items-start gap-2.5">
-              <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                4
-              </span>
-              <div>
-                <strong className="text-white block">
-                  Push to Cloud Remote
-                </strong>
-                <code className="text-amber-400  text-[11px] bg-slate-900 px-1 py-0.5 border border-slate-800">
-                  git push origin &lt;branch-name&gt;
-                </code>
-                <span className="text-slate-400 block mt-0.5 text-[11px]">
-                  Back up your code on GitHub and trigger automated CI test
-                  runs.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/git_lifecycle_states.jpg"
-                alt="Git File Lifecycle States"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>
-                File States: Untracked → Unmodified → Modified → Staged
-              </span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Lifecycle
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 10: Working with Remote Branches
-export function Slide10({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 05 • DAILY WORKFLOW
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Working with Remote Branches
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Isolating feature development and publishing branch pointers to the
-            cloud
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/10 text-blue-400 ">
-            Branch Model
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-            <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                <span className="text-[11px] text-slate-400 ml-1">
-                  Terminal: Feature Branch Workflow
-                </span>
-              </div>
-              <button
-                className="copy-btn text-[11px] px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
-                data-copy="git checkout -b feature/auth&#10;git push -u origin feature/auth&#10;git branch -a"
-              >
-                Copy
-              </button>
-            </div>
-            <div className="p-3 text-slate-200 leading-relaxed  text-xs flex flex-col gap-1.5">
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  git checkout -b feature/auth
-                </span>
-              </div>
-              <div className="text-slate-400 text-[11px]">
-                Switched to a new branch 'feature/auth'
-              </div>
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  git push -u origin feature/auth
-                </span>
-              </div>
-              <div className="text-emerald-400 text-[11px]">
-                * [new branch] feature/auth -&gt; feature/auth
-              </div>
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">git branch -a</span>
-              </div>
-              <div className="text-slate-400 text-[11px]">* feature/auth</div>
-              <div className="text-slate-400 text-[11px]"> main</div>
-              <div className="text-purple-400 text-[11px]">
-                {" "}
-                remotes/origin/main
-              </div>
-              <div className="text-purple-400 text-[11px]">
-                {" "}
-                remotes/origin/feature/auth
-              </div>
-            </div>
-          </div>
-
-          <div className="alert-callout info flex items-start gap-2.5 p-3 border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[12px] leading-relaxed">
-            <div>
-              Never push directly to <code className=" text-white">main</code>{" "}
-              in a production repo. Always build features in their own branch
-              and submit a Pull Request.
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/git_branch_model.jpg"
-                alt="Git Branching Model Diagram"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Branch Pointer Architecture: Main vs Feature Line</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Branch Architecture
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 11: Pull Requests (PR): The Heart of GitHub Collaboration
-export function Slide11({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 06 • PULL REQUESTS
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Pull Requests (PR): The Heart of GitHub Collaboration
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Proposing code changes, requesting team reviews, and automated
-            verification
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-            Open PR
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-            <h4 className="text-white text-sm font-bold m-0">
-              What is a Pull Request?
-            </h4>
-            <p className="text-xs text-slate-300 m-0">
-              A Pull Request is a formal request to "pull" your feature branch
-              commits into the main branch. It provides a dedicated
-              collaborative space for code inspection before production release.
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+              <code className="font-mono text-[11px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">-u</code> stands for <code className="font-mono text-[11px]">--set-upstream</code>. It links your local <code className="font-mono text-[11px]">main</code> to the remote <code className="font-mono text-[11px]">origin/main</code>. After this initial command, you simply type <code className="font-mono text-[11px] font-bold text-purple-600 dark:text-purple-400">git push</code> or <code className="font-mono text-[11px] font-bold text-purple-600 dark:text-purple-400">git pull</code> without typing branch names!
             </p>
-
-            <div className="grid grid-cols-2 gap-2 mt-1 text-xs">
-              <div className="bg-slate-900 p-2 border border-slate-800 flex flex-col gap-0.5">
-                <span className="text-purple-400  text-[11px] font-bold">
-                  Base Branch
-                </span>
-                <span className="text-slate-300">
-                  Target branch to receive changes (e.g.,{" "}
-                  <code className="text-emerald-400 ">main</code>).
-                </span>
-              </div>
-              <div className="bg-slate-900 p-2 border border-slate-800 flex flex-col gap-0.5">
-                <span className="text-blue-400  text-[11px] font-bold">
-                  Compare Branch
-                </span>
-                <span className="text-slate-300">
-                  Source branch containing your commits (
-                  <code className="text-blue-400 ">feature/auth</code>).
-                </span>
-              </div>
-            </div>
           </div>
 
-          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12px] leading-relaxed">
-            <div>
-              <strong>PR Anatomy:</strong> A great PR includes a clear summary
-              title, screenshots of UI changes, checklist of tested items, and
-              tagged reviewers for sign-off.
+          <div className="p-3 rounded bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-900/50 text-sky-900 dark:text-sky-300 text-xs flex items-start gap-2.5 shadow-xs">
+            <FileCode className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="font-bold text-sky-950 dark:text-sky-200 block mb-0.5">Cloning an Existing Project:</strong>
+              When joining an existing team, you do not initialize from scratch. Run <code className="font-mono font-semibold">git clone &lt;URL&gt;</code>. It downloads the entire repository, creates all branches, and configures <code className="font-mono">origin</code> automatically.
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github/github_pr_review_ui.jpg"
-                alt="GitHub Pull Request Review Interface"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>
-                Pull Request #147: Reviewers, Checks &amp; Merge Button
-              </span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-                PR #147 Open
-              </span>
-            </div>
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="h-[210px] sm:h-[240px] min-h-0">
+            <ImageFrame
+              src="/images/github_new_repo_ui.jpg"
+              alt="GitHub New Repository Creation Interface"
+              caption="GitHub repository creation interface with README, .gitignore, and License presets"
+              badge="Repository Setup"
+            />
           </div>
+
+          <TerminalBlock
+            title="bash — Publishing &amp; Cloning Code"
+            copyText={`git remote add origin git@github.com:developer/awesome-app.git\ngit branch -M main\ngit push -u origin main\n\n# Or clone existing repository:\ngit clone git@github.com:developer/awesome-app.git\ncd awesome-app`}
+          >
+            <div className="flex flex-col gap-1 font-mono text-xs">
+              <div className="text-slate-400 text-[11px]"># Scenario A: Link &amp; push existing local project</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git remote add origin git@github.com:dev/app.git</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git branch -M main</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git push -u origin main</span>
+              </div>
+              <div className="text-emerald-300 text-[11px] pl-3 border-l-2 border-emerald-500/50 my-1">
+                Enumerating objects: 12, done.<br />
+                To github.com:dev/app.git<br />
+                &nbsp;* [new branch]      main -&gt; main<br />
+                Branch 'main' set up to track remote branch 'main' from 'origin'.
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># Scenario B: Clone existing cloud repo to your laptop</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git clone git@github.com:dev/app.git</span>
+              </div>
+              <div className="text-slate-400 text-[11px] pl-3 border-l-2 border-slate-700">
+                Cloning into 'app'... done.
+              </div>
+            </div>
+          </TerminalBlock>
         </div>
       </div>
     </div>
   );
 }
 
-// Slide 12: Conducting Professional Code Reviews
-export function Slide12({ onStart, onRestart }) {
+// -------------------------------------------------------------
+// SLIDE 4: Daily Team Rhythm: Syncing, Remote Branches & Fetch vs Pull
+// -------------------------------------------------------------
+export function Slide4DailyTeamRhythm() {
   return (
     <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 06 • PULL REQUESTS
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Conducting Professional Code Reviews
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Reviewing line-by-line diffs, leaving comments, and suggesting fixes
-          </p>
+      <SlideHeader
+        slideNum={4}
+        totalSlides={8}
+        badgeText="DAILY WORKFLOW"
+        title="Daily Team Rhythm: Push, Pull & Remote Branches"
+        subtitle="Master the team synchronization loop: pushing feature branches, tracking remote branches, and git fetch vs git pull."
+        badgeColor="purple"
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <History className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              The Developer's Daily Collaboration Loop
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white">1. Start of Day</span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Switch to <code className="font-mono text-[10px]">main</code> and pull latest updates from your team before writing any new code.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white">2. Feature Branch</span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Branch off: <code className="font-mono text-[10px]">git switch -c feature/payment</code>. Never commit directly to main!
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white">3. Atomic Commits</span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Stage and commit small, verifiable chunks of work with concise imperative messages.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white">4. Push &amp; Open PR</span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Push branch to GitHub with <code className="font-mono text-[10px]">-u</code> and create a Pull Request for team code review.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <RotateCcw className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              The Critical Difference: <code className="font-mono font-semibold">fetch</code> vs. <code className="font-mono font-semibold">pull</code>
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div className="p-2.5 rounded bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-900/50 flex flex-col gap-1">
+                <span className="font-bold text-sky-800 dark:text-sky-300">git fetch (Safe Inspection)</span>
+                <p className="text-[11px] text-sky-900 dark:text-sky-300 leading-relaxed m-0">
+                  Downloads new commits and branches into <code className="font-mono text-[10px]">origin/main</code>. <strong>Zero modifications</strong> to your working files.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 flex flex-col gap-1">
+                <span className="font-bold text-purple-800 dark:text-purple-300">git pull (Fetch + Merge)</span>
+                <p className="text-[11px] text-purple-900 dark:text-purple-300 leading-relaxed m-0">
+                  Runs <code className="font-mono text-[10px]">git fetch</code> then immediately merges into your current branch. Can trigger surprise merge conflicts.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3 rounded bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 text-purple-900 dark:text-purple-300 text-xs flex items-start gap-2.5 shadow-xs">
+            <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="font-bold text-purple-950 dark:text-purple-200 block mb-0.5">Pro Tip: Clean Stale Remote Branches</strong>
+              When teammates merge and delete branches on GitHub, run <code className="font-mono font-semibold">git fetch --prune</code> to instantly clean up local tracking references for deleted cloud branches.
+            </div>
+          </div>
         </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            Diff &amp; Review
-          </span>
+
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="h-[210px] sm:h-[240px] min-h-0">
+            <ImageFrame
+              src="/images/git/github_collaboration_workflow.jpg"
+              alt="GitHub Collaboration Team Workflow"
+              caption="Engineers pulling updates and pushing feature branches to central GitHub"
+              badge="Daily Rhythm"
+            />
+          </div>
+
+          <TerminalBlock
+            title="bash — Daily Team Synchronization Commands"
+            copyText={`git fetch origin --prune\ngit switch -c feature/dark-mode\ngit push -u origin feature/dark-mode\ngit branch -a\ngit push origin --delete feature/dark-mode`}
+          >
+            <div className="flex flex-col gap-1 font-mono text-xs">
+              <div className="text-slate-400 text-[11px]"># 1. Fetch latest commits without modifying files &amp; prune deleted branches</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git fetch origin --prune</span>
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># 2. Push a new feature branch and link upstream tracking</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git push -u origin feature/dark-mode</span>
+              </div>
+              <div className="text-emerald-300 text-[11px] pl-3 border-l-2 border-emerald-500/50">
+                * [new branch]      feature/dark-mode -&gt; feature/dark-mode
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># 3. View all local and remote branches</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git branch -a</span>
+              </div>
+              <div className="text-slate-400 text-[11px] pl-3 border-l-2 border-slate-700">
+                * main<br />
+                &nbsp;&nbsp;feature/dark-mode<br />
+                &nbsp;&nbsp;<span className="text-rose-400">remotes/origin/main</span><br />
+                &nbsp;&nbsp;<span className="text-rose-400">remotes/origin/feature/dark-mode</span>
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># 4. Clean up remote branch after PR is merged</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git push origin --delete feature/dark-mode</span>
+              </div>
+            </div>
+          </TerminalBlock>
         </div>
       </div>
+    </div>
+  );
+}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-            <h4 className="text-white text-sm font-bold m-0">
-              The 3 Types of Review Verdicts
+// -------------------------------------------------------------
+// SLIDE 5: Pull Requests & Collaborative Code Reviews
+// -------------------------------------------------------------
+export function Slide5PullRequestsReview() {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <SlideHeader
+        slideNum={5}
+        totalSlides={8}
+        badgeText="COLLABORATION & PR"
+        title="Pull Requests & Collaborative Code Reviews"
+        subtitle="The heartbeat of modern engineering: writing high-impact PRs, reviewing line diffs, and submitting actionable feedback."
+        badgeColor="purple"
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <GitPullRequest className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              Anatomy of an Outstanding Pull Request
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1">
+                  1. Context &amp; Why
+                </span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Explain the business reason for the change, not just what was coded. Include UI screenshots or video for visual changes.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1">
+                  2. Linked Issues
+                </span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Use keywords like <code className="font-mono text-purple-600 dark:text-purple-400 font-semibold text-[10px]">Fixes #42</code> to automatically close related issues upon merge.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1">
+                  3. Compact Scope
+                </span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Keep PRs under 400 lines of diff. Small PRs are reviewed 2x faster and receive significantly deeper review quality.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1">
+                  4. Draft PRs
+                </span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Open as "Draft" while in progress to get early architectural feedback without triggering notifications for senior reviewers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Eye className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              The 3 GitHub Review Verdicts
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <span className="font-bold text-slate-700 dark:text-slate-300 text-[11px]">Comment</span>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug m-0">
+                  Submit general feedback or questions without formally approving or blocking.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 flex flex-col gap-1">
+                <span className="font-bold text-emerald-800 dark:text-emerald-300 text-[11px]">Approve</span>
+                <p className="text-[11px] text-emerald-900 dark:text-emerald-300 leading-snug m-0">
+                  Signs off on the implementation. Clears the branch protection requirement for merge.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 flex flex-col gap-1">
+                <span className="font-bold text-rose-800 dark:text-rose-300 text-[11px]">Request Changes</span>
+                <p className="text-[11px] text-rose-900 dark:text-rose-300 leading-snug m-0">
+                  Blocks merging until critical security, performance, or logic issues are resolved.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3 rounded bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 text-purple-900 dark:text-purple-300 text-xs flex items-start gap-2.5 shadow-xs">
+            <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="font-bold text-purple-950 dark:text-purple-200 block mb-0.5">Code Suggestion Blocks:</strong>
+              Reviewers can write markdown suggestion blocks (<code className="font-mono text-purple-700 dark:text-purple-300 font-bold">```suggestion</code>) directly in line comments. The author can accept the fix with a single click as an automated commit!
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="h-[230px] sm:h-[260px] min-h-0">
+            <ImageFrame
+              src="/images/github/github_pr_review_ui.jpg"
+              alt="GitHub Pull Request Code Review Interface"
+              caption="GitHub PR review diff view with inline line comments and approval submission"
+              badge="Code Review UI"
+            />
+          </div>
+
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Users className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              Professional Code Review Etiquette
             </h4>
             <div className="flex flex-col gap-2 text-xs">
-              <div className="p-2 bg-slate-900 border border-emerald-500/30 flex items-start gap-2">
-                <span className="text-emerald-400 font-bold text-sm">✓</span>
-                <div>
-                  <strong className="text-emerald-300">Approve</strong>
-                  <span className="text-slate-400 block text-[11px]">
-                    Code is thoroughly tested, meets security standards, and is
-                    approved to merge.
-                  </span>
-                </div>
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
+                <span className="text-slate-600 dark:text-slate-300">
+                  <strong>Prefix non-blockers with "nit:":</strong> E.g., <code className="font-mono text-[10px] bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">nit: consider extracting to helper function</code> so the author knows it's optional.
+                </span>
               </div>
-              <div className="p-2 bg-slate-900 border border-red-500/30 flex items-start gap-2">
-                <span className="text-red-400 font-bold text-sm">✗</span>
-                <div>
-                  <strong className="text-red-300">Request Changes</strong>
-                  <span className="text-slate-400 block text-[11px]">
-                    Blocks merge until developer addresses critical bugs, test
-                    failures, or design issues.
-                  </span>
-                </div>
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
+                <span className="text-slate-600 dark:text-slate-300">
+                  <strong>Praise great solutions:</strong> Acknowledge clean architecture and clever optimizations, not just bugs.
+                </span>
               </div>
-              <div className="p-2 bg-slate-900 border border-slate-800 flex items-start gap-2">
-                <span className="text-blue-400 font-bold text-sm">💬</span>
-                <div>
-                  <strong className="text-blue-300">Comment</strong>
-                  <span className="text-slate-400 block text-[11px]">
-                    General feedback or questions without blocking the merge
-                    pipeline.
-                  </span>
-                </div>
+              <div className="flex items-start gap-2">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
+                <span className="text-slate-600 dark:text-slate-300">
+                  <strong>Explain the "why":</strong> Instead of "Change this to map()", explain "Using map() avoids mutating state directly".
+                </span>
               </div>
-            </div>
-          </div>
-
-          <div className="alert-callout info flex items-start gap-2.5 p-3 border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[12px] leading-relaxed">
-            <div>
-              <strong>Suggest Change Feature:</strong> Reviewers can click the{" "}
-              <code className="bg-slate-900 text-purple-300 px-1 ">+/-</code>{" "}
-              icon on any line to submit suggested code edits that the author
-              can commit with a single click.
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github/github_pr_review_ui.jpg"
-                alt="GitHub Code Review Diff View"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Inline Comments, Line Diffs &amp; Automated Checks</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Code Review
-              </span>
             </div>
           </div>
         </div>
@@ -1320,1058 +683,224 @@ export function Slide12({ onStart, onRestart }) {
   );
 }
 
-// Slide 13: Merging Strategies: Merge Commit vs. Squash vs. Rebase
-export function Slide13({ onStart, onRestart }) {
+// -------------------------------------------------------------
+// SLIDE 6: Merge Strategies, Conflict Resolution & Forking
+// -------------------------------------------------------------
+export function Slide6MergeStrategiesForking() {
   return (
     <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 06 • PULL REQUESTS
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Merging Strategies: Merge Commit vs. Squash vs. Rebase
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Choosing the right merge technique to maintain a pristine production
-            history
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            3 Merge Types
-          </span>
-        </div>
-      </div>
+      <SlideHeader
+        slideNum={6}
+        totalSlides={8}
+        badgeText="MERGING & OPEN SOURCE"
+        title="Merge Strategies, Conflict Resolution & Forking"
+        subtitle="Comparing the 3 GitHub merge strategies, resolving remote conflicts, and contributing via the Open Source Fork workflow."
+        badgeColor="purple"
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-col gap-2 text-xs">
-            <div className="p-2.5 bg-slate-800/80 border border-slate-800 flex flex-col gap-1">
-              <div className="flex items-center justify-between">
-                <strong className="text-white text-xs">
-                  1. Create a Merge Commit
-                </strong>
-                <span className="text-purple-400  text-[11px]">
-                  git merge --no-ff
-                </span>
-              </div>
-              <p className="text-slate-300 text-[11px] m-0">
-                Preserves every individual commit from the feature branch.
-                Creates a 2-parent merge commit on{" "}
-                <code className="text-emerald-400 ">main</code>. Can make
-                history busy if branches have many "wip" commits.
-              </p>
-            </div>
-
-            <div className="p-2.5 bg-slate-800/80 border border-emerald-500/30 bg-emerald-900/20 flex flex-col gap-1">
-              <div className="flex items-center justify-between">
-                <strong className="text-emerald-300 text-xs">
-                  2. Squash and Merge (Industry Favorite)
-                </strong>
-                <span className="text-emerald-400  text-[11px]">
-                  Recommended
-                </span>
-              </div>
-              <p className="text-slate-300 text-[11px] m-0">
-                Squashes 10 messy feature commits ("fixed typo", "debug
-                logging") into <strong>1 clean commit</strong> on{" "}
-                <code className="text-emerald-400 ">main</code>. Perfect for
-                clean Git logs and atomic rollbacks.
-              </p>
-            </div>
-
-            <div className="p-2.5 bg-slate-800/80 border border-slate-800 flex flex-col gap-1">
-              <div className="flex items-center justify-between">
-                <strong className="text-white text-xs">
-                  3. Rebase and Merge
-                </strong>
-                <span className="text-blue-400  text-[11px]">
-                  Linear History
-                </span>
-              </div>
-              <p className="text-slate-300 text-[11px] m-0">
-                Appends individual commits directly onto tip of{" "}
-                <code className="text-emerald-400 ">main</code> without a merge
-                commit. Produces a 100% linear history.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/git_commit_snapshots.jpg"
-                alt="Git Commit Snapshot Architecture"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Commit Tree Structure &amp; Snapshot History</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Commit Graph
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 14: Cloning Existing Repositories: git clone
-export function Slide14({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 07 • CLONING &amp; CONTRIBUTING
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Cloning Existing Repositories: git clone
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Downloading an existing remote project with full commit history
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-500/10 text-blue-400 ">
-            git clone
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-            <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                <span className="text-[11px] text-slate-400 ml-1">
-                  Terminal: Clone Project
-                </span>
-              </div>
-              <button
-                className="copy-btn text-[11px] px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
-                data-copy="git clone git@github.com:acme-corp/web-app.git&#10;cd web-app&#10;git status"
-              >
-                Copy
-              </button>
-            </div>
-            <div className="p-3 text-slate-200 leading-relaxed  text-xs flex flex-col gap-1.5">
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  git clone git@github.com:acme-corp/web-app.git
-                </span>
-              </div>
-              <div className="text-slate-400 text-[11px]">
-                Cloning into 'web-app'...
-              </div>
-              <div className="text-slate-400 text-[11px]">
-                Receiving objects: 100% (452/452), 1.82 MiB | 4.12 MiB/s, done.
-              </div>
-              <div className="text-slate-400 text-[11px]">
-                Resolving deltas: 100% (210/210), done.
-              </div>
-              <div>
-                <span className="text-blue-500 select-none mr-2">$</span>
-                <span className="text-white font-bold">
-                  cd web-app &amp;&amp; git status
-                </span>
-              </div>
-              <div className="text-emerald-400 text-[11px]">
-                On branch main. Your branch is up to date with 'origin/main'.
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-orange-400 font-bold  text-[11px]">
-                git init
-              </span>
-              <span className="text-slate-300">
-                Starts a brand new, empty Git repository from scratch in an
-                existing folder.
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-purple-400 font-bold  text-[11px]">
-                git clone
-              </span>
-              <span className="text-slate-300">
-                Downloads everything, creates directory, sets up remote origin,
-                and checks out main.
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github_repo_view.jpg"
-                alt="GitHub Clone Modal and Repository Details"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Green Code Button: Clone Modal (HTTPS / SSH / CLI)</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Clone URL
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 15: Forks & Open Source Contribution Workflow
-export function Slide15({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 07 • CLONING &amp; CONTRIBUTING
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Forks &amp; Open Source Contribution Workflow
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Contributing to public repositories you don't own with upstream sync
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            Fork &amp; Upstream
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-            <h4 className="text-white text-sm font-bold m-0">
-              5-Step Open Source Contribution Cycle
-            </h4>
-            <ul className="text-xs text-slate-300 flex flex-col gap-1.5 p-0 m-0 list-none">
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  1
-                </span>{" "}
-                <strong>Fork:</strong> Click "Fork" on GitHub to make a personal
-                copy in your account.
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  2
-                </span>{" "}
-                <strong>Clone:</strong> Clone your personal fork to your
-                computer:{" "}
-                <code className="text-purple-300 ">
-                  git clone &lt;fork-url&gt;
-                </code>
-                .
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  3
-                </span>{" "}
-                <strong>Add Upstream:</strong>{" "}
-                <code className="text-blue-300 ">
-                  git remote add upstream &lt;original-repo-url&gt;
-                </code>
-                .
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  4
-                </span>{" "}
-                <strong>Branch &amp; Push:</strong>{" "}
-                <code className="text-emerald-300 ">
-                  git checkout -b fix-bug
-                </code>
-                , commit, and push to your fork.
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center  font-bold text-[11px] shrink-0">
-                  5
-                </span>{" "}
-                <strong>Open PR:</strong> Submit a Pull Request from your fork
-                back to the upstream repo!
-              </li>
-            </ul>
-          </div>
-
-          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12px] leading-relaxed">
-            <div>
-              <strong>Syncing your fork:</strong> Run{" "}
-              <code className=" text-blue-300 bg-slate-900 px-1">
-                git fetch upstream &amp;&amp; git merge upstream/main
-              </code>{" "}
-              to keep your personal fork up to date with new releases from the
-              main team.
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github/github_fork_sync_diagram.jpg"
-                alt="GitHub Fork and Upstream Sync Architecture"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Upstream Organization ↔ Personal Fork ↔ Local Clone</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Architecture
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 16: Resolving Merge Conflicts on GitHub & Locally
-export function Slide16({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 08 • CONFLICT RESOLUTION
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Resolving Merge Conflicts on GitHub &amp; Locally
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Understanding conflicting changes when team members edit the same
-            lines of code
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 ">
-            Conflict Fix
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-            <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-              <span className="text-[11px] text-amber-400 font-bold">
-                Conflict Markers in File
-              </span>
-              <span className="text-[11px] text-slate-400 ">app.js</span>
-            </div>
-            <div className="p-3 text-slate-200 leading-relaxed  text-xs flex flex-col gap-1">
-              <div className="text-blue-400 font-bold">
-                &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (Current Change - Your Branch)
-              </div>
-              <div className="text-slate-100 bg-blue-900/40 p-1 border border-blue-500/30">
-                const port = process.env.PORT || 3000;
-              </div>
-              <div className="text-slate-400 font-bold">======= (Divider)</div>
-              <div className="text-slate-100 bg-purple-900/40 p-1 border border-purple-500/30">
-                const port = process.env.PORT || 8080;
-              </div>
-              <div className="text-purple-400 font-bold">
-                &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main (Incoming Change -
-                Teammate)
-              </div>
-            </div>
-          </div>
-
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3 text-xs flex flex-col gap-1.5">
-            <strong className="text-white">Resolution in 3 Steps:</strong>
-            <span className="text-slate-300">
-              1. Decide which version to keep (or combine both).
-            </span>
-            <span className="text-slate-300">
-              2. Delete all marker lines (
-              <code className="text-red-400 ">
-                &lt;&lt;&lt;&lt;&lt;&lt;&lt;
-              </code>
-              , <code className="text-slate-400 ">=======</code>,{" "}
-              <code className="text-purple-400 ">
-                &gt;&gt;&gt;&gt;&gt;&gt;&gt;
-              </code>
-              ).
-            </span>
-            <span className="text-slate-300">
-              3. Run{" "}
-              <code className="text-emerald-400  bg-slate-900 px-1">
-                git add . &amp;&amp; git commit -m "fix: resolve port conflict"
-                &amp;&amp; git push
-              </code>
-              .
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/git_conflict_editor.jpg"
-                alt="Merge Conflict Visual Editor"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Visual Conflict Editor: Accept Current vs Incoming</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 ">
-                Resolved
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 17: Protecting Production: Branch Protection Rules
-export function Slide17({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 09 • REPO GOVERNANCE
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Protecting Production: Branch Protection Rules
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Enforcing code quality, approvals, and preventing accidental main
-            overwrites
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-            Protected Branch
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-            <h4 className="text-white text-sm font-bold m-0">
-              4 Essential Production Rules
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <GitMerge className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              The 3 GitHub Merge Strategies
             </h4>
             <div className="flex flex-col gap-2 text-xs">
-              <div className="p-2 bg-slate-900 border border-slate-800 flex items-start gap-2">
-                <span className="text-emerald-400 font-bold text-sm">🛡️</span>
-                <div>
-                  <strong className="text-white">
-                    Require a pull request before merging
-                  </strong>
-                  <span className="text-slate-400 block text-[11px]">
-                    Prevents any developer from pushing directly to main.
-                  </span>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <div className="flex items-center justify-between">
+                  <strong className="text-slate-900 dark:text-white">1. Create a Merge Commit</strong>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded font-mono bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300">git merge --no-ff</span>
                 </div>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Preserves every commit on the feature branch. Creates a 2-parent merge commit on <code className="font-mono text-[10px]">main</code>. Complete history, but can clutter commit graph.
+                </p>
               </div>
-              <div className="p-2 bg-slate-900 border border-slate-800 flex items-start gap-2">
-                <span className="text-blue-400 font-bold text-sm">👥</span>
-                <div>
-                  <strong className="text-white">
-                    Require Approvals (1 or 2 peers)
-                  </strong>
-                  <span className="text-slate-400 block text-[11px]">
-                    Guarantees at least one team engineer reviewed the code.
-                  </span>
+
+              <div className="p-2.5 rounded bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 flex flex-col gap-1">
+                <div className="flex items-center justify-between">
+                  <strong className="text-purple-950 dark:text-purple-200 font-bold">2. Squash and Merge (Industry Favorite)</strong>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded font-mono bg-purple-200/60 dark:bg-purple-800/40 text-purple-800 dark:text-purple-300 font-bold">git merge --squash</span>
                 </div>
+                <p className="text-[11px] text-purple-900 dark:text-purple-300 leading-snug m-0">
+                  Combines all 10 feature commits into 1 clean atomic commit on <code className="font-mono text-[10px]">main</code>. Keeps production history pristine, easy to read, and simple to revert.
+                </p>
               </div>
-              <div className="p-2 bg-slate-900 border border-slate-800 flex items-start gap-2">
-                <span className="text-purple-400 font-bold text-sm">⚡</span>
-                <div>
-                  <strong className="text-white">
-                    Require status checks to pass (CI)
-                  </strong>
-                  <span className="text-slate-400 block text-[11px]">
-                    Unit tests, builds, and TypeScript compilation must succeed.
-                  </span>
+
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <div className="flex items-center justify-between">
+                  <strong className="text-slate-900 dark:text-white">3. Rebase and Merge</strong>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded font-mono bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300">git rebase</span>
                 </div>
-              </div>
-              <div className="p-2 bg-slate-900 border border-slate-800 flex items-start gap-2">
-                <span className="text-red-400 font-bold text-sm">🚫</span>
-                <div>
-                  <strong className="text-white">
-                    Block Force-Pushes &amp; Deletions
-                  </strong>
-                  <span className="text-slate-400 block text-[11px]">
-                    Protects the Git history from accidental deletion or
-                    destructive resets.
-                  </span>
-                </div>
+                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug m-0">
+                  Fast-forwards commits individually onto the tip of <code className="font-mono text-[10px]">main</code> without a merge commit. Produces a 100% linear history.
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12px] leading-relaxed">
-            <div>
-              Settings Location:{" "}
-              <strong>
-                Repo Settings → Branches → Add branch protection rule → Target:
-                main
-              </strong>
-              .
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github/github_branch_protect_ui.jpg"
-                alt="GitHub Branch Protection Rules Settings UI"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Branch Protection Rules Configuration Panel</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-                Enterprise Rules
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 18: GitHub Issues, Milestones & Projects (Kanban)
-export function Slide18({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 09 • REPO GOVERNANCE
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            GitHub Issues, Milestones &amp; Projects (Kanban)
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Organizing team sprints, tracking bugs, and linking PRs to issues
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-            Kanban Board
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-purple-400 font-bold  text-[11px]">
-                1. GitHub Issues
-              </span>
-              <span className="text-slate-300">
-                Track tasks, bugs, and feature ideas with Markdown task lists
-                and user @mentions.
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-blue-400 font-bold  text-[11px]">
-                2. Labels &amp; Milestones
-              </span>
-              <span className="text-slate-300">
-                Categorize with color tags (
-                <code className="text-red-400 ">bug</code>,{" "}
-                <code className="text-blue-400 ">feature</code>) and sprint
-                deadline target dates.
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-emerald-400 font-bold  text-[11px]">
-                3. Auto-Closing Keywords
-              </span>
-              <span className="text-slate-300">
-                Write <code className="text-emerald-300 ">Closes #42</code> in a
-                PR to automatically close the issue upon merge!
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2.5 flex flex-col gap-1">
-              <span className="text-amber-400 font-bold  text-[11px]">
-                4. GitHub Projects
-              </span>
-              <span className="text-slate-300">
-                Agile Kanban board with columns: Todo, In Progress, In Review,
-                and Done.
-              </span>
-            </div>
-          </div>
-
-          <div className="alert-callout info flex items-start gap-2.5 p-3 border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[12px] leading-relaxed">
-            <div>
-              Modern engineering teams run their complete agile sprint planning
-              directly inside GitHub Projects alongside code and PRs.
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github/github_issues_kanban.jpg"
-                alt="GitHub Projects Kanban Board Dashboard"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>
-                Sprint Board: Todo, In Progress, Done with Issue Cards
-              </span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Sprint Active
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 19: GitHub Actions: Automated Continuous Integration
-export function Slide19({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 10 • AUTOMATION (CI/CD)
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            GitHub Actions: Automated Continuous Integration
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Automatically running tests and builds on every push and pull
-            request
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-            CI/CD Pipeline
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-            <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-              <span className="text-[11px] text-slate-400 ">
-                .github/workflows/ci.yml
-              </span>
-              <button
-                className="copy-btn text-[11px] px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
-                data-copy="name: CI Tests&#10;on: [push, pull_request]&#10;jobs:&#10;  build:&#10;    runs-on: ubuntu-latest&#10;    steps:&#10;      - uses: actions/checkout@v4&#10;      - uses: actions/setup-node@v4&#10;        with:&#10;          node-version: 20&#10;      - run: pnpm install&#10;      - run: pnpm test"
-              >
-                Copy
-              </button>
-            </div>
-            <div className="p-3 text-slate-200 leading-relaxed  text-[11.5px] flex flex-col gap-1">
-              <div>
-                <span className="text-purple-400">name:</span> CI Tests
-              </div>
-              <div>
-                <span className="text-purple-400">on:</span> [push,
-                pull_request]
-              </div>
-              <div>
-                <span className="text-purple-400">jobs:</span>
-              </div>
-              <div className="ml-2">
-                <span className="text-blue-400">test:</span>
-              </div>
-              <div className="ml-4">
-                <span className="text-slate-400">runs-on:</span> ubuntu-latest
-              </div>
-              <div className="ml-4">
-                <span className="text-slate-400">steps:</span>
-              </div>
-              <div className="ml-6 text-emerald-400">
-                - uses: actions/checkout@v4
-              </div>
-              <div className="ml-6 text-emerald-400">
-                - uses: actions/setup-node@v4
-              </div>
-              <div className="ml-6 text-sky-300">
-                - run: pnpm install &amp;&amp; pnpm test
-              </div>
-            </div>
-          </div>
-
-          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12px] leading-relaxed">
-            <div>
-              Every pull request automatically triggers this workflow. If tests
-              fail, GitHub blocks the merge button and notifies the team in real
-              time!
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/github/github_actions_ci_ui.jpg"
-                alt="GitHub Actions CI/CD Pipeline Execution"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Actions Runner: Unit Tests Passed (2m 14s)</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-                Checks Passed
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 20: Security Best Practices: Never Push Secrets to GitHub
-export function Slide20({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 11 • BEST PRACTICES
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Security Best Practices: Never Push Secrets to GitHub
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Protecting API keys, .env files, database credentials, and Git
-            secret scanning
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 ">
-            Security Alert
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-            <div className="flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-              <span className="text-[11px] text-red-400 font-bold">
-                Standard .gitignore for Web Apps
-              </span>
-              <button
-                className="copy-btn text-[11px] px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
-                data-copy=".env&#10;.env*.local&#10;node_modules/&#10;dist/&#10;*.pem&#10;*.key"
-              >
-                Copy
-              </button>
-            </div>
-            <div className="p-3 text-slate-200 leading-relaxed  text-xs flex flex-col gap-1">
-              <div className="text-red-400">
-                # Secrets &amp; Environment Variables (CRITICAL)
-              </div>
-              <div className="text-white">.env</div>
-              <div className="text-white">.env*.local</div>
-              <div className="text-white">*.pem</div>
-              <div className="text-white">*.key</div>
-              <div className="text-slate-500 mt-1">
-                # Dependencies &amp; Build Artifacts
-              </div>
-              <div className="text-slate-400">node_modules/</div>
-              <div className="text-slate-400">dist/</div>
-            </div>
-          </div>
-
-          <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12px] leading-relaxed rounded">
-            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
-            <div>
-              <strong>Accidentally Pushed a Key?</strong> Simply deleting the
-              file in the next commit leaves the key in past Git history!{" "}
-              <strong>Immediately revoke &amp; regenerate</strong> the API key
-              on OpenAI / Stripe / AWS console!
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/git_gitignore_flow.jpg"
-                alt="Gitignore Flow and Untracked Files"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>.gitignore Filter: Untracked vs Tracked Pipeline</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 ">
-                Filtered
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 21: Top 5 GitHub Beginner Errors & Instant Fixes
-export function Slide21({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 11 • BEST PRACTICES
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            Top 5 GitHub Beginner Errors &amp; Instant Fixes
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            Practical troubleshooting solutions for the most frequent command
-            errors
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 ">
-            Troubleshooting
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-2 text-xs">
-          <div className="p-2 bg-slate-800/80 border border-slate-800 flex flex-col gap-0.5">
-            <span className="text-red-400  font-bold text-[11px]">
-              1. "error: failed to push some refs"
-            </span>
-            <span className="text-slate-300">
-              Remote has commits you don't have. <strong>Fix:</strong>{" "}
-              <code className="text-emerald-300  bg-slate-900 px-1">
-                git pull --rebase origin main
-              </code>{" "}
-              then push.
-            </span>
-          </div>
-
-          <div className="p-2 bg-slate-800/80 border border-slate-800 flex flex-col gap-0.5">
-            <span className="text-amber-400  font-bold text-[11px]">
-              2. "fatal: remote origin already exists"
-            </span>
-            <span className="text-slate-300">
-              Remote URL registered twice. <strong>Fix:</strong>{" "}
-              <code className="text-emerald-300  bg-slate-900 px-1">
-                git remote set-url origin &lt;new-url&gt;
-              </code>
-              .
-            </span>
-          </div>
-
-          <div className="p-2 bg-slate-800/80 border border-slate-800 flex flex-col gap-0.5">
-            <span className="text-sky-400  font-bold text-[11px]">
-              3. Commits not linked to your GitHub avatar
-            </span>
-            <span className="text-slate-300">
-              Config email doesn't match GitHub. <strong>Fix:</strong>{" "}
-              <code className="text-emerald-300  bg-slate-900 px-1">
-                git config --global user.email "your@github.com"
-              </code>
-              .
-            </span>
-          </div>
-
-          <div className="p-2 bg-slate-800/80 border border-slate-800 flex flex-col gap-0.5">
-            <span className="text-purple-400  font-bold text-[11px]">
-              4. "Support for password authentication was removed"
-            </span>
-            <span className="text-slate-300">
-              GitHub requires SSH or PAT. <strong>Fix:</strong> Add SSH key or
-              Personal Access Token.
-            </span>
-          </div>
-
-          <div className="p-2 bg-slate-800/80 border border-slate-800 flex flex-col gap-0.5">
-            <span className="text-emerald-400  font-bold text-[11px]">
-              5. Safely undoing a pushed bad commit
-            </span>
-            <span className="text-slate-300">
-              Never force push on shared branches. <strong>Fix:</strong>{" "}
-              <code className="text-emerald-300  bg-slate-900 px-1">
-                git revert &lt;commit-hash&gt; &amp;&amp; git push
-              </code>
-              .
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/git_undo_matrix.jpg"
-                alt="Git Undo Matrix Decision Flowchart"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
-            </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Git Undo Decision Tree: Restore vs Reset vs Revert</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">
-                Recovery Guide
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Slide 22: The Professional GitHub Workflow & Master Cheat Sheet
-export function Slide22({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-        <div className="slide-title-wrap flex flex-col gap-1">
-          <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-purple-400">
-            PART 12 • SUMMARY &amp; LAB
-          </span>
-          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-            The Professional GitHub Workflow &amp; Master Cheat Sheet
-          </h2>
-          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-            End-to-end team workflow diagram and essential command reference
-          </p>
-        </div>
-        <div className="slide-badge-group flex items-center gap-2">
-          <span className="tag-badge text-[11px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-            Module 02 Complete
-          </span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-        <div className="flex flex-col gap-3">
-          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2">
-            <h4 className="text-white text-sm font-bold m-0 flex items-center gap-2">
-              <span className="text-purple-400">★</span> The Golden Team
-              Collaboration Cycle
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              Resolving Conflicts on GitHub vs. Locally
             </h4>
-            <div className="p-2.5 bg-slate-900 border border-slate-800  text-xs text-slate-300 leading-relaxed">
-              <span className="text-blue-400">1.</span> git checkout -b
-              feat/task
-              <br />
-              <span className="text-blue-400">2.</span> git add . &amp;&amp; git
-              commit -m "feat: task"
-              <br />
-              <span className="text-blue-400">3.</span> git push -u origin
-              feat/task
-              <br />
-              <span className="text-purple-400">4.</span> Open Pull Request on
-              GitHub
-              <br />
-              <span className="text-emerald-400">5.</span> Peer Review &amp; CI
-              Checks Pass
-              <br />
-              <span className="text-emerald-400">6.</span> Squash and Merge into
-              main
-              <br />
-              <span className="text-sky-300">7.</span> git checkout main
-              &amp;&amp; git pull
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-2 text-center text-xs">
-            <div className="bg-slate-800/80 border border-slate-800 p-2 flex flex-col gap-0.5">
-              <kbd className="kbd text-purple-400  font-bold">t</kbd>
-              <span className="text-slate-400 text-[10px]">
-                Quick File Search
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2 flex flex-col gap-0.5">
-              <kbd className="kbd text-emerald-400  font-bold">.</kbd>
-              <span className="text-slate-400 text-[10px]">
-                Open VS Code in Browser
-              </span>
-            </div>
-            <div className="bg-slate-800/80 border border-slate-800 p-2 flex flex-col gap-0.5">
-              <kbd className="kbd text-sky-400  font-bold">y</kbd>
-              <span className="text-slate-400 text-[10px]">
-                Permalink Commit SHA
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between pt-1">
-            <a
-              href="#/course/nextjs"
-              className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-600 hover:bg-purple-500 border border-purple-600 text-white text-xs font-bold transition-colors no-underline"
-            >
-              Next Module: Next.js Fullstack →
-            </a>
-            <a
-              href="#/"
-              className="text-xs text-slate-400 hover:text-white transition-colors"
-            >
-              Return to Hub
-            </a>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+              When a PR has conflicts, GitHub displays a warning banner. For simple text conflicts, use GitHub's in-browser conflict editor. For complex conflicts involving tests or logic, pull <code className="font-mono text-[11px]">main</code> into your feature branch locally, resolve in VS Code, test, and push.
+            </p>
           </div>
         </div>
 
-        <div className="flex flex-col flex-1 h-full min-h-0">
-          <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
-            <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-900">
-              <img
-                src="/images/git/github_collaboration_workflow.jpg"
-                alt="GitHub Complete Collaboration Workflow"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
-                loading="lazy"
-              />
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="h-[210px] sm:h-[240px] min-h-0">
+            <ImageFrame
+              src="/images/github/github_fork_sync_diagram.jpg"
+              alt="GitHub Fork and Upstream Sync Diagram"
+              caption="Forking workflow: Syncing your personal fork with the official upstream repository"
+              badge="Fork Workflow"
+            />
+          </div>
+
+          <TerminalBlock
+            title="bash — Syncing a Fork with Upstream"
+            copyText={`git remote add upstream https://github.com/facebook/react.git\ngit fetch upstream\ngit switch main\ngit merge upstream/main\ngit push origin main`}
+          >
+            <div className="flex flex-col gap-1 font-mono text-xs">
+              <div className="text-slate-400 text-[11px]"># 1. Add official parent repository as 'upstream' remote</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git remote add upstream https://github.com/org/repo.git</span>
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># 2. Fetch latest changes from official repo</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git fetch upstream</span>
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># 3. Merge upstream/main into your local main branch</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git switch main &amp;&amp; git merge upstream/main</span>
+              </div>
+              <div className="text-emerald-300 text-[11px] pl-3 border-l-2 border-emerald-500/50">
+                Fast-forward: 4 files changed, 48 insertions(+).
+              </div>
+
+              <div className="text-slate-400 text-[11px] pt-1"># 4. Push synced main to your personal GitHub fork</div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 select-none">$</span>
+                <span className="text-slate-100 font-semibold">git push origin main</span>
+              </div>
             </div>
-            <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
-              <span>Complete GitHub Cloud Collaboration Architecture</span>
-              <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">
-                Mastery
-              </span>
+          </TerminalBlock>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
+// SLIDE 7: Branch Protection, Issues & Project Management
+// -------------------------------------------------------------
+export function Slide7GovernanceProjects() {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <SlideHeader
+        slideNum={7}
+        totalSlides={8}
+        badgeText="REPO GOVERNANCE"
+        title="Branch Protection, Issues & Project Management"
+        subtitle="Safeguard production with branch protection rules, automate issue closing, and manage work with GitHub Projects (Kanban)."
+        badgeColor="purple"
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <ShieldAlert className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              Essential Branch Protection Rules for <code className="font-mono text-purple-600 dark:text-purple-400">main</code>
+            </h4>
+            <div className="flex flex-col gap-2 text-xs">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5">
+                <CheckSquare className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-slate-900 dark:text-white block font-semibold">Require Pull Request Approvals</strong>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400">Blocks anyone from pushing directly to <code className="font-mono">main</code>. Requires at least 1 or 2 peer approvals.</span>
+                </div>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5">
+                <CheckSquare className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-slate-900 dark:text-white block font-semibold">Require Status Checks to Pass</strong>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400">CI test suites, TypeScript compilation, and linters must report green before merge button is enabled.</span>
+                </div>
+              </div>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5">
+                <CheckSquare className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-slate-900 dark:text-white block font-semibold">Block Force Pushes &amp; Deletion</strong>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400">Prevents destructive commands like <code className="font-mono">git push --force</code> from wiping production history.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Sliders className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              GitHub Issues &amp; Magic Closing Keywords
+            </h4>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+              GitHub Issues organize bug reports, feature requests, and milestones. When opening a Pull Request, include magic closing keywords in your PR description:
+            </p>
+            <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
+              <span className="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">Fixes #104</span>
+              <span className="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">Closes #88</span>
+              <span className="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">Resolves #12</span>
+            </div>
+          </div>
+
+          <div className="p-3 rounded bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 text-purple-900 dark:text-purple-300 text-xs flex items-start gap-2.5 shadow-xs">
+            <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="font-bold text-purple-950 dark:text-purple-200 block mb-0.5">GitHub Projects (Kanban):</strong>
+              Built-in project boards link directly with your repository. Automatically moves issue cards from <code className="font-mono">In Progress</code> to <code className="font-mono">Done</code> when the associated PR is merged.
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="h-[230px] sm:h-[260px] min-h-0">
+            <ImageFrame
+              src="/images/github/github_branch_protect_ui.jpg"
+              alt="GitHub Branch Protection Ruleset Settings"
+              caption="Configuring branch protection rules for main: mandatory PRs and status checks"
+              badge="Governance UI"
+            />
+          </div>
+
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              Repository Health Checklist
+            </h4>
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
+                <span className="text-slate-700 dark:text-slate-300">Clear <code className="font-mono text-[10px]">README.md</code></span>
+              </div>
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
+                <span className="text-slate-700 dark:text-slate-300">Clean <code className="font-mono text-[10px]">.gitignore</code></span>
+              </div>
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
+                <span className="text-slate-700 dark:text-slate-300">MIT / Apache License</span>
+              </div>
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
+                <span className="text-slate-700 dark:text-slate-300">Branch rules enabled</span>
+              </div>
             </div>
           </div>
         </div>
@@ -2380,6 +909,118 @@ export function Slide22({ onStart, onRestart }) {
   );
 }
 
+// -------------------------------------------------------------
+// SLIDE 8: GitHub Actions CI/CD & Secret Security
+// -------------------------------------------------------------
+export function Slide8ActionsSecurity() {
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <SlideHeader
+        slideNum={8}
+        totalSlides={8}
+        badgeText="AUTOMATION & SECURITY"
+        title="GitHub Actions CI/CD & Secret Security"
+        subtitle="Automate continuous integration with YAML pipelines, protect API secrets, and avoid common beginner traps."
+        badgeColor="purple"
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Cpu className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              What is GitHub Actions?
+            </h4>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+              GitHub Actions is a built-in CI/CD (Continuous Integration / Continuous Deployment) platform that runs inside temporary cloud virtual machines (Ubuntu, Windows, macOS). Workflows are defined as code in <code className="font-mono text-purple-600 dark:text-purple-400 font-semibold text-[11px]">.github/workflows/*.yml</code>.
+            </p>
+            <div className="grid grid-cols-3 gap-2 text-xs pt-1">
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-0.5">
+                <strong className="text-slate-900 dark:text-white text-[11px]">1. Events</strong>
+                <span className="text-[10px] text-slate-600 dark:text-slate-400"><code className="font-mono">push</code>, <code className="font-mono">pull_request</code></span>
+              </div>
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-0.5">
+                <strong className="text-slate-900 dark:text-white text-[11px]">2. Jobs</strong>
+                <span className="text-[10px] text-slate-600 dark:text-slate-400">Run parallel on VMs</span>
+              </div>
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col gap-0.5">
+                <strong className="text-slate-900 dark:text-white text-[11px]">3. Steps</strong>
+                <span className="text-[10px] text-slate-600 dark:text-slate-400">Shell commands &amp; actions</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Lock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              Repository Secrets &amp; Security Rules
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div className="p-2.5 rounded bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 flex flex-col gap-1">
+                <span className="font-bold text-rose-800 dark:text-rose-300">Never Push Credentials</span>
+                <p className="text-[11px] text-rose-900 dark:text-rose-300 leading-snug m-0">
+                  Keep <code className="font-mono text-[10px]">.env</code> in <code className="font-mono text-[10px]">.gitignore</code>. GitHub scans commits and alerts when API keys are exposed.
+                </p>
+              </div>
+              <div className="p-2.5 rounded bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 flex flex-col gap-1">
+                <span className="font-bold text-emerald-800 dark:text-emerald-300">GitHub Secrets</span>
+                <p className="text-[11px] text-emerald-900 dark:text-emerald-300 leading-snug m-0">
+                  Store secrets in Repo Settings &gt; Secrets. Access safely in YAML via <code className="font-mono text-[10px]">{'${{ secrets.API_KEY }}'}</code>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3 rounded bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-900 dark:text-amber-300 text-xs flex items-start gap-2.5 shadow-xs">
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="font-bold text-amber-950 dark:text-amber-200 block mb-0.5">Top 5 Beginner Mistakes &amp; Fixes:</strong>
+              1. <em>Pushed node_modules?</em> Add to .gitignore &amp; run <code className="font-mono font-semibold">git rm -r --cached node_modules</code>.
+              2. <em>"Updates rejected"?</em> Run <code className="font-mono font-semibold">git pull origin main</code> before pushing.
+              3. <em>Accidental commit to main?</em> Create branch now: <code className="font-mono font-semibold">git switch -c new-feature</code>.
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+          <div className="h-[210px] sm:h-[240px] min-h-0">
+            <ImageFrame
+              src="/images/github/github_actions_ci_ui.jpg"
+              alt="GitHub Actions Automated CI Matrix Dashboard"
+              caption="Continuous Integration dashboard: Automated tests running on every pull request"
+              badge="CI/CD Matrix"
+            />
+          </div>
+
+          <TerminalBlock
+            title=".github/workflows/ci.yml"
+            copyText={`name: CI Pipeline\non:\n  push:\n    branches: [ main ]\n  pull_request:\n    branches: [ main ]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 20\n      - run: pnpm install --frozen-lockfile\n      - run: pnpm test`}
+          >
+            <div className="flex flex-col gap-1 font-mono text-xs">
+              <div><span className="text-purple-400">name:</span> <span className="text-emerald-300">CI Pipeline</span></div>
+              <div><span className="text-purple-400">on:</span></div>
+              <div className="pl-3"><span className="text-slate-300">push:</span> <span className="text-slate-400">&#123; branches: [ main ] &#125;</span></div>
+              <div className="pl-3"><span className="text-slate-300">pull_request:</span> <span className="text-slate-400">&#123; branches: [ main ] &#125;</span></div>
+              <div><span className="text-purple-400">jobs:</span></div>
+              <div className="pl-3"><span className="text-sky-300">test:</span></div>
+              <div className="pl-6"><span className="text-slate-300">runs-on:</span> <span className="text-amber-300">ubuntu-latest</span></div>
+              <div className="pl-6"><span className="text-slate-300">steps:</span></div>
+              <div className="pl-9 text-slate-400">- uses: <span className="text-sky-400">actions/checkout@v4</span></div>
+              <div className="pl-9 text-slate-400">- uses: <span className="text-sky-400">actions/setup-node@v4</span></div>
+              <div className="pl-12 text-slate-400">with: &#123; node-version: 20 &#125;</div>
+              <div className="pl-9 text-emerald-400">- run: <span className="text-slate-200">pnpm install --frozen-lockfile</span></div>
+              <div className="pl-9 text-emerald-400">- run: <span className="text-slate-200">pnpm test</span></div>
+            </div>
+          </TerminalBlock>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
+// COURSE METADATA & SLIDES EXPORT
+// -------------------------------------------------------------
 export const GITHUB_META = {
   id: "github",
   title: "GitHub: Cloud Repositories & Collaboration",
@@ -2389,135 +1030,61 @@ export const GITHUB_META = {
 
 export const GITHUB_SLIDES = [
   {
-    id: 1,
-    title: "MODULE 02 • CLOUD COLLABORATION: GitHub Masterclass",
-    part: "WELCOME",
-    Component: Slide1,
+    id: "slide-1",
+    number: 1,
+    part: "FOUNDATIONS & ARCHITECTURE",
+    title: "Cloud Architecture & The Remote Model",
+    Component: Slide1CloudArchitecture,
   },
   {
-    id: 2,
-    title: "Git (Local Machine) vs. GitHub (Cloud Platform)",
-    part: "01 • ARCHITECTURE",
-    Component: Slide2,
+    id: "slide-2",
+    number: 2,
+    part: "SECURITY & SETUP",
+    title: "Authentication: SSH Keys vs. HTTPS & PAT",
+    Component: Slide2Authentication,
   },
   {
-    id: 3,
-    title: "The 4 Git Areas: Adding the Cloud Remote",
-    part: "01 • ARCHITECTURE",
-    Component: Slide3,
+    id: "slide-3",
+    number: 3,
+    part: "REPOSITORY SETUP",
+    title: "Creating, Publishing & Cloning Repositories",
+    Component: Slide3PublishingCloning,
   },
   {
-    id: 4,
-    title: "GitHub Authentication: SSH Keys vs. HTTPS & PAT",
-    part: "02 • SETUP & AUTH",
-    Component: Slide4,
+    id: "slide-4",
+    number: 4,
+    part: "DAILY WORKFLOW",
+    title: "Daily Team Rhythm: Push, Pull & Remote Branches",
+    Component: Slide4DailyTeamRhythm,
   },
   {
-    id: 5,
-    title: "Creating a New GitHub Repository",
-    part: "03 • REPOSITORY SETUP",
-    Component: Slide5,
+    id: "slide-5",
+    number: 5,
+    part: "COLLABORATION & PR",
+    title: "Pull Requests & Collaborative Code Reviews",
+    Component: Slide5PullRequestsReview,
   },
   {
-    id: 6,
-    title: "Connecting Local Git to Remote: git remote add origin",
-    part: "03 • REPOSITORY SETUP",
-    Component: Slide6,
+    id: "slide-6",
+    number: 6,
+    part: "MERGING & OPEN SOURCE",
+    title: "Merge Strategies, Conflict Resolution & Forking",
+    Component: Slide6MergeStrategiesForking,
   },
   {
-    id: 7,
-    title: "The First Push: git push -u origin main",
-    part: "04 • PUSHING CODE",
-    Component: Slide7,
+    id: "slide-7",
+    number: 7,
+    part: "REPO GOVERNANCE",
+    title: "Branch Protection, Issues & Project Management",
+    Component: Slide7GovernanceProjects,
   },
   {
-    id: 8,
-    title: "Exploring the GitHub Repository Interface",
-    part: "04 • PUSHING CODE",
-    Component: Slide8,
-  },
-  {
-    id: 9,
-    title: "The Daily Team Rhythm: Push & Pull",
-    part: "05 • DAILY WORKFLOW",
-    Component: Slide9,
-  },
-  {
-    id: 10,
-    title: "Working with Remote Branches",
-    part: "05 • DAILY WORKFLOW",
-    Component: Slide10,
-  },
-  {
-    id: 11,
-    title: "Pull Requests (PR): The Heart of GitHub Collaboration",
-    part: "06 • PULL REQUESTS",
-    Component: Slide11,
-  },
-  {
-    id: 12,
-    title: "Conducting Professional Code Reviews",
-    part: "06 • PULL REQUESTS",
-    Component: Slide12,
-  },
-  {
-    id: 13,
-    title: "Merging Strategies: Merge Commit vs. Squash vs. Rebase",
-    part: "06 • PULL REQUESTS",
-    Component: Slide13,
-  },
-  {
-    id: 14,
-    title: "Cloning Existing Repositories: git clone",
-    part: "07 • CLONING & CONTRIBUTING",
-    Component: Slide14,
-  },
-  {
-    id: 15,
-    title: "Forks & Open Source Contribution Workflow",
-    part: "07 • CLONING & CONTRIBUTING",
-    Component: Slide15,
-  },
-  {
-    id: 16,
-    title: "Resolving Merge Conflicts on GitHub & Locally",
-    part: "08 • CONFLICT RESOLUTION",
-    Component: Slide16,
-  },
-  {
-    id: 17,
-    title: "Protecting Production: Branch Protection Rules",
-    part: "09 • REPO GOVERNANCE",
-    Component: Slide17,
-  },
-  {
-    id: 18,
-    title: "GitHub Issues, Milestones & Projects (Kanban)",
-    part: "09 • REPO GOVERNANCE",
-    Component: Slide18,
-  },
-  {
-    id: 19,
-    title: "GitHub Actions: Automated Continuous Integration",
-    part: "10 • AUTOMATION (CI/CD)",
-    Component: Slide19,
-  },
-  {
-    id: 20,
-    title: "Security Best Practices: Never Push Secrets to GitHub",
-    part: "11 • BEST PRACTICES",
-    Component: Slide20,
-  },
-  {
-    id: 21,
-    title: "Top 5 GitHub Beginner Errors & Instant Fixes",
-    part: "11 • BEST PRACTICES",
-    Component: Slide21,
-  },
-  {
-    id: 22,
-    title: "The Professional GitHub Workflow & Master Cheat Sheet",
-    part: "12 • SUMMARY & LAB",
-    Component: Slide22,
+    id: "slide-8",
+    number: 8,
+    part: "AUTOMATION & SECURITY",
+    title: "GitHub Actions CI/CD & Secret Security",
+    Component: Slide8ActionsSecurity,
   },
 ];
+
+export default GITHUB_SLIDES;

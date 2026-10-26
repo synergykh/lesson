@@ -194,15 +194,15 @@ export const DOCS_NAVIGATION = [
       "en": "Connect local projects to the cloud. Configure remotes, push code, handle branches, clone repositories, and collaborate with teams using Pull Requests.",
       "km": "ភ្ជាប់គម្រោង Git ទៅកាន់ GitHub។ កំណត់ Remote, រុញកូដ (Push), ទាញកូដ (Pull), Clone គម្រោង និងធ្វើការងារជាក្រុមតាមរយៈ Pull Requests។"
     },
-    "totalLessons": 22,
+    "totalLessons": 8,
     "sections": [
       {
         "id": "github-sec-1",
-        "part": "WELCOME",
-        "partKey": "part_welcome",
+        "part": "CLOUD ARCHITECTURE & AUTH",
+        "partKey": "part_cloud_auth",
         "title": {
-          "en": "WELCOME",
-          "km": "សូមស្វាគមន៍"
+          "en": "Cloud Architecture & Authentication",
+          "km": "រចនាសម្ព័ន្ធ Cloud & ការផ្ទៀងផ្ទាត់សុវត្ថិភាព"
         },
         "lessons": [
           {
@@ -210,88 +210,77 @@ export const DOCS_NAVIGATION = [
             "number": 1,
             "slideId": "slide-1",
             "title": {
-              "en": "The Everyday Git Workflow",
-              "km": "វដ្តការងារ Git ប្រចាំថ្ងៃ"
+              "en": "Cloud Architecture & The Remote Model",
+              "km": "រចនាសម្ព័ន្ធ Cloud & គំរូ Remote Repository"
             },
             "subtitle": {
-              "en": "The four commands developers execute dozens of times every single day",
-              "km": "ពាក្យបញ្ជាទាំង ៤ ដែលអ្នកសរសេរកម្មវិធីរត់រាប់សិបដងរាល់ថ្ងៃ"
+              "en": "Understanding Git vs. GitHub, the central hub paradigm, and how remotes connect teams",
+              "km": "ស្វែងយល់ពី Git vs GitHub, គំរូ Central Hub និងរបៀបដែល Remote ភ្ជាប់ការងារជាក្រុម"
             },
             "href": "#/docs/github/1"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-2",
-        "part": "01 • ARCHITECTURE",
-        "partKey": "part_arch",
-        "title": {
-          "en": "ARCHITECTURE",
-          "km": "ARCHITECTURE"
-        },
-        "lessons": [
+          },
           {
             "id": 2,
             "number": 2,
             "slideId": "slide-2",
             "title": {
-              "en": "Example: Modify a Project",
-              "km": "ឧទាហរណ៍ជាក់ស្តែង៖ ការកែប្រែគម្រោង"
+              "en": "Authentication: SSH Keys vs. HTTPS & PAT",
+              "km": "ការផ្ទៀងផ្ទាត់៖ SSH Keys vs HTTPS & PAT"
             },
             "subtitle": {
-              "en": "A real-world walkthrough of editing code and pushing updates",
-              "km": "ការអនុវត្តជាក់ស្តែងនៃការកែប្រែកូដ និងការ push ទៅកាន់ GitHub"
+              "en": "Configuring passwordless Ed25519 SSH keys, Personal Access Tokens, and GitHub CLI",
+              "km": "ការកំណត់រចនាសម្ព័ន្ធ SSH Ed25519, Personal Access Tokens និង GitHub CLI"
             },
             "href": "#/docs/github/2"
-          },
+          }
+        ]
+      },
+      {
+        "id": "github-sec-2",
+        "part": "PUBLISHING & SYNCING",
+        "partKey": "part_publishing_sync",
+        "title": {
+          "en": "Repository Setup & Daily Syncing",
+          "km": "ការរៀបចំ Repository & ការធ្វើសមកាលកម្មប្រចាំថ្ងៃ"
+        },
+        "lessons": [
           {
             "id": 3,
             "number": 3,
             "slideId": "slide-3",
             "title": {
-              "en": "Clone a Repository",
-              "km": "ទាញយកគម្រោងដែលមានស្រាប់ (git clone)"
+              "en": "Creating, Publishing & Cloning Repositories",
+              "km": "ការបង្កើត បោះផ្សាយ និង Clone Repositories"
             },
             "subtitle": {
-              "en": "Downloading an existing repository and its full history from GitHub",
-              "km": "ការ Download repository ដែលមានស្រាប់ និងប្រវត្តិកូដទាំងមូលពី GitHub"
+              "en": "Initializing remotes, upstream tracking with -u, and cloning existing codebases",
+              "km": "ការកំណត់ Remote, Upstream Tracking ជាមួយ -u និងការ Clone គម្រោងមកកាន់ម៉ាស៊ីន"
             },
             "href": "#/docs/github/3"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-3",
-        "part": "02 • SETUP & AUTH",
-        "partKey": "part_setup",
-        "title": {
-          "en": "SETUP & AUTH",
-          "km": "SETUP & AUTH"
-        },
-        "lessons": [
+          },
           {
             "id": 4,
             "number": 4,
             "slideId": "slide-4",
             "title": {
-              "en": "Pull Changes",
-              "km": "ទាញយកបច្ចុប្បន្នភាពពី GitHub (git pull)"
+              "en": "Daily Team Rhythm: Push, Pull & Remote Branches",
+              "km": "ចង្វាក់ការងារប្រចាំថ្ងៃ៖ Push, Pull & Remote Branches"
             },
             "subtitle": {
-              "en": "Syncing your local workspace with updates made by teammates or other machines",
-              "km": "ធ្វើសមកាលកម្មកូដក្នុងម៉ាស៊ីនឱ្យទាន់សម័យជាមួយអ្វីដែលសមាជិកក្រុមបានកែ"
+              "en": "Mastering the daily loop: feature branches, git fetch vs. git pull, and pruning",
+              "km": "វដ្តការងារប្រចាំថ្ងៃ៖ Feature Branches, ភាពខុសគ្នារវាង fetch និង pull, និងការ Prune"
             },
             "href": "#/docs/github/4"
           }
         ]
       },
       {
-        "id": "github-sec-4",
-        "part": "03 • REPOSITORY SETUP",
-        "partKey": "part_repo",
+        "id": "github-sec-3",
+        "part": "COLLABORATION & PR",
+        "partKey": "part_collab_pr",
         "title": {
-          "en": "REPOSITORY SETUP",
-          "km": "REPOSITORY SETUP"
+          "en": "Collaboration & Code Reviews",
+          "km": "ការសហការ & ការពិនិត្យកូដ (Code Review)"
         },
         "lessons": [
           {
@@ -299,12 +288,12 @@ export const DOCS_NAVIGATION = [
             "number": 5,
             "slideId": "slide-5",
             "title": {
-              "en": "What Is a Branch?",
-              "km": "តើអ្វីជា Branch (មែកធាងកូដ)?"
+              "en": "Pull Requests & Collaborative Code Reviews",
+              "km": "Pull Requests & ការពិនិត្យកូដជាក្រុម"
             },
             "subtitle": {
-              "en": "Creating isolated sandboxes for new features without breaking production",
-              "km": "ការបង្កើតកន្លែងដាច់ដោយឡែកសម្រាប់សរសេរមុខងារថ្មីដោយមិនប៉ះពាល់កូដដើម"
+              "en": "Anatomy of high-impact PRs, draft reviews, line-by-line diffs, and suggestion blocks",
+              "km": "រចនាសម្ព័ន្ធ PR ដែលមានគុណភាព, Draft PRs, Line-by-Line Diffs និង Suggestion Blocks"
             },
             "href": "#/docs/github/5"
           },
@@ -313,24 +302,24 @@ export const DOCS_NAVIGATION = [
             "number": 6,
             "slideId": "slide-6",
             "title": {
-              "en": "Create and Switch Branch",
-              "km": "បង្កើត និងប្តូរ Branch (git switch)"
+              "en": "Merge Strategies, Conflict Resolution & Forking",
+              "km": "យុទ្ធសាស្ត្របញ្ចូលកូដ, ការដោះស្រាយ Conflict & Forking"
             },
             "subtitle": {
-              "en": "Modern branch management syntax in Git",
-              "km": "វាក្យសម្ព័ន្ធគ្រប់គ្រង branch បែបទំនើបនៅក្នុង Git"
+              "en": "Merge Commit vs. Squash vs. Rebase, resolving remote conflicts, and open-source forks",
+              "km": "Merge Commit vs Squash vs Rebase, ការដោះស្រាយ Conflict និង Open Source Fork Workflow"
             },
             "href": "#/docs/github/6"
           }
         ]
       },
       {
-        "id": "github-sec-5",
-        "part": "04 • PUSHING CODE",
-        "partKey": "part_push",
+        "id": "github-sec-4",
+        "part": "GOVERNANCE & AUTOMATION",
+        "partKey": "part_governance_automation",
         "title": {
-          "en": "PUSHING CODE",
-          "km": "PUSHING CODE"
+          "en": "Governance, Projects & Automation",
+          "km": "ការគ្រប់គ្រងគម្រោង, Kanban & CI/CD Automation"
         },
         "lessons": [
           {
@@ -338,12 +327,12 @@ export const DOCS_NAVIGATION = [
             "number": 7,
             "slideId": "slide-7",
             "title": {
-              "en": "Git Command Cheat Sheet",
-              "km": "តារាងសង្ខេបពាក្យបញ្ជា Git"
+              "en": "Branch Protection, Issues & Project Management",
+              "km": "ការការពារ Branch, Issues & ការគ្រប់គ្រង Kanban"
             },
             "subtitle": {
-              "en": "Quick reference of the most vital commands",
-              "km": "ឯកសារយោងរហ័សនៃពាក្យបញ្ជាដែលប្រើញឹកញាប់បំផុត"
+              "en": "Safeguarding main with protection rules, magic closing keywords, and Kanban boards",
+              "km": "ការការពារ Branch main, Closing Keywords ស្វ័យប្រវត្តិ និងផ្ទាំង Kanban"
             },
             "href": "#/docs/github/7"
           },
@@ -352,298 +341,14 @@ export const DOCS_NAVIGATION = [
             "number": 8,
             "slideId": "slide-8",
             "title": {
-              "en": "Mistake: Forgetting to Commit",
-              "km": "កំហុសទូទៅ៖ ភ្លេច Commit មុនពេល Push"
+              "en": "GitHub Actions CI/CD & Secret Security",
+              "km": "GitHub Actions CI/CD & សុវត្ថិភាព Secrets"
             },
             "subtitle": {
-              "en": "Why running git add then git push doesn't upload your changes",
-              "km": "មូលហេតុដែលការរត់ git add រួច git push មិន upload អ្វីសោះ"
+              "en": "Automated testing pipelines with YAML workflows, secret protection, and beginner traps",
+              "km": "ការបង្កើត Automated Pipeline ជាមួយ YAML, ការរក្សាការសម្ងាត់ និងការជៀសវាងកំហុសទូទៅ"
             },
             "href": "#/docs/github/8"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-6",
-        "part": "05 • DAILY WORKFLOW",
-        "partKey": "part_workflow",
-        "title": {
-          "en": "DAILY WORKFLOW",
-          "km": "DAILY WORKFLOW"
-        },
-        "lessons": [
-          {
-            "id": 9,
-            "number": 9,
-            "slideId": "slide-9",
-            "title": {
-              "en": "Mistake: Wrong Remote URL",
-              "km": "កំហុសទូទៅ៖ វាយ URL របស់ Remote ខុស"
-            },
-            "subtitle": {
-              "en": "Fixing typos in repository URLs without deleting the repository",
-              "km": "វិធីកែតម្រូវ URL របស់ repository ដោយមិនបាច់លុបគម្រោងចោល"
-            },
-            "href": "#/docs/github/9"
-          },
-          {
-            "id": 10,
-            "number": 10,
-            "slideId": "slide-10",
-            "title": {
-              "en": "Mistake: Push Rejected",
-              "km": "កំហុសទូទៅ៖ ការ Push ត្រូវបានបដិសេធ (Push Rejected)"
-            },
-            "subtitle": {
-              "en": "Understanding non-fast-forward rejections and why never to force push",
-              "km": "ស្វែងយល់ពីមូលហេតុ និងហេតុអ្វីមិនគួរប្រើ force push ផ្តេសផ្តាស"
-            },
-            "href": "#/docs/github/10"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-7",
-        "part": "06 • PULL REQUESTS",
-        "partKey": "part_pr",
-        "title": {
-          "en": "PULL REQUESTS",
-          "km": "PULL REQUESTS"
-        },
-        "lessons": [
-          {
-            "id": 11,
-            "number": 11,
-            "slideId": "slide-11",
-            "title": {
-              "en": "What Is .gitignore?",
-              "km": "តើអ្វីជាឯកសារ .gitignore?"
-            },
-            "subtitle": {
-              "en": "Preventing junk, generated files, and secrets from entering your repository",
-              "km": "ការពារកុំឱ្យឯកសារសំរាម និងលេខកូដសម្ងាត់ធ្លាយចូលទៅក្នុង Repository"
-            },
-            "href": "#/docs/github/11"
-          },
-          {
-            "id": 12,
-            "number": 12,
-            "slideId": "slide-12",
-            "title": {
-              "en": "Example Project Structure",
-              "km": "រចនាសម្ព័ន្ធគម្រោងគំរូ"
-            },
-            "subtitle": {
-              "en": "Visualizing what gets tracked vs what stays local",
-              "km": "បង្ហាញរូបភាពជាក់ស្តែងរវាងអ្វីដែលត្រូវ push និងអ្វីដែលត្រូវទុកលើម៉ាស៊ីន"
-            },
-            "href": "#/docs/github/12"
-          },
-          {
-            "id": 13,
-            "number": 13,
-            "slideId": "slide-13",
-            "title": {
-              "en": "From Zero to GitHub",
-              "km": "ពីដំបូងរហូតដល់ GitHub (រូបមន្តពេញលេញ)"
-            },
-            "subtitle": {
-              "en": "The complete master script from an empty terminal to your first pushed project",
-              "km": "ស្គ្រីបមេពេញលេញតាំងពី folder ទទេ រហូតដល់ការ push គម្រោងដំបូង"
-            },
-            "href": "#/docs/github/13"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-8",
-        "part": "07 • CLONING & CONTRIBUTING",
-        "partKey": "part_clone",
-        "title": {
-          "en": "CLONING & CONTRIBUTING",
-          "km": "CLONING & CONTRIBUTING"
-        },
-        "lessons": [
-          {
-            "id": 14,
-            "number": 14,
-            "slideId": "slide-14",
-            "title": {
-              "en": "The Mental Model",
-              "km": "គំរូស្ថាបត្យកម្ម ៤ ជាន់របស់ Git"
-            },
-            "subtitle": {
-              "en": "The four architectural layers of Git and how data travels between them",
-              "km": "ស្រទាប់ស្ថាបត្យកម្មទាំងបួននៃ Git និងរបៀបដែលទិន្នន័យផ្លាស់ទីរវាងគ្នា"
-            },
-            "href": "#/docs/github/14"
-          },
-          {
-            "id": 15,
-            "number": 15,
-            "slideId": "slide-15",
-            "title": {
-              "en": "Your First GitHub Project",
-              "km": "លំហាត់អនុវត្ត៖ គម្រោង GitHub ដំបូងរបស់អ្នក"
-            },
-            "subtitle": {
-              "en": "A step-by-step practical drill for every student",
-              "km": "ការអនុវត្តផ្ទាល់មួយជំហានម្តងៗសម្រាប់សិស្សគ្រប់រូប"
-            },
-            "href": "#/docs/github/15"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-9",
-        "part": "08 • CONFLICT RESOLUTION",
-        "partKey": "part_conflict",
-        "title": {
-          "en": "CONFLICT RESOLUTION",
-          "km": "CONFLICT RESOLUTION"
-        },
-        "lessons": [
-          {
-            "id": 16,
-            "number": 16,
-            "slideId": "slide-16",
-            "title": {
-              "en": "Final Challenge",
-              "km": "បញ្ហាប្រឈមចុងក្រោយ (ការអនុវត្តដោយខ្លួនឯង)"
-            },
-            "subtitle": {
-              "en": "Practice the everyday cycle completely independently",
-              "km": "អនុវត្តវដ្តការងារប្រចាំថ្ងៃដោយឯករាជ្យទាំងស្រុង"
-            },
-            "href": "#/docs/github/16"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-10",
-        "part": "09 • REPO GOVERNANCE",
-        "partKey": "part_governance",
-        "title": {
-          "en": "REPO GOVERNANCE",
-          "km": "REPO GOVERNANCE"
-        },
-        "lessons": [
-          {
-            "id": 17,
-            "number": 17,
-            "slideId": "slide-17",
-            "title": {
-              "en": "Final Summary",
-              "km": "សេចក្តីសង្ខេបចុងក្រោយ"
-            },
-            "subtitle": {
-              "en": "The foundational principles to carry forward in your developer journey",
-              "km": "គោលការណ៍គ្រឹះដែលត្រូវចងចាំសម្រាប់ដំណើរជីវិតជាអ្នកសរសេរកម្មវិធី"
-            },
-            "href": "#/docs/github/17"
-          },
-          {
-            "id": 18,
-            "number": 18,
-            "slideId": "slide-18",
-            "title": {
-              "en": "Questions?",
-              "km": "សំណួរនិងចម្លើយ?"
-            },
-            "subtitle": {
-              "en": "“Happy coding”",
-              "km": "“រីករាយក្នុងការសរសេរកូដ (Happy coding)”"
-            },
-            "href": "#/docs/github/18"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-11",
-        "part": "10 • AUTOMATION (CI/CD)",
-        "partKey": "part_cicd",
-        "title": {
-          "en": "AUTOMATION (CI/CD)",
-          "km": "AUTOMATION (CI/CD)"
-        },
-        "lessons": [
-          {
-            "id": 19,
-            "number": 19,
-            "slideId": "slide-19",
-            "title": {
-              "en": "GitHub Actions: Automated Continuous Integration",
-              "km": "GitHub Actions: Automated Continuous Integration"
-            },
-            "subtitle": {
-              "en": "",
-              "km": ""
-            },
-            "href": "#/docs/github/19"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-12",
-        "part": "11 • BEST PRACTICES",
-        "partKey": "part_security",
-        "title": {
-          "en": "BEST PRACTICES",
-          "km": "BEST PRACTICES"
-        },
-        "lessons": [
-          {
-            "id": 20,
-            "number": 20,
-            "slideId": "slide-20",
-            "title": {
-              "en": "Security Best Practices: Never Push Secrets to GitHub",
-              "km": "Security Best Practices: Never Push Secrets to GitHub"
-            },
-            "subtitle": {
-              "en": "",
-              "km": ""
-            },
-            "href": "#/docs/github/20"
-          },
-          {
-            "id": 21,
-            "number": 21,
-            "slideId": "slide-21",
-            "title": {
-              "en": "The Everyday Git Workflow",
-              "km": "វដ្តការងារ Git ប្រចាំថ្ងៃ"
-            },
-            "subtitle": {
-              "en": "The four commands developers execute dozens of times every single day",
-              "km": "ពាក្យបញ្ជាទាំង ៤ ដែលអ្នកសរសេរកម្មវិធីរត់រាប់សិបដងរាល់ថ្ងៃ"
-            },
-            "href": "#/docs/github/21"
-          }
-        ]
-      },
-      {
-        "id": "github-sec-13",
-        "part": "12 • SUMMARY & LAB",
-        "partKey": "part_summary",
-        "title": {
-          "en": "SUMMARY & LAB",
-          "km": "SUMMARY & LAB"
-        },
-        "lessons": [
-          {
-            "id": 22,
-            "number": 22,
-            "slideId": "slide-22",
-            "title": {
-              "en": "Example: Modify a Project",
-              "km": "ឧទាហរណ៍ជាក់ស្តែង៖ ការកែប្រែគម្រោង"
-            },
-            "subtitle": {
-              "en": "A real-world walkthrough of editing code and pushing updates",
-              "km": "ការអនុវត្តជាក់ស្តែងនៃការកែប្រែកូដ និងការ push ទៅកាន់ GitHub"
-            },
-            "href": "#/docs/github/22"
           }
         ]
       }
