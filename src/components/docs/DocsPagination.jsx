@@ -2,13 +2,16 @@ import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 
-export default function DocsPagination({ prevLesson, nextLesson }) {
+export default function DocsPagination({ prevLesson, nextLesson, className = "" }) {
   const { lang, t } = useLanguage();
 
   if (!prevLesson && !nextLesson) return null;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 mt-12 border-t border-slate-200 dark:border-slate-800">
+    <nav
+      aria-label="Lesson navigation"
+      className={`grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 mt-auto border-t border-slate-200 dark:border-slate-800 ${className}`}
+    >
       {prevLesson ? (
         <a
           href={prevLesson.href}
@@ -50,6 +53,6 @@ export default function DocsPagination({ prevLesson, nextLesson }) {
           )}
         </a>
       )}
-    </div>
+    </nav>
   );
 }
