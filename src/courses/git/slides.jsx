@@ -1,5 +1,5 @@
-import React from "react";
-import { ArrowRight, GitBranch, FolderGit2, AlertTriangle } from "lucide-react";
+import React, { useState } from "react";
+import { ArrowRight, GitBranch, FolderGit2, AlertTriangle, Copy, Check } from "lucide-react";
 import SlideHeader from "./components/SlideHeader";
 import TerminalBlock from "./components/TerminalBlock";
 import ImageFrame from "./components/ImageFrame";
@@ -392,6 +392,18 @@ export function Slide4FourAreas() {
 // SLIDE 5: STEP 1 - CHECK IF GIT IS INSTALLED
 // ==========================================
 export function Slide5CheckInstall() {
+  const [copiedCmd, setCopiedCmd] = useState(null);
+
+  const handleCopy = (cmd, key) => {
+    if (!cmd) return;
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(cmd).then(() => {
+        setCopiedCmd(key);
+        setTimeout(() => setCopiedCmd(null), 2000);
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4 flex-1">
       <SlideHeader
@@ -433,7 +445,7 @@ export function Slide5CheckInstall() {
           </div>
         </div>
 
-        <div className="info-card lg:col-span-6 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="info-card lg:col-span-6 p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between gap-3 shadow-xs">
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               What if Git is not installed?
@@ -446,34 +458,119 @@ export function Slide5CheckInstall() {
               , install it for your OS in 30 seconds:
             </p>
             <div className="flex flex-col gap-2.5 text-xs">
-              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-slate-700 dark:text-slate-300">
-                  macOS:
-                </span>
-                <code className="text-sky-600 dark:text-sky-400 font-mono">
-                  xcode-select --install
-                </code>
-              </div>
-              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-slate-700 dark:text-slate-300">
-                  Windows:
-                </span>
-                <a
-                  href="https://git-scm.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-orange-600 dark:text-orange-400 hover:underline"
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0 flex-1">
+                  <span className="text-slate-700 dark:text-slate-300 font-medium shrink-0">
+                    macOS:
+                  </span>
+                  <code className="text-sky-600 dark:text-sky-400 font-mono truncate">
+                    xcode-select --install
+                  </code>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleCopy("xcode-select --install", "macos")}
+                  className={`px-2 py-1 rounded text-[11px] font-medium cursor-pointer flex items-center gap-1 border transition-colors shrink-0 ${
+                    copiedCmd === "macos"
+                      ? "bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-300 dark:border-emerald-500/30"
+                      : "bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                  }`}
+                  title="Copy command"
                 >
-                  git-scm.com (Git Bash)
-                </a>
+                  {copiedCmd === "macos" ? (
+                    <>
+                      <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                      <span>Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3 h-3 text-slate-500 dark:text-slate-400" />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
               </div>
-              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <span className="text-slate-700 dark:text-slate-300">
-                  Ubuntu/Debian:
-                </span>
-                <code className="text-emerald-600 dark:text-emerald-400 font-mono">
-                  sudo apt install git
-                </code>
+
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0 flex-1">
+                  <span className="text-slate-700 dark:text-slate-300 font-medium shrink-0">
+                    Windows:
+                  </span>
+                  <code className="text-orange-600 dark:text-orange-400 font-mono truncate">
+                    winget install --id Git.Git -e --source winget
+                  </code>
+                </div>
+                <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+                  <a
+                    href="https://git-scm.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] text-orange-600 dark:text-orange-400 hover:underline shrink-0"
+                    title="Download Git Bash installer directly"
+                  >
+                    git-scm.com
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      handleCopy(
+                        "winget install --id Git.Git -e --source winget",
+                        "windows"
+                      )
+                    }
+                    className={`px-2 py-1 rounded text-[11px] font-medium cursor-pointer flex items-center gap-1 border transition-colors shrink-0 ${
+                      copiedCmd === "windows"
+                        ? "bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-300 dark:border-emerald-500/30"
+                        : "bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                    }`}
+                    title="Copy command"
+                  >
+                    {copiedCmd === "windows" ? (
+                      <>
+                        <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                        <span>Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3 text-slate-500 dark:text-slate-400" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0 flex-1">
+                  <span className="text-slate-700 dark:text-slate-300 font-medium shrink-0">
+                    Ubuntu/Debian:
+                  </span>
+                  <code className="text-emerald-600 dark:text-emerald-400 font-mono truncate">
+                    sudo apt install git
+                  </code>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleCopy("sudo apt install git", "ubuntu")}
+                  className={`px-2 py-1 rounded text-[11px] font-medium cursor-pointer flex items-center gap-1 border transition-colors shrink-0 ${
+                    copiedCmd === "ubuntu"
+                      ? "bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-300 dark:border-emerald-500/30"
+                      : "bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                  }`}
+                  title="Copy command"
+                >
+                  {copiedCmd === "ubuntu" ? (
+                    <>
+                      <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                      <span>Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3 h-3 text-slate-500 dark:text-slate-400" />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
               </div>
             </div>
           </div>
@@ -556,7 +653,7 @@ git config --global init.defaultBranch main`;
           </div>
         </div>
 
-        <div className="info-card lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="info-card lg:col-span-5 p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between gap-3 shadow-xs">
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Why Does Git Need Your Email?
@@ -675,7 +772,7 @@ echo "<h1>Hello World</h1>" > index.html`;
           </div>
         </div>
 
-        <div className="info-card lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="info-card lg:col-span-5 p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between gap-3 shadow-xs">
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Folder Tree State
@@ -894,7 +991,7 @@ git status`;
           </div>
         </div>
 
-        <div className="info-card lg:col-span-6 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="info-card lg:col-span-6 p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between gap-3 shadow-xs">
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               3 Ways to Stage Changes
@@ -996,7 +1093,7 @@ export function Slide11GitDiff() {
           </div>
         </div>
 
-        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between gap-3 shadow-xs">
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Essential Diff Commands
@@ -1205,7 +1302,7 @@ export function Slide14WhatIsBranch() {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-5 flex flex-col justify-between gap-3">
-          <div className="p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-2 shadow-xs">
+          <div className="p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Why Branching Is Magic in Git
             </h4>
@@ -1342,7 +1439,7 @@ git merge feature/navbar`;
           </div>
         </div>
 
-        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between gap-3 shadow-xs">
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Branch Command Cheat Card
@@ -1403,7 +1500,7 @@ export function Slide16MergeConflicts() {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-5 flex flex-col justify-between gap-3">
-          <div className="p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-2 shadow-xs">
+          <div className="p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Don't Panic: Conflicts Are Normal
             </h4>
@@ -1635,7 +1732,7 @@ export function Slide19GitIgnore() {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-5 flex flex-col justify-between gap-3">
-          <div className="p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-2 shadow-xs">
+          <div className="p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               What MUST Be in .gitignore:
             </h4>
@@ -1734,7 +1831,7 @@ export function Slide21UndoMistakes() {
         </div>
 
         <div className="lg:col-span-6 flex flex-col justify-between gap-2.5">
-          <div className="p-3 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-1 shadow-xs">
+          <div className="p-3 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-rose-600 dark:text-rose-400">
                 1. "I broke a file, take me back to last commit!"
@@ -1748,7 +1845,7 @@ export function Slide21UndoMistakes() {
             </span>
           </div>
 
-          <div className="p-3 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-1 shadow-xs">
+          <div className="p-3 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
                 2. "I staged a file by accident!"
@@ -1762,7 +1859,7 @@ export function Slide21UndoMistakes() {
             </span>
           </div>
 
-          <div className="p-3 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-1 shadow-xs">
+          <div className="p-3 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-sky-600 dark:text-sky-400">
                 3. "Typo in last commit message!"
@@ -1776,7 +1873,7 @@ export function Slide21UndoMistakes() {
             </span>
           </div>
 
-          <div className="p-3 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-1 shadow-xs">
+          <div className="p-3 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-purple-600 dark:text-purple-400">
                 4. "Need to switch branches but work unfinished!"
@@ -1824,7 +1921,7 @@ git log --oneline --graph`;
         badgeColor="green"
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
+        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between gap-3 shadow-xs">
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Student Mission Checklist
@@ -1943,7 +2040,7 @@ export function Slide23WrapUp({ onRestart }) {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-7 flex flex-col justify-between gap-3">
-          <div className="p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-2 shadow-xs">
+          <div className="p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               The 4 Golden Rules of Version Control
             </h4>
@@ -1983,7 +2080,7 @@ export function Slide23WrapUp({ onRestart }) {
             </div>
           </div>
 
-          <div className="p-3.5 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex items-center justify-between shadow-xs">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between shadow-xs">
             <div className="flex items-center gap-3">
               <img
                 src="/images/synergy.png"
