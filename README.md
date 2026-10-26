@@ -6,11 +6,11 @@ Inspired by the usability, clean typography, and information architecture of mod
 
 ## Structure & Curriculum Modules
 
-The platform is structured into a central **Curriculum Hub (`#/`)** and a **Modern Documentation Platform (`#/docs/:courseId/:lessonId`)** comprising 448 comprehensive lessons across 9 modules:
+The platform is structured into a central **Curriculum Hub (`#/`)** and a **Modern Documentation Platform (`#/docs/:courseId/:lessonId`)** comprising 433 comprehensive lessons across 9 modules:
 
 | #      | Module                  | Docs Route             | Lessons    | Description & Core Focus                                                                                                          |
 | ------ | ----------------------- | ---------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **01** | **Git**                 | `#/docs/git/1`         | 23 Lessons | Local Version Control Fundamentals: `init`, `status`, `add`, `commit`, `log`, `branch`, `.gitignore`, 4-layer mental model        |
+| **01** | **Git**                 | `#/docs/git/1`         | 8 Lessons  | Local Version Control Fundamentals: `init`, `status`, `add`, `commit`, `log`, `branch`, `merge`, `.gitignore`, 4-layer mental model |
 | **02** | **GitHub**              | `#/docs/github/1`      | 22 Lessons | Cloud Repositories & Collaboration: Remotes, SSH/HTTPS keys, `push -u`, `pull`, `clone`, Pull Requests, verified repos            |
 | **03** | **Next.js**             | `#/docs/nextjs/1`      | 75 Lessons | Modern Fullstack React Framework: App Router, Server Components, Server Actions, PostgreSQL, Neon, Auth, Vercel                   |
 | **04** | **Tailwind CSS**        | `#/docs/tailwindcss/1` | 12 Lessons | Modern Utility-First Styling: Sizing scale, flexbox/grid, mobile-first breakpoints, dark mode, transitions                        |
