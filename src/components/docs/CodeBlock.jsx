@@ -60,8 +60,8 @@ export default function CodeBlock({
           )}
         </button>
       </div>
-      <pre className="p-4 overflow-x-auto font-mono text-xs leading-relaxed text-slate-200 m-0">
-        <code>{code.trim()}</code>
+      <pre className="p-4 overflow-x-auto font-mono text-xs leading-relaxed text-slate-200 m-0 whitespace-pre-wrap break-words">
+        <code className="block w-full whitespace-pre-wrap break-words">{code.trim()}</code>
       </pre>
     </div>
   );

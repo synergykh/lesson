@@ -215,3 +215,602 @@
   border-radius: 4px;
 }
 
+/* =========================================================
+   1. Strict 4px Border Radius Enforcement
+   ========================================================= */
+.docs-content *,
+.docs-content .info-card,
+.docs-content .slide-content-card,
+.docs-content .code-box,
+.docs-content .diagram-box,
+.docs-content .diag-node,
+.docs-content .terminal-mockup,
+.docs-content .terminal-window,
+.docs-content .slide-visual-media,
+.docs-content .real-image-card,
+.docs-content .alert-callout,
+.docs-content .tag-badge,
+.docs-content .slide-meta-label,
+.docs-content .title-badge-pill,
+.docs-content .table-spec,
+.docs-content button,
+.docs-content input,
+.docs-content kbd,
+.docs-content pre,
+.docs-content code {
+  border-radius: 4px !important;
+}
+
+/* Circular status dots and Mac window control dots */
+.docs-content .rounded-full,
+.docs-content [class*="rounded-full"],
+.docs-content .terminal-dots span,
+.docs-content .dot,
+.docs-content .terminal-dot,
+.terminal-dots span,
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* =========================================================
+   2. Clean Light Mode System (Git & GitHub Documentation Style)
+   ========================================================= */
+html:not(.dark) .docs-content h1,
+html:not(.dark) .docs-content h2,
+html:not(.dark) .docs-content h3,
+html:not(.dark) .docs-content h4,
+html:not(.dark) .docs-content h5,
+html:not(.dark) .docs-content h6,
+html:not(.dark) .docs-content .slide-title,
+html:not(.dark) .docs-content .title-main-h1 {
+  color: #0f172a !important; /* slate-900 */
+}
+
+/* Prevent hardcoded text-white on headings from disappearing in light mode */
+html:not(.dark) .docs-content h1.text-white,
+html:not(.dark) .docs-content h2.text-white,
+html:not(.dark) .docs-content h3.text-white,
+html:not(.dark) .docs-content h4.text-white,
+html:not(.dark) .docs-content .slide-title.text-white,
+html:not(.dark) .docs-content .title-main-h1.text-white,
+html:not(.dark) .docs-content .slide-title-wrap .text-white,
+html:not(.dark) .docs-content .title-text-col .text-white,
+html:not(.dark) .docs-content .info-card h4.text-white,
+html:not(.dark) .docs-content .info-card .text-white {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .docs-content .slide-subtitle,
+html:not(.dark) .docs-content .title-tagline {
+  color: #475569 !important; /* slate-600 */
+}
+
+html:not(.dark) .docs-content p {
+  color: #334155 !important; /* slate-700 */
+  line-height: 1.6;
+}
+
+html:not(.dark) .docs-content .text-slate-300:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *) {
+  color: #475569 !important; /* slate-600 */
+}
+
+html:not(.dark) .docs-content .text-slate-400:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *) {
+  color: #64748b !important; /* slate-500 */
+}
+
+html:not(.dark) .docs-content .text-slate-200:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *) {
+  color: #334155 !important; /* slate-700 */
+}
+
+/* Cards & Section Containers */
+html:not(.dark) .docs-content .info-card,
+html:not(.dark) .docs-content [class*="bg-slate-800/80"],
+html:not(.dark) .docs-content [class*="bg-slate-800/70"],
+html:not(.dark) .docs-content [class*="bg-slate-800/60"] {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important; /* slate-200 */
+  color: #334155 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Inner sub-boxes inside info cards */
+html:not(.dark) .docs-content .info-card [class*="bg-slate-900"],
+html:not(.dark) .docs-content [class*="bg-slate-800/80"] [class*="bg-slate-900"] {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .docs-content .slide-header,
+html:not(.dark) .docs-content .slide-header-group {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* Callouts in Light Mode */
+html:not(.dark) .docs-content .alert-callout {
+  border: 1px solid #e2e8f0 !important;
+  background-color: #f8fafc !important;
+  color: #334155 !important;
+}
+
+html:not(.dark) .docs-content .alert-callout.tip,
+html:not(.dark) .docs-content [class*="bg-sky-500/10"],
+html:not(.dark) .docs-content [class*="bg-blue-500/10"] {
+  background-color: #f0f9ff !important;
+  border-color: #bae6fd !important;
+  color: #0369a1 !important;
+}
+
+html:not(.dark) .docs-content [class*="bg-emerald-500/10"],
+html:not(.dark) .docs-content [class*="bg-green-500/10"] {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #047857 !important;
+}
+
+html:not(.dark) .docs-content [class*="bg-amber-500/10"] {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #b45309 !important;
+}
+
+html:not(.dark) .docs-content [class*="bg-rose-500/10"],
+html:not(.dark) .docs-content [class*="bg-red-500/10"] {
+  background-color: #fff1f2 !important;
+  border-color: #fecdd3 !important;
+  color: #be123c !important;
+}
+
+html:not(.dark) .docs-content [class*="bg-purple-500/10"],
+html:not(.dark) .docs-content [class*="bg-purple-500/15"] {
+  background-color: #faf5ff !important;
+  border-color: #e9d5ff !important;
+  color: #7e22ce !important;
+}
+
+/* Badges in Light Mode */
+html:not(.dark) .docs-content .tag-badge.blue {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #1d4ed8 !important;
+}
+
+html:not(.dark) .docs-content .tag-badge.green {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #047857 !important;
+}
+
+html:not(.dark) .docs-content .slide-meta-label {
+  color: #2563eb !important;
+}
+
+/* Diagrams & Interactive Architecture Nodes in Light Mode */
+html:not(.dark) .docs-content .diagram-box,
+html:not(.dark) .docs-content .diagram-container {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+html:not(.dark) .docs-content .diag-node {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+html:not(.dark) .docs-content .diag-node.active,
+html:not(.dark) .docs-content .diag-node.highlight {
+  background-color: #eff6ff !important;
+  border: 1px solid #93c5fd !important;
+  color: #1d4ed8 !important;
+  font-weight: 700;
+}
+
+html:not(.dark) .docs-content .diag-arrow {
+  color: #94a3b8 !important;
+}
+
+/* Tables in Light Mode */
+html:not(.dark) .docs-content .table-spec {
+  border: 1px solid #e2e8f0 !important;
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .docs-content .table-spec th {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+html:not(.dark) .docs-content .table-spec td {
+  color: #334155 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* Inline Code & Kbd in Light Mode */
+html:not(.dark) .docs-content code:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *) {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  padding: 1.5px 5px !important;
+  font-size: 11px !important;
+}
+
+html:not(.dark) .docs-content kbd {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+  padding: 1.5px 5px !important;
+  font-size: 10px !important;
+}
+
+/* =========================================================
+   3. Clean Dark Mode System
+   ========================================================= */
+html.dark .docs-content .info-card,
+html.dark .docs-content [class*="bg-slate-800/80"],
+html.dark .docs-content [class*="bg-slate-800/70"],
+html.dark .docs-content [class*="bg-slate-800/60"] {
+  background-color: #0f172a !important;
+  border: 1px solid #1e293b !important;
+  color: #cbd5e1 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+html.dark .docs-content .slide-header,
+html.dark .docs-content .slide-header-group {
+  border-bottom: 1px solid #1e293b !important;
+}
+
+html.dark .docs-content .slide-title,
+html.dark .docs-content .title-main-h1 {
+  color: #ffffff !important;
+}
+
+html.dark .docs-content .slide-subtitle,
+html.dark .docs-content .title-tagline {
+  color: #94a3b8 !important;
+}
+
+html.dark .docs-content p {
+  color: #cbd5e1 !important;
+}
+
+html.dark .docs-content .diag-node {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .docs-content .diag-node.active {
+  background-color: rgba(30, 58, 138, 0.4) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  color: #93c5fd !important;
+}
+
+/* =========================================================
+   4. Universal Terminal & Code Blocks (Git Page Identical Terminal)
+   ========================================================= */
+.docs-content .terminal-window,
+.docs-content .terminal-mockup,
+.docs-content .code-box,
+.docs-content .code-block-container {
+  background-color: #0f172a !important; /* bg-slate-900 like Git page */
+  border: 1px solid #1e293b !important; /* border-slate-800 like Git page */
+  border-radius: 4px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.25) !important; /* shadow-xl */
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.docs-content .terminal-header,
+.docs-content .code-box-header {
+  background-color: #0f172a !important; /* bg-slate-900 */
+  border-bottom: 1px solid #1e293b !important; /* border-slate-800 */
+  color: #94a3b8 !important; /* text-slate-400 */
+  font-size: 11px !important;
+  padding: 10px 14px !important; /* px-3.5 py-2.5 like Git page */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 38px !important;
+}
+
+/* Dots: macOS 3-color window controls */
+.docs-content .terminal-dots {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.docs-content .terminal-dots span,
+.docs-content .terminal-dots div,
+.docs-content .terminal-dot,
+.docs-content .dot {
+  width: 10px !important;
+  height: 10px !important;
+  min-width: 10px !important;
+  min-height: 10px !important;
+  border-radius: 9999px !important;
+  display: inline-block !important;
+}
+
+/* 1st dot = Red, 2nd = Amber, 3rd = Green */
+.docs-content .terminal-dots > *:nth-child(1),
+.docs-content .terminal-dot.red,
+.docs-content .dot.red {
+  background-color: rgba(239, 68, 68, 0.85) !important;
+}
+
+.docs-content .terminal-dots > *:nth-child(2),
+.docs-content .terminal-dot.yellow,
+.docs-content .dot.yellow {
+  background-color: rgba(245, 158, 11, 0.85) !important;
+}
+
+.docs-content .terminal-dots > *:nth-child(3),
+.docs-content .terminal-dot.green,
+.docs-content .dot.green {
+  background-color: rgba(16, 185, 129, 0.85) !important;
+}
+
+/* Title in header */
+.docs-content .terminal-title,
+.docs-content .terminal-header > span,
+.docs-content .code-box-header > span {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.025em !important;
+}
+
+/* Body */
+.docs-content .terminal-body,
+.docs-content pre,
+.docs-content .code-box pre,
+.docs-content .code-block-container pre,
+.docs-content .terminal-window pre,
+.docs-content .terminal-mockup pre {
+  background-color: #0f172a !important; /* bg-slate-900 like Git page */
+  color: #e2e8f0 !important;
+  padding: 16px !important; /* p-4 like Git page */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  overflow-x: auto !important;
+  margin: 0 !important;
+  tab-size: 2 !important;
+}
+
+/* Universal Code View Wrapping inside pre blocks */
+.docs-content pre code,
+.docs-content .code-box pre code,
+.docs-content .code-block-container pre code,
+.docs-content .terminal-window pre code,
+.docs-content .terminal-mockup pre code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  display: block !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  width: 100% !important;
+  color: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Inline code inside text paragraphs, lists, and callout cards */
+.docs-content p code,
+.docs-content li code,
+.docs-content span code:not(pre code),
+.docs-content td code,
+.docs-content .info-card code:not(pre code),
+.docs-content .alert-callout code:not(pre code) {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Copy Button like Git page */
+.docs-content .copy-btn,
+.docs-content .btn-copy {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: #cbd5e1 !important;
+  padding: 3px 10px !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: all 0.15s ease !important;
+}
+
+.docs-content .copy-btn:hover,
+.docs-content .btn-copy:hover {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+.docs-content .copy-btn.copied,
+.docs-content .btn-copy.copied {
+  background-color: rgba(5, 150, 105, 0.25) !important; /* bg-emerald-600/30 */
+  border-color: rgba(16, 185, 129, 0.4) !important; /* border-emerald-500/40 */
+  color: #6ee7b7 !important; /* text-emerald-300 */
+}
+
+/* Terminal syntax elements */
+.docs-content .term-prompt,
+.docs-content .terminal-body .text-blue-500,
+.docs-content .terminal-body .text-orange-500 {
+  font-weight: 700 !important;
+  user-select: none !important;
+  margin-right: 8px !important;
+}
+
+.docs-content .term-cmd,
+.docs-content .terminal-body .text-blue-400,
+.docs-content .terminal-body .text-orange-400 {
+  font-weight: 700 !important;
+  color: #60a5fa !important;
+  flex-wrap: wrap !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+.docs-content .term-out,
+.docs-content .term-output,
+.docs-content .terminal-body .text-slate-300,
+.docs-content .terminal-body > div {
+  color: #cbd5e1 !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+.docs-content .term-success,
+.docs-content .out-success,
+.docs-content .terminal-body .text-emerald-400 {
+  color: #34d399 !important;
+  font-weight: 600 !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+.docs-content .term-comment,
+.docs-content .terminal-body .text-slate-500 {
+  color: #64748b !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Action Buttons */
+.docs-content .btn-start-course,
+.docs-content .btn-cta-primary,
+.docs-content #btn-start-course {
+  background-color: #ea580c !important; /* orange-600 */
+  border: 1px solid #c2410c !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  padding: 8px 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.15s ease !important;
+}
+
+.docs-content .btn-start-course:hover,
+.docs-content .btn-cta-primary:hover,
+.docs-content #btn-start-course:hover {
+  background-color: #f97316 !important; /* orange-500 */
+  border-color: #ea580c !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px -1px rgba(234, 88, 12, 0.3) !important;
+}
+
+.docs-content .btn-icon {
+  border: 1px solid #cbd5e1 !important;
+  background-color: transparent !important;
+  color: #334155 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+html.dark .docs-content .btn-icon {
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+.docs-content .btn-icon:hover {
+  background-color: rgba(148, 163, 184, 0.1) !important;
+}
+
+/* Visual Media */
+.docs-content .slide-visual-media,
+.docs-content .real-image-card {
+  border: 1px solid #e2e8f0 !important;
+  background-color: #f8fafc !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.dark .docs-content .slide-visual-media,
+html.dark .docs-content .real-image-card {
+  border-color: #1e293b !important;
+  background-color: #0f172a !important;
+}
+
+/* =========================================================
+   5. Fluid Animations & Micro-Interactions
+   ========================================================= */
+@keyframes docPageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.docs-article {
+  animation: docPageFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* Card hover elevations */
+.docs-content .info-card,
+.docs-content .diagram-box,
+.docs-content .terminal-mockup,
+.docs-content .terminal-window,
+.docs-content .code-box,
+.docs-content .slide-visual-media,
+.docs-content .real-image-card {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease;
+}
+
+.docs-content .info-card:hover {
+  transform: translateY(-1px);
+}
+
+html:not(.dark) .docs-content .info-card:hover {
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.07) !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.dark .docs-content .info-card:hover {
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.4) !important;
+  border-color: #334155 !important;
+}
+
+/* Interactive button press micro-interaction */
+.docs-content button:active,
+.docs-content .btn-start-course:active,
+.docs-content .btn-cta-primary:active,
+.docs-content .btn-nav:active,
+.docs-content .btn-icon:active,
+.docs-content .copy-btn:active,
+.docs-content .btn-copy:active {
+  transform: scale(0.98) !important;
+}
+
+

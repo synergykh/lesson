@@ -227,9 +227,35 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
       applyGitSlideTranslations(container, slideNum, courseT, lang);
     }
 
-    // 5. Connect copy buttons
+    // 5. Connect and enhance copy buttons & terminal headers to match Git page
+    const copySvg = `<svg class="w-3 h-3 text-slate-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>`;
+    const checkSvg = `<svg class="w-3 h-3 text-emerald-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+    // Ensure all terminal headers have the 3 macOS colored dots
+    const terminalHeaders = container.querySelectorAll(
+      ".terminal-header, .code-box-header",
+    );
+    terminalHeaders.forEach((header) => {
+      if (!header.querySelector(".terminal-dots")) {
+        const dots = document.createElement("div");
+        dots.className = "terminal-dots flex items-center gap-1.5 shrink-0";
+        dots.innerHTML = `
+          <span class="w-2.5 h-2.5 rounded-full inline-block" style="border-radius: 9999px; background-color: rgba(239, 68, 68, 0.85);"></span>
+          <span class="w-2.5 h-2.5 rounded-full inline-block" style="border-radius: 9999px; background-color: rgba(245, 158, 11, 0.85);"></span>
+          <span class="w-2.5 h-2.5 rounded-full inline-block" style="border-radius: 9999px; background-color: rgba(16, 185, 129, 0.85);"></span>
+        `;
+        header.prepend(dots);
+      }
+    });
+
     const copyBtns = container.querySelectorAll(".btn-copy, .copy-btn");
     copyBtns.forEach((btn) => {
+      // Set initial icon + text if SVG is missing
+      if (!btn.querySelector("svg")) {
+        const labelText = btn.innerText.trim() || t("ui_copy", "Copy");
+        btn.innerHTML = `${copySvg}<span>${labelText}</span>`;
+      }
+
       btn.onclick = () => {
         const textToCopy =
           btn.getAttribute("data-copy") ||
@@ -241,10 +267,11 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
           "";
         if (textToCopy) {
           navigator.clipboard.writeText(textToCopy.trim()).then(() => {
-            const original = btn.innerText;
-            btn.innerText = t("ui_copied", "Copied!");
+            btn.classList.add("copied");
+            btn.innerHTML = `${checkSvg}<span>${t("ui_copied", "Copied!")}</span>`;
             setTimeout(() => {
-              btn.innerText = original;
+              btn.classList.remove("copied");
+              btn.innerHTML = `${copySvg}<span>${t("ui_copy", "Copy")}</span>`;
             }, 1800);
           });
         }
