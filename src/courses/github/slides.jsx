@@ -46,8 +46,8 @@ export function Slide1CloudArchitecture() {
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
               <div className="flex items-center justify-between">
@@ -124,15 +124,13 @@ export function Slide1CloudArchitecture() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
-          <div className="h-[230px] sm:h-[260px] min-h-0">
-            <ImageFrame
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <ImageFrame
               src="/images/git_flow_hero.jpg"
               alt="Git and GitHub Cloud Synchronization Architecture"
               caption="Distributed developer machines pushing commits to GitHub central hub"
               badge="Cloud Architecture"
             />
-          </div>
 
           <TerminalBlock
             title="bash — Inspecting Remote Connections"
@@ -181,8 +179,8 @@ export function Slide2Authentication() {
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -246,15 +244,13 @@ export function Slide2Authentication() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
-          <div className="h-[210px] sm:h-[240px] min-h-0">
-            <ImageFrame
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <ImageFrame
               src="/images/github/github_ssh_auth_diagram.jpg"
               alt="GitHub SSH Key Verification Diagram"
               caption="Asymmetric cryptographic verification between developer machine and GitHub"
               badge="Security Protocol"
             />
-          </div>
 
           <TerminalBlock
             title="bash — 3-Step SSH Setup & Test"
@@ -310,8 +306,8 @@ export function Slide3PublishingCloning() {
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <FolderGit2 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
@@ -361,15 +357,13 @@ export function Slide3PublishingCloning() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
-          <div className="h-[210px] sm:h-[240px] min-h-0">
-            <ImageFrame
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <ImageFrame
               src="/images/github_new_repo_ui.jpg"
               alt="GitHub New Repository Creation Interface"
               caption="GitHub repository creation interface with README, .gitignore, and License presets"
               badge="Repository Setup"
             />
-          </div>
 
           <TerminalBlock
             title="bash — Publishing &amp; Cloning Code"
@@ -427,8 +421,8 @@ export function Slide4DailyTeamRhythm() {
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <History className="w-4 h-4 text-purple-600 dark:text-purple-400" />
@@ -492,15 +486,13 @@ export function Slide4DailyTeamRhythm() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
-          <div className="h-[210px] sm:h-[240px] min-h-0">
-            <ImageFrame
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <ImageFrame
               src="/images/git/github_collaboration_workflow.jpg"
               alt="GitHub Collaboration Team Workflow"
               caption="Engineers pulling updates and pushing feature branches to central GitHub"
               badge="Daily Rhythm"
             />
-          </div>
 
           <TerminalBlock
             title="bash — Daily Team Synchronization Commands"
@@ -562,8 +554,8 @@ export function Slide5PullRequestsReview() {
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <GitPullRequest className="w-4 h-4 text-purple-600 dark:text-purple-400" />
@@ -641,15 +633,13 @@ export function Slide5PullRequestsReview() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
-          <div className="h-[230px] sm:h-[260px] min-h-0">
-            <ImageFrame
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <ImageFrame
               src="/images/github/github_pr_review_ui.jpg"
               alt="GitHub Pull Request Code Review Interface"
               caption="GitHub PR review diff view with inline line comments and approval submission"
               badge="Code Review UI"
             />
-          </div>
 
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
@@ -698,8 +688,8 @@ export function Slide6MergeStrategiesForking() {
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <GitMerge className="w-4 h-4 text-purple-600 dark:text-purple-400" />
@@ -749,15 +739,13 @@ export function Slide6MergeStrategiesForking() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
-          <div className="h-[210px] sm:h-[240px] min-h-0">
-            <ImageFrame
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <ImageFrame
               src="/images/github/github_fork_sync_diagram.jpg"
               alt="GitHub Fork and Upstream Sync Diagram"
               caption="Forking workflow: Syncing your personal fork with the official upstream repository"
               badge="Fork Workflow"
             />
-          </div>
 
           <TerminalBlock
             title="bash — Syncing a Fork with Upstream"
@@ -813,8 +801,8 @@ export function Slide7GovernanceProjects() {
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <ShieldAlert className="w-4 h-4 text-purple-600 dark:text-purple-400" />
@@ -869,15 +857,13 @@ export function Slide7GovernanceProjects() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
-          <div className="h-[230px] sm:h-[260px] min-h-0">
-            <ImageFrame
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <ImageFrame
               src="/images/github/github_branch_protect_ui.jpg"
               alt="GitHub Branch Protection Ruleset Settings"
               caption="Configuring branch protection rules for main: mandatory PRs and status checks"
               badge="Governance UI"
             />
-          </div>
 
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
@@ -924,8 +910,8 @@ export function Slide8ActionsSecurity() {
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <Cpu className="w-4 h-4 text-purple-600 dark:text-purple-400" />
@@ -982,15 +968,13 @@ export function Slide8ActionsSecurity() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
-          <div className="h-[210px] sm:h-[240px] min-h-0">
-            <ImageFrame
+        <div className="lg:col-span-6 flex flex-col gap-4">
+          <ImageFrame
               src="/images/github/github_actions_ci_ui.jpg"
               alt="GitHub Actions Automated CI Matrix Dashboard"
               caption="Continuous Integration dashboard: Automated tests running on every pull request"
               badge="CI/CD Matrix"
             />
-          </div>
 
           <TerminalBlock
             title=".github/workflows/ci.yml"

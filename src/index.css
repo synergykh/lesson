@@ -194,14 +194,21 @@
 .docs-content .slide-visual-media,
 .docs-content .real-image-card {
   height: auto !important;
-  min-height: 220px !important;
-  max-height: 380px !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+  flex: none !important;
 }
 
 .docs-content .slide-visual-media img,
 .docs-content .real-image-card img {
-  max-height: 340px !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 300px !important;
   object-fit: cover !important;
+  display: block !important;
 }
 
 .docs-content .terminal-mockup {

@@ -346,7 +346,7 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
 
           {/* Central Documentation Reading Canvas */}
           <main className="flex-1 min-w-0 flex justify-center p-4">
-            <div className="w-full max-w-7xl flex flex-col min-h-[calc(100vh-5.5rem)] justify-between gap-6 pb-2">
+            <div className="w-full max-w-7xl flex flex-col min-h-[calc(100vh-5.5rem)] gap-6 pb-6">
               <div className="flex flex-col gap-4 flex-1">
                 {/* Breadcrumb location trail */}
                 <DocsBreadcrumbs

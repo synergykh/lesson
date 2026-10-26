@@ -37,8 +37,8 @@ export function Slide1MentalModel() {
         badgeColor="orange"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
               <div className="flex items-center justify-between">
@@ -114,7 +114,7 @@ export function Slide1MentalModel() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <ImageFrame
             src="/images/git/git_four_areas.jpg"
             alt="The 4 Core Git Areas"
@@ -211,8 +211,8 @@ git config --global init.defaultBranch main`;
         badgeColor="green"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <TerminalBlock
             title="Terminal — Shell Verification"
             copyText="git --version"
@@ -362,7 +362,7 @@ git config --global init.defaultBranch main`;
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <TerminalBlock
             title="Terminal — Global Identity Setup"
             copyText={identityScript}
@@ -452,8 +452,8 @@ git init`;
         badgeColor="blue"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <TerminalBlock
             title="Terminal — Workspace Creation & git init"
             copyText={initScript}
@@ -500,7 +500,7 @@ git init`;
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <ImageFrame
             src="/images/git/git_init_dotgit.jpg"
             alt="Inside the .git Directory"
@@ -555,8 +555,8 @@ git log --oneline --graph`;
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <TerminalBlock
             title="Terminal — Staging & Verification"
             copyText="git add . && git status"
@@ -609,7 +609,7 @@ git log --oneline --graph`;
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <ImageFrame
             src="/images/git/git_commit_snapshots.jpg"
             alt="Git Commit Snapshots & Hashes"
@@ -670,8 +670,8 @@ git branch -d feature/navbar`;
         badgeColor="amber"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <ImageFrame
             src="/images/git/git_branch_model.jpg"
             alt="Git Branching Model"
@@ -694,7 +694,7 @@ git branch -d feature/navbar`;
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <TerminalBlock
             title="Terminal — Complete Branch Workflow"
             copyText={branchScript}
@@ -787,8 +787,8 @@ git commit -m "merge: resolve navbar conflict"`;
         badgeColor="red"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <ImageFrame
             src="/images/git/git_conflict_editor.jpg"
             alt="Resolving Conflict in Code Editor"
@@ -813,7 +813,7 @@ git commit -m "merge: resolve navbar conflict"`;
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-3.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Anatomy of Conflict Markers
@@ -883,7 +883,7 @@ git commit -m "chore: add .gitignore rules"`;
         badgeColor="sky"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
         <div className="lg:col-span-6 flex flex-col justify-between gap-2.5">
           <div className="p-3 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
@@ -949,7 +949,7 @@ git commit -m "chore: add .gitignore rules"`;
           />
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-500" />
@@ -1024,8 +1024,8 @@ git push -u origin main`;
         badgeColor="purple"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <ImageFrame
             src="/images/git/github_collaboration_workflow.jpg"
             alt="GitHub Team Collaboration Workflow"
@@ -1068,7 +1068,7 @@ git push -u origin main`;
           </div>
         </div>
 
-        <div className="lg:col-span-6 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="p-4 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-2.5 shadow-xs">
             <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               The Daily Professional Engineering Cycle
