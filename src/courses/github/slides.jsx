@@ -1,11 +1,12 @@
 import React from "react";
+import { ArrowRight, AlertCircle } from "lucide-react";
 
 // Slide 1: MODULE 02 • CLOUD COLLABORATION: GitHub Masterclass
 export function Slide1({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
-      <div className="title-hero-grid grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-4 items-center">
-      <div className="title-text-col flex flex-col gap-3">
+      <div className="title-hero-grid grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-4 items-stretch flex-1 min-h-0">
+      <div className="title-text-col flex flex-col justify-between gap-3">
         <div className="inline-flex items-center gap-2 self-start px-2.5 py-1 bg-purple-500/15 border border-purple-500/30 text-purple-400  text-[11px] font-bold tracking-wider uppercase">
           MODULE 02 • CLOUD COLLABORATION
         </div>
@@ -41,17 +42,19 @@ export function Slide1({ onStart, onRestart }) {
         </div>
 
         <div className="flex items-center gap-3 pt-1">
-          <button className="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 border border-purple-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" id="btn-start-course" onClick={onStart}>
-            Start Lesson <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+          <button className="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 border border-purple-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline rounded" id="btn-start-course" onClick={onStart}>
+            Start Lesson <ArrowRight className="w-3.5 h-3.5" />
           </button>
           <span className="text-xs text-slate-400">or press <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">Space</kbd> / <kbd className="kbd px-1 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px] ">→</kbd></span>
         </div>
       </div>
 
-      <div className="title-visual-col flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git_flow_hero.jpg" alt="Git and GitHub Synchronization Engine" className="w-full h-auto max-h-[330px] object-cover" loading="eager" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="title-visual-col flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git_flow_hero.jpg" alt="Git and GitHub Synchronization Engine" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Cloud Sync &amp; CI/CD Architecture</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">GitHub Enterprise</span>
           </div>
@@ -112,10 +115,12 @@ export function Slide2({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/github_collaboration_workflow.jpg" alt="GitHub Team Collaboration Workflow" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/github_collaboration_workflow.jpg" alt="GitHub Team Collaboration Workflow" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Local Repositories Synced to Central GitHub Hub</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Team Model</span>
           </div>
@@ -172,10 +177,12 @@ export function Slide3({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/git_four_areas.jpg" alt="The 4 Core Git Areas" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/git_four_areas.jpg" alt="The 4 Core Git Areas" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Visual Transition Map: Working Tree to Remote</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Architecture</span>
           </div>
@@ -235,10 +242,12 @@ export function Slide4({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github/github_ssh_auth_diagram.jpg" alt="GitHub SSH Keys Management Interface" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github/github_ssh_auth_diagram.jpg" alt="GitHub SSH Keys Management Interface" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>GitHub Settings → SSH &amp; GPG Keys Form</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">Verified Key</span>
           </div>
@@ -278,16 +287,18 @@ export function Slide5({ onStart, onRestart }) {
           </ul>
         </div>
 
-        <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12px] leading-relaxed">
-          <svg className="w-4 h-4 shrink-0 mt-0.5 text-red-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+        <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12px] leading-relaxed rounded">
+          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
           <div><strong>CRITICAL BEGINNER TRAP:</strong> If you already have code on your computer, <strong>DO NOT</strong> check "Add a README file", ".gitignore", or "license"! An empty repository allows a smooth first push without merge conflicts.</div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github_new_repo_ui.jpg" alt="GitHub UI Mockup: Creating a new repository" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github_new_repo_ui.jpg" alt="GitHub UI Mockup: Creating a new repository" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>GitHub Repository Creation Page Form</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Real UI</span>
           </div>
@@ -344,10 +355,12 @@ export function Slide6({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/git_command_syntax.jpg" alt="Git Command Syntax and Arguments" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/git_command_syntax.jpg" alt="Git Command Syntax and Arguments" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Syntax Breakdown: Commands, Flags &amp; Arguments</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">CLI Syntax</span>
           </div>
@@ -401,10 +414,12 @@ export function Slide7({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git_flow_hero.jpg" alt="Git Push Flow to Cloud" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git_flow_hero.jpg" alt="Git Push Flow to Cloud" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Branch Synchronized with Remote origin/main</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">Sync Complete</span>
           </div>
@@ -457,10 +472,12 @@ export function Slide8({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github_repo_view.jpg" alt="GitHub Repository Main Dashboard" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github_repo_view.jpg" alt="GitHub Repository Main Dashboard" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Verified GitHub Project Repository View</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Live Dashboard</span>
           </div>
@@ -527,10 +544,12 @@ export function Slide9({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/git_lifecycle_states.jpg" alt="Git File Lifecycle States" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/git_lifecycle_states.jpg" alt="Git File Lifecycle States" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>File States: Untracked → Unmodified → Modified → Staged</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Lifecycle</span>
           </div>
@@ -586,10 +605,12 @@ export function Slide10({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/git_branch_model.jpg" alt="Git Branching Model Diagram" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/git_branch_model.jpg" alt="Git Branching Model Diagram" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Branch Pointer Architecture: Main vs Feature Line</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Branch Architecture</span>
           </div>
@@ -638,10 +659,12 @@ export function Slide11({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github/github_pr_review_ui.jpg" alt="GitHub Pull Request Review Interface" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github/github_pr_review_ui.jpg" alt="GitHub Pull Request Review Interface" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Pull Request #147: Reviewers, Checks &amp; Merge Button</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">PR #147 Open</span>
           </div>
@@ -692,10 +715,12 @@ export function Slide12({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github/github_pr_review_ui.jpg" alt="GitHub Code Review Diff View" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github/github_pr_review_ui.jpg" alt="GitHub Code Review Diff View" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Inline Comments, Line Diffs &amp; Automated Checks</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Code Review</span>
           </div>
@@ -750,10 +775,12 @@ export function Slide13({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/git_commit_snapshots.jpg" alt="Git Commit Snapshot Architecture" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/git_commit_snapshots.jpg" alt="Git Commit Snapshot Architecture" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Commit Tree Structure &amp; Snapshot History</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Commit Graph</span>
           </div>
@@ -813,10 +840,12 @@ export function Slide14({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github_repo_view.jpg" alt="GitHub Clone Modal and Repository Details" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github_repo_view.jpg" alt="GitHub Clone Modal and Repository Details" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Green Code Button: Clone Modal (HTTPS / SSH / CLI)</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Clone URL</span>
           </div>
@@ -860,10 +889,12 @@ export function Slide15({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github/github_fork_sync_diagram.jpg" alt="GitHub Fork and Upstream Sync Architecture" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github/github_fork_sync_diagram.jpg" alt="GitHub Fork and Upstream Sync Architecture" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Upstream Organization ↔ Personal Fork ↔ Local Clone</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Architecture</span>
           </div>
@@ -913,10 +944,12 @@ export function Slide16({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/git_conflict_editor.jpg" alt="Merge Conflict Visual Editor" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/git_conflict_editor.jpg" alt="Merge Conflict Visual Editor" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Visual Conflict Editor: Accept Current vs Incoming</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 ">Resolved</span>
           </div>
@@ -971,10 +1004,12 @@ export function Slide17({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github/github_branch_protect_ui.jpg" alt="GitHub Branch Protection Rules Settings UI" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github/github_branch_protect_ui.jpg" alt="GitHub Branch Protection Rules Settings UI" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Branch Protection Rules Configuration Panel</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">Enterprise Rules</span>
           </div>
@@ -1026,10 +1061,12 @@ export function Slide18({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github/github_issues_kanban.jpg" alt="GitHub Projects Kanban Board Dashboard" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github/github_issues_kanban.jpg" alt="GitHub Projects Kanban Board Dashboard" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Sprint Board: Todo, In Progress, Done with Issue Cards</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Sprint Active</span>
           </div>
@@ -1080,10 +1117,12 @@ export function Slide19({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/github/github_actions_ci_ui.jpg" alt="GitHub Actions CI/CD Pipeline Execution" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/github/github_actions_ci_ui.jpg" alt="GitHub Actions CI/CD Pipeline Execution" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Actions Runner: Unit Tests Passed (2m 14s)</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">Checks Passed</span>
           </div>
@@ -1128,16 +1167,18 @@ export function Slide20({ onStart, onRestart }) {
           </div>
         </div>
 
-        <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12px] leading-relaxed">
-          <svg className="w-4 h-4 shrink-0 mt-0.5 text-red-400" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+        <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12px] leading-relaxed rounded">
+          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
           <div><strong>Accidentally Pushed a Key?</strong> Simply deleting the file in the next commit leaves the key in past Git history! <strong>Immediately revoke &amp; regenerate</strong> the API key on OpenAI / Stripe / AWS console!</div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/git_gitignore_flow.jpg" alt="Gitignore Flow and Untracked Files" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/git_gitignore_flow.jpg" alt="Gitignore Flow and Untracked Files" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>.gitignore Filter: Untracked vs Tracked Pipeline</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-red-500/30 bg-red-500/10 text-red-400 ">Filtered</span>
           </div>
@@ -1191,10 +1232,12 @@ export function Slide21({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/git_undo_matrix.jpg" alt="Git Undo Matrix Decision Flowchart" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/git_undo_matrix.jpg" alt="Git Undo Matrix Decision Flowchart" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Git Undo Decision Tree: Restore vs Reset vs Revert</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 ">Recovery Guide</span>
           </div>
@@ -1260,10 +1303,12 @@ export function Slide22({ onStart, onRestart }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="real-image-card w-full border border-slate-800 overflow-hidden bg-slate-900 flex flex-col justify-between">
-          <img src="/images/git/github_collaboration_workflow.jpg" alt="GitHub Complete Collaboration Workflow" className="w-full h-auto max-h-[300px] object-cover" loading="lazy" />
-          <div className="px-3 py-2 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+      <div className="flex flex-col flex-1 h-full min-h-0">
+        <div className="real-image-card w-full h-full flex-1 min-h-0 border border-slate-800 rounded overflow-hidden bg-slate-900 flex flex-col shadow-lg group">
+          <div className="overflow-hidden flex-1 w-full min-h-0 relative flex items-center justify-center bg-slate-950">
+            <img src="/images/git/github_collaboration_workflow.jpg" alt="GitHub Complete Collaboration Workflow" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] block" loading="lazy" />
+          </div>
+          <div className="px-3 py-2.5 text-xs font-semibold text-slate-300 bg-slate-900 border-t border-slate-800 flex items-center justify-between shrink-0 z-10">
             <span>Complete GitHub Cloud Collaboration Architecture</span>
             <span className="tag-badge text-[10px] font-bold px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ">Mastery</span>
           </div>

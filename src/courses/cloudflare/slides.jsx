@@ -1,4 +1,5 @@
 import React from "react";
+import { Info, ChevronRight } from "lucide-react";
 
 // Slide 1: Cloudflare: Zero to ProductionComplete Developer Web Masterclass
 export function Slide1({ onStart, onRestart }) {
@@ -10,14 +11,14 @@ export function Slide1({ onStart, onRestart }) {
                 <h1 className="title-main-h1 text-3xl md:text-4xl font-extrabold text-white m-0 mb-1 leading-tight" data-i18n="s1_title">Cloudflare: Zero to Production<br /><span className="text-orange-400 font-extrabold">Complete Developer Web Masterclass</span></h1>
                 <p className="text-sm text-slate-300 italic m-0 mb-3" data-i18n="s1_tagline">“From your first domain and DNS records to global CDN, WAF, Workers, R2 storage, and production infrastructure”</p>
                 <div className="flex flex-col gap-3">
-                  <div className="flex items-start gap-2.5 p-3 border border-orange-500/30 bg-orange-500/10 text-orange-300 text-[12.5px] leading-relaxed">
-                    <svg className="w-4 h-4 shrink-0 mt-0.5" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                  <div className="flex items-start gap-2.5 p-3 border border-orange-500/30 bg-orange-500/10 text-orange-300 text-[12.5px] leading-relaxed rounded">
+                    <Info className="w-4 h-4 shrink-0 mt-0.5" />
                     <div data-i18n="s1_callout">Learn how to transform Cloudflare into your global security, performance, and edge computing foundation.</div>
                   </div>
                   <div className="flex items-center gap-3 mt-2">
-                    <button className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-500 border border-orange-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" id="btn-start-course" onClick={onStart}>
+                    <button className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-500 border border-orange-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline rounded" id="btn-start-course" onClick={onStart}>
                       <span data-i18n="ui_start">Start Course</span>
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                      <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                     <span className="text-xs text-slate-300">or press <kbd className="kbd px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200">Space</kbd> / <kbd className="kbd px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200">→</kbd></span>
                   </div>

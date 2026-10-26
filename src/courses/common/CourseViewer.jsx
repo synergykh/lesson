@@ -1,4 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
+import {
+  LayoutGrid,
+  HelpCircle,
+  Sun,
+  Moon,
+  Maximize,
+  Minimize,
+  ChevronLeft,
+  ChevronRight,
+  X,
+} from "lucide-react";
 import { useLanguage, CourseLanguageContext } from "../../context/LanguageContext";
 import { useTheme } from "../../context/ThemeContext";
 import { Button } from "../../components/ui/button";
@@ -265,14 +276,14 @@ export default function CourseViewer({
     <CourseLanguageContext.Provider value={{ courseId }}>
       <div
         id="app-container"
-        className="flex flex-col h-screen w-screen overflow-hidden bg-slate-900 text-white font-sans select-none"
+        className="flex flex-col h-screen w-screen overflow-hidden bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white font-sans select-none"
       >
         {/* Top Header Bar */}
-        <header className="top-bar flex items-center justify-between h-[54px] px-4 bg-slate-900 border-b border-slate-800 z-50 shrink-0">
+        <header className="top-bar flex items-center justify-between h-[54px] px-4 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 z-50 shrink-0">
           <div className="flex items-center gap-3">
             <a
               href="#/"
-              className="flex items-center gap-2 text-white no-underline hover:opacity-85 transition-opacity"
+              className="flex items-center gap-2 text-slate-900 dark:text-white no-underline hover:opacity-85 transition-opacity"
               title="Return to Synergy Lessons"
             >
               <img
@@ -285,15 +296,15 @@ export default function CourseViewer({
               </span>
             </a>
 
-            <div className="h-4 w-px bg-slate-800 hidden sm:block" />
+            <div className="h-4 w-px bg-slate-200 dark:bg-slate-800 hidden sm:block" />
 
-            <span className="course-title-text font-bold text-xs sm:text-sm text-slate-200 truncate max-w-[180px] sm:max-w-[260px] md:max-w-none">
+            <span className="course-title-text font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-200 truncate max-w-[180px] sm:max-w-[260px] md:max-w-none">
               {displayCourseTitle}
             </span>
 
             <Badge
               variant="default"
-              className={`hidden sm:inline-flex text-[11px] ${colors.badge}`}
+              className={`hidden sm:inline-flex text-[11px] rounded ${colors.badge}`}
             >
               {courseT(currentSlide.partKey || `part_${currentIndex + 1}`, currentSlide.part || defaultPart)}
             </Badge>
@@ -301,12 +312,12 @@ export default function CourseViewer({
 
           <div className="top-controls flex items-center gap-1.5">
             {/* Jump to Slide dropdown */}
-            <div className="slide-counter-wrapper h-[34px] px-2.5 rounded-lg flex items-center gap-1.5 text-xs text-slate-300 bg-slate-900 border border-slate-800">
+            <div className="slide-counter-wrapper h-[34px] px-2.5 rounded flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
               <span>{t("ui_slide", "Slide")}</span>
               <select
                 value={currentIndex}
                 onChange={(e) => setCurrentIndex(Number(e.target.value))}
-                className={`bg-transparent ${colors.selectText} text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-slate-800 [&_option]:text-white`}
+                className={`bg-transparent ${colors.selectText} text-xs font-bold cursor-pointer px-1 outline-none border-0 [&_option]:bg-white dark:[&_option]:bg-slate-800 [&_option]:text-slate-900 dark:[&_option]:text-white`}
                 title="Jump to slide"
               >
                 {slides.map((s, idx) => (
@@ -317,7 +328,7 @@ export default function CourseViewer({
               </select>
               <span>
                 {t("ui_of", "of")}{" "}
-                <span className="font-bold text-white">{totalSlides}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{totalSlides}</span>
               </span>
             </div>
 
@@ -360,9 +371,7 @@ export default function CourseViewer({
             title="Slide Overview (O)"
             aria-label="Slide Overview (O)"
           >
-            <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
-              <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 2.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z" />
-            </svg>
+            <LayoutGrid className="w-4 h-4 shrink-0" />
           </Button>
 
           {/* Shortcuts button */}
@@ -373,9 +382,7 @@ export default function CourseViewer({
             title="Keyboard Shortcuts (?)"
             aria-label="Keyboard Shortcuts (?)"
           >
-            <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
-              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm.75-2.25v-.5a1.75 1.75 0 1 0-3.5 0 .75.75 0 0 0 1.5 0 .25.25 0 0 1 .5 0v.5a.75.75 0 0 0 .75.75.75.75 0 0 0 .75-.75z" />
-            </svg>
+            <HelpCircle className="w-4 h-4 shrink-0" />
           </Button>
 
           {/* Theme button */}
@@ -387,13 +394,9 @@ export default function CourseViewer({
             aria-label="Toggle Light / Dark Mode"
           >
             {theme === "dark" ? (
-              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
-                <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .91.954 8 8 0 1 1-9.845-12.389A.8.8 0 0 1 6 .278z" />
-              </svg>
+              <Sun className="w-4 h-4 text-amber-400 shrink-0" />
             ) : (
-              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
-                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-              </svg>
+              <Moon className="w-4 h-4 text-slate-700 shrink-0" />
             )}
           </Button>
 
@@ -405,9 +408,11 @@ export default function CourseViewer({
             title="Toggle Fullscreen (F)"
             aria-label="Toggle Fullscreen"
           >
-            <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
-              <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V2h3.5a.5.5 0 0 0 0-1h-4zm10 0a.5.5 0 0 0 0 1H15v3.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5h-4zM1 10.5a.5.5 0 0 0 0 1V15h3.5a.5.5 0 0 0 0-1H2v-3.5a.5.5 0 0 0-1 0zm14.5.5a.5.5 0 0 0-1 0V14h-3.5a.5.5 0 0 0 0 1H15a.5.5 0 0 0 .5-.5v-4z" />
-            </svg>
+            {isFullscreen ? (
+              <Minimize className="w-4 h-4 shrink-0" />
+            ) : (
+              <Maximize className="w-4 h-4 shrink-0" />
+            )}
           </Button>
         </div>
       </header>
@@ -421,7 +426,7 @@ export default function CourseViewer({
           >
             <div
               ref={slideContainerRef}
-              className="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between gap-4 shadow-2xl overflow-y-auto rounded-xl"
+              className="slide-content-card w-full max-w-7xl h-[80%] min-h-[80%] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between gap-4 shadow-xl overflow-y-auto rounded"
             >
               {CurrentSlideComponent ? (
                 <CurrentSlideComponent
@@ -429,7 +434,7 @@ export default function CourseViewer({
                   onRestart={() => setCurrentIndex(0)}
                 />
               ) : (
-                <div className="text-center text-slate-400 py-10">Slide content unavailable</div>
+                <div className="text-center text-slate-500 dark:text-slate-400 py-10">Slide content unavailable</div>
               )}
             </div>
           </section>
@@ -437,50 +442,50 @@ export default function CourseViewer({
       </main>
 
       {/* Bottom Navigation Bar */}
-      <footer className="bottom-bar flex items-center justify-between h-[50px] px-4 bg-slate-900 border-t border-slate-800 z-50 shrink-0 text-xs text-slate-400">
+      <footer className="bottom-bar flex items-center justify-between h-[50px] px-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 z-50 shrink-0 text-xs text-slate-600 dark:text-slate-400">
         <div className="progress-section flex items-center gap-3">
           <Progress
             value={progressPercent}
-            className="w-28 sm:w-36 h-2 bg-slate-800"
+            className="w-28 sm:w-36 h-2 bg-slate-200 dark:bg-slate-800 rounded"
             indicatorClassName={colors.progressIndicator}
           />
-          <span className="text-xs text-slate-300 font-bold hidden sm:inline">
+          <span className="text-xs text-slate-700 dark:text-slate-300 font-bold hidden sm:inline">
             {progressPercent}%
           </span>
-          <span className="text-slate-400 text-[11px] truncate max-w-[200px] hidden md:inline">
+          <span className="text-slate-500 dark:text-slate-400 text-[11px] truncate max-w-[200px] hidden md:inline">
             {currentSlide.part || defaultPart}
           </span>
         </div>
 
-        <div className="keyboard-hints hidden lg:flex items-center gap-2 text-slate-400 text-xs">
+        <div className="keyboard-hints hidden lg:flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs">
           <span>{t("ui_nav_hint", "Navigation:")}</span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px]">
+            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11px]">
               ←
             </kbd>{" "}
             /{" "}
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px]">
+            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11px]">
               →
             </kbd>{" "}
             or{" "}
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px]">
+            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11px]">
               Space
             </kbd>
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px]">
+            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11px]">
               O
             </kbd>{" "}
             Overview
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px]">
+            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11px]">
               F
             </kbd>{" "}
             Fullscreen
           </span>
           <span>
-            <kbd className="kbd px-1.5 py-0.5 bg-slate-800 border border-slate-700 text-slate-200 text-[11px]">
+            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11px]">
               T
             </kbd>{" "}
             Theme
@@ -493,10 +498,11 @@ export default function CourseViewer({
             size="sm"
             onClick={() => setCurrentIndex((prev) => Math.max(prev - 1, 0))}
             disabled={currentIndex === 0}
-            className="h-8 px-3 text-xs flex items-center gap-1 bg-slate-800 hover:bg-slate-700 text-white border-slate-700 disabled:opacity-40"
+            className="h-8 px-3 text-xs flex items-center gap-1.5 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-white border-slate-200 dark:border-slate-700 disabled:opacity-40"
             title="Previous Slide (Left Arrow or H)"
           >
-            ← {t("ui_prev", "Prev")}
+            <ChevronLeft className="w-3.5 h-3.5" />
+            <span>{t("ui_prev", "Prev")}</span>
           </Button>
           <Button
             variant="outline"
@@ -505,10 +511,11 @@ export default function CourseViewer({
               setCurrentIndex((prev) => Math.min(prev + 1, totalSlides - 1))
             }
             disabled={currentIndex === totalSlides - 1}
-            className={`h-8 px-3 text-xs flex items-center gap-1 ${colors.nextBtn} disabled:opacity-40`}
+            className={`h-8 px-3 text-xs flex items-center gap-1.5 rounded ${colors.nextBtn} disabled:opacity-40`}
             title="Next Slide (Right Arrow or Space)"
           >
-            {t("ui_next", "Next")} →
+            <span>{t("ui_next", "Next")}</span>
+            <ChevronRight className="w-3.5 h-3.5" />
           </Button>
         </div>
       </footer>
@@ -520,15 +527,15 @@ export default function CourseViewer({
           onClick={() => setOverviewOpen(false)}
         >
           <div
-            className="overview-content w-full max-w-5xl max-h-[85vh] bg-slate-900 border border-slate-800 rounded-lg p-5 flex flex-col gap-4 shadow-2xl overflow-hidden"
+            className="overview-content w-full max-w-5xl max-h-[85vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded p-5 flex flex-col gap-4 shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-base text-white">
+                <span className="font-bold text-base text-slate-900 dark:text-white">
                   {t("ui_overview_title", `${displayCourseTitle} Slide Overview`)}
                 </span>
-                <span className="text-xs text-slate-400">
+                <span className="text-xs text-slate-500 dark:text-slate-400">
                   ({totalSlides} {t("ui_slides", "slides")})
                 </span>
               </div>
@@ -536,9 +543,10 @@ export default function CourseViewer({
                 variant="outline"
                 size="sm"
                 onClick={() => setOverviewOpen(false)}
-                className="h-8 px-2.5 text-xs bg-slate-800 text-slate-200 border-slate-700"
+                className="h-8 px-2.5 text-xs rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center gap-1"
               >
-                {t("ui_close", "Close (Esc)")}
+                <X className="w-3.5 h-3.5" />
+                <span>{t("ui_close", "Close (Esc)")}</span>
               </Button>
             </div>
 
@@ -559,10 +567,10 @@ export default function CourseViewer({
                       setCurrentIndex(idx);
                       setOverviewOpen(false);
                     }}
-                    className={`p-3 rounded-lg border text-left flex flex-col gap-1.5 transition-all cursor-pointer ${
+                    className={`p-3 rounded border text-left flex flex-col gap-1.5 transition-all cursor-pointer ${
                       currentIndex === idx
                         ? colors.overviewActive
-                        : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900"
+                        : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800/80"
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -573,7 +581,7 @@ export default function CourseViewer({
                         {slidePart}
                       </span>
                     </div>
-                    <div className="text-xs font-bold truncate text-white">
+                    <div className="text-xs font-bold truncate text-slate-900 dark:text-white">
                       {slideTitle}
                     </div>
                   </button>
@@ -591,48 +599,49 @@ export default function CourseViewer({
           onClick={() => setShortcutsOpen(false)}
         >
           <div
-            className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-lg p-5 flex flex-col gap-4 shadow-2xl"
+            className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded p-5 flex flex-col gap-4 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <span className="font-bold text-sm text-white">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+              <span className="font-bold text-sm text-slate-900 dark:text-white">
                 {t("ui_shortcuts_title", "Keyboard Navigation Shortcuts")}
               </span>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setShortcutsOpen(false)}
-                className="h-8 px-2.5 text-xs bg-slate-800 text-slate-200 border-slate-700"
+                className="h-8 px-2.5 text-xs rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center gap-1"
               >
-                {t("ui_close", "Close (Esc)")}
+                <X className="w-3.5 h-3.5" />
+                <span>{t("ui_close", "Close (Esc)")}</span>
               </Button>
             </div>
             <div className="flex flex-col gap-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span className="text-slate-300">{t("ui_next", "Next Slide")}</span>
-                <span className="text-slate-400">Right Arrow / Space / L</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-800/60">
+                <span className="text-slate-700 dark:text-slate-300">{t("ui_next", "Next Slide")}</span>
+                <span className="text-slate-500 dark:text-slate-400">Right Arrow / Space / L</span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span className="text-slate-300">{t("ui_prev", "Previous Slide")}</span>
-                <span className="text-slate-400">Left Arrow / H</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-800/60">
+                <span className="text-slate-700 dark:text-slate-300">{t("ui_prev", "Previous Slide")}</span>
+                <span className="text-slate-500 dark:text-slate-400">Left Arrow / H</span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span className="text-slate-300">First / Last Slide</span>
-                <span className="text-slate-400">Home / End</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-800/60">
+                <span className="text-slate-700 dark:text-slate-300">First / Last Slide</span>
+                <span className="text-slate-500 dark:text-slate-400">Home / End</span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span className="text-slate-300">Slide Overview Grid</span>
-                <span className="text-slate-400">O</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-800/60">
+                <span className="text-slate-700 dark:text-slate-300">Slide Overview Grid</span>
+                <span className="text-slate-500 dark:text-slate-400">O</span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span className="text-slate-300">Toggle Fullscreen</span>
-                <span className="text-slate-400">F</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200 dark:border-slate-800/60">
+                <span className="text-slate-700 dark:text-slate-300">Toggle Fullscreen</span>
+                <span className="text-slate-500 dark:text-slate-400">F</span>
               </div>
               <div className="flex justify-between items-center py-1">
-                <span className="text-slate-300">
+                <span className="text-slate-700 dark:text-slate-300">
                   Toggle Theme (Light / Dark)
                 </span>
-                <span className="text-slate-400">T</span>
+                <span className="text-slate-500 dark:text-slate-400">T</span>
               </div>
             </div>
           </div>

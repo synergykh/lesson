@@ -1,4 +1,5 @@
 import React from "react";
+import { Copy, Code, PlayCircle, ArrowRight, Monitor, Sparkles, RotateCcw, Info, AlertTriangle, XCircle, Check, CheckCircle2 } from "lucide-react";
 
 // Slide 1: Next.js: From React to Production
 export function Slide1({ onStart, onRestart }) {
@@ -25,16 +26,7 @@ export function Slide1({ onStart, onRestart }) {
                   <div
                     className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400  text-xs w-max"
                   >
-                    <svg
-                      className="w-3.5 h-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="m10 15 5-3-5-3v6Z" />
-                    </svg>
+                    <PlayCircle className="w-3.5 h-3.5" />
                     <span className="lang-en"
                       >PRODUCTION-READY FULL-STACK FRAMEWORK</span
                     >
@@ -67,17 +59,7 @@ export function Slide1({ onStart, onRestart }) {
                     <button
                       className="btn-start-course btn-nav px-5 py-2.5 text-sm flex items-center gap-2"
                     onClick={onStart}>
-                      <svg
-                        className="w-4 h-4"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <ArrowRight className="w-4 h-4" />
                       <span className="lang-en">Start Course (75 Slides)</span>
                       <span className="lang-km">ចាប់ផ្ដើមមេរៀន (៧៥ ស្លាយ)</span>
                     </button>
@@ -118,17 +100,7 @@ export function Slide1({ onStart, onRestart }) {
                   <div
                     className="p-3 bg-blue-900/30 border border-blue-800/40 text-blue-300 text-xs flex items-center gap-2"
                   >
-                    <svg
-                      className="w-4 h-4 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <Info className="w-4 h-4 flex-shrink-0" />
                     <span
                       >Bilingual English &bull; Khmer Support &bull; Press F for
                       Fullscreen</span
@@ -179,17 +151,7 @@ export function Slide2({ onStart, onRestart }) {
                 <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       1. Foundation to App Router
                     </h4>
                     <p>
@@ -206,17 +168,7 @@ export function Slide2({ onStart, onRestart }) {
                   </div>
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       2. Full-Stack Data &amp; Database
                     </h4>
                     <p>
@@ -233,17 +185,7 @@ export function Slide2({ onStart, onRestart }) {
                   </div>
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-purple-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-purple-400" />
                       3. Security, Project &amp; Shipping
                     </h4>
                     <p>
@@ -286,17 +228,7 @@ export function Slide3({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <rect x="2" y="3" width="20" height="14" rx="0" />
-                        <line x1="8" y1="21" x2="16" y2="21" />
-                        <line x1="12" y1="17" x2="12" y2="21" />
-                      </svg>
+                      <Monitor className="w-4 h-4 text-blue-400" />
                       <span className="lang-en"
                         >The React Framework for the Web</span
                       ><span className="lang-km"
@@ -319,17 +251,7 @@ export function Slide3({ onStart, onRestart }) {
                     </p>
                   </div>
                   <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                    <svg
-                      className="w-4 h-4 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <Info className="w-4 h-4 flex-shrink-0" />
                     <div>
                       <span className="lang-en"
                         ><strong>Official Definition:</strong> Next.js is a
@@ -351,100 +273,40 @@ export function Slide3({ onStart, onRestart }) {
                     <div
                       className="text-blue-400 font-bold mb-2 flex items-center gap-2"
                     >
-                      <svg
-                        className="w-3.5 h-3.5"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path
-                          d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-                        />
-                      </svg>
+                      <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                       <span>Next.js Built-in Capabilities</span>
                     </div>
                     <ul className="space-y-1.5 text-slate-300">
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span
                           ><strong>File-System Routing:</strong> Folder-based
                           pages, layouts, and nested routes</span
                         >
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span
                           ><strong>Server Components:</strong> Fast rendering
                           with zero client-side JS bundle overhead</span
                         >
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span
                           ><strong>Server Actions:</strong> Type-safe
                           asynchronous mutations directly from forms</span
                         >
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span
                           ><strong>Asset Optimization:</strong> Automatic WebP
                           images, self-hosted fonts, scripts</span
                         >
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span
                           ><strong>Metadata &amp; SEO:</strong> Dynamic Open Graph
                           and search engine tags built-in</span
@@ -654,17 +516,7 @@ export function Slide6({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Essential Prerequisites
                     </h4>
                     <p>
@@ -683,17 +535,7 @@ export function Slide6({ onStart, onRestart }) {
                     </p>
                   </div>
                   <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                    <svg
-                      className="w-4 h-4 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <Info className="w-4 h-4 flex-shrink-0" />
                     <div>
                       <span className="lang-en"
                         ><strong>Good News:</strong> You do NOT need advanced
@@ -894,17 +736,7 @@ export function Slide8({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Environment Prerequisites
                     </h4>
                     <p>
@@ -921,17 +753,7 @@ export function Slide8({ onStart, onRestart }) {
                     </p>
                   </div>
                   <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
-                    <svg
-                      className="w-4 h-4 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                     <div>
                       <span className="lang-en"
                         >Check your installed version in terminal using
@@ -963,18 +785,7 @@ export function Slide8({ onStart, onRestart }) {
                         >Verify Developer Environment</span
                       >
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -1034,18 +845,7 @@ export function Slide9({ onStart, onRestart }) {
                         >Bootstrap Next.js Project</span
                       >
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -1167,18 +967,7 @@ export function Slide10({ onStart, onRestart }) {
                         >Start Local Development Server</span
                       >
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -1209,17 +998,7 @@ export function Slide10({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       Fast Refresh &amp; Instant Feedback
                     </h4>
                     <p>
@@ -1289,17 +1068,7 @@ my-app/
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       App Router Architecture
                     </h4>
                     <p>
@@ -1345,31 +1114,11 @@ export function Slide12({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/page.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -1448,31 +1197,11 @@ export function Slide13({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/layout.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -1502,17 +1231,7 @@ export default function RootLayout(&#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Root Layout Responsibilities
                     </h4>
                     <p>
@@ -1572,17 +1291,7 @@ app/
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       Automatic Routing by Convention
                     </h4>
                     <p>
@@ -1642,17 +1351,7 @@ app/
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-purple-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-purple-400" />
                       Nested Layouts &amp; Preserved State
                     </h4>
                     <p>
@@ -1698,31 +1397,11 @@ export function Slide16({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/products/[id]/page.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -1795,31 +1474,11 @@ export function Slide17({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/ui/Navbar.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -1845,17 +1504,7 @@ export default function Navbar() &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       Why next/link instead of &lt;a&gt;?
                     </h4>
                     <p>
@@ -1913,17 +1562,7 @@ export function Slide18({ onStart, onRestart }) {
                 <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Active Links with usePathname()
                     </h4>
                     <p>
@@ -1945,31 +1584,11 @@ export function Slide18({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         Active Nav Link Pattern
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -2015,31 +1634,11 @@ export function Slide19({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         components/Button.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -2055,17 +1654,7 @@ export function Slide19({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Reusable UI Units
                     </h4>
                     <p>
@@ -2109,31 +1698,11 @@ export function Slide20({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         components/Button.tsx with Props
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -2173,31 +1742,11 @@ export function Button(&#123; children, variant = "primary" &#125;: ButtonProps)
                     <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                       <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                         <span className="flex items-center gap-2">
-                          <svg
-                            className="w-3.5 h-3.5 text-blue-400"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                          >
-                            <polyline points="16 18 22 12 16 6" />
-                            <polyline points="8 6 2 12 8 18" />
-                          </svg>
+                          <Code className="w-3.5 h-3.5 text-blue-400" />
                           Usage in Any Page
                         </span>
                         <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                          <svg
-                            className="w-3 h-3"
-                            viewBox="0 0 16 16"
-                            fill="currentColor"
-                          >
-                            <path
-                              d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                            />
-                            <path
-                              d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                            />
-                          </svg>
+                          <Copy className="w-3 h-3" />
                           Copy
                         </button>
                       </div>
@@ -2252,17 +1801,7 @@ app/
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-purple-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-purple-400" />
                       Modularity &amp; Colocation
                     </h4>
                     <p>
@@ -2309,31 +1848,11 @@ export function Slide22({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/products/page.tsx (Server Component)
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -2361,17 +1880,7 @@ export default async function ProductsPage() &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Zero Client-Side JavaScript
                     </h4>
                     <p>
@@ -2420,31 +1929,11 @@ export function Slide23({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         components/Counter.tsx (Client Component)
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -2689,31 +2178,11 @@ export function Slide26({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         components/DashboardCard.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -2786,31 +2255,11 @@ export function Slide27({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/dashboard/page.tsx (Responsive Grid)
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -2829,17 +2278,7 @@ export function Slide27({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       Mobile-First Breakpoints
                     </h4>
                     <p>
@@ -2885,31 +2324,11 @@ export function Slide28({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/invoices/page.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -2933,17 +2352,7 @@ export function Slide28({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Native fetch() Enhancements
                     </h4>
                     <p>
@@ -2990,31 +2399,11 @@ export function Slide29({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/users/page.tsx (Direct SQL Query)
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -3040,17 +2429,7 @@ export default async function UsersPage() &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       No Extra API Layer Required
                     </h4>
                     <p>
@@ -3095,31 +2474,11 @@ export function Slide30({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         lib/db.ts (Neon PostgreSQL Driver)
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -3135,17 +2494,7 @@ export const sql = neon(process.env.DATABASE_URL);</code></pre>
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Modern Cloud Databases
                     </h4>
                     <p>
@@ -3330,31 +2679,11 @@ export function Slide33({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/dashboard/page.tsx with Suspense
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -3379,17 +2708,7 @@ export default function DashboardPage() &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-purple-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-purple-400" />
                       Instant Loading Skeletons
                     </h4>
                     <p>
@@ -3435,31 +2754,11 @@ export function Slide34({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/dashboard/loading.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -3480,17 +2779,7 @@ export function Slide34({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Zero-Config Suspense Boundary
                     </h4>
                     <p>
@@ -3536,31 +2825,11 @@ export function Slide35({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/dashboard/error.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -3591,17 +2860,7 @@ export default function Error(&#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-red-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-red-400" />
                       Isolated Error Recovery
                     </h4>
                     <p>
@@ -3646,31 +2905,11 @@ export function Slide36({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/products/[id]/page.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -3693,17 +2932,7 @@ export default async function ProductPage(&#123; params &#125;: any) &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-amber-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-amber-400" />
                       Custom 404 Handlers
                     </h4>
                     <p>
@@ -3812,31 +3041,11 @@ export function Slide38({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/actions/tasks.ts
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -3863,17 +3072,7 @@ export async function createTask(formData: FormData) &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       Asynchronous Server Mutations
                     </h4>
                     <p>
@@ -3919,31 +3118,11 @@ export function Slide39({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         components/TaskForm.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -4033,31 +3212,11 @@ export function Slide40({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/invoices/page.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -4156,17 +3315,7 @@ export function Slide41({ onStart, onRestart }) {
                 <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       Secure Cookie Sessions
                     </h4>
                     <p>
@@ -4184,17 +3333,7 @@ export function Slide41({ onStart, onRestart }) {
                   </div>
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Industry Standards
                     </h4>
                     <p>
@@ -4236,31 +3375,11 @@ export function Slide42({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         middleware.ts (Route Guard)
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -4287,17 +3406,7 @@ export const config = &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Edge-Speed Route Interception
                     </h4>
                     <p>
@@ -4344,31 +3453,11 @@ export function Slide43({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         .env.local
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -4385,17 +3474,7 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_live_abc..."
                 </div>
                 <div className="flex flex-col gap-3">
                   <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
-                    <svg
-                      className="w-4 h-4 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                     <div>
                       <span className="lang-en"
                         ><strong>Critical Security Rule:</strong> Never prefix
@@ -4439,31 +3518,11 @@ export function Slide44({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/about/page.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -4487,17 +3546,7 @@ export default function AboutPage() &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Built-in SEO Optimization
                     </h4>
                     <p>
@@ -4613,31 +3662,11 @@ export function Slide46({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         components/HeroBanner.tsx
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -4706,31 +3735,11 @@ export function Slide47({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/layout.tsx (Google Fonts Self-Hosting)
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -4758,17 +3767,7 @@ export default function RootLayout(&#123; children &#125;: any) &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Zero External Font Requests
                     </h4>
                     <p>
@@ -4888,31 +3887,11 @@ export function Slide49({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         app/api/users/route.ts
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -4936,17 +3915,7 @@ export async function POST(request: Request) &#123;
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       REST API &amp; Webhooks
                     </h4>
                     <p>
@@ -5064,17 +4033,7 @@ export function Slide51({ onStart, onRestart }) {
                     <div
                       className="text-red-400 font-bold  text-xs mb-1 flex items-center gap-1.5"
                     >
-                      <svg
-                        className="w-4 h-4"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <XCircle className="w-4 h-4" />
                       CLIENT BROWSER (UNTRUSTED)
                     </div>
                     <p className="text-slate-300 text-xs mb-2">
@@ -5100,17 +4059,7 @@ export function Slide51({ onStart, onRestart }) {
                     <div
                       className="text-green-400 font-bold  text-xs mb-1 flex items-center gap-1.5"
                     >
-                      <svg
-                        className="w-4 h-4"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4" />
                       NEXT.JS SERVER (TRUSTED)
                     </div>
                     <p className="text-slate-300 text-xs mb-2">
@@ -5185,17 +4134,7 @@ taskflow/
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Route Groups (auth) &amp; (dashboard)
                     </h4>
                     <p>
@@ -5394,31 +4333,11 @@ export function Slide55({ onStart, onRestart }) {
                   <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                     <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
                       <span className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
+                        <Code className="w-3.5 h-3.5 text-blue-400" />
                         PostgreSQL Schema (Neon)
                       </span>
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -5445,17 +4364,7 @@ CREATE INDEX idx_tasks_user_id ON tasks(user_id);</code></pre>
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Relational Data Modeling
                     </h4>
                     <p>
@@ -5632,17 +4541,7 @@ export function Slide58({ onStart, onRestart }) {
                   <div
                     className="text-red-400 font-bold mb-2 flex items-center gap-1.5"
                   >
-                    <svg
-                      className="w-4 h-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <XCircle className="w-4 h-4" />
                     POOR PATTERN: Client at the Root
                   </div>
                   <pre className="text-slate-300">
@@ -5662,17 +4561,7 @@ export default function Dashboard() &#123;
                   <div
                     className="text-green-400 font-bold mb-2 flex items-center gap-1.5"
                   >
-                    <svg
-                      className="w-4 h-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <CheckCircle2 className="w-4 h-4" />
                     RECOMMENDED: Client at Leaf Nodes
                   </div>
                   <pre className="text-slate-300">
@@ -5721,18 +4610,7 @@ export function Slide59({ onStart, onRestart }) {
                         >Create Production Build</span
                       >
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -5769,17 +4647,7 @@ export function Slide59({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-blue-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                       Build Output Inspection
                     </h4>
                     <p>
@@ -5833,18 +4701,7 @@ export function Slide60({ onStart, onRestart }) {
                         >Git Workflow for Next.js</span
                       >
                       <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <svg
-                          className="w-3 h-3"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"
-                          />
-                          <path
-                            d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"
-                          />
-                        </svg>
+                        <Copy className="w-3 h-3" />
                         Copy
                       </button>
                     </div>
@@ -5882,17 +4739,7 @@ export function Slide60({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       Connection to Git &amp; GitHub
                     </h4>
                     <p>
@@ -6707,103 +5554,33 @@ export function Slide73({ onStart, onRestart }) {
                     </div>
                     <ul className="space-y-1.5 text-slate-300">
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span>User Authentication (Register &amp; Login)</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span>Protected Dashboard layout with Middleware</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span>PostgreSQL Database integration via Neon</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span
                           >Server Actions for Creating &amp; Updating Tasks</span
                         >
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span>Search query &amp; pagination via searchParams</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span>Loading skeleton &amp; Error boundary recovery</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <svg
-                          className="w-3.5 h-3.5 text-green-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <Check className="w-3.5 h-3.5 text-green-400" />
                         <span>Production deployment to Vercel via GitHub</span>
                       </li>
                     </ul>
@@ -6812,17 +5589,7 @@ export function Slide73({ onStart, onRestart }) {
                 <div className="flex flex-col gap-3">
                   <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
                     <h4>
-                      <svg
-                        className="w-4 h-4 text-green-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <CheckCircle2 className="w-4 h-4 text-green-400" />
                       Put Theory Into Practice
                     </h4>
                     <p>
@@ -6949,17 +5716,7 @@ export function Slide75({ onStart, onRestart }) {
                     
                     className="btn-nav px-5 py-2.5 text-sm flex items-center gap-2"
                   >
-                    <svg
-                      className="w-4 h-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <RotateCcw className="w-4 h-4" />
                     <span className="lang-en">Restart Presentation</span>
                     <span className="lang-km">ចាប់ផ្ដើមឡើងវិញ</span>
                   </button>

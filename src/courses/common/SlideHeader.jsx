@@ -12,13 +12,13 @@ export default function SlideHeader({
   const { t } = useCourseLanguage();
 
   const colorMap = {
-    blue: "border-blue-500/30 bg-blue-500/10 text-blue-400",
-    green: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
-    orange: "border-orange-500/30 bg-orange-500/10 text-orange-400",
-    purple: "border-purple-500/30 bg-purple-500/10 text-purple-400",
-    amber: "border-amber-500/30 bg-amber-500/10 text-amber-400",
-    red: "border-rose-500/30 bg-rose-500/10 text-rose-400",
-    sky: "border-sky-500/30 bg-sky-500/10 text-sky-400",
+    blue: "border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400",
+    green: "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+    orange: "border-orange-500/30 bg-orange-500/10 text-orange-600 dark:text-orange-400",
+    purple: "border-purple-500/30 bg-purple-500/10 text-purple-600 dark:text-purple-400",
+    amber: "border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400",
+    red: "border-rose-500/30 bg-rose-500/10 text-rose-600 dark:text-rose-400",
+    sky: "border-sky-500/30 bg-sky-500/10 text-sky-600 dark:text-sky-400",
   };
 
   const badgeClass = colorMap[badgeColor] || colorMap.blue;
@@ -34,7 +34,7 @@ export default function SlideHeader({
     : badgeText;
 
   return (
-    <div className="slide-header flex items-start justify-between border-b border-slate-800/80 pb-3 gap-3 shrink-0">
+    <div className="slide-header flex items-start justify-between border-b border-slate-200 dark:border-slate-800 pb-3 gap-3 shrink-0">
       <div className="slide-title-wrap flex flex-col gap-1">
         <div className="flex items-center gap-2">
           {slideNum && (
@@ -46,18 +46,18 @@ export default function SlideHeader({
             </span>
           )}
           {displayBadge && (
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               {displayBadge}
             </span>
           )}
         </div>
         <h2
-          className="slide-title text-2xl md:text-3xl font-black text-white m-0 tracking-tight leading-snug"
+          className="slide-title text-2xl md:text-3xl font-black text-slate-900 dark:text-white m-0 tracking-tight leading-snug"
           dangerouslySetInnerHTML={{ __html: displayTitle }}
         />
         {displaySub && (
           <p
-            className="slide-subtitle text-xs md:text-sm text-slate-400 m-0"
+            className="slide-subtitle text-xs md:text-sm text-slate-600 dark:text-slate-400 m-0"
             dangerouslySetInnerHTML={{ __html: displaySub }}
           />
         )}

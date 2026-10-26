@@ -1,4 +1,5 @@
 import React from "react";
+import { Info, ChevronRight, AlertTriangle } from "lucide-react";
 
 // Slide 1: MODULE 06 • PRODUCTION INFRASTRUCTURE
 export function Slide1({ onStart, onRestart }) {
@@ -10,14 +11,14 @@ export function Slide1({ onStart, onRestart }) {
                 <h1 className="title-main-h1 text-3xl md:text-4xl font-extrabold text-white m-0 mb-1 leading-tight" data-i18n="s1_title">Vercel &amp; Web Deployment<br /><span className="title-accent text-blue-400 font-extrabold">From Zero to Production Masterclass</span></h1>
                 <p className="title-tagline text-sm text-slate-300 italic m-0 mb-3" data-i18n="s1_tagline">“Deploy, scale, and maintain high-performance fullstack web applications”</p>
                 <div className="slide-stack flex flex-col gap-3">
-                  <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                    <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                  <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                    <Info className="w-4 h-4 shrink-0 mt-0.5" />
                     <div data-i18n="s1_callout">A comprehensive developer guide from setting up your Vercel account to deploying Next.js with Neon PostgreSQL and custom domains.</div>
                   </div>
                   <div className="flex items-center gap-3 mt-2">
-                    <button className="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" id="btn-start-course" onClick={onStart}>
+                    <button className="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline rounded" id="btn-start-course" onClick={onStart}>
                       <span data-i18n="ui_start">Start Course</span>
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                      <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                     <span className="text-xs text-slate-300">or press <kbd className="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">Space</kbd> / <kbd className="kbd inline-block px-1.5 py-0.5  text-[11px] font-bold bg-slate-800 border border-slate-700 text-slate-200 shadow-sm">→</kbd></span>
                   </div>
@@ -399,8 +400,8 @@ export function Slide14({ onStart, onRestart }) {
               </div>
               <span className="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">SECURITY RULE</span>
             </div>
-            <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed rounded">
+              <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
               <div><strong>NEVER COMMIT .env.local TO GIT!</strong> Verify that <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.env*.local</code> is listed in your <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.gitignore</code> file. Database passwords committed to GitHub can be stolen by scrapers within seconds.</div>
             </div>
     </div>
@@ -940,8 +941,8 @@ export function Slide38({ onStart, onRestart }) {
               </div>
               <span className="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">IMPORTANT</span>
             </div>
-            <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed rounded">
+              <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
               <div><strong>Updating an environment variable does NOT automatically update existing deployments!</strong> Next.js inlines variables during compilation. You must trigger a <strong>Redeploy</strong> in the dashboard or push a new commit to apply updated variables.</div>
             </div>
     </div>
@@ -1116,8 +1117,8 @@ export function Slide46({ onStart, onRestart }) {
                 <p className="slide-subtitle text-[13px] text-slate-400 m-0" data-i18n="s46_sub">Safely applying schema migrations before application deployment</p>
               </div>
             </div>
-            <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+            <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+              <Info className="w-4 h-4 shrink-0 mt-0.5" />
               <div>Always execute database migrations (e.g. <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm prisma migrate deploy</code> or <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">pnpm drizzle-kit migrate</code>) before or during the build phase so new database columns exist when your new code runs!</div>
             </div>
     </div>
@@ -1205,8 +1206,8 @@ export function Slide50({ onStart, onRestart }) {
               </div>
               <span className="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">DANGER ZONE</span>
             </div>
-            <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed rounded">
+              <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
               <div><strong>NEVER DELETE MX RECORDS!</strong> If you have Google Workspace or Outlook email connected to your domain, only add the required A or CNAME record. Do not switch nameservers or wipe existing MX, TXT (SPF), or DKIM records, or company email will break instantly.</div>
             </div>
     </div>
@@ -1345,8 +1346,8 @@ export function Slide57({ onStart, onRestart }) {
               </div>
               <span className="tag-badge warning text-[11px] font-bold px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400  inline-flex items-center gap-1">CRITICAL WARNING</span>
             </div>
-            <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed rounded">
+              <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
               <div><strong>Vercel rollback ONLY reverts web frontend and serverless code!</strong> It cannot un-drop database tables or rollback destructive SQL migrations on Neon. Design migrations to be backward-compatible with the previous release.</div>
             </div>
     </div>
@@ -1735,14 +1736,14 @@ export function Slide72({ onStart, onRestart }) {
               <span className="tag-badge success text-[11px] font-bold px-2 py-0.5 border border-green-500/30 bg-green-500/10 text-green-400  inline-flex items-center gap-1">COMPLETED</span>
             </div>
             <div className="slide-stack flex flex-col gap-3">
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div>You now possess the complete professional skillset to develop with Next.js, store data in Neon PostgreSQL, push to GitHub, automate deployments on Vercel, and route custom domains securely with HTTPS!</div>
               </div>
               <div className="flex justify-center mt-3">
-                <a href="../index.html" className="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline" onClick={onRestart}>
+                <a href="../index.html" className="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline rounded" onClick={onRestart}>
                   <span>Return to Fullstack Curriculum Hub</span>
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                  <ChevronRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

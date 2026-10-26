@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowRight, GitBranch, FolderGit2, AlertTriangle } from "lucide-react";
 import SlideHeader from "./components/SlideHeader";
 import TerminalBlock from "./components/TerminalBlock";
 import ImageFrame from "./components/ImageFrame";
@@ -8,41 +9,41 @@ import ImageFrame from "./components/ImageFrame";
 // ==========================================
 export function Slide1Welcome({ onStart }) {
   return (
-    <div className="title-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-6 items-center flex-1">
-      <div className="lg:col-span-6 flex flex-col gap-4">
+    <div className="title-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-1 min-h-0">
+      <div className="lg:col-span-6 flex flex-col justify-between gap-4">
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs  font-bold tracking-wider uppercase bg-orange-500/10 text-orange-400 border border-orange-500/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-bold tracking-wider uppercase bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 dark:bg-orange-400 animate-pulse" />
             MODULE 01 • LESSON 01
           </span>
-          <span className="text-xs  text-slate-400">SYNERGY ACADEMY</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">SYNERGY ACADEMY</span>
         </div>
-        <h1 className="title-main-h1 text-3xl md:text-5xl font-black text-white m-0 leading-tight">
+        <h1 className="title-main-h1 text-3xl md:text-5xl font-black text-slate-900 dark:text-white m-0 leading-tight">
           Git &amp; GitHub
           <br />
-          <span className="text-orange-400">From Zero to Your First Push</span>
+          <span className="text-orange-500 dark:text-orange-400">From Zero to Your First Push</span>
         </h1>
-        <p className="title-tagline text-sm md:text-base text-slate-300 m-0">
+        <p className="title-tagline text-sm md:text-base text-slate-600 dark:text-slate-300 m-0">
           The complete visual guide to modern local version control and cloud
           collaboration for developers.
         </p>
 
         <div className="grid grid-cols-3 gap-2.5 py-1">
-          <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 flex flex-col gap-0.5">
-            <span className="text-[11px] text-slate-400 ">Curriculum</span>
-            <span className="text-xs font-bold text-white">
+          <div className="p-2.5 rounded bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex flex-col gap-0.5">
+            <span className="text-[11px] text-slate-500 dark:text-slate-400">Curriculum</span>
+            <span className="text-xs font-bold text-slate-900 dark:text-white">
               23 Visual Slides
             </span>
           </div>
-          <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 flex flex-col gap-0.5">
-            <span className="text-[11px] text-slate-400 ">Learning Mode</span>
-            <span className="text-xs font-bold text-emerald-400">
+          <div className="p-2.5 rounded bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex flex-col gap-0.5">
+            <span className="text-[11px] text-slate-500 dark:text-slate-400">Learning Mode</span>
+            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
               Interactive CLI
             </span>
           </div>
-          <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 flex flex-col gap-0.5">
-            <span className="text-[11px] text-slate-400 ">Skill Level</span>
-            <span className="text-xs font-bold text-blue-400">
+          <div className="p-2.5 rounded bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex flex-col gap-0.5">
+            <span className="text-[11px] text-slate-500 dark:text-slate-400">Skill Level</span>
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
               Zero to Hero
             </span>
           </div>
@@ -52,36 +53,30 @@ export function Slide1Welcome({ onStart }) {
           <button
             type="button"
             onClick={onStart}
-            className="btn-start-course inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold cursor-pointer transition-all shadow-md active:scale-95"
+            className="btn-start-course inline-flex items-center gap-2 px-5 py-2.5 rounded bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold cursor-pointer transition-all shadow-md active:scale-95"
           >
             Start Workshop
-            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 16 16">
-              <path
-                fillRule="evenodd"
-                d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"
-              />
-            </svg>
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
-          <span className="text-xs text-slate-400">
+          <span className="text-xs text-slate-500 dark:text-slate-400">
             or press{" "}
-            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 text-xs ">
+            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs">
               Space
             </kbd>{" "}
             /{" "}
-            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 text-xs ">
+            <kbd className="kbd px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs">
               →
             </kbd>
           </span>
         </div>
       </div>
 
-      <div className="lg:col-span-6 flex flex-col gap-2">
+      <div className="lg:col-span-6 flex flex-col flex-1 h-full min-h-0">
         <ImageFrame
           src="/images/git/git_four_areas.jpg"
           alt="Git 4 Areas Architecture"
           caption="Full Lifecycle Architecture: Working Directory ➔ Staging ➔ Local Repo ➔ GitHub"
           badge="Architecture"
-          maxHeight="max-h-[300px]"
         />
       </div>
     </div>
@@ -103,62 +98,52 @@ export function Slide2GitVsGithub() {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-6 flex flex-col gap-3 justify-between">
-          <div className="p-4 rounded-lg bg-slate-800/70 border border-slate-700/80 border-l-4 border-l-orange-500 flex flex-col gap-2">
+          <div className="info-card p-4 rounded bg-slate-100 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/80 border-l-4 border-l-orange-500 flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <h4 className="text-xs font-bold text-white flex items-center gap-1.5">
-                <svg
-                  className="w-4 h-4 text-orange-400 fill-current"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.3 2.3a1.72 1.72 0 0 0-.48 1.48l-2.08 2.08a1.7 1.7 0 0 0-1.07-.38 1.75 1.75 0 0 0-1.75 1.75 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75c0-.3-.08-.58-.2-.83l2.03-2.03c.25.12.53.2.83.2.3 0 .58-.08.83-.2l2.3 2.3a1.7 1.7 0 0 0-.38 1.07 1.75 1.75 0 0 0 1.75 1.75 1.75 1.75 0 0 0 1.75-1.75 1.75 1.75 0 0 0-1.75-1.75c-.3 0-.58.08-.83.2l-2.3-2.3c.12-.25.2-.53.2-.83 0-.41-.16-.78-.42-1.07l2.25-2.25 6.07 6.07c.54.54.54 1.4 0 1.94l-8.03 8.03c-.54.54-1.4.54-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z" />
-                </svg>
+              <h4 className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                <GitBranch className="w-4 h-4 text-orange-500 dark:text-orange-400 shrink-0" />
                 Git (The Local Engine)
               </h4>
-              <span className="text-[10px]  px-2 py-0.5 rounded bg-orange-500/10 text-orange-400 border border-orange-500/20 font-bold">
+              <span className="text-[10px] px-2 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-bold">
                 Local Software
               </span>
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed m-0">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
               A <strong>version control system</strong> installed on your
               machine. Tracks exact file revisions, branches, and commits
               offline in the hidden{" "}
-              <code className="text-orange-400 ">.git/</code> directory.
+              <code className="text-orange-600 dark:text-orange-400">.git/</code> directory.
             </p>
-            <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-400 ">
+            <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400">
               <span>• Runs 100% Offline</span>
               <span>• Instant Branching</span>
               <span>• Cryptographic Integrity</span>
             </div>
           </div>
 
-          <div className="p-4 rounded-lg bg-slate-800/70 border border-slate-700/80 border-l-4 border-l-purple-500 flex flex-col gap-2">
+          <div className="info-card p-4 rounded bg-slate-100 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/80 border-l-4 border-l-purple-500 flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <h4 className="text-xs font-bold text-white flex items-center gap-1.5">
-                <svg
-                  className="w-4 h-4 text-purple-400 fill-current"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                </svg>
+              <h4 className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                <FolderGit2 className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
                 GitHub (The Cloud Platform)
               </h4>
-              <span className="text-[10px]  px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 font-bold">
+              <span className="text-[10px] px-2 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 font-bold">
                 Cloud Service
               </span>
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed m-0">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
               A <strong>cloud hosting platform</strong> for Git repositories.
               Enables global team collaboration, code reviews, Pull Requests,
               issues, and automated CI/CD deployments.
             </p>
-            <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-400 ">
+            <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400">
               <span>• Remote Backups</span>
               <span>• Pull Requests (PR)</span>
               <span>• CI/CD Automation</span>
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs flex items-center gap-2">
+          <div className="p-3 rounded bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-300 text-xs flex items-center gap-2">
             <span className="text-base">💡</span>
             <span>
               <strong>Key takeaway:</strong> You can use Git forever without
@@ -194,17 +179,16 @@ export function Slide3WhyGit() {
         badgeColor="orange"
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-6 p-4 rounded-lg bg-rose-900/20 border border-rose-500/30 flex flex-col justify-between gap-3">
-          <div className="flex items-center justify-between border-b border-rose-500/20 pb-2">
-            <h4 className="text-xs font-bold text-rose-300 flex items-center gap-1.5 uppercase tracking-wider">
-              <span className="text-rose-400 text-base">✕</span> The Old
-              Nightmare (Without Git)
+        <div className="info-card lg:col-span-6 p-4 rounded bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-500/30 flex flex-col justify-between gap-3 shadow-xs">
+          <div className="flex items-center justify-between border-b border-rose-200 dark:border-rose-500/20 pb-2">
+            <h4 className="text-xs font-bold text-rose-700 dark:text-rose-300 flex items-center gap-1.5 uppercase tracking-wider">
+              <span className="text-rose-500 dark:text-rose-400 text-base">✕</span> The Old Nightmare (Without Git)
             </h4>
-            <span className="text-[10px]  px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-bold">
+            <span className="text-[10px] px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-500/20 text-rose-700 dark:text-rose-400 font-bold">
               CHAOS
             </span>
           </div>
-          <div className="flex flex-col gap-2  text-[11px] bg-slate-900 p-3 rounded-lg border border-rose-500/20">
+          <div className="flex flex-col gap-2 text-[11px] bg-slate-900 dark:bg-slate-950 p-3 rounded border border-rose-200 dark:border-rose-500/20 font-mono">
             <div className="text-slate-400">📁 desktop/my-project/</div>
             <div className="text-slate-400 pl-4">├── 📦 project-final.zip</div>
             <div className="text-slate-400 pl-4">├── 📦 project-final2.zip</div>
@@ -215,33 +199,29 @@ export function Slide3WhyGit() {
               └── 📦 project-final-REAL-v2-final.zip (which one works?)
             </div>
           </div>
-          <ul className="list-none p-0 m-0 flex flex-col gap-2 text-xs text-rose-200">
+          <ul className="list-none p-0 m-0 flex flex-col gap-2 text-xs text-rose-900 dark:text-rose-200">
             <li className="flex items-center gap-2">
-              <span className="text-rose-400 font-bold">✗</span> Accidentally
-              deleting working code with no undo
+              <span className="text-rose-500 dark:text-rose-400 font-bold">✗</span> Accidentally deleting working code with no undo
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-rose-400 font-bold">✗</span> Two teammates
-              overwriting each other's files
+              <span className="text-rose-500 dark:text-rose-400 font-bold">✗</span> Two teammates overwriting each other's files
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-rose-400 font-bold">✗</span> Zero audit
-              trail of who broke production or when
+              <span className="text-rose-500 dark:text-rose-400 font-bold">✗</span> Zero audit trail of who broke production or when
             </li>
           </ul>
         </div>
 
-        <div className="lg:col-span-6 p-4 rounded-lg bg-emerald-900/20 border border-emerald-500/30 flex flex-col justify-between gap-3">
-          <div className="flex items-center justify-between border-b border-emerald-500/20 pb-2">
-            <h4 className="text-xs font-bold text-emerald-300 flex items-center gap-1.5 uppercase tracking-wider">
-              <span className="text-emerald-400 text-base">✓</span> The Modern
-              Solution (With Git)
+        <div className="info-card lg:col-span-6 p-4 rounded bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-500/30 flex flex-col justify-between gap-3 shadow-xs">
+          <div className="flex items-center justify-between border-b border-emerald-200 dark:border-emerald-500/20 pb-2">
+            <h4 className="text-xs font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5 uppercase tracking-wider">
+              <span className="text-emerald-500 dark:text-emerald-400 text-base">✓</span> The Modern Solution (With Git)
             </h4>
-            <span className="text-[10px]  px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">
+            <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold">
               CONFIDENCE
             </span>
           </div>
-          <div className="flex flex-col gap-2  text-[11px] bg-slate-900 p-3 rounded-lg border border-emerald-500/20">
+          <div className="flex flex-col gap-2 text-[11px] bg-slate-900 dark:bg-slate-950 p-3 rounded border border-emerald-200 dark:border-emerald-500/20 font-mono">
             <div className="text-slate-400">📁 my-project/</div>
             <div className="text-emerald-400 font-bold pl-4">
               ├── 📁 .git/ (entire infinite history stored here)
@@ -251,21 +231,18 @@ export function Slide3WhyGit() {
               └── 📄 README.md (clean, single folder, no zip copies)
             </div>
           </div>
-          <ul className="list-none p-0 m-0 flex flex-col gap-2 text-xs text-emerald-200">
+          <ul className="list-none p-0 m-0 flex flex-col gap-2 text-xs text-emerald-900 dark:text-emerald-200">
             <li className="flex items-center gap-2">
-              <span className="text-emerald-400 font-bold">✓</span>{" "}
-              <strong>Time Machine:</strong> Jump to any commit in your project
-              history
+              <span className="text-emerald-500 dark:text-emerald-400 font-bold">✓</span>{" "}
+              <strong>Time Machine:</strong> Jump to any commit in your project history
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-emerald-400 font-bold">✓</span>{" "}
-              <strong>Safe Sandbox:</strong> Branch off and experiment without
-              risking main
+              <span className="text-emerald-500 dark:text-emerald-400 font-bold">✓</span>{" "}
+              <strong>Safe Sandbox:</strong> Branch off and experiment without risking main
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-emerald-400 font-bold">✓</span>{" "}
-              <strong>Full Accountability:</strong> Every line has author and
-              reason stamped
+              <span className="text-emerald-500 dark:text-emerald-400 font-bold">✓</span>{" "}
+              <strong>Full Accountability:</strong> Every line has author and reason stamped
             </li>
           </ul>
         </div>
@@ -294,70 +271,65 @@ export function Slide4FourAreas() {
             alt="Git 4 Areas Diagram"
             caption="The Complete Lifecycle: Working Directory ➔ Staging Area ➔ Local Repo ➔ Remote Repo"
             badge="Core Diagram"
-            maxHeight="max-h-[300px]"
           />
         </div>
         <div className="lg:col-span-5 flex flex-col justify-between gap-2.5">
-          <div className="p-3 rounded-lg bg-sky-900/30 border border-sky-500/30 flex items-start gap-2.5">
-            <span className="w-6 h-6 rounded bg-sky-500/20 text-sky-400  font-bold text-xs flex items-center justify-center shrink-0">
+          <div className="p-3 rounded bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-500/30 flex items-start gap-2.5">
+            <span className="w-6 h-6 rounded bg-sky-100 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 font-bold text-xs flex items-center justify-center shrink-0">
               1
             </span>
             <div>
-              <div className="text-xs font-bold text-sky-300">
+              <div className="text-xs font-bold text-sky-700 dark:text-sky-300">
                 Working Directory
               </div>
-              <div className="text-[11px] text-slate-300">
-                Your actual files on disk you edit in VS Code. Changes are
-                untracked or modified.
+              <div className="text-[11px] text-slate-600 dark:text-slate-300">
+                Your actual files on disk you edit in VS Code. Changes are untracked or modified.
               </div>
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-amber-900/30 border border-amber-500/30 flex items-start gap-2.5">
-            <span className="w-6 h-6 rounded bg-amber-500/20 text-amber-400  font-bold text-xs flex items-center justify-center shrink-0">
+          <div className="p-3 rounded bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/30 flex items-start gap-2.5">
+            <span className="w-6 h-6 rounded bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
               2
             </span>
             <div>
-              <div className="text-xs font-bold text-amber-300">
+              <div className="text-xs font-bold text-amber-700 dark:text-amber-300">
                 Staging Area (Index){" "}
-                <code className="text-amber-400  text-[10px]">git add</code>
+                <code className="text-amber-600 dark:text-amber-400 font-mono text-[10px]">git add</code>
               </div>
-              <div className="text-[11px] text-slate-300">
-                The preparation lounge. You curate exactly which file changes
-                will be saved in the next snapshot.
+              <div className="text-[11px] text-slate-600 dark:text-slate-300">
+                The preparation lounge. You curate exactly which file changes will be saved in the next snapshot.
               </div>
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-purple-900/30 border border-purple-500/30 flex items-start gap-2.5">
-            <span className="w-6 h-6 rounded bg-purple-500/20 text-purple-400  font-bold text-xs flex items-center justify-center shrink-0">
+          <div className="p-3 rounded bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-500/30 flex items-start gap-2.5">
+            <span className="w-6 h-6 rounded bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 font-bold text-xs flex items-center justify-center shrink-0">
               3
             </span>
             <div>
-              <div className="text-xs font-bold text-purple-300">
+              <div className="text-xs font-bold text-purple-700 dark:text-purple-300">
                 Local Repository{" "}
-                <code className="text-purple-400  text-[10px]">git commit</code>
+                <code className="text-purple-600 dark:text-purple-400 font-mono text-[10px]">git commit</code>
               </div>
-              <div className="text-[11px] text-slate-300">
+              <div className="text-[11px] text-slate-600 dark:text-slate-300">
                 Your local database inside{" "}
-                <code className="text-purple-300">.git/</code> storing permanent
-                commit snapshots with cryptographic hashes.
+                <code className="text-purple-700 dark:text-purple-300 font-mono">.git/</code> storing permanent commit snapshots with cryptographic hashes.
               </div>
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-emerald-900/30 border border-emerald-500/30 flex items-start gap-2.5">
-            <span className="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400  font-bold text-xs flex items-center justify-center shrink-0">
+          <div className="p-3 rounded bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-500/30 flex items-start gap-2.5">
+            <span className="w-6 h-6 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0">
               4
             </span>
             <div>
-              <div className="text-xs font-bold text-emerald-300">
+              <div className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
                 Remote Repository (GitHub){" "}
-                <code className="text-emerald-400  text-[10px]">git push</code>
+                <code className="text-emerald-600 dark:text-emerald-400 font-mono text-[10px]">git push</code>
               </div>
-              <div className="text-[11px] text-slate-300">
-                The cloud copy hosted on GitHub for team collaboration, code
-                reviews, and remote backups.
+              <div className="text-[11px] text-slate-600 dark:text-slate-300">
+                The cloud copy hosted on GitHub for team collaboration, code reviews, and remote backups.
               </div>
             </div>
           </div>
@@ -400,11 +372,11 @@ export function Slide5CheckInstall() {
             </div>
           </TerminalBlock>
 
-          <div className="p-3.5 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-300 text-xs flex items-start gap-2.5">
+          <div className="alert-callout tip p-3.5 rounded bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 text-sky-800 dark:text-sky-300 text-xs flex items-start gap-2.5">
             <span className="text-base">✓</span>
             <div>
               If a version string like{" "}
-              <code className="bg-slate-800 px-1.5 py-0.5 rounded text-white ">
+              <code className="bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded text-slate-900 dark:text-white font-mono">
                 git version 2.x.x
               </code>{" "}
               is printed, Git is successfully configured on your machine!
@@ -412,39 +384,39 @@ export function Slide5CheckInstall() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col justify-between gap-3">
+        <div className="info-card lg:col-span-6 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               What if Git is not installed?
             </h4>
-            <p className="text-xs text-slate-300 leading-relaxed mb-3">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
               If you get{" "}
-              <code className="text-rose-400 ">command not found: git</code>,
+              <code className="text-rose-600 dark:text-rose-400 font-mono">command not found: git</code>,
               install it for your OS in 30 seconds:
             </p>
             <div className="flex flex-col gap-2.5 text-xs">
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between ">
-                <span className="text-slate-300">macOS:</span>
-                <code className="text-sky-400">xcode-select --install</code>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <span className="text-slate-700 dark:text-slate-300">macOS:</span>
+                <code className="text-sky-600 dark:text-sky-400 font-mono">xcode-select --install</code>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between ">
-                <span className="text-slate-300">Windows:</span>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <span className="text-slate-700 dark:text-slate-300">Windows:</span>
                 <a
                   href="https://git-scm.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-orange-400 hover:underline"
+                  className="text-orange-600 dark:text-orange-400 hover:underline"
                 >
                   git-scm.com (Git Bash)
                 </a>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between ">
-                <span className="text-slate-300">Ubuntu/Debian:</span>
-                <code className="text-emerald-400">sudo apt install git</code>
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <span className="text-slate-700 dark:text-slate-300">Ubuntu/Debian:</span>
+                <code className="text-emerald-600 dark:text-emerald-400 font-mono">sudo apt install git</code>
               </div>
             </div>
           </div>
-          <div className="text-[11px] text-slate-400 italic">
+          <div className="text-[11px] text-slate-500 dark:text-slate-400 italic">
             Tip: Git Bash is the recommended command terminal for Windows
             developers.
           </div>
@@ -510,11 +482,11 @@ git config --global init.defaultBranch main`;
             </div>
           </TerminalBlock>
 
-          <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs flex items-center gap-2">
+          <div className="p-3 rounded bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 text-purple-800 dark:text-purple-300 text-xs flex items-center gap-2">
             <span>⚙️</span>
             <span>
               The{" "}
-              <code className=" bg-slate-800 px-1 rounded text-purple-200">
+              <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded text-purple-700 dark:text-purple-200 font-mono">
                 --global
               </code>{" "}
               flag applies these settings across all repositories on your
@@ -523,19 +495,19 @@ git config --global init.defaultBranch main`;
           </div>
         </div>
 
-        <div className="lg:col-span-5 p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col justify-between gap-3">
+        <div className="info-card lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Why Does Git Need Your Email?
             </h4>
-            <p className="text-xs text-slate-300 leading-relaxed mb-3">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
               GitHub matches the commit author email to your GitHub profile.
               This ensures your commits earn green contribution squares on your
               profile activity graph!
             </p>
 
-            <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 flex flex-col gap-1.5">
-              <span className="text-[10px]  text-slate-400 uppercase">
+            <div className="p-3 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1.5">
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">
                 Live GitHub Commit Badge Preview:
               </span>
               <div className="flex items-center gap-2.5">
@@ -543,13 +515,13 @@ git config --global init.defaultBranch main`;
                   AC
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-white">
+                  <span className="text-xs font-bold text-slate-900 dark:text-white">
                     Alice Chen{" "}
-                    <span className="text-[10px] text-emerald-400  font-normal">
+                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-normal">
                       Verified ✓
                     </span>
                   </span>
-                  <span className="text-[10px] text-slate-400 ">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400">
                     alice@example.com • 2 mins ago
                   </span>
                 </div>
@@ -557,9 +529,11 @@ git config --global init.defaultBranch main`;
             </div>
           </div>
 
-          <div className="text-[11px] text-amber-300 bg-amber-500/10 p-2.5 rounded-lg border border-amber-500/20">
-            <strong>Note:</strong> Git local identity is purely metadata, not
-            your GitHub login password.
+          <div className="alert-callout warning text-[11px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-500/10 p-2.5 rounded border border-amber-200 dark:border-amber-500/20">
+            <div>
+              <strong>Note:</strong> Git local identity is purely metadata, not
+              your GitHub login password.
+            </div>
           </div>
         </div>
       </div>
@@ -631,7 +605,7 @@ echo "<h1>Hello World</h1>" > index.html`;
             </div>
           </TerminalBlock>
 
-          <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs flex items-center gap-2">
+          <div className="p-3 rounded bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-800 dark:text-blue-300 text-xs flex items-center gap-2">
             <span>📁</span>
             <span>
               We now have a project folder with 2 files, but Git is{" "}
@@ -640,27 +614,27 @@ echo "<h1>Hello World</h1>" > index.html`;
           </div>
         </div>
 
-        <div className="lg:col-span-5 p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col justify-between gap-3">
+        <div className="info-card lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Folder Tree State
             </h4>
-            <div className="p-3.5 rounded-lg bg-slate-900 border border-slate-800  text-xs flex flex-col gap-2">
-              <div className="text-blue-400 font-bold">📁 my-website/</div>
-              <div className="text-slate-300 pl-4">
+            <div className="p-3.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono text-xs flex flex-col gap-2">
+              <div className="text-blue-600 dark:text-blue-400 font-bold">📁 my-website/</div>
+              <div className="text-slate-700 dark:text-slate-300 pl-4">
                 ├── 📄 README.md{" "}
                 <span className="text-slate-500 text-[10px]">
                   (Documentation)
                 </span>
               </div>
-              <div className="text-slate-300 pl-4">
+              <div className="text-slate-700 dark:text-slate-300 pl-4">
                 └── 📄 index.html{" "}
                 <span className="text-slate-500 text-[10px]">(Web page)</span>
               </div>
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs flex flex-col gap-1">
+          <div className="alert-callout warning p-3 rounded bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-800 dark:text-amber-300 text-xs flex flex-col gap-1">
             <span className="font-bold">⚠️ Notice:</span>
             <span>
               At this moment, this is an ordinary folder. If you edit or delete
@@ -704,11 +678,9 @@ export function Slide8GitInit() {
             </div>
           </TerminalBlock>
 
-          <div className="p-3.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs flex flex-col gap-1.5">
-            <span className="font-bold flex items-center gap-1.5 text-amber-400">
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16">
-                <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm.75-3.75a.75.75 0 0 0-1.5 0v1.5a.75.75 0 0 0 1.5 0v-1.5zm0-5a.75.75 0 0 0-1.5 0v3.5a.75.75 0 0 0 1.5 0v-3.5z" />
-              </svg>
+          <div className="alert-callout warning p-3.5 rounded bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-800 dark:text-amber-300 text-xs flex flex-col gap-1.5">
+            <span className="font-bold flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+              <AlertTriangle className="w-4 h-4 shrink-0" />
               Golden Rule:
             </span>
             <span>
@@ -775,8 +747,8 @@ export function Slide9GitStatus() {
             </div>
           </TerminalBlock>
 
-          <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs flex items-center gap-2">
-            <span className="font-bold text-rose-400">RED</span>
+          <div className="alert-callout info p-3 rounded bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 text-rose-800 dark:text-rose-300 text-xs flex items-center gap-2">
+            <span className="font-bold text-rose-600 dark:text-rose-400">RED</span>
             <span>
               Files listed in red are <strong>Untracked</strong>: Git sees them
               on disk, but they are not yet part of your commit snapshot.
@@ -846,8 +818,8 @@ git status`;
             </div>
           </TerminalBlock>
 
-          <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex items-center gap-2">
-            <span className="font-bold text-emerald-400">GREEN</span>
+          <div className="alert-callout tip p-3 rounded bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
+            <span className="font-bold text-emerald-600 dark:text-emerald-400">GREEN</span>
             <span>
               Files now turned <strong>GREEN</strong>! They are safely staged in
               the index, ready for the commit snapshot.
@@ -855,37 +827,37 @@ git status`;
           </div>
         </div>
 
-        <div className="lg:col-span-6 p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col justify-between gap-3">
+        <div className="info-card lg:col-span-6 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               3 Ways to Stage Changes
             </h4>
             <div className="flex flex-col gap-2.5 text-xs">
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex flex-col gap-1">
-                <code className="text-sky-400 font-bold">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <code className="text-sky-600 dark:text-sky-400 font-bold font-mono">
                   git add index.html
                 </code>
-                <span className="text-slate-300 text-[11px]">
+                <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Stages only the specified single file. Safest and most
                   precise.
                 </span>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex flex-col gap-1">
-                <code className="text-emerald-400 font-bold">git add .</code>
-                <span className="text-slate-300 text-[11px]">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <code className="text-emerald-600 dark:text-emerald-400 font-bold font-mono">git add .</code>
+                <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Stages all new, modified, and deleted files in the current
                   folder.
                 </span>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex flex-col gap-1">
-                <code className="text-amber-400 font-bold">git add -A</code>
-                <span className="text-slate-300 text-[11px]">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+                <code className="text-amber-600 dark:text-amber-400 font-bold font-mono">git add -A</code>
+                <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Stages all changes across the entire repository root.
                 </span>
               </div>
             </div>
           </div>
-          <div className="text-[11px] text-slate-400 italic">
+          <div className="text-[11px] text-slate-500 dark:text-slate-400 italic">
             Pro Tip: Only stage files that belong to the same logical feature or
             bug fix.
           </div>
@@ -938,49 +910,49 @@ export function Slide11GitDiff() {
             <div className="text-emerald-400  text-xs">+&lt;/html&gt;</div>
           </TerminalBlock>
 
-          <div className="p-3 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-300 text-xs flex items-center gap-2">
+          <div className="p-3 rounded bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 text-sky-800 dark:text-sky-300 text-xs flex items-center gap-2">
             <span>🔍</span>
             <span>
-              <span className="text-emerald-400 font-bold">+</span> indicates
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold">+</span> indicates
               added lines, while{" "}
-              <span className="text-rose-400 font-bold">-</span> indicates
+              <span className="text-rose-600 dark:text-rose-400 font-bold">-</span> indicates
               removed lines.
             </span>
           </div>
         </div>
 
-        <div className="lg:col-span-5 p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Essential Diff Commands
             </h4>
             <div className="flex flex-col gap-2.5 text-xs">
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
-                <code className="text-sky-400 font-bold">git diff</code>
-                <p className="text-slate-300 text-[11px] m-0 mt-0.5">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <code className="text-sky-600 dark:text-sky-400 font-bold font-mono">git diff</code>
+                <p className="text-slate-600 dark:text-slate-300 text-[11px] m-0 mt-0.5">
                   Compares Working Directory changes that have NOT yet been
                   staged.
                 </p>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
-                <code className="text-emerald-400 font-bold">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <code className="text-emerald-600 dark:text-emerald-400 font-bold font-mono">
                   git diff --staged
                 </code>
-                <p className="text-slate-300 text-[11px] m-0 mt-0.5">
+                <p className="text-slate-600 dark:text-slate-300 text-[11px] m-0 mt-0.5">
                   Compares files currently in Staging against your last commit.
                 </p>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
-                <code className="text-amber-400 font-bold">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <code className="text-amber-600 dark:text-amber-400 font-bold font-mono">
                   git restore --staged &lt;file&gt;
                 </code>
-                <p className="text-slate-300 text-[11px] m-0 mt-0.5">
+                <p className="text-slate-600 dark:text-slate-300 text-[11px] m-0 mt-0.5">
                   Unstages a file without losing any of your written code.
                 </p>
               </div>
             </div>
           </div>
-          <div className="text-[11px] text-slate-400 italic">
+          <div className="text-[11px] text-slate-500 dark:text-slate-400 italic">
             Senior habit: Always review your diffs before committing!
           </div>
         </div>
@@ -1034,17 +1006,17 @@ export function Slide12GitCommit() {
             </div>
           </TerminalBlock>
 
-          <div className="p-3.5 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs flex flex-col gap-1.5">
+          <div className="p-3.5 rounded bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 text-purple-800 dark:text-purple-300 text-xs flex flex-col gap-1.5">
             <span className="font-bold flex items-center gap-1.5">
               <span>📸</span> Anatomy of a Great Commit Message:
             </span>
-            <span className="text-slate-300">
-              • <code className="text-purple-300 ">feat:</code> new user feature
-              &nbsp;|&nbsp; <code className="text-emerald-300 ">fix:</code> bug
-              patch &nbsp;|&nbsp; <code className="text-sky-300 ">docs:</code>{" "}
+            <span className="text-slate-700 dark:text-slate-300">
+              • <code className="text-purple-700 dark:text-purple-300 font-mono">feat:</code> new user feature
+              &nbsp;|&nbsp; <code className="text-emerald-700 dark:text-emerald-300 font-mono">fix:</code> bug
+              patch &nbsp;|&nbsp; <code className="text-sky-700 dark:text-sky-300 font-mono">docs:</code>{" "}
               markdown update
             </span>
-            <span className="text-slate-400 italic">
+            <span className="text-slate-500 dark:text-slate-400 italic">
               Always write in imperative present tense ("Add login form", not
               "Added").
             </span>
@@ -1110,7 +1082,7 @@ export function Slide13GitLog() {
             </div>
           </TerminalBlock>
 
-          <div className="p-3 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-300 text-xs flex items-center gap-2">
+          <div className="p-3 rounded bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 text-sky-800 dark:text-sky-300 text-xs flex items-center gap-2">
             <span>📍</span>
             <span>
               <strong>HEAD</strong> is the bookmark pointer that indicates which
@@ -1147,40 +1119,40 @@ export function Slide14WhatIsBranch() {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-5 flex flex-col justify-between gap-3">
-          <div className="p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col gap-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+          <div className="p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Why Branching Is Magic in Git
             </h4>
-            <p className="text-xs text-slate-300 leading-relaxed m-0">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
               In Git, a branch is merely a <strong>41-byte pointer</strong> to a
               commit hash. Creating a branch is virtually instantaneous (0.001s)
               and takes zero extra disk space.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs flex flex-col gap-1.5">
+          <div className="p-3.5 rounded bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 text-purple-800 dark:text-purple-300 text-xs flex flex-col gap-1.5">
             <span className="font-bold">🌿 Branch Naming Conventions:</span>
-            <div className="flex flex-col gap-1 text-[11px]  text-slate-300">
+            <div className="flex flex-col gap-1 text-[11px] text-slate-700 dark:text-slate-300 font-mono">
               <span>
-                • <code className="text-cyan-400">feature/user-login</code> (New
+                • <code className="text-cyan-600 dark:text-cyan-400">feature/user-login</code> (New
                 capabilities)
               </span>
               <span>
-                • <code className="text-emerald-400">fix/checkout-button</code>{" "}
+                • <code className="text-emerald-600 dark:text-emerald-400">fix/checkout-button</code>{" "}
                 (Bug patches)
               </span>
               <span>
-                • <code className="text-purple-400">docs/api-guide</code>{" "}
+                • <code className="text-purple-600 dark:text-purple-400">docs/api-guide</code>{" "}
                 (Documentation)
               </span>
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex items-center gap-2">
+          <div className="p-3 rounded bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
             <span>🛡️</span>
             <span>
               <strong>Golden Rule:</strong> The{" "}
-              <code className="text-white ">main</code> branch must always be
+              <code className="text-slate-900 dark:text-white font-mono">main</code> branch must always be
               stable and deployable.
             </span>
           </div>
@@ -1258,51 +1230,51 @@ git merge feature/navbar`;
             </div>
           </TerminalBlock>
 
-          <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex items-center gap-2">
+          <div className="p-3 rounded bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
             <span>⚡</span>
             <span>
-              <code className=" bg-slate-800 px-1.5 rounded text-white">
+              <code className="bg-slate-200 dark:bg-slate-800 px-1.5 rounded text-slate-900 dark:text-white font-mono">
                 git switch
               </code>{" "}
               is the modern syntax introduced in Git 2.23 (cleaner than legacy{" "}
-              <code className=" text-slate-400">git checkout</code>).
+              <code className="text-slate-500 dark:text-slate-400 font-mono">git checkout</code>).
             </span>
           </div>
         </div>
 
-        <div className="lg:col-span-5 p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Branch Command Cheat Card
             </h4>
             <div className="flex flex-col gap-2.5 text-xs">
-              <div className="p-2 rounded bg-slate-900 border border-slate-800 ">
-                <span className="text-cyan-400 font-bold">git branch</span>
-                <p className="text-slate-300 text-[11px] font-sans m-0 mt-0.5">
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <span className="text-cyan-600 dark:text-cyan-400 font-bold font-mono">git branch</span>
+                <p className="text-slate-600 dark:text-slate-300 text-[11px] font-sans m-0 mt-0.5">
                   List all local branches (* marks current active branch).
                 </p>
               </div>
-              <div className="p-2 rounded bg-slate-900 border border-slate-800 ">
-                <span className="text-emerald-400 font-bold">
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold font-mono">
                   git switch -c &lt;branch&gt;
                 </span>
-                <p className="text-slate-300 text-[11px] font-sans m-0 mt-0.5">
+                <p className="text-slate-600 dark:text-slate-300 text-[11px] font-sans m-0 mt-0.5">
                   Create a new branch and immediately switch into it.
                 </p>
               </div>
-              <div className="p-2 rounded bg-slate-900 border border-slate-800 ">
-                <span className="text-purple-400 font-bold">
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <span className="text-purple-600 dark:text-purple-400 font-bold font-mono">
                   git merge &lt;branch&gt;
                 </span>
-                <p className="text-slate-300 text-[11px] font-sans m-0 mt-0.5">
+                <p className="text-slate-600 dark:text-slate-300 text-[11px] font-sans m-0 mt-0.5">
                   Integrates changes from target branch into current branch.
                 </p>
               </div>
-              <div className="p-2 rounded bg-slate-900 border border-slate-800 ">
-                <span className="text-rose-400 font-bold">
+              <div className="p-2 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <span className="text-rose-600 dark:text-rose-400 font-bold font-mono">
                   git branch -d &lt;branch&gt;
                 </span>
-                <p className="text-slate-300 text-[11px] font-sans m-0 mt-0.5">
+                <p className="text-slate-600 dark:text-slate-300 text-[11px] font-sans m-0 mt-0.5">
                   Safely deletes branch once merged.
                 </p>
               </div>
@@ -1329,19 +1301,19 @@ export function Slide16MergeConflicts() {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-5 flex flex-col justify-between gap-3">
-          <div className="p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col gap-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+          <div className="p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Don't Panic: Conflicts Are Normal
             </h4>
-            <p className="text-xs text-slate-300 leading-relaxed m-0">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
               When two branches modify the same line, Git stops and asks the
               human developer to decide which version to keep.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs flex flex-col gap-1.5">
+          <div className="p-3.5 rounded bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 text-rose-800 dark:text-rose-300 text-xs flex flex-col gap-1.5">
             <span className="font-bold">4-Step Resolution Recipe:</span>
-            <div className="flex flex-col gap-1 text-[11px] text-slate-300">
+            <div className="flex flex-col gap-1 text-[11px] text-slate-700 dark:text-slate-300">
               <span>1. Open the file in VS Code</span>
               <span>
                 2. Click <strong>Accept Current</strong> or{" "}
@@ -1349,24 +1321,24 @@ export function Slide16MergeConflicts() {
               </span>
               <span>
                 3. Remove conflict markers (
-                <code className="text-rose-400 ">
+                <code className="text-rose-600 dark:text-rose-400 font-mono">
                   &lt;&lt;&lt;&lt;&lt;&lt;&lt;
                 </code>
-                , <code className="text-rose-400 ">=======</code>,{" "}
-                <code className="text-rose-400 ">
+                , <code className="text-rose-600 dark:text-rose-400 font-mono">=======</code>,{" "}
+                <code className="text-rose-600 dark:text-rose-400 font-mono">
                   &gt;&gt;&gt;&gt;&gt;&gt;&gt;
                 </code>
                 )
               </span>
               <span>
-                4. Run <code className="text-emerald-400 ">git add .</code>{" "}
-                &amp; <code className="text-emerald-400 ">git commit</code> to
+                4. Run <code className="text-emerald-600 dark:text-emerald-400 font-mono">git add .</code>{" "}
+                &amp; <code className="text-emerald-600 dark:text-emerald-400 font-mono">git commit</code> to
                 finish!
               </span>
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-[11px]  text-slate-300">
+          <div className="p-3 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300">
             VS Code highlights conflicts with quick one-click resolution
             buttons!
           </div>
@@ -1435,10 +1407,10 @@ git remote -v`;
             </div>
           </TerminalBlock>
 
-          <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs flex items-center gap-2">
+          <div className="p-3 rounded bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 text-purple-800 dark:text-purple-300 text-xs flex items-center gap-2">
             <span>🌐</span>
             <span>
-              <code className=" bg-slate-800 px-1.5 rounded text-purple-200">
+              <code className="bg-slate-200 dark:bg-slate-800 px-1.5 rounded text-purple-700 dark:text-purple-200 font-mono">
                 origin
               </code>{" "}
               is the standard nickname Git uses to refer to your main remote
@@ -1503,13 +1475,13 @@ export function Slide18PushPull() {
             </div>
           </TerminalBlock>
 
-          <div className="p-3.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex flex-col gap-1">
+          <div className="p-3.5 rounded bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-xs flex flex-col gap-1">
             <span className="font-bold">Next pushes become super simple:</span>
-            <span className="text-slate-300">
-              Because <code className=" text-emerald-300">-u</code> sets up
+            <span className="text-slate-700 dark:text-slate-300">
+              Because <code className="text-emerald-700 dark:text-emerald-300 font-mono">-u</code> sets up
               upstream tracking, you can now simply run{" "}
-              <code className=" text-emerald-300">git push</code> and{" "}
-              <code className=" text-emerald-300">git pull</code>!
+              <code className="text-emerald-700 dark:text-emerald-300 font-mono">git push</code> and{" "}
+              <code className="text-emerald-700 dark:text-emerald-300 font-mono">git pull</code>!
             </span>
           </div>
         </div>
@@ -1542,33 +1514,33 @@ export function Slide19GitIgnore() {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-5 flex flex-col justify-between gap-3">
-          <div className="p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col gap-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+          <div className="p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               What MUST Be in .gitignore:
             </h4>
-            <div className="flex flex-col gap-1.5 text-xs text-slate-300">
-              <span className="flex items-center gap-1.5 text-rose-400  font-bold">
+            <div className="flex flex-col gap-1.5 text-xs text-slate-700 dark:text-slate-300 font-mono">
+              <span className="flex items-center gap-1.5 text-rose-600 dark:text-rose-400 font-bold">
                 🔒 .env (API Keys, DB Passwords)
               </span>
-              <span className="flex items-center gap-1.5 text-amber-400 ">
+              <span className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
                 📁 node_modules/ (Dependencies)
               </span>
-              <span className="flex items-center gap-1.5 text-slate-400 ">
+              <span className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                 📁 dist/ &amp; build/ (Bundles)
               </span>
-              <span className="flex items-center gap-1.5 text-slate-500 ">
+              <span className="flex items-center gap-1.5 text-slate-500">
                 📄 .DS_Store (OS metadata)
               </span>
             </div>
           </div>
 
-          <div className="p-3.5 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex flex-col gap-1">
-            <span className="font-bold flex items-center gap-1 text-rose-400">
+          <div className="p-3.5 rounded bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/30 text-rose-800 dark:text-rose-300 text-xs flex flex-col gap-1">
+            <span className="font-bold flex items-center gap-1 text-rose-600 dark:text-rose-400">
               🚨 Critical Security Warning:
             </span>
             <span>
               Never push credentials or{" "}
-              <code className=" text-white">.env</code> to GitHub. Automated bot
+              <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded text-slate-900 dark:text-white font-mono">.env</code> to GitHub. Automated bot
               scanners inspect public repositories in under 3 seconds!
             </span>
           </div>
@@ -1607,7 +1579,6 @@ export function Slide20TeamWorkflow() {
             alt="GitHub Team Collaboration Flow"
             caption="The 7-Step Pipeline: Clone ➔ Feature Branch ➔ Commit ➔ Push ➔ Pull Request ➔ Code Review ➔ Merge to Main"
             badge="Team Pipeline"
-            maxHeight="max-h-[340px]"
           />
         </div>
       </div>
@@ -1639,60 +1610,60 @@ export function Slide21UndoMistakes() {
         </div>
 
         <div className="lg:col-span-6 flex flex-col justify-between gap-2.5">
-          <div className="p-3 rounded-lg bg-slate-800/80 border border-slate-700/80 flex flex-col gap-1">
+          <div className="p-3 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-rose-400">
+              <span className="text-xs font-bold text-rose-600 dark:text-rose-400">
                 1. "I broke a file, take me back to last commit!"
               </span>
-              <code className="text-xs  text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded">
+              <code className="text-xs text-emerald-600 dark:text-emerald-400 bg-slate-100 dark:bg-slate-900 px-1.5 py-0.5 rounded font-mono">
                 git restore &lt;file&gt;
               </code>
             </div>
-            <span className="text-[11px] text-slate-300">
+            <span className="text-[11px] text-slate-600 dark:text-slate-300">
               Discards unstaged modifications in the working tree.
             </span>
           </div>
 
-          <div className="p-3 rounded-lg bg-slate-800/80 border border-slate-700/80 flex flex-col gap-1">
+          <div className="p-3 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-amber-400">
+              <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
                 2. "I staged a file by accident!"
               </span>
-              <code className="text-xs  text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded">
+              <code className="text-xs text-emerald-600 dark:text-emerald-400 bg-slate-100 dark:bg-slate-900 px-1.5 py-0.5 rounded font-mono">
                 git restore --staged &lt;file&gt;
               </code>
             </div>
-            <span className="text-[11px] text-slate-300">
+            <span className="text-[11px] text-slate-600 dark:text-slate-300">
               Unstages the file back to working tree without deleting code.
             </span>
           </div>
 
-          <div className="p-3 rounded-lg bg-slate-800/80 border border-slate-700/80 flex flex-col gap-1">
+          <div className="p-3 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-sky-400">
+              <span className="text-xs font-bold text-sky-600 dark:text-sky-400">
                 3. "Typo in last commit message!"
               </span>
-              <code className="text-xs  text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded">
+              <code className="text-xs text-emerald-600 dark:text-emerald-400 bg-slate-100 dark:bg-slate-900 px-1.5 py-0.5 rounded font-mono">
                 git commit --amend -m "..."
               </code>
             </div>
-            <span className="text-[11px] text-slate-300">
+            <span className="text-[11px] text-slate-600 dark:text-slate-300">
               Rewrites the most recent commit message smoothly.
             </span>
           </div>
 
-          <div className="p-3 rounded-lg bg-slate-800/80 border border-slate-700/80 flex flex-col gap-1">
+          <div className="p-3 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-1 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-purple-400">
+              <span className="text-xs font-bold text-purple-600 dark:text-purple-400">
                 4. "Need to switch branches but work unfinished!"
               </span>
-              <code className="text-xs  text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded">
+              <code className="text-xs text-emerald-600 dark:text-emerald-400 bg-slate-100 dark:bg-slate-900 px-1.5 py-0.5 rounded font-mono">
                 git stash
               </code>
             </div>
-            <span className="text-[11px] text-slate-300">
+            <span className="text-[11px] text-slate-600 dark:text-slate-300">
               Shelves changes safely; restore later with{" "}
-              <code className="text-emerald-300">git stash pop</code>.
+              <code className="text-emerald-600 dark:text-emerald-400 font-mono">git stash pop</code>.
             </span>
           </div>
         </div>
@@ -1726,56 +1697,56 @@ git log --oneline --graph`;
         badgeColor="green"
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
-        <div className="lg:col-span-5 p-4 rounded-lg bg-slate-800/60 border border-slate-700/70 flex flex-col justify-between gap-3">
+        <div className="lg:col-span-5 p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col justify-between gap-3 shadow-xs">
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Student Mission Checklist
             </h4>
-            <p className="text-xs text-slate-300 leading-relaxed mb-3">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
               Complete these 6 steps in your terminal to earn your Git badge:
             </p>
             <div className="flex flex-col gap-2 text-xs">
-              <div className="flex items-center gap-2 text-slate-300">
-                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400  text-[10px] flex items-center justify-center font-bold">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <span className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[10px] flex items-center justify-center font-bold">
                   1
                 </span>{" "}
                 Create &amp; initialize repository
               </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400  text-[10px] flex items-center justify-center font-bold">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <span className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[10px] flex items-center justify-center font-bold">
                   2
                 </span>{" "}
                 Stage &amp; commit initial index.html
               </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400  text-[10px] flex items-center justify-center font-bold">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <span className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[10px] flex items-center justify-center font-bold">
                   3
                 </span>{" "}
                 Create branch{" "}
-                <code className="text-cyan-400 ">feature/styles</code>
+                <code className="text-cyan-600 dark:text-cyan-400 font-mono">feature/styles</code>
               </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400  text-[10px] flex items-center justify-center font-bold">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <span className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[10px] flex items-center justify-center font-bold">
                   4
                 </span>{" "}
                 Add styles.css &amp; commit on branch
               </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400  text-[10px] flex items-center justify-center font-bold">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <span className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[10px] flex items-center justify-center font-bold">
                   5
                 </span>{" "}
                 Switch to main &amp; merge feature
               </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400  text-[10px] flex items-center justify-center font-bold">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <span className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[10px] flex items-center justify-center font-bold">
                   6
                 </span>{" "}
                 Push to GitHub with{" "}
-                <code className="text-purple-400 ">git push</code>
+                <code className="text-purple-600 dark:text-purple-400 font-mono">git push</code>
               </div>
             </div>
           </div>
-          <div className="text-[11px] text-emerald-400 ">
+          <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
             🎉 All commands can be copied directly from the terminal block!
           </div>
         </div>
@@ -1841,47 +1812,47 @@ export function Slide23WrapUp({ onRestart }) {
       />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1 min-h-0">
         <div className="lg:col-span-7 flex flex-col justify-between gap-3">
-          <div className="p-4 rounded-lg bg-slate-800/70 border border-slate-700/80 flex flex-col gap-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+          <div className="p-4 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex flex-col gap-2 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               The 4 Golden Rules of Version Control
             </h4>
             <div className="grid grid-cols-2 gap-2.5 text-xs">
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex flex-col gap-0.5">
-                <span className="text-orange-400 font-bold ">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-0.5">
+                <span className="text-orange-600 dark:text-orange-400 font-bold">
                   1. Atomic Commits
                 </span>
-                <span className="text-slate-300 text-[11px]">
+                <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Make small, frequent commits for one purpose at a time.
                 </span>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex flex-col gap-0.5">
-                <span className="text-cyan-400 font-bold ">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-0.5">
+                <span className="text-cyan-600 dark:text-cyan-400 font-bold">
                   2. Meaningful Messages
                 </span>
-                <span className="text-slate-300 text-[11px]">
+                <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Explain why the change was made in clear imperative sentences.
                 </span>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex flex-col gap-0.5">
-                <span className="text-emerald-400 font-bold ">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-0.5">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
                   3. Pull Before Push
                 </span>
-                <span className="text-slate-300 text-[11px]">
+                <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Always sync remote changes to avoid merge conflicts.
                 </span>
               </div>
-              <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex flex-col gap-0.5">
-                <span className="text-purple-400 font-bold ">
+              <div className="p-2.5 rounded bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col gap-0.5">
+                <span className="text-purple-600 dark:text-purple-400 font-bold">
                   4. Branch for Features
                 </span>
-                <span className="text-slate-300 text-[11px]">
+                <span className="text-slate-600 dark:text-slate-300 text-[11px]">
                   Never commit broken experiments directly into main.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="p-3.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-between">
+          <div className="p-3.5 rounded bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-750 flex items-center justify-between shadow-xs">
             <div className="flex items-center gap-3">
               <img
                 src="/images/synergy.png"
@@ -1889,10 +1860,10 @@ export function Slide23WrapUp({ onRestart }) {
                 className="w-10 h-10 object-contain"
               />
               <div>
-                <div className="text-xs font-bold text-white">
+                <div className="text-xs font-bold text-slate-900 dark:text-white">
                   SYNERGY ACADEMY CERTIFIED
                 </div>
-                <div className="text-[11px] text-slate-400">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400">
                   Module 01: Git &amp; GitHub — Complete
                 </div>
               </div>
@@ -1901,13 +1872,13 @@ export function Slide23WrapUp({ onRestart }) {
               <button
                 type="button"
                 onClick={onRestart}
-                className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition-colors cursor-pointer"
+                className="px-3 py-2 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors cursor-pointer"
               >
                 Restart Course
               </button>
               <a
                 href="#/courses"
-                className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors no-underline"
+                className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors no-underline"
               >
                 Next Module →
               </a>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Info, ArrowRight, XCircle, Database, Check, AlertTriangle, X } from "lucide-react";
 
 // Slide 1: PostgreSQL & Neon Database
 export function Slide1({ onStart, onRestart }) {
@@ -19,7 +20,7 @@ export function Slide1({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="slide-stack flex flex-col gap-3">
                 <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                  <Info className="w-4 h-4 shrink-0 mt-0.5" />
                   <div data-i18n="s1_desc">A developer guide to mastering PostgreSQL, the psql terminal client, database design, relational modeling, and modern serverless database deployment with Neon.</div>
                 </div>
 
@@ -41,7 +42,7 @@ export function Slide1({ onStart, onRestart }) {
                 <div className="mt-2">
                   <button className="btn-nav btn-start-course w-auto px-4 h-9" onClick={onStart}>
                     <span data-i18n="s1_btn_start">Start Course</span>
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -82,23 +83,23 @@ export function Slide2({ onStart, onRestart }) {
 
             <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                <h4><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" className="text-red-400"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg> The File System Problem</h4>
+                <h4 className="flex items-center gap-1.5"><XCircle className="w-4 h-4 text-red-400 shrink-0" /> The File System Problem</h4>
                 <p data-i18n="s2_c1_desc">Storing app data in JSON or text files fails at scale. Concurrent writes cause data corruption, searches require reading entire files into RAM, and there are no transaction safety guarantees.</p>
               </div>
 
               <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                <h4><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" className="text-blue-400"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3z"/></svg> The Database Solution</h4>
+                <h4 className="flex items-center gap-1.5"><Database className="w-4 h-4 text-blue-400 shrink-0" /> The Database Solution</h4>
                 <p data-i18n="s2_c2_desc">A Database Management System (DBMS) is specialized software engineered to store, organize, index, secure, and retrieve massive volumes of data with sub-millisecond latency and ACID reliability.</p>
               </div>
 
               <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                <h4><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" className="text-green-400"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> Core Responsibilities</h4>
+                <h4 className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-400 shrink-0" /> Core Responsibilities</h4>
                 <p data-i18n="s2_c3_desc">Data persistence across server restarts, concurrency control for thousands of simultaneous users, relational integrity enforcement, authentication, and structured query optimization.</p>
               </div>
             </div>
 
             <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+              <Info className="w-4 h-4 shrink-0 mt-0.5" />
               <div><strong>Key Takeaway:</strong> A database is not just a hard drive folder; it is a high-speed multi-threaded transaction engine engineered to protect data integrity at all times.</div>
             </div>
     </div>
@@ -262,7 +263,7 @@ id (PK) | post_id (FK) | comment
             </div>
 
             <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+              <Check className="w-4 h-4 shrink-0 mt-0.5" />
               <div><strong>Relational Linkage:</strong> <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">posts.user_id</code> points to <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">users.id</code>. If Dara updates his name, every post Dara authored immediately reflects his updated name without data duplication.</div>
             </div>
     </div>
@@ -498,7 +499,7 @@ export function Slide10({ onStart, onRestart }) {
 
               <div className="slide-stack flex flex-col gap-3">
                 <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                  <Info className="w-4 h-4 shrink-0 mt-0.5" />
                   <div><strong>Notice:</strong> Meta-commands begin with a backslash <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">\</code> and do NOT require a trailing semicolon <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">;</code>. SQL queries on the other hand MUST end with a semicolon.</div>
                 </div>
 
@@ -645,7 +646,7 @@ export function Slide13({ onStart, onRestart }) {
 
               <div className="slide-stack flex flex-col gap-3">
                 <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/><path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/></svg>
+                  <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                   <div>
                     <strong>CRITICAL PRODUCTION WARNING:</strong><br />
                     NEVER run destructive database commands (such as <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">DROP DATABASE</code> or <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">DROP TABLE</code>) against production environments without verified backups and dual confirmation.
@@ -775,7 +776,7 @@ WHERE id = 1;</code></pre>
 
               <div className="slide-stack flex flex-col gap-3">
                 <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+                  <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                   <div>
                     <strong>CRITICAL MISTAKE:</strong> Omitting the <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">WHERE</code> clause on <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">UPDATE</code> or <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">DELETE</code> executes the operation across <strong>EVERY ROW IN THE ENTIRE TABLE</strong>!
                   </div>
@@ -871,7 +872,7 @@ TIMESTAMPTZ '2026-10-19 14:00:00+07'
             </div>
 
             <div className="alert-callout success flex items-start gap-2.5 p-3 border border-green-500/30 bg-green-500/10 text-green-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+              <Check className="w-4 h-4 shrink-0 mt-0.5" />
               <div><strong>Golden Production Rule:</strong> Always declare timestamp columns as <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">TIMESTAMPTZ DEFAULT NOW()</code>. Your database remains strictly normalized in UTC across all global deployments.</div>
             </div>
     </div>
@@ -1330,7 +1331,7 @@ COMMIT;
 
               <div className="slide-stack flex flex-col gap-3">
                 <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+                  <Info className="w-4 h-4 shrink-0 mt-0.5" />
                   <div data-i18n="s29_desc">Transferring $100 between two bank accounts requires deducting from Account A and adding to Account B. If the server crashes midway, a transaction guarantees no money vanishes.</div>
                 </div>
               </div>
@@ -1354,7 +1355,7 @@ export function Slide30({ onStart, onRestart }) {
 
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors border-red-500/40 bg-red-500/5">
-                <h4 className="text-red-400"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg> BAD DATABASE (Denormalized)</h4>
+                <h4 className="text-red-400 flex items-center gap-1.5"><X className="w-4 h-4 shrink-0" /> BAD DATABASE (Denormalized)</h4>
                 <div className="terminal-window mt-2">
                   <div className="terminal-body text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed ">
 users
@@ -1367,7 +1368,7 @@ users
               </div>
 
               <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors border-green-500/40 bg-green-500/10">
-                <h4 className="text-green-400"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> GOOD DATABASE (Normalized)</h4>
+                <h4 className="text-green-400 flex items-center gap-1.5"><Check className="w-4 h-4 shrink-0" /> GOOD DATABASE (Normalized)</h4>
                 <div className="terminal-window mt-2">
                   <div className="terminal-body text-xs p-3 overflow-x-auto text-slate-200 leading-relaxed ">
 users (id, name, email)
@@ -1485,7 +1486,7 @@ ADD COLUMN role TEXT NOT NULL DEFAULT 'member';</code></pre>
                   <p data-i18n="s33_c1_desc">Never rename or delete a column while existing application versions are running. Deploy in phases: add column -&gt; deploy app -&gt; migrate data -&gt; remove old column.</p>
                 </div>
                 <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+                  <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                   <div>Never add a <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">NOT NULL</code> column without a <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">DEFAULT</code> on a table with existing rows, as PostgreSQL will reject the migration immediately.</div>
                 </div>
               </div>
@@ -1552,7 +1553,7 @@ export function Slide35({ onStart, onRestart }) {
             </div>
 
             <div className="alert-callout warning flex items-start gap-2.5 p-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+              <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
               <div><strong>Core Engineering Rule:</strong> A backup that has never been restored is not fully trusted. You do not have a backup plan until you have verified your restore procedure.</div>
             </div>
 
@@ -1603,7 +1604,7 @@ ON ALL TABLES IN SCHEMA public TO app_user;</code></pre>
 
               <div className="slide-stack flex flex-col gap-3">
                 <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+                  <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                   <div><strong>Never Use Superuser in Applications:</strong> If your web app uses the <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">postgres</code> superuser, an attacker exploiting SQL injection can read all databases, drop tables, or even execute arbitrary server commands.</div>
                 </div>
               </div>
@@ -1753,8 +1754,8 @@ export function Slide40({ onStart, onRestart }) {
               <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">5. Copy Connection String</div>
             </div>
 
-            <div className="alert-callout tip mt-2">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25 3.75v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0z"/></svg>
+            <div className="alert-callout tip mt-2 flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+              <Info className="w-4 h-4 shrink-0 mt-0.5" />
               <div>Neon generates the database credentials immediately upon project creation, ready to paste directly into your <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">.env.local</code> configuration file.</div>
             </div>
     </div>
@@ -1971,7 +1972,7 @@ NEXT_PUBLIC_DATABASE_URL="postgresql://..."</code></pre>
 
               <div className="slide-stack flex flex-col gap-3">
                 <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.14.14 0 0 1-.066.017H1.146a.14.14 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+                  <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                   <div><strong>Never prefix DATABASE_URL with NEXT_PUBLIC_:</strong> Any environment variable prefixed with <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">NEXT_PUBLIC_</code> is embedded directly into the public JavaScript bundle, allowing any visitor to read your database credentials!</div>
                 </div>
               </div>
@@ -2246,7 +2247,7 @@ Neon PostgreSQL Compute Engine
                   <p>Simply use the pooled connection string provided in your Neon console (it appends <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-pooler</code> to your host endpoint name).</p>
                 </div>
                 <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+                  <Check className="w-4 h-4 shrink-0 mt-0.5" />
                   <div>Always connect your Next.js application using the Neon pooled connection string in production.</div>
                 </div>
               </div>
@@ -2486,7 +2487,7 @@ LIMIT 20;</code></pre>
                   <p data-i18n="s60_c1_desc">Query records where the primary key is greater than the last seen ID: `WHERE id &gt; $last_id ORDER BY id ASC LIMIT 20`. Jumps directly via B-tree index seek.</p>
                 </div>
                 <div className="alert-callout success flex items-start gap-2.5 p-3 border border-green-500/30 bg-green-500/10 text-green-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+                  <Check className="w-4 h-4 shrink-0 mt-0.5" />
                   <div>Execution time on 10,000,000 rows remains identical on Page 1 as on Page 100,000 (~0.1ms).</div>
                 </div>
               </div>
@@ -2966,28 +2967,28 @@ export function Slide72({ onStart, onRestart }) {
 
             <div className="slide-grid-3 text-xs">
               <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                <h4 className="text-green-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> Core Database Mastery</h4>
+                <h4 className="text-green-400"><Check className="w-3.5 h-3.5 inline mr-1 shrink-0" /> Core Database Mastery</h4>
                 <p>Relational modeling, primary keys, foreign keys, constraints, and data integrity.</p>
               </div>
               <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                <h4 className="text-green-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> SQL &amp; Query Optimization</h4>
+                <h4 className="text-green-400"><Check className="w-3.5 h-3.5 inline mr-1 shrink-0" /> SQL &amp; Query Optimization</h4>
                 <p>Joins, B-Tree indexes, EXPLAIN ANALYZE performance tuning, and cursor pagination.</p>
               </div>
               <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                <h4 className="text-green-400"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg> Neon Serverless Architecture</h4>
+                <h4 className="text-green-400"><Check className="w-3.5 h-3.5 inline mr-1 shrink-0" /> Neon Serverless Architecture</h4>
                 <p>Scale-to-zero, copy-on-write branching, connection pooling, and Next.js fullstack integration.</p>
               </div>
             </div>
 
             <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>
+              <Check className="w-4 h-4 shrink-0 mt-0.5" />
               <div>You can now go from <em>"I don't know PostgreSQL"</em> to <em>"I can create, manage, query, secure, backup, optimize, and connect PostgreSQL to a real Next.js application using Neon."</em></div>
             </div>
 
             <div className="text-center mt-2">
               <a href="../index.html" className="btn-nav inline-flex px-5 h-9.5">
                 <span data-i18n="s72_btn_hub">Return to Curriculum Hub</span>
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
     </div>

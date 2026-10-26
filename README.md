@@ -81,6 +81,7 @@ make dev PORT=8080
 | **React** | Component-driven UI library for the application | [react.dev](https://react.dev/) |
 | **Vite** | Next-generation frontend tooling and bundler | [vite.dev](https://vite.dev/) |
 | **Tailwind CSS** | Utility-first CSS styling engine | [tailwindcss.com](https://tailwindcss.com/) |
+| **Lucide React** | Clean, tree-shakeable modern icon suite | [lucide.dev](https://lucide.dev/) |
 | **pnpm** | Fast, disk-space efficient package manager | [pnpm.io](https://pnpm.io/) |
 | **PostCSS & Autoprefixer** | CSS processing and vendor prefixing pipeline | [postcss.org](https://postcss.org/) |
 
@@ -97,7 +98,7 @@ Lesson/
 ├── tailwind.config.js      # Tailwind CSS theme, typography, and color tokens
 ├── vite.config.js          # Vite configuration with React plugin
 ├── public/                 # Static assets
-├── images/                 # Course illustrations, diagrams, and flag assets
+│   └── images/             # Course illustrations, diagrams, and flag assets
 ├── html/                   # Standalone interactive browser presentations (Cloudflare, Next.js, etc.)
 ├── js/                     # Standalone deck scripts and bilingual translation dictionaries
 └── src/                    # React application source code
@@ -110,7 +111,7 @@ Lesson/
     ├── components/         # Shared UI components
     │   ├── Navbar.jsx          # Hub navigation header
     │   ├── Footer.jsx          # Hub footer
-    │   └── CourseIcons.jsx     # Course SVG icons
+    │   └── CourseIcons.jsx     # Course Lucide icons
     ├── pages/              # Main view pages
     │   ├── HomePage.jsx        # Curriculum Hub with live search, filters, and roadmap
     │   └── SlideViewer.jsx     # Course viewer delegate

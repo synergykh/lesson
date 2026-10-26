@@ -1,4 +1,5 @@
 import React from "react";
+import { Info, ChevronRight, AlertTriangle, AlertCircle } from "lucide-react";
 
 // Slide 1: What AI Is and How Language Models Work
 export function Slide1({ onStart, onRestart }) {
@@ -17,8 +18,8 @@ export function Slide1({ onStart, onRestart }) {
             </div>
             <div className="title-hero-grid grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-4 items-center">
               <div className="slide-stack flex flex-col gap-3">
-                <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>
+                <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                  <Info className="w-4 h-4 shrink-0 mt-0.5" />
                   <div data-i18n="s1_desc">A developer guide to transforming vague chat prompts into rigorous software specifications, systematic debugging protocols, safe agent execution, and empirical code verification.</div>
                 </div>
                 <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
@@ -29,9 +30,9 @@ export function Slide1({ onStart, onRestart }) {
                   <h4 data-i18n="s1_c2_title">AI Output Is a Proposal</h4>
                   <p data-i18n="s1_c2_p">Because LLMs generate statistically plausible completions, their answers sound confident even when wrong. Every output is an unverified proposal requiring empirical human inspection.</p>
                 </div>
-                <button className="btn-primary-action btn-start-course px-4 py-2 mt-1 w-max" onClick={onStart}>
+                <button className="btn-primary-action btn-start-course px-4 py-2 mt-1 w-max rounded inline-flex items-center gap-1.5" onClick={onStart}>
                   <span data-i18n="ui_start_course">Start Course</span>
-                  <svg width="14" height="14" viewBox="0 0 16 16"><path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+                  <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
               <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
@@ -83,8 +84,8 @@ export function Slide2({ onStart, onRestart }) {
                   <h4 data-i18n="s2_c2_title">Generation vs. Verification</h4>
                   <p data-i18n="s2_c2_p">Generating code takes seconds; validating that it respects concurrency, database transaction locks, and backward compatibility requires rigorous automated tests and human review.</p>
                 </div>
-                <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
-                  <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+                <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed rounded">
+                  <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
                   <div><strong>Key Principle:</strong> AI output is a proposal to evaluate with proof, never automatically a fact to trust blindly.</div>
                 </div>
               </div>
@@ -363,8 +364,8 @@ export function Slide8({ onStart, onRestart }) {
                   <p data-i18n="s8_c2_p">Specify format (e.g. unified diff, JSON schema, step-by-step checklist) and define the criteria required to verify that the solution genuinely works.</p>
                 </div>
               </div>
-              <div className="alert-callout info flex items-start gap-2.5 p-3 border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
+              <div className="alert-callout info flex items-start gap-2.5 p-3 border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Why Negative Constraints Matter:</strong> Without negative constraints ("Do not..."), LLMs default to rewriting entire files, swapping libraries, or deleting unmentioned helper functions.</div>
               </div>
             </div>
@@ -529,8 +530,8 @@ export function Slide12({ onStart, onRestart }) {
                   <p data-i18n="s12_c2_p">Always tell the model which files are verified ground truth and which are user hypotheses. Instruct the model not to assume unconfirmed facts.</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Rule of Thumb:</strong> Supply the smallest amount of context that adequately explains the task without requiring the model to guess your architecture.</div>
               </div>
             </div>
@@ -651,8 +652,8 @@ export function Slide15({ onStart, onRestart }) {
                   <p data-i18n="s15_c2_p">Never rely on the role alone to enforce quality. Always combine role priming with non-negotiable technical requirements and automated test verification.</p>
                 </div>
               </div>
-              <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>
+              <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed rounded">
+                <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
                 <div><strong>Golden Rule:</strong> Roles guide the framing and vocabulary of the response. Rigorous tests, compilers, and linters determine if the code is actually true.</div>
               </div>
             </div>
@@ -975,8 +976,8 @@ export function Slide23({ onStart, onRestart }) {
                   <p data-i18n="s23_c2_p">What is the actual problem? Expected vs observed? What evidence exists? What could cause it? What assumptions are we making? What is the smallest safe test?</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Always Remember:</strong> The first apparent cause proposed by an AI is often just a symptom. Force the model to explain the causal mechanism behind the error.</div>
               </div>
             </div>
@@ -1185,8 +1186,8 @@ export function Slide28({ onStart, onRestart }) {
                   <p data-i18n="s28_c2_p">Do not let the model's first suggestion anchor your entire architecture. Ask for 3 distinct technical approaches with concrete tradeoffs.</p>
                 </div>
               </div>
-              <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout danger flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12.5px] leading-relaxed rounded">
+                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
                 <div><strong>Antidote to Bias:</strong> Never ask 'Is this code good?'. Ask 'Identify 3 potential security flaws and 2 race conditions in this code snippet.'</div>
               </div>
             </div>
@@ -1303,8 +1304,8 @@ export function Slide31({ onStart, onRestart }) {
                   <p data-i18n="s31_c2_p">Carry forward the schema contracts and conventions from previous steps so the AI builds each sub-module to fit the established architecture perfectly.</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Session Strategy:</strong> Once a sub-task is completed and tests pass, commit it locally. Start the next prompt with a clean working tree and reference the newly committed file paths.</div>
               </div>
             </div>
@@ -1540,8 +1541,8 @@ export function Slide37({ onStart, onRestart }) {
                   <p data-i18n="s37_c2_p">Demand complete handling: 'Include loading skeletons, empty states, network failure recovery, and accessible user error notifications.'</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Strict Injunction:</strong> "Return complete working code. If the code is long, break it across clear consecutive files rather than omitting lines with comments."</div>
               </div>
             </div>
@@ -1656,8 +1657,8 @@ export function Slide40({ onStart, onRestart }) {
                   <p data-i18n="s40_c2_p">If you ask AI to 'make it look better' without reference rules, it will introduce random font weights, arbitrary shadows, and inconsistent padding.</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Cloning Tip:</strong> Supply the exact HTML element structure, Tailwind classes, and SVG icons. Tell the AI: "Change only the data values; do not alter CSS class strings."</div>
               </div>
             </div>
@@ -2038,8 +2039,8 @@ export function Slide49({ onStart, onRestart }) {
                   <p data-i18n="s49_c2_p">Every critique must include a minimal, concrete code example demonstrating how to fix the problem safely.</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Review Command:</strong> "Provide actionable comments with minimal code fixes. Do not refactor modules that are already working unless a critical vulnerability requires it."</div>
               </div>
             </div>
@@ -2243,8 +2244,8 @@ export function Slide54({ onStart, onRestart }) {
                   <p data-i18n="s54_c2_p">Different agents have different capabilities. Do not assume an agent has internet access, database credentials, or browser automation unless verified.</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Permission Matrix:</strong> Read Files = Auto-allowed. Run Read-only Bash = Auto-allowed. Run Tests = Auto-allowed. Git Commit / Push = FORBIDDEN. Deploy = FORBIDDEN.</div>
               </div>
             </div>
@@ -2546,8 +2547,8 @@ export function Slide62({ onStart, onRestart }) {
                   <p data-i18n="s62_c2_p">Adopt a zero-trust mindset: Every code snippet is guilty of being broken until proven innocent by a passing test runner or successful build.</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Professional Mindset:</strong> Polite, professional tone is a feature of language modeling, not a guarantee of software correctness. Code only becomes true when it executes.</div>
               </div>
             </div>
@@ -2619,8 +2620,8 @@ export function Slide64({ onStart, onRestart }) {
                   <p data-i18n="s64_c2_p">When using bleeding-edge libraries, feed the official release notes or API reference directly into the prompt context to ground the model.</p>
                 </div>
               </div>
-              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg>
+              <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed rounded">
+                <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div><strong>Version Injection Tip:</strong> "We are using Next.js 15.1 with React 19. Do NOT use deprecated getServerSideProps or pages router. Use App Router Server Actions exclusively."</div>
               </div>
             </div>

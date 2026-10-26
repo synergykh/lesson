@@ -5,24 +5,26 @@ export default {
   theme: {
     borderRadius: {
       none: "0px",
-      sm: "2px",
+      sm: "4px",
       DEFAULT: "4px",
-      md: "6px",
-      lg: "8px",
-      xl: "10px",
-      "2xl": "12px",
-      "3xl": "16px",
+      md: "4px",
+      lg: "4px",
+      xl: "4px",
+      "2xl": "4px",
+      "3xl": "4px",
+      full: "9999px",
     },
     extend: {
       borderRadius: {
         none: "0px",
-        sm: "2px",
+        sm: "4px",
         DEFAULT: "4px",
-        md: "6px",
-        lg: "8px",
-        xl: "10px",
-        "2xl": "12px",
-        "3xl": "16px",
+        md: "4px",
+        lg: "4px",
+        xl: "4px",
+        "2xl": "4px",
+        "3xl": "4px",
+        full: "9999px",
       },
       colors: {
         brand: {

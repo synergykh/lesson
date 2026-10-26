@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Copy, Check } from "lucide-react";
 
 export default function TerminalBlock({
   title = "Terminal",
@@ -16,12 +17,21 @@ export default function TerminalBlock({
   };
 
   return (
-    <div className="terminal-mockup bg-slate-900 border border-slate-800 rounded-lg overflow-hidden text-xs shadow-xl flex flex-col">
-      <div className="terminal-header flex items-center justify-between px-3.5 py-2.5 bg-slate-900/90 border-b border-slate-800">
+    <div className="terminal-mockup bg-slate-950 border border-slate-800 rounded overflow-hidden text-xs shadow-xl flex flex-col">
+      <div className="terminal-header flex items-center justify-between px-3.5 py-2.5 bg-slate-900 border-b border-slate-800">
         <div className="terminal-dots flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
+          <span
+            className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"
+            style={{ borderRadius: 100 }}
+          />
+          <span
+            className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"
+            style={{ borderRadius: 100 }}
+          />
+          <span
+            className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"
+            style={{ borderRadius: 100 }}
+          />
         </div>
         <span className="terminal-title text-[11px] text-slate-400 font-semibold tracking-wide">
           {title}
@@ -30,13 +40,23 @@ export default function TerminalBlock({
           <button
             type="button"
             onClick={handleCopy}
-            className={`text-[10px] px-2.5 py-0.5 rounded font-semibold cursor-pointer flex items-center gap-1 border transition-colors ${
+            className={`text-[10px] px-2.5 py-1 rounded font-semibold cursor-pointer flex items-center gap-1 border transition-colors ${
               copied
                 ? "bg-emerald-600/30 text-emerald-300 border-emerald-500/40"
                 : "bg-slate-800 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700"
             }`}
           >
-            {copied ? "Copied! ✓" : "Copy"}
+            {copied ? (
+              <>
+                <Check className="w-3 h-3 text-emerald-300" />
+                <span>Copied!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="w-3 h-3 text-slate-400" />
+                <span>Copy</span>
+              </>
+            )}
           </button>
         ) : (
           <div className="w-8" />
