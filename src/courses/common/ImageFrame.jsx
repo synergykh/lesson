@@ -11,14 +11,22 @@ export default function ImageFrame({
     <div
       className={`slide-visual-media relative w-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded overflow-hidden flex flex-col shadow-xs group transition-all duration-300 hover:border-slate-300 dark:hover:border-slate-700 shrink-0 ${className}`}
     >
-      <div className="w-full relative flex items-center justify-center bg-slate-900 overflow-hidden min-h-[160px] max-h-[300px]">
+      <div className="w-full relative flex items-center justify-center bg-slate-900 overflow-hidden min-h-[260px] max-h-[800px]">
         <img
           src={src}
           alt={alt}
-          className="w-full h-auto max-h-[300px] object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
+          className="w-full h-auto max-h-[600px] object-cover transition-transform duration-300 group-hover:scale-[1.02] block"
           loading="lazy"
         />
       </div>
+      {/* <div className="w-full relative flex items-center justify-center bg-slate-900 overflow-hidden">
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-auto max-h-none object-contain transition-transform duration-300 block"
+          loading="lazy"
+        />
+      </div> */}
       {caption && (
         <div className="p-2.5 px-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2 shrink-0 z-10">
           <span className="text-xs text-slate-700 dark:text-slate-300 font-medium truncate">
