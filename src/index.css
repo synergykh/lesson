@@ -619,6 +619,39 @@ html.dark .docs-content .diag-node.active {
   overflow-wrap: anywhere !important;
 }
 
+/* Syntax Highlighting Tokens (VS Code / GitHub theme colors) */
+.docs-content .tok-keyword {
+  color: #c084fc !important; /* purple-400 */
+  font-weight: 600 !important;
+}
+
+.docs-content .tok-string {
+  color: #34d399 !important; /* emerald-400 */
+}
+
+.docs-content .tok-tag {
+  color: #38bdf8 !important; /* sky-400 */
+  font-weight: 600 !important;
+}
+
+.docs-content .tok-attr {
+  color: #fde047 !important; /* yellow-300 */
+}
+
+.docs-content .tok-fn {
+  color: #60a5fa !important; /* blue-400 */
+  font-weight: 600 !important;
+}
+
+.docs-content .tok-comment {
+  color: #64748b !important; /* slate-500 */
+  font-style: italic !important;
+}
+
+.docs-content .tok-num {
+  color: #fb923c !important; /* orange-400 */
+}
+
 /* Copy Button like Git page */
 .docs-content .copy-btn,
 .docs-content .btn-copy {

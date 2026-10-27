@@ -679,12 +679,12 @@ export function Slide14({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — CREATE TABLE users</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">CREATE TABLE users (
+                <pre><code>{`CREATE TABLE users (
     id BIGSERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     created_at TIMESTAMPTZ DEFAULT NOW()
-);</code></pre>
+);`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -718,7 +718,7 @@ export function Slide15({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>INSERT Statements</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Insert single row and return generated ID
+                <pre><code>{`-- Insert single row and return generated ID
 INSERT INTO users (name, email)
 VALUES ('Dara S.', 'dara@example.com')
 RETURNING id, created_at;
@@ -727,12 +727,12 @@ RETURNING id, created_at;
 INSERT INTO users (name, email)
 VALUES 
     ('Lina K.', 'lina@example.com'),
-    ('Bona T.', 'bona@example.com');</code></pre>
+    ('Bona T.', 'bona@example.com');`}</code></pre>
               </div>
 
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SELECT Statements</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Select specific columns (avoid SELECT *)
+                <pre><code>{`-- Select specific columns (avoid SELECT *)
 SELECT id, name, email
 FROM users
 WHERE email = 'dara@example.com';
@@ -741,7 +741,7 @@ WHERE email = 'dara@example.com';
 SELECT id, name
 FROM users
 ORDER BY id DESC
-LIMIT 10;</code></pre>
+LIMIT 10;`}</code></pre>
               </div>
             </div>
     </div>
@@ -764,14 +764,14 @@ export function Slide16({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>UPDATE &amp; DELETE</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Safe UPDATE with specific WHERE target
+                <pre><code>{`-- Safe UPDATE with specific WHERE target
 UPDATE users
 SET name = 'Dara Sam'
 WHERE id = 1;
 
 -- Safe DELETE with target ID
 DELETE FROM users
-WHERE id = 1;</code></pre>
+WHERE id = 1;`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -895,18 +895,18 @@ export function Slide19({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Querying JSONB</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Create table with JSONB column
+                <pre><code>{`-- Create table with JSONB column
 CREATE TABLE user_settings (
     user_id BIGINT PRIMARY KEY,
-    metadata JSONB NOT NULL DEFAULT '&#123;&#125;'
+    metadata JSONB NOT NULL DEFAULT '{}'
 );
 
--- Extract as JSON object (-&gt;) vs TEXT (-&gt;&gt;)
+-- Extract as JSON object (->) vs TEXT (->>)
 SELECT 
-    metadata-&gt;'theme' as theme_json,
-    metadata-&gt;&gt;'theme' as theme_text
+    metadata->'theme' as theme_json,
+    metadata->>'theme' as theme_text
 FROM user_settings
-WHERE metadata-&gt;&gt;'newsletter' = 'true';</code></pre>
+WHERE metadata->>'newsletter' = 'true';`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -942,7 +942,7 @@ export function Slide20({ onStart, onRestart }) {
                 <h4>BIGSERIAL (Auto-Increment Integer)</h4>
                 <p data-i18n="s20_c1_desc">Fast, 8-byte compact storage, natural ordering. Downside: URLs expose sequential IDs (`/users/1`, `/users/2`), allowing ID enumeration attacks.</p>
                 <div className="code-box mt-2">
-                  <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">id BIGSERIAL PRIMARY KEY</code></pre>
+                  <pre><code>{`id BIGSERIAL PRIMARY KEY`}</code></pre>
                 </div>
               </div>
 
@@ -950,7 +950,7 @@ export function Slide20({ onStart, onRestart }) {
                 <h4>UUID (Universally Unique Identifier)</h4>
                 <p data-i18n="s20_c2_desc">128-bit globally unique identifier. Can be generated on the client or server without coordinating with the database. Impossible to guess.</p>
                 <div className="code-box mt-2">
-                  <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">id UUID PRIMARY KEY DEFAULT gen_random_uuid()</code></pre>
+                  <pre><code>{`id UUID PRIMARY KEY DEFAULT gen_random_uuid()`}</code></pre>
                 </div>
               </div>
             </div>
@@ -990,7 +990,7 @@ export function Slide21({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Native UUID Generation</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- PostgreSQL 13+ built-in function
+                <pre><code>{`-- PostgreSQL 13+ built-in function
 SELECT gen_random_uuid();
 -- Output: c9a646d3-9c61-4cd7-bf53-73d8f7634f19
 
@@ -999,7 +999,7 @@ CREATE TABLE projects (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     title TEXT NOT NULL,
     created_at TIMESTAMPTZ DEFAULT NOW()
-);</code></pre>
+);`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -1075,14 +1075,14 @@ export function Slide23({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Foreign Key Definition</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">CREATE TABLE posts (
+                <pre><code>{`CREATE TABLE posts (
     id BIGSERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     -- Cascading foreign key definition
     user_id BIGINT NOT NULL 
         REFERENCES users(id) 
         ON DELETE CASCADE
-);</code></pre>
+);`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -1159,7 +1159,7 @@ export function Slide25({ onStart, onRestart }) {
 
             <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Joining Users, Posts &amp; Comment Counts</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-              <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">SELECT 
+              <pre><code>{`SELECT 
     users.id AS user_id,
     users.name AS author_name,
     posts.title AS post_title,
@@ -1168,7 +1168,7 @@ FROM users
 INNER JOIN posts ON posts.user_id = users.id
 LEFT JOIN comments ON comments.post_id = posts.id
 GROUP BY users.id, users.name, posts.id, posts.title
-ORDER BY comment_count DESC;</code></pre>
+ORDER BY comment_count DESC;`}</code></pre>
             </div>
     </div>
   );
@@ -1190,13 +1190,13 @@ export function Slide26({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Creating Indexes</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Single column index
+                <pre><code>{`-- Single column index
 CREATE INDEX idx_users_email 
 ON users(email);
 
 -- Composite index (multi-column)
 CREATE INDEX idx_tasks_project_status 
-ON tasks(project_id, status);</code></pre>
+ON tasks(project_id, status);`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -1310,7 +1310,7 @@ export function Slide29({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Bank Transfer Transaction</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">BEGIN;
+                <pre><code>{`BEGIN;
 
 -- 1. Deduct from Alice
 UPDATE accounts 
@@ -1326,7 +1326,7 @@ WHERE id = 'bob-456';
 COMMIT;
 
 -- Or abort on any failure:
--- ROLLBACK;</code></pre>
+-- ROLLBACK;`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -1471,13 +1471,13 @@ export function Slide33({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Adding Column Safely</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Safe: Adding nullable column or column with DEFAULT
+                <pre><code>{`-- Safe: Adding nullable column or column with DEFAULT
 ALTER TABLE users 
 ADD COLUMN avatar_url TEXT;
 
 -- Safe: Adding column with default (PG 11+)
 ALTER TABLE users 
-ADD COLUMN role TEXT NOT NULL DEFAULT 'member';</code></pre>
+ADD COLUMN role TEXT NOT NULL DEFAULT 'member';`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -1591,7 +1591,7 @@ export function Slide36({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Least Privilege User Creation</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- 1. Create dedicated application user
+                <pre><code>{`-- 1. Create dedicated application user
 CREATE USER app_user WITH PASSWORD 'StrongSecretPassword123!';
 
 -- 2. Grant connection rights
@@ -1599,7 +1599,7 @@ GRANT CONNECT ON DATABASE myapp TO app_user;
 
 -- 3. Grant table DML permissions only
 GRANT SELECT, INSERT, UPDATE, DELETE 
-ON ALL TABLES IN SCHEMA public TO app_user;</code></pre>
+ON ALL TABLES IN SCHEMA public TO app_user;`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -1959,14 +1959,14 @@ export function Slide46({ onStart, onRestart }) {
               <div className="slide-stack flex flex-col gap-3">
                 <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                   <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>.env.local — SAFE (Server Only)</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                  <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5"># SAFE: Only accessible in Server Components &amp; Actions
-DATABASE_URL="postgresql://user:pass@ep-xyz.neon.tech/neondb"</code></pre>
+                  <pre><code>{`# SAFE: Only accessible in Server Components & Actions
+DATABASE_URL="postgresql://user:pass@ep-xyz.neon.tech/neondb"`}</code></pre>
                 </div>
 
                 <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md border-red-500/50">
                   <div className="code-box-header text-red-400"><span>.env.local — DANGEROUS! NEVER DO THIS!</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                  <pre><code className="text-red-400"># FATAL ERROR: Exposes full credentials to public browser!
-NEXT_PUBLIC_DATABASE_URL="postgresql://..."</code></pre>
+                  <pre><code>{`# FATAL ERROR: Exposes full credentials to public browser!
+NEXT_PUBLIC_DATABASE_URL="postgresql://..."`}</code></pre>
                 </div>
               </div>
 
@@ -2027,20 +2027,20 @@ export function Slide48({ onStart, onRestart }) {
 
             <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>schema.ts (Drizzle Definition)</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-              <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; pgTable, serial, text, timestamp, uuid &#125; from 'drizzle-orm/pg-core';
+              <pre><code>{`import { pgTable, serial, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
-export const users = pgTable('users', &#123;
+export const users = pgTable('users', {
   id: uuid('id').defaultRandom().primaryKey(),
   name: text('name').notNull(),
   email: text('email').notNull().unique(),
-  createdAt: timestamp('created_at', &#123; withTimezone: true &#125;).defaultNow().notNull()
-&#125;);
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull()
+});
 
-export const posts = pgTable('posts', &#123;
+export const posts = pgTable('posts', {
   id: serial('id').primaryKey(),
   title: text('title').notNull(),
-  authorId: uuid('author_id').references(() =&gt; users.id, &#123; onDelete: 'cascade' &#125;).notNull()
-&#125;);</code></pre>
+  authorId: uuid('author_id').references(() => users.id, { onDelete: 'cascade' }).notNull()
+});`}</code></pre>
             </div>
     </div>
   );
@@ -2061,22 +2061,22 @@ export function Slide49({ onStart, onRestart }) {
 
             <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>db.ts &amp; page.tsx (Next.js Server Component)</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-              <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; neon &#125; from '@neondatabase/serverless';
-import &#123; drizzle &#125; from 'drizzle-orm/neon-http';
-import &#123; users &#125; from './schema';
+              <pre><code>{`import { neon } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-http';
+import { users } from './schema';
 
 const sql = neon(process.env.DATABASE_URL!);
 export const db = drizzle(sql);
 
 // Inside Next.js App Router page.tsx
-export default async function UsersPage() &#123;
+export default async function UsersPage() {
   const allUsers = await db.select().from(users);
   return (
-    &lt;div&gt;
-      &#123;allUsers.map(u =&gt; &lt;p key=&#123;u.id&#125;&gt;&#123;u.name&#125; — &#123;u.email&#125;&lt;/p&gt;)&#125;
-    &lt;/div&gt;
+    <div>
+      {allUsers.map(u => <p key={u.id}>{u.name} — {u.email}</p>)}
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
             </div>
     </div>
   );
@@ -2097,16 +2097,16 @@ export function Slide50({ onStart, onRestart }) {
 
             <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>prisma/schema.prisma</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-              <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">datasource db &#123;
+              <pre><code>{`datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-&#125;
+}
 
-generator client &#123;
+generator client {
   provider = "prisma-client-js"
-&#125;
+}
 
-model User &#123;
+model User {
   id        String   @id @default(uuid())
   name      String
   email     String   @unique
@@ -2114,7 +2114,7 @@ model User &#123;
   posts     Post[]
 
   @@map("users")
-&#125;</code></pre>
+}`}</code></pre>
             </div>
     </div>
   );
@@ -2303,18 +2303,18 @@ export function Slide55({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md border-red-500/50">
                 <div className="code-box-header text-red-400"><span>BAD: Vulnerable String Interpolation</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className="text-red-400">// FATAL VULNERABILITY!
-const query = `SELECT * FROM users WHERE email = '$&#123;userEmail&#125;'`;
+                <pre><code>{`// FATAL VULNERABILITY!
+const query = \`SELECT * FROM users WHERE email = '\${userEmail}'\`;
 // If user inputs: ' OR 1=1; DROP TABLE users; --
-// Your entire database is destroyed!</code></pre>
+// Your entire database is destroyed!`}</code></pre>
               </div>
 
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md border-green-500/50">
                 <div className="code-box-header text-green-400"><span>GOOD: Parameterized Query ($1, $2)</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className="text-green-400">// 100% SECURE: Engine treats input strictly as data
-await sql`SELECT * FROM users WHERE email = $&#123;userEmail&#125;`;
+                <pre><code>{`// 100% SECURE: Engine treats input strictly as data
+await sql\`SELECT * FROM users WHERE email = \${userEmail}\`;
 // Or in psql / pg:
-// SELECT * FROM users WHERE email = $1;</code></pre>
+// SELECT * FROM users WHERE email = $1;`}</code></pre>
               </div>
             </div>
     </div>
@@ -2435,11 +2435,11 @@ export function Slide59({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Slow OFFSET Query</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Page 5000:
+                <pre><code>{`-- Page 5000:
 SELECT id, title, created_at
 FROM tasks
 ORDER BY id ASC
-LIMIT 20 OFFSET 100000;</code></pre>
+LIMIT 20 OFFSET 100000;`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -2473,12 +2473,12 @@ export function Slide60({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Keyset / Cursor Query</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Next page starts immediately after last seen ID:
+                <pre><code>{`-- Next page starts immediately after last seen ID:
 SELECT id, title, created_at
 FROM tasks
-WHERE id &gt; 100020
+WHERE id > 100020
 ORDER BY id ASC
-LIMIT 20;</code></pre>
+LIMIT 20;`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">
@@ -2544,7 +2544,7 @@ export function Slide62({ onStart, onRestart }) {
 
             <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — DDL: Users, ENUM &amp; Projects</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-              <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- 1. Create custom ENUM for task status
+              <pre><code>{`-- 1. Create custom ENUM for task status
 CREATE TYPE task_status AS ENUM ('todo', 'in_progress', 'review', 'done');
 
 -- 2. Create users table
@@ -2562,7 +2562,7 @@ CREATE TABLE projects (
     description TEXT,
     owner_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);</code></pre>
+);`}</code></pre>
             </div>
     </div>
   );
@@ -2583,7 +2583,7 @@ export function Slide63({ onStart, onRestart }) {
 
             <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
               <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — DDL: Tasks &amp; Comments with Indexes</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-              <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- 4. Create tasks table
+              <pre><code>{`-- 4. Create tasks table
 CREATE TABLE tasks (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     project_id UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
@@ -2606,7 +2606,7 @@ CREATE TABLE comments (
 -- 6. Add performance indexes on foreign keys
 CREATE INDEX idx_tasks_project ON tasks(project_id);
 CREATE INDEX idx_tasks_assigned ON tasks(assigned_to);
-CREATE INDEX idx_comments_task ON comments(task_id);</code></pre>
+CREATE INDEX idx_comments_task ON comments(task_id);`}</code></pre>
             </div>
     </div>
   );
@@ -2628,19 +2628,19 @@ export function Slide64({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Creating a Task</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">INSERT INTO tasks (project_id, assigned_to, title, status)
+                <pre><code>{`INSERT INTO tasks (project_id, assigned_to, title, status)
 VALUES (
     'a1b2c3d4-0000-0000-0000-000000000001',
     'b2c3d4e5-0000-0000-0000-000000000002',
     'Implement Neon connection pooling',
     'in_progress'
 )
-RETURNING id, title, status;</code></pre>
+RETURNING id, title, status;`}</code></pre>
               </div>
 
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Reading Project Dashboard</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">SELECT 
+                <pre><code>{`SELECT 
     tasks.id,
     tasks.title,
     tasks.status,
@@ -2650,7 +2650,7 @@ FROM tasks
 LEFT JOIN users ON users.id = tasks.assigned_to
 LEFT JOIN comments ON comments.task_id = tasks.id
 WHERE tasks.project_id = $1
-GROUP BY tasks.id, users.name;</code></pre>
+GROUP BY tasks.id, users.name;`}</code></pre>
               </div>
             </div>
     </div>
@@ -2673,20 +2673,20 @@ export function Slide65({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Updating Task Status</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">UPDATE tasks
+                <pre><code>{`UPDATE tasks
 SET 
     status = 'done',
     updated_at = NOW()
 WHERE id = 'c3d4e5f6-0000-0000-0000-000000000003'
-RETURNING id, status, updated_at;</code></pre>
+RETURNING id, status, updated_at;`}</code></pre>
               </div>
 
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL — Deleting Project (Cascade)</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- Deleting project automatically deletes
+                <pre><code>{`-- Deleting project automatically deletes
 -- all linked tasks and comments via CASCADE!
 DELETE FROM projects
-WHERE id = 'a1b2c3d4-0000-0000-0000-000000000001';</code></pre>
+WHERE id = 'a1b2c3d4-0000-0000-0000-000000000001';`}</code></pre>
               </div>
             </div>
     </div>
@@ -2884,7 +2884,7 @@ export function Slide70({ onStart, onRestart }) {
 
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL DDL Syntax</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">CREATE DATABASE myapp;
+                <pre><code>{`CREATE DATABASE myapp;
 DROP DATABASE myapp;
 
 CREATE TABLE users (
@@ -2895,7 +2895,7 @@ CREATE TABLE users (
 );
 
 CREATE INDEX idx_name ON users(name);
-ALTER TABLE users ADD COLUMN bio TEXT;</code></pre>
+ALTER TABLE users ADD COLUMN bio TEXT;`}</code></pre>
               </div>
             </div>
     </div>
@@ -2918,7 +2918,7 @@ export function Slide71({ onStart, onRestart }) {
             <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
                 <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>SQL Queries &amp; Transactions</span><button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div>
-                <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">-- CRUD
+                <pre><code>{`-- CRUD
 INSERT INTO users (name, email) VALUES ('A', 'a@b.com') RETURNING id;
 SELECT id, name FROM users WHERE id = $1;
 UPDATE users SET name = 'B' WHERE id = $1;
@@ -2931,7 +2931,7 @@ SELECT u.name, p.title FROM users u JOIN posts p ON p.user_id = u.id;
 BEGIN;
 UPDATE accounts SET balance = balance - 10 WHERE id = 1;
 UPDATE accounts SET balance = balance + 10 WHERE id = 2;
-COMMIT;</code></pre>
+COMMIT;`}</code></pre>
               </div>
 
               <div className="slide-stack flex flex-col gap-3">

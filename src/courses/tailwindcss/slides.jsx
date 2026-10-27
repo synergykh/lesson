@@ -14,15 +14,15 @@ export function Slide1({ onStart, onRestart }) {
         <div className="title-actions-row"><button className="btn-cta-primary inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 border border-blue-600 text-white text-xs font-bold cursor-pointer transition-colors no-underline rounded" id="btn-start-course" onClick={onStart}>Start Module <ArrowRight className="w-3.5 h-3.5" /></button><span className="cta-hint">or press <kbd>Space</kbd> / <kbd>→</kbd></span></div>
       </div>
       <div className="title-visual-col">
-        <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>HeroCard.tsx</span></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;div className="p-4 bg-slate-900 border border-slate-800 rounded-lg shadow-xl flex items-center gap-4 hover:border-blue-500 transition-all"&gt;
-  &lt;div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg flex items-center justify-center font-bold"&gt;
+        <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>HeroCard.tsx</span></div><pre><code>{`<div className="p-4 bg-slate-900 border border-slate-800 rounded-lg shadow-xl flex items-center gap-4 hover:border-blue-500 transition-all">
+  <div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg flex items-center justify-center font-bold">
     TS
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;h3 className="text-lg font-bold text-white"&gt;Tailwind CSS&lt;/h3&gt;
-    &lt;p className="text-sm text-slate-400"&gt;Utility-First Framework&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre></div>
+  </div>
+  <div>
+    <h3 className="text-lg font-bold text-white">Tailwind CSS</h3>
+    <p className="text-sm text-slate-400">Utility-First Framework</p>
+  </div>
+</div>`}</code></pre></div>
       </div>
     </div>
     </div>
@@ -56,13 +56,13 @@ export function Slide3({ onStart, onRestart }) {
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">SETUP</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Configuration &amp; Setup</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Importing Tailwind directives into your project</p></div>
     <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>src/app/globals.css</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">@import "tailwindcss";
+      <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>src/app/globals.css</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code>{`@import "tailwindcss";
 
-@theme &#123;
+@theme {
   --color-brand-primary: #2563eb;
   --color-brand-accent: #6366f1;
   --font-display: 'Plus Jakarta Sans', sans-serif;
-&#125;</code></pre></div>
+}`}</code></pre></div>
       <div className="terminal-mockup bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><div className="terminal-dots flex items-center gap-1.5"><span className="dot red"></span><span className="dot yellow"></span><span className="dot green"></span></div><span className="terminal-title text-[11px] text-slate-400 font-semibold">bash — install tailwind</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><div className="terminal-body p-3 overflow-x-auto text-slate-200 leading-relaxed  text-xs"><div className="term-line"><span className="term-prompt text-blue-500 select-none mr-2 font-bold">$</span><span className="term-cmd text-blue-400 font-bold flex items-center gap-1.5">pnpm add tailwindcss @tailwindcss/postcss postcss</span></div><div className="term-output text-slate-300  text-xs flex flex-col gap-1"><span>+ tailwindcss 4.0.0</span><span>+ @tailwindcss/postcss 4.0.0</span><span className="out-success flex items-center gap-1 mt-1"><Check className="w-3.5 h-3.5 text-emerald-400" />Packages installed successfully</span></div></div></div>
     </div>
     </div>
@@ -97,18 +97,18 @@ export function Slide5({ onStart, onRestart }) {
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">TYPOGRAPHY</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Typography &amp; Modern Colors</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Pre-curated contrast and hierarchy</p></div>
     <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Typography Classes</span></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;h1 className="text-3xl font-extrabold tracking-tight text-white"&gt;
+      <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Typography Classes</span></div><pre><code>{`<h1 className="text-3xl font-extrabold tracking-tight text-white">
   Main Heading
-&lt;/h1&gt;
-&lt;h2 className="text-xl font-bold text-slate-200 mt-2"&gt;
+</h1>
+<h2 className="text-xl font-bold text-slate-200 mt-2">
   Subtitle Heading
-&lt;/h2&gt;
-&lt;p className="text-sm text-slate-400 leading-relaxed mt-1"&gt;
+</h2>
+<p className="text-sm text-slate-400 leading-relaxed mt-1">
   Descriptive paragraph text with balanced line height.
-&lt;/p&gt;
-&lt;span className=" text-xs text-blue-400"&gt;
+</p>
+<span className=" text-xs text-blue-400">
   git status
-&lt;/span&gt;</code></pre></div>
+</span>`}</code></pre></div>
       <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
         <h4>Color Palette Rules</h4>
         <p>1. Backgrounds: <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-slate-900</code>, <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-slate-900</code>, <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-white</code></p>
@@ -126,22 +126,22 @@ export function Slide6({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">LAYOUT</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Flexbox &amp; CSS Grid in Action</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Building responsive 2-column and 3-column card layouts</p></div>
-    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Responsive Grid Layout</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&#123;/* Responsive 1 col on mobile, 3 cols on desktop */&#125;
-&lt;div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"&gt;
-  &#123;features.map((item) =&gt; (
-    &lt;div 
-      key=&#123;item.id&#125;
+    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Responsive Grid Layout</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code>{`{/* Responsive 1 col on mobile, 3 cols on desktop */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {features.map((item) => (
+    <div 
+      key={item.id}
       className="flex flex-col justify-between p-4 bg-slate-900 border border-slate-800 rounded-lg"
-    &gt;
-      &lt;div className="flex items-center justify-between"&gt;
-        &lt;span className="text-xs  text-blue-400"&gt;&#123;item.tag&#125;&lt;/span&gt;
-        &lt;span className="text-xs text-slate-500"&gt;&#123;item.date&#125;&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;h3 className="text-base font-bold text-white mt-2"&gt;&#123;item.title&#125;&lt;/h3&gt;
-      &lt;p className="text-sm text-slate-400 mt-1"&gt;&#123;item.desc&#125;&lt;/p&gt;
-    &lt;/div&gt;
-  ))&#125;
-&lt;/div&gt;</code></pre></div>
+    >
+      <div className="flex items-center justify-between">
+        <span className="text-xs  text-blue-400">{item.tag}</span>
+        <span className="text-xs text-slate-500">{item.date}</span>
+      </div>
+      <h3 className="text-base font-bold text-white mt-2">{item.title}</h3>
+      <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
+    </div>
+  ))}
+</div>`}</code></pre></div>
     </div>
   );
 }
@@ -173,7 +173,7 @@ export function Slide8({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">STATES</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Interactive Hover, Focus &amp; Active States</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Polished micro-animations with transition utilities</p></div>
-    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Interactive Button Component</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;button className="
+    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Interactive Button Component</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code>{`<button className="
   px-4 py-2 
   bg-blue-600 text-white font-bold text-sm 
   rounded-lg 
@@ -181,9 +181,9 @@ export function Slide8({ onStart, onRestart }) {
   focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900
   active:scale-95 
   transition-all duration-150 ease-out
-"&gt;
+">
   Submit Form
-&lt;/button&gt;</code></pre></div>
+</button>`}</code></pre></div>
     <div className="alert-callout flex items-start gap-2.5 p-3 border border-slate-700 bg-slate-800/80 text-slate-300 text-[12.5px] leading-relaxed"><div>Always include <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">focus:ring-2</code> for keyboard accessibility and <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">transition-all</code> for smooth visual feedback.</div></div>
     </div>
   );
@@ -194,17 +194,17 @@ export function Slide9({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">DARK MODE</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Tailwind Dark Mode Integration</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Effortless dual-theme support using the dark: variant</p></div>
-    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Dual-Theme Card Example</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;div className="
+    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Dual-Theme Card Example</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code>{`<div className="
   bg-white dark:bg-slate-900 
   text-slate-900 dark:text-slate-100 
   border border-slate-200 dark:border-slate-800 
   rounded-lg p-4 shadow-sm
-"&gt;
-  &lt;h3 className="text-lg font-bold"&gt;Project Status&lt;/h3&gt;
-  &lt;p className="text-sm text-slate-500 dark:text-slate-400 mt-1"&gt;
+">
+  <h3 className="text-lg font-bold">Project Status</h3>
+  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
     Automatically adapts when the user switches themes.
-  &lt;/p&gt;
-&lt;/div&gt;</code></pre></div>
+  </p>
+</div>`}</code></pre></div>
     </div>
   );
 }

@@ -1122,18 +1122,18 @@ export function Slide12({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default function HomePage() &#123;
+                    <pre><code>{`export default function HomePage() {
   return (
-    &lt;main className="flex min-h-screen flex-col items-center justify-center p-24"&gt;
-      &lt;h1 className="text-4xl font-bold tracking-tight"&gt;
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <h1 className="text-4xl font-bold tracking-tight">
         Hello Next.js
-      &lt;/h1&gt;
-      &lt;p className="mt-4 text-slate-400"&gt;
+      </h1>
+      <p className="mt-4 text-slate-400">
         Welcome to your modern full-stack web application.
-      &lt;/p&gt;
-    &lt;/main&gt;
+      </p>
+    </main>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3  text-xs">
@@ -1205,27 +1205,27 @@ export function Slide13({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import type &#123; Metadata &#125; from "next";
+                    <pre><code>{`import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = &#123;
+export const metadata: Metadata = {
   title: "My Application",
   description: "Built with Next.js App Router",
-&#125;;
+};
 
-export default function RootLayout(&#123;
+export default function RootLayout({
   children,
-&#125;: &#123;
+}: {
   children: React.ReactNode;
-&#125;) &#123;
+}) {
   return (
-    &lt;html lang="en"&gt;
-      &lt;body className="bg-slate-900 text-slate-50 antialiased"&gt;
-        &#123;children&#125;
-      &lt;/body&gt;
-    &lt;/html&gt;
+    <html lang="en">
+      <body className="bg-slate-900 text-slate-50 antialiased">
+        {children}
+      </body>
+    </html>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -1405,21 +1405,21 @@ export function Slide16({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default async function ProductPage(&#123;
+                    <pre><code>{`export default async function ProductPage({
   params,
-&#125;: &#123;
-  params: Promise&lt;&#123; id: string &#125;&gt;;
-&#125;) &#123;
+}: {
+  params: Promise<{ id: string }>;
+}) {
   // In Next.js 15+, params is a Promise
-  const &#123; id &#125; = await params;
+  const { id } = await params;
 
   return (
-    &lt;div className="p-4"&gt;
-      &lt;h1 className="text-2xl font-bold"&gt;Product Details&lt;/h1&gt;
-      &lt;p className=" text-blue-400 mt-2"&gt;Product ID: &#123;id&#125;&lt;/p&gt;
-    &lt;/div&gt;
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">Product Details</h1>
+      <p className=" text-blue-400 mt-2">Product ID: {id}</p>
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3  text-xs">
@@ -1482,23 +1482,23 @@ export function Slide17({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import Link from "next/link";
+                    <pre><code>{`import Link from "next/link";
 
-export default function Navbar() &#123;
+export default function Navbar() {
   return (
-    &lt;nav className="flex gap-4 p-4 bg-slate-900 border-b border-slate-800"&gt;
-      &lt;Link href="/" className="hover:text-blue-400"&gt;
+    <nav className="flex gap-4 p-4 bg-slate-900 border-b border-slate-800">
+      <Link href="/" className="hover:text-blue-400">
         Home
-      &lt;/Link&gt;
-      &lt;Link href="/dashboard" className="hover:text-blue-400"&gt;
+      </Link>
+      <Link href="/dashboard" className="hover:text-blue-400">
         Dashboard
-      &lt;/Link&gt;
-      &lt;Link href="/about" className="hover:text-blue-400"&gt;
+      </Link>
+      <Link href="/about" className="hover:text-blue-400">
         About
-      &lt;/Link&gt;
-    &lt;/nav&gt;
+      </Link>
+    </nav>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -1592,19 +1592,19 @@ export function Slide18({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client";
-import &#123; usePathname &#125; from "next/navigation";
+                    <pre><code>{`"use client";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-export function NavLink(&#123; href, label &#125;: &#123; href: string; label: string &#125;) &#123;
+export function NavLink({ href, label }: { href: string; label: string }) {
   const pathname = usePathname();
   const isActive = pathname === href;
   return (
-    &lt;Link href=&#123;href&#125; className=&#123;isActive ? "text-blue-400 font-bold" : "text-slate-400"&#125;&gt;
-      &#123;label&#125;
-    &lt;/Link&gt;
+    <Link href={href} className={isActive ? "text-blue-400 font-bold" : "text-slate-400"}>
+      {label}
+    </Link>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
               </div>
@@ -1642,13 +1642,13 @@ export function Slide19({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default function Button() &#123;
+                    <pre><code>{`export default function Button() {
   return (
-    &lt;button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition"&gt;
+    <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition">
       Click me
-    &lt;/button&gt;
+    </button>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -1706,22 +1706,22 @@ export function Slide20({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">interface ButtonProps &#123;
+                    <pre><code>{`interface ButtonProps {
   children: React.ReactNode;
   variant?: "primary" | "secondary";
-&#125;
+}
 
-export function Button(&#123; children, variant = "primary" &#125;: ButtonProps) &#123;
+export function Button({ children, variant = "primary" }: ButtonProps) {
   const styles = variant === "primary"
     ? "bg-blue-600 text-white hover:bg-blue-700"
     : "bg-slate-800 text-slate-200 hover:bg-slate-700";
 
   return (
-    &lt;button className=&#123;`px-4 py-2 font-medium text-sm transition $&#123;styles&#125;`&#125;&gt;
-      &#123;children&#125;
-    &lt;/button&gt;
+    <button className={\`px-4 py-2 font-medium text-sm transition \${styles}\`}>
+      {children}
+    </button>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3  text-xs">
@@ -1750,8 +1750,8 @@ export function Button(&#123; children, variant = "primary" &#125;: ButtonProps)
                           Copy
                         </button>
                       </div>
-                      <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">&lt;Button variant="primary"&gt;Save Changes&lt;/Button&gt;
-&lt;Button variant="secondary"&gt;Cancel&lt;/Button&gt;</code></pre>
+                      <pre><code>{`<Button variant="primary">Save Changes</Button>
+<Button variant="secondary">Cancel</Button>`}</code></pre>
                     </div>
                   </div>
                 </div>
@@ -1856,25 +1856,25 @@ export function Slide22({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">// Server Component by default in App Router
-export default async function ProductsPage() &#123;
+                    <pre><code>{`// Server Component by default in App Router
+export default async function ProductsPage() {
   // Direct async data fetching on the server
   const res = await fetch("https://api.example.com/products");
   const products = await res.json();
 
   return (
-    &lt;div className="p-4"&gt;
-      &lt;h1 className="text-2xl font-bold"&gt;Products List&lt;/h1&gt;
-      &lt;ul className="mt-4 space-y-2"&gt;
-        &#123;products.map((p: any) =&gt; (
-          &lt;li key=&#123;p.id&#125; className="p-3 bg-slate-900 border border-slate-800"&gt;
-            &#123;p.name&#125; - $&#123;p.price&#125;
-          &lt;/li&gt;
-        ))&#125;
-      &lt;/ul&gt;
-    &lt;/div&gt;
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">Products List</h1>
+      <ul className="mt-4 space-y-2">
+        {products.map((p: any) => (
+          <li key={p.id} className="p-3 bg-slate-900 border border-slate-800">
+            {p.name} - \${p.price}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -1937,22 +1937,22 @@ export function Slide23({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client";
+                    <pre><code>{`"use client";
 
-import &#123; useState &#125; from "react";
+import { useState } from "react";
 
-export default function Counter() &#123;
+export default function Counter() {
   const [count, setCount] = useState(0);
 
   return (
-    &lt;button
-      onClick=&#123;() =&gt; setCount(count + 1)&#125;
+    <button
+      onClick={() => setCount(count + 1)}
       className="px-4 py-2 bg-blue-600 text-white "
-    &gt;
-      Clicks: &#123;count&#125;
-    &lt;/button&gt;
+    >
+      Clicks: {count}
+    </button>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3  text-xs">
@@ -2186,17 +2186,17 @@ export function Slide26({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export function DashboardCard(&#123; title, value, change &#125;: any) &#123;
+                    <pre><code>{`export function DashboardCard({ title, value, change }: any) {
   return (
-    &lt;div className="rounded-none bg-slate-900 border border-slate-800 p-4 shadow-sm"&gt;
-      &lt;h3 className="text-sm font-medium text-slate-400"&gt;&#123;title&#125;&lt;/h3&gt;
-      &lt;div className="mt-2 flex items-baseline gap-2"&gt;
-        &lt;span className="text-3xl font-extrabold text-white"&gt;&#123;value&#125;&lt;/span&gt;
-        &lt;span className="text-xs font-semibold text-green-400 "&gt;&#123;change&#125;&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+    <div className="rounded-none bg-slate-900 border border-slate-800 p-4 shadow-sm">
+      <h3 className="text-sm font-medium text-slate-400">{title}</h3>
+      <div className="mt-2 flex items-baseline gap-2">
+        <span className="text-3xl font-extrabold text-white">{value}</span>
+        <span className="text-xs font-semibold text-green-400 ">{change}</span>
+      </div>
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3  text-xs">
@@ -2263,16 +2263,16 @@ export function Slide27({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default function DashboardPage() &#123;
+                    <pre><code>{`export default function DashboardPage() {
   return (
-    &lt;div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 p-4"&gt;
-      &lt;div className="p-4 bg-slate-900 border border-slate-800"&gt;Card 1&lt;/div&gt;
-      &lt;div className="p-4 bg-slate-900 border border-slate-800"&gt;Card 2&lt;/div&gt;
-      &lt;div className="p-4 bg-slate-900 border border-slate-800"&gt;Card 3&lt;/div&gt;
-      &lt;div className="p-4 bg-slate-900 border border-slate-800"&gt;Card 4&lt;/div&gt;
-    &lt;/div&gt;
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 p-4">
+      <div className="p-4 bg-slate-900 border border-slate-800">Card 1</div>
+      <div className="p-4 bg-slate-900 border border-slate-800">Card 2</div>
+      <div className="p-4 bg-slate-900 border border-slate-800">Card 3</div>
+      <div className="p-4 bg-slate-900 border border-slate-800">Card 4</div>
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -2332,21 +2332,21 @@ export function Slide28({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default async function InvoicesPage() &#123;
+                    <pre><code>{`export default async function InvoicesPage() {
   // Directly awaited on the server during rendering
-  const res = await fetch("https://api.example.com/invoices", &#123;
+  const res = await fetch("https://api.example.com/invoices", {
     // Next.js caching options:
-    next: &#123; revalidate: 60 &#125;, // ISR: cache for 60 seconds
-  &#125;);
+    next: { revalidate: 60 }, // ISR: cache for 60 seconds
+  });
   const invoices = await res.json();
 
   return (
-    &lt;div className="p-4"&gt;
-      &lt;h1 className="text-xl font-bold"&gt;Invoices (&#123;invoices.length&#125;)&lt;/h1&gt;
-      &#123;/* Render list */&#125;
-    &lt;/div&gt;
+    <div className="p-4">
+      <h1 className="text-xl font-bold">Invoices ({invoices.length})</h1>
+      {/* Render list */}
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -2407,23 +2407,23 @@ export function Slide29({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; sql &#125; from "@/lib/db";
+                    <pre><code>{`import { sql } from "@/lib/db";
 
-export default async function UsersPage() &#123;
+export default async function UsersPage() {
   // Direct SQL query execution on the server!
-  const users = await sql`SELECT id, name, email FROM users ORDER BY created_at DESC LIMIT 10`;
+  const users = await sql\`SELECT id, name, email FROM users ORDER BY created_at DESC LIMIT 10\`;
 
   return (
-    &lt;div className="p-4"&gt;
-      &lt;h2 className="text-xl font-bold"&gt;Registered Users&lt;/h2&gt;
-      &lt;ul className="mt-3 divide-y divide-slate-800"&gt;
-        &#123;users.map((u) =&gt; (
-          &lt;li key=&#123;u.id&#125; className="py-2 text-sm"&gt;&#123;u.name&#125; (&#123;u.email&#125;)&lt;/li&gt;
-        ))&#125;
-      &lt;/ul&gt;
-    &lt;/div&gt;
+    <div className="p-4">
+      <h2 className="text-xl font-bold">Registered Users</h2>
+      <ul className="mt-3 divide-y divide-slate-800">
+        {users.map((u) => (
+          <li key={u.id} className="py-2 text-sm">{u.name} ({u.email})</li>
+        ))}
+      </ul>
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -2482,13 +2482,13 @@ export function Slide30({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; neon &#125; from "@neondatabase/serverless";
+                    <pre><code>{`import { neon } from "@neondatabase/serverless";
 
-if (!process.env.DATABASE_URL) &#123;
+if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is missing in environment variables");
-&#125;
+}
 
-export const sql = neon(process.env.DATABASE_URL);</code></pre>
+export const sql = neon(process.env.DATABASE_URL);`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -2687,22 +2687,22 @@ export function Slide33({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; Suspense &#125; from "react";
+                    <pre><code>{`import { Suspense } from "react";
 import RevenueChart from "./RevenueChart";
-import &#123; RevenueSkeleton &#125; from "./Skeletons";
+import { RevenueSkeleton } from "./Skeletons";
 
-export default function DashboardPage() &#123;
+export default function DashboardPage() {
   return (
-    &lt;div className="p-4"&gt;
-      &lt;h1 className="text-2xl font-bold"&gt;Analytics&lt;/h1&gt;
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">Analytics</h1>
 
-      &#123;/* Streaming Boundary */&#125;
-      &lt;Suspense fallback=&#123;&lt;RevenueSkeleton /&gt;&#125;&gt;
-        &lt;RevenueChart /&gt;
-      &lt;/Suspense&gt;
-    &lt;/div&gt;
+      {/* Streaming Boundary */}
+      <Suspense fallback={<RevenueSkeleton />}>
+        <RevenueChart />
+      </Suspense>
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -2762,18 +2762,18 @@ export function Slide34({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default function Loading() &#123;
+                    <pre><code>{`export default function Loading() {
   return (
-    &lt;div className="p-4 space-y-4 animate-pulse"&gt;
-      &lt;div className="h-8 w-48 bg-slate-800" /&gt;
-      &lt;div className="grid grid-cols-3 gap-4"&gt;
-        &lt;div className="h-32 bg-slate-800" /&gt;
-        &lt;div className="h-32 bg-slate-800" /&gt;
-        &lt;div className="h-32 bg-slate-800" /&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+    <div className="p-4 space-y-4 animate-pulse">
+      <div className="h-8 w-48 bg-slate-800" />
+      <div className="grid grid-cols-3 gap-4">
+        <div className="h-32 bg-slate-800" />
+        <div className="h-32 bg-slate-800" />
+        <div className="h-32 bg-slate-800" />
+      </div>
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -2833,28 +2833,28 @@ export function Slide35({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use client";
+                    <pre><code>{`"use client";
 
-export default function Error(&#123;
+export default function Error({
   error,
   reset,
-&#125;: &#123;
-  error: Error &amp; &#123; digest?: string &#125;;
-  reset: () =&gt; void;
-&#125;) &#123;
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   return (
-    &lt;div className="p-4 text-center bg-red-900/20 border border-red-800/40"&gt;
-      &lt;h2 className="text-xl font-bold text-red-400"&gt;Something went wrong!&lt;/h2&gt;
-      &lt;p className="text-xs text-slate-400 mt-1"&gt;&#123;error.message&#125;&lt;/p&gt;
-      &lt;button
-        onClick=&#123;() =&gt; reset()&#125;
+    <div className="p-4 text-center bg-red-900/20 border border-red-800/40">
+      <h2 className="text-xl font-bold text-red-400">Something went wrong!</h2>
+      <p className="text-xs text-slate-400 mt-1">{error.message}</p>
+      <button
+        onClick={() => reset()}
         className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white  text-xs"
-      &gt;
+      >
         Try again
-      &lt;/button&gt;
-    &lt;/div&gt;
+      </button>
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -2913,20 +2913,20 @@ export function Slide36({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; notFound &#125; from "next/navigation";
-import &#123; getProduct &#125; from "@/lib/db";
+                    <pre><code>{`import { notFound } from "next/navigation";
+import { getProduct } from "@/lib/db";
 
-export default async function ProductPage(&#123; params &#125;: any) &#123;
-  const &#123; id &#125; = await params;
+export default async function ProductPage({ params }: any) {
+  const { id } = await params;
   const product = await getProduct(id);
 
   // Trigger 404 if item doesn't exist
-  if (!product) &#123;
+  if (!product) {
     notFound();
-  &#125;
+  }
 
-  return &lt;h1&gt;&#123;product.name&#125;&lt;/h1&gt;;
-&#125;</code></pre>
+  return <h1>{product.name}</h1>;
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -3049,24 +3049,24 @@ export function Slide38({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">"use server";
+                    <pre><code>{`"use server";
 
-import &#123; sql &#125; from "@/lib/db";
-import &#123; revalidatePath &#125; from "next/cache";
+import { sql } from "@/lib/db";
+import { revalidatePath } from "next/cache";
 
-export async function createTask(formData: FormData) &#123;
+export async function createTask(formData: FormData) {
   const title = formData.get("title") as string;
   
-  if (!title || title.trim().length === 0) &#123;
+  if (!title || title.trim().length === 0) {
     throw new Error("Title is required");
-  &#125;
+  }
 
   // Secure server-side database insertion
-  await sql`INSERT INTO tasks (title, completed) VALUES ($&#123;title&#125;, false)`;
+  await sql\`INSERT INTO tasks (title, completed) VALUES (\${title}, false)\`;
 
   // Instant cache revalidation!
   revalidatePath("/dashboard/tasks");
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -3126,24 +3126,24 @@ export function Slide39({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; createTask &#125; from "@/app/actions/tasks";
+                    <pre><code>{`import { createTask } from "@/app/actions/tasks";
 
-export function TaskForm() &#123;
+export function TaskForm() {
   return (
-    &lt;form action=&#123;createTask&#125; className="flex gap-2"&gt;
-      &lt;input
+    <form action={createTask} className="flex gap-2">
+      <input
         type="text"
         name="title"
         placeholder="Enter new task..."
         required
         className="px-3 py-2 bg-slate-900 border border-slate-700 text-sm flex-1"
-      /&gt;
-      &lt;button type="submit" className="px-4 py-2 bg-blue-600 text-white text-sm font-bold"&gt;
+      />
+      <button type="submit" className="px-4 py-2 bg-blue-600 text-white text-sm font-bold">
         Add Task
-      &lt;/button&gt;
-    &lt;/form&gt;
+      </button>
+    </form>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3  text-xs">
@@ -3220,24 +3220,24 @@ export function Slide40({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export default async function InvoicesPage(&#123;
+                    <pre><code>{`export default async function InvoicesPage({
   searchParams,
-&#125;: &#123;
-  searchParams: Promise&lt;&#123; query?: string; page?: string &#125;&gt;;
-&#125;) &#123;
-  const &#123; query = "", page = "1" &#125; = await searchParams;
+}: {
+  searchParams: Promise<{ query?: string; page?: string }>;
+}) {
+  const { query = "", page = "1" } = await searchParams;
   
   // Query DB filtered by search params
   const invoices = await fetchInvoices(query, Number(page));
 
   return (
-    &lt;div&gt;
-      &lt;SearchInput defaultValue=&#123;query&#125; /&gt;
-      &lt;InvoiceTable invoices=&#123;invoices&#125; /&gt;
-      &lt;Pagination currentPage=&#123;Number(page)&#125; /&gt;
-    &lt;/div&gt;
+    <div>
+      <SearchInput defaultValue={query} />
+      <InvoiceTable invoices={invoices} />
+      <Pagination currentPage={Number(page)} />
+    </div>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3  text-xs">
@@ -3383,24 +3383,24 @@ export function Slide42({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; NextResponse &#125; from "next/server";
-import type &#123; NextRequest &#125; from "next/server";
+                    <pre><code>{`import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) &#123;
+export function middleware(request: NextRequest) {
   const sessionToken = request.cookies.get("session")?.value;
   const isDashboard = request.nextUrl.pathname.startsWith("/dashboard");
 
   // Protect private routes
-  if (isDashboard &amp;&amp; !sessionToken) &#123;
+  if (isDashboard && !sessionToken) {
     return NextResponse.redirect(new URL("/login", request.url));
-  &#125;
+  }
 
   return NextResponse.next();
-&#125;
+}
 
-export const config = &#123;
+export const config = {
   matcher: ["/dashboard/:path*"],
-&#125;;</code></pre>
+};`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -3461,15 +3461,14 @@ export function Slide43({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5"># SERVER ONLY (Secrets - never exposed to browser)
+                    <pre><code>{`# SERVER ONLY (Secrets - never exposed to browser)
 DATABASE_URL="postgres://user:pass@ep-cool.neon.tech/neondb"
 AUTH_SECRET="super-secret-key-12345"
 STRIPE_SECRET_KEY="sk_live_xyz..."
 
 # CLIENT EXPOSED (Safe public values only)
 NEXT_PUBLIC_APP_URL="https://taskflow.io"
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_live_abc..."
-</code></pre>
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_live_abc..."`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -3526,21 +3525,21 @@ export function Slide44({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import type &#123; Metadata &#125; from "next";
+                    <pre><code>{`import type { Metadata } from "next";
 
-export const metadata: Metadata = &#123;
-  title: "About TaskFlow &amp;bull; Modern Task Management",
+export const metadata: Metadata = {
+  title: "About TaskFlow &bull; Modern Task Management",
   description: "Learn how TaskFlow empowers agile teams to ship faster.",
-  openGraph: &#123;
+  openGraph: {
     title: "About TaskFlow",
     description: "Built for modern developers.",
     images: ["/og-about.png"],
-  &#125;,
-&#125;;
+  },
+};
 
-export default function AboutPage() &#123;
-  return &lt;h1&gt;About Us&lt;/h1&gt;;
-&#125;</code></pre>
+export default function AboutPage() {
+  return <h1>About Us</h1>;
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -3670,20 +3669,20 @@ export function Slide46({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import Image from "next/image";
+                    <pre><code>{`import Image from "next/image";
 
-export function HeroBanner() &#123;
+export function HeroBanner() {
   return (
-    &lt;Image
+    <Image
       src="/hero-dashboard.png"
       alt="TaskFlow SaaS Dashboard Preview"
-      width=&#123;1200&#125;
-      height=&#123;630&#125;
+      width={1200}
+      height={630}
       priority // High priority preloading for above-the-fold image
       className="border border-slate-800 shadow-2xl"
-    /&gt;
+    />
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3  text-xs">
@@ -3743,25 +3742,25 @@ export function Slide47({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; Plus_Jakarta_Sans, JetBrains_Mono &#125; from "next/font/google";
+                    <pre><code>{`import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 
-const sans = Plus_Jakarta_Sans(&#123;
+const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-&#125;);
+});
 
-const mono = JetBrains_Mono(&#123;
+const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--",
-&#125;);
+});
 
-export default function RootLayout(&#123; children &#125;: any) &#123;
+export default function RootLayout({ children }: any) {
   return (
-    &lt;html lang="en" className=&#123;`$&#123;sans.variable&#125; $&#123;mono.variable&#125;`&#125;&gt;
-      &lt;body className="font-sans"&gt;&#123;children&#125;&lt;/body&gt;
-    &lt;/html&gt;
+    <html lang="en" className={\`\${sans.variable} \${mono.variable}\`}>
+      <body className="font-sans">{children}</body>
+    </html>
   );
-&#125;</code></pre>
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -3895,21 +3894,21 @@ export function Slide49({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; NextResponse &#125; from "next/server";
-import &#123; sql &#125; from "@/lib/db";
+                    <pre><code>{`import { NextResponse } from "next/server";
+import { sql } from "@/lib/db";
 
 // Standard Web GET Handler
-export async function GET(request: Request) &#123;
-  const users = await sql`SELECT id, name, email FROM users`;
-  return NextResponse.json(&#123; success: true, data: users &#125;);
-&#125;
+export async function GET(request: Request) {
+  const users = await sql\`SELECT id, name, email FROM users\`;
+  return NextResponse.json({ success: true, data: users });
+}
 
 // Standard Web POST Handler
-export async function POST(request: Request) &#123;
+export async function POST(request: Request) {
   const body = await request.json();
-  const res = await sql`INSERT INTO users (name, email) VALUES ($&#123;body.name&#125;, $&#123;body.email&#125;) RETURNING *`;
-  return NextResponse.json(&#123; success: true, user: res[0] &#125;, &#123; status: 201 &#125;);
-&#125;</code></pre>
+  const res = await sql\`INSERT INTO users (name, email) VALUES (\${body.name}, \${body.email}) RETURNING *\`;
+  return NextResponse.json({ success: true, user: res[0] }, { status: 201 });
+}`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -4341,7 +4340,7 @@ export function Slide55({ onStart, onRestart }) {
                         Copy
                       </button>
                     </div>
-                    <pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">CREATE TABLE users (
+                    <pre><code>{`CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
@@ -4358,7 +4357,7 @@ CREATE TABLE tasks (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_tasks_user_id ON tasks(user_id);</code></pre>
+CREATE INDEX idx_tasks_user_id ON tasks(user_id);`}</code></pre>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">

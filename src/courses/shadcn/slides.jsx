@@ -80,12 +80,12 @@ export function Slide5({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">UTILITIES</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">The cn() Utility &amp; Class Merging</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Safely combining conditional classes and overriding Tailwind styles</p></div>
-    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>src/lib/utils.ts</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; clsx, type ClassValue &#125; from "clsx";
-import &#123; twMerge &#125; from "tailwind-merge";
+    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>src/lib/utils.ts</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code>{`import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export function cn(...inputs: ClassValue[]) &#123;
+export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
-&#125;</code></pre></div>
+}`}</code></pre></div>
     <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed"><div><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">tailwind-merge</code> resolves Tailwind class conflicts intelligently. If a component defines <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">p-4</code> and the caller passes <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">p-4</code>, <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">p-4</code> wins cleanly instead of both classes fighting in CSS!</div></div>
     </div>
   );
@@ -106,24 +106,24 @@ export function Slide7({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">BUTTON</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">The Button Component &amp; Variants</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Understanding class-variance-authority (cva)</p></div>
-    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Usage Example</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; Button &#125; from '@/components/ui/button';
-import &#123; ArrowRight, Trash2 &#125; from 'lucide-react';
+    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Usage Example</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code>{`import { Button } from '@/components/ui/button';
+import { ArrowRight, Trash2 } from 'lucide-react';
 
-export function ButtonShowcase() &#123;
+export function ButtonShowcase() {
   return (
-    &lt;div className="flex flex-wrap items-center gap-3 p-4"&gt;
-      &lt;Button variant="default"&gt;Primary Button&lt;/Button&gt;
-      &lt;Button variant="secondary"&gt;Secondary&lt;/Button&gt;
-      &lt;Button variant="outline"&gt;Outline&lt;/Button&gt;
-      &lt;Button variant="destructive" size="sm"&gt;
-        &lt;Trash2 className="w-4 h-4 mr-2" /&gt; Delete
-      &lt;/Button&gt;
-      &lt;Button variant="default" size="lg"&gt;
-        Get Started &lt;ArrowRight className="w-4 h-4 ml-2" /&gt;
-      &lt;/Button&gt;
-    &lt;/div&gt;
+    <div className="flex flex-wrap items-center gap-3 p-4">
+      <Button variant="default">Primary Button</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="destructive" size="sm">
+        <Trash2 className="w-4 h-4 mr-2" /> Delete
+      </Button>
+      <Button variant="default" size="lg">
+        Get Started <ArrowRight className="w-4 h-4 ml-2" />
+      </Button>
+    </div>
   );
-&#125;</code></pre></div>
+}`}</code></pre></div>
     </div>
   );
 }
@@ -133,30 +133,30 @@ export function Slide8({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">CARD</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Card Component Architecture</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Composing headers, content, and actions semantically</p></div>
-    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>components/ProjectCard.tsx</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter &#125; from '@/components/ui/card';
-import &#123; Button &#125; from '@/components/ui/button';
-import &#123; Badge &#125; from '@/components/ui/badge';
+    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>components/ProjectCard.tsx</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code>{`import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
-export function ProjectCard() &#123;
+export function ProjectCard() {
   return (
-    &lt;Card className="w-full max-w-sm"&gt;
-      &lt;CardHeader&gt;
-        &lt;div className="flex justify-between items-center"&gt;
-          &lt;CardTitle&gt;Repository Sync&lt;/CardTitle&gt;
-          &lt;Badge variant="outline"&gt;Active&lt;/Badge&gt;
-        &lt;/div&gt;
-        &lt;CardDescription&gt;Last synchronized 2 minutes ago&lt;/CardDescription&gt;
-      &lt;/CardHeader&gt;
-      &lt;CardContent&gt;
-        &lt;p className="text-sm text-muted-foreground"&gt;Branches: main, feature-auth&lt;/p&gt;
-      &lt;/CardContent&gt;
-      &lt;CardFooter className="flex justify-between"&gt;
-        &lt;Button variant="outline"&gt;View Details&lt;/Button&gt;
-        &lt;Button&gt;Sync Now&lt;/Button&gt;
-      &lt;/CardFooter&gt;
-    &lt;/Card&gt;
+    <Card className="w-full max-w-sm">
+      <CardHeader>
+        <div className="flex justify-between items-center">
+          <CardTitle>Repository Sync</CardTitle>
+          <Badge variant="outline">Active</Badge>
+        </div>
+        <CardDescription>Last synchronized 2 minutes ago</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-muted-foreground">Branches: main, feature-auth</p>
+      </CardContent>
+      <CardFooter className="flex justify-between">
+        <Button variant="outline">View Details</Button>
+        <Button>Sync Now</Button>
+      </CardFooter>
+    </Card>
   );
-&#125;</code></pre></div>
+}`}</code></pre></div>
     </div>
   );
 }
@@ -166,30 +166,30 @@ export function Slide9({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">MODALS</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Accessible Dialogs &amp; Overlays</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Full accessibility with focus traps and escape key handling</p></div>
-    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Dialog Example</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">import &#123; Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription &#125; from '@/components/ui/dialog';
-import &#123; Button &#125; from '@/components/ui/button';
+    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>Dialog Example</span><button className="copy-btn text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Copy</button></div><pre><code>{`import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
-export function DeleteRepoDialog() &#123;
+export function DeleteRepoDialog() {
   return (
-    &lt;Dialog&gt;
-      &lt;DialogTrigger asChild&gt;
-        &lt;Button variant="destructive"&gt;Delete Project&lt;/Button&gt;
-      &lt;/DialogTrigger&gt;
-      &lt;DialogContent&gt;
-        &lt;DialogHeader&gt;
-          &lt;DialogTitle&gt;Are you absolutely sure?&lt;/DialogTitle&gt;
-          &lt;DialogDescription&gt;
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="destructive">Delete Project</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogDescription>
             This action cannot be undone. This will permanently delete your repository from the server.
-          &lt;/DialogDescription&gt;
-        &lt;/DialogHeader&gt;
-        &lt;div className="flex justify-end gap-3 mt-4"&gt;
-          &lt;Button variant="outline"&gt;Cancel&lt;/Button&gt;
-          &lt;Button variant="destructive"&gt;Confirm Delete&lt;/Button&gt;
-        &lt;/div&gt;
-      &lt;/DialogContent&gt;
-    &lt;/Dialog&gt;
+          </DialogDescription>
+        </DialogHeader>
+        <div className="flex justify-end gap-3 mt-4">
+          <Button variant="outline">Cancel</Button>
+          <Button variant="destructive">Confirm Delete</Button>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
-&#125;</code></pre></div>
+}`}</code></pre></div>
     </div>
   );
 }
@@ -199,22 +199,22 @@ export function Slide10({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">THEMING</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Theming &amp; CSS Variables</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Effortless dark mode with design tokens</p></div>
-    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>src/app/globals.css (Tokens)</span></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">:root &#123;
+    <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>src/app/globals.css (Tokens)</span></div><pre><code>{`:root {
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
   --primary: 240 5.9% 10%;
   --primary-foreground: 0 0% 98%;
   --radius: 0.5rem;
-&#125;
+}
 
-.dark &#123;
+.dark {
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
   --card: 240 10% 5%;
   --primary: 0 0% 98%;
   --primary-foreground: 240 5.9% 10%;
-&#125;</code></pre></div>
+}`}</code></pre></div>
     <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed"><div>Because components reference <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">bg-background</code> and <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">text-foreground</code>, toggling the <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">dark</code> class changes the entire app's appearance seamlessly!</div></div>
     </div>
   );
@@ -226,21 +226,21 @@ export function Slide11({ onStart, onRestart }) {
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header-group flex items-start justify-between border-b border-slate-800 pb-3 gap-3"><span className="slide-category-tag  text-[11px] font-bold uppercase tracking-wider text-blue-400">COMPOSITION</span><h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Putting It Together: Full Widget</h2><p className="slide-subtitle text-[13px] text-slate-400 m-0">Composing multiple Shadcn components into a production UI</p></div>
     <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>DashboardWidget.tsx</span></div><pre><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">export function DashboardWidget() &#123;
+      <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md"><div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800"><span>DashboardWidget.tsx</span></div><pre><code>{`export function DashboardWidget() {
   return (
-    &lt;Card className="p-4 border-slate-800 bg-slate-900"&gt;
-      &lt;div className="flex items-center justify-between mb-4"&gt;
-        &lt;Badge&gt;Production Ready&lt;/Badge&gt;
-        &lt;span className="text-xs text-slate-400"&gt;v2.4.0&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;h3 className="font-bold text-white text-lg"&gt;Deploy Pipeline&lt;/h3&gt;
-      &lt;p className="text-sm text-slate-400 mt-1"&gt;Zero-config deployment with Git push&lt;/p&gt;
-      &lt;div className="flex gap-2 mt-4"&gt;
-        &lt;Button className="w-full"&gt;Deploy Now&lt;/Button&gt;
-      &lt;/div&gt;
-    &lt;/Card&gt;
+    <Card className="p-4 border-slate-800 bg-slate-900">
+      <div className="flex items-center justify-between mb-4">
+        <Badge>Production Ready</Badge>
+        <span className="text-xs text-slate-400">v2.4.0</span>
+      </div>
+      <h3 className="font-bold text-white text-lg">Deploy Pipeline</h3>
+      <p className="text-sm text-slate-400 mt-1">Zero-config deployment with Git push</p>
+      <div className="flex gap-2 mt-4">
+        <Button className="w-full">Deploy Now</Button>
+      </div>
+    </Card>
   );
-&#125;</code></pre></div>
+}`}</code></pre></div>
       <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
         <h4>Why This Architecture Wins</h4>
         <p><span className="check-icon inline-flex items-center justify-center text-green-400 shrink-0 mt-0.5 mr-1.5"><Check className="w-3.5 h-3.5" /></span> Completely accessible out of the box</p>

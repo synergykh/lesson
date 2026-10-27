@@ -16,6 +16,7 @@ import { useTheme } from "../../context/ThemeContext";
 import { getLessonByRoute, DOCS_NAVIGATION } from "../../data/docsNavigation";
 import { loadCourseSlides } from "../../courses/slidesRegistry";
 import { applyGitSlideTranslations } from "../../courses/common/gitSlideTranslator";
+import { highlightCode } from "../../utils/syntaxHighlight";
 
 import DocsHeader from "./DocsHeader";
 import DocsSidebar from "./DocsSidebar";
@@ -276,6 +277,29 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
           });
         }
       };
+    });
+
+    // 6. Universal Code View Syntax Highlighting & Formatting
+    const codeBlocks = container.querySelectorAll(
+      ".code-box pre code, pre:not(.sim-output):not(.diagram-box *) code",
+    );
+    codeBlocks.forEach((codeEl) => {
+      if (codeEl.dataset.highlighted === "true") return;
+      if (codeEl.querySelector(".tok-keyword, .tok-string")) return;
+
+      const raw = codeEl.textContent;
+      if (!raw || !raw.trim()) return;
+
+      codeEl.innerHTML = highlightCode(raw);
+      codeEl.dataset.highlighted = "true";
+      codeEl.classList.remove(
+        "text-blue-400",
+        "bg-slate-800",
+        "border",
+        "border-slate-700",
+        "px-1.5",
+        "py-0.5",
+      );
     });
 
     // Extract headings for Table of Contents after DOM updates
