@@ -343,16 +343,15 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
       <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white flex flex-col items-center justify-center p-4">
         <div className="text-center max-w-md flex flex-col items-center gap-3">
           <span className="text-4xl font-extrabold text-orange-500">404</span>
-          <h1 className="text-xl font-bold">Lesson Not Found</h1>
+          <h1 className="text-xl font-bold">{t("ui_lesson_not_found", "Lesson Not Found")}</h1>
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            The documentation page you requested does not exist or may have
-            moved.
+            {t("ui_lesson_not_found_desc", "The documentation page you requested does not exist or may have moved.")}
           </p>
           <a
             href="#/"
             className="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded bg-orange-600 hover:bg-orange-500 text-white text-xs font-semibold transition-colors"
           >
-            Return to Curriculum Hub
+            {t("ui_return_hub", "Return to Curriculum Hub")}
           </a>
         </div>
       </div>
@@ -411,7 +410,7 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
                   <div className="flex flex-col items-center justify-center py-24 gap-3">
                     <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
                     <span className="text-xs font-semibold text-slate-400">
-                      Loading lesson content...
+                      {t("ui_loading_lesson", "Loading lesson content...")}
                     </span>
                   </div>
                 ) : error ? (
@@ -435,7 +434,7 @@ export default function DocsPage({ courseId, lessonNum = 1 }) {
                         />
                       ) : (
                         <div className="py-12 text-center text-slate-400 text-xs">
-                          Lesson content is being rendered.
+                          {t("ui_rendering_lesson", "Lesson content is being rendered.")}
                         </div>
                       )}
                     </div>

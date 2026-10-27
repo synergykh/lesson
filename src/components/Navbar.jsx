@@ -35,8 +35,8 @@ export default function Navbar() {
             variant="outline"
             size="icon"
             onClick={toggleLang}
-            title="Toggle Language (English / ភាសាខ្មែរ)"
-            aria-label="Toggle Language"
+            title={t("ui_switch_language", "Switch Language (English / ភាសាខ្មែរ)")}
+            aria-label={t("ui_switch_language", "Switch Language")}
           >
             {lang === "en" ? (
               <img
@@ -66,8 +66,8 @@ export default function Navbar() {
             variant="outline"
             size="icon"
             onClick={toggleTheme}
-            title="Toggle Light / Dark Mode"
-            aria-label="Toggle Light / Dark Mode"
+            title={t("nav_toggle_theme", "Toggle Light / Dark Mode")}
+            aria-label={t("nav_toggle_theme", "Toggle Light / Dark Mode")}
           >
             {theme === "dark" ? (
               <Sun className="w-4 h-4 text-amber-400" />

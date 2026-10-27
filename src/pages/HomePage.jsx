@@ -30,27 +30,27 @@ export default function HomePage() {
     },
     {
       id: "foundations",
-      label: "Foundations",
+      label: t("cat_foundations", "Foundations"),
       count: courses.filter((c) => c.category === "foundations").length,
     },
     {
       id: "frontend",
-      label: "Frontend",
+      label: t("cat_frontend", "Frontend"),
       count: courses.filter((c) => c.category === "frontend").length,
     },
     {
       id: "backend",
-      label: "Backend",
+      label: t("cat_backend", "Backend"),
       count: courses.filter((c) => c.category === "backend").length,
     },
     {
       id: "devops",
-      label: "DevOps & Cloud",
+      label: t("cat_devops", "DevOps & Cloud"),
       count: courses.filter((c) => c.category === "devops").length,
     },
     {
       id: "ai",
-      label: "AI & Engineering",
+      label: t("cat_ai", "AI & Engineering"),
       count: courses.filter((c) => c.category === "ai").length,
     },
   ];
@@ -193,7 +193,7 @@ export default function HomePage() {
         {/* Course Cards Grid */}
         {filteredCourses.length === 0 ? (
           <Card className="p-4 text-center text-slate-400 text-sm">
-            No courses match your search "{searchQuery}".
+            {t("ui_no_courses_match", "No courses match your search")} "{searchQuery}".
           </Card>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">

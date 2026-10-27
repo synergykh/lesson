@@ -325,84 +325,146 @@ export function Slide4({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 01 — WEB TO NEXT.JS &bull; SLIDE 04 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">React vs Next.js</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Detailed architectural comparison between React and Next.js.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 01 — WEB TO NEXT.JS &bull; SLIDE 04 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">React vs Next.js</span>
+            <span className="lang-km">ការប្រៀបធៀប React និង Next.js</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Detailed architectural comparison between React and Next.js.</span>
+            <span className="lang-km">ការប្រៀបធៀបស្ថាបត្យកម្មលម្អិតរវាង React និង Next.js។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-stack flex flex-col gap-3">
-                <div className="overflow-x-auto">
-                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
-                    <thead>
-                      <tr>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">FEATURE / CRITERIA</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">STANDALONE REACT (VITE / CRA)</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">NEXT.JS (APP ROUTER)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="font-bold text-slate-300">Category</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">UI Library (view layer only)</td>
-                        <td className="text-blue-400 font-bold">
-                          Full-Stack Framework
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">Routing</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Third-party required (React Router, etc.)</td>
-                        <td className="text-green-400">
-                          Built-in File-System Routing (Folders &amp; Pages)
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">Rendering</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Client-Side Rendering (CSR) by default</td>
-                        <td className="text-green-400">
-                          Server Components (RSC), SSR, SSG, Streaming
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">Data Fetching</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Client useEffect / TanStack Query</td>
-                        <td className="text-green-400">
-                          Direct async/await on Server &amp; Server Actions
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">Backend / DB</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Requires separate Express/Nest/FastAPI backend</td>
-                        <td className="text-green-400">
-                          Direct DB access &amp; Route Handlers built-in
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">SEO &amp; Metadata</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Difficult, requires React Helmet or prerender</td>
-                        <td className="text-green-400">
-                          Built-in static and dynamic Metadata API
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
-                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">React UI Library</div>
-                  <span className="text-blue-400 font-bold text-sm">+</span>
-                  <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">Next.js Framework Architecture</div>
-                  <span className="text-blue-400 font-bold text-sm">=</span>
-                  <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">
-                    Production Full-Stack Application
-                  </div>
-                </div>
-              </div>
+      <div className="slide-stack flex flex-col gap-3">
+        <div className="overflow-x-auto">
+          <table className="table-spec w-full border-collapse text-xs border border-slate-800">
+            <thead>
+              <tr>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">FEATURE / CRITERIA</span>
+                  <span className="lang-km">មុខងារ / លក្ខណៈវិនិច្ឆ័យ</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">STANDALONE REACT (VITE / CRA)</span>
+                  <span className="lang-km">REACT ទោល (VITE / CRA)</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">NEXT.JS (APP ROUTER)</span>
+                  <span className="lang-km">NEXT.JS (APP ROUTER)</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-bold text-slate-300">
+                  <span className="lang-en">Category</span>
+                  <span className="lang-km">ប្រភេទ</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">UI Library (view layer only)</span>
+                  <span className="lang-km">UI Library (ត្រឹមតែ View Layer ប៉ុណ្ណោះ)</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-blue-400 font-bold">
+                  <span className="lang-en">Full-Stack Framework</span>
+                  <span className="lang-km">Full-Stack Framework ពេញលេញ</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-bold text-slate-300">
+                  <span className="lang-en">Routing</span>
+                  <span className="lang-km">ប្រព័ន្ធ Routing</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Third-party required (React Router, etc.)</span>
+                  <span className="lang-km">ត្រូវការបណ្ណាល័យបន្ថែម (React Router ជាដើម)</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-medium">
+                  <span className="lang-en">Built-in File-System Routing (Folders &amp; Pages)</span>
+                  <span className="lang-km">មានស្រាប់តាម File-System (Folders &amp; Pages)</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-bold text-slate-300">
+                  <span className="lang-en">Rendering</span>
+                  <span className="lang-km">ការ Render ទិន្នន័យ</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Client-Side Rendering (CSR) by default</span>
+                  <span className="lang-km">Client-Side Rendering (CSR) ជាលំនាំដើម</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-medium">
+                  <span className="lang-en">Server Components (RSC), SSR, SSG, Streaming</span>
+                  <span className="lang-km">Server Components (RSC), SSR, SSG និង Streaming</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-bold text-slate-300">
+                  <span className="lang-en">Data Fetching</span>
+                  <span className="lang-km">ការទាញយកទិន្នន័យ</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Client useEffect / TanStack Query</span>
+                  <span className="lang-km">ប្រើ useEffect នៅលើ Client ឬ TanStack Query</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-medium">
+                  <span className="lang-en">Direct async/await on Server &amp; Server Actions</span>
+                  <span className="lang-km">ប្រើ async/await ដោយផ្ទាល់លើ Server &amp; Server Actions</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-bold text-slate-300">
+                  <span className="lang-en">Backend / DB</span>
+                  <span className="lang-km">Backend / Database</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Requires separate Express/Nest/FastAPI backend</span>
+                  <span className="lang-km">ត្រូវការបង្កើត Backend ដាច់ដោយឡែក (Express/Nest/FastAPI)</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-medium">
+                  <span className="lang-en">Direct DB access &amp; Route Handlers built-in</span>
+                  <span className="lang-km">ភ្ជាប់ទៅកាន់ Database ដោយផ្ទាល់ &amp; Route Handlers មានស្រាប់</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-bold text-slate-300">
+                  <span className="lang-en">SEO &amp; Metadata</span>
+                  <span className="lang-km">SEO &amp; Metadata</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Difficult, requires React Helmet or prerender</span>
+                  <span className="lang-km">មានភាពស្មុគស្មាញ ត្រូវពឹងផ្អែកលើ React Helmet</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-medium">
+                  <span className="lang-en">Built-in static and dynamic Metadata API</span>
+                  <span className="lang-km">មាន Metadata API ស្រាប់ទាំងបែប Static និង Dynamic</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="diagram-box flex items-center justify-between gap-2 p-3 bg-slate-800/60 border border-slate-800">
+          <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">
+            <span className="lang-en">React UI Library</span>
+            <span className="lang-km">React UI Library</span>
+          </div>
+          <span className="text-blue-400 font-bold text-sm">+</span>
+          <div className="diag-node p-2.5 bg-slate-800/80 border border-slate-800 text-center flex-1">
+            <span className="lang-en">Next.js Framework Architecture</span>
+            <span className="lang-km">ស្ថាបត្យកម្ម Next.js Framework</span>
+          </div>
+          <span className="text-blue-400 font-bold text-sm">=</span>
+          <div className="diag-node active p-2.5 bg-blue-900/40 border border-blue-500/50 text-center flex-1 text-blue-300">
+            <span className="lang-en">Production Full-Stack Application</span>
+            <span className="lang-km">កម្មវិធី Full-Stack កម្រិត Production</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -3434,34 +3496,36 @@ export function Slide39({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 13 — SERVER ACTIONS / MUTATIONS &bull; SLIDE 39 /
-                    75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Form + Server Action</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Connecting native HTML forms directly to server action
-                    mutations.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 13 — SERVER ACTIONS / MUTATIONS &bull; SLIDE 39 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">Form + Server Action</span>
+            <span className="lang-km">ទម្រង់ Form + Server Action</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Connecting native HTML forms directly to server action mutations.</span>
+            <span className="lang-km">ការភ្ជាប់ Native HTML Form ទៅកាន់ Server Action Mutations ដោយផ្ទាល់។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-3">
-                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-                      <span className="flex items-center gap-2">
-                        <Code className="w-3.5 h-3.5 text-blue-400" />
-                        components/TaskForm.tsx
-                      </span>
-                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <Copy className="w-3 h-3" />
-                        Copy
-                      </button>
-                    </div>
-                    <pre><code>{`import { createTask } from "@/app/actions/tasks";
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3">
+          <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden text-xs shadow-md">
+            <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+              <span className="flex items-center gap-2">
+                <Code className="w-3.5 h-3.5 text-blue-400" />
+                components/TaskForm.tsx
+              </span>
+              <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                <Copy className="w-3 h-3" />
+                Copy
+              </button>
+            </div>
+            <pre><code>{`import { createTask } from "@/app/actions/tasks";
 
 export function TaskForm() {
   return (
@@ -3479,47 +3543,51 @@ export function TaskForm() {
     </form>
   );
 }`}</code></pre>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3  text-xs">
-                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                    <h4 className="text-green-400 font-bold mb-2">
-                      Live Simulated Server Action
-                    </h4>
-                    <form id="sim-task-form" className="flex gap-2 mb-3">
-                      <input
-                        id="sim-task-input"
-                        type="text"
-                        placeholder="Type a task and submit..."
-                        required
-                        className="px-2 py-1.5 bg-slate-900 border border-slate-700 text-slate-200 text-xs flex-1 outline-none"
-                      />
-                      <button
-                        type="submit"
-                        className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold transition"
-                      >
-                        Submit Action
-                      </button>
-                    </form>
-                    <div
-                      id="sim-task-status"
-                      className="text-[10px] text-blue-400 mb-2"
-                    >
-                      Ready to invoke server action
-                    </div>
-                    <div
-                      id="sim-task-list"
-                      className="space-y-1.5 max-h-36 overflow-y-auto"
-                    >
-                      <div
-                        className="p-2 bg-slate-900 border border-slate-800 text-xs text-slate-300"
-                      >
-                        Initial Task: Build SaaS UI
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 text-xs">
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4 className="text-green-400 font-bold mb-2">
+              <span className="lang-en">Live Simulated Server Action</span>
+              <span className="lang-km">ការពិសោធន៍ Server Action ជាក់ស្ដែង</span>
+            </h4>
+            <form id="sim-task-form" className="flex gap-2 mb-3">
+              <input
+                id="sim-task-input"
+                type="text"
+                placeholder="Type a task and submit..."
+                required
+                className="px-2 py-1.5 bg-slate-900 border border-slate-700 text-slate-200 text-xs flex-1 outline-none"
+              />
+              <button
+                type="submit"
+                className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold transition"
+              >
+                <span className="lang-en">Submit Action</span>
+                <span className="lang-km">បញ្ជូន Action</span>
+              </button>
+            </form>
+            <div
+              id="sim-task-status"
+              className="text-[10px] text-blue-400 mb-2"
+            >
+              <span className="lang-en">Ready to invoke server action</span>
+              <span className="lang-km">ត្រៀមខ្លួនរួចរាល់ដើម្បីហៅ Server Action</span>
+            </div>
+            <div
+              id="sim-task-list"
+              className="space-y-1.5 max-h-36 overflow-y-auto"
+            >
+              <div
+                className="p-2 bg-slate-900 border border-slate-800 text-xs text-slate-300"
+              >
+                <span className="lang-en">Initial Task: Build SaaS UI</span>
+                <span className="lang-km">កិច្ចការដំបូង៖ បង្កើត SaaS UI</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -3979,32 +4047,36 @@ export function Slide46({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 18 — IMAGES &amp; FONTS &bull; SLIDE 46 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">next/image</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    High performance, zero-CLS responsive image optimization.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 18 — IMAGES &amp; FONTS &bull; SLIDE 46 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">next/image</span>
+            <span className="lang-km">next/image</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">High performance, zero-CLS responsive image optimization.</span>
+            <span className="lang-km">ការបង្កើនប្រសិទ្ធភាពរូបភាពល្បឿនលឿន និងការពារកុំឱ្យបាក់ layout (Zero CLS)។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-3">
-                  <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden  text-xs shadow-md">
-                    <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
-                      <span className="flex items-center gap-2">
-                        <Code className="w-3.5 h-3.5 text-blue-400" />
-                        components/HeroBanner.tsx
-                      </span>
-                      <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <Copy className="w-3 h-3" />
-                        Copy
-                      </button>
-                    </div>
-                    <pre><code>{`import Image from "next/image";
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3">
+          <div className="code-box bg-slate-900 border border-slate-800 overflow-hidden text-xs shadow-md">
+            <div className="code-box-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+              <span className="flex items-center gap-2">
+                <Code className="w-3.5 h-3.5 text-blue-400" />
+                components/HeroBanner.tsx
+              </span>
+              <button className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                <Copy className="w-3 h-3" />
+                Copy
+              </button>
+            </div>
+            <pre><code>{`import Image from "next/image";
 
 export function HeroBanner() {
   return (
@@ -4018,31 +4090,35 @@ export function HeroBanner() {
     />
   );
 }`}</code></pre>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3  text-xs">
-                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                    <h4 className="text-green-400 font-bold mb-1">
-                      Automatic Image Optimizations
-                    </h4>
-                    <ul className="space-y-1.5 text-slate-300">
-                      <li>
-                        &bull; Converts PNG/JPEG to modern
-                        <strong>WebP &amp; AVIF</strong>
-                      </li>
-                      <li>
-                        &bull; Resizes images dynamically based on device screen
-                      </li>
-                      <li>
-                        &bull;
-                        <strong>Zero Cumulative Layout Shift (CLS)</strong> via
-                        width/height
-                      </li>
-                      <li>&bull; Lazy loads off-screen images automatically</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 text-xs">
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4 className="text-green-400 font-bold mb-1">
+              <span className="lang-en">Automatic Image Optimizations</span>
+              <span className="lang-km">ការបង្កើនប្រសិទ្ធភាពរូបភាពដោយស្វ័យប្រវត្តិ</span>
+            </h4>
+            <ul className="space-y-1.5 text-slate-300">
+              <li>
+                <span className="lang-en">&bull; Converts PNG/JPEG to modern <strong>WebP &amp; AVIF</strong></span>
+                <span className="lang-km">&bull; បម្លែងរូបភាព PNG/JPEG ទៅជាទម្រង់ទំនើប <strong>WebP &amp; AVIF</strong></span>
+              </li>
+              <li>
+                <span className="lang-en">&bull; Resizes images dynamically based on device screen</span>
+                <span className="lang-km">&bull; ប្តូរទំហំរូបភាពតាមទំហំអេក្រង់ឧបករណ៍ដោយស្វ័យប្រវត្តិ</span>
+              </li>
+              <li>
+                <span className="lang-en">&bull; <strong>Zero Cumulative Layout Shift (CLS)</strong> via width/height</span>
+                <span className="lang-km">&bull; <strong>ការពារការបាក់ Layout (Zero CLS)</strong> តាមរយៈ width/height</span>
+              </li>
+              <li>
+                <span className="lang-en">&bull; Lazy loads off-screen images automatically</span>
+                <span className="lang-km">&bull; ដំណើរការ Lazy Loading លើរូបភាពក្រៅអេក្រង់ដោយស្វ័យប្រវត្តិ</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -5839,58 +5915,62 @@ export function Slide70({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 28 — CHEAT SHEET &bull; SLIDE 70 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js Commands Cheat Sheet</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Essential CLI commands for daily development and deployment.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 28 — CHEAT SHEET &bull; SLIDE 70 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">Next.js Commands Cheat Sheet</span>
+            <span className="lang-km">តារាងសង្ខេបពាក្យបញ្ជា Next.js</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Essential CLI commands for daily development and deployment.</span>
+            <span className="lang-km">ពាក្យបញ្ជា CLI ចាំបាច់សម្រាប់ការអភិវឌ្ឍ និង Deployment ប្រចាំថ្ងៃ។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-2  text-xs">
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-1">
-                      npx create-next-app@latest
-                    </div>
-                    <div className="text-slate-400">
-                      Scaffolds a new project with TypeScript, Tailwind, and App
-                      Router.
-                    </div>
-                  </div>
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-1">npm run dev</div>
-                    <div className="text-slate-400">
-                      Starts the local development server with Fast Refresh on
-                      port 3000.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2  text-xs">
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-1">
-                      npm run build
-                    </div>
-                    <div className="text-slate-400">
-                      Compiles the optimized production application and checks
-                      types.
-                    </div>
-                  </div>
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-1">
-                      npm run start
-                    </div>
-                    <div className="text-slate-400">
-                      Runs the production server locally to verify the
-                      production build.
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-2 text-xs">
+          <div className="p-3 bg-slate-900 border border-slate-800">
+            <div className="text-blue-400 font-mono font-bold mb-1">
+              pnpm dlx create-next-app@latest
+            </div>
+            <div className="text-slate-400">
+              <span className="lang-en">Scaffolds a new project with TypeScript, Tailwind, and App Router.</span>
+              <span className="lang-km">បង្កើតគម្រោងថ្មីដោយស្វ័យប្រវត្តិជាមួយ TypeScript, Tailwind និង App Router។</span>
+            </div>
+          </div>
+          <div className="p-3 bg-slate-900 border border-slate-800">
+            <div className="text-blue-400 font-mono font-bold mb-1">pnpm run dev</div>
+            <div className="text-slate-400">
+              <span className="lang-en">Starts the local development server with Fast Refresh on port 3000.</span>
+              <span className="lang-km">ដំណើរការ Server ក្នុងម៉ាស៊ីនផ្ទាល់ជាមួយ Fast Refresh លើ Port 3000។</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 text-xs">
+          <div className="p-3 bg-slate-900 border border-slate-800">
+            <div className="text-blue-400 font-mono font-bold mb-1">
+              pnpm run build
+            </div>
+            <div className="text-slate-400">
+              <span className="lang-en">Compiles the optimized production application and checks types.</span>
+              <span className="lang-km">ដំណើរការ Compile កម្មវិធីសម្រាប់ Production និងពិនិត្យមើល Type Safety។</span>
+            </div>
+          </div>
+          <div className="p-3 bg-slate-900 border border-slate-800">
+            <div className="text-blue-400 font-mono font-bold mb-1">
+              pnpm run preview
+            </div>
+            <div className="text-slate-400">
+              <span className="lang-en">Runs the production server locally to verify the production build.</span>
+              <span className="lang-km">ដំណើរការ Production Server ក្នុងម៉ាស៊ីនផ្ទាល់ដើម្បីផ្ទៀងផ្ទាត់ Build។</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -6027,54 +6107,93 @@ export function Slide72({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 28 — CHEAT SHEET &bull; SLIDE 72 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js Core Concepts</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Comprehensive summary of core concepts mastered in this
-                    course.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 28 — CHEAT SHEET &bull; SLIDE 72 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">Next.js Core Concepts</span>
+            <span className="lang-km">គោលគំនិតស្នូលក្នុង Next.js</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Comprehensive summary of core concepts mastered in this course.</span>
+            <span className="lang-km">សេចក្ដីសង្ខេបអំពីគោលគំនិតស្នូលទាំងអស់ដែលបានរៀនក្នុងវគ្គនេះ។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                  <div className="text-blue-400  text-xs font-bold">
-                    ROUTING &amp; RENDERING
-                  </div>
-                  <ul className="text-xs text-slate-300 space-y-1 ">
-                    <li>&bull; App Router folders</li>
-                    <li>&bull; Server Components</li>
-                    <li>&bull; "use client" boundaries</li>
-                    <li>&bull; Streaming &amp; Suspense</li>
-                  </ul>
-                </div>
-                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                  <div className="text-green-400  text-xs font-bold">
-                    DATA &amp; MUTATIONS
-                  </div>
-                  <ul className="text-xs text-slate-300 space-y-1 ">
-                    <li>&bull; Server async/await</li>
-                    <li>&bull; Direct PostgreSQL queries</li>
-                    <li>&bull; Server Actions ("use server")</li>
-                    <li>&bull; revalidatePath cache</li>
-                  </ul>
-                </div>
-                <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                  <div className="text-purple-400  text-xs font-bold">
-                    OPTIMIZATION &amp; SHIPPING
-                  </div>
-                  <ul className="text-xs text-slate-300 space-y-1 ">
-                    <li>&bull; next/image &amp; next/font</li>
-                    <li>&bull; Metadata API &amp; SEO</li>
-                    <li>&bull; Middleware auth guards</li>
-                    <li>&bull; Vercel edge deployment</li>
-                  </ul>
-                </div>
-              </div>
+      <div className="slide-grid-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+          <div className="text-blue-400 text-xs font-bold">
+            ROUTING &amp; RENDERING
+          </div>
+          <ul className="text-xs text-slate-300 space-y-1">
+            <li>
+              <span className="lang-en">&bull; App Router folders</span>
+              <span className="lang-km">&bull; រចនាសម្ព័ន្ធ Folder នៃ App Router</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; Server Components</span>
+              <span className="lang-km">&bull; React Server Components</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; &quot;use client&quot; boundaries</span>
+              <span className="lang-km">&bull; ព្រំដែន &quot;use client&quot;</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; Streaming &amp; Suspense</span>
+              <span className="lang-km">&bull; ប្រព័ន្ធ Streaming &amp; Suspense</span>
+            </li>
+          </ul>
+        </div>
+        <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+          <div className="text-green-400 text-xs font-bold">
+            DATA &amp; MUTATIONS
+          </div>
+          <ul className="text-xs text-slate-300 space-y-1">
+            <li>
+              <span className="lang-en">&bull; Server async/await</span>
+              <span className="lang-km">&bull; Server async/await</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; Direct PostgreSQL queries</span>
+              <span className="lang-km">&bull; Query PostgreSQL ដោយផ្ទាល់</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; Server Actions (&quot;use server&quot;)</span>
+              <span className="lang-km">&bull; Server Actions (&quot;use server&quot;)</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; revalidatePath cache</span>
+              <span className="lang-km">&bull; លុប Cache តាម revalidatePath</span>
+            </li>
+          </ul>
+        </div>
+        <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+          <div className="text-purple-400 text-xs font-bold">
+            OPTIMIZATION &amp; SHIPPING
+          </div>
+          <ul className="text-xs text-slate-300 space-y-1">
+            <li>
+              <span className="lang-en">&bull; next/image &amp; next/font</span>
+              <span className="lang-km">&bull; next/image &amp; next/font</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; Metadata API &amp; SEO</span>
+              <span className="lang-km">&bull; Metadata API &amp; SEO</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; Middleware auth guards</span>
+              <span className="lang-km">&bull; Middleware ការពារ Route</span>
+            </li>
+            <li>
+              <span className="lang-en">&bull; Vercel edge deployment</span>
+              <span className="lang-km">&bull; ការ Deploy លើ Vercel Edge</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

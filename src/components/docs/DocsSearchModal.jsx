@@ -217,15 +217,13 @@ export default function DocsSearchModal({ isOpen, onClose }) {
                 )}
               </p>
               <p className="text-[11px] text-slate-400 mt-1">
-                Try searching for keywords like &ldquo;git status&rdquo;,
-                &ldquo;app router&rdquo;, &ldquo;postgres&rdquo;, or
-                &ldquo;tailwind&rdquo;.
+                {t("ui_search_hint_examples", "Try searching for keywords like “git status”, “app router”, “postgres”, or “tailwind”.")}
               </p>
             </div>
           ) : (
             <div className="p-3">
               <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2 mb-2">
-                Curriculum Modules
+                {t("docs_curriculum_modules", "Curriculum Modules")}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {DOCS_NAVIGATION.map((course) => {
@@ -261,7 +259,7 @@ export default function DocsSearchModal({ isOpen, onClose }) {
         <div className="px-4 py-2 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-between text-[11px] text-slate-400">
           <div className="flex items-center gap-2">
             <span>
-              Navigate:{" "}
+              {t("ui_nav_hint", "Navigate:")}{" "}
               <kbd className="px-1 rounded bg-slate-200 dark:bg-slate-800">
                 ↑
               </kbd>{" "}
@@ -270,13 +268,13 @@ export default function DocsSearchModal({ isOpen, onClose }) {
               </kbd>
             </span>
             <span>
-              Select:{" "}
+              {t("ui_select_hint", "Select:")}{" "}
               <kbd className="px-1 rounded bg-slate-200 dark:bg-slate-800">
                 ↵
               </kbd>
             </span>
           </div>
-          <span>Total: 448 Lessons</span>
+          <span>{t("ui_total_lessons", "Total: 448 Lessons")}</span>
         </div>
       </div>
     </div>

@@ -25,7 +25,7 @@ export default function DocsTableOfContents({ headings = [], activeId = "" }) {
         <span>{t("docs_on_this_page", "On this page")}</span>
       </div>
 
-      <nav aria-label="Table of contents" className="flex flex-col gap-1 border-l border-slate-200 dark:border-slate-800">
+      <nav aria-label={t("ui_table_of_contents", "Table of contents")} className="flex flex-col gap-1 border-l border-slate-200 dark:border-slate-800">
         {headings.map((h) => {
           const isActive = activeId === h.id;
           const isNested = h.level === 3 || h.level === 4;

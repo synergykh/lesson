@@ -39,7 +39,7 @@ export default function DocsHeader({
           type="button"
           onClick={onToggleMobileSidebar}
           className="lg:hidden p-2 rounded text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-1 focus:ring-orange-500"
-          aria-label="Toggle navigation drawer"
+          aria-label={t("ui_toggle_drawer", "Toggle navigation drawer")}
         >
           <Menu className="w-5 h-5" />
         </button>
@@ -49,8 +49,8 @@ export default function DocsHeader({
           type="button"
           onClick={onToggleDesktopSidebar}
           className="hidden lg:flex p-1.5 rounded text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-1 focus:ring-orange-500"
-          title={desktopSidebarOpen ? "Collapse sidebar ([)" : "Expand sidebar ([)"}
-          aria-label={desktopSidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+          title={desktopSidebarOpen ? `${t("docs_collapse_sidebar", "Collapse sidebar")} ([)` : `${t("docs_expand_sidebar", "Expand sidebar")} ([)`}
+          aria-label={desktopSidebarOpen ? t("docs_collapse_sidebar", "Collapse sidebar") : t("docs_expand_sidebar", "Expand sidebar")}
         >
           {desktopSidebarOpen ? (
             <PanelLeftClose className="w-4 h-4" />
@@ -63,7 +63,7 @@ export default function DocsHeader({
         <a
           href="#/"
           className="flex items-center gap-2.5 text-slate-900 dark:text-white no-underline hover:opacity-90 transition-opacity"
-          title="Curriculum Hub"
+          title={t("ui_back_home", "Curriculum Hub")}
         >
           <img
             src="/images/synergy.png"
@@ -86,7 +86,7 @@ export default function DocsHeader({
             type="button"
             onClick={() => setCourseDropdownOpen((prev) => !prev)}
             className="flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors max-w-[220px] truncate"
-            title="Switch module"
+            title={t("docs_switch_module", "Switch module")}
           >
             <span className="text-orange-500 font-bold text-[10px] uppercase">
               {currentCourse.module}:
@@ -103,7 +103,7 @@ export default function DocsHeader({
               />
               <div className="absolute left-0 mt-1 w-64 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl py-1 z-40">
                 <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 dark:border-slate-800">
-                  Select Course Module
+                  {t("docs_select_module", "Select Course Module")}
                 </div>
                 {DOCS_NAVIGATION.map((c) => {
                   const isCurrent = c.id === currentCourseId;
@@ -145,8 +145,8 @@ export default function DocsHeader({
           type="button"
           onClick={onOpenSearch}
           className="flex items-center gap-2 px-3 py-1.5 rounded text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors cursor-pointer"
-          title="Search docs (Ctrl + K)"
-          aria-label="Search documentation"
+          title={`${t("ui_search", "Search")} (Ctrl + K)`}
+          aria-label={t("ui_search", "Search documentation")}
         >
           <Search className="w-3.5 h-3.5" />
           <span className="hidden sm:inline-block text-xs">
@@ -163,8 +163,8 @@ export default function DocsHeader({
           size="icon"
           onClick={toggleLang}
           className="h-8 w-8 rounded border-slate-200 dark:border-slate-800"
-          title="Switch Language (English / ភាសាខ្មែរ)"
-          aria-label="Switch Language"
+          title={t("ui_switch_language", "Switch Language (English / ភាសាខ្មែរ)")}
+          aria-label={t("ui_switch_language", "Switch Language")}
         >
           {lang === "en" ? (
             <img
@@ -195,8 +195,8 @@ export default function DocsHeader({
           size="icon"
           onClick={toggleTheme}
           className="h-8 w-8 rounded border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
-          title="Toggle Dark / Light theme (T)"
-          aria-label="Toggle theme"
+          title={t("ui_theme_toggle", "Toggle Dark / Light theme (T)")}
+          aria-label={t("ui_theme", "Toggle theme")}
         >
           {theme === "dark" ? (
             <Sun className="w-4 h-4 text-amber-400" />
@@ -211,8 +211,8 @@ export default function DocsHeader({
           target="_blank"
           rel="noopener noreferrer"
           className="p-1.5 rounded text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          title="View on GitHub"
-          aria-label="GitHub Repository"
+          title={t("ui_view_github", "View on GitHub")}
+          aria-label={t("ui_view_github", "GitHub Repository")}
         >
           <GitFork className="w-4 h-4" />
         </a>

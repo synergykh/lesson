@@ -9,7 +9,7 @@ export default function DocsPagination({ prevLesson, nextLesson, className = "" 
 
   return (
     <nav
-      aria-label="Lesson navigation"
+      aria-label={t("ui_lesson_nav", "Lesson navigation")}
       className={`grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 mt-auto border-t border-slate-200 dark:border-slate-800 ${className}`}
     >
       {prevLesson ? (

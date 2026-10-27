@@ -38,6 +38,20 @@ function parseHash(hash) {
   return { page: "home" };
 }
 
+function DocsFallback() {
+  const { t } = useLanguage();
+  return (
+    <div className="flex items-center justify-center h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+      <div className="text-center flex flex-col items-center gap-2">
+        <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+        <span className="text-xs font-semibold">
+          {t("ui_loading_doc", "Loading documentation...")}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [route, setRoute] = useState(() => parseHash(window.location.hash));
 
@@ -54,18 +68,7 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         {route.page === "docs" ? (
-          <Suspense
-            fallback={
-              <div className="flex items-center justify-center h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
-                <div className="text-center flex flex-col items-center gap-2">
-                  <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
-                  <span className="text-xs font-semibold">
-                    Loading documentation...
-                  </span>
-                </div>
-              </div>
-            }
-          >
+          <Suspense fallback={<DocsFallback />}>
             <DocsPage
               key={`${route.courseId}-${route.lessonNum}`}
               courseId={route.courseId}

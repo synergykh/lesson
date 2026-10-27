@@ -89,8 +89,8 @@ export default function DocsSidebar({
   const renderSidebarContent = () => (
     <div className="flex flex-col gap-2 p-3 text-xs">
       <div className="flex items-center justify-between px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">
-        <span>{t("ui_brand_hub", "Curriculum Navigation")}</span>
-        <span className="text-[10px] text-slate-500 font-mono">9 Modules</span>
+        <span>{t("docs_curriculum_navigation", "Curriculum Navigation")}</span>
+        <span className="text-[10px] text-slate-500 font-mono">{t("docs_9_modules", "9 Modules")}</span>
       </div>
 
       <div className="flex flex-col gap-1">
@@ -250,14 +250,14 @@ export default function DocsSidebar({
               <div className="flex items-center gap-2">
                 <BookOpen className="w-4 h-4 text-orange-500" />
                 <span className="font-bold text-xs text-slate-900 dark:text-white">
-                  Curriculum Index
+                  {t("docs_curriculum_index", "Curriculum Index")}
                 </span>
               </div>
               <button
                 type="button"
                 onClick={onCloseMobile}
                 className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-white"
-                aria-label="Close navigation"
+                aria-label={t("ui_close", "Close navigation")}
               >
                 <X className="w-4 h-4" />
               </button>

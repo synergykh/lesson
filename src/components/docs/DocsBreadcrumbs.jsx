@@ -12,11 +12,11 @@ export default function DocsBreadcrumbs({ course, section, lesson }) {
   const lessonTitle = lesson.title?.[lang] || lesson.title?.en || lesson.title;
 
   return (
-    <nav aria-label="Breadcrumbs" className="flex items-center text-xs text-slate-500 dark:text-slate-400 gap-1.5 overflow-x-auto py-1">
+    <nav aria-label={t("ui_breadcrumbs", "Breadcrumbs")} className="flex items-center text-xs text-slate-500 dark:text-slate-400 gap-1.5 overflow-x-auto py-1">
       <a
         href="#/"
         className="flex items-center gap-1 hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-orange-500 rounded px-1"
-        title="Curriculum Hub"
+        title={t("ui_back_home", "Curriculum Hub")}
       >
         <Home className="w-3.5 h-3.5" />
         <span className="sr-only sm:not-sr-only sm:inline-block">{t("ui_home", "Home")}</span>
