@@ -4,30 +4,10 @@ import {
   X,
   ChevronRight,
   FileText,
-  Sparkles,
-  Database,
-  Globe,
-  FolderGit2,
-  GitBranch,
-  Layers,
-  Palette,
-  Triangle,
-  Cloud,
 } from "lucide-react";
 import { SEARCH_INDEX, DOCS_NAVIGATION } from "../../data/docsNavigation";
 import { useLanguage } from "../../context/LanguageContext";
-
-const ICON_MAP = {
-  GitBranch,
-  FolderGit2,
-  Globe,
-  Palette,
-  Layers,
-  Database,
-  Triangle,
-  Cloud,
-  Sparkles,
-};
+import { CourseIcon } from "../CourseIcons";
 
 export default function DocsSearchModal({ isOpen, onClose }) {
   const { lang, t } = useLanguage();
@@ -165,7 +145,6 @@ export default function DocsSearchModal({ isOpen, onClose }) {
           {cleanQuery && filteredResults.length > 0 ? (
             <div className="flex flex-col gap-1">
               {filteredResults.map((item, idx) => {
-                const IconComponent = ICON_MAP[item.icon] || FileText;
                 const isSelected = selectedIndex === idx;
                 const title = item.title?.[lang] || item.title?.en;
                 const courseTitle =
@@ -187,7 +166,7 @@ export default function DocsSearchModal({ isOpen, onClose }) {
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-7 h-7 rounded flex items-center justify-center bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shrink-0">
-                        <IconComponent className="w-3.5 h-3.5 text-orange-500" />
+                        <CourseIcon id={item.courseId} className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <div className="flex items-center gap-2">
@@ -227,7 +206,6 @@ export default function DocsSearchModal({ isOpen, onClose }) {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {DOCS_NAVIGATION.map((course) => {
-                  const IconComponent = ICON_MAP[course.icon] || FileText;
                   const cTitle = course.title?.[lang] || course.title?.en;
 
                   return (
@@ -237,7 +215,7 @@ export default function DocsSearchModal({ isOpen, onClose }) {
                       onClick={onClose}
                       className="flex items-center gap-2.5 p-2.5 rounded border border-slate-200 dark:border-slate-800 hover:border-orange-500/50 bg-slate-50 dark:bg-slate-800/40 text-xs transition-colors"
                     >
-                      <IconComponent className="w-4 h-4 text-orange-500 shrink-0" />
+                      <CourseIcon id={course.id} className="w-4 h-4 text-orange-500 shrink-0" />
                       <div className="flex flex-col min-w-0">
                         <span className="font-semibold text-slate-900 dark:text-white truncate">
                           {cTitle}

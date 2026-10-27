@@ -2,33 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   ChevronDown,
   ChevronRight,
-  GitBranch,
-  FolderGit2,
-  Globe,
-  Palette,
-  Layers,
-  Database,
-  Triangle,
-  Cloud,
-  Sparkles,
   FileText,
   X,
   BookOpen,
 } from "lucide-react";
 import { DOCS_NAVIGATION } from "../../data/docsNavigation";
 import { useLanguage } from "../../context/LanguageContext";
-
-const ICON_MAP = {
-  GitBranch,
-  FolderGit2,
-  Globe,
-  Palette,
-  Layers,
-  Database,
-  Triangle,
-  Cloud,
-  Sparkles,
-};
+import { CourseIcon } from "../CourseIcons";
 
 export default function DocsSidebar({
   currentCourseId,
@@ -97,7 +77,6 @@ export default function DocsSidebar({
         {DOCS_NAVIGATION.map((course) => {
           const isCurrentCourse = course.id === currentCourseId;
           const isCourseExpanded = !!expandedCourses[course.id];
-          const IconComponent = ICON_MAP[course.icon] || FileText;
           const courseTitle = course.title?.[lang] || course.title?.en;
 
           return (
@@ -113,7 +92,7 @@ export default function DocsSidebar({
                 }`}
               >
                 <div className="flex items-center gap-2 min-w-0">
-                  <IconComponent className="w-4 h-4 text-orange-500 shrink-0" />
+                  <CourseIcon id={course.id} className="w-4 h-4 text-orange-500 shrink-0" />
                   <span className="truncate text-xs font-semibold">
                     {courseTitle}
                   </span>
@@ -206,7 +185,6 @@ export default function DocsSidebar({
         <aside className="hidden lg:flex w-14 shrink-0 border-r border-slate-200 dark:border-slate-800 h-[calc(100vh-3.5rem)] sticky top-14 flex-col items-center py-3 gap-2 overflow-y-auto bg-white dark:bg-slate-900 z-30">
           {DOCS_NAVIGATION.map((course) => {
             const isCurrent = course.id === currentCourseId;
-            const IconComponent = ICON_MAP[course.icon] || FileText;
             const courseTitle = course.title?.[lang] || course.title?.en;
 
             return (
@@ -220,7 +198,7 @@ export default function DocsSidebar({
                 }`}
                 title={courseTitle}
               >
-                <IconComponent className="w-5 h-5" />
+                <CourseIcon id={course.id} className="w-5 h-5" />
                 <span className="sr-only">{courseTitle}</span>
               </a>
             );
