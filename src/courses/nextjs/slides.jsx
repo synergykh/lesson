@@ -1,5 +1,5 @@
 import React from "react";
-import { Copy, Code, PlayCircle, ArrowRight, Monitor, Sparkles, RotateCcw, Info, AlertTriangle, XCircle, Check, CheckCircle2 } from "lucide-react";
+import { Copy, Code, PlayCircle, ArrowRight, Monitor, Sparkles, RotateCcw, Info, AlertTriangle, XCircle, Check, CheckCircle2, Globe, Server, Database, Shield, Cloud, ArrowDown, FolderTree, FileCode } from "lucide-react";
 
 // Slide 1: Next.js: From React to Production
 export function Slide1({ onStart, onRestart }) {
@@ -2246,80 +2246,124 @@ export function Slide24({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 08 — SERVER &amp; CLIENT COMPONENTS &bull; SLIDE 24 /
-                    75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Server vs Client</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Direct comparison of capabilities, environments, and
-                    performance impacts.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 08 — SERVER &amp; CLIENT COMPONENTS &bull; SLIDE 24 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Server vs Client</h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Direct comparison of capabilities, environments, and performance impacts.</span>
+            <span className="lang-km">ការប្រៀបធៀបដោយផ្ទាល់លើសមត្ថភាព បរិស្ថានដំណើរការ និងល្បឿន។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-stack flex flex-col gap-3">
-                <div className="overflow-x-auto">
-                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
-                    <thead>
-                      <tr>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">TASK / REQUIREMENT</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">SERVER COMPONENT (DEFAULT)</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">CLIENT COMPONENT ("use client")</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="font-bold text-slate-300">
-                          Fetch data from API or DB
-                        </td>
-                        <td className="text-green-400 font-bold">
-                          Yes (Direct async/await)
-                        </td>
-                        <td className="text-slate-500">
-                          Not recommended (use server first)
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">
-                          Access Backend Resources / Secrets
-                        </td>
-                        <td className="text-green-400 font-bold">
-                          Yes (Completely secure)
-                        </td>
-                        <td className="text-red-400">
-                          No (Leaks to browser window)
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">
-                          Client-Side State (useState, useReducer)
-                        </td>
-                        <td className="text-red-400">No</td>
-                        <td className="text-green-400 font-bold">Yes</td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">
-                          Event Listeners (onClick, onChange)
-                        </td>
-                        <td className="text-red-400">No</td>
-                        <td className="text-green-400 font-bold">Yes</td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-slate-300">
-                          Browser APIs (localStorage, window)
-                        </td>
-                        <td className="text-red-400">No (window is undefined)</td>
-                        <td className="text-green-400 font-bold">
-                          Yes (inside useEffect)
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+      <div className="slide-stack flex flex-col gap-3">
+        <div className="overflow-x-auto border border-slate-800">
+          <table className="table-spec w-full border-collapse text-xs">
+            <thead>
+              <tr>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">TASK / REQUIREMENT</span>
+                  <span className="lang-km">ភារកិច្ច / តម្រូវការ</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">SERVER COMPONENT (DEFAULT)</span>
+                  <span className="lang-km">SERVER COMPONENT (លំនាំដើម)</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">CLIENT COMPONENT ("use client")</span>
+                  <span className="lang-km">CLIENT COMPONENT ("use client")</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-bold text-slate-200">
+                  <span className="lang-en">Fetch data from API or DB</span>
+                  <span className="lang-km">ទាញទិន្នន័យពី API ឬ Database</span>
+                </td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-green-400 font-bold">
+                  <span className="lang-en">Yes (Direct async/await)</span>
+                  <span className="lang-km">បាន (ប្រើ async/await ផ្ទាល់)</span>
+                </td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-slate-400">
+                  <span className="lang-en">Not recommended (use server first)</span>
+                  <span className="lang-km">មិនណែនាំ (គួរប្រើ Server ជាមុន)</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-bold text-slate-200">
+                  <span className="lang-en">Access Backend Resources / Secrets</span>
+                  <span className="lang-km">ប្រើ Secrets &amp; Backend API keys</span>
+                </td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-green-400 font-bold">
+                  <span className="lang-en">Yes (Completely secure)</span>
+                  <span className="lang-km">បាន (សុវត្ថិភាព មិនធ្លាយ)</span>
+                </td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-red-400">
+                  <span className="lang-en">No (Leaks to browser window)</span>
+                  <span className="lang-km">មិនបាន (ធ្លាយទៅ Browser)</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-bold text-slate-200">
+                  <span className="lang-en">Client-Side State (useState, useReducer)</span>
+                  <span className="lang-km">គ្រប់គ្រង State (useState, useReducer)</span>
+                </td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-red-400 font-semibold">
+                  <span className="lang-en">No</span>
+                  <span className="lang-km">មិនបាន</span>
+                </td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-green-400 font-bold">
+                  <span className="lang-en">Yes</span>
+                  <span className="lang-km">បាន</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-bold text-slate-200">
+                  <span className="lang-en">Event Listeners (onClick, onChange)</span>
+                  <span className="lang-km">ចាប់ Event (onClick, onChange)</span>
+                </td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-red-400 font-semibold">
+                  <span className="lang-en">No</span>
+                  <span className="lang-km">មិនបាន</span>
+                </td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-green-400 font-bold">
+                  <span className="lang-en">Yes</span>
+                  <span className="lang-km">បាន</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2.5 font-bold text-slate-200">
+                  <span className="lang-en">Browser APIs (localStorage, window)</span>
+                  <span className="lang-km">ប្រើ Browser APIs (window, localStorage)</span>
+                </td>
+                <td className="px-3 py-2.5 text-red-400 font-semibold">
+                  <span className="lang-en">No (window is undefined)</span>
+                  <span className="lang-km">មិនបាន (គ្មាន window លើ server)</span>
+                </td>
+                <td className="px-3 py-2.5 text-green-400 font-bold">
+                  <span className="lang-en">Yes (inside useEffect)</span>
+                  <span className="lang-km">បាន (ក្នុង useEffect)</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+          <Info className="w-4 h-4 flex-shrink-0 mt-0.5 text-sky-400" />
+          <div>
+            <span className="lang-en">
+              <strong>Rule of Thumb:</strong> Default to Server Components for performance, security, and SEO. Introduce <code className="text-xs text-blue-300 bg-slate-800 border border-slate-700 px-1 py-0.5">"use client"</code> only when user interactions (clicks, state, inputs) require it.
+            </span>
+            <span className="lang-km">
+              <strong>គោលការណ៍ណែនាំ៖</strong> ប្រើ Server Components ជាលំនាំដើមដើម្បីល្បឿន សុវត្ថិភាព និង SEO។ ប្រើ <code className="text-xs text-blue-300 bg-slate-800 border border-slate-700 px-1 py-0.5">"use client"</code> តែពេលត្រូវការ Interactivity (ចុច, State, Form Inputs) ប៉ុណ្ណោះ។
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -2329,64 +2373,119 @@ export function Slide25({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 08 — SERVER &amp; CLIENT COMPONENTS &bull; SLIDE 25 /
-                    75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Choosing Server or Client</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    A decision tree to determine component boundaries.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 08 — SERVER &amp; CLIENT COMPONENTS &bull; SLIDE 25 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Choosing Server or Client</h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">A clear decision matrix to determine component boundaries.</span>
+            <span className="lang-km">ផែនទីសម្រេចចិត្តដើម្បីកំណត់ព្រំដែនរវាង Server និង Client Component។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-stack flex flex-col gap-3">
-                <div className="diagram-box flex flex-col items-center">
-                  <div className="diag-node font-bold">
-                    Does this component need interactivity, state, or browser
-                    APIs?
-                  </div>
-                  <div className="flex items-center gap-16 my-2">
-                    <div className="flex flex-col items-center gap-2">
-                      <span className="text-green-400 font-bold text-xs"
-                        >YES &darr;</span
-                      >
-                      <div className="diag-node active border-blue-500">
-                        Client Component ("use client")
-                      </div>
-                      <span className="text-slate-400 text-[11px] "
-                        >Buttons, dropdowns, forms with live state</span
-                      >
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <span className="text-blue-400 font-bold text-xs"
-                        >NO &darr;</span
-                      >
-                      <div className="diag-node bg-slate-800">
-                        Server Component (Default)
-                      </div>
-                      <span className="text-slate-400 text-[11px] "
-                        >Data fetching, static cards, layouts, footers</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
-                  <div>
-                    <span className="lang-en"
-                      ><strong>Best Practice:</strong> Keep Client Components at
-                      the leaves of your component tree. Fetch data in the
-                      Server Component parent and pass it down as props.</span
-                    ><span className="lang-km"
-                      ><strong>វិធីសាស្ត្រល្អបំផុត៖</strong> ប្រើ Client
-                      Components តែនៅចុងស្លឹកនៃ Component Tree (ដូចជា Button,
-                      Dialog) និងរក្សា Parent ឱ្យនៅជា Server Component។</span
-                    >
-                  </div>
-                </div>
-              </div>
+      <div className="slide-stack flex flex-col gap-3">
+        <div className="p-3 bg-slate-900 border border-slate-800 text-center">
+          <span className="text-xs uppercase tracking-wider text-slate-400 font-bold block mb-1">
+            <span className="lang-en">Core Architectural Question</span>
+            <span className="lang-km">សំណួរគន្លឹះក្នុងការសម្រេចចិត្ត</span>
+          </span>
+          <h3 className="text-sm font-bold text-white m-0">
+            <span className="lang-en">Does this component need user interactivity, state, or browser APIs?</span>
+            <span className="lang-km">តើ Component នេះត្រូវការ Interactivity, State ឬ Browser APIs ដែរឬទេ?</span>
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="info-card bg-emerald-950/20 border border-emerald-500/30 p-3.5 flex flex-col gap-2 hover:border-emerald-500/50 transition-colors">
+            <div className="flex items-center justify-between pb-1 border-b border-emerald-500/20">
+              <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span className="lang-en">YES &rarr; Client Component</span>
+                <span className="lang-km">បាទ/ចាស &rarr; Client Component</span>
+              </span>
+              <code className="text-[11px] text-emerald-300 bg-emerald-950 border border-emerald-800 px-1.5 py-0.5 font-mono">"use client"</code>
+            </div>
+            <p className="text-xs text-slate-300 m-0">
+              <span className="lang-en">Use when browser execution and live React hooks are strictly required:</span>
+              <span className="lang-km">ប្រើនៅពេលត្រូវការដំណើរការលើ Browser និង React Hooks ផ្ទាល់៖</span>
+            </p>
+            <ul className="text-xs text-slate-300 space-y-1.5 m-0 pl-1 list-none">
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400 font-bold">&bull;</span>
+                <span className="lang-en">Interactive buttons (<code className="text-[11px] text-emerald-300">onClick</code>, event handlers)</span>
+                <span className="lang-km">ប៊ូតុងមាន Event (<code className="text-[11px] text-emerald-300">onClick</code>, onChange)</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400 font-bold">&bull;</span>
+                <span className="lang-en">Client state (<code className="text-[11px] text-emerald-300">useState</code>, <code className="text-[11px] text-emerald-300">useReducer</code>)</span>
+                <span className="lang-km">គ្រប់គ្រង State (<code className="text-[11px] text-emerald-300">useState</code>, <code className="text-[11px] text-emerald-300">useReducer</code>)</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400 font-bold">&bull;</span>
+                <span className="lang-en">Lifecycle effects (<code className="text-[11px] text-emerald-300">useEffect</code>, <code className="text-[11px] text-emerald-300">useRef</code>)</span>
+                <span className="lang-km">Lifecycle hooks (<code className="text-[11px] text-emerald-300">useEffect</code>, <code className="text-[11px] text-emerald-300">useRef</code>)</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-emerald-400 font-bold">&bull;</span>
+                <span className="lang-en">Browser APIs (<code className="text-[11px] text-emerald-300">window</code>, <code className="text-[11px] text-emerald-300">localStorage</code>)</span>
+                <span className="lang-km">Browser APIs (<code className="text-[11px] text-emerald-300">window</code>, <code className="text-[11px] text-emerald-300">localStorage</code>)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="info-card bg-blue-950/20 border border-blue-500/30 p-3.5 flex flex-col gap-2 hover:border-blue-500/50 transition-colors">
+            <div className="flex items-center justify-between pb-1 border-b border-blue-500/20">
+              <span className="text-xs font-bold text-blue-400 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                <span className="lang-en">NO &rarr; Server Component</span>
+                <span className="lang-km">ទេ &rarr; Server Component</span>
+              </span>
+              <span className="text-[11px] text-blue-300 bg-blue-950 border border-blue-800 px-1.5 py-0.5 font-bold uppercase tracking-wider">Default</span>
+            </div>
+            <p className="text-xs text-slate-300 m-0">
+              <span className="lang-en">Default choice for maximum performance, minimal bundle, and security:</span>
+              <span className="lang-km">ជម្រើសលំនាំដើមសម្រាប់ល្បឿនលឿន សុវត្ថិភាព និង bundle តូចបំផុត៖</span>
+            </p>
+            <ul className="text-xs text-slate-300 space-y-1.5 m-0 pl-1 list-none">
+              <li className="flex items-center gap-2">
+                <span className="text-blue-400 font-bold">&bull;</span>
+                <span className="lang-en">Direct database querying (PostgreSQL, ORMs)</span>
+                <span className="lang-km">ទាញទិន្នន័យផ្ទាល់ពី DB (PostgreSQL, Prisma)</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-400 font-bold">&bull;</span>
+                <span className="lang-en">Sensitive backend credentials &amp; API keys</span>
+                <span className="lang-km">រក្សាការសម្ងាត់ API Keys &amp; Backend Secrets</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-400 font-bold">&bull;</span>
+                <span className="lang-en">Static layouts, navbars, footers, typography</span>
+                <span className="lang-km">គ្រោង Layouts, Navigation, Footer, មាតិកាអត្ថបទ</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-400 font-bold">&bull;</span>
+                <span className="lang-en">Zero client-side JavaScript bundle overhead</span>
+                <span className="lang-km">គ្មានទម្ងន់ JavaScript បន្ថែមលើ Browser ឡើយ</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-sky-500/30 bg-sky-500/10 text-sky-300 text-[12.5px] leading-relaxed">
+          <Info className="w-4 h-4 flex-shrink-0 mt-0.5 text-sky-400" />
+          <div>
+            <span className="lang-en">
+              <strong>Best Practice:</strong> Keep Client Components at the leaves of your component tree. Fetch data in the Server Component parent and pass it down as props.
+            </span>
+            <span className="lang-km">
+              <strong>វិធីសាស្ត្រល្អបំផុត៖</strong> ប្រើ Client Components តែនៅចុងស្លឹកនៃ Component Tree (ដូចជា Button, Dialog) និងរក្សា Parent ឱ្យនៅជា Server Component ដើម្បីទាញយកទិន្នន័យ។
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -4521,75 +4620,83 @@ export function Slide54({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 22 — BUILD A REAL PROJECT &bull; SLIDE 54 /
-                    75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">TaskFlow Routes</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Complete route specification and access matrix for TaskFlow.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 22 — BUILD A REAL PROJECT &bull; SLIDE 54 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">TaskFlow Routes</h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Complete route specification and access matrix for TaskFlow.</span>
+            <span className="lang-km">តារាងកំណត់ Route និងសិទ្ធិចូលដំណើរការសម្រាប់គម្រោង TaskFlow។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-stack flex flex-col gap-3">
-                <div className="overflow-x-auto">
-                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
-                    <thead>
-                      <tr>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">URL ROUTE</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">FILE LOCATION</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">PURPOSE &amp; ACCESS</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="font-bold text-green-400 ">/</td>
-                        <td className=" text-slate-300">app/page.tsx</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Public marketing landing page</td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-green-400 ">
-                          /login
-                        </td>
-                        <td className=" text-slate-300">
-                          app/(auth)/login/page.tsx
-                        </td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">User authentication form</td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-blue-400 ">
-                          /dashboard
-                        </td>
-                        <td className=" text-slate-300">
-                          app/(dashboard)/page.tsx
-                        </td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Private overview metrics (Protected)</td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-blue-400 ">
-                          /dashboard/tasks
-                        </td>
-                        <td className=" text-slate-300">
-                          app/(dashboard)/tasks/page.tsx
-                        </td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Task management list with search &amp; filters</td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-blue-400 ">
-                          /dashboard/tasks/[id]
-                        </td>
-                        <td className=" text-slate-300">
-                          app/(dashboard)/tasks/[id]/page.tsx
-                        </td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Dynamic detail view and task editor</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+      <div className="slide-stack flex flex-col gap-3">
+        <div className="overflow-x-auto border border-slate-800">
+          <table className="table-spec w-full border-collapse text-xs">
+            <thead>
+              <tr>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">URL ROUTE</span>
+                  <span className="lang-km">URL ROUTE</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">FILE LOCATION</span>
+                  <span className="lang-km">ទីតាំងឯកសារ (FILE)</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">PURPOSE &amp; ACCESS</span>
+                  <span className="lang-km">គោលបំណង និងសិទ្ធិចូលមើល</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-mono font-bold text-emerald-400">/</td>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-mono text-slate-300">app/page.tsx</td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Public marketing landing page (Static)</span>
+                  <span className="lang-km">ទំព័រដើម Marketing សាធារណៈ (Static)</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-mono font-bold text-emerald-400">/login</td>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-mono text-slate-300">app/(auth)/login/page.tsx</td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">User authentication form &amp; session login</span>
+                  <span className="lang-km">ទម្រង់ Login ផ្ទៀងផ្ទាត់គណនី និង Session</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-mono font-bold text-sky-400">/dashboard</td>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-mono text-slate-300">app/(dashboard)/page.tsx</td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Private overview metrics (Protected layout)</span>
+                  <span className="lang-km">ទំព័រទិដ្ឋភាពទូទៅ (ការពារដោយ Login Layout)</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-mono font-bold text-sky-400">/dashboard/tasks</td>
+                <td className="px-3 py-2.5 border-b border-slate-800 font-mono text-slate-300">app/(dashboard)/tasks/page.tsx</td>
+                <td className="px-3 py-2.5 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Task management list with search &amp; filters</span>
+                  <span className="lang-km">បញ្ជីគ្រប់គ្រងកិច្ចការងារ រួមជាមួយ Search &amp; Filters</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2.5 font-mono font-bold text-sky-400">/dashboard/tasks/[id]</td>
+                <td className="px-3 py-2.5 font-mono text-slate-300">app/(dashboard)/tasks/[id]/page.tsx</td>
+                <td className="px-3 py-2.5 text-slate-200">
+                  <span className="lang-en">Dynamic detail view and task mutation editor</span>
+                  <span className="lang-km">ទំព័រកែសម្រួល Dynamic លម្អិតតាមលេខសម្គាល់ ID</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
@@ -4803,63 +4910,90 @@ export function Slide58({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 23 — PERFORMANCE &bull; SLIDE 58 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
-                    Avoid Unnecessary Client Components
-                  </h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Pushing the "use client" boundary down to interactive leaf
-                    components.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 23 — PERFORMANCE &bull; SLIDE 58 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">Avoid Unnecessary Client Components</span>
+            <span className="lang-km">ជៀសវាងការប្រើ Client Components ដោយមិនចាំបាច់</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Pushing the "use client" boundary down to interactive leaf components.</span>
+            <span className="lang-km">រុញព្រំដែន "use client" ចុះទៅកាន់តែ component ចុងក្រោយ (Leaf Component) ដែលត្រូវការ interactivity។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div
-                  className="p-4 bg-red-900/20 border border-red-800/40  text-xs"
-                >
-                  <div
-                    className="text-red-400 font-bold mb-2 flex items-center gap-1.5"
-                  >
-                    <XCircle className="w-4 h-4" />
-                    POOR PATTERN: Client at the Root
-                  </div>
-                  <pre className="text-slate-300">
-// app/dashboard/page.tsx
-"use client"; // Marks whole page as client!
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3">
+          <div className="code-box bg-slate-900 border border-red-500/30 overflow-hidden text-xs shadow-md">
+            <div className="code-box-header flex items-center justify-between px-3 py-2 bg-red-950/40 border-b border-red-900/40">
+              <span className="flex items-center gap-2 font-bold text-red-400">
+                <XCircle className="w-3.5 h-3.5" />
+                <span className="lang-en">POOR PATTERN: Client at Root</span>
+                <span className="lang-km">ទម្រង់មិនល្អ៖ ដាក់ Client នៅខាងលើបង្អស់</span>
+              </span>
+              <span className="text-[11px] font-mono text-slate-400">app/dashboard/page.tsx</span>
+            </div>
+            <pre className="p-3 text-slate-300 font-mono text-xs overflow-x-auto leading-relaxed"><code>{`// app/dashboard/page.tsx
+"use client"; // ❌ Marks whole page & tree as client!
 
-export default function Dashboard() &#123;
-  // Now entire tree ships to client bundle
-  return &lt;div&gt;...&lt;/div&gt;;
-&#125;
-    </pre
-                  >
-                </div>
-                <div
-                  className="p-4 bg-green-900/20 border border-green-800/40  text-xs"
-                >
-                  <div
-                    className="text-green-400 font-bold mb-2 flex items-center gap-1.5"
-                  >
-                    <CheckCircle2 className="w-4 h-4" />
-                    RECOMMENDED: Client at Leaf Nodes
-                  </div>
-                  <pre className="text-slate-300">
-// app/dashboard/page.tsx (Server Component)
-import &#123; LikeButton &#125; from "./LikeButton"; // "use client"
+export default function Dashboard() {
+  // Entire tree & heavy packages ship to browser bundle
+  return (
+    <div>
+      <Header />
+      <Sidebar />
+      <MainContent />
+    </div>
+  );
+}`}</code></pre>
+          </div>
+          <div className="alert-callout alert-warning flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12px] leading-relaxed">
+            <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
+            <div>
+              <span className="lang-en">Entire component tree & all imported modules are forced into the client JavaScript bundle, increasing page load time.</span>
+              <span className="lang-km">Component tree ទាំងមូល និង imports ទាំងអស់ត្រូវទាញចូល Client JavaScript bundle ធ្វើឱ្យទំហំកូដធំ និង load យឺត។</span>
+            </div>
+          </div>
+        </div>
 
-export default async function Dashboard() &#123;
+        <div className="flex flex-col gap-3">
+          <div className="code-box bg-slate-900 border border-emerald-500/30 overflow-hidden text-xs shadow-md">
+            <div className="code-box-header flex items-center justify-between px-3 py-2 bg-emerald-950/40 border-b border-emerald-900/40">
+              <span className="flex items-center gap-2 font-bold text-emerald-400">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span className="lang-en">RECOMMENDED: Client at Leaf</span>
+                <span className="lang-km">ទម្រង់ល្អបំផុត៖ ដាក់ Client នៅត្រឹម Leaf Nodes</span>
+              </span>
+              <span className="text-[11px] font-mono text-slate-400">app/dashboard/page.tsx</span>
+            </div>
+            <pre className="p-3 text-slate-300 font-mono text-xs overflow-x-auto leading-relaxed"><code>{`// app/dashboard/page.tsx (Server Component)
+import { LikeButton } from "./LikeButton"; // "use client"
+import { getDbData } from "@/lib/db";
+
+export default async function Dashboard() {
   const data = await getDbData();
-  return &lt;div&gt;&lt;LikeButton /&gt;&lt;/div&gt;;
-&#125;
-    </pre
-                  >
-                </div>
-              </div>
+  return (
+    <div>
+      <Header data={data} />
+      <Sidebar />
+      <LikeButton />
+    </div>
+  );
+}`}</code></pre>
+          </div>
+          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-[12px] leading-relaxed">
+            <Check className="w-4 h-4 shrink-0 mt-0.5 text-emerald-400" />
+            <div>
+              <span className="lang-en">Only interactive button JavaScript ships to the browser. Heavy DB queries, secret logic, and page layout stay strictly on the server.</span>
+              <span className="lang-km">មានតែ JS របស់ LikeButton ប៉ុណ្ណោះដែលផ្ញើទៅ browser ចំណែកទិន្នន័យ Database និង Layout នៅ Server ទាំងស្រុង។</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -5337,51 +5471,76 @@ export function Slide66({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 25 — COMMON MISTAKES &bull; SLIDE 66 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Mistake: Poor Folder Architecture</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Avoiding disorganized directories and maintainability
-                    nightmares.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 25 — COMMON MISTAKES &bull; SLIDE 66 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">Mistake: Poor Folder Architecture</span>
+            <span className="lang-km">កំហុស៖ រចនាសម្ព័ន្ធ Folder គ្មានរបៀបរៀបរយ</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Avoiding disorganized directories and maintainability nightmares.</span>
+            <span className="lang-km">ជៀសវាងការរៀបចំ Directory រញ៉េរញ៉ៃ ដែលពិបាកថែទាំ និងបង្កកំហុស។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div
-                  className="p-4 bg-red-900/20 border border-red-800/40  text-xs"
-                >
-                  <div className="text-red-400 font-bold mb-1">
-                    CHAOTIC ANTI-PATTERN
-                  </div>
-                  <pre className="text-slate-400">
-components/
-components2/
-final_ui/
-old_code/
-test_page/
-    </pre
-                  >
-                </div>
-                <div
-                  className="p-4 bg-green-900/20 border border-green-800/40  text-xs"
-                >
-                  <div className="text-green-400 font-bold mb-1">
-                    CLEAN PRODUCTION PATTERN
-                  </div>
-                  <pre className="text-slate-300">
-app/
-components/ui/
-actions/
-lib/
-types/
-    </pre
-                  >
-                </div>
-              </div>
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3">
+          <div className="code-box bg-slate-900 border border-red-500/30 overflow-hidden text-xs shadow-md">
+            <div className="code-box-header flex items-center justify-between px-3 py-2 bg-red-950/40 border-b border-red-900/40">
+              <span className="flex items-center gap-2 font-bold text-red-400">
+                <XCircle className="w-3.5 h-3.5" />
+                <span className="lang-en">CHAOTIC ANTI-PATTERN</span>
+                <span className="lang-km">ទម្រង់រញ៉េរញ៉ៃ (ជៀសវាង)</span>
+              </span>
+              <span className="text-[11px] font-mono text-slate-400">Anti-pattern</span>
+            </div>
+            <pre className="p-3 text-slate-400 font-mono text-xs overflow-x-auto leading-relaxed"><code>{`my-next-app/
+├── components/          # Unorganized dump
+├── components2/         # Duplicate ad-hoc folder
+├── final_ui/            # Hard to trace ownership
+├── old_code/            # Dead code kept in tree
+└── test_page/           # Mixing test files into src`}</code></pre>
+          </div>
+          <div className="alert-callout alert-warning flex items-start gap-2.5 p-3 border border-red-500/30 bg-red-500/10 text-red-300 text-[12px] leading-relaxed">
+            <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
+            <div>
+              <span className="lang-en">Lacks clear modularity. Hard for teams to navigate, risks shipping obsolete code into production bundles, and causes circular imports.</span>
+              <span className="lang-km">ខ្វះការបែងចែកច្បាស់លាស់ ពិបាករកកូដ ប្រឈមមុខនឹងការ ship កូដចាស់ៗទៅ production និងបង្កបញ្ហា circular imports។</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <div className="code-box bg-slate-900 border border-emerald-500/30 overflow-hidden text-xs shadow-md">
+            <div className="code-box-header flex items-center justify-between px-3 py-2 bg-emerald-950/40 border-b border-emerald-900/40">
+              <span className="flex items-center gap-2 font-bold text-emerald-400">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span className="lang-en">CLEAN PRODUCTION PATTERN</span>
+                <span className="lang-km">រចនាសម្ព័ន្ធស្អាតតាមស្តង់ដារ Production</span>
+              </span>
+              <span className="text-[11px] font-mono text-slate-400">Production-ready</span>
+            </div>
+            <pre className="p-3 text-slate-300 font-mono text-xs overflow-x-auto leading-relaxed"><code>{`my-next-app/
+├── app/                 # Routing, layouts & route handlers
+├── components/
+│   └── ui/              # Reusable primitive UI (buttons, cards)
+├── actions/             # Type-safe Server Actions (mutations)
+├── lib/                 # DB client, auth config, utilities
+└── types/               # TypeScript interfaces & definitions`}</code></pre>
+          </div>
+          <div className="alert-callout tip flex items-start gap-2.5 p-3 border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-[12px] leading-relaxed">
+            <Check className="w-4 h-4 shrink-0 mt-0.5 text-emerald-400" />
+            <div>
+              <span className="lang-en">Industry standard Next.js directory layout. Highly scalable, enforces clean separation of concerns, and simplifies maintenance.</span>
+              <span className="lang-km">រចនាសម្ព័ន្ធស្តង់ដារឧស្សាហកម្ម Next.js។ ងាយស្រួលពង្រីក (Scalable) បែងចែកតួនាទីច្បាស់លាស់ និងងាយស្រួលថែទាំ។</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -5476,73 +5635,85 @@ export function Slide68({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 26 — DEBUGGING &bull; SLIDE 68 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Common Errors &amp; Fixes</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Diagnosing hydration mismatches, missing directives, and
-                    boundary errors.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 26 — DEBUGGING &bull; SLIDE 68 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">Common Errors &amp; Fixes</span>
+            <span className="lang-km">កំហុសទូទៅ និងវិធីដោះស្រាយ</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Diagnosing hydration mismatches, missing directives, and boundary errors.</span>
+            <span className="lang-km">ការវិនិច្ឆ័យកំហុស Hydration mismatch, ខ្វះ directive និង boundary errors។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-stack flex flex-col gap-3">
-                <div className="overflow-x-auto">
-                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
-                    <thead>
-                      <tr>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">ERROR MESSAGE</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">COMMON ROOT CAUSE</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">PROVEN FIX</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="text-red-400 font-bold">
-                          Hydration failed because initial UI does not match
-                        </td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
-                          Using browser values (window, Date.now()) during
-                          server render
-                        </td>
-                        <td className="text-green-400">
-                          Move browser checks into useEffect or use
-                          suppressHydrationWarning
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-red-400 font-bold">
-                          window is not defined
-                        </td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
-                          Accessing browser window API inside a Server Component
-                        </td>
-                        <td className="text-green-400">
-                          Add "use client" directive or check typeof window !==
-                          "undefined"
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-red-400 font-bold">
-                          Event handlers cannot be passed to Client Component
-                          props
-                        </td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
-                          Passing function props across Server to Client
-                          boundary
-                        </td>
-                        <td className="text-green-400">
-                          Use Server Actions or declare event handlers inside
-                          the Client Component
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+      <div className="slide-stack flex flex-col gap-3">
+        <div className="overflow-x-auto">
+          <table className="table-spec w-full border-collapse text-xs border border-slate-800">
+            <thead>
+              <tr>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">ERROR MESSAGE</span>
+                  <span className="lang-km">សារកំហុស (ERROR)</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">COMMON ROOT CAUSE</span>
+                  <span className="lang-km">មូលហេតុចម្បង</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">PROVEN FIX</span>
+                  <span className="lang-km">វិធីដោះស្រាយ</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono text-red-400 font-bold">
+                  Hydration failed because initial UI does not match
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Using browser values (<code className="text-slate-300">window</code>, <code className="text-slate-300">Date.now()</code>, <code className="text-slate-300">localStorage</code>) during server render.</span>
+                  <span className="lang-km">ការប្រើប្រាស់តម្លៃ Browser (<code className="text-slate-300">window</code>, <code className="text-slate-300">Date.now()</code>) អំឡុងពេល Server Render។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400">
+                  <span className="lang-en">Move browser checks into <code className="text-blue-400">useEffect</code> or add <code className="text-blue-400">suppressHydrationWarning</code> to the HTML element.</span>
+                  <span className="lang-km">ផ្លាស់ប្ដូរការឆែក Browser ចូល <code className="text-blue-400">useEffect</code> ឬប្រើ <code className="text-blue-400">suppressHydrationWarning</code>។</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono text-red-400 font-bold">
+                  window is not defined
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Accessing browser <code className="text-slate-300">window</code> or DOM API inside a Server Component.</span>
+                  <span className="lang-km">ការហៅប្រើប្រាស់ <code className="text-slate-300">window</code> ឬ DOM API នៅខាងក្នុង Server Component។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400">
+                  <span className="lang-en">Add <code className="text-blue-400">"use client"</code> at top of file, or check <code className="text-blue-400">typeof window !== "undefined"</code>.</span>
+                  <span className="lang-km">បន្ថែម <code className="text-blue-400">"use client"</code> នៅលើបង្អស់ ឬឆែក <code className="text-blue-400">typeof window !== "undefined"</code>។</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono text-red-400 font-bold">
+                  Event handlers cannot be passed to Client Component props
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Passing function props (e.g. <code className="text-slate-300">onClick</code>) across Server to Client boundary.</span>
+                  <span className="lang-km">ការបញ្ជូន function props (ដូចជា <code className="text-slate-300">onClick</code>) ឆ្លងកាត់ព្រំដែនពី Server ទៅ Client Component។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400">
+                  <span className="lang-en">Use Server Actions (<code className="text-blue-400">action={'{...}'}</code>) or declare event handlers inside the Client Component.</span>
+                  <span className="lang-km">ប្រើប្រាស់ Server Actions ឬបង្កើត event handlers ផ្ទាល់នៅក្នុង Client Component នោះ។</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
@@ -5552,53 +5723,113 @@ export function Slide69({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 27 — FINAL ARCHITECTURE &bull; SLIDE 69 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Modern Next.js Architecture</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Master architectural diagram connecting all full-stack
-                    layers.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 27 — FINAL ARCHITECTURE &bull; SLIDE 69 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">Modern Next.js Architecture</span>
+            <span className="lang-km">ស្ថាបត្យកម្ម Next.js ទំនើប</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Master architectural diagram connecting all full-stack layers.</span>
+            <span className="lang-km">ដ្យាក្រាមស្ថាបត្យកម្មរួមតភ្ជាប់គ្រប់ស្រទាប់នៃកម្មវិធី Full-Stack។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-stack flex flex-col gap-3">
-                <div className="diagram-box flex flex-col gap-3">
-                  <div className="diag-node font-bold text-slate-200">
-                    CLIENT BROWSER (User Interaction &amp; State)
-                  </div>
-                  <div
-                    className="w-full flex items-center justify-center gap-2 text-blue-400  text-xs"
-                  >
-                    &darr; HTTP/2 Requests &bull; Form Server Actions &darr;
-                  </div>
-                  <div
-                    className="diag-node active font-bold text-blue-300 w-full text-center"
-                  >
-                    NEXT.JS APP ROUTER (Server Components &bull; Middleware
-                    &bull; Layouts)
-                  </div>
-                  <div
-                    className="w-full flex items-center justify-center gap-2 text-blue-400  text-xs"
-                  >
-                    &darr; Direct Type-Safe Server Calls &darr;
-                  </div>
-                  <div className="grid grid-cols-3 gap-2 w-full text-center">
-                    <div className="diag-node bg-slate-900 border-slate-700">
-                      PostgreSQL (Neon)
-                    </div>
-                    <div className="diag-node bg-slate-900 border-slate-700">
-                      Auth / Session Engine
-                    </div>
-                    <div className="diag-node bg-slate-900 border-slate-700">
-                      External APIs &amp; S3
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div className="slide-stack flex flex-col gap-3">
+        {/* Tier 1: Client Browser */}
+        <div className="info-card bg-slate-900/90 border border-sky-500/30 p-3.5 flex flex-col gap-2">
+          <div className="flex items-center justify-between">
+            <span className="flex items-center gap-2 font-bold text-sky-400 text-xs">
+              <Globe className="w-4 h-4" />
+              <span className="lang-en">TIER 1: CLIENT BROWSER</span>
+              <span className="lang-km">ស្រទាប់ទី ១៖ CLIENT BROWSER</span>
+            </span>
+            <span className="text-[10px] font-mono px-2 py-0.5 bg-sky-500/10 text-sky-300 border border-sky-500/20">
+              <span className="lang-en">Client Runtime</span>
+              <span className="lang-km">ដំណើរការលើ Browser</span>
+            </span>
+          </div>
+          <p className="text-xs text-slate-300 m-0 leading-relaxed">
+            <span className="lang-en">Interactive leaf components, local state (<code className="text-sky-300">useState</code>), event handlers (<code className="text-sky-300">onClick</code>), and fast client-side navigation.</span>
+            <span className="lang-km">Leaf components ដែលមាន interactivity, state ក្នុងស្រុក (<code className="text-sky-300">useState</code>), event handlers និងការប្ដូរទំព័ររហ័ស។</span>
+          </p>
+        </div>
+
+        {/* Transition 1 */}
+        <div className="flex items-center justify-center gap-2 text-xs font-mono text-blue-400 py-0.5">
+          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
+          <span className="lang-en text-[11px]">HTTP/2 Requests • Form Server Actions • Streaming RSC Payloads</span>
+          <span className="lang-km text-[11px]">សំណើ HTTP/2 • Form Server Actions • ការបញ្ជូន RSC Payloads</span>
+          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
+        </div>
+
+        {/* Tier 2: Next.js Server Core */}
+        <div className="info-card bg-slate-900/90 border border-blue-500/40 p-3.5 flex flex-col gap-2">
+          <div className="flex items-center justify-between">
+            <span className="flex items-center gap-2 font-bold text-blue-300 text-xs">
+              <Server className="w-4 h-4 text-blue-400" />
+              <span className="lang-en">TIER 2: NEXT.JS APP ROUTER CORE (SERVER)</span>
+              <span className="lang-km">ស្រទាប់ទី ២៖ ស្នូល NEXT.JS APP ROUTER (SERVER)</span>
+            </span>
+            <span className="text-[10px] font-mono px-2 py-0.5 bg-blue-500/10 text-blue-300 border border-blue-500/20">
+              <span className="lang-en">Node.js / Edge Runtime</span>
+              <span className="lang-km">Node.js / Edge Runtime</span>
+            </span>
+          </div>
+          <p className="text-xs text-slate-300 m-0 leading-relaxed">
+            <span className="lang-en">React Server Components (RSC) by default, layout persistence, route handlers, server mutations, zero-bundle overhead.</span>
+            <span className="lang-km">ដំណើរការ Server Components (RSC) ជាលំនាំដើម, layout ថេរ, API route handlers, server mutations និងមិនបន្ថែមទំហំ JS ទៅ client។</span>
+          </p>
+        </div>
+
+        {/* Transition 2 */}
+        <div className="flex items-center justify-center gap-2 text-xs font-mono text-emerald-400 py-0.5">
+          <ArrowDown className="w-3.5 h-3.5" />
+          <span className="lang-en text-[11px]">Direct Type-Safe Server Calls • Secure DB Connections</span>
+          <span className="lang-km text-[11px]">ការតភ្ជាប់ Database ដោយផ្ទាល់ • ប្រព័ន្ធសុវត្ថិភាព និង Credential</span>
+          <ArrowDown className="w-3.5 h-3.5" />
+        </div>
+
+        {/* Tier 3: Data & Infrastructure Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="info-card bg-slate-900 border border-slate-800 p-3 flex flex-col gap-1.5 hover:border-slate-700 transition-colors">
+            <div className="flex items-center gap-1.5 font-bold text-xs text-emerald-400">
+              <Database className="w-3.5 h-3.5" />
+              <span>PostgreSQL (Neon)</span>
+            </div>
+            <p className="text-[11px] text-slate-300 m-0 leading-relaxed">
+              <span className="lang-en">Serverless relational database with instant branching & connection pooling.</span>
+              <span className="lang-km">Serverless relational database ដែលមាន instant branching និង connection pooling។</span>
+            </p>
+          </div>
+
+          <div className="info-card bg-slate-900 border border-slate-800 p-3 flex flex-col gap-1.5 hover:border-slate-700 transition-colors">
+            <div className="flex items-center gap-1.5 font-bold text-xs text-amber-400">
+              <Shield className="w-3.5 h-3.5" />
+              <span>Auth &amp; Session Engine</span>
+            </div>
+            <p className="text-[11px] text-slate-300 m-0 leading-relaxed">
+              <span className="lang-en">NextAuth / Clerk session validation, encrypted HTTP-only cookies & RBAC.</span>
+              <span className="lang-km">ការផ្ទៀងផ្ទាត់ Session ជាមួយ NextAuth / Clerk, encrypted cookies និងសិទ្ធិ RBAC។</span>
+            </p>
+          </div>
+
+          <div className="info-card bg-slate-900 border border-slate-800 p-3 flex flex-col gap-1.5 hover:border-slate-700 transition-colors">
+            <div className="flex items-center gap-1.5 font-bold text-xs text-purple-400">
+              <Cloud className="w-3.5 h-3.5" />
+              <span>External APIs &amp; S3</span>
+            </div>
+            <p className="text-[11px] text-slate-300 m-0 leading-relaxed">
+              <span className="lang-en">Third-party payment gateways, webhook verification, and cloud object storage.</span>
+              <span className="lang-km">Gateway ទូទាត់ប្រាក់ក្រៅ, ការផ្ទៀងផ្ទាត់ webhook និង cloud object storage។</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -5669,86 +5900,124 @@ export function Slide71({ onStart, onRestart }) {
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 28 — CHEAT SHEET &bull; SLIDE 71 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js Special Files</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Reference summary of App Router special file conventions.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 28 — CHEAT SHEET &bull; SLIDE 71 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            <span className="lang-en">Next.js Special Files</span>
+            <span className="lang-km">ឯកសារពិសេសក្នុង Next.js</span>
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            <span className="lang-en">Reference summary of App Router special file conventions.</span>
+            <span className="lang-km">សេចក្ដីសង្ខេបអំពីតួនាទី និងឈ្មោះឯកសារពិសេសក្នុង App Router។</span>
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">Next.js App Router</span>
+      </div>
 
-              <div className="slide-stack flex flex-col gap-3">
-                <div className="overflow-x-auto">
-                  <table className="table-spec w-full border-collapse text-xs border border-slate-800">
-                    <thead>
-                      <tr>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">FILE CONVENTION</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">ROLE IN APP ROUTER</th>
-                        <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">EXECUTION DEFAULT</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="font-bold text-blue-400">page.tsx</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">Defines the unique UI for a route segment</td>
-                        <td className="text-green-400 font-bold">
-                          Server Component
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-blue-400">layout.tsx</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
-                          Shared UI wrapper that preserves state across
-                          navigation
-                        </td>
-                        <td className="text-green-400 font-bold">
-                          Server Component
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-blue-400">loading.tsx</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
-                          Instant loading skeleton wrapped in React Suspense
-                        </td>
-                        <td className="text-green-400 font-bold">
-                          Server Component
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-blue-400">error.tsx</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
-                          Error boundary UI for catching runtime exceptions
-                        </td>
-                        <td className="text-amber-400 font-bold">
-                          Client Component ("use client")
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-blue-400">not-found.tsx</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
-                          Custom 404 page rendered when notFound() is invoked
-                        </td>
-                        <td className="text-green-400 font-bold">
-                          Server Component
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="font-bold text-blue-400">route.ts</td>
-                        <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
-                          RESTful API endpoint responding with Request/Response
-                        </td>
-                        <td className="text-green-400 font-bold">
-                          Server Route Handler
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+      <div className="slide-stack flex flex-col gap-3">
+        <div className="overflow-x-auto">
+          <table className="table-spec w-full border-collapse text-xs border border-slate-800">
+            <thead>
+              <tr>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">FILE CONVENTION</span>
+                  <span className="lang-km">ឈ្មោះឯកសារពិសេស</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">ROLE IN APP ROUTER</span>
+                  <span className="lang-km">តួនាទីក្នុង APP ROUTER</span>
+                </th>
+                <th className="px-3 py-2 text-left font-bold text-slate-300 bg-slate-800 border-b border-slate-700">
+                  <span className="lang-en">EXECUTION DEFAULT</span>
+                  <span className="lang-km">លក្ខណៈដំណើរការ</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono font-bold text-sky-400">
+                  page.tsx
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Defines the unique UI for a route segment.</span>
+                  <span className="lang-km">កំណត់ផ្ទាំង UI ជាក់លាក់សម្រាប់ route segment នីមួយៗ។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-bold">
+                  <span className="lang-en">Server Component</span>
+                  <span className="lang-km">Server Component</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono font-bold text-sky-400">
+                  layout.tsx
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Shared UI wrapper that preserves state across navigation.</span>
+                  <span className="lang-km">រចនាសម្ព័ន្ធ UI រួម (Wrapper) ដែលរក្សា State នៅពេលផ្លាស់ប្ដូរទំព័រ។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-bold">
+                  <span className="lang-en">Server Component</span>
+                  <span className="lang-km">Server Component</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono font-bold text-sky-400">
+                  loading.tsx
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Instant loading skeleton wrapped automatically in React Suspense.</span>
+                  <span className="lang-km">UI Skeleton ផ្ទុកទិន្នន័យភ្លាមៗ រុំដោយស្វ័យប្រវត្តិនឹង React Suspense។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-bold">
+                  <span className="lang-en">Server Component</span>
+                  <span className="lang-km">Server Component</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono font-bold text-sky-400">
+                  error.tsx
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Error boundary UI for catching runtime exceptions and providing recovery.</span>
+                  <span className="lang-km">Error boundary UI សម្រាប់ចាប់កំហុស runtime exceptions និងផ្ដល់ប៊ូតុង retry។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-amber-400 font-bold">
+                  <span className="lang-en">Client Component ("use client")</span>
+                  <span className="lang-km">Client Component ("use client")</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono font-bold text-sky-400">
+                  not-found.tsx
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">Custom 404 page rendered when notFound() is invoked.</span>
+                  <span className="lang-km">ទំព័រ 404 ផ្ទាល់ខ្លួន បង្ហាញឡើងនៅពេលហៅប្រើ notFound()។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-bold">
+                  <span className="lang-en">Server Component</span>
+                  <span className="lang-km">Server Component</span>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 border-b border-slate-800 font-mono font-bold text-sky-400">
+                  route.ts
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-slate-200">
+                  <span className="lang-en">RESTful API endpoint responding with standard Web Request/Response.</span>
+                  <span className="lang-km">RESTful API endpoint ឆ្លើយតបជាមួយ Web Request/Response ស្តង់ដារ។</span>
+                </td>
+                <td className="px-3 py-2 border-b border-slate-800 text-emerald-400 font-bold">
+                  <span className="lang-en">Server Route Handler</span>
+                  <span className="lang-km">Server Route Handler</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
