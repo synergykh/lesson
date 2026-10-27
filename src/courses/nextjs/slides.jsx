@@ -1025,69 +1025,130 @@ export function Slide10({ onStart, onRestart }) {
 
 // Slide 11: Next.js Project Structure
 export function Slide11({ onStart, onRestart }) {
+  const treeText = `my-app/
+├── app/                  # App Router routes & pages
+│   ├── favicon.ico
+│   ├── globals.css       # Global CSS & Tailwind
+│   ├── layout.tsx        # Root layout wrapper
+│   └── page.tsx          # Root page (/)
+├── public/               # Static assets (images, SVGs)
+│   └── next.svg
+├── node_modules/
+├── next.config.ts        # Next.js config
+├── package.json          # Dependencies & scripts
+├── postcss.config.mjs
+├── tailwind.config.ts    # Tailwind CSS config
+└── tsconfig.json         # TypeScript config`;
+
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 04 — PROJECT STRUCTURE &bull; SLIDE 11 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Next.js Project Structure</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Understanding the App Router layout, folders, and
-                    configuration files.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 04 — PROJECT STRUCTURE &bull; SLIDE 11 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            Next.js Project Structure
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            Understanding the App Router layout, folders, and configuration files.
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">
+          Next.js App Router
+        </span>
+      </div>
 
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-3  text-xs">
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-2">
-                      my-app/ Directory Tree
-                    </div>
-                    <pre className="text-slate-300 leading-relaxed">
-my-app/
-├── app/                  <span className="text-blue-400 font-bold"># App Router routes &amp; pages</span>
-│   ├── favicon.ico
-│   ├── globals.css       <span className="text-slate-400"># Global CSS &amp; Tailwind</span>
-│   ├── layout.tsx        <span className="text-green-400 font-bold"># Root layout wrapper</span>
-│   └── page.tsx          <span className="text-green-400 font-bold"># Root page (/)</span>
-├── public/               <span className="text-slate-400"># Static assets (images, SVGs)</span>
-│   └── next.svg
-├── node_modules/
-├── next.config.ts        <span className="text-slate-400"># Next.js config</span>
-├── package.json          <span className="text-slate-400"># Dependencies &amp; scripts</span>
-├── postcss.config.mjs
-├── tailwind.config.ts    <span className="text-slate-400"># Tailwind CSS config</span>
-└── tsconfig.json         <span className="text-slate-400"># TypeScript config</span>
-      </pre>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                    <h4>
-                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                      App Router Architecture
-                    </h4>
-                    <p>
-                      <span className="lang-en"
-                        >In Next.js App Router, routing is entirely determined
-                        by folders inside <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code>. Files named
-                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> become publicly accessible routes,
-                        while <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">layout.tsx</code> provides wrapping
-                        layouts.</span
-                      ><span className="lang-km"
-                        >ក្នុង Next.js App Router ការកំណត់ Routing
-                        ត្រូវបានធ្វើឡើងតាមរយៈ folders ក្នុង <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code>។
-                        ឯកសារឈ្មោះ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> ក្លាយជា Route សាធារណៈ
-                        ហើយ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">layout.tsx</code> ផ្ដល់នូវ Layout រួម។</span
-                      >
-                    </p>
-                  </div>
-                </div>
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3 text-xs">
+          <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden text-xs shadow-md">
+            <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+              <div className="terminal-dots flex items-center gap-1.5">
+                <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
               </div>
+              <span className="text-xs text-slate-400 font-mono">my-app/ Directory Tree</span>
+              <button
+                className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                data-copy={treeText}
+              >
+                <Copy className="w-3 h-3" />
+                Copy
+              </button>
+            </div>
+            <div className="terminal-body p-3.5 overflow-x-auto text-xs leading-relaxed bg-slate-950/60">
+              <pre className="tree-diagram font-mono text-[11.5px] leading-relaxed text-slate-300 m-0">
+                <span className="text-sky-400 font-bold">my-app/</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-sky-300 font-semibold">app/</span>{"                  "}<span className="text-blue-400 font-semibold"># App Router routes &amp; pages</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-slate-300">favicon.ico</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-indigo-300">globals.css</span>{"       "}<span className="text-slate-400"># Global CSS &amp; Tailwind</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-emerald-400 font-semibold">layout.tsx</span>{"        "}<span className="text-emerald-400 font-semibold"># Root layout wrapper</span>{"\n"}
+                <span className="text-slate-500">│   └── </span><span className="text-emerald-400 font-semibold">page.tsx</span>{"          "}<span className="text-emerald-400 font-semibold"># Root page (/)</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-sky-300 font-semibold">public/</span>{"               "}<span className="text-slate-400"># Static assets (images, SVGs)</span>{"\n"}
+                <span className="text-slate-500">│   └── </span><span className="text-slate-300">next.svg</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-slate-400">node_modules/</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-amber-300 font-medium">next.config.ts</span>{"        "}<span className="text-slate-400"># Next.js config</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-pink-300 font-medium">package.json</span>{"          "}<span className="text-slate-400"># Dependencies &amp; scripts</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-slate-300">postcss.config.mjs</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-cyan-300 font-medium">tailwind.config.ts</span>{"    "}<span className="text-slate-400"># Tailwind CSS config</span>{"\n"}
+                <span className="text-slate-500">└── </span><span className="text-blue-300 font-medium">tsconfig.json</span>{"         "}<span className="text-slate-400"># TypeScript config</span>
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4>
+              <CheckCircle2 className="w-4 h-4 text-blue-400" />
+              App Router Architecture
+            </h4>
+            <p>
+              <span className="lang-en">
+                In Next.js App Router, routing is entirely determined by folders inside{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code>. Files named{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> become publicly accessible routes, while{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">layout.tsx</code> provides wrapping layouts.
+              </span>
+              <span className="lang-km">
+                ក្នុង Next.js App Router ការកំណត់ Routing ត្រូវបានធ្វើឡើងតាមរយៈ folders ក្នុង{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/</code>។ ឯកសារឈ្មោះ{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> ក្លាយជា Route សាធារណៈ ហើយ{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">layout.tsx</code> ផ្ដល់នូវ Layout រួម។
+              </span>
+            </p>
+          </div>
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4 className="text-blue-400 font-bold flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-blue-400" />
+              <span className="lang-en">Key Project Roles</span>
+              <span className="lang-km">តួនាទីឯកសារសំខាន់ៗ</span>
+            </h4>
+            <div className="space-y-1.5 text-xs text-slate-300">
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <code className="text-emerald-400 font-mono text-[11px]">app/page.tsx</code>
+                <span className="text-slate-400 text-[11px] lang-en">Route UI (/)</span>
+                <span className="text-slate-400 text-[11px] lang-km">ទំព័រដើម (/)</span>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <code className="text-emerald-400 font-mono text-[11px]">app/layout.tsx</code>
+                <span className="text-slate-400 text-[11px] lang-en">HTML &amp; Shell</span>
+                <span className="text-slate-400 text-[11px] lang-km">គ្រោងទំព័ររួម</span>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <code className="text-indigo-300 font-mono text-[11px]">app/globals.css</code>
+                <span className="text-slate-400 text-[11px] lang-en">Tailwind &amp; CSS</span>
+                <span className="text-slate-400 text-[11px] lang-km">ស្ទីលទូទៅ</span>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <code className="text-amber-300 font-mono text-[11px]">next.config.ts</code>
+                <span className="text-slate-400 text-[11px] lang-en">Build Settings</span>
+                <span className="text-slate-400 text-[11px] lang-km">ការកំណត់ Next</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -1257,120 +1318,245 @@ export default function RootLayout({
 
 // Slide 14: File-System Routing
 export function Slide14({ onStart, onRestart }) {
+  const routeTreeText = `app/
+├── page.tsx          →  /
+├── about/
+│   └── page.tsx      →  /about
+└── contact/
+    └── page.tsx      →  /contact`;
+
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 05 — ROUTING &bull; SLIDE 14 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">File-System Routing</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    How folders and pages map directly to public URLs.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 05 — ROUTING &bull; SLIDE 14 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            File-System Routing
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            How folders and pages map directly to public URLs.
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">
+          Next.js App Router
+        </span>
+      </div>
 
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-3  text-xs">
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-2">
-                      Folders Map Directly to URLs
-                    </div>
-                    <pre className="text-slate-300 leading-relaxed">
-app/
-├── page.tsx          &rarr;  <span className="text-green-400 font-bold">/</span>
-├── about/
-│   └── page.tsx      &rarr;  <span className="text-green-400 font-bold">/about</span>
-└── contact/
-    └── page.tsx      &rarr;  <span className="text-green-400 font-bold">/contact</span>
-      </pre>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                    <h4>
-                      <CheckCircle2 className="w-4 h-4 text-green-400" />
-                      Automatic Routing by Convention
-                    </h4>
-                    <p>
-                      <span className="lang-en"
-                        >You never have to maintain a separate route
-                        configuration file like in React Router. Simply create a
-                        folder with a <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> file, and Next.js
-                        automatically creates the endpoint URL.</span
-                      ><span className="lang-km"
-                        >អ្នកមិនបាច់សរសេរឯកសារ Route Config ស្មុគស្មាញឡើយ។
-                        គ្រាន់តែបង្កើត folder និងដាក់ <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code> ចូល
-                        Next.js នឹងបង្កើត URL នោះដោយស្វ័យប្រវត្តិ។</span
-                      >
-                    </p>
-                  </div>
-                </div>
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3 text-xs">
+          <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden text-xs shadow-md">
+            <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+              <div className="terminal-dots flex items-center gap-1.5">
+                <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
               </div>
+              <span className="text-xs text-slate-400 font-mono">Folders Map Directly to URLs</span>
+              <button
+                className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                data-copy={routeTreeText}
+              >
+                <Copy className="w-3 h-3" />
+                Copy
+              </button>
+            </div>
+            <div className="terminal-body p-3.5 overflow-x-auto text-xs leading-relaxed bg-slate-950/60">
+              <pre className="tree-diagram font-mono text-[11.5px] leading-relaxed text-slate-300 m-0">
+                <span className="text-sky-400 font-bold">app/</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-emerald-400 font-semibold">page.tsx</span>{"          "}<span className="text-slate-500 font-bold">&rarr;</span>{"  "}<span className="text-green-400 font-bold">/</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-sky-300 font-semibold">about/</span>{"\n"}
+                <span className="text-slate-500">│   └── </span><span className="text-emerald-400 font-semibold">page.tsx</span>{"      "}<span className="text-slate-500 font-bold">&rarr;</span>{"  "}<span className="text-green-400 font-bold">/about</span>{"\n"}
+                <span className="text-slate-500">└── </span><span className="text-sky-300 font-semibold">contact/</span>{"\n"}
+                <span className="text-slate-500">    └── </span><span className="text-emerald-400 font-semibold">page.tsx</span>{"      "}<span className="text-slate-500 font-bold">&rarr;</span>{"  "}<span className="text-green-400 font-bold">/contact</span>
+              </pre>
+            </div>
+          </div>
+          <div className="p-3 bg-slate-900 border border-slate-800 flex flex-col gap-2">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+              <span className="lang-en">Browser URL Example</span>
+              <span className="lang-km">ឧទាហរណ៍ URL ក្នុង Browser</span>
+            </div>
+            <div className="flex items-center gap-2 bg-slate-950 px-2.5 py-1.5 border border-slate-800 font-mono text-xs">
+              <span className="text-slate-500 select-none">https://my-app.com</span>
+              <span className="text-green-400 font-bold">/about</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4>
+              <CheckCircle2 className="w-4 h-4 text-green-400" />
+              Automatic Routing by Convention
+            </h4>
+            <p>
+              <span className="lang-en">
+                You never have to maintain a separate route configuration file like in React Router.
+                Simply create a folder with a{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code>{" "}
+                file, and Next.js automatically creates the endpoint URL.
+              </span>
+              <span className="lang-km">
+                អ្នកមិនបាច់សរសេរឯកសារ Route Config ស្មុគស្មាញឡើយ។ គ្រាន់តែបង្កើត folder និងដាក់{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">page.tsx</code>{" "}
+                ចូល Next.js នឹងបង្កើត URL នោះដោយស្វ័យប្រវត្តិ។
+              </span>
+            </p>
+          </div>
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4 className="text-blue-400 font-bold flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-blue-400" />
+              <span className="lang-en">Route Resolution Rules</span>
+              <span className="lang-km">វិធានកំណត់ Route</span>
+            </h4>
+            <div className="space-y-1.5 text-xs text-slate-300">
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Root URL</span>
+                <span className="text-slate-400 text-[11px] lang-km">ទំព័រដើម</span>
+                <code className="text-emerald-400 font-mono text-[11px]">app/page.tsx → /</code>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Single Segment</span>
+                <span className="text-slate-400 text-[11px] lang-km">Route មួយកម្រិត</span>
+                <code className="text-emerald-400 font-mono text-[11px]">app/about/page.tsx → /about</code>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Nested Segment</span>
+                <span className="text-slate-400 text-[11px] lang-km">Route ច្រើនកម្រិត</span>
+                <code className="text-emerald-400 font-mono text-[11px]">app/contact/page.tsx → /contact</code>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Private Folder</span>
+                <span className="text-slate-400 text-[11px] lang-km">Folder មិនសាធារណៈ</span>
+                <code className="text-slate-500 font-mono text-[11px]">_components/ (ignored)</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 // Slide 15: Nested Routes
 export function Slide15({ onStart, onRestart }) {
+  const nestedTreeText = `app/
+└── dashboard/
+    ├── layout.tsx     # Dashboard sidebar layout
+    ├── page.tsx       →  /dashboard
+    ├── users/
+    │   └── page.tsx   →  /dashboard/users
+    └── settings/
+        └── page.tsx   →  /dashboard/settings`;
+
   return (
     <div className="flex flex-col gap-4 flex-1">
       <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 05 — ROUTING &bull; SLIDE 15 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Nested Routes</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Hierarchical route segments and nested UI layouts.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 05 — ROUTING &bull; SLIDE 15 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            Nested Routes
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            Hierarchical route segments and nested UI layouts.
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">
+          Next.js App Router
+        </span>
+      </div>
 
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-3  text-xs">
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-2">
-                      Nested Dashboard Structure
-                    </div>
-                    <pre className="text-slate-300 leading-relaxed">
-app/
-└── dashboard/
-    ├── layout.tsx     <span className="text-blue-400"># Dashboard sidebar layout</span>
-    ├── page.tsx       &rarr;  <span className="text-green-400 font-bold">/dashboard</span>
-    ├── users/
-    │   └── page.tsx   &rarr;  <span className="text-green-400 font-bold">/dashboard/users</span>
-    └── settings/
-        └── page.tsx   &rarr;  <span className="text-green-400 font-bold">/dashboard/settings</span>
-      </pre>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                    <h4>
-                      <CheckCircle2 className="w-4 h-4 text-purple-400" />
-                      Nested Layouts &amp; Preserved State
-                    </h4>
-                    <p>
-                      <span className="lang-en"
-                        >The <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">dashboard/layout.tsx</code> wraps all routes
-                        beneath it. When a user switches between
-                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">/dashboard/users</code> and
-                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">/dashboard/settings</code>, the dashboard layout
-                        remains intact and only the inner page content
-                        re-renders!</span
-                      ><span className="lang-km"
-                        ><code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">dashboard/layout.tsx</code> នឹងរុំព័ទ្ធគ្រប់
-                        Sub-routes ទាំងអស់។ ពេល User ប្ដូរពី /users ទៅ /settings
-                        នោះ Sidebar នឹងមិនបាត់បង់ state ឬ refresh ឡើយ។</span
-                      >
-                    </p>
-                  </div>
-                </div>
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3 text-xs">
+          <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden text-xs shadow-md">
+            <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+              <div className="terminal-dots flex items-center gap-1.5">
+                <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
               </div>
+              <span className="text-xs text-slate-400 font-mono">Nested Dashboard Structure</span>
+              <button
+                className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                data-copy={nestedTreeText}
+              >
+                <Copy className="w-3 h-3" />
+                Copy
+              </button>
+            </div>
+            <div className="terminal-body p-3.5 overflow-x-auto text-xs leading-relaxed bg-slate-950/60">
+              <pre className="tree-diagram font-mono text-[11.5px] leading-relaxed text-slate-300 m-0">
+                <span className="text-sky-400 font-bold">app/</span>{"\n"}
+                <span className="text-slate-500">└── </span><span className="text-sky-300 font-semibold">dashboard/</span>{"\n"}
+                <span className="text-slate-500">    ├── </span><span className="text-indigo-300 font-semibold">layout.tsx</span>{"     "}<span className="text-blue-400 font-semibold"># Dashboard sidebar layout</span>{"\n"}
+                <span className="text-slate-500">    ├── </span><span className="text-emerald-400 font-semibold">page.tsx</span>{"       "}<span className="text-slate-500 font-bold">&rarr;</span>{"  "}<span className="text-green-400 font-bold">/dashboard</span>{"\n"}
+                <span className="text-slate-500">    ├── </span><span className="text-sky-300 font-semibold">users/</span>{"\n"}
+                <span className="text-slate-500">    │   └── </span><span className="text-emerald-400 font-semibold">page.tsx</span>{"   "}<span className="text-slate-500 font-bold">&rarr;</span>{"  "}<span className="text-green-400 font-bold">/dashboard/users</span>{"\n"}
+                <span className="text-slate-500">    └── </span><span className="text-sky-300 font-semibold">settings/</span>{"\n"}
+                <span className="text-slate-500">        └── </span><span className="text-emerald-400 font-semibold">page.tsx</span>{"   "}<span className="text-slate-500 font-bold">&rarr;</span>{"  "}<span className="text-green-400 font-bold">/dashboard/settings</span>
+              </pre>
+            </div>
+          </div>
+          <div className="p-3 bg-slate-900 border border-slate-800 flex flex-col gap-2">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-purple-500 inline-block"></span>
+              <span className="lang-en">Nested URL Route</span>
+              <span className="lang-km">ឧទាហរណ៍ URL កម្រិតរង</span>
+            </div>
+            <div className="flex items-center gap-2 bg-slate-950 px-2.5 py-1.5 border border-slate-800 font-mono text-xs">
+              <span className="text-slate-500 select-none">https://my-app.com</span>
+              <span className="text-slate-400">/dashboard</span>
+              <span className="text-green-400 font-bold">/users</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4>
+              <CheckCircle2 className="w-4 h-4 text-purple-400" />
+              Nested Layouts &amp; Preserved State
+            </h4>
+            <p>
+              <span className="lang-en">
+                The <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">dashboard/layout.tsx</code> wraps all routes beneath it. When a user switches between{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">/dashboard/users</code> and{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">/dashboard/settings</code>, the dashboard layout remains intact and only the inner page content re-renders!
+              </span>
+              <span className="lang-km">
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">dashboard/layout.tsx</code> នឹងរុំព័ទ្ធគ្រប់ Sub-routes ទាំងអស់។ ពេល User ប្ដូរពី /users ទៅ /settings នោះ Sidebar នឹងមិនបាត់បង់ state ឬ refresh ឡើយ។
+              </span>
+            </p>
+          </div>
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4 className="text-purple-400 font-bold flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-purple-400" />
+              <span className="lang-en">Layout Inheritance</span>
+              <span className="lang-km">ការបន្តវេន Layout</span>
+            </h4>
+            <div className="space-y-1.5 text-xs text-slate-300">
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Global Shell</span>
+                <span className="text-slate-400 text-[11px] lang-km">គ្រោងទូទៅ</span>
+                <code className="text-blue-400 font-mono text-[11px]">app/layout.tsx</code>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Section Layout</span>
+                <span className="text-slate-400 text-[11px] lang-km">គ្រោងផ្នែក</span>
+                <code className="text-purple-400 font-mono text-[11px]">dashboard/layout.tsx</code>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Sub-Page View</span>
+                <span className="text-slate-400 text-[11px] lang-km">ទំព័ររង</span>
+                <code className="text-emerald-400 font-mono text-[11px]">dashboard/users/page.tsx</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -1762,64 +1948,114 @@ export function Button({ children, variant = "primary" }: ButtonProps) {
 
 // Slide 21: Component Architecture
 export function Slide21({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 07 — COMPONENTS &bull; SLIDE 21 / 75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Component Architecture</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Organizing components, modularity, and colocation best
-                    practices.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
-
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-3  text-xs">
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-2">
-                      Recommended Component Organization
-                    </div>
-                    <pre className="text-slate-300 leading-relaxed">
-app/
-├── components/           <span className="text-blue-400"># Shared UI components</span>
+  const componentTreeText = `app/
+├── components/           # Shared UI components
 │   ├── Button.tsx
 │   ├── Card.tsx
 │   ├── Modal.tsx
 │   └── Navbar.tsx
 └── dashboard/
-    ├── components/       <span className="text-green-400"># Dashboard-specific components</span>
+    ├── components/       # Dashboard-specific components
     │   └── UserTable.tsx
-    └── page.tsx
-      </pre>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                    <h4>
-                      <CheckCircle2 className="w-4 h-4 text-purple-400" />
-                      Modularity &amp; Colocation
-                    </h4>
-                    <p>
-                      <span className="lang-en"
-                        >Colocate components close to where they are used. If a
-                        component is only used on the dashboard, keep it in
-                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/dashboard/components/</code>. If it is reused
-                        across the entire app, place it in a top-level
-                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">components/</code> folder.</span
-                      ><span className="lang-km"
-                        >ដាក់ component ជិតកន្លែងដែលវាត្រូវប្រើ។ បើប្រើតែលើ
-                        Dashboard ទុកក្នុង folder របស់ Dashboard។ បើប្រើទូទៅ
-                        ដាក់ក្នុង root <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">components/</code>។</span
-                      >
-                    </p>
-                  </div>
-                </div>
+    └── page.tsx`;
+
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 07 — COMPONENTS &bull; SLIDE 21 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            Component Architecture
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            Organizing components, modularity, and colocation best practices.
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">
+          Next.js App Router
+        </span>
+      </div>
+
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3 text-xs">
+          <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden text-xs shadow-md">
+            <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+              <div className="terminal-dots flex items-center gap-1.5">
+                <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
               </div>
+              <span className="text-xs text-slate-400 font-mono">Recommended Component Organization</span>
+              <button
+                className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                data-copy={componentTreeText}
+              >
+                <Copy className="w-3 h-3" />
+                Copy
+              </button>
+            </div>
+            <div className="terminal-body p-3.5 overflow-x-auto text-xs leading-relaxed bg-slate-950/60">
+              <pre className="tree-diagram font-mono text-[11.5px] leading-relaxed text-slate-300 m-0">
+                <span className="text-sky-400 font-bold">app/</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-sky-300 font-semibold">components/</span>{"           "}<span className="text-blue-400 font-semibold"># Shared UI components</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-indigo-300">Button.tsx</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-indigo-300">Card.tsx</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-indigo-300">Modal.tsx</span>{"\n"}
+                <span className="text-slate-500">│   └── </span><span className="text-indigo-300">Navbar.tsx</span>{"\n"}
+                <span className="text-slate-500">└── </span><span className="text-sky-300 font-semibold">dashboard/</span>{"\n"}
+                <span className="text-slate-500">    ├── </span><span className="text-emerald-400 font-semibold">components/</span>{"       "}<span className="text-green-400 font-semibold"># Dashboard-specific components</span>{"\n"}
+                <span className="text-slate-500">    │   └── </span><span className="text-indigo-300">UserTable.tsx</span>{"\n"}
+                <span className="text-slate-500">    └── </span><span className="text-emerald-400 font-semibold">page.tsx</span>
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4>
+              <CheckCircle2 className="w-4 h-4 text-purple-400" />
+              Modularity &amp; Colocation
+            </h4>
+            <p>
+              <span className="lang-en">
+                Colocate components close to where they are used. If a component is only used on the dashboard, keep it in{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">app/dashboard/components/</code>. If it is reused across the entire app, place it in a top-level{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">components/</code> folder.
+              </span>
+              <span className="lang-km">
+                ដាក់ component ជិតកន្លែងដែលវាត្រូវប្រើ។ បើប្រើតែលើ Dashboard ទុកក្នុង folder របស់ Dashboard។ បើប្រើទូទៅ ដាក់ក្នុង root{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">components/</code>។
+              </span>
+            </p>
+          </div>
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4 className="text-blue-400 font-bold flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-blue-400" />
+              <span className="lang-en">Colocation Rules</span>
+              <span className="lang-km">វិធានរៀបចំ Component</span>
+            </h4>
+            <div className="space-y-1.5 text-xs text-slate-300">
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Shared Components</span>
+                <span className="text-slate-400 text-[11px] lang-km">ប្រើរួមទូទាំង App</span>
+                <code className="text-blue-400 font-mono text-[11px]">app/components/</code>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Feature Components</span>
+                <span className="text-slate-400 text-[11px] lang-km">ប្រើតែក្នុងមុខងារជាក់លាក់</span>
+                <code className="text-green-400 font-mono text-[11px]">dashboard/components/</code>
+              </div>
+              <div className="p-1.5 bg-slate-900 border border-slate-800 flex justify-between items-center">
+                <span className="text-slate-400 text-[11px] lang-en">Design Primitives</span>
+                <span className="text-slate-400 text-[11px] lang-km">ប៊ូតុង &amp; Inputs</span>
+                <code className="text-purple-400 font-mono text-[11px]">components/ui/</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -4088,70 +4324,119 @@ export function Slide51({ onStart, onRestart }) {
 
 // Slide 52: Real Application Structure
 export function Slide52({ onStart, onRestart }) {
-  return (
-    <div className="flex flex-col gap-4 flex-1">
-      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
-                <div className="slide-title-wrap flex flex-col gap-1">
-                  <span className="slide-meta-label  text-[11px] font-bold uppercase tracking-wider text-blue-400"
-                    >SECTION 21 — PROJECT ARCHITECTURE &bull; SLIDE 52 /
-                    75</span
-                  >
-                  <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">Real Application Structure</h2>
-                  <p className="slide-subtitle text-[13px] text-slate-400 m-0">
-                    Production-grade folder architecture and route groups.
-                  </p>
-                </div>
-                <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400  inline-flex items-center gap-1">Next.js App Router</span>
-              </div>
-
-              <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-3  text-xs">
-                  <div className="p-3 bg-slate-900 border border-slate-800">
-                    <div className="text-blue-400 font-bold mb-2">
-                      Production SaaS Folder Layout
-                    </div>
-                    <pre className="text-slate-300 leading-relaxed">
-taskflow/
+  const prodTreeText = `taskflow/
 ├── app/
-│   ├── (auth)/             <span className="text-slate-400"># Route group (no URL impact)</span>
+│   ├── (auth)/             # Route group (no URL impact)
 │   │   ├── login/page.tsx
 │   │   └── register/page.tsx
-│   ├── (dashboard)/        <span className="text-slate-400"># Authenticated layout</span>
+│   ├── (dashboard)/        # Authenticated layout
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
 │   │   └── tasks/page.tsx
-│   ├── api/                <span className="text-slate-400"># Webhooks &amp; public APIs</span>
+│   ├── api/                # Webhooks & public APIs
 │   ├── layout.tsx
 │   └── globals.css
-├── actions/                <span className="text-green-400 font-bold"># Server Actions (mutations)</span>
-├── components/ui/          <span className="text-blue-400 font-bold"># Design system components</span>
-├── lib/db.ts               <span className="text-purple-400 font-bold"># Database connection client</span>
-└── middleware.ts           <span className="text-amber-400 font-bold"># Route protection guard</span>
-      </pre>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
-                    <h4>
-                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                      Route Groups (auth) &amp; (dashboard)
-                    </h4>
-                    <p>
-                      <span className="lang-en"
-                        >Folders wrapped in parentheses like
-                        <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">(auth)</code> organize your routes without adding
-                        their folder name to the URL path. This allows separate
-                        layouts for public login pages vs internal app
-                        dashboards!</span
-                      ><span className="lang-km"
-                        >Folder ក្នុងវង់ក្រចកដូចជា <code className=" text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">(auth)</code> ជួយរៀបចំ
-                        Route ដោយមិនប៉ះពាល់ដល់ URL ឡើយ។ វាអនុញ្ញាតឱ្យយើងមាន
-                        Layout ដាច់ដោយឡែករវាង Login និង Dashboard!</span
-                      >
-                    </p>
-                  </div>
-                </div>
+├── actions/                # Server Actions (mutations)
+├── components/ui/          # Design system components
+├── lib/db.ts               # Database connection client
+└── middleware.ts           # Route protection guard`;
+
+  return (
+    <div className="flex flex-col gap-4 flex-1">
+      <div className="slide-header flex items-start justify-between border-b border-slate-800 pb-3 gap-3">
+        <div className="slide-title-wrap flex flex-col gap-1">
+          <span className="slide-meta-label text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            SECTION 21 — PROJECT ARCHITECTURE &bull; SLIDE 52 / 75
+          </span>
+          <h2 className="slide-title text-2xl font-extrabold text-white m-0 leading-tight">
+            Real Application Structure
+          </h2>
+          <p className="slide-subtitle text-[13px] text-slate-400 m-0">
+            Production-grade folder architecture and route groups.
+          </p>
+        </div>
+        <span className="tag-badge blue text-[11px] font-bold px-2 py-0.5 border border-blue-500/30 bg-blue-600/15 text-blue-400 inline-flex items-center gap-1">
+          Next.js App Router
+        </span>
+      </div>
+
+      <div className="slide-grid-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-3 text-xs">
+          <div className="terminal-window bg-slate-900 border border-slate-800 overflow-hidden text-xs shadow-md">
+            <div className="terminal-header flex items-center justify-between px-3 py-2 bg-slate-900 border-b border-slate-800">
+              <div className="terminal-dots flex items-center gap-1.5">
+                <div className="terminal-dot red w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></div>
+                <div className="terminal-dot yellow w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></div>
+                <div className="terminal-dot green w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></div>
               </div>
+              <span className="text-xs text-slate-400 font-mono">Production SaaS Folder Layout</span>
+              <button
+                className="btn-copy text-[11px] px-2 py-0.5 cursor-pointer flex items-center gap-1 bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                data-copy={prodTreeText}
+              >
+                <Copy className="w-3 h-3" />
+                Copy
+              </button>
+            </div>
+            <div className="terminal-body p-3.5 overflow-x-auto text-xs leading-relaxed bg-slate-950/60">
+              <pre className="tree-diagram font-mono text-[11.5px] leading-relaxed text-slate-300 m-0">
+                <span className="text-sky-400 font-bold">taskflow/</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-sky-300 font-semibold">app/</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-purple-400 font-semibold">(auth)/</span>{"             "}<span className="text-slate-400 font-semibold"># Route group (no URL impact)</span>{"\n"}
+                <span className="text-slate-500">│   │   ├── </span><span className="text-indigo-300">login/page.tsx</span>{"\n"}
+                <span className="text-slate-500">│   │   └── </span><span className="text-indigo-300">register/page.tsx</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-purple-400 font-semibold">(dashboard)/</span>{"        "}<span className="text-slate-400 font-semibold"># Authenticated layout</span>{"\n"}
+                <span className="text-slate-500">│   │   ├── </span><span className="text-emerald-400 font-semibold">layout.tsx</span>{"\n"}
+                <span className="text-slate-500">│   │   ├── </span><span className="text-emerald-400 font-semibold">page.tsx</span>{"\n"}
+                <span className="text-slate-500">│   │   └── </span><span className="text-indigo-300">tasks/page.tsx</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-sky-300 font-semibold">api/</span>{"                "}<span className="text-slate-400 font-semibold"># Webhooks &amp; public APIs</span>{"\n"}
+                <span className="text-slate-500">│   ├── </span><span className="text-emerald-400 font-semibold">layout.tsx</span>{"\n"}
+                <span className="text-slate-500">│   └── </span><span className="text-indigo-300">globals.css</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-green-400 font-bold">actions/</span>{"                "}<span className="text-green-400 font-semibold"># Server Actions (mutations)</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-blue-400 font-bold">components/ui/</span>{"          "}<span className="text-blue-400 font-semibold"># Design system components</span>{"\n"}
+                <span className="text-slate-500">├── </span><span className="text-purple-400 font-bold">lib/db.ts</span>{"               "}<span className="text-purple-400 font-semibold"># Database connection client</span>{"\n"}
+                <span className="text-slate-500">└── </span><span className="text-amber-400 font-bold">middleware.ts</span>{"           "}<span className="text-amber-400 font-semibold"># Route protection guard</span>
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4>
+              <CheckCircle2 className="w-4 h-4 text-blue-400" />
+              Route Groups (auth) &amp; (dashboard)
+            </h4>
+            <p>
+              <span className="lang-en">
+                Folders wrapped in parentheses like{" "}
+                <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">(auth)</code> organize your routes without adding
+                their folder name to the URL path. This allows separate
+                layouts for public login pages vs internal app
+                dashboards!
+              </span>
+              <span className="lang-km">
+                Folder ក្នុងវង់ក្រចកដូចជា <code className="text-xs text-blue-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">(auth)</code> ជួយរៀបចំ
+                Route ដោយមិនប៉ះពាល់ដល់ URL ឡើយ។ វាអនុញ្ញាតឱ្យយើងមាន
+                Layout ដាច់ដោយឡែករវាង Login និង Dashboard!
+              </span>
+            </p>
+          </div>
+          <div className="info-card bg-slate-800/80 border border-slate-800 p-3.5 flex flex-col gap-2 hover:border-slate-700 transition-colors">
+            <h4>
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              Architectural Separation
+            </h4>
+            <p>
+              <span className="lang-en">
+                Keep business logic (<code className="text-xs text-green-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">actions/</code>), data access (<code className="text-xs text-purple-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">lib/</code>), and security (<code className="text-xs text-amber-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">middleware.ts</code>) cleanly decoupled from presentation UI.
+              </span>
+              <span className="lang-km">
+                បំបែក business logic (<code className="text-xs text-green-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">actions/</code>), data client (<code className="text-xs text-purple-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">lib/</code>), និង security (<code className="text-xs text-amber-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5">middleware.ts</code>) ឱ្យដាច់ពី UI។
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

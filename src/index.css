@@ -244,9 +244,11 @@
 /* Circular status dots and Mac window control dots */
 .docs-content .rounded-full,
 .docs-content [class*="rounded-full"],
+.docs-content .terminal-dots *,
 .docs-content .terminal-dots span,
 .docs-content .dot,
 .docs-content .terminal-dot,
+.terminal-dots *,
 .terminal-dots span,
 .rounded-full {
   border-radius: 9999px !important;
@@ -266,18 +268,28 @@ html:not(.dark) .docs-content .title-main-h1 {
   color: #0f172a !important; /* slate-900 */
 }
 
-/* Prevent hardcoded text-white on headings from disappearing in light mode */
-html:not(.dark) .docs-content h1.text-white,
-html:not(.dark) .docs-content h2.text-white,
-html:not(.dark) .docs-content h3.text-white,
-html:not(.dark) .docs-content h4.text-white,
-html:not(.dark) .docs-content .slide-title.text-white,
-html:not(.dark) .docs-content .title-main-h1.text-white,
-html:not(.dark) .docs-content .slide-title-wrap .text-white,
-html:not(.dark) .docs-content .title-text-col .text-white,
-html:not(.dark) .docs-content .info-card h4.text-white,
-html:not(.dark) .docs-content .info-card .text-white {
+/* Universal text-white & light-neutral overrides in Light Mode */
+html:not(.dark) .docs-content .text-white:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.btn-start-course *):not(.btn-start-course):not(.btn-cta-primary *):not(.btn-cta-primary):not(#btn-start-course):not(#btn-start-course *):not([class*="bg-blue-600"] *):not([class*="bg-blue-600"]):not([class*="bg-blue-700"] *):not([class*="bg-blue-700"]):not([class*="bg-emerald-600"] *):not([class*="bg-emerald-600"]):not([class*="bg-red-600"] *):not([class*="bg-red-600"]):not(.copy-btn *):not(.btn-copy *),
+html:not(.dark) .docs-content .text-slate-50:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-slate-100:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
   color: #0f172a !important;
+}
+
+/* Slate Neutrals in Light Mode */
+html:not(.dark) .docs-content .text-slate-200:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.copy-btn *):not(.btn-copy *) {
+  color: #1e293b !important; /* slate-800 */
+}
+
+html:not(.dark) .docs-content .text-slate-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.copy-btn *):not(.btn-copy *) {
+  color: #334155 !important; /* slate-700 */
+}
+
+html:not(.dark) .docs-content .text-slate-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.copy-btn *):not(.btn-copy *) {
+  color: #475569 !important; /* slate-600 */
+}
+
+html:not(.dark) .docs-content .text-slate-500:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #64748b !important; /* slate-500 */
 }
 
 html:not(.dark) .docs-content .slide-subtitle,
@@ -290,35 +302,97 @@ html:not(.dark) .docs-content p {
   line-height: 1.6;
 }
 
-html:not(.dark) .docs-content .text-slate-300:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *) {
-  color: #475569 !important; /* slate-600 */
+/* Colored Accents & Badges in Light Mode (High Contrast, WCAG AA Compliant) */
+html:not(.dark) .docs-content .text-blue-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-blue-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #1d4ed8 !important; /* blue-700 */
 }
 
-html:not(.dark) .docs-content .text-slate-400:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *) {
-  color: #64748b !important; /* slate-500 */
+html:not(.dark) .docs-content .text-blue-500:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #2563eb !important; /* blue-600 */
 }
 
-html:not(.dark) .docs-content .text-slate-200:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *) {
-  color: #334155 !important; /* slate-700 */
+html:not(.dark) .docs-content .text-sky-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-sky-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #0369a1 !important; /* sky-700 */
 }
 
-/* Cards & Section Containers */
+html:not(.dark) .docs-content .text-cyan-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #0e7490 !important; /* cyan-700 */
+}
+
+/* Green & Emerald Accents */
+html:not(.dark) .docs-content .text-green-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content [class*="text-green-300/80"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-green-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #15803d !important; /* green-700 */
+}
+
+html:not(.dark) .docs-content .text-emerald-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-emerald-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #047857 !important; /* emerald-700 */
+}
+
+/* Amber, Yellow & Orange Accents */
+html:not(.dark) .docs-content .text-amber-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-amber-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-yellow-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-yellow-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #b45309 !important; /* amber-700 */
+}
+
+html:not(.dark) .docs-content .text-orange-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-orange-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #c2410c !important; /* orange-700 */
+}
+
+/* Purple & Pink Accents */
+html:not(.dark) .docs-content .text-purple-200:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-purple-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-purple-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #7e22ce !important; /* purple-700 */
+}
+
+html:not(.dark) .docs-content .text-pink-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #be185d !important; /* pink-700 */
+}
+
+/* Red & Rose Accents */
+html:not(.dark) .docs-content .text-red-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content [class*="text-red-300/80"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-red-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #b91c1c !important; /* red-700 */
+}
+
+html:not(.dark) .docs-content .text-rose-300:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .text-rose-400:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
+  color: #be123c !important; /* rose-700 */
+}
+
+/* Cards & Section Containers in Light Mode */
 html:not(.dark) .docs-content .info-card,
-html:not(.dark) .docs-content [class*="bg-slate-800/80"],
-html:not(.dark) .docs-content [class*="bg-slate-800/70"],
-html:not(.dark) .docs-content [class*="bg-slate-800/60"] {
+html:not(.dark) .docs-content .slide-content-card,
+html:not(.dark) .docs-content [class*="bg-slate-800"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.terminal-window):not(.terminal-mockup):not(.code-box):not(.code-block-container):not(.btn-copy):not(.btn-copy *),
+html:not(.dark) .docs-content [class*="bg-slate-900"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.terminal-window):not(.terminal-mockup):not(.code-box):not(.code-block-container),
+html:not(.dark) .docs-content [class*="bg-slate-950"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.terminal-window):not(.terminal-mockup):not(.code-box):not(.code-block-container) {
   background-color: #ffffff !important;
   border: 1px solid #e2e8f0 !important; /* slate-200 */
-  color: #334155 !important;
+  color: #0f172a !important;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Inner sub-boxes inside info cards */
-html:not(.dark) .docs-content .info-card [class*="bg-slate-900"],
-html:not(.dark) .docs-content [class*="bg-slate-800/80"] [class*="bg-slate-900"] {
+/* Inner sub-boxes & grid items strictly inside info cards (never touching terminals or code boxes) */
+html:not(.dark) .docs-content .info-card [class*="bg-slate-900"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *),
+html:not(.dark) .docs-content .info-card [class*="bg-slate-800"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *) {
   background-color: #f8fafc !important;
   border: 1px solid #e2e8f0 !important;
   color: #0f172a !important;
+}
+
+/* Borders in Light Mode */
+html:not(.dark) .docs-content [class*="border-slate-800"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.terminal-window):not(.terminal-mockup):not(.code-box):not(.code-block-container),
+html:not(.dark) .docs-content [class*="border-slate-700"]:not(.terminal-window *):not(.terminal-mockup *):not(.code-box *):not(.code-block-container *):not(.terminal-window):not(.terminal-mockup):not(.code-box):not(.code-block-container):not(.btn-copy):not(.btn-copy *) {
+  border-color: #e2e8f0 !important;
 }
 
 html:not(.dark) .docs-content .slide-header,
@@ -326,56 +400,105 @@ html:not(.dark) .docs-content .slide-header-group {
   border-bottom: 1px solid #e2e8f0 !important;
 }
 
-/* Callouts in Light Mode */
+/* Callouts & Alert Banners in Light Mode */
 html:not(.dark) .docs-content .alert-callout {
   border: 1px solid #e2e8f0 !important;
   background-color: #f8fafc !important;
   color: #334155 !important;
 }
 
+/* Blue & Sky Callouts */
 html:not(.dark) .docs-content .alert-callout.tip,
 html:not(.dark) .docs-content [class*="bg-sky-500/10"],
-html:not(.dark) .docs-content [class*="bg-blue-500/10"] {
-  background-color: #f0f9ff !important;
-  border-color: #bae6fd !important;
-  color: #0369a1 !important;
+html:not(.dark) .docs-content [class*="bg-blue-500/10"],
+html:not(.dark) .docs-content [class*="bg-blue-900"],
+html:not(.dark) .docs-content [class*="bg-blue-950"],
+html:not(.dark) .docs-content [class*="bg-sky-900"],
+html:not(.dark) .docs-content [class*="bg-sky-950"] {
+  background-color: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  color: #1e40af !important;
 }
 
+html:not(.dark) .docs-content [class*="bg-blue-900"] *,
+html:not(.dark) .docs-content [class*="bg-blue-950"] *,
+html:not(.dark) .docs-content [class*="bg-sky-900"] *,
+html:not(.dark) .docs-content [class*="bg-sky-950"] * {
+  color: #1e40af !important;
+}
+
+/* Emerald & Green Callouts */
 html:not(.dark) .docs-content [class*="bg-emerald-500/10"],
-html:not(.dark) .docs-content [class*="bg-green-500/10"] {
+html:not(.dark) .docs-content [class*="bg-green-500/10"],
+html:not(.dark) .docs-content [class*="bg-green-900"],
+html:not(.dark) .docs-content [class*="bg-emerald-950"] {
   background-color: #ecfdf5 !important;
-  border-color: #a7f3d0 !important;
-  color: #047857 !important;
+  border: 1px solid #a7f3d0 !important;
+  color: #065f46 !important;
 }
 
-html:not(.dark) .docs-content [class*="bg-amber-500/10"] {
+html:not(.dark) .docs-content [class*="bg-green-900"] *,
+html:not(.dark) .docs-content [class*="bg-emerald-950"] * {
+  color: #065f46 !important;
+}
+
+/* Amber, Yellow & Orange Callouts */
+html:not(.dark) .docs-content [class*="bg-amber-500/10"],
+html:not(.dark) .docs-content [class*="bg-orange-500/10"],
+html:not(.dark) .docs-content [class*="bg-amber-950"],
+html:not(.dark) .docs-content [class*="bg-orange-900"] {
   background-color: #fffbeb !important;
-  border-color: #fde68a !important;
-  color: #b45309 !important;
+  border: 1px solid #fde68a !important;
+  color: #92400e !important;
 }
 
+html:not(.dark) .docs-content [class*="bg-amber-950"] *,
+html:not(.dark) .docs-content [class*="bg-orange-900"] * {
+  color: #92400e !important;
+}
+
+/* Rose & Red Callouts */
 html:not(.dark) .docs-content [class*="bg-rose-500/10"],
-html:not(.dark) .docs-content [class*="bg-red-500/10"] {
+html:not(.dark) .docs-content [class*="bg-red-500/10"],
+html:not(.dark) .docs-content [class*="bg-red-900"],
+html:not(.dark) .docs-content [class*="bg-rose-950"] {
   background-color: #fff1f2 !important;
-  border-color: #fecdd3 !important;
-  color: #be123c !important;
+  border: 1px solid #fecdd3 !important;
+  color: #9f1239 !important;
 }
 
+html:not(.dark) .docs-content [class*="bg-red-900"] *,
+html:not(.dark) .docs-content [class*="bg-rose-950"] * {
+  color: #9f1239 !important;
+}
+
+/* Purple Callouts */
 html:not(.dark) .docs-content [class*="bg-purple-500/10"],
-html:not(.dark) .docs-content [class*="bg-purple-500/15"] {
+html:not(.dark) .docs-content [class*="bg-purple-500/15"],
+html:not(.dark) .docs-content [class*="bg-purple-900"],
+html:not(.dark) .docs-content [class*="bg-purple-950"],
+html:not(.dark) .docs-content [class*="bg-purple-800"] {
   background-color: #faf5ff !important;
-  border-color: #e9d5ff !important;
-  color: #7e22ce !important;
+  border: 1px solid #e9d5ff !important;
+  color: #6b21a8 !important;
+}
+
+html:not(.dark) .docs-content [class*="bg-purple-900"] *,
+html:not(.dark) .docs-content [class*="bg-purple-950"] *,
+html:not(.dark) .docs-content [class*="bg-purple-800"] * {
+  color: #6b21a8 !important;
 }
 
 /* Badges in Light Mode */
-html:not(.dark) .docs-content .tag-badge.blue {
+html:not(.dark) .docs-content .tag-badge.blue,
+html:not(.dark) .docs-content [class*="bg-blue-600/15"] {
   background-color: #eff6ff !important;
   border-color: #bfdbfe !important;
   color: #1d4ed8 !important;
 }
 
-html:not(.dark) .docs-content .tag-badge.green {
+html:not(.dark) .docs-content .tag-badge.green,
+html:not(.dark) .docs-content [class*="bg-green-600/15"] {
   background-color: #ecfdf5 !important;
   border-color: #a7f3d0 !important;
   color: #047857 !important;
@@ -408,7 +531,7 @@ html:not(.dark) .docs-content .diag-node.highlight {
 }
 
 html:not(.dark) .docs-content .diag-arrow {
-  color: #94a3b8 !important;
+  color: #2563eb !important;
 }
 
 /* Tables in Light Mode */
@@ -421,15 +544,17 @@ html:not(.dark) .docs-content .table-spec th {
   background-color: #f8fafc !important;
   color: #0f172a !important;
   border-bottom: 1px solid #e2e8f0 !important;
+  border-color: #e2e8f0 !important;
 }
 
 html:not(.dark) .docs-content .table-spec td {
   color: #334155 !important;
   border-bottom: 1px solid #e2e8f0 !important;
+  border-color: #e2e8f0 !important;
 }
 
 /* Inline Code & Kbd in Light Mode */
-html:not(.dark) .docs-content code:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *) {
+html:not(.dark) .docs-content code:not(.terminal-mockup *):not(.terminal-window *):not(.code-box *):not(.code-block-container *) {
   background-color: #f1f5f9 !important;
   border: 1px solid #e2e8f0 !important;
   color: #0f172a !important;
@@ -495,23 +620,29 @@ html.dark .docs-content .diag-node.active {
 .docs-content .terminal-window,
 .docs-content .terminal-mockup,
 .docs-content .code-box,
-.docs-content .code-block-container {
+.docs-content .code-block-container,
+html:not(.dark) .docs-content .terminal-window,
+html:not(.dark) .docs-content .terminal-mockup,
+html:not(.dark) .docs-content .code-box,
+html:not(.dark) .docs-content .code-block-container {
   background-color: #0f172a !important; /* bg-slate-900 like Git page */
   border: 1px solid #1e293b !important; /* border-slate-800 like Git page */
   border-radius: 4px !important;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.25) !important; /* shadow-xl */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35), 0 8px 10px -6px rgba(0, 0, 0, 0.3) !important;
   overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
 }
 
 .docs-content .terminal-header,
-.docs-content .code-box-header {
+.docs-content .code-box-header,
+html:not(.dark) .docs-content .terminal-header,
+html:not(.dark) .docs-content .code-box-header {
   background-color: #0f172a !important; /* bg-slate-900 */
   border-bottom: 1px solid #1e293b !important; /* border-slate-800 */
   color: #94a3b8 !important; /* text-slate-400 */
   font-size: 11px !important;
-  padding: 10px 14px !important; /* px-3.5 py-2.5 like Git page */
+  padding: 8px 14px !important; /* px-3.5 py-2 */
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -519,7 +650,8 @@ html.dark .docs-content .diag-node.active {
 }
 
 /* Dots: macOS 3-color window controls */
-.docs-content .terminal-dots {
+.docs-content .terminal-dots,
+html:not(.dark) .docs-content .terminal-dots {
   display: flex !important;
   align-items: center !important;
   gap: 6px !important;
@@ -527,8 +659,14 @@ html.dark .docs-content .diag-node.active {
 
 .docs-content .terminal-dots span,
 .docs-content .terminal-dots div,
+.docs-content .terminal-dots *,
 .docs-content .terminal-dot,
-.docs-content .dot {
+.docs-content .dot,
+html:not(.dark) .docs-content .terminal-dots span,
+html:not(.dark) .docs-content .terminal-dots div,
+html:not(.dark) .docs-content .terminal-dots *,
+html:not(.dark) .docs-content .terminal-dot,
+html:not(.dark) .docs-content .dot {
   width: 10px !important;
   height: 10px !important;
   min-width: 10px !important;
@@ -540,39 +678,69 @@ html.dark .docs-content .diag-node.active {
 /* 1st dot = Red, 2nd = Amber, 3rd = Green */
 .docs-content .terminal-dots > *:nth-child(1),
 .docs-content .terminal-dot.red,
-.docs-content .dot.red {
+.docs-content .dot.red,
+html:not(.dark) .docs-content .terminal-dots > *:nth-child(1),
+html:not(.dark) .docs-content .terminal-dot.red,
+html:not(.dark) .docs-content .dot.red {
   background-color: rgba(239, 68, 68, 0.85) !important;
 }
 
 .docs-content .terminal-dots > *:nth-child(2),
 .docs-content .terminal-dot.yellow,
-.docs-content .dot.yellow {
+.docs-content .dot.yellow,
+html:not(.dark) .docs-content .terminal-dots > *:nth-child(2),
+html:not(.dark) .docs-content .terminal-dot.yellow,
+html:not(.dark) .docs-content .dot.yellow {
   background-color: rgba(245, 158, 11, 0.85) !important;
 }
 
 .docs-content .terminal-dots > *:nth-child(3),
 .docs-content .terminal-dot.green,
-.docs-content .dot.green {
+.docs-content .dot.green,
+html:not(.dark) .docs-content .terminal-dots > *:nth-child(3),
+html:not(.dark) .docs-content .terminal-dot.green,
+html:not(.dark) .docs-content .dot.green {
   background-color: rgba(16, 185, 129, 0.85) !important;
 }
 
 /* Title in header */
 .docs-content .terminal-title,
 .docs-content .terminal-header > span,
-.docs-content .code-box-header > span {
+.docs-content .code-box-header > span,
+html:not(.dark) .docs-content .terminal-title,
+html:not(.dark) .docs-content .terminal-header > span,
+html:not(.dark) .docs-content .code-box-header > span {
   font-size: 11px !important;
   color: #94a3b8 !important;
   font-weight: 600 !important;
   letter-spacing: 0.025em !important;
 }
 
-/* Body */
+/* Terminal Body - normal white-space layout */
 .docs-content .terminal-body,
+html:not(.dark) .docs-content .terminal-body {
+  background-color: #0f172a !important; /* bg-slate-900 like Git page */
+  color: #cbd5e1 !important;
+  padding: 14px 16px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+  white-space: normal !important;
+  overflow-x: auto !important;
+  flex: 1 1 auto !important;
+}
+
+/* Code Pre Blocks - pre-wrap strictly for actual code pre blocks */
 .docs-content pre,
 .docs-content .code-box pre,
 .docs-content .code-block-container pre,
 .docs-content .terminal-window pre,
-.docs-content .terminal-mockup pre {
+.docs-content .terminal-mockup pre,
+html:not(.dark) .docs-content pre,
+html:not(.dark) .docs-content .code-box pre,
+html:not(.dark) .docs-content .code-block-container pre,
+html:not(.dark) .docs-content .terminal-window pre,
+html:not(.dark) .docs-content .terminal-mockup pre {
   background-color: #0f172a !important; /* bg-slate-900 like Git page */
   color: #e2e8f0 !important;
   padding: 16px !important; /* p-4 like Git page */
@@ -652,9 +820,15 @@ html.dark .docs-content .diag-node.active {
   color: #fb923c !important; /* orange-400 */
 }
 
-/* Copy Button like Git page */
+/* Copy Button like Git page - always dark slate in all themes */
 .docs-content .copy-btn,
-.docs-content .btn-copy {
+.docs-content .btn-copy,
+.docs-content .terminal-header button,
+.docs-content .code-box-header button,
+html:not(.dark) .docs-content .copy-btn,
+html:not(.dark) .docs-content .btn-copy,
+html:not(.dark) .docs-content .terminal-header button,
+html:not(.dark) .docs-content .code-box-header button {
   background-color: #1e293b !important;
   border: 1px solid #334155 !important;
   color: #cbd5e1 !important;
@@ -670,61 +844,185 @@ html.dark .docs-content .diag-node.active {
 }
 
 .docs-content .copy-btn:hover,
-.docs-content .btn-copy:hover {
+.docs-content .btn-copy:hover,
+.docs-content .terminal-header button:hover,
+.docs-content .code-box-header button:hover,
+html:not(.dark) .docs-content .copy-btn:hover,
+html:not(.dark) .docs-content .btn-copy:hover,
+html:not(.dark) .docs-content .terminal-header button:hover,
+html:not(.dark) .docs-content .code-box-header button:hover {
   background-color: #334155 !important;
   color: #ffffff !important;
   border-color: #475569 !important;
 }
 
 .docs-content .copy-btn.copied,
-.docs-content .btn-copy.copied {
+.docs-content .btn-copy.copied,
+html:not(.dark) .docs-content .copy-btn.copied,
+html:not(.dark) .docs-content .btn-copy.copied {
   background-color: rgba(5, 150, 105, 0.25) !important; /* bg-emerald-600/30 */
   border-color: rgba(16, 185, 129, 0.4) !important; /* border-emerald-500/40 */
   color: #6ee7b7 !important; /* text-emerald-300 */
 }
 
-/* Terminal syntax elements */
+/* Terminal syntax elements (Protected in BOTH Light & Dark Themes) */
+
+/* Shell Prompt ($) */
 .docs-content .term-prompt,
+.docs-content .terminal-body .term-prompt,
 .docs-content .terminal-body .text-blue-500,
-.docs-content .terminal-body .text-orange-500 {
+html:not(.dark) .docs-content .term-prompt,
+html:not(.dark) .docs-content .terminal-body .term-prompt,
+html:not(.dark) .docs-content .terminal-body .text-blue-500 {
+  color: #3b82f6 !important; /* blue-500 */
   font-weight: 700 !important;
   user-select: none !important;
-  margin-right: 8px !important;
+  display: inline-block !important;
+  margin-right: 6px !important;
 }
 
+/* Terminal Commands (Blue 400 bold) */
+.docs-content .terminal-body div.term-cmd,
 .docs-content .term-cmd,
-.docs-content .terminal-body .text-blue-400,
-.docs-content .terminal-body .text-orange-400 {
+html:not(.dark) .docs-content .terminal-body div.term-cmd,
+html:not(.dark) .docs-content .term-cmd {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #60a5fa !important; /* blue-400 */
   font-weight: 700 !important;
-  color: #60a5fa !important;
-  flex-wrap: wrap !important;
   word-break: break-word !important;
-  overflow-wrap: anywhere !important;
 }
 
+.docs-content .terminal-body span.term-cmd,
+html:not(.dark) .docs-content .terminal-body span.term-cmd {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  color: #60a5fa !important;
+  font-weight: 700 !important;
+}
+
+.docs-content .terminal-body .text-blue-400,
+.docs-content .terminal-body .text-orange-400,
+html:not(.dark) .docs-content .terminal-body .text-blue-400,
+html:not(.dark) .docs-content .terminal-body .text-orange-400 {
+  color: #60a5fa !important;
+  font-weight: 700 !important;
+}
+
+/* Terminal Output Text */
 .docs-content .term-out,
 .docs-content .term-output,
-.docs-content .terminal-body .text-slate-300,
-.docs-content .terminal-body > div {
-  color: #cbd5e1 !important;
+.docs-content .terminal-body .text-slate-400,
+html:not(.dark) .docs-content .term-out,
+html:not(.dark) .docs-content .term-output,
+html:not(.dark) .docs-content .terminal-body .text-slate-400 {
+  color: #94a3b8 !important; /* slate-400 */
   word-break: break-word !important;
-  overflow-wrap: anywhere !important;
 }
 
+.docs-content .terminal-body .text-slate-300,
+.docs-content .terminal-body .text-slate-200,
+html:not(.dark) .docs-content .terminal-body .text-slate-300,
+html:not(.dark) .docs-content .terminal-body .text-slate-200 {
+  color: #cbd5e1 !important; /* slate-300 */
+  word-break: break-word !important;
+}
+
+/* Success & Version Output */
 .docs-content .term-success,
 .docs-content .out-success,
-.docs-content .terminal-body .text-emerald-400 {
-  color: #34d399 !important;
+.docs-content .terminal-body .text-emerald-400,
+.docs-content .terminal-body .text-emerald-300,
+.docs-content .terminal-body .text-green-400,
+html:not(.dark) .docs-content .term-success,
+html:not(.dark) .docs-content .out-success,
+html:not(.dark) .docs-content .terminal-body .text-emerald-400,
+html:not(.dark) .docs-content .terminal-body .text-emerald-300,
+html:not(.dark) .docs-content .terminal-body .text-green-400 {
+  color: #34d399 !important; /* emerald-400 */
   font-weight: 600 !important;
   word-break: break-word !important;
-  overflow-wrap: anywhere !important;
 }
 
+/* Comments */
 .docs-content .term-comment,
-.docs-content .terminal-body .text-slate-500 {
-  color: #64748b !important;
+.docs-content .terminal-body .text-slate-500,
+html:not(.dark) .docs-content .term-comment,
+html:not(.dark) .docs-content .terminal-body .text-slate-500 {
+  color: #64748b !important; /* slate-500 */
   word-break: break-word !important;
-  overflow-wrap: anywhere !important;
+}
+
+/* Branch & Special Highlights */
+.docs-content .terminal-body .text-cyan-400,
+html:not(.dark) .docs-content .terminal-body .text-cyan-400 {
+  color: #22d3ee !important; /* cyan-400 */
+  font-weight: 600 !important;
+}
+
+.docs-content .terminal-body .text-rose-400,
+.docs-content .terminal-body .text-red-400,
+html:not(.dark) .docs-content .terminal-body .text-rose-400,
+html:not(.dark) .docs-content .terminal-body .text-red-400 {
+  color: #f87171 !important; /* rose-400 */
+  font-weight: 600 !important;
+}
+
+.docs-content .terminal-body .text-amber-400,
+.docs-content .terminal-body .text-amber-300,
+html:not(.dark) .docs-content .terminal-body .text-amber-400,
+html:not(.dark) .docs-content .terminal-body .text-amber-300 {
+  color: #fbbf24 !important; /* amber-400 */
+  font-weight: 600 !important;
+}
+
+/* Interactive simulation output */
+.docs-content .sim-output,
+html:not(.dark) .docs-content .sim-output {
+  white-space: pre !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  color: #cbd5e1 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow-x: auto !important;
+}
+
+/* Directory trees & ASCII diagrams - preserve exact whitespace & horizontal alignment */
+.docs-content .tree-diagram,
+.docs-content .file-tree,
+.docs-content pre.tree-diagram,
+.docs-content pre.file-tree,
+.docs-content .terminal-body pre,
+html:not(.dark) .docs-content .tree-diagram,
+html:not(.dark) .docs-content .file-tree,
+html:not(.dark) .docs-content pre.tree-diagram,
+html:not(.dark) .docs-content pre.file-tree,
+html:not(.dark) .docs-content .terminal-body pre {
+  white-space: pre !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  overflow-x: auto !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-size: 11.5px !important;
+  line-height: 1.65 !important;
+  color: #cbd5e1 !important;
+}
+
+.docs-content .tree-diagram *,
+.docs-content .file-tree *,
+html:not(.dark) .docs-content .tree-diagram *,
+html:not(.dark) .docs-content .file-tree * {
+  white-space: pre !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
 }
 
 /* Action Buttons */
